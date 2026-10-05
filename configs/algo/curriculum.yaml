@@ -1,0 +1,18 @@
+# Candidate Preference Pool Configuration
+pool_size: 100
+include_simplex_corners: true
+include_edge_samples: true
+dirichlet_alpha: 1.0
+
+# Curriculum Signal Weights: z(w) = alpha * gap + beta * uncertainty + eta * coverage
+alpha: 0.25         # Weight for Conditioning Gap g(w)
+beta: 0.25          # Weight for Bootstrap Uncertainty u(w)
+eta: 0.25           # Weight for Coverage/Recency c(w)
+
+# Softmax Temperature and Exploration Floor (Proposal Eq 14)
+temperature: 0.1
+eps_c: 0.2          # Minimum uniform sampling mixture (exploration floor)
+
+# Update Frequency
+update_interval_steps: 15000
+bootstrap_batch_size: 128

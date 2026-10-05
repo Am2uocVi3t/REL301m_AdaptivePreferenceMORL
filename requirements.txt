@@ -1,0 +1,34 @@
+# Core Reinforcement Learning & Multi-Objective RL
+gymnasium>=0.29.0
+mo-gymnasium>=1.0.0
+morl-baselines>=1.0.0
+
+# Deep Learning (PyTorch)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Scientific computing & Math
+numpy>=1.24.0,<2.0.0
+scipy>=1.10.0
+pandas>=2.0.0
+
+# Visualization & Plotting
+matplotlib>=3.7.0
+seaborn>=0.12.0
+imageio>=2.30.0
+imageio-ffmpeg>=0.4.9
+
+# Environment rendering & Box2D dependencies
+pygame>=2.5.0
+box2d-py>=2.3.5
+
+# Configuration & Utilities
+pyyaml>=6.0
+tqdm>=4.65.0
+
+# Experiment Tracking & Metrics Logging
+wandb>=0.16.0
+tensorboard>=2.14.0
+
+# Optional headless display support for Cloud/Kaggle environments
+pyvirtualdisplay>=3.0

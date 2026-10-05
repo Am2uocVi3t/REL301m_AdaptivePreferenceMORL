@@ -1,0 +1,23 @@
+# Network architecture
+hidden_dims: [256, 256]
+activation: "relu"
+num_bootstrap_heads: 3
+
+# Optimization & Hyperparameters (Appendix A Pilot Configuration)
+learning_rate: 0.0003
+batch_size: 256
+buffer_size: 200000
+target_update_freq: 1000
+tau: 0.005  # For Polyak / soft update
+gamma: 0.99
+
+# Exploration (Epsilon-greedy)
+epsilon_start: 1.0
+epsilon_end: 0.05
+epsilon_decay_steps: 100000
+
+# Training budget
+total_timesteps: 500000
+checkpoint_freq: 50000
+eval_freq: 20000
+eval_episodes: 20

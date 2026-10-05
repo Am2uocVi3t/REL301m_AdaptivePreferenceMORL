@@ -1,0 +1,27 @@
+mo-lunar-lander-v2:
+  nominal:
+    gravity: -10.0
+    enable_wind: false
+    wind_power: 0.0
+    turbulence_power: 0.0
+  heavy_gravity:
+    gravity: -15.0
+    enable_wind: false
+  strong_wind:
+    gravity: -10.0
+    enable_wind: true
+    wind_power: 15.0
+    turbulence_power: 0.5
+  extreme_turbulence:
+    gravity: -8.0
+    enable_wind: true
+    wind_power: 20.0
+    turbulence_power: 1.5
+
+minecart-v0:
+  nominal:
+    fuel_cost_multiplier: 1.0
+  high_friction:
+    fuel_cost_multiplier: 1.5
+  low_ore_yield:
+    ore_multiplier: 0.7
