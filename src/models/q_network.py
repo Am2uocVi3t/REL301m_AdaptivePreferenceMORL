@@ -62,14 +62,14 @@ class VectorQNetwork(nn.Module):
         self,
         state: torch.Tensor,
         preference: torch.Tensor,
-        head_idx: int = 0
+        head_idx: Optional[int] = 0
     ) -> Tuple[int, torch.Tensor]:
         """
         Select scalarized greedy action: a = argmax_a w^T Q(s, a, w).
         Args:
             state: shape [1, state_dim] or [state_dim]
             preference: shape [1, reward_dim] or [reward_dim]
-            head_idx: which bootstrap head to use for greedy action
+            head_idx: which bootstrap head to use. If None, averages across all K heads.
         Returns:
             action (int), scalarized_q_values (torch.Tensor [action_dim])
         """
@@ -80,10 +80,23 @@ class VectorQNetwork(nn.Module):
 
         # q_values: [num_heads, 1, action_dim, reward_dim]
         q_values = self.forward(state, preference)
-        head_q = q_values[head_idx, 0]  # [action_dim, reward_dim]
+        if head_idx is not None:
+            head_q = q_values[head_idx, 0]  # [action_dim, reward_dim]
+        else:
+            head_q = torch.mean(q_values[:, 0], dim=0)  # Ensemble mean across K heads
 
         # Compute w^T Q for each action: [action_dim]
         scalarized_q = torch.matmul(head_q, preference[0])
         action = torch.argmax(scalarized_q).item()
 
         return action, scalarized_q
+
+    def update_target(self, target_network: "VectorQNetwork", tau: float = 1.0):
+        """
+        Updates target network parameters using Polyak averaging:
+        theta_target = tau * theta_online + (1 - tau) * theta_target.
+        If tau == 1.0, this performs a hard copy.
+        """
+        with torch.no_grad():
+            for p_online, p_target in zip(self.parameters(), target_network.parameters()):
+                p_target.data.copy_(tau * p_online.data + (1.0 - tau) * p_target.data)
