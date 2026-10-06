@@ -124,14 +124,17 @@ Dự án được tối ưu hóa cho Kaggle GPU (P100 / T4). Để train trên K
    git pull origin feat/eval-pipeline
    ```
 
-2. **Đọc tài liệu nhiệm vụ:** Đọc kỹ hướng dẫn trong thư mục `docs/tasks/` trước khi bắt tay vào code hoặc "vibe code" cùng AI assistant.
+2. **Đọc tài liệu nhiệm vụ & Quy chuẩn Git:** Đọc kỹ hướng dẫn trong thư mục `docs/tasks/` và xem chi tiết tại [📖 Hướng dẫn Git Workflow & Chính sách Phê duyệt PR](docs/GIT_WORKFLOW.md).
 3. **Commit & Push:** Đặt commit message rõ ràng theo quy chuẩn:
    ```bash
    git add .
    git commit -m "feat(algorithm): implement vector Q-network with bootstrap heads"
    git push origin <tên-nhánh>
    ```
-4. **Pull Request & Peer Review:** Tạo PR vào nhánh `main` khi một module hoàn thành và được thành viên cùng cặp xác nhận chạy ổn định.
+4. **Pull Request & Quy tắc 2-Approvals Bắt buộc:** 
+   - Khi hoàn thành module, tạo PR vào nhánh `main`.
+   - **Bắt buộc cả 2 thành viên cùng cặp phụ trách nhánh phải review và nhấn Approve** thì PR mới được phép merge.
+   - **Thành viên thứ 3 giữ vai trò Only View (Giám sát)**: theo dõi tiến độ, kiểm tra xác nhận đã đủ 2 approvals trước khi nhánh được merge. Chi tiết xem tại [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md).
 
 ---
 
