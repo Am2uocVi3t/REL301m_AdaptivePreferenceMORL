@@ -1,11 +1,14 @@
 import argparse
 import os
+import sys
 import time
 import json
 import torch
 import torch.nn.functional as F
 import numpy as np
 from typing import Optional
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.utils.logger import ExperimentLogger
 from src.envs.wrapper import make_mo_env
