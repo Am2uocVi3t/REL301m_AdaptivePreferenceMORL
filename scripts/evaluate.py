@@ -1,9 +1,12 @@
 import argparse
 import os
+import sys
 import json
 import torch
 import numpy as np
 from typing import Dict, Any, List
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.envs.wrapper import make_mo_env
 from src.envs.shift import apply_dynamics_shift
