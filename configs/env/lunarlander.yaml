@@ -1,0 +1,22 @@
+# Environment specifications for MO-LunarLander
+env_id: "mo-lunar-lander-v2"
+fallback_env_id: "mo-lunar-lander-v3"
+state_dim: 8
+action_dim: 4
+reward_dim: 4
+
+objectives:
+  - "landing_crash"
+  - "shaping"
+  - "main_fuel"
+  - "side_fuel"
+
+# Static reward normalization scale factors (Task 2 spec)
+reward_scale: [0.01, 0.01, 0.1, 0.1]
+
+# Conservative reference point for Hypervolume calculation
+ref_point: [-100.0, -100.0, -100.0, -100.0]
+
+# Standard episode length & discount factor
+max_episode_steps: 1000
+gamma: 0.99
