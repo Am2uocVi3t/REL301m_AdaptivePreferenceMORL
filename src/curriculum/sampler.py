@@ -115,3 +115,7 @@ class AdaptivePreferenceSampler:
         W_len = len(self.pool)
         self.probabilities = (1.0 - self.eps_c) * softmax_p + (self.eps_c / W_len)
         self.probabilities /= np.sum(self.probabilities)  # Ensure exact sum to 1.0
+
+    def update_scores(self, gap_scores: np.ndarray, uncertainty_scores: np.ndarray):
+        """Alias for update_distribution conforming to ARCHITECTURE.md spec."""
+        self.update_distribution(gap_scores, uncertainty_scores)

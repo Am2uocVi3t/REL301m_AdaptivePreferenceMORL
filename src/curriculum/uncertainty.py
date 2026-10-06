@@ -29,6 +29,9 @@ def compute_bootstrap_uncertainty(
         all_q = q_network(states_batch.to(device), w_tensor)
         K, _, action_dim, reward_dim = all_q.shape
 
+        if K <= 1:
+            return 0.0
+
         # For each head k, compute scalarized values: w^T Q_k(s, a, w) -> [K, B, action_dim]
         # all_q: [K, B, action_dim, reward_dim], w_tensor: [B, reward_dim]
         scalarized = torch.einsum("kbad,bd->kba", all_q, w_tensor)
