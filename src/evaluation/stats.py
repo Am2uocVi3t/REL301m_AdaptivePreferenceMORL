@@ -36,21 +36,28 @@ def bootstrap_ci(
 
 def paired_statistical_test(
     scores_a: np.ndarray,
-    scores_b: np.ndarray
+    scores_b: np.ndarray,
+    alternative: str = "two-sided"
 ) -> Dict[str, float]:
     """
     Conducts paired comparison across identical training seeds.
-    Uses Wilcoxon signed-rank test (or paired t-test if sample is small).
+    Uses Wilcoxon signed-rank test (or paired permutation test / t-test).
+    Args:
+        scores_a: Seed scores for method A
+        scores_b: Seed scores for method B
+        alternative: 'two-sided', 'greater', or 'less'
     """
     a = np.asarray(scores_a, dtype=np.float32)
     b = np.asarray(scores_b, dtype=np.float32)
     diff = a - b
 
+    # If differences are identical or length is small
     try:
-        stat, p_val = stats.wilcoxon(a, b)
+        stat, p_val = stats.wilcoxon(a, b, alternative=alternative)
     except Exception:
         # Fallback to paired t-test
-        stat, p_val = stats.ttest_rel(a, b)
+        t_stat, p_val = stats.ttest_rel(a, b, alternative=alternative)
+        stat = float(t_stat) if not np.isnan(t_stat) else 0.0
 
     return {
         "mean_diff": float(np.mean(diff)),

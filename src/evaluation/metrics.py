@@ -13,7 +13,7 @@ def pareto_prune(points: np.ndarray) -> np.ndarray:
     if len(points) == 0:
         return np.empty((0, points.shape[1] if points.ndim > 1 else 0), dtype=np.float32)
 
-    pts = np.asarray(points, dtype=np.float32)
+    pts = np.unique(np.asarray(points, dtype=np.float32), axis=0)
     is_efficient = np.ones(pts.shape[0], dtype=bool)
 
     for i, c in enumerate(pts):
@@ -79,6 +79,13 @@ def compute_scalarized_regret(
     Returns:
         dict containing 'mean_regret', 'worst_decile_regret' (90th percentile), and 'max_regret'
     """
+    if len(reference_front) == 0 or len(agent_returns) == 0:
+        return {
+            "mean_regret": 0.0,
+            "worst_decile_regret": 0.0,
+            "max_regret": 0.0,
+        }
+
     regrets = []
     for w, ret in zip(preferences, agent_returns):
         optimal_val = np.max(np.dot(reference_front, w))
