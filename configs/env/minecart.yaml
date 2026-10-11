@@ -1,0 +1,20 @@
+# Environment specifications for Minecart
+env_id: "minecart-v0"
+state_dim: 7
+action_dim: 6
+reward_dim: 3
+
+objectives:
+  - "ore_1"
+  - "ore_2"
+  - "fuel"
+
+# Static reward normalization scale factors (Task 2 spec)
+reward_scale: [1.0, 1.0, 0.1]
+
+# Conservative reference point for Hypervolume calculation
+ref_point: [-10.0, -10.0, -100.0]
+
+# Standard episode length & discount factor
+max_episode_steps: 1000
+gamma: 0.99
