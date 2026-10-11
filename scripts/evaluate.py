@@ -4,9 +4,15 @@ import sys
 import json
 import torch
 import numpy as np
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 from src.envs.wrapper import make_mo_env
 from src.envs.shift import apply_dynamics_shift
@@ -106,7 +112,10 @@ def main():
     if args.model_path and os.path.exists(args.model_path):
         print(f"Loading checkpoint weights from: {args.model_path}")
         q_net = VectorQNetwork(state_dim, action_dim, reward_dim, num_heads=3).to(args.device)
-        checkpoint = torch.load(args.model_path, map_location=args.device)
+        try:
+            checkpoint = torch.load(args.model_path, map_location=args.device, weights_only=False)
+        except TypeError:
+            checkpoint = torch.load(args.model_path, map_location=args.device)
         if "model_state_dict" in checkpoint:
             q_net.load_state_dict(checkpoint["model_state_dict"])
         else:
