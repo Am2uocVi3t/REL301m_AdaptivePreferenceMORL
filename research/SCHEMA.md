@@ -5,15 +5,16 @@ The `research/` tree is the machine-readable control plane for the project. All 
 ## Authority and lifecycle
 
 - `state.json` tracks the current phase, blockers, and next actions.
-- `claims.json` separates hypotheses, implementation, validation, and empirical support.
-- `literature/index.json` stores bibliographic metadata and points to structured notes; `library.bib` supports manuscript tooling.
+- `roadmap.json` defines Phase 0–7 deliverables, gates, evidence, blockers, and allowed transitions.
+- `claims.json` separates hypotheses, implementation, validation, and empirical support while recording antecedents and bounded novelty judgments.
+- `literature/index.json` stores bibliographic metadata, affected claim IDs, and structured-note paths; `library.bib` supports manuscript tooling.
 - `literature/search-queries.json` is a starting queue, while `SEARCH_LOG.md` records searches actually performed.
 - `experiments/registry.json` connects planned or executed experiments to frozen protocols and claim IDs.
 - `sessions/session-log.jsonl` is append-only. Each line captures one completed work session and its Git snapshot.
 
 Use the CLI instead of editing a status field casually. A status of `read`, `complete`, `validated`, or `experimentally_supported` is an evidence claim, not a task-progress decoration.
 
-An `experimentally_supported` claim must include an `artifact:<versioned-path>` evidence entry. A `read` paper must have `evidence_level: full_text`, a verified full-text access status, `full_text_required: false`, and a completed structured note with no `TODO` marker. A `complete` experiment must name its artifact.
+An `experimentally_supported` claim must include an `artifact:<versioned-path>` evidence entry. A `read` paper must have `evidence_level: full_text`, a verified full-text access status, `full_text_required: false`, and a completed structured note with no `TODO` marker. A `complete` experiment must name its artifact. Exactly one roadmap phase is active; a completed phase must name existing evidence paths and may transition only to registered next phases.
 
 Literature access is explicit:
 

@@ -14,7 +14,10 @@
 - [project] Cross-chat state is managed by the standard-library research harness and versioned JSON registries → tech-decisions.md
 - [project] Literature uses primary-source metadata, BibTeX, search logs, and structured notes; paper PDFs stay outside Git → tech-decisions.md
 - [project] Abstract-only papers stay screened; agents report full-text blockers and request an authorized copy → tech-decisions.md
+- [project] Evidence-gated Phase 0–7 progression is controlled by research/roadmap.json; Phase 1 is active → research-status.md
+- [project] The literature map has 15 primary sources: 14 read in full, CAPQL blocked at abstract level → research-status.md
+- [project] requirements.txt is currently incompatible with target Python 3.11 because numpy 2.5.4 requires Python 3.12+ → research-status.md
 
 ## Reference
 - [reference] Detailed current state and next actions live in the canonical project status document → research-status.md
-- [reference] New chats use the generated handoff prompt after running research-harness doctor/status → research-status.md
+- [reference] New chats use the generated handoff prompt after running research-harness doctor/status/roadmap list → research-status.md

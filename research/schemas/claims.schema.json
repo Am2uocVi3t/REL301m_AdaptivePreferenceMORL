@@ -10,7 +10,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "title", "status", "confidence", "evidence", "differentiating_experiment", "allowed_wording"],
+        "required": ["id", "title", "status", "confidence", "evidence", "antecedents", "closest_antecedent", "known", "difference", "novelty_verdict", "novelty_confidence", "falsifier", "differentiating_experiment", "allowed_wording"],
         "properties": {
           "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"},
           "title": {"type": "string", "minLength": 1},
@@ -18,6 +18,12 @@
           "confidence": {"enum": ["low", "medium", "high"]},
           "evidence": {"type": "array", "items": {"type": "string"}},
           "antecedents": {"type": "array", "items": {"type": "string"}},
+          "closest_antecedent": {"type": "string", "minLength": 1},
+          "known": {"type": "string", "minLength": 1},
+          "difference": {"type": "string", "minLength": 1},
+          "novelty_verdict": {"enum": ["not_novel", "incremental", "potentially_novel", "novelty_unresolved"]},
+          "novelty_confidence": {"enum": ["low", "medium", "high"]},
+          "falsifier": {"type": "string", "minLength": 1},
           "differentiating_experiment": {"type": "string", "minLength": 1},
           "allowed_wording": {"type": "string", "minLength": 1}
         }

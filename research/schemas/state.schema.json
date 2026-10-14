@@ -3,11 +3,12 @@
   "$id": "state.schema.json",
   "title": "Research project state",
   "type": "object",
-  "required": ["schema_version", "project", "phase", "publication_state", "research_question", "open_blockers", "next_actions"],
+  "required": ["schema_version", "project", "phase", "roadmap_phase_id", "publication_state", "research_question", "open_blockers", "next_actions"],
   "properties": {
     "schema_version": {"const": 1},
     "project": {"type": "string", "minLength": 1},
     "phase": {"type": "string", "minLength": 1},
+    "roadmap_phase_id": {"$ref": "#/$defs/id"},
     "publication_state": {"type": "string", "minLength": 1},
     "research_question": {"type": "string", "minLength": 1},
     "working_branch": {"type": "string"},

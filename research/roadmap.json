@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "active_phase_id": "phase-1",
+  "phases": [
+    {
+      "id": "phase-0",
+      "title": "Foundation and scientific repair",
+      "status": "complete",
+      "deliverables": [
+        {"id": "executable-spec", "description": "Versioned architecture, protocol, and research harness", "status": "complete"},
+        {"id": "smoke-validation", "description": "Smoke-tested implementation and automated checks", "status": "complete"}
+      ],
+      "entry_criteria": ["Research proposal is available"],
+      "exit_criteria": ["Executable specification and test harness exist", "Scientific guardrails are versioned"],
+      "go_no_go_rule": "Proceed only when the repository can distinguish planned, smoke-tested, and experimentally supported work.",
+      "evidence_paths": ["docs/ARCHITECTURE.md", "docs/research/PROJECT_STATUS.md", "tests/test_research_harness.py"],
+      "blocker_ids": [],
+      "allowed_next_phase_ids": ["phase-1"]
+    },
+    {
+      "id": "phase-1",
+      "title": "Claim and antecedent mapping",
+      "status": "active",
+      "deliverables": [
+        {"id": "roadmap-contract", "description": "Machine-readable Phase 0-7 roadmap and harness integration", "status": "complete"},
+        {"id": "literature-map", "description": "Primary-source antecedent map for every registered claim", "status": "complete"},
+        {"id": "full-text-resolution", "description": "Resolve the remaining CAPQL full-text access gap", "status": "blocked"}
+      ],
+      "entry_criteria": ["Phase 0 evidence is versioned", "Research question and candidate claims are registered"],
+      "exit_criteria": ["Every claim has a closest antecedent and bounded novelty verdict", "All essential papers are read in full or explicitly blocked"],
+      "go_no_go_rule": "Do not freeze the pilot protocol until every claim is mapped and essential full-text gaps are resolved or formally excluded.",
+      "evidence_paths": ["docs/research/ROADMAP.md", "docs/research/LITERATURE_MAP.md", "research/claims.json", "research/literature/index.json"],
+      "blocker_ids": ["capql-full-text"],
+      "allowed_next_phase_ids": ["phase-2"]
+    },
+    {
+      "id": "phase-2",
+      "title": "Pilot calibration and protocol freeze",
+      "status": "not_started",
+      "deliverables": [
+        {"id": "pilot-calibration", "description": "Pilot-only normalization and hypervolume calibration", "status": "not_started"},
+        {"id": "frozen-protocol", "description": "Versioned budgets, seeds, checkpoints, and analysis plan", "status": "not_started"}
+      ],
+      "entry_criteria": ["Phase 1 exit criteria are met"],
+      "exit_criteria": ["Reward scaling and reference points use pilot data only", "Course experiment matrix is frozen before final evaluation"],
+      "go_no_go_rule": "No course-scale run until all analysis-sensitive quantities and budgets are frozen without final-test feedback.",
+      "evidence_paths": [],
+      "blocker_ids": ["python311-dependency-pins", "freeze-pilot-quantities"],
+      "allowed_next_phase_ids": ["phase-3"]
+    },
+    {
+      "id": "phase-3",
+      "title": "Mechanism diagnostics",
+      "status": "not_started",
+      "deliverables": [
+        {"id": "baseline-qualification", "description": "Validate compatible close baselines under Python 3.11", "status": "not_started"},
+        {"id": "shift-qualification", "description": "Behaviorally validate every declared dynamics shift", "status": "not_started"}
+      ],
+      "entry_criteria": ["Pilot protocol is frozen"],
+      "exit_criteria": ["Baseline failures are resolved or documented", "Shift tests demonstrate intended transition changes"],
+      "go_no_go_rule": "Do not interpret comparisons or OOD results until baselines and shifts pass qualification.",
+      "evidence_paths": [],
+      "blocker_ids": ["python311-dependency-pins", "validate-gpi-ls", "validate-shifts"],
+      "allowed_next_phase_ids": ["phase-4"]
+    },
+    {
+      "id": "phase-4",
+      "title": "Paired-seed course experiment matrix",
+      "status": "not_started",
+      "deliverables": [
+        {"id": "paired-matrix", "description": "Uniform, matched-random, signal, combination, and close-baseline runs with paired seeds", "status": "not_started"},
+        {"id": "course-analysis", "description": "Evidence-bounded course report with uncertainty and failure analysis", "status": "not_started"}
+      ],
+      "entry_criteria": ["Protocol, baselines, and dynamics shifts are qualified"],
+      "exit_criteria": ["Predeclared course matrix is complete", "Raw and discounted vector returns retain provenance"],
+      "go_no_go_rule": "Advance only if conclusions survive paired controls and are bounded to the executed course protocol.",
+      "evidence_paths": [],
+      "blocker_ids": ["run-course-matrix"],
+      "allowed_next_phase_ids": ["phase-5"]
+    },
+    {
+      "id": "phase-5",
+      "title": "Course paper",
+      "status": "not_started",
+      "deliverables": [
+        {"id": "course-paper", "description": "Course manuscript aligned with the claim registry", "status": "not_started"},
+        {"id": "replication-package", "description": "Reproducible configs, manifests, tables, and artifact instructions", "status": "not_started"}
+      ],
+      "entry_criteria": ["Course-scale analysis is complete"],
+      "exit_criteria": ["Every manuscript claim links to executed evidence", "Independent reproduction instructions are tested"],
+      "go_no_go_rule": "Do not broaden claims beyond the registered evidence or present the course matrix as publication-scale validation.",
+      "evidence_paths": [],
+      "blocker_ids": [],
+      "allowed_next_phase_ids": ["phase-6"]
+    },
+    {
+      "id": "phase-6",
+      "title": "Workshop and journal extension",
+      "status": "not_started",
+      "deliverables": [
+        {"id": "external-validity", "description": "Additional environments, seeds, scales, and robustness checks", "status": "not_started"},
+        {"id": "mechanism-validation", "description": "Predictive and causal tests that distinguish allocation signals", "status": "not_started"}
+      ],
+      "entry_criteria": ["Course report identifies a defensible signal or informative null result"],
+      "exit_criteria": ["Publication-scale evidence covers external validity and mechanism", "Claims and limitations are independently audited"],
+      "go_no_go_rule": "Proceed to submission only when the extension changes evidence strength, not merely run count.",
+      "evidence_paths": [],
+      "blocker_ids": [],
+      "allowed_next_phase_ids": ["phase-7"]
+    },
+    {
+      "id": "phase-7",
+      "title": "Submission and artifact freeze",
+      "status": "not_started",
+      "deliverables": [
+        {"id": "submission", "description": "Venue-compliant manuscript and response materials", "status": "not_started"},
+        {"id": "archival-release", "description": "Immutable code and artifact release with provenance", "status": "not_started"}
+      ],
+      "entry_criteria": ["Publication-scale evidence and internal audit are complete"],
+      "exit_criteria": ["Submission is complete", "Archival artifact identifies exact code, configs, and result manifests"],
+      "go_no_go_rule": "Release only artifacts that satisfy licensing, privacy, provenance, and reproducibility checks.",
+      "evidence_paths": [],
+      "blocker_ids": [],
+      "allowed_next_phase_ids": []
+    }
+  ]
+}

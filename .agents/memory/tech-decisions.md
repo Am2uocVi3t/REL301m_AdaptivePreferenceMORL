@@ -19,3 +19,5 @@ updated: 2026-10-15
 - Literature management stores primary-source metadata, BibTeX, query logs, and structured notes. Copyrighted paper PDFs are not committed.
 - `read`, `complete`, and `experimentally_supported` are evidence-bearing states: completed notes, named experiment artifacts, and `artifact:<versioned-path>` claim evidence are required respectively.
 - Literature agents search legal primary-source alternatives autonomously, but never bypass access controls. `read` requires verified full text; otherwise the paper remains `screened`, is flagged `full_text_required`, and is escalated to the user with attempted sources and affected claims.
+- `research/roadmap.json` is the machine-readable phase authority. Exactly one phase is active; completion requires existing evidence paths, and future phases cannot be inferred from planned prose.
+- Claim novelty records use only `not_novel`, `incremental`, or `unresolved`; literature mapping never promotes an empirical claim.

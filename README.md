@@ -6,7 +6,7 @@ REL301m course research project, Fall 2026.
 
 New contributors and coding agents should start with [`AGENTS.md`](AGENTS.md), then read the [current project status](docs/research/PROJECT_STATUS.md). The [documentation map](docs/README.md) identifies the authoritative document for each concern.
 
-For work spanning multiple chats, use the [AI-assisted research workflow](docs/research/AI_RESEARCH_WORKFLOW.md) and copy the generated [cross-chat handoff prompt](docs/research/HANDOFF_PROMPT.md). The Git-native harness tracks claims, literature metadata, experiments, blockers, and session summaries without storing paper PDFs.
+For work spanning multiple chats, use the [AI-assisted research workflow](docs/research/AI_RESEARCH_WORKFLOW.md), inspect the [evidence-gated roadmap](docs/research/ROADMAP.md), and copy the generated [cross-chat handoff prompt](docs/research/HANDOFF_PROMPT.md). The Git-native harness tracks phases, claims, literature metadata, experiments, blockers, and session summaries without storing paper PDFs.
 
 ## Research question
 
@@ -64,9 +64,10 @@ Validate and inspect the durable state before starting work:
 ```bash
 python scripts/research_harness.py doctor
 python scripts/research_harness.py status
+python scripts/research_harness.py roadmap list
 ```
 
-Key workflows are available under `paper`, `claim`, `experiment`, and `session`. Run `python scripts/research_harness.py --help` or see the [full workflow](docs/research/AI_RESEARCH_WORKFLOW.md). End a substantial chat with `session close --write-handoff` so the next chat receives a current, copyable prompt.
+Key workflows are available under `roadmap`, `paper`, `claim`, `experiment`, and `session`. Run `python scripts/research_harness.py --help` or see the [full workflow](docs/research/AI_RESEARCH_WORKFLOW.md). End a substantial chat with `session close --write-handoff` so the next chat receives a current, copyable prompt.
 
 For literature work, agents may search and read legally accessible full text automatically. Metadata or abstract-only access remains `screened`; the handoff identifies papers that require the user to provide an uploaded PDF or authorized full-text link.
 

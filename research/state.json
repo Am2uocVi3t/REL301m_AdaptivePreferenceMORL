@@ -1,18 +1,33 @@
 {
   "schema_version": 1,
   "project": "Preference Allocation in Preference-Conditioned MORL",
-  "phase": "course pilot preparation",
+  "phase": "claim and antecedent mapping",
+  "roadmap_phase_id": "phase-1",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/ai-research-harness",
-  "updated_at": "2026-10-14T19:38:50+00:00",
+  "updated_at": "2026-10-14T20:11:36+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
     "architecture": "docs/ARCHITECTURE.md",
-    "proposal": "docs/proposal/REL301m_Research_Project_Proposal_MORL_V2.md"
+    "proposal": "docs/proposal/REL301m_Research_Project_Proposal_MORL_V2.md",
+    "roadmap": "docs/research/ROADMAP.md",
+    "literature_map": "docs/research/LITERATURE_MAP.md"
   },
   "open_blockers": [
+    {
+      "id": "python311-dependency-pins",
+      "status": "open",
+      "severity": "P0",
+      "description": "Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime."
+    },
+    {
+      "id": "capql-full-text",
+      "status": "open",
+      "severity": "P1",
+      "description": "Obtain a legal full-text copy of CAPQL; OpenReview PDF endpoints are blocked by an access challenge and no alternative authorized copy was found."
+    },
     {
       "id": "freeze-pilot-quantities",
       "status": "open",
@@ -39,9 +54,9 @@
     }
   ],
   "next_actions": [
-    "Review and merge PR #5 after the full-text policy update.",
-    "Formalize the course-to-publication phase gates in a versioned roadmap.",
-    "Populate the literature registry with the nearest primary-source antecedents and map them to claim IDs."
+    "Obtain an uploaded or authorized CAPQL full text and complete its mechanism note.",
+    "Review and approve the Phase 1 antecedent and novelty judgments, then close the phase or explicitly exclude CAPQL.",
+    "Repair Python 3.11 dependency pins and rerun the full quality gate before pilot calibration."
   ],
-  "last_session_summary": "Added an explicit automation contract and full-text access policy: literature agents search legal primary sources autonomously, abstract-only papers stay screened, read requires verified full text plus a completed note, and inaccessible papers are surfaced to the user in the handoff. Full suite: 35 passed."
+  "last_session_summary": "Formalized an evidence-gated Phase 0-7 roadmap and integrated it into the standard-library research harness, status, handoff, schemas, tests, workflow, and memory. Registered 15 primary/authoritative antecedents: 14 full-text readings and one CAPQL abstract-only access blocker. Added claim-level closest antecedents, bounded novelty verdicts, differentiating experiments, and falsifiers. The full suite passed 39 tests on the available CPU host environment, and 18 harness tests passed on Python 3.11.17. No large experiment or final-test evaluation ran, and no empirical performance claim was made."
 }

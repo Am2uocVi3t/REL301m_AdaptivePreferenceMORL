@@ -28,6 +28,9 @@ PAPER_EVIDENCE_LEVELS = {"metadata_only", "abstract_only", "full_text"}
 FULL_TEXT_ACCESS_STATUSES = {"open_full_text", "author_manuscript", "user_supplied"}
 EXPERIMENT_STATUSES = {"planned", "running", "complete", "failed", "blocked"}
 BLOCKER_STATUSES = {"open", "resolved"}
+ROADMAP_PHASE_STATUSES = {"not_started", "active", "blocked", "complete"}
+ROADMAP_DELIVERABLE_STATUSES = {"not_started", "in_progress", "complete", "blocked"}
+NOVELTY_VERDICTS = {"not_novel", "incremental", "potentially_novel", "novelty_unresolved"}
 IDENTIFIER_PATTERN = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
 
 
@@ -65,6 +68,7 @@ class ResearchStore:
         self.research_dir = self.root / "research"
         self.state_path = self.research_dir / "state.json"
         self.claims_path = self.research_dir / "claims.json"
+        self.roadmap_path = self.research_dir / "roadmap.json"
         self.papers_path = self.research_dir / "literature" / "index.json"
         self.bib_path = self.research_dir / "literature" / "library.bib"
         self.notes_dir = self.research_dir / "literature" / "notes"
@@ -77,6 +81,9 @@ class ResearchStore:
 
     def claims(self) -> dict[str, Any]:
         return load_registry(self.claims_path)
+
+    def roadmap(self) -> dict[str, Any]:
+        return load_registry(self.roadmap_path)
 
     def papers(self) -> dict[str, Any]:
         return load_registry(self.papers_path)
@@ -119,6 +126,7 @@ class ResearchStore:
         loaders = {
             "state": self.state,
             "claims": self.claims,
+            "roadmap": self.roadmap,
             "papers": self.papers,
             "experiments": self.experiments,
         }
@@ -141,11 +149,27 @@ class ResearchStore:
                 errors.append(f"state: missing {field}")
         self._validate_blockers(state.get("open_blockers"), errors)
 
+        roadmap = documents["roadmap"]
+        self._validate_roadmap(roadmap, state, errors)
+
         claims = documents["claims"].get("claims")
         claim_ids = self._validate_records("claims", claims, CLAIM_STATUSES, errors)
         if isinstance(claims, list):
             for claim in claims:
                 if isinstance(claim, dict):
+                    for field in (
+                        "closest_antecedent",
+                        "known",
+                        "difference",
+                        "novelty_confidence",
+                        "falsifier",
+                        "differentiating_experiment",
+                        "allowed_wording",
+                    ):
+                        if not claim.get(field):
+                            errors.append(f"claims: {claim.get('id')} missing {field}")
+                    if claim.get("novelty_verdict") not in NOVELTY_VERDICTS:
+                        errors.append(f"claims: {claim.get('id')} has invalid novelty_verdict")
                     for evidence in claim.get("evidence", []):
                         if isinstance(evidence, str):
                             evidence_path = evidence.removeprefix("artifact:").split(":", maxsplit=1)[0]
@@ -168,6 +192,9 @@ class ResearchStore:
                     continue
                 if paper.get("source_type") not in PAPER_SOURCE_TYPES:
                     errors.append(f"papers: {paper.get('id')} has invalid source_type")
+                unknown_claims = set(paper.get("claim_ids", [])) - claim_ids
+                if unknown_claims:
+                    errors.append(f"papers: {paper.get('id')} has unknown claims: {sorted(unknown_claims)}")
                 access_status = paper.get("access_status")
                 evidence_level = paper.get("evidence_level")
                 full_text_required = paper.get("full_text_required")
@@ -192,6 +219,16 @@ class ResearchStore:
                         for marker in ("TODO", "FULL_TEXT_REQUIRED")
                     ):
                         errors.append(f"papers: {paper.get('id')} is read but its note is incomplete")
+        if isinstance(claims, list):
+            for claim in claims:
+                if not isinstance(claim, dict):
+                    continue
+                antecedents = set(claim.get("antecedents", []))
+                unknown_antecedents = antecedents - paper_ids
+                if unknown_antecedents:
+                    errors.append(f"claims: {claim.get('id')} has unknown antecedents: {sorted(unknown_antecedents)}")
+                if claim.get("closest_antecedent") not in antecedents:
+                    errors.append(f"claims: {claim.get('id')} closest antecedent must be in antecedents")
 
         experiments = documents["experiments"].get("experiments")
         self._validate_records("experiments", experiments, EXPERIMENT_STATUSES, errors)
@@ -220,6 +257,70 @@ class ResearchStore:
             if not required.exists():
                 errors.append(f"required file missing: {required.relative_to(self.root)}")
         return errors
+
+    def _validate_roadmap(
+        self,
+        roadmap: dict[str, Any],
+        state: dict[str, Any],
+        errors: list[str],
+    ) -> None:
+        phases = roadmap.get("phases")
+        if not isinstance(phases, list) or not phases:
+            errors.append("roadmap: phases must be a non-empty list")
+            return
+        phase_ids = self._validate_records("roadmap phases", phases, ROADMAP_PHASE_STATUSES, errors)
+        active_phase_id = roadmap.get("active_phase_id")
+        active_phases = [phase for phase in phases if phase.get("status") == "active"]
+        if len(active_phases) != 1:
+            errors.append("roadmap: exactly one phase must be active")
+        if active_phase_id not in phase_ids:
+            errors.append(f"roadmap: unknown active_phase_id {active_phase_id!r}")
+        elif not any(phase.get("id") == active_phase_id and phase.get("status") == "active" for phase in phases):
+            errors.append("roadmap: active_phase_id must reference the active phase")
+        if state.get("roadmap_phase_id") != active_phase_id:
+            errors.append("state: roadmap_phase_id must match roadmap active_phase_id")
+        active_index = next(
+            (index for index, phase in enumerate(phases) if phase.get("id") == active_phase_id),
+            None,
+        )
+        if active_index is not None:
+            if any(phase.get("status") != "complete" for phase in phases[:active_index]):
+                errors.append("roadmap: every phase before the active phase must be complete")
+            if any(phase.get("status") == "complete" for phase in phases[active_index + 1 :]):
+                errors.append("roadmap: phases after the active phase cannot be complete")
+
+        blocker_ids = {
+            blocker.get("id")
+            for blocker in state.get("open_blockers", [])
+            if isinstance(blocker, dict) and blocker.get("status") == "open"
+        }
+        for phase in phases:
+            phase_id = phase.get("id")
+            unknown_next = set(phase.get("allowed_next_phase_ids", [])) - phase_ids
+            if unknown_next:
+                errors.append(f"roadmap: {phase_id} has unknown next phases: {sorted(unknown_next)}")
+            unknown_blockers = set(phase.get("blocker_ids", [])) - blocker_ids
+            if unknown_blockers:
+                errors.append(f"roadmap: {phase_id} has unknown open blockers: {sorted(unknown_blockers)}")
+            evidence_paths = phase.get("evidence_paths", [])
+            if phase.get("status") == "complete" and not evidence_paths:
+                errors.append(f"roadmap: completed phase {phase_id} needs evidence paths")
+            for evidence_path in evidence_paths:
+                if not isinstance(evidence_path, str) or not (self.root / evidence_path).exists():
+                    errors.append(f"roadmap: {phase_id} evidence path does not exist: {evidence_path}")
+            deliverables = phase.get("deliverables")
+            if not isinstance(deliverables, list) or not deliverables:
+                errors.append(f"roadmap: {phase_id} needs deliverables")
+                continue
+            for deliverable in deliverables:
+                if not isinstance(deliverable, dict):
+                    errors.append(f"roadmap: {phase_id} deliverables must be mappings")
+                elif deliverable.get("status") not in ROADMAP_DELIVERABLE_STATUSES:
+                    errors.append(f"roadmap: {phase_id} deliverable {deliverable.get('id')} has invalid status")
+            if phase.get("status") == "complete" and any(
+                deliverable.get("status") != "complete" for deliverable in deliverables if isinstance(deliverable, dict)
+            ):
+                errors.append(f"roadmap: completed phase {phase_id} has incomplete deliverables")
 
     @staticmethod
     def _validate_blockers(value: Any, errors: list[str]) -> None:
@@ -285,6 +386,7 @@ class ResearchStore:
         venue: str | None,
         status: str,
         tags: list[str],
+        claim_ids: list[str] | None = None,
     ) -> Path:
         self._require_identifier(identifier)
         if source_type not in PAPER_SOURCE_TYPES:
@@ -297,6 +399,10 @@ class ResearchStore:
             if "\n" in value or "{" in value or "}" in value:
                 raise ValueError(f"{field_name} cannot contain newlines or braces")
         document = self.papers()
+        known_claims = {claim["id"] for claim in self.claims().get("claims", [])}
+        unknown_claims = set(claim_ids or []) - known_claims
+        if unknown_claims:
+            raise ValueError(f"Unknown claim IDs: {sorted(unknown_claims)}")
         records = document.setdefault("papers", [])
         if any(paper.get("id") == identifier for paper in records):
             raise ValueError(f"Paper already exists: {identifier}")
@@ -318,6 +424,7 @@ class ResearchStore:
                 "access_checked_at": None,
                 "url": url,
                 "tags": tags,
+                "claim_ids": claim_ids or [],
                 "note": relative_note,
                 "added_at": utc_now(),
             }

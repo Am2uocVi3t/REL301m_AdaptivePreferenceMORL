@@ -1,16 +1,18 @@
 # Project Status and Handoff
 
 Last verified: **2026-10-15**
-Current phase: **course pilot preparation**
+Current phase: **Phase 1 — claim and antecedent mapping (active)**
 Publication state: **no multi-seed empirical claim established**
 
-Cross-chat workflow: **Git-native research harness implemented and verified**
+Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
 
 The current defensible question is not whether preference-conditioned MORL or adaptive weight selection is new. The project asks which signal—conditioning gap, masked-ensemble disagreement, local coverage/recency, or observed learning progress—best predicts and improves future performance in weak preference regions under matched budgets.
 
 The editable proposal v2 and executable repository now describe the same controlled empirical study. Preference generalization and environment/dynamics generalization remain separate evaluation axes.
+
+The systematic mapping currently registers 15 primary/authoritative works: 14 have verified full-text notes and one (CAPQL) remains screened at abstract level because authorized full text could not be retrieved. The resulting verdicts are incremental for the four individual signals and environment-shift application; novelty of the combined rule is unresolved. No empirical benefit is inferred from that mapping.
 
 ## Implemented and verified
 
@@ -26,14 +28,18 @@ The editable proposal v2 and executable repository now describe the same control
 - Standard-library research CLI for project health, claim status, literature metadata/BibTeX, experiment registration, append-only session closure, and generated handoff prompts.
 - Versioned JSON research registries and schemas with semantic gates for completed reading, experiment artifacts, and empirically supported claims.
 - Explicit literature access tracking: metadata/abstract-only papers remain screened, inaccessible full text is surfaced in the handoff, and `read` requires verified full-text evidence.
+- Machine-readable Phase 0–7 roadmap with deliverables, entry/exit criteria, go/no-go rules, evidence paths, blockers, and allowed transitions.
+- Claim-to-paper antecedent mapping with closest antecedent, known mechanism, project difference, bounded novelty verdict, differentiating experiment, and falsifier.
 
 ## Verification evidence
 
-The following passed on the current working tree on 2026-10-15:
+The current roadmap/literature working tree passed the following checks on 2026-10-15:
 
-- `pytest -q`: 35 tests passed, including 14 research-harness tests.
+- `pytest -q`: 39 tests passed on the available CPU host environment, including 18 research-harness tests.
+- The 18 harness tests, focused Ruff checks, and focused MyPy checks also passed under Python 3.11.17.
+- State, claims, literature, and roadmap documents passed their Draft 2020-12 JSON Schemas.
 - Ruff formatting and lint checks.
-- MyPy over `src` and `scripts`.
+- MyPy over `src`, `scripts`, and `tests`.
 - Bandit medium/high severity scan over `src` and `scripts`.
 - Python compileall and `git diff --check`.
 - MO-Lunar-Lander and Minecart reset/step smoke tests.
@@ -42,16 +48,20 @@ The following passed on the current working tree on 2026-10-15:
 
 These checks establish executable integration and local scientific invariants. They do not establish convergence, superiority, calibration, robustness, or publication readiness.
 
+The full pinned dependency set is not currently installable on the declared Python 3.11 target: `numpy==2.5.4` requires Python 3.12 or newer. The full suite therefore ran in the available Python 3.14 CPU environment, while the dependency-free harness was additionally verified on Python 3.11. This mismatch is now a P0 blocker rather than an implicit success.
+
 The research CLI deliberately runs without third-party dependencies, so a fresh chat can execute `doctor` and `status` before installing the RL stack. Literature PDFs and large experiment artifacts remain outside Git; metadata, structured notes, schemas, and provenance are versioned.
 
 ## Open blockers
 
 ### Before course experiments
 
-1. Run pilot-only trajectories to choose reward scaling and a dominated hypervolume reference point.
-2. Freeze those values in a versioned protocol before final runs.
-3. Validate GPI-LS in the supported Python 3.11 environment with native `libcdd-dev` available.
-4. Behaviorally validate that each enabled dynamics shift changes the intended transition distribution.
+1. Obtain an uploaded or authorized CAPQL full text, or review and explicitly exclude it from the essential set, before closing Phase 1.
+2. Repair and lock dependency versions that install on Python 3.11, then rerun the complete quality gate there.
+3. Run pilot-only trajectories to choose reward scaling and a dominated hypervolume reference point.
+4. Freeze those values in a versioned protocol before final runs.
+5. Validate GPI-LS in the supported Python 3.11 environment with native `libcdd-dev` available.
+6. Behaviorally validate that each enabled dynamics shift changes the intended transition distribution.
 
 ### Before course conclusions
 
@@ -70,7 +80,8 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 ## Next execution sequence
 
 ```text
-dependency validation
+resolve Phase 1 full-text gate
+  -> dependency validation
   -> pilot runs
   -> freeze scale/reference point
   -> smoke the frozen protocol

@@ -28,6 +28,10 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("doctor", help="Validate registries, references, and required files")
     subparsers.add_parser("status", help="Show the current research state")
 
+    roadmap = subparsers.add_parser("roadmap", help="Inspect the versioned research roadmap")
+    roadmap_subparsers = roadmap.add_subparsers(dest="roadmap_command", required=True)
+    roadmap_subparsers.add_parser("list")
+
     handoff = subparsers.add_parser("handoff", help="Render the self-contained prompt for a new chat")
     handoff.add_argument("--write", action="store_true", help="Write docs/research/HANDOFF_PROMPT.md")
 
@@ -52,6 +56,7 @@ def build_parser() -> argparse.ArgumentParser:
     paper_add.add_argument("--venue")
     paper_add.add_argument("--status", choices=sorted(PAPER_STATUSES), default="queued")
     paper_add.add_argument("--tag", action="append", default=[])
+    paper_add.add_argument("--claim", action="append", default=[])
     paper_set = paper_subparsers.add_parser("set-status")
     paper_set.add_argument("id")
     paper_set.add_argument("status", choices=sorted(PAPER_STATUSES))
@@ -111,6 +116,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             else:
                 print(handoff, end="")
             return 0
+        if args.command == "roadmap":
+            for phase in store.roadmap().get("phases", []):
+                print(f"{phase['id']}\t{phase['status']}\t{phase['title']}")
+            return 0
         if args.command == "claim":
             return _handle_claim(store, args)
         if args.command == "paper":
@@ -154,6 +163,7 @@ def _handle_paper(store: ResearchStore, args: argparse.Namespace) -> int:
             venue=args.venue,
             status=args.status,
             tags=args.tag,
+            claim_ids=args.claim,
         )
         print(f"Added paper {args.id}; complete {note.relative_to(store.root)}")
     elif args.paper_command == "set-status":

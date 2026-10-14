@@ -7,6 +7,8 @@ from src.research_harness.store import ResearchStore, utc_now
 
 def render_status(store: ResearchStore) -> str:
     state = store.state()
+    roadmap = store.roadmap()
+    active_phase = _active_phase(roadmap)
     claims = store.claims().get("claims", [])
     papers = store.papers().get("papers", [])
     experiments = store.experiments().get("experiments", [])
@@ -14,7 +16,7 @@ def render_status(store: ResearchStore) -> str:
     snapshot = store.git_snapshot()
     lines = [
         f"Project: {state.get('project', 'UNKNOWN')}",
-        f"Phase: {state.get('phase', 'UNKNOWN')}",
+        f"Phase: {active_phase['id']} — {active_phase['title']} ({active_phase['status']})",
         f"Publication state: {state.get('publication_state', 'UNKNOWN')}",
         f"Git: {snapshot['branch']} @ {snapshot['commit']} (dirty: {snapshot['dirty']})",
         f"Claims: {_count_statuses(claims)}",
@@ -29,6 +31,8 @@ def render_status(store: ResearchStore) -> str:
 
 def render_handoff(store: ResearchStore) -> str:
     state = store.state()
+    roadmap = store.roadmap()
+    active_phase = _active_phase(roadmap)
     claims = store.claims().get("claims", [])
     papers = store.papers().get("papers", [])
     experiments = store.experiments().get("experiments", [])
@@ -71,8 +75,11 @@ Snapshot generated: {utc_now()}
 Expected working branch at generation: {snapshot["branch"]}
 Expected commit at generation: {snapshot["commit"]}
 Working tree dirty at generation: {snapshot["dirty"]}
-Current phase: {state["phase"]}
+Current phase: {active_phase["id"]} — {active_phase["title"]} ({active_phase["status"]})
 Publication state: {state["publication_state"]}
+
+Roadmap:
+{_bullets([f"{phase['id']} [{phase['status']}]: {phase['title']}" for phase in roadmap["phases"]])}
 
 Research question:
 {state["research_question"]}
@@ -133,6 +140,14 @@ def _count_statuses(records: list[dict[str, Any]]) -> str:
         status = str(record.get("status", "UNKNOWN"))
         counts[status] = counts.get(status, 0) + 1
     return f"{len(records)} (" + ", ".join(f"{key}={counts[key]}" for key in sorted(counts)) + ")"
+
+
+def _active_phase(roadmap: dict[str, Any]) -> dict[str, Any]:
+    active_phase_id = roadmap.get("active_phase_id")
+    for phase in roadmap.get("phases", []):
+        if phase.get("id") == active_phase_id:
+            return phase
+    return {"id": "UNKNOWN", "title": "UNKNOWN", "status": "UNKNOWN"}
 
 
 def _bullets(items: list[str], *, empty: str = "None.") -> str:

@@ -14,3 +14,14 @@ Append one section per search session. Search primary or authoritative sources, 
 - Citation chaining performed:
 - Papers registered:
 - Negative search result and limitations:
+
+### 2026-10-15 — adaptive preference allocation and adjacent curricula
+
+- Research question or claim IDs: all six registered claims, emphasizing gap, disagreement, coverage/recency, progress, and environment shift.
+- Sources searched: PMLR, NeurIPS proceedings, ICLR proceedings, OpenReview, IFAAMAS/AAMAS proceedings, arXiv, and citation/reference trails in included papers.
+- Exact queries: `multi-objective reinforcement learning adaptive preference sampling`; `MORL adaptive weight vector selection Pareto archive`; `preference-conditioned MORL curriculum learning`; `MORL hypervolume-guided preference selection`; `MORL uncertainty-guided preference sampling`; `single-policy MORL weight allocation`; `environment generalization dynamics shift MORL`; `hindsight preference replay MORL`; `automatic curriculum value disagreement reinforcement learning`; `prioritized level replay coverage staleness curriculum`; plus exact-title and author searches for every candidate.
+- Inclusion criteria: primary or authoritative source; mechanism directly covers preference-conditioned MORL, weight/task prioritization, a registered signal family, or environment generalization; enough evidence to map mechanism and falsifiable difference.
+- Exclusion criteria: surveys as evidence for mechanism, unverified derivative summaries, unrelated multi-task curricula, pure scalarization comparisons without conditioning/allocation relevance, and duplicate preprint/proceedings records.
+- Citation chaining performed: backward/forward conceptual chaining from GPI-LS and PGMORL to conditioned MORL; from disagreement/progress/recency mechanisms to VDS, ALP-GMM, CURIOUS, and PLR; recent-source search added MORL-Generalization, HPR, C-MORL, and PCRL.
+- Papers registered: 15 total; 14 full-text `read`, CAPQL `screened` with `abstract_only` evidence and `full_text_required: true`.
+- Negative search result and limitations: no primary source found that exactly combines the four registered signals in a factorial preference-conditioned MORL study. This is not proof of absence. CAPQL's full text could not be retrieved legally because OpenReview download/API endpoints returned an access challenge/HTTP 403 and no authorized alternative copy was located.

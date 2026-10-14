@@ -11,12 +11,22 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-14T19:38:50+00:00
+Snapshot generated: 2026-10-14T20:11:36+00:00
 Expected working branch at generation: feature/ai-research-harness
-Expected commit at generation: 96c9f4d
+Expected commit at generation: b513d31
 Working tree dirty at generation: yes
-Current phase: course pilot preparation
+Current phase: phase-1 — Claim and antecedent mapping (active)
 Publication state: no multi-seed empirical claim established
+
+Roadmap:
+- phase-0 [complete]: Foundation and scientific repair
+- phase-1 [active]: Claim and antecedent mapping
+- phase-2 [not_started]: Pilot calibration and protocol freeze
+- phase-3 [not_started]: Mechanism diagnostics
+- phase-4 [not_started]: Paired-seed course experiment matrix
+- phase-5 [not_started]: Course paper
+- phase-6 [not_started]: Workshop and journal extension
+- phase-7 [not_started]: Submission and artifact freeze
 
 Research question:
 Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?
@@ -38,28 +48,44 @@ Active claims:
 - environment-shift-robustness [hypothesis]: Adaptive preference allocation affects robustness under dynamics shift
 
 Literature queue:
-- No papers registered yet. Add primary sources before making novelty claims.
+- abels2019dynamic-weights [read; full_text; access=open_full_text]: Dynamic Weights in Multi-Objective Deep Reinforcement Learning
+- yang2019envelope [read; full_text; access=open_full_text]: A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation
+- xu2020pgmorl [read; full_text; access=open_full_text]: Prediction-Guided Multi-Objective Reinforcement Learning for Continuous Robot Control
+- reymond2022pcn [read; full_text; access=open_full_text]: Pareto Conditioned Networks
+- lu2023capql [screened; abstract_only; access=blocked]: Multi-Objective Reinforcement Learning: Convexity, Stationarity and Pareto Optimality
+- basaklar2023pdmorl [read; full_text; access=open_full_text]: PD-MORL: Preference-Driven Multi-Objective Reinforcement Learning Algorithm
+- alegre2023gpi-prioritization [read; full_text; access=open_full_text]: Sample-Efficient Multi-Objective Learning via Generalized Policy Improvement Prioritization
+- zhang2020value-disagreement [read; full_text; access=open_full_text]: Automatic Curriculum Learning through Value Disagreement
+- portelas2020alp-gmm [read; full_text; access=open_full_text]: Teacher Algorithms for Curriculum Learning of Deep RL in Continuously Parameterized Environments
+- jiang2021plr [read; full_text; access=open_full_text]: Prioritized Level Replay
+- colas2019curious [read; full_text; access=open_full_text]: CURIOUS: Intrinsically Motivated Modular Multi-Goal Reinforcement Learning
+- teoh2025morl-generalization [read; full_text; access=open_full_text]: On Generalization Across Environments In Multi-Objective Reinforcement Learning
+- shianifar2026hpr [read; full_text; access=open_full_text]: Hindsight Preference Replay Improves Preference-Conditioned Multi-Objective Reinforcement Learning
+- liu2025cmorl [read; full_text; access=open_full_text]: Efficient Discovery of Pareto Front for Multi-Objective Reinforcement Learning
+- yang2025pcrl [read; full_text; access=open_full_text]: Preference Controllable Reinforcement Learning with Advanced Multi-Objective Optimization
 
 Full-text requests for the user:
-- None currently registered.
+- lu2023capql: Multi-Objective Reinforcement Learning: Convexity, Stationarity and Pareto Optimality — https://openreview.net/forum?id=TjEzIsyEsQ6 — OpenReview abstract/index checked 2026-10-15. Direct PDF, attachment, and API endpoints returned an access challenge/HTTP 403; no legal alternative copy was found. Request uploaded PDF or authorized link.
 
 Active experiments:
 - pilot-protocol-freeze [planned]: Pilot-only reward-scale and hypervolume-reference calibration
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 
 Open blockers:
+- Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime.
+- Obtain a legal full-text copy of CAPQL; OpenReview PDF endpoints are blocked by an access challenge and no alternative authorized copy was found.
 - Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence.
 - Validate GPI-LS under Python 3.11 with native cddlib headers.
 - Behaviorally validate that every enabled dynamics shift changes the intended transitions.
 - Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
 
 Latest closed-session summary:
-Added an explicit automation contract and full-text access policy: literature agents search legal primary sources autonomously, abstract-only papers stay screened, read requires verified full text plus a completed note, and inaccessible papers are surfaced to the user in the handoff. Full suite: 35 passed.
+Formalized an evidence-gated Phase 0-7 roadmap and integrated it into the standard-library research harness, status, handoff, schemas, tests, workflow, and memory. Registered 15 primary/authoritative antecedents: 14 full-text readings and one CAPQL abstract-only access blocker. Added claim-level closest antecedents, bounded novelty verdicts, differentiating experiments, and falsifiers. The full suite passed 39 tests on the available CPU host environment, and 18 harness tests passed on Python 3.11.17. No large experiment or final-test evaluation ran, and no empirical performance claim was made.
 
 Next actions:
-1. Review and merge PR #5 after the full-text policy update.
-2. Formalize the course-to-publication phase gates in a versioned roadmap.
-3. Populate the literature registry with the nearest primary-source antecedents and map them to claim IDs.
+1. Obtain an uploaded or authorized CAPQL full text and complete its mechanism note.
+2. Review and approve the Phase 1 antecedent and novelty judgments, then close the phase or explicitly exclude CAPQL.
+3. Repair Python 3.11 dependency pins and rerun the full quality gate before pilot calibration.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

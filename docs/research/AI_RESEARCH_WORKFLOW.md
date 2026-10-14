@@ -15,6 +15,7 @@ From the repository root:
 ```bash
 python scripts/research_harness.py doctor
 python scripts/research_harness.py status
+python scripts/research_harness.py roadmap list
 git status --short --branch
 ```
 
@@ -35,6 +36,8 @@ question or claim
   -> claim-status update
   -> session close and regenerated handoff
 ```
+
+The versioned phase sequence and go/no-go rules live in `research/roadmap.json`, with rationale in `docs/research/ROADMAP.md`. A phase is not complete because its work is planned or discussed: its exit criteria and registered evidence paths must be satisfied. Do not skip pilot freeze, baseline/shift qualification, or the course-scale gate on the way to publication work.
 
 ### 1. Frame a falsifiable claim
 
@@ -72,7 +75,8 @@ python scripts/research_harness.py paper add \
   --url "https://primary-source.example/paper" \
   --source-type peer-reviewed \
   --venue "Venue 2026" \
-  --tag adaptive-allocation
+  --tag adaptive-allocation \
+  --claim CLAIM_ID
 ```
 
 This writes metadata, a BibTeX entry, and a structured note template. Complete the note before setting `read`:
@@ -86,7 +90,7 @@ python scripts/research_harness.py paper set-access author2026shortname \
 python scripts/research_harness.py paper set-status author2026shortname read
 ```
 
-A paper can become `read` only after verified full-text access and completion of every note section. Do not commit downloaded PDFs. A paper title match is not a novelty analysis: compare the mechanism, sampling signal, training path, evaluation setting, and falsifiable consequence.
+A paper can become `read` only after verified full-text access and completion of every note section. Map each paper to affected claim IDs. Do not commit downloaded PDFs. A paper title match is not a novelty analysis: compare the mechanism, allocation unit, sampling signal, training path, generalization axis, evaluation setting, and falsifiable consequence. Record closest antecedent, known result, project difference, novelty verdict/confidence, differentiating experiment, and falsifier in the claim registry and literature map.
 
 #### If full text is unavailable
 
