@@ -5,7 +5,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/ai-research-harness",
-  "updated_at": "2026-10-14T19:24:33+00:00",
+  "updated_at": "2026-10-14T19:38:50+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -39,9 +39,9 @@
     }
   ],
   "next_actions": [
-    "Review, commit, and publish the stacked harness branch after PR #4.",
-    "Populate the literature registry from primary sources and map antecedents to claim IDs.",
-    "Validate Python 3.11 plus GPI-LS, then run pilot-only protocol calibration."
+    "Review and merge PR #5 after the full-text policy update.",
+    "Formalize the course-to-publication phase gates in a versioned roadmap.",
+    "Populate the literature registry with the nearest primary-source antecedents and map them to claim IDs."
   ],
-  "last_session_summary": "Implemented a dependency-free Git-native research harness with versioned claim, literature, experiment, and session registries; generated cross-chat handoff; full project suite reached 32 passing tests; no empirical performance claim was made."
+  "last_session_summary": "Added an explicit automation contract and full-text access policy: literature agents search legal primary sources autonomously, abstract-only papers stay screened, read requires verified full text plus a completed note, and inaccessible papers are surfaced to the user in the handoff. Full suite: 35 passed."
 }

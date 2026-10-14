@@ -25,12 +25,13 @@ The editable proposal v2 and executable repository now describe the same control
 - Constructor-level LunarLander shift construction; unsupported Minecart shifts fail explicitly.
 - Standard-library research CLI for project health, claim status, literature metadata/BibTeX, experiment registration, append-only session closure, and generated handoff prompts.
 - Versioned JSON research registries and schemas with semantic gates for completed reading, experiment artifacts, and empirically supported claims.
+- Explicit literature access tracking: metadata/abstract-only papers remain screened, inaccessible full text is surfaced in the handoff, and `read` requires verified full-text evidence.
 
 ## Verification evidence
 
 The following passed on the current working tree on 2026-10-15:
 
-- `pytest -q`: 32 tests passed, including 11 research-harness tests.
+- `pytest -q`: 35 tests passed, including 14 research-harness tests.
 - Ruff formatting and lint checks.
 - MyPy over `src` and `scripts`.
 - Bandit medium/high severity scan over `src` and `scripts`.

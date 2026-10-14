@@ -33,6 +33,9 @@ Use this precedence when sources disagree:
 ## Scientific guardrails
 
 - Never describe a planned or smoke-tested result as experimentally supported.
+- For literature tasks, search primary sources and register the evidence without waiting for the user to enumerate papers.
+- Never infer a completed reading from metadata or an abstract. If full text remains inaccessible after checking legal alternatives, mark the paper `screened` and `full_text_required`, report the access blocker, and ask the user for an uploaded PDF or authorized link.
+- Do not bypass paywalls, CAPTCHAs, authentication, or redistribution restrictions; never commit paper PDFs.
 - Never tune normalization, reference points, checkpoints, or hyperparameters on the final test split.
 - Keep training, update, curriculum-evaluation, and final-evaluation budgets separate.
 - Compare adaptive allocation with uniform and compute-matched random controls using paired seeds.
@@ -58,5 +61,5 @@ git diff --check
 ```
 
 - Update `docs/research/PROJECT_STATUS.md` only with evidence from the current working tree.
-- Keep `research/claims.yaml`, the experiment registry, session log, and generated handoff synchronized through `scripts/research_harness.py`.
+- Keep `research/claims.json`, the experiment registry, session log, and generated handoff synchronized through `scripts/research_harness.py`.
 - Close substantial sessions with an evidence-bounded summary and regenerate the handoff prompt.

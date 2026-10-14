@@ -13,7 +13,16 @@ The `research/` tree is the machine-readable control plane for the project. All 
 
 Use the CLI instead of editing a status field casually. A status of `read`, `complete`, `validated`, or `experimentally_supported` is an evidence claim, not a task-progress decoration.
 
-An `experimentally_supported` claim must include an `artifact:<versioned-path>` evidence entry. A `read` paper must have a completed structured note with no `TODO` marker, and a `complete` experiment must name its artifact.
+An `experimentally_supported` claim must include an `artifact:<versioned-path>` evidence entry. A `read` paper must have `evidence_level: full_text`, a verified full-text access status, `full_text_required: false`, and a completed structured note with no `TODO` marker. A `complete` experiment must name its artifact.
+
+Literature access is explicit:
+
+- `access_status`: `not_checked`, `open_full_text`, `author_manuscript`, `user_supplied`, `paywalled`, or `blocked`;
+- `evidence_level`: `metadata_only`, `abstract_only`, or `full_text`;
+- `full_text_required`: whether the agent still needs an authorized full text to complete analysis;
+- `access_note`: sources attempted, the accessible version, or the exact access blocker.
+
+Metadata or an abstract may support screening, never a completed reading or a strong novelty conclusion.
 
 ## Artifact boundary
 

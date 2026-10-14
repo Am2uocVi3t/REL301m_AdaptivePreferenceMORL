@@ -16,7 +16,7 @@ updated: 2026-10-15
 ## Verified on 2026-10-15
 
 - Core PCQN training, safe checkpoint loading, fixed-protocol evaluation, and the paired-seed matrix runner executed end to end.
-- Unit and integration suite passed with 32 tests, including 11 research-harness tests.
+- Unit and integration suite passed with 35 tests, including 14 research-harness tests.
 - Ruff, MyPy, Bandit, compileall, and Git whitespace checks passed.
 - MO-Lunar-Lander and Minecart reset/step smoke tests passed.
 

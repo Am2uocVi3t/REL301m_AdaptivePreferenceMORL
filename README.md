@@ -68,6 +68,8 @@ python scripts/research_harness.py status
 
 Key workflows are available under `paper`, `claim`, `experiment`, and `session`. Run `python scripts/research_harness.py --help` or see the [full workflow](docs/research/AI_RESEARCH_WORKFLOW.md). End a substantial chat with `session close --write-handoff` so the next chat receives a current, copyable prompt.
 
+For literature work, agents may search and read legally accessible full text automatically. Metadata or abstract-only access remains `screened`; the handoff identifies papers that require the user to provide an uploaded PDF or authorized full-text link.
+
 ## Installation
 
 Use Python 3.11 in an isolated environment. Direct dependencies are pinned in `requirements.txt`; record the full resolved environment with every experiment. GPI-LS additionally needs the system `cddlib` headers to build its pinned `pycddlib` dependency.

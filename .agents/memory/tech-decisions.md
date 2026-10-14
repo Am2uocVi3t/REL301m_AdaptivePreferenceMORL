@@ -18,3 +18,4 @@ updated: 2026-10-15
 - The generated `docs/research/HANDOFF_PROMPT.md` is a snapshot; agents must compare it with live Git state and regenerate it at the end of substantial sessions.
 - Literature management stores primary-source metadata, BibTeX, query logs, and structured notes. Copyrighted paper PDFs are not committed.
 - `read`, `complete`, and `experimentally_supported` are evidence-bearing states: completed notes, named experiment artifacts, and `artifact:<versioned-path>` claim evidence are required respectively.
+- Literature agents search legal primary-source alternatives autonomously, but never bypass access controls. `read` requires verified full text; otherwise the paper remains `screened`, is flagged `full_text_required`, and is escalated to the user with attempted sources and affected claims.

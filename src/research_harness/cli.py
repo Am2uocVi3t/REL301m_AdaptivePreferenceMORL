@@ -9,6 +9,8 @@ from src.research_harness.render import render_handoff, render_status
 from src.research_harness.store import (
     CLAIM_STATUSES,
     EXPERIMENT_STATUSES,
+    PAPER_ACCESS_STATUSES,
+    PAPER_EVIDENCE_LEVELS,
     PAPER_SOURCE_TYPES,
     PAPER_STATUSES,
     ResearchStore,
@@ -53,6 +55,12 @@ def build_parser() -> argparse.ArgumentParser:
     paper_set = paper_subparsers.add_parser("set-status")
     paper_set.add_argument("id")
     paper_set.add_argument("status", choices=sorted(PAPER_STATUSES))
+    paper_access = paper_subparsers.add_parser("set-access")
+    paper_access.add_argument("id")
+    paper_access.add_argument("--access-status", choices=sorted(PAPER_ACCESS_STATUSES), required=True)
+    paper_access.add_argument("--evidence-level", choices=sorted(PAPER_EVIDENCE_LEVELS), required=True)
+    paper_access.add_argument("--full-text-required", choices=("yes", "no"), required=True)
+    paper_access.add_argument("--note", required=True, help="Access outcome, attempted sources, or supplied version")
 
     experiment = subparsers.add_parser("experiment", help="Manage the planned and executed experiment registry")
     experiment_subparsers = experiment.add_subparsers(dest="experiment_command", required=True)
@@ -130,7 +138,11 @@ def _handle_claim(store: ResearchStore, args: argparse.Namespace) -> int:
 def _handle_paper(store: ResearchStore, args: argparse.Namespace) -> int:
     if args.paper_command == "list":
         for paper in store.papers().get("papers", []):
-            print(f"{paper['id']}\t{paper['status']}\t{paper['year']}\t{paper['title']}")
+            requirement = "full-text-required" if paper["full_text_required"] else "full-text-available"
+            print(
+                f"{paper['id']}\t{paper['status']}\t{paper['evidence_level']}\t{requirement}"
+                f"\t{paper['year']}\t{paper['title']}"
+            )
     elif args.paper_command == "add":
         note = store.add_paper(
             identifier=args.id,
@@ -144,9 +156,18 @@ def _handle_paper(store: ResearchStore, args: argparse.Namespace) -> int:
             tags=args.tag,
         )
         print(f"Added paper {args.id}; complete {note.relative_to(store.root)}")
-    else:
+    elif args.paper_command == "set-status":
         store.set_paper_status(args.id, args.status)
         print(f"Updated paper {args.id} to {args.status}")
+    else:
+        store.set_paper_access(
+            args.id,
+            args.access_status,
+            args.evidence_level,
+            args.full_text_required == "yes",
+            args.note,
+        )
+        print(f"Updated paper access for {args.id}")
     return 0
 
 

@@ -2,6 +2,12 @@
 
 This repository treats an AI chat as a temporary collaborator and Git as the durable research record. The harness keeps research state explicit across chats while preserving the distinction between implemented code, verified behavior, and experimental evidence.
 
+## Automation contract
+
+The harness is a CLI and evidence store, not a background daemon or autonomous-agent scheduler. An agent that follows `AGENTS.md` should automatically run `doctor` and `status`, use the registries during research work, and close substantial sessions with a regenerated handoff. Nothing runs merely because a chat was opened or closed, so the handoff repeats these obligations explicitly.
+
+For an assigned literature task, a web-enabled agent should autonomously search primary sources, follow citations, retrieve legally accessible HTML or PDF full text, register metadata, and write structured notes. The agent must not bypass paywalls, CAPTCHAs, authentication, or redistribution restrictions.
+
 ## Start every chat
 
 From the repository root:
@@ -72,10 +78,30 @@ python scripts/research_harness.py paper add \
 This writes metadata, a BibTeX entry, and a structured note template. Complete the note before setting `read`:
 
 ```bash
+python scripts/research_harness.py paper set-access author2026shortname \
+  --access-status open_full_text \
+  --evidence-level full_text \
+  --full-text-required no \
+  --note "Official proceedings PDF checked on YYYY-MM-DD"
 python scripts/research_harness.py paper set-status author2026shortname read
 ```
 
-Do not commit downloaded PDFs. A paper title match is not a novelty analysis: compare the mechanism, sampling signal, training path, evaluation setting, and falsifiable consequence.
+A paper can become `read` only after verified full-text access and completion of every note section. Do not commit downloaded PDFs. A paper title match is not a novelty analysis: compare the mechanism, sampling signal, training path, evaluation setting, and falsifiable consequence.
+
+#### If full text is unavailable
+
+Try the official proceedings or publisher page, OpenReview, arXiv, the author or project page, and an authorized institutional link. If no legal full text is accessible:
+
+```bash
+python scripts/research_harness.py paper set-access author2026shortname \
+  --access-status paywalled \
+  --evidence-level abstract_only \
+  --full-text-required yes \
+  --note "Publisher page and author/arXiv search checked on YYYY-MM-DD; abstract only"
+python scripts/research_harness.py paper set-status author2026shortname screened
+```
+
+The agent must then report the paper title and primary URL, sources attempted, available evidence level, affected claim IDs, and the exact unresolved question. It must ask the user to upload the PDF or provide an authorized full-text link. Until then, keep the paper `screened`, include `FULL_TEXT_REQUIRED` in its note, and do not make a strong novelty or mechanism claim from metadata or an abstract alone.
 
 ### 3. Pre-register an experiment
 
@@ -113,7 +139,7 @@ Use fact, inference, and recommendation explicitly:
 - Inference: a reasoned interpretation that could still be wrong.
 - Recommendation: the next decision or experiment.
 
-Update `docs/research/PROJECT_STATUS.md` only from current evidence. Keep `research/state.yaml` concise and operational; do not duplicate a full narrative there.
+Update `docs/research/PROJECT_STATUS.md` only from current evidence. Keep `research/state.json` concise and operational; do not duplicate a full narrative there.
 
 ## End every substantial chat
 
@@ -139,4 +165,4 @@ Commit the synchronized code, registries, documentation, and handoff together. T
 
 ## What the harness does not do
 
-It does not schedule autonomous agents, download or redistribute papers, infer evidence from prose, launch expensive experiments without review, or guarantee publication novelty. It makes the evidence chain inspectable so a human or a later chat can continue without relying on conversational memory.
+It does not schedule autonomous agents, infer evidence from prose, bypass access controls, redistribute papers, launch expensive experiments without review, or guarantee publication novelty. A web-enabled agent may retrieve legally accessible full text for analysis, but only metadata, citations, and structured notes belong in Git.

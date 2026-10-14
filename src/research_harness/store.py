@@ -16,6 +16,16 @@ CLAIM_STATUSES = {
 }
 PAPER_STATUSES = {"queued", "screened", "read", "excluded"}
 PAPER_SOURCE_TYPES = {"peer-reviewed", "preprint", "benchmark", "software", "venue-policy"}
+PAPER_ACCESS_STATUSES = {
+    "not_checked",
+    "open_full_text",
+    "author_manuscript",
+    "user_supplied",
+    "paywalled",
+    "blocked",
+}
+PAPER_EVIDENCE_LEVELS = {"metadata_only", "abstract_only", "full_text"}
+FULL_TEXT_ACCESS_STATUSES = {"open_full_text", "author_manuscript", "user_supplied"}
 EXPERIMENT_STATUSES = {"planned", "running", "complete", "failed", "blocked"}
 BLOCKER_STATUSES = {"open", "resolved"}
 IDENTIFIER_PATTERN = re.compile(r"^[a-z0-9][a-z0-9_-]*$")
@@ -30,7 +40,7 @@ def load_registry(path: Path) -> dict[str, Any]:
         raise FileNotFoundError(path)
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
-        raise ValueError(f"Expected a YAML mapping: {path}")
+        raise ValueError(f"Expected a JSON object: {path}")
     return data
 
 
@@ -158,11 +168,29 @@ class ResearchStore:
                     continue
                 if paper.get("source_type") not in PAPER_SOURCE_TYPES:
                     errors.append(f"papers: {paper.get('id')} has invalid source_type")
+                access_status = paper.get("access_status")
+                evidence_level = paper.get("evidence_level")
+                full_text_required = paper.get("full_text_required")
+                if access_status not in PAPER_ACCESS_STATUSES:
+                    errors.append(f"papers: {paper.get('id')} has invalid access_status")
+                if evidence_level not in PAPER_EVIDENCE_LEVELS:
+                    errors.append(f"papers: {paper.get('id')} has invalid evidence_level")
+                if not isinstance(full_text_required, bool):
+                    errors.append(f"papers: {paper.get('id')} full_text_required must be boolean")
+                if evidence_level == "full_text" and access_status not in FULL_TEXT_ACCESS_STATUSES:
+                    errors.append(f"papers: {paper.get('id')} full_text evidence needs a full-text access status")
                 if paper.get("status") == "read":
+                    if evidence_level != "full_text" or access_status not in FULL_TEXT_ACCESS_STATUSES:
+                        errors.append(f"papers: {paper.get('id')} is read without verified full-text access")
+                    if full_text_required is not False:
+                        errors.append(f"papers: {paper.get('id')} is read but still requires full text")
                     note = paper.get("note")
                     if not isinstance(note, str) or not (self.root / note).exists():
                         errors.append(f"papers: {paper.get('id')} is read but has no existing note")
-                    elif "TODO" in (self.root / note).read_text(encoding="utf-8"):
+                    elif any(
+                        marker in (self.root / note).read_text(encoding="utf-8")
+                        for marker in ("TODO", "FULL_TEXT_REQUIRED")
+                    ):
                         errors.append(f"papers: {paper.get('id')} is read but its note is incomplete")
 
         experiments = documents["experiments"].get("experiments")
@@ -263,6 +291,8 @@ class ResearchStore:
             raise ValueError(f"Invalid source type: {source_type}")
         if status not in PAPER_STATUSES:
             raise ValueError(f"Invalid paper status: {status}")
+        if status == "read":
+            raise ValueError("Add the paper as queued or screened; full-text access and notes are required before read")
         for field_name, value in {"title": title, "url": url, "venue": venue or ""}.items():
             if "\n" in value or "{" in value or "}" in value:
                 raise ValueError(f"{field_name} cannot contain newlines or braces")
@@ -281,6 +311,11 @@ class ResearchStore:
                 "venue": venue or "UNKNOWN",
                 "source_type": source_type,
                 "status": status,
+                "access_status": "not_checked",
+                "evidence_level": "metadata_only",
+                "full_text_required": True,
+                "access_note": "",
+                "access_checked_at": None,
                 "url": url,
                 "tags": tags,
                 "note": relative_note,
@@ -301,10 +336,45 @@ class ResearchStore:
         document = self.papers()
         paper = self._find(document.get("papers", []), identifier, "paper")
         if status == "read":
+            if (
+                paper.get("evidence_level") != "full_text"
+                or paper.get("access_status") not in FULL_TEXT_ACCESS_STATUSES
+            ):
+                raise ValueError("A paper can be marked read only after verified full-text access")
+            if paper.get("full_text_required") is not False:
+                raise ValueError("A paper can be marked read only when full_text_required is false")
             note = self.root / paper["note"]
-            if not note.exists() or "TODO" in note.read_text(encoding="utf-8"):
+            if not note.exists() or any(
+                marker in note.read_text(encoding="utf-8") for marker in ("TODO", "FULL_TEXT_REQUIRED")
+            ):
                 raise ValueError("A paper can be marked read only after its structured note is complete")
         paper["status"] = status
+        paper["updated_at"] = utc_now()
+        write_registry(self.papers_path, document)
+
+    def set_paper_access(
+        self,
+        identifier: str,
+        access_status: str,
+        evidence_level: str,
+        full_text_required: bool,
+        access_note: str,
+    ) -> None:
+        if access_status not in PAPER_ACCESS_STATUSES:
+            raise ValueError(f"Invalid paper access status: {access_status}")
+        if evidence_level not in PAPER_EVIDENCE_LEVELS:
+            raise ValueError(f"Invalid paper evidence level: {evidence_level}")
+        if evidence_level == "full_text" and access_status not in FULL_TEXT_ACCESS_STATUSES:
+            raise ValueError("Full-text evidence requires open, author-manuscript, or user-supplied access")
+        if evidence_level != "full_text" and not full_text_required:
+            raise ValueError("full_text_required can be false only when evidence_level is full_text")
+        document = self.papers()
+        paper = self._find(document.get("papers", []), identifier, "paper")
+        paper["access_status"] = access_status
+        paper["evidence_level"] = evidence_level
+        paper["full_text_required"] = full_text_required
+        paper["access_note"] = access_note
+        paper["access_checked_at"] = utc_now()
         paper["updated_at"] = utc_now()
         write_registry(self.papers_path, document)
 
@@ -393,12 +463,18 @@ class ResearchStore:
     def _paper_note(identifier: str, title: str, url: str, status: str) -> str:
         return f"""---
 paper_id: {identifier}
-status: {status}
+registry_status_at_creation: {status}
 ---
 
 # {title}
 
 Primary source: {url}
+
+## Access report
+
+FULL_TEXT_REQUIRED
+
+TODO — record the accessible version, access date, and whether evidence is metadata, abstract, or full text.
 
 ## Why this work is relevant
 

@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-14T19:24:33+00:00
+Snapshot generated: 2026-10-14T19:38:50+00:00
 Expected working branch at generation: feature/ai-research-harness
-Expected commit at generation: de43ff9
+Expected commit at generation: 96c9f4d
 Working tree dirty at generation: yes
 Current phase: course pilot preparation
 Publication state: no multi-seed empirical claim established
@@ -40,6 +40,9 @@ Active claims:
 Literature queue:
 - No papers registered yet. Add primary sources before making novelty claims.
 
+Full-text requests for the user:
+- None currently registered.
+
 Active experiments:
 - pilot-protocol-freeze [planned]: Pilot-only reward-scale and hypervolume-reference calibration
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
@@ -51,12 +54,12 @@ Open blockers:
 - Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
 
 Latest closed-session summary:
-Implemented a dependency-free Git-native research harness with versioned claim, literature, experiment, and session registries; generated cross-chat handoff; full project suite reached 32 passing tests; no empirical performance claim was made.
+Added an explicit automation contract and full-text access policy: literature agents search legal primary sources autonomously, abstract-only papers stay screened, read requires verified full text plus a completed note, and inaccessible papers are surfaced to the user in the handoff. Full suite: 35 passed.
 
 Next actions:
-1. Review, commit, and publish the stacked harness branch after PR #4.
-2. Populate the literature registry from primary sources and map antecedents to claim IDs.
-3. Validate Python 3.11 plus GPI-LS, then run pilot-only protocol calibration.
+1. Review and merge PR #5 after the full-text policy update.
+2. Formalize the course-to-publication phase gates in a versioned roadmap.
+3. Populate the literature registry with the nearest primary-source antecedents and map them to claim IDs.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
@@ -64,6 +67,9 @@ Non-negotiable scientific guardrails:
 - Separate preference generalization from environment/dynamics generalization.
 - Match interaction, update, diagnostic-evaluation, final-evaluation, and tuning budgets.
 - Literature: use primary sources; log queries; register metadata/BibTeX; complete notes; never commit PDFs.
+- Search legal full-text alternatives autonomously. If access still fails, keep the paper `screened`, record
+  `full_text_required`, state what was tried, and ask the user for an uploaded PDF or authorized link.
+- Never make a strong novelty or mechanism claim from metadata or an abstract alone.
 - End substantial sessions with `python scripts/research_harness.py session close ... --write-handoff`.
 
 User request for this new session:

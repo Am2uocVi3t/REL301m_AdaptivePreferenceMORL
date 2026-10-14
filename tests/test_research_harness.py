@@ -88,7 +88,10 @@ def test_add_paper_creates_metadata_note_and_bibtex(tmp_path: Path) -> None:
     assert note.exists()
     assert "Mechanism and assumptions" in note.read_text(encoding="utf-8")
     assert "@misc{doe2026allocation" in store.bib_path.read_text(encoding="utf-8")
-    assert store.papers()["papers"][0]["note"] == "research/literature/notes/doe2026allocation.md"
+    paper = store.papers()["papers"][0]
+    assert paper["note"] == "research/literature/notes/doe2026allocation.md"
+    assert paper["evidence_level"] == "metadata_only"
+    assert paper["full_text_required"] is True
     assert store.validate() == []
 
 
@@ -132,11 +135,111 @@ def test_read_paper_requires_completed_structured_note(tmp_path: Path) -> None:
         status="queued",
         tags=[],
     )
+    with pytest.raises(ValueError, match="verified full-text access"):
+        store.set_paper_status("doe2026allocation", "read")
+    store.set_paper_access(
+        "doe2026allocation",
+        "open_full_text",
+        "full_text",
+        False,
+        "Official proceedings PDF checked.",
+    )
     with pytest.raises(ValueError, match="structured note is complete"):
         store.set_paper_status("doe2026allocation", "read")
-    note.write_text(note.read_text(encoding="utf-8").replace("TODO", "Completed analysis"), encoding="utf-8")
+    completed_note = note.read_text(encoding="utf-8").replace("TODO", "Completed analysis")
+    note.write_text(completed_note.replace("FULL_TEXT_REQUIRED", "FULL_TEXT_VERIFIED"), encoding="utf-8")
     store.set_paper_status("doe2026allocation", "read")
     assert store.validate() == []
+
+
+def test_paywalled_paper_stays_screened_and_is_requested_in_handoff(tmp_path: Path) -> None:
+    store = make_workspace(tmp_path)
+    store.add_paper(
+        identifier="doe2026allocation",
+        title="Adaptive Allocation",
+        year=2026,
+        authors=["Jane Doe"],
+        url="https://example.test/paper",
+        source_type="peer-reviewed",
+        venue="TestConf",
+        status="queued",
+        tags=[],
+    )
+    store.set_paper_access(
+        "doe2026allocation",
+        "paywalled",
+        "abstract_only",
+        True,
+        "Publisher and author page checked; abstract only.",
+    )
+    store.set_paper_status("doe2026allocation", "screened")
+    assert store.validate() == []
+    handoff = render_handoff(store)
+    assert "Full-text requests for the user" in handoff
+    assert "Publisher and author page checked" in handoff
+    with pytest.raises(ValueError, match="verified full-text access"):
+        store.set_paper_status("doe2026allocation", "read")
+
+
+def test_full_text_evidence_rejects_blocked_access_status(tmp_path: Path) -> None:
+    store = make_workspace(tmp_path)
+    store.add_paper(
+        identifier="doe2026allocation",
+        title="Adaptive Allocation",
+        year=2026,
+        authors=["Jane Doe"],
+        url="https://example.test/paper",
+        source_type="preprint",
+        venue=None,
+        status="queued",
+        tags=[],
+    )
+    with pytest.raises(ValueError, match="Full-text evidence requires"):
+        store.set_paper_access(
+            "doe2026allocation",
+            "blocked",
+            "full_text",
+            False,
+            "Access denied.",
+        )
+
+
+def test_cli_records_full_text_access(tmp_path: Path) -> None:
+    store = make_workspace(tmp_path)
+    store.add_paper(
+        identifier="doe2026allocation",
+        title="Adaptive Allocation",
+        year=2026,
+        authors=["Jane Doe"],
+        url="https://example.test/paper",
+        source_type="preprint",
+        venue=None,
+        status="queued",
+        tags=[],
+    )
+    assert (
+        main(
+            [
+                "--root",
+                str(tmp_path),
+                "paper",
+                "set-access",
+                "doe2026allocation",
+                "--access-status",
+                "author_manuscript",
+                "--evidence-level",
+                "full_text",
+                "--full-text-required",
+                "no",
+                "--note",
+                "Author manuscript checked.",
+            ]
+        )
+        == 0
+    )
+    paper = store.papers()["papers"][0]
+    assert paper["access_status"] == "author_manuscript"
+    assert paper["full_text_required"] is False
 
 
 def test_claim_status_records_evidence(tmp_path: Path) -> None:

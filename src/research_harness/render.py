@@ -39,7 +39,15 @@ def render_handoff(store: ResearchStore) -> str:
         f"{claim['id']} [{claim['status']}]: {claim['title']}" for claim in claims if claim.get("status") != "rejected"
     ]
     paper_queue = [
-        f"{paper['id']} [{paper['status']}]: {paper['title']}" for paper in papers if paper["status"] != "excluded"
+        f"{paper['id']} [{paper['status']}; {paper['evidence_level']}; access={paper['access_status']}]: "
+        f"{paper['title']}"
+        for paper in papers
+        if paper["status"] != "excluded"
+    ]
+    full_text_requests = [
+        f"{paper['id']}: {paper['title']} — {paper['url']} — {paper.get('access_note') or 'access not checked'}"
+        for paper in papers
+        if paper.get("full_text_required") and paper.get("status") != "excluded"
     ]
     active_experiments = [
         f"{experiment['id']} [{experiment['status']}]: {experiment['title']}"
@@ -83,6 +91,9 @@ Active claims:
 Literature queue:
 {_bullets(paper_queue, empty="No papers registered yet. Add primary sources before making novelty claims.")}
 
+Full-text requests for the user:
+{_bullets(full_text_requests, empty="None currently registered.")}
+
 Active experiments:
 {_bullets(active_experiments, empty="No active experiments registered.")}
 
@@ -101,6 +112,9 @@ Non-negotiable scientific guardrails:
 - Separate preference generalization from environment/dynamics generalization.
 - Match interaction, update, diagnostic-evaluation, final-evaluation, and tuning budgets.
 - Literature: use primary sources; log queries; register metadata/BibTeX; complete notes; never commit PDFs.
+- Search legal full-text alternatives autonomously. If access still fails, keep the paper `screened`, record
+  `full_text_required`, state what was tried, and ask the user for an uploaded PDF or authorized link.
+- Never make a strong novelty or mechanism claim from metadata or an abstract alone.
 - End substantial sessions with `python scripts/research_harness.py session close ... --write-handoff`.
 
 User request for this new session:
