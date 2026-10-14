@@ -1,6 +1,6 @@
 # Literature and Antecedent Map
 
-Search date: **2026-10-15**. Scope: primary or authoritative sources for preference-conditioned MORL, adaptive weight/task allocation, curriculum signals, and environment generalization. Fourteen papers were checked in full text; CAPQL remains abstract-only and must not support a strong mechanism or novelty judgment.
+Search date: **2026-10-15**. Scope: primary or authoritative sources for preference-conditioned MORL, adaptive weight/task allocation, curriculum signals, and environment generalization. All 15 registered papers were checked in full text; CAPQL was completed from a user-supplied ICLR 2023 PDF.
 
 ## Antecedent matrix
 
@@ -10,7 +10,7 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 | [Yang et al. (2019)](https://arxiv.org/abs/1908.08342) | NeurIPS 2019 | envelope-conditioned value network | No | Envelope | No | No | No | Yes | No | `combined-allocation` | Author full text |
 | [Xu et al. (2020), PGMORL](https://proceedings.mlr.press/v119/xu20h.html) | ICML 2020 | predictor selects policy-weight tasks | Yes | Pareto improvement | No | Pareto set | Predicted | Partial | No | `conditioning-gap-allocation`, `learning-progress-allocation`, `combined-allocation` | PMLR full text |
 | [Reymond et al. (2022), PCN](https://arxiv.org/abs/2204.05036) | AAMAS 2022 | return-conditioned policy trained from non-dominated archive | Target selection | Archive | No | Frontier targets | No | Yes | No | `combined-allocation` | Author full text |
-| [Lu et al. (2023), CAPQL](https://openreview.net/forum?id=TjEzIsyEsQ6) | ICLR 2023; screened | conditioned actor-critic for convex coverage (abstract only) | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | Claimed | No evidence | `combined-allocation` | Abstract only; upload required |
+| [Lu et al. (2023), CAPQL](https://openreview.net/forum?id=TjEzIsyEsQ6) | ICLR 2023 | conditioned SAC with entropy/concave reward augmentation | No; fixed `Dφ` | No | No | No | No | Conditioned; no held-out split | No | `combined-allocation` | User-supplied proceedings PDF |
 | [Basaklar et al. (2023), PD-MORL](https://openreview.net/forum?id=zS9sRyaPFlJ) | ICLR 2023 | universal policy + preference prediction/alignment | Partial | Pareto alignment | No | No | No | Yes | No | `combined-allocation` | OpenReview full text |
 | [Alegre et al. (2023), GPI-LS](https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2003.pdf) | AAMAS 2023 | GPI lower bound prioritizes weights and Dyna experience | Yes | GPI improvement gap | No | Indirect | Expected improvement | Yes | No | `conditioning-gap-allocation`, `learning-progress-allocation`, `combined-allocation` | Proceedings full text |
 | [Zhang et al. (2020), VDS](https://papers.nips.cc/paper/2020/hash/566f0ea4f6c2e947f36795c8f58ba901-Abstract.html) | NeurIPS 2020 | independent value ensemble selects goals | Yes | No | Ensemble disagreement | Frontier effect | No | Not applicable | No | `disagreement-allocation`, `combined-allocation` | Proceedings full text |
@@ -22,7 +22,7 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 | [Liu et al. (2025), C-MORL](https://proceedings.iclr.cc/paper_files/paper/2025/hash/adb77ecc8ba1c2d3135c86a46b8f2496-Abstract-Conference.html) | ICLR 2025 | crowding-guided constrained Pareto extension | Yes | Pareto archive | No | Crowding distance | No | Across frontier | No | `coverage-recency-allocation`, `conditioning-gap-allocation`, `combined-allocation` | Proceedings full text |
 | [Yang et al. (2025), PCRL/PreCo](https://proceedings.mlr.press/v267/yang25ax.html) | ICML 2025 | controllable meta-policy + multi-objective gradient method | Optimization, not curriculum | No | No | No | No | Yes | No | `combined-allocation` | PMLR full text |
 
-“Unseen preferences” records the paper's intended capability, not independent replication. “Environment shift” distinguishes contexts/dynamics from unseen preference weights. `UNKNOWN` is retained where CAPQL full text is unavailable.
+“Unseen preferences” records the paper's intended capability, not independent replication. “Environment shift” distinguishes contexts/dynamics from unseen preference weights.
 
 ## Per-claim verdicts
 
@@ -69,8 +69,8 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 ### `combined-allocation`
 
 - Closest antecedent: GPI-LS, with PGMORL, PLR, and ALP-GMM supplying components.
-- Known: the signal families and adaptive task allocation are familiar.
-- Difference: a common implementation permits a factorial, matched-budget comparison within preference-conditioned MORL.
+- Known: the signal families and adaptive task allocation are familiar; CAPQL conditions continuous-control policies on weights sampled from a fixed distribution.
+- Difference: a common implementation permits a factorial, matched-budget comparison of outcome-dependent allocation signals within preference-conditioned MORL.
 - Verdict: **novelty unresolved** (high confidence that broad novelty is indefensible).
 - Differentiating experiment: all single-signal, selected pairwise, full, uniform, random, and compatible close-baseline arms with paired seeds.
 - Falsifier: prior equivalent factorial evidence or no benefit/insight beyond controls.

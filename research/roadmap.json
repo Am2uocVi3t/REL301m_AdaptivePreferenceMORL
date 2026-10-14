@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "active_phase_id": "phase-1",
+  "active_phase_id": "phase-2",
   "phases": [
     {
       "id": "phase-0",
@@ -20,23 +20,23 @@
     {
       "id": "phase-1",
       "title": "Claim and antecedent mapping",
-      "status": "active",
+      "status": "complete",
       "deliverables": [
         {"id": "roadmap-contract", "description": "Machine-readable Phase 0-7 roadmap and harness integration", "status": "complete"},
         {"id": "literature-map", "description": "Primary-source antecedent map for every registered claim", "status": "complete"},
-        {"id": "full-text-resolution", "description": "Resolve the remaining CAPQL full-text access gap", "status": "blocked"}
+        {"id": "full-text-resolution", "description": "Resolve the remaining CAPQL full-text access gap", "status": "complete"}
       ],
       "entry_criteria": ["Phase 0 evidence is versioned", "Research question and candidate claims are registered"],
       "exit_criteria": ["Every claim has a closest antecedent and bounded novelty verdict", "All essential papers are read in full or explicitly blocked"],
       "go_no_go_rule": "Do not freeze the pilot protocol until every claim is mapped and essential full-text gaps are resolved or formally excluded.",
       "evidence_paths": ["docs/research/ROADMAP.md", "docs/research/LITERATURE_MAP.md", "research/claims.json", "research/literature/index.json"],
-      "blocker_ids": ["capql-full-text"],
+      "blocker_ids": [],
       "allowed_next_phase_ids": ["phase-2"]
     },
     {
       "id": "phase-2",
       "title": "Pilot calibration and protocol freeze",
-      "status": "not_started",
+      "status": "active",
       "deliverables": [
         {"id": "pilot-calibration", "description": "Pilot-only normalization and hypervolume calibration", "status": "not_started"},
         {"id": "frozen-protocol", "description": "Versioned budgets, seeds, checkpoints, and analysis plan", "status": "not_started"}

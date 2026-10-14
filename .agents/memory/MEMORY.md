@@ -14,8 +14,8 @@
 - [project] Cross-chat state is managed by the standard-library research harness and versioned JSON registries → tech-decisions.md
 - [project] Literature uses primary-source metadata, BibTeX, search logs, and structured notes; paper PDFs stay outside Git → tech-decisions.md
 - [project] Abstract-only papers stay screened; agents report full-text blockers and request an authorized copy → tech-decisions.md
-- [project] Evidence-gated Phase 0–7 progression is controlled by research/roadmap.json; Phase 1 is active → research-status.md
-- [project] The literature map has 15 primary sources: 14 read in full, CAPQL blocked at abstract level → research-status.md
+- [project] Evidence-gated Phase 0–7 progression is controlled by research/roadmap.json; Phase 2 is active but execution-blocked → research-status.md
+- [project] The literature map has 15 full-text primary sources; CAPQL uses fixed preference sampling, not adaptive allocation → research-status.md
 - [project] requirements.txt is currently incompatible with target Python 3.11 because numpy 2.5.4 requires Python 3.12+ → research-status.md
 
 ## Reference

@@ -1,7 +1,7 @@
 # Project Status and Handoff
 
 Last verified: **2026-10-15**
-Current phase: **Phase 1 — claim and antecedent mapping (active)**
+Current phase: **Phase 2 — pilot calibration and protocol freeze (active, execution blocked)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
@@ -12,7 +12,7 @@ The current defensible question is not whether preference-conditioned MORL or ad
 
 The editable proposal v2 and executable repository now describe the same controlled empirical study. Preference generalization and environment/dynamics generalization remain separate evaluation axes.
 
-The systematic mapping currently registers 15 primary/authoritative works: 14 have verified full-text notes and one (CAPQL) remains screened at abstract level because authorized full text could not be retrieved. The resulting verdicts are incremental for the four individual signals and environment-shift application; novelty of the combined rule is unresolved. No empirical benefit is inferred from that mapping.
+The systematic mapping registers 15 primary/authoritative works, all with verified full-text notes. CAPQL was resolved from a user-supplied ICLR 2023 PDF and uses fixed-distribution preference sampling rather than adaptive allocation. The resulting verdicts remain incremental for the four individual signals and environment-shift application; novelty of the combined rule is unresolved. No empirical benefit is inferred from that mapping.
 
 ## Implemented and verified
 
@@ -56,12 +56,11 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 
 ### Before course experiments
 
-1. Obtain an uploaded or authorized CAPQL full text, or review and explicitly exclude it from the essential set, before closing Phase 1.
-2. Repair and lock dependency versions that install on Python 3.11, then rerun the complete quality gate there.
-3. Run pilot-only trajectories to choose reward scaling and a dominated hypervolume reference point.
-4. Freeze those values in a versioned protocol before final runs.
-5. Validate GPI-LS in the supported Python 3.11 environment with native `libcdd-dev` available.
-6. Behaviorally validate that each enabled dynamics shift changes the intended transition distribution.
+1. Repair and lock dependency versions that install on Python 3.11, then rerun the complete quality gate there.
+2. Run pilot-only trajectories to choose reward scaling and a dominated hypervolume reference point.
+3. Freeze those values in a versioned protocol before final runs.
+4. Validate GPI-LS in the supported Python 3.11 environment with native `libcdd-dev` available.
+5. Behaviorally validate that each enabled dynamics shift changes the intended transition distribution.
 
 ### Before course conclusions
 
@@ -80,8 +79,7 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 ## Next execution sequence
 
 ```text
-resolve Phase 1 full-text gate
-  -> dependency validation
+dependency validation
   -> pilot runs
   -> freeze scale/reference point
   -> smoke the frozen protocol

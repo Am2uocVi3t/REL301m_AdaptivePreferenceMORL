@@ -25,3 +25,11 @@ Append one section per search session. Search primary or authoritative sources, 
 - Citation chaining performed: backward/forward conceptual chaining from GPI-LS and PGMORL to conditioned MORL; from disagreement/progress/recency mechanisms to VDS, ALP-GMM, CURIOUS, and PLR; recent-source search added MORL-Generalization, HPR, C-MORL, and PCRL.
 - Papers registered: 15 total; 14 full-text `read`, CAPQL `screened` with `abstract_only` evidence and `full_text_required: true`.
 - Negative search result and limitations: no primary source found that exactly combines the four registered signals in a factorial preference-conditioned MORL study. This is not proof of absence. CAPQL's full text could not be retrieved legally because OpenReview download/API endpoints returned an access challenge/HTTP 403 and no authorized alternative copy was located.
+
+### 2026-10-15 — CAPQL user-supplied full-text follow-up
+
+- Research question or claim IDs: `combined-allocation`; possible equivalence to adaptive preference scheduling.
+- Source checked: user-supplied ICLR 2023 proceedings PDF corresponding to the registered OpenReview record.
+- Provenance: local Git-ignored copy `research/literature/pdfs/lu2023capql.pdf`; SHA-256 `5412e729244b633a573585bc4a03fe529fef60288e344dc899ddc44d9b8f09c3`.
+- Finding: CAPQL samples preferences from a fixed distribution `Dφ` and trains conditioned SAC-style Q/policy networks with entropy-based concave reward augmentation. It does not adapt preference allocation using gap, uncertainty, coverage/recency, or learning progress.
+- Registry outcome: evidence raised from `abstract_only` to `full_text`, access recorded as `user_supplied`, and paper status raised from `screened` to `read`.

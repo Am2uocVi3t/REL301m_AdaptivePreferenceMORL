@@ -11,17 +11,17 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-14T20:11:36+00:00
+Snapshot generated: 2026-10-14T20:20:24+00:00
 Expected working branch at generation: feature/ai-research-harness
-Expected commit at generation: b513d31
+Expected commit at generation: e5a2286
 Working tree dirty at generation: yes
-Current phase: phase-1 — Claim and antecedent mapping (active)
+Current phase: phase-2 — Pilot calibration and protocol freeze (active)
 Publication state: no multi-seed empirical claim established
 
 Roadmap:
 - phase-0 [complete]: Foundation and scientific repair
-- phase-1 [active]: Claim and antecedent mapping
-- phase-2 [not_started]: Pilot calibration and protocol freeze
+- phase-1 [complete]: Claim and antecedent mapping
+- phase-2 [active]: Pilot calibration and protocol freeze
 - phase-3 [not_started]: Mechanism diagnostics
 - phase-4 [not_started]: Paired-seed course experiment matrix
 - phase-5 [not_started]: Course paper
@@ -52,7 +52,7 @@ Literature queue:
 - yang2019envelope [read; full_text; access=open_full_text]: A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation
 - xu2020pgmorl [read; full_text; access=open_full_text]: Prediction-Guided Multi-Objective Reinforcement Learning for Continuous Robot Control
 - reymond2022pcn [read; full_text; access=open_full_text]: Pareto Conditioned Networks
-- lu2023capql [screened; abstract_only; access=blocked]: Multi-Objective Reinforcement Learning: Convexity, Stationarity and Pareto Optimality
+- lu2023capql [read; full_text; access=user_supplied]: Multi-Objective Reinforcement Learning: Convexity, Stationarity and Pareto Optimality
 - basaklar2023pdmorl [read; full_text; access=open_full_text]: PD-MORL: Preference-Driven Multi-Objective Reinforcement Learning Algorithm
 - alegre2023gpi-prioritization [read; full_text; access=open_full_text]: Sample-Efficient Multi-Objective Learning via Generalized Policy Improvement Prioritization
 - zhang2020value-disagreement [read; full_text; access=open_full_text]: Automatic Curriculum Learning through Value Disagreement
@@ -65,7 +65,7 @@ Literature queue:
 - yang2025pcrl [read; full_text; access=open_full_text]: Preference Controllable Reinforcement Learning with Advanced Multi-Objective Optimization
 
 Full-text requests for the user:
-- lu2023capql: Multi-Objective Reinforcement Learning: Convexity, Stationarity and Pareto Optimality — https://openreview.net/forum?id=TjEzIsyEsQ6 — OpenReview abstract/index checked 2026-10-15. Direct PDF, attachment, and API endpoints returned an access challenge/HTTP 403; no legal alternative copy was found. Request uploaded PDF or authorized link.
+- None currently registered.
 
 Active experiments:
 - pilot-protocol-freeze [planned]: Pilot-only reward-scale and hypervolume-reference calibration
@@ -73,19 +73,18 @@ Active experiments:
 
 Open blockers:
 - Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime.
-- Obtain a legal full-text copy of CAPQL; OpenReview PDF endpoints are blocked by an access challenge and no alternative authorized copy was found.
 - Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence.
 - Validate GPI-LS under Python 3.11 with native cddlib headers.
 - Behaviorally validate that every enabled dynamics shift changes the intended transitions.
 - Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
 
 Latest closed-session summary:
-Formalized an evidence-gated Phase 0-7 roadmap and integrated it into the standard-library research harness, status, handoff, schemas, tests, workflow, and memory. Registered 15 primary/authoritative antecedents: 14 full-text readings and one CAPQL abstract-only access blocker. Added claim-level closest antecedents, bounded novelty verdicts, differentiating experiments, and falsifiers. The full suite passed 39 tests on the available CPU host environment, and 18 harness tests passed on Python 3.11.17. No large experiment or final-test evaluation ran, and no empirical performance claim was made.
+Resolved the CAPQL full-text blocker using the user-supplied ICLR 2023 PDF. Moved the PDF from the repository root to the Git-ignored local literature directory, recorded its SHA-256 provenance, completed the structured full-text note, and marked all 15 registered papers read. Full-text analysis confirms CAPQL samples weights from a fixed distribution and does not implement outcome-dependent preference allocation. Phase 1 exit criteria are now met, so Phase 1 was completed and Phase 2 activated. Full verification still passes with 39 tests, plus 18 harness tests on Python 3.11.17. No experiment or final-test evaluation ran, and no empirical claim was promoted.
 
 Next actions:
-1. Obtain an uploaded or authorized CAPQL full text and complete its mechanism note.
-2. Review and approve the Phase 1 antecedent and novelty judgments, then close the phase or explicitly exclude CAPQL.
-3. Repair Python 3.11 dependency pins and rerun the full quality gate before pilot calibration.
+1. Repair Python 3.11 dependency pins and rerun the full quality gate before pilot execution.
+2. Design and review pilot-only reward-scale and hypervolume-reference calibration runs.
+3. Freeze analysis-sensitive quantities and the course experiment matrix without final-test feedback.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

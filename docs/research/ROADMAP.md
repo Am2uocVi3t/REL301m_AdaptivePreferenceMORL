@@ -17,9 +17,9 @@ The machine-readable source is `research/roadmap.json`; this document explains h
 
 ## Current gate
 
-Phase 1 is active. The roadmap contract, literature registry, and antecedent map are complete. CAPQL remains `screened` because the legal full text could not be retrieved from OpenReview or an alternative authorized source. Phase 2 is therefore a no-go until that essential gap is resolved or explicitly excluded after review.
+Phase 1 is complete. All 15 essential papers have full-text notes, every claim has an antecedent/verdict/falsifier, and the CAPQL access gap was resolved with a user-supplied ICLR 2023 PDF. Phase 2 is active.
 
-A separate P0 execution blocker was found during verification: the pinned NumPy version requires Python 3.12+, conflicting with the declared Python 3.11 runtime. It must be repaired and fully verified before pilot execution.
+Phase 2 remains a no-go for pilot execution until the P0 dependency mismatch is repaired: the pinned NumPy version requires Python 3.12+, conflicting with the declared Python 3.11 runtime. Pilot-only reward scaling and hypervolume reference-point calibration must then be designed and reviewed before those quantities are frozen.
 
 ## Operating rules
 

@@ -135,12 +135,12 @@
       "year": 2023,
       "venue": "ICLR 2023",
       "source_type": "peer-reviewed",
-      "status": "screened",
-      "access_status": "blocked",
-      "evidence_level": "abstract_only",
-      "full_text_required": true,
-      "access_note": "OpenReview abstract/index checked 2026-10-15. Direct PDF, attachment, and API endpoints returned an access challenge/HTTP 403; no legal alternative copy was found. Request uploaded PDF or authorized link.",
-      "access_checked_at": "2026-10-14T19:59:58+00:00",
+      "status": "read",
+      "access_status": "user_supplied",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "User-supplied ICLR 2023 PDF checked in full on 2026-10-15; Git-ignored local copy research/literature/pdfs/lu2023capql.pdf; SHA-256 5412e729244b633a573585bc4a03fe529fef60288e344dc899ddc44d9b8f09c3.",
+      "access_checked_at": "2026-10-14T20:19:04+00:00",
       "url": "https://openreview.net/forum?id=TjEzIsyEsQ6",
       "tags": [
         "morl",
@@ -151,7 +151,7 @@
       ],
       "note": "research/literature/notes/lu2023capql.md",
       "added_at": "2026-10-14T19:56:15+00:00",
-      "updated_at": "2026-10-14T19:59:59+00:00"
+      "updated_at": "2026-10-14T20:19:04+00:00"
     },
     {
       "id": "basaklar2023pdmorl",
