@@ -7,6 +7,7 @@ num_bootstrap_heads: 3
 learning_rate: 0.0003
 batch_size: 256
 buffer_size: 200000
+bootstrap_probability: 0.8
 target_update_freq: 1000
 tau: 0.005  # For Polyak / soft update
 gamma: 0.99
@@ -20,4 +21,5 @@ epsilon_decay_steps: 100000
 total_timesteps: 500000
 checkpoint_freq: 50000
 eval_freq: 20000
-eval_episodes: 20
+validation_eval_episodes: 3
+final_eval_episodes: 30
