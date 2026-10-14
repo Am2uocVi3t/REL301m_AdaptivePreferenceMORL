@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "project": "Preference Allocation in Preference-Conditioned MORL",
+  "phase": "course pilot preparation",
+  "publication_state": "no multi-seed empirical claim established",
+  "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
+  "working_branch": "feature/ai-research-harness",
+  "updated_at": "2026-10-14T19:24:33+00:00",
+  "canonical_documents": {
+    "project_status": "docs/research/PROJECT_STATUS.md",
+    "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
+    "architecture": "docs/ARCHITECTURE.md",
+    "proposal": "docs/proposal/REL301m_Research_Project_Proposal_MORL_V2.md"
+  },
+  "open_blockers": [
+    {
+      "id": "freeze-pilot-quantities",
+      "status": "open",
+      "severity": "P0",
+      "description": "Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence."
+    },
+    {
+      "id": "validate-gpi-ls",
+      "status": "open",
+      "severity": "P1",
+      "description": "Validate GPI-LS under Python 3.11 with native cddlib headers."
+    },
+    {
+      "id": "validate-shifts",
+      "status": "open",
+      "severity": "P1",
+      "description": "Behaviorally validate that every enabled dynamics shift changes the intended transitions."
+    },
+    {
+      "id": "run-course-matrix",
+      "status": "open",
+      "severity": "P1",
+      "description": "Run paired controls, signal ablations, and compatible close baselines after freezing the protocol."
+    }
+  ],
+  "next_actions": [
+    "Review, commit, and publish the stacked harness branch after PR #4.",
+    "Populate the literature registry from primary sources and map antecedents to claim IDs.",
+    "Validate Python 3.11 plus GPI-LS, then run pilot-only protocol calibration."
+  ],
+  "last_session_summary": "Implemented a dependency-free Git-native research harness with versioned claim, literature, experiment, and session registries; generated cross-chat handoff; full project suite reached 32 passing tests; no empirical performance claim was made."
+}

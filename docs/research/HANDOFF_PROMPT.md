@@ -1,0 +1,71 @@
+# Cross-Chat Research Handoff
+
+Copy the complete prompt below into a new chat.
+
+```text
+You are continuing the REL301m Adaptive Preference MORL research project.
+
+Before acting:
+1. Read `AGENTS.md`, `.agents/memory/MEMORY.md`, and `docs/research/PROJECT_STATUS.md`.
+2. Run `python scripts/research_harness.py doctor` and `python scripts/research_harness.py status`.
+3. Run `git status --short --branch`; do not overwrite unrelated changes.
+4. Read the relevant protocol/config/code directly before making scientific claims.
+
+Snapshot generated: 2026-10-14T19:24:33+00:00
+Expected working branch at generation: feature/ai-research-harness
+Expected commit at generation: de43ff9
+Working tree dirty at generation: yes
+Current phase: course pilot preparation
+Publication state: no multi-seed empirical claim established
+
+Research question:
+Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?
+
+Source precedence:
+1. Executed tests and versioned raw-result artifacts.
+2. Code and protocol/config files.
+3. Machine-readable registries under `research/`, `docs/research/PROJECT_STATUS.md`, and `docs/ARCHITECTURE.md`.
+4. Editable proposal v2.
+5. Other Markdown documents.
+6. Original submitted proposal PDF (historical only).
+
+Active claims:
+- conditioning-gap-allocation [implemented]: Empirical conditioning gap identifies weak preference regions
+- disagreement-allocation [implemented]: Masked-ensemble disagreement identifies useful allocation regions
+- coverage-recency-allocation [implemented]: Local coverage and recency improve preference allocation
+- learning-progress-allocation [hypothesis]: Observed learning progress is a better allocation target than difficulty or uncertainty
+- combined-allocation [hypothesis]: Combining gap, disagreement, coverage/recency, and progress improves sample efficiency
+- environment-shift-robustness [hypothesis]: Adaptive preference allocation affects robustness under dynamics shift
+
+Literature queue:
+- No papers registered yet. Add primary sources before making novelty claims.
+
+Active experiments:
+- pilot-protocol-freeze [planned]: Pilot-only reward-scale and hypervolume-reference calibration
+- course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
+
+Open blockers:
+- Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence.
+- Validate GPI-LS under Python 3.11 with native cddlib headers.
+- Behaviorally validate that every enabled dynamics shift changes the intended transitions.
+- Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
+
+Latest closed-session summary:
+Implemented a dependency-free Git-native research harness with versioned claim, literature, experiment, and session registries; generated cross-chat handoff; full project suite reached 32 passing tests; no empirical performance claim was made.
+
+Next actions:
+1. Review, commit, and publish the stacked harness branch after PR #4.
+2. Populate the literature registry from primary sources and map antecedents to claim IDs.
+3. Validate Python 3.11 plus GPI-LS, then run pilot-only protocol calibration.
+
+Non-negotiable scientific guardrails:
+- Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
+- Do not use final-test data for tuning, normalization, reference points, or checkpoint selection.
+- Separate preference generalization from environment/dynamics generalization.
+- Match interaction, update, diagnostic-evaluation, final-evaluation, and tuning budgets.
+- Literature: use primary sources; log queries; register metadata/BibTeX; complete notes; never commit PDFs.
+- End substantial sessions with `python scripts/research_harness.py session close ... --write-handoff`.
+
+User request for this new session:
+[PASTE THE NEW REQUEST HERE]
+```

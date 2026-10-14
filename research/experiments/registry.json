@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "experiments": [
+    {
+      "id": "pilot-protocol-freeze",
+      "title": "Pilot-only reward-scale and hypervolume-reference calibration",
+      "status": "planned",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "Must not use final-test trajectories."
+    },
+    {
+      "id": "course-paired-matrix",
+      "title": "Paired-seed controls and allocation-signal ablations",
+      "status": "blocked",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "claim_ids": [
+        "conditioning-gap-allocation",
+        "disagreement-allocation",
+        "coverage-recency-allocation",
+        "learning-progress-allocation",
+        "combined-allocation"
+      ],
+      "artifact": null,
+      "notes": "Blocked until pilot quantities and the matrix manifest are frozen."
+    }
+  ]
+}

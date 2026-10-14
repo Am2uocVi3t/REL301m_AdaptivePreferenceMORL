@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "queries": [
+    "multi-objective reinforcement learning adaptive preference sampling",
+    "MORL adaptive weight vector selection Pareto archive",
+    "preference-conditioned MORL curriculum learning",
+    "MORL hypervolume-guided preference selection",
+    "MORL uncertainty-guided preference sampling",
+    "single-policy MORL weight allocation",
+    "unseen preference generalization MORL",
+    "environment generalization dynamics shift MORL",
+    "joint preference and environment generalization MORL",
+    "controllability preference-conditioned MORL",
+    "hindsight preference replay MORL",
+    "automatic curriculum value disagreement reinforcement learning",
+    "prioritized level replay coverage staleness curriculum"
+  ]
+}

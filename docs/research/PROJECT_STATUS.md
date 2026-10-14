@@ -4,6 +4,8 @@ Last verified: **2026-10-15**
 Current phase: **course pilot preparation**
 Publication state: **no multi-seed empirical claim established**
 
+Cross-chat workflow: **Git-native research harness implemented and verified**
+
 ## Research direction
 
 The current defensible question is not whether preference-conditioned MORL or adaptive weight selection is new. The project asks which signal—conditioning gap, masked-ensemble disagreement, local coverage/recency, or observed learning progress—best predicts and improves future performance in weak preference regions under matched budgets.
@@ -21,12 +23,14 @@ The editable proposal v2 and executable repository now describe the same control
 - Safe checkpoint loading, fixed-preference evaluation, deterministic metrics, raw-result output, and dependency/Git hashes.
 - Paired-seed matrix generation and execution with resumable per-job status.
 - Constructor-level LunarLander shift construction; unsupported Minecart shifts fail explicitly.
+- Standard-library research CLI for project health, claim status, literature metadata/BibTeX, experiment registration, append-only session closure, and generated handoff prompts.
+- Versioned JSON research registries and schemas with semantic gates for completed reading, experiment artifacts, and empirically supported claims.
 
 ## Verification evidence
 
 The following passed on the current working tree on 2026-10-15:
 
-- `pytest -q`: 21 tests passed.
+- `pytest -q`: 32 tests passed, including 11 research-harness tests.
 - Ruff formatting and lint checks.
 - MyPy over `src` and `scripts`.
 - Bandit medium/high severity scan over `src` and `scripts`.
@@ -36,6 +40,8 @@ The following passed on the current working tree on 2026-10-15:
 - A real 20-step matrix job completed and wrote its final checkpoint and manifest status.
 
 These checks establish executable integration and local scientific invariants. They do not establish convergence, superiority, calibration, robustness, or publication readiness.
+
+The research CLI deliberately runs without third-party dependencies, so a fresh chat can execute `doctor` and `status` before installing the RL stack. Literature PDFs and large experiment artifacts remain outside Git; metadata, structured notes, schemas, and provenance are versioned.
 
 ## Open blockers
 
@@ -74,6 +80,10 @@ dependency validation
   -> run final test once
   -> write evidence-bounded conclusions
 ```
+
+## Cross-chat handoff
+
+Start a fresh chat with the complete code block in `docs/research/HANDOFF_PROMPT.md`. The prompt is generated from the registries and latest append-only session entry. Always compare its Git snapshot with the live worktree; regenerate it after a substantial session with `session close --write-handoff`.
 
 ## Historical note
 

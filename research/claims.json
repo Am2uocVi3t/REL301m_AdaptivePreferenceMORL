@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "claims": [
+    {
+      "id": "conditioning-gap-allocation",
+      "title": "Empirical conditioning gap identifies weak preference regions",
+      "status": "implemented",
+      "confidence": "low",
+      "evidence": ["src/curriculum/gap.py", "scripts/train.py"],
+      "antecedents": [],
+      "differentiating_experiment": "Correlate the score at time t with held-out future utility improvement at t+k.",
+      "allowed_wording": "The repository implements an empirical conditioning-gap allocation signal; predictive value is unvalidated."
+    },
+    {
+      "id": "disagreement-allocation",
+      "title": "Masked-ensemble disagreement identifies useful allocation regions",
+      "status": "implemented",
+      "confidence": "low",
+      "evidence": ["src/curriculum/uncertainty.py", "src/models/update.py"],
+      "antecedents": [],
+      "differentiating_experiment": "Measure uncertainty calibration and future-improvement correlation against compute-matched random allocation.",
+      "allowed_wording": "Masked head disagreement is implemented as a candidate allocation signal, not established epistemic uncertainty."
+    },
+    {
+      "id": "coverage-recency-allocation",
+      "title": "Local coverage and recency improve preference allocation",
+      "status": "implemented",
+      "confidence": "low",
+      "evidence": ["src/curriculum/sampler.py"],
+      "antecedents": [],
+      "differentiating_experiment": "Compare coverage-only and recency-aware variants across pool size and front geometry.",
+      "allowed_wording": "The sampler includes local coverage and recency signals whose empirical benefit remains unknown."
+    },
+    {
+      "id": "learning-progress-allocation",
+      "title": "Observed learning progress is a better allocation target than difficulty or uncertainty",
+      "status": "hypothesis",
+      "confidence": "low",
+      "evidence": ["src/curriculum/sampler.py", "scripts/train.py"],
+      "antecedents": [],
+      "differentiating_experiment": "Compare lagged progress-only allocation with gap-only, disagreement-only, and matched random controls.",
+      "allowed_wording": "We test whether observed learning progress is more predictive than difficulty or disagreement."
+    },
+    {
+      "id": "combined-allocation",
+      "title": "Combining gap, disagreement, coverage/recency, and progress improves sample efficiency",
+      "status": "hypothesis",
+      "confidence": "low",
+      "evidence": ["src/curriculum/sampler.py", "scripts/train.py"],
+      "antecedents": [],
+      "differentiating_experiment": "Run every signal-only, pairwise, full, uniform, and compute-matched random ablation under paired seeds.",
+      "allowed_wording": "The study evaluates a combined allocation rule assembled from familiar signals; no novelty or superiority is claimed yet."
+    },
+    {
+      "id": "environment-shift-robustness",
+      "title": "Adaptive preference allocation affects robustness under dynamics shift",
+      "status": "hypothesis",
+      "confidence": "low",
+      "evidence": ["src/envs/shift.py", "scripts/evaluate.py"],
+      "antecedents": [],
+      "differentiating_experiment": "Evaluate locked checkpoints on nominal and predeclared OOD shifts without using OOD test results for tuning.",
+      "allowed_wording": "Environment-shift robustness is a separate evaluation question from unseen-preference generalization."
+    }
+  ]
+}
