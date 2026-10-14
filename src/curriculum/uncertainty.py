@@ -1,17 +1,19 @@
-import torch
 import numpy as np
+import torch
+
 from src.models.q_network import VectorQNetwork
+
 
 def compute_bootstrap_uncertainty(
     q_network: VectorQNetwork,
     states_batch: torch.Tensor,
     preference: np.ndarray,
-    device: str = "cpu"
+    device: str = "cpu",
 ) -> float:
     """
-    Computes Bootstrap Ensemble Uncertainty u(w) as defined in Eq. (12):
+    Computes masked multi-head disagreement u(w):
     u(w) = E_{s ~ B} [ Var_{k=1}^K ( w^T Q_{theta_k}(s, a_k^*, w) ) ]
-    
+
     Args:
         q_network: VectorQNetwork with K bootstrap heads
         states_batch: Tensor of sampled states [B, state_dim]
@@ -20,14 +22,15 @@ def compute_bootstrap_uncertainty(
     Returns:
         uncertainty: Scalar float indicating epistemic variance across heads
     """
+    was_training = q_network.training
     q_network.eval()
     with torch.no_grad():
         B = states_batch.size(0)
         w_tensor = torch.as_tensor(preference, dtype=torch.float32, device=device).unsqueeze(0).repeat(B, 1)
-        
+
         # Forward pass: shape [K, B, action_dim, reward_dim]
         all_q = q_network(states_batch.to(device), w_tensor)
-        K, _, action_dim, reward_dim = all_q.shape
+        K = all_q.shape[0]
 
         if K <= 1:
             return 0.0
@@ -45,4 +48,5 @@ def compute_bootstrap_uncertainty(
         # Expectation over sampled batch of states
         uncertainty = torch.mean(variance_per_state).item()
 
+    q_network.train(was_training)
     return float(uncertainty)

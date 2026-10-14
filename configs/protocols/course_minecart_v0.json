@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "course-minecart-v0",
+  "env_id": "minecart-v0",
+  "reward_dim": 3,
+  "return_definition": {"type": "discounted", "gamma": 0.99},
+  "reward_scale": [1.0, 1.0, 1.0],
+  "reference_point": null,
+  "reference_point_status": "pilot_required_before_final_test",
+  "training_preference_pool": {"generator": "anchors_plus_dirichlet", "seed": 20261001, "count": 32},
+  "preference_splits": {
+    "validation": {"generator": "dirichlet", "alpha": 1.0, "seed": 20261016, "count": 32},
+    "test": {"generator": "dirichlet", "alpha": 1.0, "seed": 20261202, "count": 100}
+  }
+}

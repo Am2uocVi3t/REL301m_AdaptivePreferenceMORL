@@ -1,14 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from typing import Dict, List, Optional
+
 
 def plot_pareto_front_2d(
-    methods_points: Dict[str, np.ndarray],
+    methods_points: dict[str, np.ndarray],
     dim_x: int = 0,
     dim_y: int = 1,
-    labels: Optional[List[str]] = None,
+    labels: list[str] | None = None,
     title: str = "Pareto Frontier Comparison",
-    save_path: Optional[str] = None
+    save_path: str | None = None,
 ):
     """
     Plots 2D projection of Pareto Frontiers for LaTeX paper report.

@@ -18,10 +18,10 @@ Dự án có 3 nhánh chức năng chính (`feat/*`) tương ứng với 3 nhi�
 
 ## 🔒 2. Quy Tắc Phê Duyệt Pull Request (2-Approvals Merge Rule)
 
-Để đảm bảo chất lượng code cao nhất và bảo vệ nhánh `main` luôn ở trạng thái sẵn sàng chạy thực nghiệm (production-ready):
+Để bảo vệ nhánh `main` ở trạng thái tích hợp ổn định. Việc merge vào `main` không tự động chứng minh rằng code đã sẵn sàng chạy thực nghiệm hoặc các claim khoa học đã được xác nhận:
 
 ### 2.1. Quy tắc Bắt buộc: "2 People Must Approve Before Merge"
-> ⚠️ **ĐIỀU KIỆN TIÊN QUYẾT ĐỂ MERGE VÀO `main`:**  
+> ⚠️ **ĐIỀU KIỆN TIÊN QUYẾT ĐỂ MERGE VÀO `main`:**
 > Một Pull Request (PR) từ nhánh chức năng chỉ được phép bấm **Merge** vào `main` khi và chỉ khi **CẢ 2 THÀNH VIÊN TRỰC TIẾP PHỤ TRÁCH NHÁNH ĐÓ ĐÃ REVIEW VÀ NHẤN "APPROVE"** trên GitHub.
 
 * **Ví dụ 1:** Khi nhánh `feat/algorithm-curriculum` muốn merge vào `main`:

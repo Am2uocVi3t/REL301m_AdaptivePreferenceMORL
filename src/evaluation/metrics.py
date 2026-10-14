@@ -1,93 +1,125 @@
+from __future__ import annotations
+
 import numpy as np
-from typing import Dict, Union, List
-from src.core.pareto_archive import dominates
+
 
 def pareto_prune(points: np.ndarray) -> np.ndarray:
-    """
-    Filters a set of multidimensional points to retain only the non-dominated Pareto frontier.
-    Args:
-        points: Array of shape [N, d]
-    Returns:
-        non_dominated_points: Array of shape [M, d] where M <= N
-    """
-    if len(points) == 0:
-        return np.empty((0, points.shape[1] if points.ndim > 1 else 0), dtype=np.float32)
+    values = np.asarray(points, dtype=np.float32)
+    if values.size == 0:
+        width = values.shape[1] if values.ndim == 2 else 0
+        return np.empty((0, width), dtype=np.float32)
+    if values.ndim != 2:
+        raise ValueError("points must have shape [N, objectives]")
 
-    pts = np.asarray(points, dtype=np.float32)
-    is_efficient = np.ones(pts.shape[0], dtype=bool)
+    values = np.unique(values, axis=0)
+    keep = np.ones(len(values), dtype=bool)
+    for index, candidate in enumerate(values):
+        if not keep[index]:
+            continue
+        dominates_candidate = np.all(values >= candidate, axis=1) & np.any(values > candidate, axis=1)
+        keep[index] = not np.any(dominates_candidate)
+    return values[keep]
 
-    for i, c in enumerate(pts):
-        if is_efficient[i]:
-            # Keep any point with a component strictly greater, or equal in all components
-            is_efficient[is_efficient] = ~np.array([
-                dominates(c, other) for other in pts[is_efficient]
-            ])
-            is_efficient[i] = True  # Keep self
-
-    return pts[is_efficient]
 
 def compute_hypervolume(points: np.ndarray, ref_point: np.ndarray) -> float:
-    """
-    Computes Hypervolume dominated by points with respect to ref_point.
-    """
-    points = pareto_prune(points)
-    if len(points) == 0:
+    """Compute deterministic maximization hypervolume."""
+    frontier = pareto_prune(points)
+    reference = np.asarray(ref_point, dtype=np.float32)
+    if frontier.size == 0:
         return 0.0
+    if frontier.shape[1] != len(reference):
+        raise ValueError("Reference point dimension does not match the points")
 
-    ref = np.asarray(ref_point, dtype=np.float32)
-    # Filter points that dominate or are at least equal to ref_point
-    valid_points = points[np.all(points >= ref, axis=1)]
-    if len(valid_points) == 0:
+    valid = frontier[np.all(frontier >= reference, axis=1)]
+    if valid.size == 0:
         return 0.0
+    if valid.shape[1] == 2:
+        return _hypervolume_2d(valid, reference)
 
     try:
-        from morl_baselines.common.evaluation import hypervolume
-        return float(hypervolume(ref, valid_points))
-    except (ImportError, Exception):
-        # Fallback 2D calculation if morl_baselines is not installed
-        if valid_points.shape[1] == 2:
-            sorted_pts = valid_points[np.argsort(valid_points[:, 0])]
-            hv = 0.0
-            last_y = ref[1]
-            for pt in reversed(sorted_pts):
-                if pt[1] > last_y:
-                    hv += (pt[0] - ref[0]) * (pt[1] - last_y)
-                    last_y = pt[1]
-            return float(hv)
-        # Approximate Monte Carlo hypervolume for d >= 3
-        mins = ref
-        maxs = np.max(valid_points, axis=0)
-        n_samples = 10000
-        samples = np.random.uniform(mins, maxs, size=(n_samples, len(ref)))
-        dominated_count = np.sum([np.any(np.all(valid_points >= s, axis=1)) for s in samples])
-        box_vol = np.prod(maxs - mins)
-        return float((dominated_count / n_samples) * box_vol)
+        from pymoo.indicators.hv import HV
+
+        indicator = HV(ref_point=-reference)
+        return float(indicator(-valid))
+    except ImportError as error:
+        raise RuntimeError("Deterministic hypervolume for three or more objectives requires pymoo") from error
+
+
+def _hypervolume_2d(points: np.ndarray, reference: np.ndarray) -> float:
+    frontier = pareto_prune(points)
+    frontier = frontier[np.argsort(frontier[:, 0])]
+    area = 0.0
+    previous_x = float(reference[0])
+    for point in frontier:
+        width = float(point[0] - previous_x)
+        height = float(point[1] - reference[1])
+        if width > 0.0 and height > 0.0:
+            area += width * height
+        previous_x = max(previous_x, float(point[0]))
+    return area
+
+
+def normalize_returns(
+    returns: np.ndarray,
+    lower_bounds: np.ndarray,
+    upper_bounds: np.ndarray,
+) -> np.ndarray:
+    values = np.asarray(returns, dtype=np.float32)
+    lower = np.asarray(lower_bounds, dtype=np.float32)
+    upper = np.asarray(upper_bounds, dtype=np.float32)
+    scale = upper - lower
+    if np.any(scale <= 0.0):
+        raise ValueError("Every normalization upper bound must exceed its lower bound")
+    return (values - lower) / scale
+
+
+def compute_expected_utility(agent_returns: np.ndarray, preferences: np.ndarray) -> float:
+    returns = np.asarray(agent_returns, dtype=np.float32)
+    weights = np.asarray(preferences, dtype=np.float32)
+    if returns.shape != weights.shape:
+        raise ValueError("agent_returns and preferences must have the same shape")
+    return float(np.mean(np.sum(returns * weights, axis=1)))
+
 
 def compute_scalarized_regret(
     agent_returns: np.ndarray,
     reference_front: np.ndarray,
-    preferences: np.ndarray
-) -> Dict[str, float]:
-    """
-    Computes Scalarized Regret across a test set of preferences (Eq. in Section 6.3):
-    Regret(w) = max_{v in A*} w^T v - w^T v_{pi(w)}
-    
-    Args:
-        agent_returns: [N_pref, d] returns achieved by policy on each preference
-        reference_front: [M, d] empirical Pareto reference front
-        preferences: [N_pref, d] test preference vectors
-    Returns:
-        dict containing 'mean_regret', 'worst_decile_regret' (90th percentile), and 'max_regret'
-    """
-    regrets = []
-    for w, ret in zip(preferences, agent_returns):
-        optimal_val = np.max(np.dot(reference_front, w))
-        actual_val = np.dot(ret, w)
-        regrets.append(max(0.0, float(optimal_val - actual_val)))
+    preferences: np.ndarray,
+) -> dict[str, float]:
+    returns = np.asarray(agent_returns, dtype=np.float32)
+    reference = np.asarray(reference_front, dtype=np.float32)
+    weights = np.asarray(preferences, dtype=np.float32)
+    if reference.size == 0:
+        raise ValueError("reference_front cannot be empty")
+    if returns.shape != weights.shape:
+        raise ValueError("agent_returns and preferences must have the same shape")
 
-    regrets = np.array(regrets, dtype=np.float32)
+    optimal = np.max(weights @ reference.T, axis=1)
+    actual = np.sum(weights * returns, axis=1)
+    regrets = np.maximum(0.0, optimal - actual)
+    tail_start = max(1, int(np.ceil(0.1 * len(regrets))))
+    worst_tail = np.sort(regrets)[-tail_start:]
     return {
-        "mean_regret": float(np.mean(regrets)),
-        "worst_decile_regret": float(np.percentile(regrets, 90)),
-        "max_regret": float(np.max(regrets)),
+        "mean_regret": float(regrets.mean()),
+        "worst_decile_regret": float(np.quantile(regrets, 0.9)),
+        "cvar_10_regret": float(worst_tail.mean()),
+        "max_regret": float(regrets.max()),
     }
+
+
+def compute_igd(points: np.ndarray, reference_front: np.ndarray) -> float:
+    frontier = pareto_prune(points)
+    reference = pareto_prune(reference_front)
+    if frontier.size == 0 or reference.size == 0:
+        raise ValueError("Both fronts must contain at least one point")
+    distances = np.linalg.norm(reference[:, None, :] - frontier[None, :, :], axis=-1)
+    return float(np.mean(np.min(distances, axis=1)))
+
+
+def compute_sparsity(points: np.ndarray) -> float:
+    frontier = pareto_prune(points)
+    if len(frontier) < 2:
+        return 0.0
+    pairwise = np.linalg.norm(frontier[:, None, :] - frontier[None, :, :], axis=-1)
+    np.fill_diagonal(pairwise, np.inf)
+    return float(np.mean(np.min(pairwise, axis=1)))

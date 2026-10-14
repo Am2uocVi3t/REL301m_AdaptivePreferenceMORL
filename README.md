@@ -1,144 +1,143 @@
-# Adaptive Preference Curriculum for Zero-Shot Multi-Objective Reinforcement Learning under Environment Shift
+# Preference Allocation in Preference-Conditioned MORL
 
-[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Course: REL301m](https://img.shields.io/badge/Course-REL301m--FPTU-orange.svg)]()
-[![Framework: MO--Gymnasium](https://img.shields.io/badge/Framework-MO--Gymnasium-green.svg)](https://mo-gymnasium.farama.org/)
+REL301m course research project, Fall 2026.
 
-> **Đồ án cuối kỳ môn Học tăng cường (Reinforcement Learning - REL301m)**  
-> **Trường Đại học FPT TP. Hồ Chí Minh — Học kỳ Fall 2026**
+**Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 
----
+New contributors and coding agents should start with [`AGENTS.md`](AGENTS.md), then read the [current project status](docs/research/PROJECT_STATUS.md). The [documentation map](docs/README.md) identifies the authoritative document for each concern.
 
-## 📌 1. Giới thiệu tổng quan (Project Overview)
+## Research question
 
-Trong các bài toán RL truyền thống, hàm reward thường là một giá trị vô hướng (scalar). Khi một bài toán có nhiều mục tiêu xung đột (ví dụ: hạ cánh an toàn vs. tiết kiệm nhiên liệu vs. thời gian bay), việc cố định trọng số $\lambda$ buộc người thiết kế phải huấn luyện lại toàn bộ mô hình mỗi khi ưu tiên thay đổi.
+Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?
 
-Dự án này tập trung vào bài toán **Multi-Objective Reinforcement Learning (MORL)** với mục tiêu:
-1. **Huấn luyện một Preference-Conditioned Policy duy nhất** $\pi_\theta(a \mid s, \mathbf{w})$ có thể tức thời thích nghi với vector ưu tiên $\mathbf{w}$ bất kỳ từ người dùng mà không cần tái huấn luyện (*zero-shot adaptation*).
-2. **Đề xuất cơ chế Adaptive Preference Curriculum**: Tự động phân bổ dữ liệu huấn luyện vào các vùng preference mà agent đang yếu (dựa vào *Conditioning Gap* so với Pareto Archive), có độ bất định cao (*Bootstrap Uncertainty*), hoặc ít được khám phá (*Coverage/Recency*).
-3. **Đánh giá tính bền vững (Robustness)** khi môi trường có sự thay đổi động lực học (*Environment/Dynamics Shift*: trọng lực, gió, lực cản, ma sát, phân bố quặng...).
+The project studies these signals rather than claiming that preference-conditioned policies or adaptive weight selection are new. See the editable [revised protocol](docs/proposal/REL301m_Research_Project_Proposal_MORL_V2.md). The [original submitted PDF](docs/proposal/REL301m_Research_Project_Proposal_MORL_VI.pdf) is retained as an immutable record.
 
----
+## Implemented versus planned
 
-## 👥 2. Thành viên nhóm & Phân công ghép cặp (Team & Pair Matrix)
+| Capability | Status |
+|---|---|
+| Preference-conditioned vector Q-network | Implemented; unit tested |
+| Per-head Double-DQN targets | Implemented; analytic unit test |
+| Behavior preference and termination-aware replay | Implemented; unit tested |
+| Masked multi-head replay diversity | Implemented; calibration not yet established |
+| Empirical conditioning gap | Implemented; requires curriculum rollouts |
+| Local coverage, recency, and learning progress | Implemented; empirical value unvalidated |
+| Fixed validation/test preference manifests | Implemented |
+| Checkpoint evaluation and raw-result provenance | Implemented; end-to-end smoke tested |
+| LunarLander constructor-level shifts | Implemented; behavioral validation required |
+| Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
+| Paired-seed experiment matrix | Implemented; execution smoke tested |
+| GPI-LS baseline runtime | Adapter implemented; dependency/runtime validation pending |
+| Multi-seed course results | Not yet run |
+| Workshop/journal evidence | Not yet established |
 
-Dự án áp dụng mô hình **Ghép cặp chéo (Pair-Programming Matrix)**: Mỗi nhánh kỹ thuật có **2 thành viên** cùng phụ trách và review chéo nhằm tối ưu hóa thế mạnh cá nhân và đảm bảo chất lượng code.
-
-* **Huỳnh Quốc Việt (SE194225)** — *Team Leader*: Thế mạnh về Core Algorithm, Math, Evaluation & Metrics Pipeline.
-* **Ngô Hoài Nam** — *AI Engineer*: Thế mạnh về Core Algorithm, Model Architecture, Baselines Reproduction.
-* **Lê Nguyễn Gia Hưng** — *AI & Research Engineer*: Thế mạnh về Environment Setup, LaTeX Paper, Demo Visualizer.
-
-### Bảng phân công nhánh & Nhiệm vụ:
-
-| Nhánh Git (Branch) | Cặp phụ trách | Nhiệm vụ chính & Phạm vi công việc | Tài liệu hướng dẫn chi tiết |
-| :--- | :--- | :--- | :--- |
-| **`feat/algorithm-curriculum`** | **Nam & Việt** | • Cài đặt Preference-Conditioned Vector Q-Network ($Q_\theta(s, a, \mathbf{w})$).<br>• Cài đặt Multi-Head Bootstrap ensemble ($K=3$).<br>• Xây dựng bộ lấy mẫu thích nghi (Adaptive Sampler) kết hợp Gap, Uncertainty và Coverage. | [📖 Task 1 Guide](docs/tasks/task1_algorithm.md) |
-| **`feat/env-baselines`** | **Hưng & Nam** | • Thiết lập wrapper cho `MO-LunarLander-v2` và `Minecart-v0`.<br>• Xây dựng injector cho Dynamics Shifts (trọng lực, gió, tiêu hao nhiên liệu).<br>• Chuẩn hóa baseline từ `morl-baselines` (GPI-LS, Envelope Q-Learning, Uniform-PCQN). | [📖 Task 2 Guide](docs/tasks/task2_env_baselines.md) |
-| **`feat/eval-pipeline`** | **Hưng & Việt** | • Tính toán Pareto Metrics: Hypervolume (HV), Sparsity, Scalarized Regret.<br>• Thiết lập module logging (WandB & TensorBoard) tối ưu cho Kaggle.<br>• Phân tích thống kê (Permutation Test, Wilcoxon, CI 95%) & Demo Slider. | [📖 Task 3 Guide](docs/tasks/task3_eval_pipeline.md) |
-
----
-
-## 📂 3. Cấu trúc thư mục (Repository Structure)
+## Repository layout
 
 ```text
-REL301m_AdaptivePreferenceMORL/
-├── configs/                        # Cấu hình YAML cho env, thuật toán & dynamics shift
-│   ├── algo/                       # pcqn.yaml, curriculum.yaml
-│   ├── env/                        # lunarlander.yaml, minecart.yaml
-│   └── shifts/                     # dynamics_shifts.yaml
-├── docs/                           # Tài liệu thiết kế & hướng dẫn chi tiết cho từng task
-│   ├── ARCHITECTURE.md             # Luồng dữ liệu, phương trình toán học & API interfaces
-│   ├── KAGGLE_GUIDE.md             # Cẩm nang train và lưu artifacts trên Kaggle GPU
-│   └── tasks/                      # Hướng dẫn chi tiết từng nhánh cho các cặp thành viên
-│       ├── task1_algorithm.md      # Dành cho Nam & Việt
-│       ├── task2_env_baselines.md  # Dành cho Hưng & Nam
-│       └── task3_eval_pipeline.md  # Dành cho Hưng & Việt
-├── notebooks/                      # Jupyter notebook chạy thực nghiệm trên Kaggle
-│   └── kaggle_quickstart.ipynb
-├── proposal/                       # Proposal gốc của nhóm (PDF)
-│   └── REL301m_Research_Project_Proposal_MORL_VI.pdf
-├── scripts/                        # Entry points chạy từ dòng lệnh CLI
-│   ├── train.py                    # Script huấn luyện chính
-│   └── evaluate.py                 # Script đánh giá trên unseen preferences & shifts
-├── src/                            # Mã nguồn lõi (Source code)
-│   ├── baselines/                  # Wrapper cho Envelope Q-Learning, GPI-LS, Uniform-PCQN
-│   ├── core/                       # Vector Replay Buffer & Pareto Archive
-│   ├── curriculum/                 # Module tính Gap, Uncertainty, Coverage & Sampler
-│   ├── envs/                       # Wrapper MO-Gymnasium & Bộ tạo Dynamics Shift
-│   ├── evaluation/                 # Tính Hypervolume, Regret, Pareto Frontier & Stats
-│   ├── models/                     # Vector Q-Network & Bootstrap Ensemble Heads
-│   └── utils/                      # Logger tích hợp WandB/Tensorboard, helpers
-├── .gitignore
-├── README.md
-└── requirements.txt
+configs/
+  algo/                 algorithm defaults
+  protocols/            immutable preference-generation specifications
+  shifts/               verified shift construction specifications
+docs/
+  audit/                repeatable research-audit procedure
+  proposal/             original PDF and editable proposal v2
+  research/             canonical current status and handoff
+  tasks/                implementation/status guides
+AGENTS.md                mandatory context bootstrap for coding agents
+scripts/
+  train.py              PCQN training and curriculum ablations
+  train_baseline.py     MORL-Baselines adapter
+  evaluate.py           fixed-protocol checkpoint evaluation
+src/
+  baselines/ core/ curriculum/ envs/ evaluation/ models/ utils/
+tests/                   scientific invariant and metric tests
 ```
 
----
+## Installation
 
-## 🚀 4. Hướng dẫn cài đặt & Khởi động nhanh (Quickstart)
-
-### 4.1. Cài đặt trên máy cục bộ (Local Environment)
+Use Python 3.11 in an isolated environment. Direct dependencies are pinned in `requirements.txt`; record the full resolved environment with every experiment. GPI-LS additionally needs the system `cddlib` headers to build its pinned `pycddlib` dependency.
 
 ```bash
-# 1. Clone repository
-git clone https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL.git
-cd REL301m_AdaptivePreferenceMORL
-
-# 2. Tạo môi trường ảo Python 3.10
-python -m venv .venv
-# Trên Windows:
-.venv\Scripts\activate
-# Trên Linux/macOS:
+sudo apt-get install libcdd-dev
+python3.11 -m venv .venv
 source .venv/bin/activate
-
-# 3. Cài đặt dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python -m pytest -q
 ```
 
-### 4.2. Huấn luyện trên Kaggle (Khuyên dùng)
-Dự án được tối ưu hóa cho Kaggle GPU (P100 / T4). Để train trên Kaggle:
-1. Mở Kaggle, tạo một Notebook mới với Accelerator: **GPU P100** hoặc **GPU T4 x2**.
-2. Tham khảo hướng dẫn chi tiết tại [docs/KAGGLE_GUIDE.md](docs/KAGGLE_GUIDE.md) hoặc import file [notebooks/kaggle_quickstart.ipynb](notebooks/kaggle_quickstart.ipynb).
-3. Đăng nhập WandB (`wandb login`) để theo dõi biểu đồ thời gian thực từ xa mà không cần treo máy.
+Box2D installation may require platform build tools. A failed dependency install is not a passed environment smoke test.
 
----
+## Course workflow
 
-## 🌿 5. Quy trình làm việc với Git & Branches (Workflow)
+### 1. Run a short end-to-end smoke experiment
 
-Để tránh xung đột code, nhóm thống nhất quy trình làm việc chuẩn sau:
+```bash
+python scripts/train.py \
+  --env mo-lunar-lander-v3 \
+  --protocol configs/protocols/course_mo_lunar_lander_v3.json \
+  --algo adaptive-pcqn \
+  --allocation-target rollout_and_update \
+  --total-timesteps 10000 \
+  --learning-starts 1000 \
+  --output-dir artifacts/smoke
+```
 
-1. **Nhận task & Chuyển sang nhánh tương ứng:**
-   ```bash
-   # Nếu bạn làm Task 1 (Nam & Việt):
-   git checkout feat/algorithm-curriculum
-   git pull origin feat/algorithm-curriculum
+### 2. Run required controls
 
-   # Nếu bạn làm Task 2 (Hưng & Nam):
-   git checkout feat/env-baselines
-   git pull origin feat/env-baselines
+Use the same training and protocol seeds for:
 
-   # Nếu bạn làm Task 3 (Hưng & Việt):
-   git checkout feat/eval-pipeline
-   git pull origin feat/eval-pipeline
-   ```
+```bash
+--algo uniform-pcqn
+--algo random-curriculum-pcqn
+```
 
-2. **Đọc tài liệu nhiệm vụ & Quy chuẩn Git:** Đọc kỹ hướng dẫn trong thư mục `docs/tasks/` và xem chi tiết tại [📖 Hướng dẫn Git Workflow & Chính sách Phê duyệt PR](docs/GIT_WORKFLOW.md).
-3. **Commit & Push:** Đặt commit message rõ ràng theo quy chuẩn:
-   ```bash
-   git add .
-   git commit -m "feat(algorithm): implement vector Q-network with bootstrap heads"
-   git push origin <tên-nhánh>
-   ```
-4. **Pull Request & Quy tắc 2-Approvals Bắt buộc:** 
-   - Khi hoàn thành module, tạo PR vào nhánh `main`.
-   - **Bắt buộc cả 2 thành viên cùng cặp phụ trách nhánh phải review và nhấn Approve** thì PR mới được phép merge.
-   - **Thành viên thứ 3 giữ vai trò Only View (Giám sát)**: theo dõi tiến độ, kiểm tra xác nhận đã đủ 2 approvals trước khi nhánh được merge. Chi tiết xem tại [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md).
+For the mechanism ablation, run `--allocation-target rollout_only`, `update_only`, and `rollout_and_update`. Signal-only and pairwise ablations are selected by setting the four signal weights to zero or a predeclared positive value.
 
----
+Freeze and inspect a paired-seed matrix before launching it:
 
-## 🎯 6. Tiêu chí thành công của đồ án (Success Metrics)
-- **Minimum Viable Project:** Hoàn thành train trên cả 2 môi trường (`MO-LunarLander` và `Minecart`), chạy được `Uniform-PCQN` và tối thiểu 2 baselines với 5 seeds độc lập.
-- **Strong Course Project:** Hoàn thiện Full Adaptive Curriculum, phân tích Ablation Study, đánh giá Dynamics Shift, kiểm định thống kê và có Interactive Preference Slider Demo.
-- **Paper-Oriented:** Tối ưu hóa code và số liệu sẵn sàng xuất bản tại student research track hoặc workshop.
+```bash
+python scripts/run_matrix.py \
+  --env mo-lunar-lander-v3 \
+  --protocol configs/protocols/course_mo_lunar_lander_v3.json \
+  --seeds 1 2 3 4 5
+
+# Add --execute only after reviewing matrix_manifest.json.
+```
+
+### 3. Freeze pilot-derived quantities
+
+The committed protocol files deliberately contain `"reference_point": null`. After the pilot, freeze reward scales, normalization bounds, and a dominated hypervolume reference point using training/pilot evidence only. Commit the updated protocol before final runs. Do not derive these values from the final test set.
+
+### 4. Evaluate a selected checkpoint
+
+```bash
+python scripts/evaluate.py \
+  --model-path artifacts/<run>/final.pt \
+  --protocol configs/protocols/course_mo_lunar_lander_v3.json \
+  --split test \
+  --episodes-per-preference 30 \
+  --shift nominal \
+  --output results/<run>_test_nominal.json
+```
+
+The test split is intended for one final evaluation after checkpoint and hyperparameter selection. Use `--split validation` during development.
+
+## Budget contract
+
+Each run records four separate counters:
+
+- training environment interactions;
+- gradient updates;
+- curriculum diagnostic/evaluation interactions;
+- validation or final-evaluation interactions.
+
+Adaptive-PCQN must be compared with the compute-matched random curriculum as well as Uniform-PCQN. Wall-clock and peak memory remain reportable outcomes even when environment interactions are matched.
+
+## Course and publication thresholds
+
+- **Course-ready:** both core environments execute end to end, critical ablations and close baselines run with paired seeds, raw results are retained, and conclusions match the evidence.
+- **Workshop-ready:** additional MORL-Generalization or continuous-control domains, modern mechanism baselines, and score-to-future-progress analysis.
+- **Journal/main-track-ready:** broad domains and seeds, calibrated diagnostics, nonlinear utilities where claimed, and a general empirical or algorithmic insight beyond combining familiar modules.
+
+A negative result can satisfy the course and support a paper if the protocol demonstrates why a signal prioritizes hard or uncertain regions without producing future learning progress.

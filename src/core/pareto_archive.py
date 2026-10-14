@@ -1,12 +1,13 @@
 import numpy as np
-from typing import List, Optional, Tuple
+
 
 def dominates(u: np.ndarray, v: np.ndarray) -> bool:
     """
     Returns True if vector u Pareto-dominates vector v (assuming maximization).
     u dominates v iff u >= v elementwise and u_i > v_i for at least one dimension.
     """
-    return np.all(u >= v) and np.any(u > v)
+    return bool(np.all(u >= v) and np.any(u > v))
+
 
 class ParetoArchive:
     """
@@ -16,12 +17,13 @@ class ParetoArchive:
     2. Computing conditioning gap for candidate preferences: max_{v in A} w^T v.
     3. Generating the empirical reference front.
     """
+
     def __init__(self, reward_dim: int):
         self.reward_dim = reward_dim
-        self.points: List[np.ndarray] = []
-        self.metadata: List[dict] = []
+        self.points: list[np.ndarray] = []
+        self.metadata: list[dict] = []
 
-    def add(self, candidate: np.ndarray, meta: Optional[dict] = None) -> bool:
+    def add(self, candidate: np.ndarray, meta: dict | None = None) -> bool:
         """
         Add a candidate vector to archive if it is non-dominated.
         Removes any existing points dominated by candidate.
@@ -39,7 +41,7 @@ class ParetoArchive:
         # Filter out existing points that are dominated by the new candidate
         surviving_points = []
         surviving_meta = []
-        for pt, m in zip(self.points, self.metadata):
+        for pt, m in zip(self.points, self.metadata, strict=True):
             if not dominates(candidate, pt):
                 surviving_points.append(pt)
                 surviving_meta.append(m)

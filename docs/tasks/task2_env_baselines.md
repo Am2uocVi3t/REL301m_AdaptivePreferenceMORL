@@ -1,62 +1,37 @@
-# Task 2: Môi trường, Dynamics Shifts & Baselines
-**Nhánh Git:** `feat/env-baselines`  
-**Cặp phụ trách:** **Lê Nguyễn Gia Hưng & Ngô Hoài Nam**
+# Task 2: Environments, shifts, and baselines
 
----
+**Status:** adapters implemented; dependency and behavioral smoke runs pending.
 
-## 🎯 1. Mục tiêu công việc
-Chuẩn hóa môi trường chạy thực nghiệm và tích hợp các thuật toán baseline để so sánh theo đúng Mục 4 & Mục 6 trong Proposal:
-1. **Thiết lập Wrapper môi trường** trên `MO-Gymnasium`:
-   - `mo-lunar-lander-v2` (4 reward dimensions: landing/crash, shaping, main fuel, side fuel).
-   - `minecart-v0` (3 reward dimensions: ore 1, ore 2, fuel).
-2. **Cài đặt cơ chế Dynamics Shift (Environment Generalization):**
-   - Thay đổi các thông số vật lý (trọng lực, gió, lực nhiễu loạn trên LunarLander; tiêu hao nhiên liệu trên Minecart).
-3. **Chuẩn hóa Reward (Reward Normalization):**
-   - Đảm bảo các chiều reward có biên độ scale tương đồng để tránh 1 objective lấn át các objective còn lại.
-4. **Tích hợp các Baseline so sánh:**
-   - **Uniform-PCQN** (Mạng giống mô hình chính nhưng lấy mẫu preference hoàn toàn đồng đều).
-   - **Envelope Q-Learning** (từ `morl-baselines`).
-   - **GPI-LS** (Generalized Policy Improvement with Linear Support từ `morl-baselines`).
+## Core environments
 
----
+- `mo-lunar-lander-v3`, four objectives.
+- `minecart-v0`, three objectives under the default two-mine configuration.
 
-## 📂 2. Các file cần triển khai & Chữ ký hàm
+Reward scales are loaded from versioned protocol JSON files and applied to training and evaluation. Current values are identity placeholders and must be frozen from pilot/training evidence before final experiments.
 
-### 2.1. `src/envs/wrapper.py`
-* **Nhiệm vụ:**
-  - Định nghĩa lớp `MORewardNormalizeWrapper(gym.RewardWrapper)`: Chuẩn hóa vector phần thưởng $\mathbf{r}_t \in \mathbb{R}^d$ theo scale cố định xác định từ trước (freeze scales).
-  - Định nghĩa hàm khởi tạo môi trường chuẩn: `make_mo_env(env_id, seed, dynamics_shift_config=None)`.
-  - Hỗ trợ headless rendering để ghi video trajectory phục vụ demo của Hưng.
+## Dynamics shifts
 
-### 2.2. `src/envs/shift.py`
-* **Nhiệm vụ:**
-  - Định nghĩa các kịch bản shift theo bảng quy chuẩn:
-    - **LunarLander Nominal:** Trọng lực gốc ($-10.0$), gió tắt.
-    - **Shift 1 (Heavy Gravity):** Tăng trọng lực lên $1.5\times$.
-    - **Shift 2 (Strong Wind):** Bật gió lớn (`enable_wind=True`, `wind_power=15.0`).
-    - **Shift 3 (Turbulence & Low Gravity):** Trọng lực thấp kết hợp gió giật ngẫu nhiên (`turbulence_power=1.5`).
-  - Hàm `apply_dynamics_shift(env, shift_name)`: Can thiệp trực tiếp vào thuộc tính của môi trường Box2D / Minecart trước khi reset.
+LunarLander physics parameters are passed into the environment constructor. Strict attribute overrides are available only when an environment exposes and retains the requested field. Silent no-op mutation is prohibited.
 
-### 2.3. `src/baselines/morl_baselines_runner.py`
-* **Nhiệm vụ:**
-  - Xây dựng class/hàm wrapper chạy các thuật toán có sẵn trong thư viện `morl_baselines` (Envelope Q-Learning và GPI-LS) sao cho nhận cùng interface, cùng số lượng environment steps và cùng cách thức logging ra WandB.
+The verified heavy-gravity setting is `-11.5`; Gymnasium 1.4 requires gravity to remain strictly between `-12` and `0`, so the original proposal value `-15` is not executable.
 
-### 2.4. `configs/env/lunarlander.yaml` & `configs/env/minecart.yaml`
-* **Nhiệm vụ:**
-  - Khai báo thông số môi trường, observation dimensions, action space, và reference point chuẩn cho việc tính Hypervolume.
+Non-nominal Minecart shifts are currently **planned**. They must not be reported until an intervention changes transition dynamics and a behavioral smoke test detects the effect.
 
----
+## Baselines
 
-## 🤖 3. Hướng dẫn Vibe Coding cùng AI Assistant
+The MORL-Baselines 1.3 adapters use:
 
-Khi làm việc trên nhánh này, các bạn có thể prompt AI:
-> *"Tôi đang làm Task 2 theo tài liệu `docs/tasks/task2_env_baselines.md`. Hãy viết class `MORewardNormalizeWrapper` kế thừa từ `gymnasium.RewardWrapper` trong file `src/envs/wrapper.py`. Wrapper này cần nhận một vector scaling factor tĩnh để chuẩn hóa vector reward 4 chiều của MO-LunarLander. Đồng thời viết hàm `make_mo_env` hỗ trợ khởi tạo seed và dynamics shift."*
+- `morl_baselines.multi_policy.envelope.envelope.Envelope`;
+- `morl_baselines.multi_policy.gpi_pd.gpi_pd.GPILS`.
 
----
+Run them through `scripts/train_baseline.py`. A frozen hypervolume reference point is required. The adapter matches the training interaction budget; final comparisons must additionally account for updates, evaluations, tuning, wall-clock, and memory.
 
-## ✅ 4. Tiêu chí Hoàn thành (Checklist)
-- [ ] Khởi tạo được `mo-lunar-lander-v2` và `minecart-v0` mà không bị crash.
-- [ ] Ghi nhận đúng vector reward 4 chiều (LunarLander) và 3 chiều (Minecart).
-- [ ] Hàm `apply_dynamics_shift` thay đổi thành công trọng lực hoặc gió trong runtime.
-- [ ] Baseline `Envelope Q-Learning` và `GPI-LS` chạy thử $10{,}000$ steps và log được metrics lên console/WandB.
-- [ ] Viết test trong `tests/test_envs_baselines.py` xác nhận wrapper hoạt động đúng.
+## Verification still required
+
+```bash
+python scripts/train.py --help
+python scripts/train_baseline.py --help
+python -m pytest tests/test_envs.py -q
+```
+
+Then run reset/step and 10,000-step smoke experiments in the pinned environment before marking this task validated.

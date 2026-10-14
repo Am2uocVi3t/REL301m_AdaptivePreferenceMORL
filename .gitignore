@@ -36,12 +36,21 @@ models_checkpoints/
 
 # Data & outputs
 data/
+artifacts/
 outputs/
 results/
 logs/
 wandb/
 runs/
 *.log
+
+# Test, lint, and type-check caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
 
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints

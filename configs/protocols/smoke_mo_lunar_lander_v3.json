@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "smoke-only-mo-lunar-lander-v3",
+  "env_id": "mo-lunar-lander-v3",
+  "reward_dim": 4,
+  "return_definition": {"type": "discounted", "gamma": 0.99},
+  "reward_scale": [1.0, 1.0, 1.0, 1.0],
+  "reference_point": null,
+  "reference_point_status": "smoke_only_not_for_reporting",
+  "training_preference_pool": {"generator": "anchors_plus_dirichlet", "seed": 991, "count": 5},
+  "preference_splits": {
+    "validation": {"generator": "dirichlet", "alpha": 1.0, "seed": 991, "count": 2},
+    "test": {"generator": "dirichlet", "alpha": 1.0, "seed": 992, "count": 3}
+  }
+}
