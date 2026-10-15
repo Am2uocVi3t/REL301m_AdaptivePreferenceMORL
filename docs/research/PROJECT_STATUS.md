@@ -12,7 +12,7 @@ The current defensible question is not whether preference-conditioned MORL or ad
 
 The editable proposal v2 and executable repository now describe the same controlled empirical study. Preference generalization and environment/dynamics generalization remain separate evaluation axes.
 
-The systematic mapping registers 15 primary/authoritative works, all with verified full-text notes. CAPQL was resolved from a user-supplied ICLR 2023 PDF and uses fixed-distribution preference sampling rather than adaptive allocation. The resulting verdicts remain incremental for the four individual signals and environment-shift application; novelty of the combined rule is unresolved. No empirical benefit is inferred from that mapping.
+The systematic mapping registers 22 primary/authoritative works, all with verified full-text notes. A focused 2026 refresh added five peer-reviewed works and two explicitly labeled preprints. PBMORL is direct prior art for reallocating scalarized optimization tasks from learned human utility/uncertainty, and MPFT directly targets sparse Pareto regions; CAPQL, MORL-FB, and D³PO use fixed preference sampling or conditioning rather than this repository's four-signal scheduler. The resulting verdicts remain incremental for the four individual signals and environment-shift application; exact novelty of the combined factorial study is unresolved, while broad adaptive-allocation novelty is indefensible. No empirical benefit is inferred from that mapping.
 
 ## Implemented and verified
 
@@ -30,6 +30,7 @@ The systematic mapping registers 15 primary/authoritative works, all with verifi
 - Explicit literature access tracking: metadata/abstract-only papers remain screened, inaccessible full text is surfaced in the handoff, and `read` requires verified full-text evidence.
 - Machine-readable Phase 0–7 roadmap with deliverables, entry/exit criteria, go/no-go rules, evidence paths, blockers, and allowed transitions.
 - Claim-to-paper antecedent mapping with closest antecedent, known mechanism, project difference, bounded novelty verdict, differentiating experiment, and falsifier.
+- Focused ICLR/ICML/arXiv 2026 sweep with exact queries, inclusion/exclusion criteria, seven full-text notes, and explicit separation of peer-reviewed work from preprints.
 
 ## Verification evidence
 

@@ -17,7 +17,7 @@ The machine-readable source is `research/roadmap.json`; this document explains h
 
 ## Current gate
 
-Phase 1 is complete. All 15 essential papers have full-text notes, every claim has an antecedent/verdict/falsifier, and the CAPQL access gap was resolved with a user-supplied ICLR 2023 PDF. Phase 2 is active.
+Phase 1 is complete. All 22 registered papers have full-text notes, including a focused 2026 refresh; every claim has an antecedent/verdict/falsifier, and the CAPQL access gap was resolved with a user-supplied ICLR 2023 PDF. The refresh identifies PBMORL as direct prior art for preference-task reallocation and MPFT as direct prior art for sparse-front training, so broad adaptive-allocation novelty is excluded. Phase 2 is active.
 
 Phase 2 remains a no-go for pilot execution until the P0 dependency mismatch is repaired: the pinned NumPy version requires Python 3.12+, conflicting with the declared Python 3.11 runtime. Pilot-only reward scaling and hypervolume reference-point calibration must then be designed and reviewed before those quantities are frozen.
 

@@ -1,6 +1,6 @@
 # Literature and Antecedent Map
 
-Search date: **2026-10-15**. Scope: primary or authoritative sources for preference-conditioned MORL, adaptive weight/task allocation, curriculum signals, and environment generalization. All 15 registered papers were checked in full text; CAPQL was completed from a user-supplied ICLR 2023 PDF.
+Search date: **2026-10-15**. Scope: primary or authoritative sources for preference-conditioned MORL, adaptive weight/task allocation, curriculum signals, preference evaluation, and environment generalization. All 22 registered papers were checked in full text; the 2026 refresh distinguishes five peer-reviewed additions from two preprints, and CAPQL was completed from a user-supplied ICLR 2023 PDF.
 
 ## Antecedent matrix
 
@@ -21,6 +21,13 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 | [Shianifar et al. (2026), HPR](https://arxiv.org/abs/2601.11604) | arXiv preprint; authors state AICS 2025 acceptance | hindsight preference relabeling in replay | Replay only | Achieved return | No | No | No | Yes | No | `combined-allocation` | Author full text |
 | [Liu et al. (2025), C-MORL](https://proceedings.iclr.cc/paper_files/paper/2025/hash/adb77ecc8ba1c2d3135c86a46b8f2496-Abstract-Conference.html) | ICLR 2025 | crowding-guided constrained Pareto extension | Yes | Pareto archive | No | Crowding distance | No | Across frontier | No | `coverage-recency-allocation`, `conditioning-gap-allocation`, `combined-allocation` | Proceedings full text |
 | [Yang et al. (2025), PCRL/PreCo](https://proceedings.mlr.press/v267/yang25ax.html) | ICML 2025 | controllable meta-policy + multi-objective gradient method | Optimization, not curriculum | No | No | No | No | Yes | No | `combined-allocation` | PMLR full text |
+| [Chen et al. (2026), MORL-FB](https://openreview.net/forum?id=IwiwmY3Mzz) | ICLR 2026 | Forward-Backward representation + preference-guided latent exploration | No; uniform preference draw | No | No | Latent diversity only | No | Yes; reduced training set tested | No | `combined-allocation` | Author manuscript after OpenReview 403 |
+| [Ambadkar et al. (2026), D³PO](https://arxiv.org/abs/2602.07764) | arXiv preprint | late-stage objective weighting + preference-scaled behavior diversity | No; fixed-space resampling | No | No | Behavior diversity | No | Conditioned | No | `combined-allocation` | arXiv v2 full text |
+| [de las Heras Molins et al. (2026)](https://arxiv.org/abs/2605.10585) | arXiv preprint | per-objective rank-correlation controllability metric | No; evaluation only | No | No | No | No | Evaluates response | No | `combined-allocation` | arXiv full text |
+| [Hu & Yu (2026), predictable preferences/PFE](https://proceedings.mlr.press/v306/hu26bc.html) | ICML 2026 | query-time scalarization under exogenous online weights or reward-free exploration | No; responds to queries | No | Confidence bounds, not scheduler | No | No | Arbitrary query support | No | `combined-allocation` | PMLR full text |
+| [Hu et al. (2026), PBMORL](https://proceedings.mlr.press/v306/hu26am.html) | ICML 2026 | human utility/uncertainty model reallocates multi-policy optimization tasks | Yes | Preferred archive region | GP preference uncertainty | ROI exploration | No | Interactive preferred region | No | `combined-allocation` | PMLR full text |
+| [Hu & Yu (2026), reactive preferences](https://proceedings.mlr.press/v306/hu26bd.html) | ICML 2026 | step-wise adversarial weights + Bellman–Isaacs recursion | Adversarial control, not curriculum | No | No | No | No | Dynamic weights | Preference shift, not environment shift | None | PMLR full text |
+| [Zhao et al. (2026), MPFT](https://proceedings.mlr.press/v306/zhao26b.html) | ICML 2026 | Pareto tracking + targeted filling of top-`K` sparse regions | Yes; multi-policy tracks | Pareto geometry | No | Sparse-front coverage | No | Across frontier | No | `coverage-recency-allocation`, `combined-allocation` | PMLR full text |
 
 “Unseen preferences” records the paper's intended capability, not independent replication. “Environment shift” distinguishes contexts/dynamics from unseen preference weights.
 
@@ -48,8 +55,8 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 
 ### `coverage-recency-allocation`
 
-- Closest antecedent: PLR for staleness; C-MORL for sparse Pareto coverage.
-- Known: recency and crowding/coverage are established curriculum and Pareto-search signals.
+- Closest antecedents: PLR for staleness and MPFT for explicit sparse-region MORL training; C-MORL is adjacent through crowding-based search.
+- Known: recency and crowding/coverage are established curriculum and Pareto-search signals; MPFT trains additional policy tracks in the top-`K` sparse Pareto regions.
 - Difference: both are combined locally over a preference simplex for one conditioned policy.
 - Verdict: **incremental** (medium confidence).
 - Differentiating experiment: coverage-only, recency-only, full, uniform, and matched-random ablations over pool size/front geometry.
@@ -68,9 +75,9 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 
 ### `combined-allocation`
 
-- Closest antecedent: GPI-LS, with PGMORL, PLR, and ALP-GMM supplying components.
-- Known: the signal families and adaptive task allocation are familiar; CAPQL conditions continuous-control policies on weights sampled from a fixed distribution.
-- Difference: a common implementation permits a factorial, matched-budget comparison of outcome-dependent allocation signals within preference-conditioned MORL.
+- Closest antecedents: PBMORL for an adaptive distribution over scalarized optimization tasks and GPI-LS for autonomous weight prioritization; PGMORL, MPFT, PLR, and ALP-GMM supply adjacent mechanisms or components.
+- Known: adaptive task allocation and the individual signal families are familiar. PBMORL reallocates multi-policy effort using learned human utility and uncertainty; MPFT fills sparse front regions; MORL-FB and D³PO provide stronger fixed-sampling conditioned learners.
+- Difference: one shared conditioned-policy implementation permits a factorial, matched-budget comparison of four autonomous outcome-dependent signals and separates rollout from update allocation.
 - Verdict: **novelty unresolved** (high confidence that broad novelty is indefensible).
 - Differentiating experiment: all single-signal, selected pairwise, full, uniform, random, and compatible close-baseline arms with paired seeds.
 - Falsifier: prior equivalent factorial evidence or no benefit/insight beyond controls.
@@ -88,4 +95,4 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 
 ## Synthesis
 
-The defensible contribution is not “the first adaptive preference-conditioned MORL method.” The most supportable study is a controlled test of which familiar allocation signal predicts and produces subsequent improvement in weak preference regions, under explicit compute budgets and with preference versus environment generalization kept separate. Even that contribution remains a hypothesis until Phase 4 evidence exists.
+The defensible contribution is not “the first adaptive preference-conditioned MORL method.” PBMORL already reallocates optimization across preferences, and MPFT already directs training toward sparse Pareto regions. The most supportable study is a controlled test of which autonomous outcome-derived signal predicts and produces subsequent improvement in weak regions of one preference-conditioned policy, under explicit compute budgets and with preference, controllability, preference-shift robustness, and environment generalization kept separate. Even that contribution remains a hypothesis until Phase 4 evidence exists.

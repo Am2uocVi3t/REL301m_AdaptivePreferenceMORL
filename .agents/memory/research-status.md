@@ -12,7 +12,7 @@ updated: 2026-10-15
 - The defensible contribution is a controlled study of which preference-allocation signals identify hard, uncertain, or learnable regions.
 - No multi-seed course result or publication-level empirical claim has been established yet.
 - A Git-native AI research harness now keeps claim, literature, experiment, blocker, session, and handoff state synchronized across chats.
-- The primary-source map registers 15 full-text readings. CAPQL uses fixed-distribution weight sampling, not outcome-dependent allocation. Signal claims are incremental; combined-rule novelty is unresolved.
+- The primary-source map registers 22 full-text readings after a focused 2026 refresh. PBMORL is direct prior art for adaptive preference-task reallocation, MPFT for sparse-front training, and CAPQL/MORL-FB/D³PO use fixed preference sampling rather than the repository's four-signal scheduler. Signal claims are incremental; exact combined-rule novelty remains unresolved.
 
 ## Verified on 2026-10-15
 

@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-2",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "feature/ai-research-harness",
-  "updated_at": "2026-10-14T20:20:24+00:00",
+  "working_branch": "feature/2026-literature-refresh",
+  "updated_at": "2026-10-15T04:13:45+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -54,9 +54,9 @@
     }
   ],
   "next_actions": [
-    "Repair Python 3.11 dependency pins and rerun the full quality gate before pilot execution.",
-    "Design and review pilot-only reward-scale and hypervolume-reference calibration runs.",
-    "Freeze analysis-sensitive quantities and the course experiment matrix without final-test feedback."
+    "Repair the Python 3.11 dependency pins and rerun the full quality gate on the declared target runtime.",
+    "Design and review pilot-only reward-scale and hypervolume-reference calibration without final-test feedback.",
+    "Freeze the course matrix with geometry-only allocation and per-objective controllability added to the predeclared comparisons."
   ],
-  "last_session_summary": "Resolved the CAPQL full-text blocker using the user-supplied ICLR 2023 PDF. Moved the PDF from the repository root to the Git-ignored local literature directory, recorded its SHA-256 provenance, completed the structured full-text note, and marked all 15 registered papers read. Full-text analysis confirms CAPQL samples weights from a fixed distribution and does not implement outcome-dependent preference allocation. Phase 1 exit criteria are now met, so Phase 1 was completed and Phase 2 activated. Full verification still passes with 39 tests, plus 18 harness tests on Python 3.11.17. No experiment or final-test evaluation ran, and no empirical claim was promoted."
+  "last_session_summary": "Completed a focused 2026 MORL literature refresh: registered and read seven full-text primary sources, expanded structured notes, documented bounded search and exclusions, updated the literature/claim map, and narrowed broad adaptive-allocation novelty using PBMORL and MPFT as direct antecedents. Verified 22/22 papers read and passed doctor, Ruff, MyPy, 39 tests, Bandit, compileall, and diff checks in a temporary Python 3.14 verification environment."
 }

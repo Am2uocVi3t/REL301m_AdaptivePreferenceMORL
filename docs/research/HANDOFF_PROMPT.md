@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-14T20:20:24+00:00
-Expected working branch at generation: feature/ai-research-harness
-Expected commit at generation: e5a2286
+Snapshot generated: 2026-10-15T04:14:11+00:00
+Expected working branch at generation: feature/2026-literature-refresh
+Expected commit at generation: 048ad42
 Working tree dirty at generation: yes
 Current phase: phase-2 — Pilot calibration and protocol freeze (active)
 Publication state: no multi-seed empirical claim established
@@ -63,6 +63,13 @@ Literature queue:
 - shianifar2026hpr [read; full_text; access=open_full_text]: Hindsight Preference Replay Improves Preference-Conditioned Multi-Objective Reinforcement Learning
 - liu2025cmorl [read; full_text; access=open_full_text]: Efficient Discovery of Pareto Front for Multi-Objective Reinforcement Learning
 - yang2025pcrl [read; full_text; access=open_full_text]: Preference Controllable Reinforcement Learning with Advanced Multi-Objective Optimization
+- chen2026morl-fb [read; full_text; access=author_manuscript]: A Reward-Free Viewpoint on Multi-Objective Reinforcement Learning
+- ambadkar2026d3po [read; full_text; access=open_full_text]: Preference Conditioned Multi-Objective Reinforcement Learning: Decomposed, Diversity-Driven Policy Optimization
+- delasheras2026controllability [read; full_text; access=open_full_text]: Controllability in Preference-Conditioned Multi-Objective Reinforcement Learning
+- hu2026predictable-preferences [read; full_text; access=open_full_text]: Near-Minimax Multi-Objective RL under Predictable Adversarial Preferences and Preference-Free Exploration in Linear MDPs
+- hu2026pbmorl [read; full_text; access=open_full_text]: Human-in-the-Loop Policy Optimization for Preference-Based Multi-Objective Reinforcement Learning
+- hu2026reactive-preferences [read; full_text; access=open_full_text]: Time-Consistent Robust Multi-Objective Reinforcement Learning via a Bellman–Isaacs Weight-Adversary Recursion
+- zhao2026mpft [read; full_text; access=open_full_text]: Population-Free Pareto Tracking for Sample-Efficient Multi-Policy MORL
 
 Full-text requests for the user:
 - None currently registered.
@@ -79,12 +86,12 @@ Open blockers:
 - Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
 
 Latest closed-session summary:
-Resolved the CAPQL full-text blocker using the user-supplied ICLR 2023 PDF. Moved the PDF from the repository root to the Git-ignored local literature directory, recorded its SHA-256 provenance, completed the structured full-text note, and marked all 15 registered papers read. Full-text analysis confirms CAPQL samples weights from a fixed distribution and does not implement outcome-dependent preference allocation. Phase 1 exit criteria are now met, so Phase 1 was completed and Phase 2 activated. Full verification still passes with 39 tests, plus 18 harness tests on Python 3.11.17. No experiment or final-test evaluation ran, and no empirical claim was promoted.
+Completed a focused 2026 MORL literature refresh: registered and read seven full-text primary sources, expanded structured notes, documented bounded search and exclusions, updated the literature/claim map, and narrowed broad adaptive-allocation novelty using PBMORL and MPFT as direct antecedents. Verified 22/22 papers read and passed doctor, Ruff, MyPy, 39 tests, Bandit, compileall, and diff checks in a temporary Python 3.14 verification environment.
 
 Next actions:
-1. Repair Python 3.11 dependency pins and rerun the full quality gate before pilot execution.
-2. Design and review pilot-only reward-scale and hypervolume-reference calibration runs.
-3. Freeze analysis-sensitive quantities and the course experiment matrix without final-test feedback.
+1. Repair the Python 3.11 dependency pins and rerun the full quality gate on the declared target runtime.
+2. Design and review pilot-only reward-scale and hypervolume-reference calibration without final-test feedback.
+3. Freeze the course matrix with geometry-only allocation and per-objective controllability added to the predeclared comparisons.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
