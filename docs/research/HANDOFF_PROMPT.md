@@ -11,10 +11,10 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-15T04:14:11+00:00
+Snapshot generated: 2026-10-15T04:24:30+00:00
 Expected working branch at generation: feature/2026-literature-refresh
-Expected commit at generation: 048ad42
-Working tree dirty at generation: yes
+Expected commit at generation: d6e9dee
+Working tree dirty at generation: no
 Current phase: phase-2 — Pilot calibration and protocol freeze (active)
 Publication state: no multi-seed empirical claim established
 
