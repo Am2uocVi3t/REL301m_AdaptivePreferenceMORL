@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "project": "Preference Allocation in Preference-Conditioned MORL",
+  "phase": "pilot calibration and protocol freeze",
+  "roadmap_phase_id": "phase-2",
+  "publication_state": "no multi-seed empirical claim established",
+  "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
+  "working_branch": "feature/2026-literature-refresh",
+  "updated_at": "2026-10-15T04:13:45+00:00",
+  "canonical_documents": {
+    "project_status": "docs/research/PROJECT_STATUS.md",
+    "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
+    "architecture": "docs/ARCHITECTURE.md",
+    "proposal": "docs/proposal/REL301m_Research_Project_Proposal_MORL_V2.md",
+    "roadmap": "docs/research/ROADMAP.md",
+    "literature_map": "docs/research/LITERATURE_MAP.md"
+  },
+  "open_blockers": [
+    {
+      "id": "python311-dependency-pins",
+      "status": "open",
+      "severity": "P0",
+      "description": "Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime."
+    },
+    {
+      "id": "capql-full-text",
+      "status": "resolved",
+      "severity": "P1",
+      "description": "Resolved with the user-supplied ICLR 2023 PDF; full-text note and access provenance were completed on 2026-10-15."
+    },
+    {
+      "id": "freeze-pilot-quantities",
+      "status": "open",
+      "severity": "P0",
+      "description": "Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence."
+    },
+    {
+      "id": "validate-gpi-ls",
+      "status": "open",
+      "severity": "P1",
+      "description": "Validate GPI-LS under Python 3.11 with native cddlib headers."
+    },
+    {
+      "id": "validate-shifts",
+      "status": "open",
+      "severity": "P1",
+      "description": "Behaviorally validate that every enabled dynamics shift changes the intended transitions."
+    },
+    {
+      "id": "run-course-matrix",
+      "status": "open",
+      "severity": "P1",
+      "description": "Run paired controls, signal ablations, and compatible close baselines after freezing the protocol."
+    }
+  ],
+  "next_actions": [
+    "Repair the Python 3.11 dependency pins and rerun the full quality gate on the declared target runtime.",
+    "Design and review pilot-only reward-scale and hypervolume-reference calibration without final-test feedback.",
+    "Freeze the course matrix with geometry-only allocation and per-objective controllability added to the predeclared comparisons."
+  ],
+  "last_session_summary": "Completed a focused 2026 MORL literature refresh: registered and read seven full-text primary sources, expanded structured notes, documented bounded search and exclusions, updated the literature/claim map, and narrowed broad adaptive-allocation novelty using PBMORL and MPFT as direct antecedents. Verified 22/22 papers read and passed doctor, Ruff, MyPy, 39 tests, Bandit, compileall, and diff checks in a temporary Python 3.14 verification environment."
+}

@@ -1,0 +1,680 @@
+{
+  "schema_version": 1,
+  "papers": [
+    {
+      "id": "abels2019dynamic-weights",
+      "title": "Dynamic Weights in Multi-Objective Deep Reinforcement Learning",
+      "authors": [
+        "Axel Abels",
+        "Diederik Roijers",
+        "Tom Lenaerts",
+        "Ann Nowé",
+        "Denis Steckelmacher"
+      ],
+      "year": 2019,
+      "venue": "ICML 2019",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:49+00:00",
+      "url": "https://proceedings.mlr.press/v97/abels19a.html",
+      "tags": [
+        "morl",
+        "preference-conditioned"
+      ],
+      "claim_ids": [
+        "conditioning-gap-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/abels2019dynamic-weights.md",
+      "added_at": "2026-10-14T19:56:14+00:00",
+      "updated_at": "2026-10-14T19:59:49+00:00"
+    },
+    {
+      "id": "yang2019envelope",
+      "title": "A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation",
+      "authors": [
+        "Runzhe Yang",
+        "Xiaolong Sun",
+        "Karthik Narasimhan"
+      ],
+      "year": 2019,
+      "venue": "NeurIPS 2019",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:50+00:00",
+      "url": "https://arxiv.org/abs/1908.08342",
+      "tags": [
+        "morl",
+        "preference-conditioned"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/yang2019envelope.md",
+      "added_at": "2026-10-14T19:56:14+00:00",
+      "updated_at": "2026-10-14T19:59:50+00:00"
+    },
+    {
+      "id": "xu2020pgmorl",
+      "title": "Prediction-Guided Multi-Objective Reinforcement Learning for Continuous Robot Control",
+      "authors": [
+        "Jie Xu",
+        "Yunsheng Tian",
+        "Pingchuan Ma",
+        "Dinesh Manocha",
+        "Wenping Wang"
+      ],
+      "year": 2020,
+      "venue": "ICML 2020",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:50+00:00",
+      "url": "https://proceedings.mlr.press/v119/xu20h.html",
+      "tags": [
+        "morl",
+        "adaptive-allocation"
+      ],
+      "claim_ids": [
+        "conditioning-gap-allocation",
+        "learning-progress-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/xu2020pgmorl.md",
+      "added_at": "2026-10-14T19:56:14+00:00",
+      "updated_at": "2026-10-14T19:59:51+00:00"
+    },
+    {
+      "id": "reymond2022pcn",
+      "title": "Pareto Conditioned Networks",
+      "authors": [
+        "Mathieu Reymond",
+        "Eugenio Bargiacchi",
+        "Ann Nowé"
+      ],
+      "year": 2022,
+      "venue": "AAMAS 2022",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:51+00:00",
+      "url": "https://arxiv.org/abs/2204.05036",
+      "tags": [
+        "morl",
+        "preference-conditioned"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/reymond2022pcn.md",
+      "added_at": "2026-10-14T19:56:15+00:00",
+      "updated_at": "2026-10-14T19:59:51+00:00"
+    },
+    {
+      "id": "lu2023capql",
+      "title": "Multi-Objective Reinforcement Learning: Convexity, Stationarity and Pareto Optimality",
+      "authors": [
+        "Haoye Lu",
+        "Daniel Herman",
+        "Yaoliang Yu"
+      ],
+      "year": 2023,
+      "venue": "ICLR 2023",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "user_supplied",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "User-supplied ICLR 2023 PDF checked in full on 2026-10-15; Git-ignored local copy research/literature/pdfs/lu2023capql.pdf; SHA-256 5412e729244b633a573585bc4a03fe529fef60288e344dc899ddc44d9b8f09c3.",
+      "access_checked_at": "2026-10-14T20:19:04+00:00",
+      "url": "https://openreview.net/forum?id=TjEzIsyEsQ6",
+      "tags": [
+        "morl",
+        "preference-conditioned"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/lu2023capql.md",
+      "added_at": "2026-10-14T19:56:15+00:00",
+      "updated_at": "2026-10-14T20:19:04+00:00"
+    },
+    {
+      "id": "basaklar2023pdmorl",
+      "title": "PD-MORL: Preference-Driven Multi-Objective Reinforcement Learning Algorithm",
+      "authors": [
+        "Toygun Basaklar",
+        "Suat Gumussoy",
+        "Umit Y. Ogras"
+      ],
+      "year": 2023,
+      "venue": "ICLR 2023",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:52+00:00",
+      "url": "https://openreview.net/forum?id=zS9sRyaPFlJ",
+      "tags": [
+        "morl",
+        "preference-conditioned"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/basaklar2023pdmorl.md",
+      "added_at": "2026-10-14T19:56:15+00:00",
+      "updated_at": "2026-10-14T19:59:52+00:00"
+    },
+    {
+      "id": "alegre2023gpi-prioritization",
+      "title": "Sample-Efficient Multi-Objective Learning via Generalized Policy Improvement Prioritization",
+      "authors": [
+        "Lucas N. Alegre",
+        "Ana L. C. Bazzan",
+        "Bruno C. da Silva"
+      ],
+      "year": 2023,
+      "venue": "AAMAS 2023",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:52+00:00",
+      "url": "https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2003.pdf",
+      "tags": [
+        "morl",
+        "adaptive-allocation"
+      ],
+      "claim_ids": [
+        "conditioning-gap-allocation",
+        "learning-progress-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/alegre2023gpi-prioritization.md",
+      "added_at": "2026-10-14T19:56:16+00:00",
+      "updated_at": "2026-10-14T19:59:52+00:00"
+    },
+    {
+      "id": "zhang2020value-disagreement",
+      "title": "Automatic Curriculum Learning through Value Disagreement",
+      "authors": [
+        "Yunzhi Zhang",
+        "Pieter Abbeel",
+        "Lerrel Pinto"
+      ],
+      "year": 2020,
+      "venue": "NeurIPS 2020",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:53+00:00",
+      "url": "https://papers.nips.cc/paper/2020/hash/566f0ea4f6c2e947f36795c8f58ba901-Abstract.html",
+      "tags": [
+        "curriculum",
+        "uncertainty"
+      ],
+      "claim_ids": [
+        "disagreement-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/zhang2020value-disagreement.md",
+      "added_at": "2026-10-14T19:56:16+00:00",
+      "updated_at": "2026-10-14T19:59:53+00:00"
+    },
+    {
+      "id": "portelas2020alp-gmm",
+      "title": "Teacher Algorithms for Curriculum Learning of Deep RL in Continuously Parameterized Environments",
+      "authors": [
+        "Rémy Portelas",
+        "Cédric Colas",
+        "Katja Hofmann",
+        "Pierre-Yves Oudeyer"
+      ],
+      "year": 2020,
+      "venue": "CoRL 2019 / PMLR 2020",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:53+00:00",
+      "url": "https://proceedings.mlr.press/v100/portelas20a.html",
+      "tags": [
+        "curriculum",
+        "learning-progress"
+      ],
+      "claim_ids": [
+        "learning-progress-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/portelas2020alp-gmm.md",
+      "added_at": "2026-10-14T19:56:16+00:00",
+      "updated_at": "2026-10-14T19:59:54+00:00"
+    },
+    {
+      "id": "jiang2021plr",
+      "title": "Prioritized Level Replay",
+      "authors": [
+        "Minqi Jiang",
+        "Edward Grefenstette",
+        "Tim Rocktäschel"
+      ],
+      "year": 2021,
+      "venue": "ICML 2021",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:54+00:00",
+      "url": "https://proceedings.mlr.press/v139/jiang21b.html",
+      "tags": [
+        "curriculum",
+        "recency"
+      ],
+      "claim_ids": [
+        "coverage-recency-allocation",
+        "learning-progress-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/jiang2021plr.md",
+      "added_at": "2026-10-14T19:56:17+00:00",
+      "updated_at": "2026-10-14T19:59:54+00:00"
+    },
+    {
+      "id": "colas2019curious",
+      "title": "CURIOUS: Intrinsically Motivated Modular Multi-Goal Reinforcement Learning",
+      "authors": [
+        "Cédric Colas",
+        "Tristan Karch",
+        "Olivier Sigaud",
+        "Pierre-Yves Oudeyer"
+      ],
+      "year": 2019,
+      "venue": "ICML 2019",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:55+00:00",
+      "url": "https://proceedings.mlr.press/v97/colas19a.html",
+      "tags": [
+        "curriculum",
+        "learning-progress"
+      ],
+      "claim_ids": [
+        "learning-progress-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/colas2019curious.md",
+      "added_at": "2026-10-14T19:56:17+00:00",
+      "updated_at": "2026-10-14T19:59:55+00:00"
+    },
+    {
+      "id": "teoh2025morl-generalization",
+      "title": "On Generalization Across Environments In Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Jia Wei Teoh",
+        "Pradeep Varakantham",
+        "Karl Mason"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2025",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:55+00:00",
+      "url": "https://openreview.net/forum?id=tuEP424UQ5",
+      "tags": [
+        "morl",
+        "generalization"
+      ],
+      "claim_ids": [
+        "environment-shift-robustness"
+      ],
+      "note": "research/literature/notes/teoh2025morl-generalization.md",
+      "added_at": "2026-10-14T19:56:18+00:00",
+      "updated_at": "2026-10-14T19:59:56+00:00"
+    },
+    {
+      "id": "shianifar2026hpr",
+      "title": "Hindsight Preference Replay Improves Preference-Conditioned Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Hadi Shianifar",
+        "Michael Schukat",
+        "Karl Mason"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026; authors state AICS 2025 acceptance",
+      "source_type": "preprint",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:56+00:00",
+      "url": "https://arxiv.org/abs/2601.11604",
+      "tags": [
+        "morl",
+        "replay"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/shianifar2026hpr.md",
+      "added_at": "2026-10-14T19:56:18+00:00",
+      "updated_at": "2026-10-14T19:59:56+00:00"
+    },
+    {
+      "id": "liu2025cmorl",
+      "title": "Efficient Discovery of Pareto Front for Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Ruohong Liu",
+        "Yuxin Pan",
+        "Linjie Xu",
+        "Lei Song",
+        "Pengcheng You",
+        "Yize Chen",
+        "Jiang Bian"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2025",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:57+00:00",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/adb77ecc8ba1c2d3135c86a46b8f2496-Abstract-Conference.html",
+      "tags": [
+        "morl",
+        "pareto-coverage"
+      ],
+      "claim_ids": [
+        "coverage-recency-allocation",
+        "conditioning-gap-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/liu2025cmorl.md",
+      "added_at": "2026-10-14T19:56:18+00:00",
+      "updated_at": "2026-10-14T19:59:57+00:00"
+    },
+    {
+      "id": "yang2025pcrl",
+      "title": "Preference Controllable Reinforcement Learning with Advanced Multi-Objective Optimization",
+      "authors": [
+        "Yucheng Yang",
+        "Shengjun Wang",
+        "Wenjie Li",
+        "Huaqing Xiong",
+        "Gang Li",
+        "Wei Pan"
+      ],
+      "year": 2025,
+      "venue": "ICML 2025",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Legal primary-source full text retrieved and checked on 2026-10-15; local temporary PDF/text was not committed.",
+      "access_checked_at": "2026-10-14T19:59:57+00:00",
+      "url": "https://proceedings.mlr.press/v267/yang25ax.html",
+      "tags": [
+        "morl",
+        "preference-conditioned"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/yang2025pcrl.md",
+      "added_at": "2026-10-14T19:56:19+00:00",
+      "updated_at": "2026-10-14T19:59:58+00:00"
+    },
+    {
+      "id": "chen2026morl-fb",
+      "title": "A Reward-Free Viewpoint on Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Ying-Tu Chen",
+        "Wei Hung",
+        "Bing-Shu Wu",
+        "Zhang-Wei Hong",
+        "Ping-Chun Hsieh"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "author_manuscript",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Official ICLR record identified; author-posted arXiv full text checked on 2026-10-15 after OpenReview automated PDF retrieval returned HTTP 403; temporary files not committed.",
+      "access_checked_at": "2026-10-15T04:07:56+00:00",
+      "url": "https://openreview.net/forum?id=IwiwmY3Mzz",
+      "tags": [
+        "morl",
+        "preference-conditioned",
+        "preference-guided-exploration"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/chen2026morl-fb.md",
+      "added_at": "2026-10-15T04:03:51+00:00",
+      "updated_at": "2026-10-15T04:07:57+00:00"
+    },
+    {
+      "id": "ambadkar2026d3po",
+      "title": "Preference Conditioned Multi-Objective Reinforcement Learning: Decomposed, Diversity-Driven Policy Optimization",
+      "authors": [
+        "Tanmay Ambadkar",
+        "Sourav Panda",
+        "Shreyash Kale",
+        "Jonathan Dodge",
+        "Abhinav Verma"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "source_type": "preprint",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "arXiv v2 full text checked on 2026-10-15; temporary files not committed; publication status retained as preprint.",
+      "access_checked_at": "2026-10-15T04:07:56+00:00",
+      "url": "https://arxiv.org/abs/2602.07764",
+      "tags": [
+        "morl",
+        "preference-conditioned",
+        "pareto-coverage"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/ambadkar2026d3po.md",
+      "added_at": "2026-10-15T04:03:52+00:00",
+      "updated_at": "2026-10-15T04:07:57+00:00"
+    },
+    {
+      "id": "delasheras2026controllability",
+      "title": "Controllability in Preference-Conditioned Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Pau de las Heras Molins",
+        "Beyazit Yalcinkaya",
+        "Lasse Peters",
+        "David Fridovich-Keil",
+        "Georgios Bakirtzis"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "source_type": "preprint",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "arXiv full text checked on 2026-10-15; temporary files not committed; publication status retained as preprint.",
+      "access_checked_at": "2026-10-15T04:07:57+00:00",
+      "url": "https://arxiv.org/abs/2605.10585",
+      "tags": [
+        "morl",
+        "preference-conditioned",
+        "evaluation"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/delasheras2026controllability.md",
+      "added_at": "2026-10-15T04:03:52+00:00",
+      "updated_at": "2026-10-15T04:07:58+00:00"
+    },
+    {
+      "id": "hu2026predictable-preferences",
+      "title": "Near-Minimax Multi-Objective RL under Predictable Adversarial Preferences and Preference-Free Exploration in Linear MDPs",
+      "authors": [
+        "Mingxi Hu",
+        "Meiling Yu"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Official ICML 2026 PMLR full text checked on 2026-10-15; temporary files not committed.",
+      "access_checked_at": "2026-10-15T04:07:57+00:00",
+      "url": "https://proceedings.mlr.press/v306/hu26bc.html",
+      "tags": [
+        "morl",
+        "dynamic-preferences",
+        "theory"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/hu2026predictable-preferences.md",
+      "added_at": "2026-10-15T04:03:52+00:00",
+      "updated_at": "2026-10-15T04:07:58+00:00"
+    },
+    {
+      "id": "hu2026pbmorl",
+      "title": "Human-in-the-Loop Policy Optimization for Preference-Based Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Tianmeng Hu",
+        "Biao Luo",
+        "Ke Li"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Official ICML 2026 PMLR full text checked on 2026-10-15; temporary files not committed.",
+      "access_checked_at": "2026-10-15T04:07:57+00:00",
+      "url": "https://proceedings.mlr.press/v306/hu26am.html",
+      "tags": [
+        "morl",
+        "adaptive-allocation",
+        "preference-elicitation"
+      ],
+      "claim_ids": [
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/hu2026pbmorl.md",
+      "added_at": "2026-10-15T04:03:52+00:00",
+      "updated_at": "2026-10-15T04:07:58+00:00"
+    },
+    {
+      "id": "hu2026reactive-preferences",
+      "title": "Time-Consistent Robust Multi-Objective Reinforcement Learning via a Bellman–Isaacs Weight-Adversary Recursion",
+      "authors": [
+        "Mingxi Hu",
+        "Meiling Yu"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Official ICML 2026 PMLR full text checked on 2026-10-15; temporary files not committed.",
+      "access_checked_at": "2026-10-15T04:07:57+00:00",
+      "url": "https://proceedings.mlr.press/v306/hu26bd.html",
+      "tags": [
+        "morl",
+        "preference-robustness",
+        "dynamic-preferences"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/hu2026reactive-preferences.md",
+      "added_at": "2026-10-15T04:03:52+00:00",
+      "updated_at": "2026-10-15T04:07:58+00:00"
+    },
+    {
+      "id": "zhao2026mpft",
+      "title": "Population-Free Pareto Tracking for Sample-Efficient Multi-Policy MORL",
+      "authors": [
+        "Zeyu Zhao",
+        "Yueling Che",
+        "Kaichen Liu",
+        "Jian Li",
+        "Junmei Yao"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Official ICML 2026 PMLR full text checked on 2026-10-15; temporary files not committed.",
+      "access_checked_at": "2026-10-15T04:07:57+00:00",
+      "url": "https://proceedings.mlr.press/v306/zhao26b.html",
+      "tags": [
+        "morl",
+        "adaptive-allocation",
+        "pareto-coverage"
+      ],
+      "claim_ids": [
+        "coverage-recency-allocation",
+        "combined-allocation"
+      ],
+      "note": "research/literature/notes/zhao2026mpft.md",
+      "added_at": "2026-10-15T04:03:52+00:00",
+      "updated_at": "2026-10-15T04:07:58+00:00"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Structured Paper Notes
+
+Create notes through `python scripts/research_harness.py paper add ...`. A paper may be marked `read` only after verified full-text access and after its note covers mechanism, assumptions, protocol, relationship to project claims, limitations, and section/page-level evidence pointers. Metadata or abstract-only access remains `screened` and must include `FULL_TEXT_REQUIRED`; the agent reports the blocker and asks the user for an uploaded PDF or authorized link. PDFs remain outside Git.
+
+Use a two-level structure: keep the relevance and claim relationship concise enough for rapid mapping, then preserve the implementation/evaluation details needed for Related Work, baseline selection, and later audit. Core antecedents and planned baselines should normally record the allocation unit, sampling signal, training path, environments, budgets, seeds, metrics, ablations, negative results, and the exact project distinction. Peripheral context papers may remain shorter, but a short note must not be mistaken for weaker scientific importance or incomplete full-text access.

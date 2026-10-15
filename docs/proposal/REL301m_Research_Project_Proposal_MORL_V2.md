@@ -117,7 +117,7 @@ Only shifts that can be instantiated and behaviorally verified are reported. Uns
 
 ## 7. Metrics and statistical analysis
 
-Primary metrics are normalized hypervolume with a reference point frozen before final testing, expected utility, worst-decile or CVaR regret, and area under the learning curve. Secondary metrics include IGD, sparsity, controllability or ordering, robustness degradation, wall-clock time, peak memory, ensemble calibration, and correlation between allocation scores and future improvement.
+Primary metrics are normalized hypervolume with a reference point frozen before final testing, expected utility, worst-decile or CVaR regret, and area under the learning curve. Secondary metrics include IGD, sparsity, per-objective preference-to-return rank-correlation controllability, robustness degradation, wall-clock time, peak memory, ensemble calibration, and correlation between allocation scores and future improvement.
 
 Analysis is performed at training-seed level. Report paired differences, confidence intervals, and effect sizes. Exact paired permutation or Wilcoxon tests may be used for predeclared contrasts, followed by Holm correction. Five paired seeds cannot by themselves produce a two-sided exact sign result below 0.05 and must not be presented as adequate significance evidence.
 
@@ -140,7 +140,7 @@ The final test set is evaluated once after model and hyperparameter selection. V
 
 ## 9. Publication extension
 
-A workshop or TMLR submission additionally requires a continuous-control family, MORL-Generalization environments, modern action-space-compatible baselines such as WVS/PGMORL, CAPQL, PD-MORL, PCRL, or HPR-CAPQL, broader objective dimensions and front geometries, and approximately 10–20 paired seeds for primary comparisons based on pilot precision analysis.
+A workshop or TMLR submission additionally requires a continuous-control family, MORL-Generalization environments, modern action-space-compatible baselines such as WVS/PGMORL, CAPQL, PD-MORL, PCRL, HPR-CAPQL, MORL-FB, or D³PO, and allocation comparisons informed by PBMORL and MPFT where their multi-policy/human-feedback settings are compatible. It also requires broader objective dimensions and front geometries and approximately 10–20 paired seeds for primary comparisons based on pilot precision analysis.
 
 Main-track positioning requires either a new mechanism that outperforms strong allocation antecedents for an identified reason, or a broad and reproducible empirical principle. Combining familiar scores without such evidence is not sufficient.
 

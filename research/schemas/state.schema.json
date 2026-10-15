@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "state.schema.json",
+  "title": "Research project state",
+  "type": "object",
+  "required": ["schema_version", "project", "phase", "roadmap_phase_id", "publication_state", "research_question", "open_blockers", "next_actions"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "project": {"type": "string", "minLength": 1},
+    "phase": {"type": "string", "minLength": 1},
+    "roadmap_phase_id": {"$ref": "#/$defs/id"},
+    "publication_state": {"type": "string", "minLength": 1},
+    "research_question": {"type": "string", "minLength": 1},
+    "working_branch": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "canonical_documents": {"type": "object", "additionalProperties": {"type": "string"}},
+    "open_blockers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "description"],
+        "properties": {
+          "id": {"$ref": "#/$defs/id"},
+          "status": {"enum": ["open", "resolved"]},
+          "severity": {"type": "string"},
+          "description": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "next_actions": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {"id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"}}
+}
