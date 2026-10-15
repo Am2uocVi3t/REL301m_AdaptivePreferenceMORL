@@ -4,9 +4,16 @@
   "env_id": "minecart-v0",
   "reward_dim": 3,
   "return_definition": {"type": "discounted", "gamma": 0.99},
-  "reward_scale": [1.0, 1.0, 1.0],
-  "reference_point": null,
-  "reference_point_status": "pilot_required_before_final_test",
+  "reward_scale": [0.9659120784281335, 0.9659120784281335, 0.8247459754193536],
+  "reference_point": [-0.04389009065716453, -0.04389009065716453, -1.0215943973394292],
+  "reference_point_status": "frozen_from_source_aware_calibration_v2",
+  "calibration_evidence": {
+    "plan": "configs/pilots/calibration_v2.json",
+    "plan_canonical_sha256": "0cf0ce2a14e5c8781628ff5cd972ecdd69ef80d9f855c47aa9e283ee3bd3e9ba",
+    "proposal": "research/calibration/course_calibration_v2_proposal.json",
+    "proposal_sha256": "48bede31286bf0f4d0d8708005dd00bb47531f78cc7052b6ba5299509f8a8465",
+    "source_type": "environment_reference_front"
+  },
   "training_preference_pool": {"generator": "anchors_plus_dirichlet", "seed": 20261001, "count": 32},
   "preference_splits": {
     "validation": {"generator": "dirichlet", "alpha": 1.0, "seed": 20261016, "count": 32},

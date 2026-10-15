@@ -26,10 +26,11 @@ The project studies these signals rather than claiming that preference-condition
 | Local coverage, recency, and learning progress | Implemented; empirical value unvalidated |
 | Fixed validation/test preference manifests | Implemented |
 | Checkpoint evaluation and raw-result provenance | Implemented; end-to-end smoke tested |
-| LunarLander constructor-level shifts | Implemented; behavioral validation required |
+| LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
-| Paired-seed experiment matrix | Implemented; execution smoke tested |
-| GPI-LS baseline runtime | Adapter implemented; dependency/runtime validation pending |
+| Paired-seed experiment matrix | Frozen as 150 planned jobs; course execution not started |
+| Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
+| Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Not yet run |
 | Workshop/journal evidence | Not yet established |
 
@@ -112,20 +113,53 @@ Use the same training and protocol seeds for:
 
 For the mechanism ablation, run `--allocation-target rollout_only`, `update_only`, and `rollout_and_update`. Signal-only and pairwise ablations are selected by setting the four signal weights to zero or a predeclared positive value.
 
-Freeze and inspect a paired-seed matrix before launching it:
+Reproduce and inspect the frozen paired-seed matrix without launching it:
 
 ```bash
-python scripts/run_matrix.py \
-  --env mo-lunar-lander-v3 \
-  --protocol configs/protocols/course_mo_lunar_lander_v3.json \
-  --seeds 1 2 3 4 5
-
-# Add --execute only after reviewing matrix_manifest.json.
+python scripts/build_course_matrix.py
 ```
+
+The authoritative config is `configs/experiments/course_paired_matrix_v1.json`; the versioned manifest contains 150 jobs and sets `execution_authorized` to `false`. Execution requires a separate Phase 4 action after review.
+
+Inspect the 30-job primary block through the qualification-aware executor without launching it:
+
+```bash
+python scripts/execute_course_matrix.py \
+  --arm uniform \
+  --arm matched-random \
+  --arm full
+```
+
+Actual execution additionally requires `--execute`, the exact `--acknowledge-study-id`, at least one explicit selector, and a positive `--max-jobs`. The executor rechecks the frozen study, protocol hashes, qualification artifacts, and manifest hash before launching anything. It resumes only between complete seeded jobs: a completed artifact is skipped after its SHA-256 is verified, while failed or interrupted jobs require an explicit retry and no existing untracked final artifact.
 
 ### 3. Freeze pilot-derived quantities
 
-The committed protocol files deliberately contain `"reference_point": null`. After the pilot, freeze reward scales, normalization bounds, and a dominated hypervolume reference point using training/pilot evidence only. Commit the updated protocol before final runs. Do not derive these values from the final test set.
+The course protocols now contain scales and reference points frozen by source-aware calibration v2. V1 is retained as a failed calibration because learner-derived Minecart returns were degenerate. V2 uses an independent fixed-pool validation pilot for LunarLander and the pinned environment's deterministic reference geometry for Minecart; neither source accesses final-test data.
+
+The accepted evidence and exact hashes are recorded in `research/calibration/course_calibration_v2_freeze.json`. Reproduce the Minecart geometry after freeze without mutating the artifact:
+
+```bash
+python scripts/extract_reference_front.py \
+  --plan configs/pilots/calibration_v2.json \
+  --env-id minecart-v0 \
+  --verify-existing
+```
+
+In a clean pre-freeze reproduction, the v2 LunarLander manifest and proposal commands are:
+
+```bash
+python scripts/run_pilot_calibration.py \
+  --plan configs/pilots/calibration_v2.json \
+  --output-dir artifacts/pilot-calibration-v2 \
+  --execute
+
+python scripts/calibrate_protocol.py \
+  --plan configs/pilots/calibration_v2.json \
+  --manifest artifacts/pilot-calibration-v2/pilot_manifest.json \
+  --output research/calibration/course_calibration_v2_proposal.json
+```
+
+Do not rerun these commands to tune the frozen values. The calibrator rejects test/shifted inputs and never edits protocols; post-freeze diagnostics may qualify the learner but cannot change the calibration.
 
 ### 4. Evaluate a selected checkpoint
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "active_phase_id": "phase-2",
+  "active_phase_id": "phase-4",
   "phases": [
     {
       "id": "phase-0",
@@ -36,37 +36,57 @@
     {
       "id": "phase-2",
       "title": "Pilot calibration and protocol freeze",
-      "status": "active",
+      "status": "complete",
       "deliverables": [
-        {"id": "pilot-calibration", "description": "Pilot-only normalization and hypervolume calibration", "status": "not_started"},
-        {"id": "frozen-protocol", "description": "Versioned budgets, seeds, checkpoints, and analysis plan", "status": "not_started"}
+        {"id": "pilot-calibration", "description": "Source-aware normalization and hypervolume calibration with no final-test feedback", "status": "complete"},
+        {"id": "frozen-protocol", "description": "Versioned budgets, seeds, checkpoints, and analysis plan", "status": "complete"}
       ],
       "entry_criteria": ["Phase 1 exit criteria are met"],
-      "exit_criteria": ["Reward scaling and reference points use pilot data only", "Course experiment matrix is frozen before final evaluation"],
+      "exit_criteria": ["Reward scaling and reference points use predeclared non-test calibration evidence", "Course experiment matrix is frozen before final evaluation"],
       "go_no_go_rule": "No course-scale run until all analysis-sensitive quantities and budgets are frozen without final-test feedback.",
-      "evidence_paths": [],
-      "blocker_ids": ["python311-dependency-pins", "freeze-pilot-quantities"],
+      "evidence_paths": [
+        "configs/pilots/calibration_v1.json",
+        "configs/pilots/calibration_v2.json",
+        "docs/architecture/adr-002-pilot-calibration.md",
+        "docs/architecture/adr-003-source-aware-calibration.md",
+        "research/experiments/pilot-protocol-freeze.md",
+        "research/calibration/course_calibration_v2_freeze.json",
+        "tests/test_calibration.py",
+        "configs/experiments/course_paired_matrix_v1.json",
+        "research/experiments/course_paired_matrix_v1_manifest.json",
+        "research/experiments/course-paired-matrix.md",
+        "tests/test_course_matrix.py"
+      ],
+      "blocker_ids": [],
       "allowed_next_phase_ids": ["phase-3"]
     },
     {
       "id": "phase-3",
       "title": "Mechanism diagnostics",
-      "status": "not_started",
+      "status": "complete",
       "deliverables": [
-        {"id": "baseline-qualification", "description": "Validate compatible close baselines under Python 3.11", "status": "not_started"},
-        {"id": "shift-qualification", "description": "Behaviorally validate every declared dynamics shift", "status": "not_started"}
+        {"id": "baseline-qualification", "description": "Validate compatible close baselines under Python 3.11", "status": "complete"},
+        {"id": "shift-qualification", "description": "Behaviorally validate every declared dynamics shift", "status": "complete"}
       ],
       "entry_criteria": ["Pilot protocol is frozen"],
       "exit_criteria": ["Baseline failures are resolved or documented", "Shift tests demonstrate intended transition changes"],
       "go_no_go_rule": "Do not interpret comparisons or OOD results until baselines and shifts pass qualification.",
-      "evidence_paths": [],
-      "blocker_ids": ["python311-dependency-pins", "validate-gpi-ls", "validate-shifts"],
+      "evidence_paths": [
+        "research/qualification/course_matrix_gates_v1.json",
+        "research/qualification/envelope_python311_smoke.json",
+        "research/qualification/gpi_ls_python311_smoke.json",
+        "research/qualification/dynamics_shifts_v1.json",
+        "scripts/qualify_gpi_ls.py",
+        "scripts/qualify_envelope.py",
+        "scripts/qualify_dynamics_shifts.py"
+      ],
+      "blocker_ids": [],
       "allowed_next_phase_ids": ["phase-4"]
     },
     {
       "id": "phase-4",
       "title": "Paired-seed course experiment matrix",
-      "status": "not_started",
+      "status": "active",
       "deliverables": [
         {"id": "paired-matrix", "description": "Uniform, matched-random, signal, combination, and close-baseline runs with paired seeds", "status": "not_started"},
         {"id": "course-analysis", "description": "Evidence-bounded course report with uncertainty and failure analysis", "status": "not_started"}

@@ -123,3 +123,46 @@ def compute_sparsity(points: np.ndarray) -> float:
     pairwise = np.linalg.norm(frontier[:, None, :] - frontier[None, :, :], axis=-1)
     np.fill_diagonal(pairwise, np.inf)
     return float(np.mean(np.min(pairwise, axis=1)))
+
+
+def compute_per_objective_controllability(
+    agent_returns: np.ndarray,
+    preferences: np.ndarray,
+) -> dict[str, float | list[float]]:
+    """Spearman association between requested and achieved value per objective."""
+    returns = np.asarray(agent_returns, dtype=np.float64)
+    weights = np.asarray(preferences, dtype=np.float64)
+    if returns.shape != weights.shape or returns.ndim != 2:
+        raise ValueError("agent_returns and preferences must have the same two-dimensional shape")
+    if len(returns) < 2:
+        raise ValueError("controllability requires at least two preferences")
+
+    correlations = [
+        _safe_rank_correlation(weights[:, objective], returns[:, objective]) for objective in range(returns.shape[1])
+    ]
+    return {
+        "per_objective_spearman": correlations,
+        "mean_spearman": float(np.mean(correlations)),
+    }
+
+
+def _safe_rank_correlation(first: np.ndarray, second: np.ndarray) -> float:
+    first_ranks = _average_ranks(first)
+    second_ranks = _average_ranks(second)
+    if np.std(first_ranks) < 1e-12 or np.std(second_ranks) < 1e-12:
+        return 0.0
+    return float(np.corrcoef(first_ranks, second_ranks)[0, 1])
+
+
+def _average_ranks(values: np.ndarray) -> np.ndarray:
+    order = np.argsort(values, kind="mergesort")
+    ranks = np.empty(len(values), dtype=np.float64)
+    sorted_values = values[order]
+    start = 0
+    while start < len(values):
+        stop = start + 1
+        while stop < len(values) and sorted_values[stop] == sorted_values[start]:
+            stop += 1
+        ranks[order[start:stop]] = 0.5 * (start + stop - 1) + 1.0
+        start = stop
+    return ranks

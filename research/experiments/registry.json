@@ -3,18 +3,19 @@
   "experiments": [
     {
       "id": "pilot-protocol-freeze",
-      "title": "Pilot-only reward-scale and hypervolume-reference calibration",
-      "status": "planned",
+      "title": "Source-aware reward-scale and hypervolume-reference calibration",
+      "status": "complete",
       "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
       "claim_ids": [],
-      "artifact": null,
-      "notes": "Must not use final-test trajectories."
+      "artifact": "research/calibration/course_calibration_v2_freeze.json",
+      "notes": "V1 failed closed on sparse Minecart returns. Source-aware v2 then passed using an independent fixed-pool LunarLander pilot and a deterministic versioned Minecart environment reference front. Both course protocols now contain frozen scales/reference points with hashed evidence; no final-test data was accessed.",
+      "updated_at": "2026-10-15T14:33:34+00:00"
     },
     {
       "id": "course-paired-matrix",
       "title": "Paired-seed controls and allocation-signal ablations",
-      "status": "blocked",
-      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "status": "planned",
+      "protocol": "configs/experiments/course_paired_matrix_v1.json",
       "claim_ids": [
         "conditioning-gap-allocation",
         "disagreement-allocation",
@@ -22,8 +23,8 @@
         "learning-progress-allocation",
         "combined-allocation"
       ],
-      "artifact": null,
-      "notes": "Blocked until pilot quantities and the matrix manifest are frozen."
+      "artifact": "research/experiments/course_paired_matrix_v1_manifest.json",
+      "notes": "Frozen as 150 paired planned jobs across two environments and five seeds. Geometry-only allocation, controllability, checkpoint selection, estimation-first analysis, GPI-LS qualification, and enabled-shift qualification are versioned. The manifest explicitly does not authorize execution; no course-scale job has run."
     }
   ]
 }

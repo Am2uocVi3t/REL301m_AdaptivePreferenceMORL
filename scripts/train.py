@@ -70,6 +70,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--uncertainty-weight", type=float, default=0.25)
     parser.add_argument("--coverage-weight", type=float, default=0.25)
     parser.add_argument("--progress-weight", type=float, default=0.25)
+    parser.add_argument("--geometry-weight", type=float, default=0.0)
     parser.add_argument("--temperature", type=float, default=0.2)
     parser.add_argument("--uniform-floor", type=float, default=0.2)
     parser.add_argument("--locality-bandwidth", type=float, default=0.2)
@@ -101,8 +102,6 @@ def linear_epsilon(
 def choose_rollout_preference(
     args: argparse.Namespace,
     sampler: AdaptivePreferenceSampler,
-    rng: np.random.Generator,
-    reward_dim: int,
 ) -> np.ndarray:
     uses_curriculum = args.algo != "uniform-pcqn" and args.allocation_target in {
         "rollout_only",
@@ -110,7 +109,7 @@ def choose_rollout_preference(
     }
     if uses_curriculum:
         return sampler.sample()
-    return rng.dirichlet(np.ones(reward_dim)).astype(np.float32)
+    return sampler.sample_uniform()
 
 
 def choose_update_preferences(
@@ -356,6 +355,7 @@ def main() -> None:
         uncertainty_weight=args.uncertainty_weight,
         coverage_weight=args.coverage_weight,
         progress_weight=args.progress_weight,
+        geometry_weight=args.geometry_weight,
         temperature=args.temperature,
         uniform_floor=args.uniform_floor,
         locality_bandwidth=args.locality_bandwidth,
@@ -377,7 +377,7 @@ def main() -> None:
     started_at = time.time()
 
     while step < args.total_timesteps:
-        behavior_preference = choose_rollout_preference(args, sampler, rng, reward_dim)
+        behavior_preference = choose_rollout_preference(args, sampler)
         preference_tensor = torch.as_tensor(behavior_preference, device=args.device).unsqueeze(0)
         behavior_head = int(rng.integers(args.num_heads))
         observation, _ = train_env.reset()

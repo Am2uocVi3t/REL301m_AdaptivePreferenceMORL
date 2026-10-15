@@ -17,9 +17,9 @@ The machine-readable source is `research/roadmap.json`; this document explains h
 
 ## Current gate
 
-Phase 1 is complete. All 22 registered papers have full-text notes, including a focused 2026 refresh; every claim has an antecedent/verdict/falsifier, and the CAPQL access gap was resolved with a user-supplied ICLR 2023 PDF. The refresh identifies PBMORL as direct prior art for preference-task reallocation and MPFT as direct prior art for sparse-front training, so broad adaptive-allocation novelty is excluded. Phase 2 is active.
+Phases 0–3 are complete and Phase 4 is active. Calibration v1 failed closed on sparse Minecart returns and exposed an unmatched uniform-sampling bug, which was repaired. Source-aware calibration v2 then froze both course protocols from non-test evidence. The course matrix subsequently froze 150 planned jobs across two environments, five paired seeds, 13 PCQN arms, and two gated comparators, along with checkpoint and estimation-first analysis rules. Its manifest explicitly forbids execution.
 
-Phase 2 remains a no-go for pilot execution until the P0 dependency mismatch is repaired: the pinned NumPy version requires Python 3.12+, conflicting with the declared Python 3.11 runtime. Pilot-only reward scaling and hypervolume reference-point calibration must then be designed and reviewed before those quantities are frozen.
+Envelope and GPI-LS behavior passed bounded Python 3.11 training smokes on both course environments. All three enabled LunarLander dynamics shifts changed controlled transition/reward traces over three seeds; Minecart retains no enabled non-nominal shift. These artifacts qualify plumbing and allow Phase 4 to begin, but no paired course job, final-test evaluation, robustness result, or comparative empirical claim exists yet.
 
 ## Operating rules
 

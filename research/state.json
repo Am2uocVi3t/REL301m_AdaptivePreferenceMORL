@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "project": "Preference Allocation in Preference-Conditioned MORL",
-  "phase": "pilot calibration and protocol freeze",
-  "roadmap_phase_id": "phase-2",
+  "phase": "paired-seed course experiment matrix",
+  "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "feature/2026-literature-refresh",
-  "updated_at": "2026-10-15T04:13:45+00:00",
+  "working_branch": "feature/pilot-calibration-protocol",
+  "updated_at": "2026-10-15T17:33:36+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -18,9 +18,9 @@
   "open_blockers": [
     {
       "id": "python311-dependency-pins",
-      "status": "open",
+      "status": "resolved",
       "severity": "P0",
-      "description": "Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime."
+      "description": "Resolved on 2026-10-15 by pinning numpy==2.4.6 and scipy==1.17.1; the complete requirements set and quality gate passed under Python 3.11.17."
     },
     {
       "id": "capql-full-text",
@@ -30,21 +30,27 @@
     },
     {
       "id": "freeze-pilot-quantities",
-      "status": "open",
+      "status": "resolved",
       "severity": "P0",
-      "description": "Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence."
+      "description": "Resolved by source-aware calibration v2: an independent fixed-pool LunarLander pilot and deterministic versioned Minecart reference geometry passed all gates; both protocols are frozen without final-test access."
+    },
+    {
+      "id": "freeze-course-matrix",
+      "status": "resolved",
+      "severity": "P0",
+      "description": "Resolved by the frozen 150-job course study config and non-executing manifest, including five paired seeds, matched budgets, geometry-only allocation, per-objective controllability, checkpoint selection, and analysis rules."
     },
     {
       "id": "validate-gpi-ls",
-      "status": "open",
+      "status": "resolved",
       "severity": "P1",
-      "description": "Validate GPI-LS under Python 3.11 with native cddlib headers."
+      "description": "Resolved by bounded 200-interaction behavioral GPI-LS runs on both course environments under Python 3.11.17; replay filled and network parameters changed."
     },
     {
       "id": "validate-shifts",
-      "status": "open",
+      "status": "resolved",
       "severity": "P1",
-      "description": "Behaviorally validate that every enabled dynamics shift changes the intended transitions."
+      "description": "Resolved by controlled nominal-versus-shift action traces over three seeds; all three enabled LunarLander shifts changed observations, rewards, and termination traces."
     },
     {
       "id": "run-course-matrix",
@@ -54,9 +60,9 @@
     }
   ],
   "next_actions": [
-    "Repair the Python 3.11 dependency pins and rerun the full quality gate on the declared target runtime.",
-    "Design and review pilot-only reward-scale and hypervolume-reference calibration without final-test feedback.",
-    "Freeze the course matrix with geometry-only allocation and per-objective controllability added to the predeclared comparisons."
+    "Review and commit the complete Phase 2/3 evidence stack plus the Phase 4 executor before launching expensive jobs.",
+    "Execute the bounded primary PCQN block (uniform, matched-random, and full) through the frozen qualification-aware executor without changing study config or accessing final-test data.",
+    "Aggregate validation evidence, lock checkpoints, and only then authorize the one-time final-test evaluation."
   ],
-  "last_session_summary": "Completed a focused 2026 MORL literature refresh: registered and read seven full-text primary sources, expanded structured notes, documented bounded search and exclusions, updated the literature/claim map, and narrowed broad adaptive-allocation novelty using PBMORL and MPFT as direct antecedents. Verified 22/22 papers read and passed doctor, Ruff, MyPy, 39 tests, Bandit, compileall, and diff checks in a temporary Python 3.14 verification environment."
+  "last_session_summary": "Implemented a fail-closed qualification-aware Phase 4 course executor with exact frozen-study and artifact-hash verification, explicit bounded authorization, atomic job-level resume status, and isolated non-evidence smoke mode. Added expected PCQN final-artifact paths and rebound the qualification gate without changing the frozen study config. Dry-ran the 30-job primary block and completed one 20-step Minecart smoke whose hash-verified second invocation was skipped; no course job or final-test evaluation ran. Python 3.11 passed Ruff, MyPy, 65 tests, Bandit, compileall, and diff checks; no comparative claim was promoted."
 }

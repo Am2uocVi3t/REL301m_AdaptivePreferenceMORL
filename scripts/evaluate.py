@@ -18,6 +18,7 @@ from src.evaluation.metrics import (
     compute_expected_utility,
     compute_hypervolume,
     compute_igd,
+    compute_per_objective_controllability,
     compute_scalarized_regret,
     compute_sparsity,
     pareto_prune,
@@ -131,13 +132,14 @@ def main() -> None:
         discount_factor=discount_factor,
     )
     frontier = pareto_prune(rollout["mean_returns"])
-    metrics: dict[str, float | int | None] = {
+    metrics: dict[str, Any] = {
         "expected_utility": compute_expected_utility(rollout["mean_returns"], preferences),
         "frontier_size": len(frontier),
         "sparsity": compute_sparsity(frontier),
         "evaluation_steps": rollout["evaluation_steps"],
         "hypervolume": None,
     }
+    metrics["controllability"] = compute_per_objective_controllability(rollout["mean_returns"], preferences)
 
     reference_point = resolve_reference_point(protocol)
     if reference_point is not None:

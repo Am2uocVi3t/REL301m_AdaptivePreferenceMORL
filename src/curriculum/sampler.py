@@ -22,6 +22,7 @@ class AdaptivePreferenceSampler:
         uncertainty_weight: float = 0.25,
         coverage_weight: float = 0.25,
         progress_weight: float = 0.25,
+        geometry_weight: float = 0.0,
         temperature: float = 0.1,
         uniform_floor: float = 0.2,
         locality_bandwidth: float = 0.2,
@@ -43,6 +44,7 @@ class AdaptivePreferenceSampler:
         self.uncertainty_weight = uncertainty_weight
         self.coverage_weight = coverage_weight
         self.progress_weight = progress_weight
+        self.geometry_weight = geometry_weight
         self.temperature = temperature
         self.uniform_floor = uniform_floor
         self.locality_bandwidth = locality_bandwidth
@@ -62,6 +64,7 @@ class AdaptivePreferenceSampler:
 
         distances = np.linalg.norm(self.pool[:, None, :] - self.pool[None, :, :], axis=-1)
         self.locality_kernel = np.exp(-0.5 * (distances / locality_bandwidth) ** 2).astype(np.float32)
+        self.geometry_scores = 1.0 / self.locality_kernel.sum(axis=1)
 
     def _init_preference_pool(self) -> np.ndarray:
         candidates: list[np.ndarray] = []
@@ -87,13 +90,24 @@ class AdaptivePreferenceSampler:
 
     def sample_index(self) -> int:
         index = int(self.rng.choice(self.pool_size, p=self.probabilities))
+        self._record_sample(index)
+        return index
+
+    def sample_uniform_index(self) -> int:
+        index = int(self.rng.integers(self.pool_size))
+        self._record_sample(index)
+        return index
+
+    def _record_sample(self, index: int) -> None:
         self.visit_counts[index] += 1
         self.last_visit[index] = self.clock
         self.clock += 1
-        return index
 
     def sample(self) -> np.ndarray:
         return self.pool[self.sample_index()].copy()
+
+    def sample_uniform(self) -> np.ndarray:
+        return self.pool[self.sample_uniform_index()].copy()
 
     def sample_batch(self, batch_size: int) -> np.ndarray:
         indices = [self.sample_index() for _ in range(batch_size)]
@@ -137,6 +151,7 @@ class AdaptivePreferenceSampler:
                 + self.uncertainty_weight * _normalize(self.uncertainty_scores)
                 + self.coverage_weight * _normalize(self.coverage_scores)
                 + self.progress_weight * _normalize(self.progress_scores)
+                + self.geometry_weight * _normalize(self.geometry_scores)
             )
         else:
             combined = _normalize(np.asarray(random_scores, dtype=np.float32))

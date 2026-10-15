@@ -14,9 +14,15 @@
 - [project] Cross-chat state is managed by the standard-library research harness and versioned JSON registries → tech-decisions.md
 - [project] Literature uses primary-source metadata, BibTeX, search logs, and structured notes; paper PDFs stay outside Git → tech-decisions.md
 - [project] Abstract-only papers stay screened; agents report full-text blockers and request an authorized copy → tech-decisions.md
-- [project] Evidence-gated Phase 0–7 progression is controlled by research/roadmap.json; Phase 2 is active but execution-blocked → research-status.md
+- [project] Evidence-gated Phase 0–7 progression is controlled by research/roadmap.json; Phases 0–3 are complete and Phase 4 is active without course execution → research-status.md
 - [project] The literature map has 22 full-text sources; 2026 PBMORL/MPFT narrow adaptive-allocation novelty → research-status.md
-- [project] requirements.txt is currently incompatible with target Python 3.11 because numpy 2.5.4 requires Python 3.12+ → research-status.md
+- [project] The complete pinned requirements and quality gate pass on Python 3.11.17 after pinning NumPy 2.4.6 and SciPy 1.17.1 → research-status.md
+- [project] Pilot calibration is predeclared, validation-only, uniform-policy, and review-gated; smoke outputs are never freeze evidence → tech-decisions.md
+- [project] Pilot calibration v1 completed but failed closed on zero Minecart ore returns; no protocol values are frozen → research-status.md
+- [project] Uniform-PCQN must sample uniformly from the shared protocol-seeded finite candidate pool → tech-decisions.md
+- [project] Source-aware calibration v2 froze both course protocols from non-test evidence; Minecart uses versioned deterministic environment geometry and LunarLander uses an independent fixed-pool pilot → tech-decisions.md
+- [project] Course matrix v1 freezes 150 paired planned jobs and estimation-first analysis; GPI-LS and enabled LunarLander shifts passed bounded behavioral qualification → research-status.md
+- [project] The Phase 4 executor is qualification-aware and job-level resumable; its isolated smoke passed while course execution remains unstarted → research-status.md
 
 ## Reference
 - [reference] Detailed current state and next actions live in the canonical project status document → research-status.md

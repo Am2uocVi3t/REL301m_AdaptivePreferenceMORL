@@ -6,6 +6,7 @@ from src.evaluation.metrics import (
     compute_expected_utility,
     compute_hypervolume,
     compute_igd,
+    compute_per_objective_controllability,
     compute_scalarized_regret,
     pareto_prune,
 )
@@ -36,6 +37,16 @@ def test_utility_regret_and_igd_known_values():
     assert compute_igd(returns, reference) == pytest.approx(1.0)
 
 
+def test_per_objective_controllability_uses_tie_aware_rank_correlation():
+    preferences = np.array([[1.0, 0.0], [0.5, 0.5], [0.0, 1.0]], dtype=np.float32)
+    returns = np.array([[3.0, 0.0], [2.0, 2.0], [1.0, 4.0]], dtype=np.float32)
+
+    result = compute_per_objective_controllability(returns, preferences)
+
+    assert result["per_objective_spearman"] == pytest.approx([1.0, 1.0])
+    assert result["mean_spearman"] == pytest.approx(1.0)
+
+
 def test_five_pair_exact_test_cannot_cross_point_zero_five():
     result = paired_permutation_test(np.ones(5), np.zeros(5))
     assert result["mode"] == "exact"
@@ -55,7 +66,11 @@ def test_protocol_preferences_are_fixed_and_on_simplex():
     assert np.array_equal(first, second)
     assert loaded.shape == (32, 4)
     assert np.allclose(loaded.sum(axis=1), 1.0)
-    assert protocol["reference_point"] is None
+    reference_point = np.asarray(protocol["reference_point"], dtype=np.float32)
+    assert reference_point.shape == (4,)
+    assert np.all(np.isfinite(reference_point))
+    assert protocol["reference_point_status"] == "frozen_from_source_aware_calibration_v2"
+    assert protocol["calibration_evidence"]["source_type"] == "validation_pilot"
 
 
 def test_training_pool_size_defaults_to_protocol_and_rejects_mismatch():

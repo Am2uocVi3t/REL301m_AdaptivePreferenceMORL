@@ -11,19 +11,19 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-15T04:24:30+00:00
-Expected working branch at generation: feature/2026-literature-refresh
-Expected commit at generation: d6e9dee
-Working tree dirty at generation: no
-Current phase: phase-2 — Pilot calibration and protocol freeze (active)
+Snapshot generated: 2026-10-15T17:33:36+00:00
+Expected working branch at generation: feature/pilot-calibration-protocol
+Expected commit at generation: 8b9786c
+Working tree dirty at generation: yes
+Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
 
 Roadmap:
 - phase-0 [complete]: Foundation and scientific repair
 - phase-1 [complete]: Claim and antecedent mapping
-- phase-2 [active]: Pilot calibration and protocol freeze
-- phase-3 [not_started]: Mechanism diagnostics
-- phase-4 [not_started]: Paired-seed course experiment matrix
+- phase-2 [complete]: Pilot calibration and protocol freeze
+- phase-3 [complete]: Mechanism diagnostics
+- phase-4 [active]: Paired-seed course experiment matrix
 - phase-5 [not_started]: Course paper
 - phase-6 [not_started]: Workshop and journal extension
 - phase-7 [not_started]: Submission and artifact freeze
@@ -75,23 +75,18 @@ Full-text requests for the user:
 - None currently registered.
 
 Active experiments:
-- pilot-protocol-freeze [planned]: Pilot-only reward-scale and hypervolume-reference calibration
-- course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
+- course-paired-matrix [planned]: Paired-seed controls and allocation-signal ablations
 
 Open blockers:
-- Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime.
-- Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence.
-- Validate GPI-LS under Python 3.11 with native cddlib headers.
-- Behaviorally validate that every enabled dynamics shift changes the intended transitions.
 - Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
 
 Latest closed-session summary:
-Completed a focused 2026 MORL literature refresh: registered and read seven full-text primary sources, expanded structured notes, documented bounded search and exclusions, updated the literature/claim map, and narrowed broad adaptive-allocation novelty using PBMORL and MPFT as direct antecedents. Verified 22/22 papers read and passed doctor, Ruff, MyPy, 39 tests, Bandit, compileall, and diff checks in a temporary Python 3.14 verification environment.
+Implemented a fail-closed qualification-aware Phase 4 course executor with exact frozen-study and artifact-hash verification, explicit bounded authorization, atomic job-level resume status, and isolated non-evidence smoke mode. Added expected PCQN final-artifact paths and rebound the qualification gate without changing the frozen study config. Dry-ran the 30-job primary block and completed one 20-step Minecart smoke whose hash-verified second invocation was skipped; no course job or final-test evaluation ran. Python 3.11 passed Ruff, MyPy, 65 tests, Bandit, compileall, and diff checks; no comparative claim was promoted.
 
 Next actions:
-1. Repair the Python 3.11 dependency pins and rerun the full quality gate on the declared target runtime.
-2. Design and review pilot-only reward-scale and hypervolume-reference calibration without final-test feedback.
-3. Freeze the course matrix with geometry-only allocation and per-objective controllability added to the predeclared comparisons.
+1. Review and commit the complete Phase 2/3 evidence stack plus the Phase 4 executor before launching expensive jobs.
+2. Execute the bounded primary PCQN block (uniform, matched-random, and full) through the frozen qualification-aware executor without changing study config or accessing final-test data.
+3. Aggregate validation evidence, lock checkpoints, and only then authorize the one-time final-test evaluation.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

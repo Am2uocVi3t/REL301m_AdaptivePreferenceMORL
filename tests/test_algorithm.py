@@ -1,7 +1,10 @@
+from argparse import Namespace
+
 import numpy as np
 import pytest
 import torch
 
+from scripts.train import choose_rollout_preference
 from src.core.pareto_archive import ParetoArchive
 from src.core.replay_buffer import VectorReplayBuffer
 from src.curriculum.gap import compute_conditioning_gap
@@ -157,6 +160,51 @@ def test_sampler_pool_is_fixed_across_training_seeds():
     first = AdaptivePreferenceSampler(4, pool_size=20, seed=1, pool_seed=99)
     second = AdaptivePreferenceSampler(4, pool_size=20, seed=2, pool_seed=99)
     assert np.array_equal(first.pool, second.pool)
+
+
+def test_geometry_only_scores_are_static_and_change_sampling_distribution():
+    sampler = AdaptivePreferenceSampler(
+        3,
+        pool_size=12,
+        gap_weight=0.0,
+        uncertainty_weight=0.0,
+        coverage_weight=0.0,
+        progress_weight=0.0,
+        geometry_weight=1.0,
+        uniform_floor=0.0,
+        seed=3,
+    )
+    initial_geometry = sampler.geometry_scores.copy()
+    zeros = np.zeros(sampler.pool_size, dtype=np.float32)
+
+    for _ in range(20):
+        sampler.sample_uniform_index()
+    sampler.update_distribution(zeros, zeros, zeros)
+
+    assert np.array_equal(sampler.geometry_scores, initial_geometry)
+    assert np.ptp(sampler.geometry_scores) > 0.0
+    assert np.ptp(sampler.probabilities) > 0.0
+
+
+def test_uniform_rollouts_sample_only_from_fixed_candidate_pool():
+    sampler = AdaptivePreferenceSampler(3, pool_size=7, seed=11, pool_seed=99)
+    args = Namespace(algo="uniform-pcqn", allocation_target="rollout_and_update")
+
+    sampled = np.asarray([choose_rollout_preference(args, sampler) for _ in range(200)])
+
+    assert all(any(np.array_equal(value, candidate) for candidate in sampler.pool) for value in sampled)
+    assert all(any(np.array_equal(value, anchor) for value in sampled) for anchor in np.eye(3, dtype=np.float32))
+
+
+def test_update_only_rollouts_remain_uniform_when_adaptive_distribution_changes():
+    sampler = AdaptivePreferenceSampler(2, pool_size=5, seed=7, pool_seed=99)
+    sampler.probabilities[:] = 0.0
+    sampler.probabilities[0] = 1.0
+    args = Namespace(algo="adaptive-pcqn", allocation_target="update_only")
+
+    sampled = np.asarray([choose_rollout_preference(args, sampler) for _ in range(100)])
+
+    assert len(np.unique(sampled, axis=0)) > 1
 
 
 def test_uncertainty_restores_training_mode():

@@ -9,8 +9,8 @@ torch==2.14.1
 torchvision==0.29.1
 
 # Scientific computing & Math
-numpy==2.5.4
-scipy==1.18.1
+numpy==2.4.6
+scipy==1.17.1
 pandas==3.0.6
 pymoo==0.6.2
 
