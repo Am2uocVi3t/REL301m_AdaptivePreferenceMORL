@@ -19,7 +19,7 @@ The machine-readable source is `research/roadmap.json`; this document explains h
 
 Phases 0–3 are complete and Phase 4 is active. Calibration v1 failed closed on sparse Minecart returns and exposed an unmatched uniform-sampling bug, which was repaired. Source-aware calibration v2 then froze both course protocols from non-test evidence. The course matrix subsequently froze 150 planned jobs across two environments, five paired seeds, 13 PCQN arms, and two gated comparators, along with checkpoint and estimation-first analysis rules. Its manifest explicitly forbids execution.
 
-Envelope and GPI-LS behavior passed bounded Python 3.11 training smokes on both course environments. All three enabled LunarLander dynamics shifts changed controlled transition/reward traces over three seeds; Minecart retains no enabled non-nominal shift. These artifacts qualify plumbing and allow Phase 4 to begin, but no paired course job, final-test evaluation, robustness result, or comparative empirical claim exists yet.
+Envelope and GPI-LS behavior passed bounded Python 3.11 training smokes on both course environments. All three enabled LunarLander dynamics shifts changed controlled transition/reward traces over three seeds; Minecart retains no enabled non-nominal shift. These artifacts qualified plumbing and allowed Phase 4 to begin. The bounded primary PCQN block is now running, but it has not completed; no final-test evaluation, robustness result, or comparative empirical claim exists yet.
 
 ## Operating rules
 

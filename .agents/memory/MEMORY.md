@@ -22,7 +22,8 @@
 - [project] Uniform-PCQN must sample uniformly from the shared protocol-seeded finite candidate pool → tech-decisions.md
 - [project] Source-aware calibration v2 froze both course protocols from non-test evidence; Minecart uses versioned deterministic environment geometry and LunarLander uses an independent fixed-pool pilot → tech-decisions.md
 - [project] Course matrix v1 freezes 150 paired planned jobs and estimation-first analysis; GPI-LS and enabled LunarLander shifts passed bounded behavioral qualification → research-status.md
-- [project] The Phase 4 executor is qualification-aware and job-level resumable; its isolated smoke passed while course execution remains unstarted → research-status.md
+- [project] The Phase 4 executor is qualification-aware and job-level resumable; its isolated non-evidence smoke passed before course execution began → research-status.md
+- [project] Phase 4 primary PCQN execution began after commit c4a90d6; one full-budget canary completed and the remaining primary jobs run serially without unlocking final test → research-status.md
 
 ## Reference
 - [reference] Detailed current state and next actions live in the canonical project status document → research-status.md

@@ -28,7 +28,7 @@ The project studies these signals rather than claiming that preference-condition
 | Checkpoint evaluation and raw-result provenance | Implemented; end-to-end smoke tested |
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
-| Paired-seed experiment matrix | Frozen as 150 planned jobs; course execution not started |
+| Paired-seed experiment matrix | Frozen as 150 jobs; primary PCQN block running |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Not yet run |

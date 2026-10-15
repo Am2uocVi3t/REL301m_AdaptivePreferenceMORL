@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-15T17:33:36+00:00
+Snapshot generated: 2026-10-15T18:20:46+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: 8b9786c
+Expected commit at generation: c4a90d6
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -75,18 +75,18 @@ Full-text requests for the user:
 - None currently registered.
 
 Active experiments:
-- course-paired-matrix [planned]: Paired-seed controls and allocation-signal ablations
+- course-paired-matrix [running]: Paired-seed controls and allocation-signal ablations
 
 Open blockers:
 - Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
 
 Latest closed-session summary:
-Implemented a fail-closed qualification-aware Phase 4 course executor with exact frozen-study and artifact-hash verification, explicit bounded authorization, atomic job-level resume status, and isolated non-evidence smoke mode. Added expected PCQN final-artifact paths and rebound the qualification gate without changing the frozen study config. Dry-ran the 30-job primary block and completed one 20-step Minecart smoke whose hash-verified second invocation was skipped; no course job or final-test evaluation ran. Python 3.11 passed Ruff, MyPy, 65 tests, Bandit, compileall, and diff checks; no comparative claim was promoted.
+Audited and committed the complete Phase 2/3 evidence stack plus the fail-closed Phase 4 executor as c4a90d6 after pip check, doctor, Ruff, MyPy, 65 tests, Bandit, compileall, deterministic manifest reproduction, reference-front reproduction, secret/binary checks, and diff checks. Authorized the frozen 30-job primary PCQN selection without final-test access. The first full-budget Uniform-PCQN LunarLander job completed 500,000 interactions and its final checkpoint hash was verified; the executor then resume-skipped it and continued the remaining jobs serially. The experiment remains running and no comparative claim was promoted.
 
 Next actions:
-1. Review and commit the complete Phase 2/3 evidence stack plus the Phase 4 executor before launching expensive jobs.
-2. Execute the bounded primary PCQN block (uniform, matched-random, and full) through the frozen qualification-aware executor without changing study config or accessing final-test data.
-3. Aggregate validation evidence, lock checkpoints, and only then authorize the one-time final-test evaluation.
+1. Monitor the running primary executor and preserve atomic job status; if interrupted, resume only at a job boundary without changing the frozen study.
+2. After all 30 primary jobs complete, aggregate validation evidence and lock checkpoints without accessing final-test data.
+3. Run the remaining frozen signal/target ablations and qualified baselines before any comparative conclusion.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

@@ -8,7 +8,7 @@ updated: 2026-10-16
 
 ## Current phase
 
-- Phases 0–3 are complete; Phase 4 paired-seed course experimentation is active but no course-scale job has run.
+- Phases 0–3 are complete; Phase 4 paired-seed course experimentation is active and the bounded primary PCQN block is running.
 - The defensible contribution is a controlled study of which preference-allocation signals identify hard, uncertain, or learnable regions.
 - No multi-seed course result or publication-level empirical claim has been established yet.
 - A Git-native AI research harness now keeps claim, literature, experiment, blocker, session, and handoff state synchronized across chats.
@@ -27,6 +27,7 @@ updated: 2026-10-16
 - The frozen course study contains 150 non-executed planned jobs across two environments, five paired seeds, 13 PCQN arms, and two comparator slots; analysis is estimation-first and final test remains locked.
 - Envelope and GPI-LS behavior passed 200-interaction Python 3.11 smokes on both course environments, and every enabled LunarLander shift changed controlled transition/reward traces over three seeds.
 - The qualification-aware executor dry-ran the 30-job primary block. One isolated 20-step smoke completed and resume-skipped by artifact hash with `course_evidence: false`; no course job ran.
+- After commit `c4a90d6`, the first 500,000-interaction Uniform-PCQN LunarLander course job completed with a hash-verified final checkpoint, and the remaining primary selection began through job-level resume. This is runtime progress, not a comparative result.
 
 ## Open blockers
 
