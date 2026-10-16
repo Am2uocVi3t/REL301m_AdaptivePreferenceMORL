@@ -11,10 +11,10 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T17:10:21+00:00
+Snapshot generated: 2026-10-16T17:10:34+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: dc3fd33
-Working tree dirty at generation: yes
+Expected commit at generation: 293f136
+Working tree dirty at generation: no
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
 
