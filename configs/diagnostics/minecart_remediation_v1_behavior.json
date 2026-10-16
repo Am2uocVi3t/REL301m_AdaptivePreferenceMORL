@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "id": "minecart-remediation-v1-behavior-diagnosis",
+  "status": "predeclared_not_executed",
+  "execution_authorized": false,
+  "purpose": "Localize the action-to-delivery stage at which remediation-v1 policies lose transient Minecart ore behavior, without training or final-test access.",
+  "data_firewall": {
+    "allowed_sources": ["validation"],
+    "evaluation_split": "validation",
+    "forbidden_split": "test",
+    "shift": "nominal",
+    "final_test_access_permitted": false,
+    "training_permitted": false
+  },
+  "sources": {
+    "qualification": {
+      "path": "research/qualification/minecart_pcqn_backbone_v1.json",
+      "sha256": "9f3296ba15998671f01a7f0cd81281a880771974983823c66abb6f2c15f2e8c8"
+    },
+    "source_audit": {
+      "path": "research/evidence/minecart_pcqn_backbone_v1_source_audit.json",
+      "sha256": "344ef46a7f120523d4bea03bb22bba1bbf99735244efa95b45b335f7bb57e32b"
+    }
+  },
+  "environment": {
+    "env_id": "minecart-v0",
+    "protocol": "configs/protocols/course_minecart_v0.json",
+    "protocol_canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "shift": "nominal",
+    "mine_action": 0,
+    "action_count": 6,
+    "ore_objective_indices": [0, 1]
+  },
+  "evaluation": {
+    "policy_mode": "ensemble_mean_greedy",
+    "preference_count": 32,
+    "episodes_per_preference": 5,
+    "episode_count_per_checkpoint": 160,
+    "seed_base": 670000,
+    "checkpoints": [
+      {
+        "training_seed": 20264001,
+        "step": 800000,
+        "role": "selected_never_positive",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step800000.pt",
+        "sha256": "f95d2f00b19f666c5ecb06d21dab1aef0a732539ffd44cf91cb34ec580d7a2ef"
+      },
+      {
+        "training_seed": 20264002,
+        "step": 200000,
+        "role": "early_transient_positive",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step200000.pt",
+        "sha256": "dd1ea33f6272b872a4ef24ceb9834986829e10051dbf9c58cbbfd5df6b33291e"
+      },
+      {
+        "training_seed": 20264002,
+        "step": 600000,
+        "role": "selected_zero_after_transient",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step600000.pt",
+        "sha256": "14a49a6df7d4a8f63239302a72a5ba62697b659468d352fade8aaaf6e0747094"
+      },
+      {
+        "training_seed": 20264002,
+        "step": 800000,
+        "role": "late_transient_positive",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step800000.pt",
+        "sha256": "5410f0d2787b6b8a6e5a42afcdf79d9eceb00353eba5e0e8569a139b3511f4b8"
+      },
+      {
+        "training_seed": 20264003,
+        "step": 600000,
+        "role": "selected_pass",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step600000.pt",
+        "sha256": "04f8aef9058d4ac42dff4ac6dc5fe6c14f876459eb06c98c211c81ebca299381"
+      },
+      {
+        "training_seed": 20264003,
+        "step": 700000,
+        "role": "immediate_post_pass_loss",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step700000.pt",
+        "sha256": "b477cdbd98aee32d85c61f5a9a50ee1e22074c318d62ce265af0f52260d7ef54"
+      },
+      {
+        "training_seed": 20264003,
+        "step": 1000000,
+        "role": "final_zero_after_transient",
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step1000000.pt",
+        "sha256": "b2088b88da5f6bb0695bb4b7fcf76b5c067921fa02cadc4098618c35952fea6c"
+      }
+    ]
+  },
+  "trace_fields": [
+    "action_counts",
+    "episodes_departed",
+    "episodes_with_mine_action",
+    "episodes_with_successful_mining",
+    "episodes_with_ore_delivery",
+    "episodes_with_cargo_but_no_delivery",
+    "episodes_terminated_at_base",
+    "episodes_truncated",
+    "positive_ore_episodes_per_objective",
+    "environment_steps"
+  ],
+  "output": "research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json",
+  "decision_rule": "Use prioritized replay as the leading v2 mechanism only if ore delivery or successful mining appears at a positive checkpoint and disappears later; use n-step returns as the leading mechanism only if Mine actions and cargo acquisition persist but delivery does not. If neither condition is supported, stop and revise the diagnosis before predeclaring v2."
+}
