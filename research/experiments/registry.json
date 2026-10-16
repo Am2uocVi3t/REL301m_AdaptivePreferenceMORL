@@ -24,7 +24,7 @@
         "combined-allocation"
       ],
       "artifact": "research/experiments/course_paired_matrix_v1_manifest.json",
-      "notes": "Frozen as 150 paired planned jobs across two environments and five seeds. Geometry-only allocation, controllability, checkpoint selection, estimation-first analysis, GPI-LS qualification, and enabled-shift qualification are versioned. The qualification-aware primary PCQN block began on 2026-10-16; final-test evaluation remains locked and no comparative claim has been promoted.",
+      "notes": "Frozen as 150 paired jobs across two environments and five seeds. The 30-job primary PCQN block (uniform, matched-random, and full) completed on 2026-10-16 with zero executor failures and all final-checkpoint hashes verified. Validation aggregation and checkpoint locking are pending; 100 signal/target PCQN jobs and 20 qualified baseline jobs remain. Final-test evaluation stays locked and no comparative claim has been promoted.",
       "updated_at": "2026-10-15T18:17:19+00:00"
     }
   ]

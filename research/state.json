@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/pilot-calibration-protocol",
-  "updated_at": "2026-10-15T18:20:46+00:00",
+  "updated_at": "2026-10-16T03:15:21+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,13 +56,13 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Run paired controls, signal ablations, and compatible close baselines after freezing the protocol."
+      "description": "Audit and lock validation-only checkpoints for the completed 30-job primary block, then run the remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs."
     }
   ],
   "next_actions": [
-    "Monitor the running primary executor and preserve atomic job status; if interrupted, resume only at a job boundary without changing the frozen study.",
-    "After all 30 primary jobs complete, aggregate validation evidence and lock checkpoints without accessing final-test data.",
-    "Run the remaining frozen signal/target ablations and qualified baselines before any comparative conclusion."
+    "Audit and aggregate validation evidence from the completed 30-job primary block, preserving raw and discounted vector returns and provenance; fail closed on missing or degenerate data.",
+    "Lock checkpoints using the predeclared validation-only rule, version the lock evidence, and do not access final-test data.",
+    "Only after the primary audit passes, prepare and execute the remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs under the frozen manifest."
   ],
-  "last_session_summary": "Audited and committed the complete Phase 2/3 evidence stack plus the fail-closed Phase 4 executor as c4a90d6 after pip check, doctor, Ruff, MyPy, 65 tests, Bandit, compileall, deterministic manifest reproduction, reference-front reproduction, secret/binary checks, and diff checks. Authorized the frozen 30-job primary PCQN selection without final-test access. The first full-budget Uniform-PCQN LunarLander job completed 500,000 interactions and its final checkpoint hash was verified; the executor then resume-skipped it and continued the remaining jobs serially. The experiment remains running and no comparative claim was promoted."
+  "last_session_summary": "Confirmed completion of the frozen 30-job primary PCQN block: uniform, matched-random, and full adaptive arms across both environments and five paired seeds completed 15,000,000 training interactions. The executor exited successfully with zero failed jobs, and an independent audit verified every final-checkpoint SHA-256 against atomic status records. Updated canonical status, roadmap narrative, experiment notes, plan, and cross-chat memory. Validation aggregation and checkpoint locking have not started, 120 frozen ablation/comparator jobs remain, final-test access stays locked, and no comparative claim was promoted."
 }

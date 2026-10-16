@@ -35,7 +35,9 @@ File SHA-256 values at freeze:
 
 On 2026-10-16 the rendered manifest received an operational-only revision adding each PCQN job's expected `final_artifact`; the frozen study config, commands, budgets, seeds, and analysis choices did not change. The qualification gate was rebound to the manifest hash above. The executor dry-ran the 30-job primary block and completed one isolated 20-step Minecart smoke in an ignored directory. Its status records `smoke_only: true` and `course_evidence: false`; no course job was executed.
 
-After the evidence stack was committed as `c4a90d6`, separately authorized course execution began on 2026-10-16. The first full-budget Uniform-PCQN LunarLander job completed 500,000 interactions, produced a hash-verified final checkpoint, and was skipped correctly when the complete 30-job primary selection resumed. The remaining primary jobs are running serially under job-level resume. This operational progress is not comparative evidence and does not unlock final-test evaluation.
+After the evidence stack was committed as `c4a90d6`, separately authorized course execution began on 2026-10-16. The first full-budget Uniform-PCQN LunarLander job completed 500,000 interactions, produced a hash-verified final checkpoint, and was skipped correctly when the complete 30-job primary selection resumed. The remaining primary jobs then ran serially under job-level resume.
+
+The primary selection subsequently completed all 30 jobs: three arms (`uniform`, `matched-random`, and `full`) across both environments and five paired seeds, totaling 15,000,000 training interactions. The executor exited successfully with zero failed jobs, and an independent audit matched all 30 final-checkpoint SHA-256 values to atomic status records. Validation aggregation, checkpoint locking, and comparative analysis have not started; 120 frozen ablation/comparator jobs remain and final-test access stays prohibited.
 
 ## Interpretation boundary
 

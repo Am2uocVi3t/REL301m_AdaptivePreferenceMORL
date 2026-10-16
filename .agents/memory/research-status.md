@@ -8,7 +8,7 @@ updated: 2026-10-16
 
 ## Current phase
 
-- Phases 0–3 are complete; Phase 4 paired-seed course experimentation is active and the bounded primary PCQN block is running.
+- Phases 0–3 are complete; Phase 4 is active. The 30-job primary PCQN block is complete, while validation aggregation, checkpoint locking, and 120 ablation/comparator jobs remain.
 - The defensible contribution is a controlled study of which preference-allocation signals identify hard, uncertain, or learnable regions.
 - No multi-seed course result or publication-level empirical claim has been established yet.
 - A Git-native AI research harness now keeps claim, literature, experiment, blocker, session, and handoff state synchronized across chats.
@@ -26,12 +26,13 @@ updated: 2026-10-16
 - Source-aware v2 resolved the blocker: three independent LunarLander pilots and a deterministic versioned Minecart front passed calibration, both protocols were frozen, and post-freeze train/evaluate/HV smoke tests passed.
 - The frozen course study contains 150 non-executed planned jobs across two environments, five paired seeds, 13 PCQN arms, and two comparator slots; analysis is estimation-first and final test remains locked.
 - Envelope and GPI-LS behavior passed 200-interaction Python 3.11 smokes on both course environments, and every enabled LunarLander shift changed controlled transition/reward traces over three seeds.
-- The qualification-aware executor dry-ran the 30-job primary block. One isolated 20-step smoke completed and resume-skipped by artifact hash with `course_evidence: false`; no course job ran.
+- Before course execution, the qualification-aware executor dry-ran the 30-job primary block. One isolated 20-step smoke completed and resume-skipped by artifact hash with `course_evidence: false`.
 - After commit `c4a90d6`, the first 500,000-interaction Uniform-PCQN LunarLander course job completed with a hash-verified final checkpoint, and the remaining primary selection began through job-level resume. This is runtime progress, not a comparative result.
+- The primary selection finished all 30 jobs (15,000,000 interactions) with zero executor failures and all final-checkpoint hashes verified. No validation aggregation, checkpoint lock, final-test evaluation, or comparative claim has yet followed.
 
 ## Open blockers
 
-- Required controls, ablations, close baselines, and paired multi-seed experiments have not been completed.
+- Primary controls are trained, but their validation evidence is not aggregated and checkpoints are not locked. The remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs have not run.
 - Minecart non-nominal dynamics shifts remain disabled until a valid constructor-level intervention is identified and behaviorally tested.
 
 ## Canonical handoff

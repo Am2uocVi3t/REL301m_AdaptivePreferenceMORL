@@ -9,11 +9,11 @@ Review and checkpoint the frozen evidence stack, then launch the 30-job primary 
 - [x] Commit the Phase 2/3 evidence stack and Phase 4 executor on the dedicated branch. → Verify: commit `c4a90d6` succeeds and the worktree contains no pre-existing implementation changes.
 - [x] Estimate primary-block runtime/storage from prior pilot evidence and validate the exact 30-job selection. → Verify: 78 GB disk and 13 GiB available RAM pass the local resource check; executor dry-run reports exactly 30 jobs.
 - [x] Launch the primary block through the frozen executor with exact acknowledgement and `--max-jobs 30`. → Verify: status is bound to manifest SHA-256 `02cab777...c586`, the full-budget canary completed, and no test split is used.
-- [ ] Monitor failures and preserve completed job hashes; do not mutate the frozen protocol in response to outcomes. → Verify: executor status remains internally consistent.
+- [x] Monitor failures and preserve completed job hashes; do not mutate the frozen protocol in response to outcomes. → Verify: 30/30 jobs complete, zero failed, and all recorded final-checkpoint hashes match.
 - [x] Close the session with evidence-bounded state and a refreshed handoff. → Verify: research harness passes while the experiment remains `running`.
 
 ## Done When
-- [x] The reviewed stack is committed and the primary block is either running safely, complete, or stopped with a concrete resource/runtime blocker and intact resume state.
+- [x] The reviewed stack is committed and the 30-job primary block completed with intact hash-bound status and no final-test access.
 
 ## Notes
 - Course execution is serial and job-level resumable; interrupted training cannot resume within a job.

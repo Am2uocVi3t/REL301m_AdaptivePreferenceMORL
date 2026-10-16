@@ -1,7 +1,7 @@
 # Project Status and Handoff
 
 Last verified: **2026-10-16**
-Current phase: **Phase 4 — paired-seed course experiment matrix (active; primary PCQN block running)**
+Current phase: **Phase 4 — paired-seed course experiment matrix (active; primary PCQN block complete, validation audit pending)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
@@ -53,13 +53,13 @@ The current working tree passed the following checks on 2026-10-16 under Python 
 - Envelope and GPI-LS dependency imports, including `pycddlib==2.1.6`.
 - PCQN train → safe checkpoint → evaluation end to end.
 - One isolated 20-step Minecart executor smoke completed, wrote a final checkpoint, and was hash-verified and skipped on a second invocation. Its ignored status explicitly records `smoke_only: true` and `course_evidence: false`.
-- The first full-budget primary job (`mo-lunar-lander-v3`, Uniform-PCQN, seed `20262001`) completed 500,000 interactions. The executor verified its final checkpoint hash and then resumed the remaining 30-job selection by skipping the completed job. This establishes runtime progress only, not a comparison.
+- All 30 full-budget primary PCQN jobs completed: Uniform-PCQN, matched-random curriculum PCQN, and the full four-signal adaptive method across both environments and five paired seeds. The executor reported zero failures and all final checkpoints passed SHA-256 verification. Validation aggregation and checkpoint locking have not yet been performed, so this establishes execution completeness only, not a comparison.
 - The pilot pipeline completed 20-step train → checkpoint → validation evaluation → calibration proposal smoke jobs for both course environments. The proposal is marked `smoke_only_not_freezable`; Minecart's untrained smoke returns correctly reported two degenerate objectives without weakening the real-pilot fail-fast rule.
 - The six real v1 pilot jobs completed 600,000 training interactions, 142,506 gradient updates, and 960 validation episodes with no final-test access. MO-Lunar-Lander was non-degenerate; all 480 Minecart validation returns had exactly zero reward in both sparse ore objectives, so the calibrator failed closed and wrote no proposal.
 - A post-run audit found and repaired unmatched Uniform-PCQN rollout sampling. A separate 100,000-interaction fixed-pool Minecart diagnostic retained nonzero training-archive ore returns but again produced zero ore reward in all 160 final validation episodes. The outcome and source hashes are recorded in `research/experiments/pilot-protocol-freeze.md`.
 - Calibration v2 executed three independent LunarLander seeds for 300,000 interactions and 480 validation episodes. Minecart's 20-point environment reference front reproduced exactly across three declared seeds under the pinned package/config. Both sources were finite and non-degenerate, all proposed references passed strict domination, and the versioned freeze record links plan, proposal, source, and protocol hashes.
 - Fresh 20-step checkpoints trained and evaluated under both frozen protocols. Exact high-dimensional hypervolume executed successfully; the resulting smoke metrics are explicitly non-comparative.
-- The frozen course config and schema generated exactly 150 unique planned jobs with common seeds, protocol hashes, and expected final-artifact paths; embedded `execution_authorized` remains false. The executor dry-ran the 30-job primary block before separately authorized execution began.
+- The frozen course config and schema generated exactly 150 unique jobs with common seeds, protocol hashes, and expected final-artifact paths; embedded `execution_authorized` remains false. Separately authorized execution completed the 30-job primary block; 120 frozen ablation/comparator jobs remain.
 - GPI-LS completed 200 interactions per course environment under Python 3.11.17, filled replay, crossed learning starts, and changed network parameters.
 - Envelope completed the same bounded behavioral checks on both course environments; both frozen comparator slots are runtime-qualified.
 - Heavy gravity, strong wind, and extreme turbulence each changed LunarLander observation, reward, and termination traces for all three controlled probe seeds. Minecart still has no enabled non-nominal shift.
@@ -74,8 +74,8 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 
 ### Before course conclusions
 
-1. Run paired seeds for Uniform-PCQN, random-curriculum-PCQN, Adaptive-PCQN, and appropriate MORL baselines.
-2. Run signal-only, pairwise, full-method, and allocation-target ablations.
+1. Audit and aggregate validation evidence from the completed primary block, then lock checkpoints using validation data only.
+2. Run the remaining signal-only, pairwise, and allocation-target ablations plus qualified MORL baselines.
 3. Retain raw results and report effect sizes, uncertainty intervals, exact paired tests, and multiplicity correction.
 4. Report negative results without converting difficulty or uncertainty into a learning-progress claim.
 
@@ -93,8 +93,8 @@ source-aware calibration v2 and protocol freeze complete
   -> paired-seed course matrix and analysis choices frozen
   -> GPI-LS and enabled dynamics shifts qualified
   -> fail-closed course executor and isolated non-evidence smoke qualified
-  -> Phase 4 active; bounded primary PCQN block running
-  -> complete and audit primary validation evidence
+  -> Phase 4 active; bounded primary PCQN block complete
+  -> audit primary validation evidence and lock checkpoints
   -> execute remaining signal/target ablations and qualified baselines
   -> aggregate validation results
   -> lock checkpoints/hyperparameters
