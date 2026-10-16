@@ -1,7 +1,7 @@
 # Project Status and Handoff
 
 Last verified: **2026-10-16**
-Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked and Minecart backbone remediation predeclared)**
+Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked and Minecart remediation v1 failed)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
@@ -40,14 +40,14 @@ The systematic mapping registers 22 primary/authoritative works, all with verifi
 - Deterministic resumable validation-audit workflow with frozen-input, checkpoint, budget, TensorBoard-log, return-tensor, missingness, and degeneracy checks.
 - Versioned Minecart failure diagnosis separating exploratory training ore events from greedy validation behavior, using no final-test or shifted data.
 - Study-specific post-validation executor gate that permanently blocks additional non-smoke matrix-v1 jobs after the failed Minecart audit.
-- Predeclared, non-authorized Minecart Uniform-PCQN backbone qualification with fresh seeds, fixed hyperparameters, explicit pass/fail rules, and a required new study ID after any pass.
+- Completed, independently audited Minecart Uniform-PCQN backbone qualification with fresh seeds, fixed hyperparameters, explicit pass/fail rules, and a failed all-seeds decision.
 
 ## Verification evidence
 
-The pre-remediation execution tree passed the following checks on 2026-10-16 under Python 3.11.17. The current diagnosis/remediation change set additionally passed the complete 81-test suite, Ruff, MyPy, Bandit, compileall, and whitespace checks under the available Python 3.14.6 verification shell; course execution remains restricted to Python 3.11.
+The remediation execution tree passed the following checks on 2026-10-16 under Python 3.11.17. The current audit changes additionally passed the complete 86-test suite, Ruff, MyPy, Bandit, compileall, and whitespace checks under Python 3.11.17; course execution remains restricted to Python 3.11.
 
 - The complete pinned dependency set installed in a clean environment; `pip check` reported no broken requirements.
-- `pytest -q`: 81 tests passed in the current tree, including research-harness, calibration, course-matrix/executor, post-validation execution-gate, remediation-contract, validation-audit, and fixed-pool control regressions.
+- `pytest -q`: 86 tests passed in the current tree, including research-harness, calibration, course-matrix/executor, post-validation execution-gate, remediation-contract/audit, validation-audit, and fixed-pool control regressions.
 - State, claims, literature, and roadmap documents passed their Draft 2020-12 JSON Schemas.
 - Ruff formatting and lint checks.
 - MyPy over `src` and `scripts`.
@@ -61,7 +61,8 @@ The pre-remediation execution tree passed the following checks on 2026-10-16 und
 - The primary source audit verified the frozen study/manifest/protocol hashes, atomic execution status, all 30 final checkpoints, all 300 periodic checkpoints, 30 run manifests, TensorBoard validation curves, and budget counters. All 300 checkpoints were then re-evaluated on the nominal validation split with fixed preferences and seeds; raw and discounted vector returns, episode lengths, metrics, checkpoint hashes, and provenance are versioned in the compact aggregate.
 - Validation aggregation failed closed: objectives 0 and 1 were constant zero in every episode at all ten saved checkpoints for all 15 Minecart primary runs. All 15 LunarLander runs were non-degenerate, but partial locking is prohibited. The checkpoint-lock decision therefore contains 30 diagnostic selections, zero locks, `unlocks_final_test: false`, and 15 explicit blockers. No test split or shifted environment was accessed.
 - The subsequent non-test diagnosis inspected all 14,400 Minecart primary validation episodes: 13,308 (92.42%) hit the 1,000-step limit and every ore return remained zero. In contrast, all 15 diagnostically selected training checkpoints contained positive ore returns in their Pareto archives. A localization probe over one selected checkpoint per arm and all ensemble/head action modes made 345,417 validation action decisions without one `Mine` action or collected ore. This supports a common sparse delayed-credit/backbone failure, not a broken reward channel or an allocation-arm effect.
-- Remediation v1 is predeclared but not executed. It retains Minecart and all reward/return/protocol semantics while qualifying a shared Uniform-PCQN backbone at 1,000,000 interactions, a 1,000,000-transition buffer, 500,000-step epsilon decay, and one update opportunity per interaction on three fresh validation-only seeds. Every seed must meet a fixed 5% positive-ore event floor for both objectives; failure stops, while success requires a new matrix rather than resuming v1.
+- Remediation v1 completed exactly three 1,000,000-interaction Uniform-PCQN runs and independently audited all 30 predeclared checkpoints over 4,800 nominal-validation episodes. The source audit passed, but the all-seeds decision failed: seeds `20264001` and `20264002` had 0/160 positive episodes for each ore objective at their selected checkpoints, while seed `20264003` passed with 28/160 for each objective. No test or shifted-environment data was accessed.
+- Across all checkpoints, seed `20264001` never delivered ore; seed `20264002` briefly reached 3/160 and 2/160 at steps 200,000 and 800,000; seed `20264003` reached 4/160, 28/160, and 2/160 at steps 500,000, 600,000, and 900,000 before returning to zero. This supports seed-sensitive, transient acquisition/retention rather than a claim that more interactions alone solve the backbone failure.
 - The pilot pipeline completed 20-step train → checkpoint → validation evaluation → calibration proposal smoke jobs for both course environments. The proposal is marked `smoke_only_not_freezable`; Minecart's untrained smoke returns correctly reported two degenerate objectives without weakening the real-pilot fail-fast rule.
 - The six real v1 pilot jobs completed 600,000 training interactions, 142,506 gradient updates, and 960 validation episodes with no final-test access. MO-Lunar-Lander was non-degenerate; all 480 Minecart validation returns had exactly zero reward in both sparse ore objectives, so the calibrator failed closed and wrote no proposal.
 - A post-run audit found and repaired unmatched Uniform-PCQN rollout sampling. A separate 100,000-interaction fixed-pool Minecart diagnostic retained nonzero training-archive ore returns but again produced zero ore reward in all 160 final validation episodes. The outcome and source hashes are recorded in `research/experiments/pilot-protocol-freeze.md`.
@@ -82,9 +83,9 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 
 ### Before course conclusions
 
-1. Review and explicitly authorize only the three-run Minecart backbone qualification; its presence in the repository is not execution authorization.
-2. Keep checkpoint locking, all unexecuted matrix-v1 jobs, and final-test evaluation blocked. Matrix v1 is not resumable even if remediation passes.
-3. If qualification passes, freeze a new course study ID that reruns all 65 Minecart PCQN jobs and separately qualifies comparator budget/update fairness. If any seed fails, predeclare a new remediation before another run.
+1. Use only training and validation evidence to localize the transient Minecart ore behavior before choosing a v2 mechanism.
+2. Predeclare remediation v2 before implementing or executing prioritized replay, n-step returns, demonstrations, reward shaping, or any additional hyperparameter change.
+3. Keep checkpoint locking, all unexecuted matrix-v1 jobs, and final-test evaluation blocked; matrix v1 is permanently non-resumable.
 4. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
 5. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
 
@@ -105,10 +106,11 @@ source-aware calibration v2 and protocol freeze complete
   -> Phase 4 active; bounded primary PCQN block complete
   -> source audit and 300-checkpoint validation re-evaluation complete
   -> Minecart degeneracy blocks primary checkpoint lock (zero locks)
-  -> retain Minecart; non-test diagnosis and remediation v1 predeclaration complete
+  -> retain Minecart; non-test diagnosis and remediation v1 complete
   -> matrix v1 permanently blocked by post-validation execution gate
-  -> review/authorize three validation-only Uniform-PCQN qualification seeds
-  -> if all pass, freeze a new matrix; if any fail, stop and predeclare remediation v2
+  -> remediation v1 fails all-seeds gate (2/3 selected checkpoints have zero ore)
+  -> localize transient ore acquisition/retention using non-test evidence
+  -> predeclare remediation v2 before any new implementation or run
   -> aggregate validation results
   -> lock checkpoints/hyperparameters
   -> run final test once

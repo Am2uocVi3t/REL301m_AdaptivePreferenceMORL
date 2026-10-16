@@ -30,12 +30,13 @@
     {
       "id": "minecart-pcqn-remediation",
       "title": "Minecart sparse-credit PCQN backbone qualification",
-      "status": "planned",
+      "status": "failed",
       "protocol": "configs/remediations/minecart_pcqn_backbone_v1.json",
       "claim_ids": [],
-      "artifact": null,
-      "notes": "Predeclared validation-only Uniform-PCQN qualification on three fresh seeds. The fixed bundle increases Minecart training exposure, replay retention, exploration duration, and update density without changing reward semantics or consulting final-test data. It is not authorized or course-comparative evidence; failure keeps Phase 4 blocked, while success requires a new study ID and a separately qualified comparator-fairness contract.",
-      "created_at": "2026-10-16T06:57:35+00:00"
+      "artifact": "research/qualification/minecart_pcqn_backbone_v1.json",
+      "notes": "The predeclared validation-only Uniform-PCQN qualification completed on all three fresh seeds and failed its all-seeds gate. Seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints; seed 20264003 passed both ore floors with 28/160 positive episodes per objective. Across all ten checkpoints, positive ore behavior was absent or transient rather than reliably retained. This is backbone-qualification evidence only, promotes no allocation claim, and keeps Phase 4, matrix v1, and final test blocked.",
+      "created_at": "2026-10-16T06:57:35+00:00",
+      "updated_at": "2026-10-16T13:34:35+00:00"
     }
   ]
 }

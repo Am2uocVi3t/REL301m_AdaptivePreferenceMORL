@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/pilot-calibration-protocol",
-  "updated_at": "2026-10-16T07:03:00+00:00",
+  "updated_at": "2026-10-16T13:36:48+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,13 +56,13 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Non-test diagnosis found positive ore in all 15 selected training archives but zero ore in all 14,400 Minecart validation episodes; representative ensemble/head policies never selected Mine. A fixed three-seed Uniform-PCQN backbone remediation is predeclared but not authorized or executed. Matrix v1 is permanently blocked by a post-validation executor gate; checkpoint locking, any revised matrix, and final test remain prohibited until qualification and a new study freeze pass."
+      "description": "Minecart remediation v1 completed and failed its predeclared all-seeds qualification gate: two selected checkpoints had 0/160 positive episodes for both ore objectives, while one seed passed with 28/160. Sparse ore behavior appeared only transiently at a few non-selected checkpoints. Matrix v1 is permanently blocked; another run requires a separately predeclared remediation v2, and checkpoint locking, any revised matrix, and final test remain prohibited."
     }
   ],
   "next_actions": [
-    "Review the predeclared Minecart backbone qualification and fixed 5% per-objective pass rule.",
-    "Authorize and execute only the three qualification seeds if the predeclaration is accepted; never resume matrix v1.",
-    "After a pass, freeze a new study ID with all Minecart PCQN reruns and comparator-fairness qualification; after a failure, predeclare remediation v2."
+    "Localize transient ore acquisition and retention using validation-only v1 evidence.",
+    "Predeclare a separately versioned remediation v2 before any algorithmic implementation or run.",
+    "Keep matrix v1, checkpoint locking, remaining course jobs, and final test blocked."
   ],
-  "last_session_summary": "Diagnosed Minecart zero-ore validation using training and validation evidence only: all 15 selected training archives contain ore, while 14,400 validation episodes returned zero ore and representative ensemble/head policies never selected Mine. Predeclared a three-seed validation-only Uniform-PCQN backbone qualification, permanently blocked matrix-v1 continuation with a hash-bound post-validation executor gate, and passed Ruff, MyPy, 81 tests, Bandit, compileall, and whitespace checks. No final-test data or additional training jobs were accessed."
+  "last_session_summary": "Completed and independently audited Minecart remediation v1: exactly three predeclared 1M-interaction Uniform-PCQN runs, 30 checkpoints, and 4,800 nominal-validation episodes. The all-seeds gate failed because seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints, while seed 20264003 passed with 28/160 per ore objective. Sparse ore delivery was transient across checkpoints; no final-test or shifted data was accessed, no allocation claim was promoted, and matrix v1 remains permanently blocked."
 }

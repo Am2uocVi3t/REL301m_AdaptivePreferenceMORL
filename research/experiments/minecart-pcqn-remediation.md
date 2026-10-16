@@ -1,7 +1,7 @@
 ---
 experiment_id: minecart-pcqn-remediation
 plan: configs/remediations/minecart_pcqn_backbone_v1.json
-status: planned
+status: failed
 claim_ids: []
 ---
 
@@ -59,3 +59,17 @@ The 5% floor is fixed before execution to reject an isolated lucky delivery. The
 If any seed fails, Phase 4 remains blocked. Any n-step, prioritized-replay, demonstration, reward-shaping, or further hyperparameter proposal requires a new versioned remediation; it cannot be tried opportunistically.
 
 If all seeds pass, create a new course study ID and manifest. Do not mutate matrix v1. Rerun all 65 Minecart PCQN jobs with the qualified common backbone; never combine the 15 failed v1 Minecart jobs with the revised study. Minecart comparator budget/update fairness needs a separate qualification. Unchanged LunarLander artifacts may be referenced only by exact hash, and final testing remains atomic and locked until the revised matrix completes.
+
+## Observed outcome
+
+The three predeclared runs completed and the independent source audit accepted all 30 checkpoints. The qualification evaluated 4,800 nominal-validation episodes (3,966,246 environment steps) with no test or shifted-environment access.
+
+The all-seeds gate failed:
+
+- seed `20264001`: selected step 800,000, 0/160 positive episodes for each ore objective;
+- seed `20264002`: selected step 600,000, 0/160 for each ore objective;
+- seed `20264003`: selected step 600,000, 28/160 for each ore objective, with 28 distinct positive values.
+
+Checkpoint-wide evidence shows instability rather than uniform impossibility. Seed `20264002` produced 3/160 positive episodes at step 200,000 and 2/160 at step 800,000. Seed `20264003` produced 4/160 at step 500,000, 28/160 at step 600,000, 2/160 at step 900,000, and zero at later or intervening checkpoints. Seed `20264001` remained at zero throughout. Therefore increasing the interaction budget alone is not justified: rare ore-delivery behavior can emerge but is not consistently learned or retained.
+
+The authoritative decision is `research/qualification/minecart_pcqn_backbone_v1.json`. Matrix v1 and final test remain locked. Any intervention aimed at rare-transition retention or delayed credit propagation must be specified in a separately versioned remediation v2 before implementation or execution.

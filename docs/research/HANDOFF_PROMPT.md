@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T07:03:00+00:00
+Snapshot generated: 2026-10-16T13:36:48+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: 04afeb9
+Expected commit at generation: b29c915
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -76,18 +76,18 @@ Full-text requests for the user:
 
 Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
-- minecart-pcqn-remediation [planned]: Minecart sparse-credit PCQN backbone qualification
+- minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
 
 Open blockers:
-- Non-test diagnosis found positive ore in all 15 selected training archives but zero ore in all 14,400 Minecart validation episodes; representative ensemble/head policies never selected Mine. A fixed three-seed Uniform-PCQN backbone remediation is predeclared but not authorized or executed. Matrix v1 is permanently blocked by a post-validation executor gate; checkpoint locking, any revised matrix, and final test remain prohibited until qualification and a new study freeze pass.
+- Minecart remediation v1 completed and failed its predeclared all-seeds qualification gate: two selected checkpoints had 0/160 positive episodes for both ore objectives, while one seed passed with 28/160. Sparse ore behavior appeared only transiently at a few non-selected checkpoints. Matrix v1 is permanently blocked; another run requires a separately predeclared remediation v2, and checkpoint locking, any revised matrix, and final test remain prohibited.
 
 Latest closed-session summary:
-Diagnosed Minecart zero-ore validation using training and validation evidence only: all 15 selected training archives contain ore, while 14,400 validation episodes returned zero ore and representative ensemble/head policies never selected Mine. Predeclared a three-seed validation-only Uniform-PCQN backbone qualification, permanently blocked matrix-v1 continuation with a hash-bound post-validation executor gate, and passed Ruff, MyPy, 81 tests, Bandit, compileall, and whitespace checks. No final-test data or additional training jobs were accessed.
+Completed and independently audited Minecart remediation v1: exactly three predeclared 1M-interaction Uniform-PCQN runs, 30 checkpoints, and 4,800 nominal-validation episodes. The all-seeds gate failed because seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints, while seed 20264003 passed with 28/160 per ore objective. Sparse ore delivery was transient across checkpoints; no final-test or shifted data was accessed, no allocation claim was promoted, and matrix v1 remains permanently blocked.
 
 Next actions:
-1. Review the predeclared Minecart backbone qualification and fixed 5% per-objective pass rule.
-2. Authorize and execute only the three qualification seeds if the predeclaration is accepted; never resume matrix v1.
-3. After a pass, freeze a new study ID with all Minecart PCQN reruns and comparator-fairness qualification; after a failure, predeclare remediation v2.
+1. Localize transient ore acquisition and retention using validation-only v1 evidence.
+2. Predeclare a separately versioned remediation v2 before any algorithmic implementation or run.
+3. Keep matrix v1, checkpoint locking, remaining course jobs, and final test blocked.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
