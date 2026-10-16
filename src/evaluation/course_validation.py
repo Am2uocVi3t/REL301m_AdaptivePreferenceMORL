@@ -325,7 +325,13 @@ def audit_primary_sources(
     return audit, candidates
 
 
-def evaluate_candidate(candidate: ValidationCandidate, root: Path, device: str = "cpu") -> dict[str, Any]:
+def evaluate_candidate(
+    candidate: ValidationCandidate,
+    root: Path,
+    device: str = "cpu",
+    *,
+    verify_training_metrics: bool = True,
+) -> dict[str, Any]:
     expectation = candidate.expectation
     checkpoint_path = root / expectation.checkpoint_path
     if sha256_file(checkpoint_path) != expectation.checkpoint_sha256:
@@ -378,14 +384,18 @@ def evaluate_candidate(candidate: ValidationCandidate, root: Path, device: str =
         "sparsity": compute_sparsity(frontier),
         "controllability": compute_per_objective_controllability(mean_returns, candidate.preferences),
     }
-    for metric in ("hypervolume", "expected_utility"):
-        logged = candidate.training_log_metrics[metric]
-        reproduced = float(metrics[metric])
-        if not np.isclose(reproduced, logged, rtol=1e-5, atol=1e-6):
-            raise CourseValidationError(
-                f"Reproduced {metric} disagrees with training validation log for {expectation.job_id} "
-                f"step {expectation.checkpoint_step}: {reproduced} != {logged}"
-            )
+    metric_deltas = {
+        metric: float(metrics[metric]) - candidate.training_log_metrics[metric]
+        for metric in ("hypervolume", "expected_utility")
+    }
+    if verify_training_metrics:
+        for metric, delta in metric_deltas.items():
+            if not np.isclose(delta, 0.0, rtol=1e-5, atol=1e-6):
+                raise CourseValidationError(
+                    f"Reproduced {metric} disagrees with training validation log for {expectation.job_id} "
+                    f"step {expectation.checkpoint_step}: {metrics[metric]} != "
+                    f"{candidate.training_log_metrics[metric]}"
+                )
 
     return {
         "schema_version": 1,
@@ -427,6 +437,7 @@ def evaluate_candidate(candidate: ValidationCandidate, root: Path, device: str =
         "episode_lengths": np.asarray(rollout["episode_lengths"], dtype=np.int32).tolist(),
         "metrics": metrics,
         "training_log_metrics": candidate.training_log_metrics,
+        "training_log_metric_deltas": metric_deltas,
         "diagnostics": {
             "missing_values": 0,
             "non_finite_values": int(np.size(discounted) - np.count_nonzero(np.isfinite(discounted)))

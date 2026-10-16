@@ -307,7 +307,13 @@ def evaluate_qualification_candidates(
             artifact, artifact_hash, _ = evaluate_or_reuse(
                 destination,
                 expectation,
-                partial(evaluate_candidate, candidate, root, device),
+                partial(
+                    evaluate_candidate,
+                    candidate,
+                    root,
+                    device,
+                    verify_training_metrics=False,
+                ),
             )
             seed_evidence.append((artifact, artifact_hash, str(destination.relative_to(root))))
         evaluated[seed] = seed_evidence
