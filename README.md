@@ -28,10 +28,10 @@ The project studies these signals rather than claiming that preference-condition
 | Checkpoint evaluation and raw-result provenance | Implemented; end-to-end smoke tested |
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
-| Paired-seed experiment matrix | Frozen as 150 jobs; 30-job primary PCQN block complete, 120 jobs remain |
+| Paired-seed experiment matrix | 30 primary jobs complete; Minecart degeneracy blocks checkpoint lock and remaining 120 jobs |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
-| Multi-seed course results | Not yet run |
+| Multi-seed course results | Primary validation audit failed closed; no comparative result |
 | Workshop/journal evidence | Not yet established |
 
 ## Repository layout
@@ -131,6 +131,14 @@ python scripts/execute_course_matrix.py \
 ```
 
 Actual execution additionally requires `--execute`, the exact `--acknowledge-study-id`, at least one explicit selector, and a positive `--max-jobs`. The executor rechecks the frozen study, protocol hashes, qualification artifacts, and manifest hash before launching anything. It resumes only between complete seeded jobs: a completed artifact is skipped after its SHA-256 is verified, while failed or interrupted jobs require an explicit retry and no existing untracked final artifact.
+
+Audit completed primary checkpoints and reproduce their validation evidence without exposing a test-split option:
+
+```bash
+python scripts/audit_course_validation.py
+```
+
+The workflow is checkpoint-level resumable, verifies frozen inputs and training logs, and fails closed on missing, malformed, non-finite, budget-incompatible, hash-mismatched, shifted, test-split, or degenerate evidence. Its current Minecart audit is intentionally blocked; rerunning it verifies and reuses the existing ignored per-checkpoint artifacts but does not unlock final testing.
 
 ### 3. Freeze pilot-derived quantities
 

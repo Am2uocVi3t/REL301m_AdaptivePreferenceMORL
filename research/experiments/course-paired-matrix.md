@@ -37,7 +37,11 @@ On 2026-10-16 the rendered manifest received an operational-only revision adding
 
 After the evidence stack was committed as `c4a90d6`, separately authorized course execution began on 2026-10-16. The first full-budget Uniform-PCQN LunarLander job completed 500,000 interactions, produced a hash-verified final checkpoint, and was skipped correctly when the complete 30-job primary selection resumed. The remaining primary jobs then ran serially under job-level resume.
 
-The primary selection subsequently completed all 30 jobs: three arms (`uniform`, `matched-random`, and `full`) across both environments and five paired seeds, totaling 15,000,000 training interactions. The executor exited successfully with zero failed jobs, and an independent audit matched all 30 final-checkpoint SHA-256 values to atomic status records. Validation aggregation, checkpoint locking, and comparative analysis have not started; 120 frozen ablation/comparator jobs remain and final-test access stays prohibited.
+The primary selection subsequently completed all 30 jobs: three arms (`uniform`, `matched-random`, and `full`) across both environments and five paired seeds, totaling 15,000,000 training interactions. The executor exited successfully with zero failed jobs, and an independent audit matched all 30 final-checkpoint SHA-256 values to atomic status records.
+
+The validation audit then verified the frozen inputs, atomic execution status, 30 run manifests, all 30 final checkpoints, all 300 periodic checkpoint hashes and counters, and both validation scalar curves per run. A resumable validation-only evaluator reproduced every saved checkpoint on the fixed nominal split and retained preference IDs, raw and discounted vector returns, episode lengths, metrics, budget counters, hashes, and provenance. The source audit is versioned at `research/evidence/course_primary_execution_audit_v1.json`; the compact return aggregate is `research/evidence/course_primary_validation_v1.json`.
+
+Aggregation failed closed. Every one of the 150 Minecart checkpoint evaluations—three arms, five seeds, ten checkpoints—had exactly zero variation in ore objectives 0 and 1. All 15 LunarLander runs were non-degenerate, but partial locking was not allowed. `research/evidence/course_primary_checkpoint_lock_v1.json` therefore records `status: blocked`, 30 diagnostic selections under the frozen hypervolume → expected utility → earlier-step rule, zero checkpoint locks, and `unlocks_final_test: false`. The remaining 120 jobs were not started.
 
 ## Interpretation boundary
 

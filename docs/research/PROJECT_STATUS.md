@@ -1,7 +1,7 @@
 # Project Status and Handoff
 
 Last verified: **2026-10-16**
-Current phase: **Phase 4 — paired-seed course experiment matrix (active; primary PCQN block complete, validation audit pending)**
+Current phase: **Phase 4 — paired-seed course experiment matrix (active; primary checkpoint lock blocked by Minecart validation degeneracy)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
@@ -37,13 +37,14 @@ The systematic mapping registers 22 primary/authoritative works, all with verifi
 - Frozen 150-job course matrix spanning 13 PCQN arms, two qualification-gated comparator slots, two environments, and five paired seeds; generation cannot execute jobs.
 - Static geometry-only preference allocation and per-objective Spearman controllability.
 - Bounded Python 3.11 Envelope and GPI-LS behavioral qualification on both course environments and controlled behavioral qualification of all three enabled LunarLander shifts.
+- Deterministic resumable validation-audit workflow with frozen-input, checkpoint, budget, TensorBoard-log, return-tensor, missingness, and degeneracy checks.
 
 ## Verification evidence
 
 The current working tree passed the following checks on 2026-10-16 under Python 3.11.17:
 
 - The complete pinned dependency set installed in a clean environment; `pip check` reported no broken requirements.
-- `pytest -q`: 65 tests passed, including 18 research-harness tests, 11 calibration tests, course-matrix/executor safety tests, and fixed-pool control regressions.
+- `pytest -q`: 76 tests passed, including research-harness, calibration, course-matrix/executor, validation-audit, and fixed-pool control regressions.
 - State, claims, literature, and roadmap documents passed their Draft 2020-12 JSON Schemas.
 - Ruff formatting and lint checks.
 - MyPy over `src` and `scripts`.
@@ -53,7 +54,9 @@ The current working tree passed the following checks on 2026-10-16 under Python 
 - Envelope and GPI-LS dependency imports, including `pycddlib==2.1.6`.
 - PCQN train → safe checkpoint → evaluation end to end.
 - One isolated 20-step Minecart executor smoke completed, wrote a final checkpoint, and was hash-verified and skipped on a second invocation. Its ignored status explicitly records `smoke_only: true` and `course_evidence: false`.
-- All 30 full-budget primary PCQN jobs completed: Uniform-PCQN, matched-random curriculum PCQN, and the full four-signal adaptive method across both environments and five paired seeds. The executor reported zero failures and all final checkpoints passed SHA-256 verification. Validation aggregation and checkpoint locking have not yet been performed, so this establishes execution completeness only, not a comparison.
+- All 30 full-budget primary PCQN jobs completed: Uniform-PCQN, matched-random curriculum PCQN, and the full four-signal adaptive method across both environments and five paired seeds. The executor reported zero failures and all final checkpoints passed SHA-256 verification.
+- The primary source audit verified the frozen study/manifest/protocol hashes, atomic execution status, all 30 final checkpoints, all 300 periodic checkpoints, 30 run manifests, TensorBoard validation curves, and budget counters. All 300 checkpoints were then re-evaluated on the nominal validation split with fixed preferences and seeds; raw and discounted vector returns, episode lengths, metrics, checkpoint hashes, and provenance are versioned in the compact aggregate.
+- Validation aggregation failed closed: objectives 0 and 1 were constant zero in every episode at all ten saved checkpoints for all 15 Minecart primary runs. All 15 LunarLander runs were non-degenerate, but partial locking is prohibited. The checkpoint-lock decision therefore contains 30 diagnostic selections, zero locks, `unlocks_final_test: false`, and 15 explicit blockers. No test split or shifted environment was accessed.
 - The pilot pipeline completed 20-step train → checkpoint → validation evaluation → calibration proposal smoke jobs for both course environments. The proposal is marked `smoke_only_not_freezable`; Minecart's untrained smoke returns correctly reported two degenerate objectives without weakening the real-pilot fail-fast rule.
 - The six real v1 pilot jobs completed 600,000 training interactions, 142,506 gradient updates, and 960 validation episodes with no final-test access. MO-Lunar-Lander was non-degenerate; all 480 Minecart validation returns had exactly zero reward in both sparse ore objectives, so the calibrator failed closed and wrote no proposal.
 - A post-run audit found and repaired unmatched Uniform-PCQN rollout sampling. A separate 100,000-interaction fixed-pool Minecart diagnostic retained nonzero training-archive ore returns but again produced zero ore reward in all 160 final validation episodes. The outcome and source hashes are recorded in `research/experiments/pilot-protocol-freeze.md`.
@@ -74,10 +77,10 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 
 ### Before course conclusions
 
-1. Audit and aggregate validation evidence from the completed primary block, then lock checkpoints using validation data only.
-2. Run the remaining signal-only, pairwise, and allocation-target ablations plus qualified MORL baselines.
-3. Retain raw results and report effect sizes, uncertainty intervals, exact paired tests, and multiplicity correction.
-4. Report negative results without converting difficulty or uncertainty into a learning-progress claim.
+1. Review the failed-degenerate Minecart evidence and predeclare either a scientifically justified remediation or a bounded environment exclusion without final-test feedback or silent protocol tuning.
+2. Keep checkpoint locking, the remaining 100 signal/target PCQN jobs, 20 qualified baseline jobs, and final-test evaluation blocked until that gate passes.
+3. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
+4. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
 
 ### Before workshop or journal submission
 
@@ -94,8 +97,10 @@ source-aware calibration v2 and protocol freeze complete
   -> GPI-LS and enabled dynamics shifts qualified
   -> fail-closed course executor and isolated non-evidence smoke qualified
   -> Phase 4 active; bounded primary PCQN block complete
-  -> audit primary validation evidence and lock checkpoints
-  -> execute remaining signal/target ablations and qualified baselines
+  -> source audit and 300-checkpoint validation re-evaluation complete
+  -> Minecart degeneracy blocks primary checkpoint lock (zero locks)
+  -> predeclare and review remediation or bounded exclusion
+  -> only after that gate passes, execute remaining signal/target ablations and qualified baselines
   -> aggregate validation results
   -> lock checkpoints/hyperparameters
   -> run final test once

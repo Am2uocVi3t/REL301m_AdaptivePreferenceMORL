@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/pilot-calibration-protocol",
-  "updated_at": "2026-10-16T03:15:21+00:00",
+  "updated_at": "2026-10-16T04:29:03+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,13 +56,12 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Audit and lock validation-only checkpoints for the completed 30-job primary block, then run the remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs."
+      "description": "Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. No checkpoint was locked; the remaining 120 jobs and final test remain prohibited pending a predeclared remediation decision."
     }
   ],
   "next_actions": [
-    "Audit and aggregate validation evidence from the completed 30-job primary block, preserving raw and discounted vector returns and provenance; fail closed on missing or degenerate data.",
-    "Lock checkpoints using the predeclared validation-only rule, version the lock evidence, and do not access final-test data.",
-    "Only after the primary audit passes, prepare and execute the remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs under the frozen manifest."
+    "Review the failed-degenerate Minecart evidence and predeclare a remediation or bounded environment exclusion without final-test feedback.",
+    "Keep checkpoint locking, the remaining 120 jobs, and final test blocked until the remediation gate passes."
   ],
-  "last_session_summary": "Confirmed completion of the frozen 30-job primary PCQN block: uniform, matched-random, and full adaptive arms across both environments and five paired seeds completed 15,000,000 training interactions. The executor exited successfully with zero failed jobs, and an independent audit verified every final-checkpoint SHA-256 against atomic status records. Updated canonical status, roadmap narrative, experiment notes, plan, and cross-chat memory. Validation aggregation and checkpoint locking have not started, 120 frozen ablation/comparator jobs remain, final-test access stays locked, and no comparative claim was promoted."
+  "last_session_summary": "Hardened the completed primary validation audit before commit: reused evidence now binds the exact frozen preference matrix, discount factor, reward scale, reference point, and recomputed hypervolume to the return tensors. All 300 artifacts passed the strengthened checks. The failed-degenerate Minecart outcome and zero-lock decision are unchanged. Python 3.11 passed pip check, Ruff, MyPy, 76 tests, Bandit, compileall, research-harness doctor, and diff checks."
 }

@@ -8,7 +8,7 @@ updated: 2026-10-16
 
 ## Current phase
 
-- Phases 0–3 are complete; Phase 4 is active. The 30-job primary PCQN block is complete, while validation aggregation, checkpoint locking, and 120 ablation/comparator jobs remain.
+- Phases 0–3 are complete; Phase 4 is active. The 30-job primary PCQN block and its validation re-evaluation are complete, but Minecart degeneracy blocks checkpoint locking and the remaining 120 jobs.
 - The defensible contribution is a controlled study of which preference-allocation signals identify hard, uncertain, or learnable regions.
 - No multi-seed course result or publication-level empirical claim has been established yet.
 - A Git-native AI research harness now keeps claim, literature, experiment, blocker, session, and handoff state synchronized across chats.
@@ -18,7 +18,7 @@ updated: 2026-10-16
 
 - Core PCQN training, safe checkpoint loading, fixed-protocol evaluation, and the paired-seed matrix runner executed end to end.
 - The complete pinned dependency set installed under Python 3.11.17 and passed `pip check`.
-- Unit and integration suite passed with 65 tests, including 18 research-harness, 11 calibration, course-matrix/executor, and fixed-pool regression tests, under Python 3.11.17.
+- The 76-test unit and integration suite, including validation-audit fail-closed, exact-preference/metric binding, and resume tests, passes under Python 3.11.17.
 - Ruff, MyPy, Bandit, compileall, and Git whitespace checks passed.
 - MO-Lunar-Lander and Minecart reset/step smoke tests passed.
 - The six-job v1 pilot completed 600,000 training interactions and 960 validation episodes. LunarLander was non-degenerate, but all 480 Minecart validation returns had zero ore objectives, so calibration failed closed and no value was frozen.
@@ -28,11 +28,13 @@ updated: 2026-10-16
 - Envelope and GPI-LS behavior passed 200-interaction Python 3.11 smokes on both course environments, and every enabled LunarLander shift changed controlled transition/reward traces over three seeds.
 - Before course execution, the qualification-aware executor dry-ran the 30-job primary block. One isolated 20-step smoke completed and resume-skipped by artifact hash with `course_evidence: false`.
 - After commit `c4a90d6`, the first 500,000-interaction Uniform-PCQN LunarLander course job completed with a hash-verified final checkpoint, and the remaining primary selection began through job-level resume. This is runtime progress, not a comparative result.
-- The primary selection finished all 30 jobs (15,000,000 interactions) with zero executor failures and all final-checkpoint hashes verified. No validation aggregation, checkpoint lock, final-test evaluation, or comparative claim has yet followed.
+- The primary selection finished all 30 jobs (15,000,000 interactions) with zero executor failures and all final-checkpoint hashes verified.
+- The source audit passed for 30 jobs and 300 periodic checkpoints. All 300 were deterministically re-evaluated on nominal validation data with raw and discounted returns retained and logged metrics reproduced.
+- Aggregation failed closed because objectives 0 and 1 were constant zero at every checkpoint in all 15 Minecart runs. The 15 LunarLander runs were non-degenerate, but the atomic lock decision records zero locks; final test and the remaining 120 jobs stay blocked.
 
 ## Open blockers
 
-- Primary controls are trained, but their validation evidence is not aggregated and checkpoints are not locked. The remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs have not run.
+- The primary validation evidence is aggregated, but Minecart degeneracy prevents any checkpoint lock. A predeclared remediation or bounded exclusion decision is required before the remaining 100 signal/target PCQN jobs, 20 qualified baseline jobs, or final test.
 - Minecart non-nominal dynamics shifts remain disabled until a valid constructor-level intervention is identified and behaviorally tested.
 
 ## Canonical handoff

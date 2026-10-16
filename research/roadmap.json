@@ -88,13 +88,17 @@
       "title": "Paired-seed course experiment matrix",
       "status": "active",
       "deliverables": [
-        {"id": "paired-matrix", "description": "Uniform, matched-random, signal, combination, and close-baseline runs with paired seeds", "status": "not_started"},
+        {"id": "paired-matrix", "description": "Uniform, matched-random, signal, combination, and close-baseline runs with paired seeds", "status": "blocked"},
         {"id": "course-analysis", "description": "Evidence-bounded course report with uncertainty and failure analysis", "status": "not_started"}
       ],
       "entry_criteria": ["Protocol, baselines, and dynamics shifts are qualified"],
       "exit_criteria": ["Predeclared course matrix is complete", "Raw and discounted vector returns retain provenance"],
       "go_no_go_rule": "Advance only if conclusions survive paired controls and are bounded to the executed course protocol.",
-      "evidence_paths": [],
+      "evidence_paths": [
+        "research/evidence/course_primary_execution_audit_v1.json",
+        "research/evidence/course_primary_validation_v1.json",
+        "research/evidence/course_primary_checkpoint_lock_v1.json"
+      ],
       "blocker_ids": ["run-course-matrix"],
       "allowed_next_phase_ids": ["phase-5"]
     },

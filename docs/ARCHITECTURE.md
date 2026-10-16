@@ -89,6 +89,8 @@ The evaluator writes raw per-episode vector returns, lengths, mean returns, Pare
 
 Five paired seeds imply coarse exact-test resolution. Analysis is therefore estimation-first and cannot use a non-significant result as evidence of equivalence or absence of effect.
 
+`scripts/audit_course_validation.py` is the validation-only checkpoint-lock boundary. It binds atomic execution status, run manifests, TensorBoard curves, periodic checkpoint hashes and counters, and frozen protocol hashes before re-evaluating any checkpoint. Per-checkpoint evidence is written atomically and reused only after full validation. The compact versioned aggregate retains fixed preference identifiers, raw and discounted episode-return tensors, episode lengths, budget counters, metrics, hashes, and missingness/degeneracy diagnostics. Selection applies maximum validation hypervolume, then expected utility, then earlier step for exact ties. A missing, non-finite, incompatible, shifted, test-split, hash-mismatched, or degenerate run blocks the atomic lock; partial environment locking does not unlock final testing.
+
 ## Pilot calibration contract
 
 Calibration v1 is retained as a failed, informative attempt: its learner-derived Minecart returns were degenerate. ADR-003 and `configs/pilots/calibration_v2.json` define the accepted source-aware rule. Environments with an audited deterministic reference-front capability use a versioned geometry artifact; environments without one use independent Uniform-PCQN validation pilots sampled from the shared fixed protocol pool. `scripts/run_pilot_calibration.py` renders only the validation-pilot jobs, while `scripts/extract_reference_front.py` reproduces the declared geometry source. Final-test artifacts are rejected.

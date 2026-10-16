@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T03:15:41+00:00
+Snapshot generated: 2026-10-16T04:29:03+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: 63d8aae
+Expected commit at generation: 4e8397f
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -75,18 +75,17 @@ Full-text requests for the user:
 - None currently registered.
 
 Active experiments:
-- course-paired-matrix [running]: Paired-seed controls and allocation-signal ablations
+- course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 
 Open blockers:
-- Audit and lock validation-only checkpoints for the completed 30-job primary block, then run the remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs.
+- Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. No checkpoint was locked; the remaining 120 jobs and final test remain prohibited pending a predeclared remediation decision.
 
 Latest closed-session summary:
-Confirmed completion of the frozen 30-job primary PCQN block: uniform, matched-random, and full adaptive arms across both environments and five paired seeds completed 15,000,000 training interactions. The executor exited successfully with zero failed jobs, and an independent audit verified every final-checkpoint SHA-256 against atomic status records. Updated canonical status, roadmap narrative, experiment notes, plan, and cross-chat memory. Validation aggregation and checkpoint locking have not started, 120 frozen ablation/comparator jobs remain, final-test access stays locked, and no comparative claim was promoted.
+Hardened the completed primary validation audit before commit: reused evidence now binds the exact frozen preference matrix, discount factor, reward scale, reference point, and recomputed hypervolume to the return tensors. All 300 artifacts passed the strengthened checks. The failed-degenerate Minecart outcome and zero-lock decision are unchanged. Python 3.11 passed pip check, Ruff, MyPy, 76 tests, Bandit, compileall, research-harness doctor, and diff checks.
 
 Next actions:
-1. Audit and aggregate validation evidence from the completed 30-job primary block, preserving raw and discounted vector returns and provenance; fail closed on missing or degenerate data.
-2. Lock checkpoints using the predeclared validation-only rule, version the lock evidence, and do not access final-test data.
-3. Only after the primary audit passes, prepare and execute the remaining 100 signal/target PCQN jobs and 20 qualified baseline jobs under the frozen manifest.
+1. Review the failed-degenerate Minecart evidence and predeclare a remediation or bounded environment exclusion without final-test feedback.
+2. Keep checkpoint locking, the remaining 120 jobs, and final test blocked until the remediation gate passes.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
@@ -100,15 +99,5 @@ Non-negotiable scientific guardrails:
 - End substantial sessions with `python scripts/research_harness.py session close ... --write-handoff`.
 
 User request for this new session:
-Audit and aggregate validation evidence from the completed 30-job primary PCQN block, then lock checkpoints using only the predeclared validation rule.
-
-Requirements:
-- First verify the atomic execution status, all 30 final-checkpoint hashes, run manifests, validation logs/checkpoints, and frozen manifest/protocol hashes.
-- Build or repair a deterministic, resumable aggregation workflow if the repository does not already provide one; cover it with tests before relying on its output.
-- Preserve raw and discounted vector returns, preference identifiers, seed/environment/arm provenance, budget counters, checkpoint hashes, and missingness/degeneracy diagnostics.
-- Select checkpoints using validation hypervolume, then expected utility, then the earlier checkpoint for exact ties, exactly as frozen in the course-study config.
-- Fail closed on missing, malformed, non-finite, test-split, shifted-environment, hash-mismatched, or budget-incompatible evidence. Do not silently replace seeds or tune the frozen protocol.
-- Version compact audit/aggregation/checkpoint-lock artifacts under `research/`; keep large checkpoints and logs out of Git.
-- Do not access or run the final-test split, do not label any claim `experimentally_supported`, and do not start the remaining 120 jobs until the primary audit and checkpoint lock pass.
-- Update tests, canonical status, experiment/roadmap state, memory, and the handoff; run the full Python 3.11 quality gate and commit the completed audit on the current dedicated branch.
+[PASTE THE NEW REQUEST HERE]
 ```
