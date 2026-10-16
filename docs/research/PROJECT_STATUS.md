@@ -1,6 +1,6 @@
 # Project Status and Handoff
 
-Last verified: **2026-10-16**
+Last verified: **2026-10-17**
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked and Minecart remediation v2 predeclared)**
 Publication state: **no multi-seed empirical claim established**
 
@@ -45,10 +45,10 @@ The systematic mapping registers 22 primary/authoritative works, all with verifi
 
 ## Verification evidence
 
-The remediation execution tree passed the following checks on 2026-10-16 under Python 3.11.17. The current audit changes additionally passed the complete 86-test suite, Ruff, MyPy, Bandit, compileall, and whitespace checks under Python 3.11.17; course execution remains restricted to Python 3.11.
+The remediation execution tree passed the following checks under Python 3.11.17. The current diagnosis and v2-predeclaration tree passed the complete 92-test suite, Ruff, MyPy, Bandit, compileall, and whitespace checks under Python 3.11.17; course execution remains restricted to Python 3.11.
 
 - The complete pinned dependency set installed in a clean environment; `pip check` reported no broken requirements.
-- `pytest -q`: 86 tests passed in the current tree, including research-harness, calibration, course-matrix/executor, post-validation execution-gate, remediation-contract/audit, validation-audit, and fixed-pool control regressions.
+- `pytest -q`: 92 tests passed in the current tree, including research-harness, calibration, course-matrix/executor, post-validation execution-gate, remediation-contract/audit, behavior-diagnosis, validation-audit, and fixed-pool control regressions.
 - State, claims, literature, and roadmap documents passed their Draft 2020-12 JSON Schemas.
 - Ruff formatting and lint checks.
 - MyPy over `src` and `scripts`.
@@ -90,8 +90,8 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 2. Extend the fail-closed remediation runner/auditor to bind v2 sources, arguments, budgets, checkpoints, and raw validation returns; then pass the complete Python 3.11 quality gate.
 3. Review the qualified implementation before authorizing only seeds `20264011`–`20264013`.
 4. Keep checkpoint locking, all unexecuted matrix-v1 jobs, and final-test evaluation blocked; matrix v1 is permanently non-resumable.
-4. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
-5. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
+5. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
+6. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
 
 ### Before workshop or journal submission
 
