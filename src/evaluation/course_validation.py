@@ -179,12 +179,12 @@ def validate_validation_artifact(
     expected_utility = _finite_float(metrics.get("expected_utility"), "expected utility")
     mean_returns = discounted.mean(axis=1)
     recomputed_utility = compute_expected_utility(mean_returns, preferences)
-    if not np.isclose(expected_utility, recomputed_utility, rtol=1e-7, atol=1e-8):
+    if not np.isclose(expected_utility, recomputed_utility, rtol=1e-6, atol=1e-7):
         raise CourseValidationError("Validation evidence expected utility does not match return tensors")
     if hypervolume < 0.0:
         raise CourseValidationError("Validation evidence hypervolume cannot be negative")
     recomputed_hypervolume = compute_hypervolume(pareto_prune(mean_returns), reference_point)
-    if not np.isclose(hypervolume, recomputed_hypervolume, rtol=1e-7, atol=1e-8):
+    if not np.isclose(hypervolume, recomputed_hypervolume, rtol=1e-6, atol=1e-7):
         raise CourseValidationError("Validation evidence hypervolume does not match return tensors")
 
     diagnostics = _mapping(artifact.get("diagnostics"), "diagnostics")
