@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "minecart_pcqn_backbone_implementation_qualification",
-  "status": "implementation_qualified_for_review",
+  "status": "implementation_reviewed",
   "passed": true,
   "verified_at": "2026-10-17",
   "python_version": "3.11.17",
@@ -86,7 +86,7 @@
   "authorization": {
     "execution_authorized": false,
     "qualification_seeds_executed": false,
-    "next_gate": "Review this implementation qualification before explicitly authorizing only seeds 20264011-20264013."
+    "next_gate": "Separately decide whether to authorize only seeds 20264011-20264013."
   },
   "scientific_boundaries": {
     "unlocks_matrix_v1": false,

@@ -12,7 +12,7 @@ Implement and qualify the frozen proportional-prioritized-replay v2 contract wit
 - [x] Run the complete Python 3.11 repository quality gate. → Verify: Ruff, MyPy, pytest, Bandit, compileall, and `git diff --check` all pass.
 
 ## Done When
-- [x] The exact v2 implementation is reviewable and qualified locally, all three v2 seeds remain unexecuted, matrix v1/final test remain blocked, and the next action is explicit authorization review.
+- [x] The exact v2 implementation passed local review, all three v2 seeds remain unexecuted, matrix v1/final test remain blocked, and the next action is a separate explicit authorization decision.
 
 ## Notes
 - The existing uniform path retains uniform sampling, unit importance weights, and masked Huber loss.

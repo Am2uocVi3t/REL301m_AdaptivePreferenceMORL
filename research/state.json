@@ -56,11 +56,11 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. The single-factor proportional prioritized-replay v2 implementation and fail-closed runner are qualified for review, but its three seeds remain unauthorized and unexecuted. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited."
+      "description": "Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. The single-factor proportional prioritized-replay v2 implementation and fail-closed runner passed review, but its three seeds remain unauthorized and unexecuted. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited."
     }
   ],
   "next_actions": [
-    "Commit the reviewed feature branch so any later authorized execution can satisfy the clean committed-worktree gate.",
+    "Decide whether to explicitly authorize only remediation-v2 seeds 20264011-20264013; implementation review and commit are complete, but execution is not authorized.",
     "Only after separate explicit authorization, execute seeds 20264011-20264013 and run the validation-only source audit and frozen all-seeds decision.",
     "Keep matrix v1, checkpoint locking, revised course execution, and final test blocked until the v2 qualification decision and any required new-study gates complete."
   ],

@@ -29,6 +29,6 @@ New transitions enter with the current maximum priority, or one when the buffer 
 
 ## Qualification gate
 
-Only seeds `20264011`–`20264013` may run. Each evaluates the same ten predeclared checkpoints and uses the unchanged checkpoint-selection and 5% per-objective pass rules. All three seeds must pass. The exact PER implementation and fail-closed runner/auditor passed analytic, integration, runtime-smoke, and full Python 3.11 quality checks recorded in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`. No qualification seed ran; execution still requires review and explicit authorization.
+Only seeds `20264011`–`20264013` may run. Each evaluates the same ten predeclared checkpoints and uses the unchanged checkpoint-selection and 5% per-objective pass rules. All three seeds must pass. The exact PER implementation and fail-closed runner/auditor passed analytic, integration, runtime-smoke, full Python 3.11 quality checks, and implementation review recorded in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`. No qualification seed ran; execution still requires separate explicit authorization.
 
 A pass requires a new course study ID, all 65 Minecart PCQN jobs rerun with the common backbone, and separate comparator-fairness qualification. A failure stops algorithmic remediation for the current course scope; remediation v3 or final-test access requires an explicit supervisor decision.

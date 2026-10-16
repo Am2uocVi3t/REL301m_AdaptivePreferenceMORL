@@ -36,12 +36,12 @@ updated: 2026-10-17
 - Minecart remediation v1 completed all three fresh validation-only Uniform-PCQN seeds and failed the all-seeds gate. Seeds 20264001 and 20264002 had zero ore at their selected checkpoints; seed 20264003 passed with 28/160 positive episodes per ore objective.
 - Checkpoint-wide v1 evidence contains small, transient ore-delivery pockets in seeds 20264002 and 20264003, so a larger budget alone is not justified; v2 must target retention or delayed credit under a fresh predeclaration.
 - A predeclared validation-only behavior probe evaluated seven v1 checkpoints over 1,120 episodes. Seed 20264003 moved from 35 successful-mining/27 delivery episodes at step 600,000 to zero `Mine` actions at steps 700,000 and 1,000,000; seed 20264002 showed smaller transient pockets.
-- Remediation v2 is predeclared as a single-factor proportional prioritized-replay change with fresh seeds and unchanged v1 budgets, checkpoint selection, and 5% pass rule. A pre-execution amendment retained v1's masked Huber loss after correcting contradictory squared-TD wording. Its exact buffer/loss contract and fail-closed runner/auditor are qualified for review; a non-evidence seed-9192 smoke completed 20 interactions and 17 updates. No v2 qualification seed ran and execution is not authorized.
+- Remediation v2 is predeclared as a single-factor proportional prioritized-replay change with fresh seeds and unchanged v1 budgets, checkpoint selection, and 5% pass rule. A pre-execution amendment retained v1's masked Huber loss after correcting contradictory squared-TD wording. Its exact buffer/loss contract and fail-closed runner/auditor passed review; a non-evidence seed-9192 smoke completed 20 interactions and 17 updates. No v2 qualification seed ran and execution is not authorized.
 - Course matrix v1 is permanently blocked by a post-validation executor gate. Final test remains locked and no course-comparison claim was promoted.
 
 ## Open blockers
 
-- Minecart remediation v1 failed. The v2 implementation is now at the review/authorization gate; only seeds 20264011–20264013 may be authorized next. Matrix-v1 jobs and final test remain blocked.
+- Minecart remediation v1 failed. V2 implementation review is complete; only seeds 20264011–20264013 may be separately authorized next. Matrix-v1 jobs and final test remain blocked.
 - Minecart non-nominal dynamics shifts remain disabled until a valid constructor-level intervention is identified and behaviorally tested.
 
 ## Canonical handoff

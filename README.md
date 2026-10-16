@@ -29,7 +29,7 @@ The project studies these signals rather than claiming that preference-condition
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
 | Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
-| Minecart remediation | V1 failed; the predeclared PER-only v2 implementation and fail-closed runner are qualified for review, but its three seeds are not authorized or executed |
+| Minecart remediation | V1 failed; the predeclared PER-only v2 implementation and fail-closed runner passed review, but its three seeds are not authorized or executed |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Primary validation audit failed closed; no comparative result |
@@ -151,7 +151,7 @@ Preview the current v2 qualification without executing it:
 python scripts/run_minecart_remediation.py
 ```
 
-The preview is validation-only and resolves exactly seeds `20264011`–`20264013`, but reports `execute: false`. Review and explicit authorization are required before any v2 seed may run.
+The preview is validation-only and resolves exactly seeds `20264011`–`20264013`, but reports `execute: false`. Implementation review is complete; separate explicit execution authorization is still required before any v2 seed may run.
 
 Reproduce or audit the completed v1 workflow by selecting its plan explicitly:
 
