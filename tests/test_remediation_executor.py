@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
 import pytest
 
+from scripts.train import parse_args
 from src.evaluation.remediation import (
     RemediationError,
+    _validate_qualification_run_config,
     authorize_qualification,
     build_qualification_jobs,
     qualify_seed,
@@ -19,6 +22,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_plan() -> dict:
     return json.loads((ROOT / "configs/remediations/minecart_pcqn_backbone_v1.json").read_text(encoding="utf-8"))
+
+
+def load_v2_plan() -> dict:
+    return json.loads((ROOT / "configs/remediations/minecart_pcqn_backbone_v2.json").read_text(encoding="utf-8"))
 
 
 def test_jobs_are_exactly_the_predeclared_validation_only_runs() -> None:
@@ -45,6 +52,28 @@ def test_jobs_are_exactly_the_predeclared_validation_only_runs() -> None:
         "--target-update-freq",
     ):
         assert flag in jobs[0]["command"]
+
+
+def test_v2_jobs_are_exactly_the_prioritized_replay_runs() -> None:
+    jobs = build_qualification_jobs(load_v2_plan())
+
+    assert [job["seed"] for job in jobs] == [20264011, 20264012, 20264013]
+    assert all("--replay-sampling" in job["command"] for job in jobs)
+    assert all("test" not in [part.lower() for part in job["command"]] for job in jobs)
+
+
+def test_v2_auditor_rejects_prioritized_replay_argument_drift(monkeypatch: pytest.MonkeyPatch) -> None:
+    plan = load_v2_plan()
+    job = build_qualification_jobs(plan)[0]
+    protocol = json.loads((ROOT / plan["environment"]["protocol"]).read_text(encoding="utf-8"))
+    monkeypatch.setattr(sys, "argv", job["command"][1:])
+    config = vars(parse_args()) | {"protocol": protocol}
+
+    _validate_qualification_run_config(config, plan, job, protocol)
+    config["priority_beta_end"] = 0.9
+
+    with pytest.raises(RemediationError, match="priority_beta_end mismatch"):
+        _validate_qualification_run_config(config, plan, job, protocol)
 
 
 def test_authorization_requires_exact_acknowledgement_and_bounded_explicit_seeds() -> None:

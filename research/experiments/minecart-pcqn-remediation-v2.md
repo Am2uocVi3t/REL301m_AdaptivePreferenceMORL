@@ -21,12 +21,14 @@ The authoritative evidence is `research/evidence/minecart_pcqn_backbone_v1_behav
 
 ## Single-factor intervention
 
-V2 changes only replay sampling from uniform to proportional prioritized replay. It fixes `alpha=0.6`, linearly anneals importance-sampling `beta` from `0.4` to `1.0` over exactly 995,001 gradient updates, and uses priority epsilon `1e-6`. A transition priority is the mean absolute pre-update vector Double-DQN TD error across objectives and active bootstrap heads. Normalized importance weights multiply the per-transition masked squared-TD loss.
+V2 changes only the replay strategy from uniform to proportional prioritized replay. It fixes `alpha=0.6`, linearly anneals importance-sampling `beta` from `0.4` to `1.0` over exactly 995,001 gradient updates, and uses priority epsilon `1e-6`. A transition priority is the mean absolute pre-update vector Double-DQN TD error across objectives and active bootstrap heads. Normalized importance weights multiply each transition's masked vector Huber loss before the unchanged active-head reduction.
+
+Before any v2 seed executed, review found that the original `loss_weighting` sentence said squared TD even though v1 uses masked Huber loss. The plan now records a dated pre-execution amendment retaining Huber; with unit importance weights the v2 loss exactly equals v1. This removes the unintended loss-family change and restores the declared single-factor interpretation.
 
 New transitions enter with the current maximum priority, or one when the buffer is empty. V2 does not add n-step targets, demonstrations, reward shaping, ore-specific sampling, or any other hyperparameter change. Training interactions, gradient updates, exploration, checkpoint cadence, fixed preference pool, and validation protocol remain identical to v1.
 
 ## Qualification gate
 
-Only seeds `20264011`–`20264013` may run. Each evaluates the same ten predeclared checkpoints and uses the unchanged checkpoint-selection and 5% per-objective pass rules. All three seeds must pass. The runner and auditor still need implementation and verification before execution can be considered.
+Only seeds `20264011`–`20264013` may run. Each evaluates the same ten predeclared checkpoints and uses the unchanged checkpoint-selection and 5% per-objective pass rules. All three seeds must pass. The exact PER implementation and fail-closed runner/auditor passed analytic, integration, runtime-smoke, and full Python 3.11 quality checks recorded in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`. No qualification seed ran; execution still requires review and explicit authorization.
 
 A pass requires a new course study ID, all 65 Minecart PCQN jobs rerun with the common backbone, and separate comparator-fairness qualification. A failure stops algorithmic remediation for the current course scope; remediation v3 or final-test access requires an explicit supervisor decision.

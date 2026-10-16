@@ -1,7 +1,7 @@
 # Project Status and Handoff
 
 Last verified: **2026-10-17**
-Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked and Minecart remediation v2 predeclared)**
+Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked and Minecart remediation v2 implementation qualified for authorization review)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
@@ -41,14 +41,16 @@ The systematic mapping registers 22 primary/authoritative works, all with verifi
 - Versioned Minecart failure diagnosis separating exploratory training ore events from greedy validation behavior, using no final-test or shifted data.
 - Study-specific post-validation executor gate that permanently blocks additional non-smoke matrix-v1 jobs after the failed Minecart audit.
 - Completed, independently audited Minecart Uniform-PCQN backbone qualification with fresh seeds, fixed hyperparameters, explicit pass/fail rules, and a failed all-seeds decision.
-- Predeclared validation-only action/cargo/delivery diagnosis and single-factor prioritized-replay remediation v2; neither artifact unlocks matrix v1 or final test.
+- Predeclared validation-only action/cargo/delivery diagnosis and single-factor prioritized-replay remediation v2.
+- Exact proportional prioritized replay with maximum-priority insertion, a fixed beta schedule, pre-update vector/head TD priorities, sampled-batch-normalized importance weights, and a plan-specific weighted loss while preserving the uniform path.
+- V2-aware fail-closed remediation preview/execution/audit plumbing that hash-binds predecessor evidence and verifies exact replay arguments, budgets, checkpoints, protocol, logs, and validation returns.
 
 ## Verification evidence
 
-The remediation execution tree passed the following checks under Python 3.11.17. The current diagnosis and v2-predeclaration tree passed the complete 92-test suite, Ruff, MyPy, Bandit, compileall, and whitespace checks under Python 3.11.17; course execution remains restricted to Python 3.11.
+The remediation execution tree passed the following checks under Python 3.11.17. The current v2 implementation-qualification tree passed the complete 103-test suite, Ruff, MyPy, Bandit, compileall, and whitespace checks under Python 3.11.17; course execution remains restricted to Python 3.11.
 
 - The complete pinned dependency set installed in a clean environment; `pip check` reported no broken requirements.
-- `pytest -q`: 92 tests passed in the current tree, including research-harness, calibration, course-matrix/executor, post-validation execution-gate, remediation-contract/audit, behavior-diagnosis, validation-audit, and fixed-pool control regressions.
+- `pytest -q`: 103 tests passed in the current tree, including analytic PER probability/priority/importance-loss tests, non-finite parameter rejection, exact Huber equivalence under unit weights, uniform-replay regressions, v2 runner/auditor drift rejection, research-harness, calibration, course-matrix/executor, behavior-diagnosis, and validation-audit coverage.
 - State, claims, literature, and roadmap documents passed their Draft 2020-12 JSON Schemas.
 - Ruff formatting and lint checks.
 - MyPy over `src` and `scripts`.
@@ -65,7 +67,7 @@ The remediation execution tree passed the following checks under Python 3.11.17.
 - Remediation v1 completed exactly three 1,000,000-interaction Uniform-PCQN runs and independently audited all 30 predeclared checkpoints over 4,800 nominal-validation episodes. The source audit passed, but the all-seeds decision failed: seeds `20264001` and `20264002` had 0/160 positive episodes for each ore objective at their selected checkpoints, while seed `20264003` passed with 28/160 for each objective. No test or shifted-environment data was accessed.
 - Across all checkpoints, seed `20264001` never delivered ore; seed `20264002` briefly reached 3/160 and 2/160 at steps 200,000 and 800,000; seed `20264003` reached 4/160, 28/160, and 2/160 at steps 500,000, 600,000, and 900,000 before returning to zero. This supports seed-sensitive, transient acquisition/retention rather than a claim that more interactions alone solve the backbone failure.
 - The predeclared v1 behavior probe then evaluated seven hash-bound checkpoints over 1,120 nominal-validation episodes. At seed `20264003`, step 600,000, 40 episodes selected `Mine`, 35 acquired cargo, and 27 delivered ore; steps 700,000 and 1,000,000 selected `Mine` zero times. Seed `20264002` showed smaller successful pockets separated by zero-delivery checkpoints. This satisfies the frozen rare-transition-retention criterion for prioritized replay; the probe accesses no test or shifted data and unlocks nothing.
-- Remediation v2 is predeclared with three fresh seeds and proportional prioritized replay as the only change from v1. It fixes `alpha=0.6`, importance-sampling `beta=0.4→1.0`, priority epsilon `1e-6`, vector/bootstrap TD-error aggregation, and importance-weighted loss semantics. The v1 interaction/update budgets, one-step targets, checkpoint selection, and 5% all-seeds pass rule remain unchanged. Implementation, runner qualification, and execution authorization are still pending.
+- Remediation v2 is predeclared with three fresh seeds and proportional prioritized replay as the only change from v1. It fixes `alpha=0.6`, importance-sampling `beta=0.4→1.0`, priority epsilon `1e-6`, vector/bootstrap TD-error aggregation, and importance-weighted masked Huber semantics. Before execution, a dated plan amendment corrected the original squared-TD wording so unit weights reproduce v1's loss and active-head reduction exactly. The implementation and fail-closed runner/auditor passed analytic and integration tests. A non-evidence seed-9192 smoke completed 20 interactions and all 17 expected prioritized updates with zero curriculum or validation steps. `research/qualification/minecart_pcqn_backbone_v2_implementation.json` records the review evidence. No v2 qualification seed ran, and execution remains unauthorized.
 - The pilot pipeline completed 20-step train → checkpoint → validation evaluation → calibration proposal smoke jobs for both course environments. The proposal is marked `smoke_only_not_freezable`; Minecart's untrained smoke returns correctly reported two degenerate objectives without weakening the real-pilot fail-fast rule.
 - The six real v1 pilot jobs completed 600,000 training interactions, 142,506 gradient updates, and 960 validation episodes with no final-test access. MO-Lunar-Lander was non-degenerate; all 480 Minecart validation returns had exactly zero reward in both sparse ore objectives, so the calibrator failed closed and wrote no proposal.
 - A post-run audit found and repaired unmatched Uniform-PCQN rollout sampling. A separate 100,000-interaction fixed-pool Minecart diagnostic retained nonzero training-archive ore returns but again produced zero ore reward in all 160 final validation episodes. The outcome and source hashes are recorded in `research/experiments/pilot-protocol-freeze.md`.
@@ -86,12 +88,10 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 
 ### Before course conclusions
 
-1. Implement the exact proportional prioritized-replay contract frozen in remediation v2, including analytic sampling, priority-update, and importance-weight tests while preserving uniform replay behavior.
-2. Extend the fail-closed remediation runner/auditor to bind v2 sources, arguments, budgets, checkpoints, and raw validation returns; then pass the complete Python 3.11 quality gate.
-3. Review the qualified implementation before authorizing only seeds `20264011`–`20264013`.
-4. Keep checkpoint locking, all unexecuted matrix-v1 jobs, and final-test evaluation blocked; matrix v1 is permanently non-resumable.
-5. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
-6. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
+1. Review the qualified v2 implementation and evidence before separately authorizing only seeds `20264011`–`20264013`.
+2. Keep checkpoint locking, all unexecuted matrix-v1 jobs, and final-test evaluation blocked; matrix v1 is permanently non-resumable.
+3. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
+4. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
 
 ### Before workshop or journal submission
 
@@ -115,7 +115,7 @@ source-aware calibration v2 and protocol freeze complete
   -> remediation v1 fails all-seeds gate (2/3 selected checkpoints have zero ore)
   -> validation-only behavior diagnosis localizes loss of rare successful trajectories
   -> proportional prioritized-replay remediation v2 predeclared as a single-factor change
-  -> implement and qualify v2 buffer, loss, runner, and auditor without training
+  -> v2 buffer, loss, runner, and auditor qualified with analytic tests and a non-evidence smoke; zero qualification seeds executed
   -> review/authorize only the three v2 qualification seeds
   -> aggregate validation results
   -> lock checkpoints/hyperparameters

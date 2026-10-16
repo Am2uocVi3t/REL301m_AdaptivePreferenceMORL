@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-07-18
-updated: 2026-10-16
+updated: 2026-10-17
 ---
 
 # Technical Decisions
@@ -20,6 +20,7 @@ updated: 2026-10-16
 - Course matrix v1 freezes five paired seeds, 500,000 training interactions per job, 13 PCQN arms, two gated comparators, validation-only checkpoint selection, one-time final test, per-objective controllability, and estimation-first paired analysis. Its generated manifest never authorizes execution.
 - Course execution is a separate fail-closed boundary: exact study acknowledgement, explicit selectors, an explicit job cap, frozen-input and qualification hashes, atomic status, and completed-artifact hashes are required. Resume is between whole seeded jobs only; smoke outputs are isolated and marked as non-course evidence.
 - Course checkpoint evidence is regenerated only on the frozen nominal validation split. Selection is lexicographic by hypervolume, expected utility, then earlier step; raw and discounted returns, preferences, four budget counters, protocol/checkpoint hashes, and degeneracy diagnostics are retained. Any degenerate run blocks the atomic primary lock rather than producing a partial lock.
+- Minecart remediation v2 uses proportional PER only on its predeclared path: alpha 0.6, beta 0.4→1.0 over 995,001 updates, epsilon 1e-6, maximum-priority insertion, mean absolute pre-update vector TD error over active heads, and sampled-batch-normalized importance weights applied before the existing masked Huber active-head reduction. A dated pre-execution amendment corrected contradictory squared-TD wording before any qualification seed ran; unit weights exactly recover the v1 loss.
 - Durable cross-chat coordination uses versioned JSON registries under `research/`, an append-only JSONL session log, and the standard-library `scripts/research_harness.py` CLI.
 - The generated `docs/research/HANDOFF_PROMPT.md` is a snapshot; agents must compare it with live Git state and regenerate it at the end of substantial sessions.
 - Literature management stores primary-source metadata, BibTeX, query logs, and structured notes. Copyrighted paper PDFs are not committed.

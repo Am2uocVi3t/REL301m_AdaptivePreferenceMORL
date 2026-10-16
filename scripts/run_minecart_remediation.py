@@ -29,7 +29,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Run and audit the predeclared validation-only Minecart backbone qualification"
     )
-    parser.add_argument("--plan", default="configs/remediations/minecart_pcqn_backbone_v1.json")
+    parser.add_argument("--plan", default="configs/remediations/minecart_pcqn_backbone_v2.json")
     parser.add_argument("--seed", action="append", type=int, dest="seeds")
     parser.add_argument("--execute", action="store_true")
     parser.add_argument("--acknowledge-plan-id")

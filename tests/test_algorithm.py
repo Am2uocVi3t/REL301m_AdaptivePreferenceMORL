@@ -4,14 +4,19 @@ import numpy as np
 import pytest
 import torch
 
-from scripts.train import choose_rollout_preference
+from scripts.train import choose_rollout_preference, linear_priority_beta
 from src.core.pareto_archive import ParetoArchive
 from src.core.replay_buffer import VectorReplayBuffer
 from src.curriculum.gap import compute_conditioning_gap
 from src.curriculum.sampler import AdaptivePreferenceSampler
 from src.curriculum.uncertainty import compute_bootstrap_uncertainty
 from src.models.q_network import VectorQNetwork
-from src.models.update import compute_double_dqn_targets, masked_bootstrap_loss
+from src.models.update import (
+    compute_double_dqn_targets,
+    masked_bootstrap_loss,
+    masked_mean_absolute_td_error,
+    weighted_masked_huber_loss,
+)
 
 
 def test_vector_q_network_forward_and_action_shapes():
@@ -53,6 +58,80 @@ def test_replay_rejects_non_simplex_preference():
     replay = VectorReplayBuffer(10, 2, 2, 2)
     with pytest.raises(ValueError, match="simplex"):
         replay.add(np.zeros(2), 0, np.ones(2), np.ones(2), False, False, np.array([0.2, 0.2]))
+
+
+def test_prioritized_replay_rejects_nonfinite_priority_parameters():
+    with pytest.raises(ValueError, match="priority_alpha must be finite"):
+        VectorReplayBuffer(10, 2, 2, 2, priority_alpha=np.nan)
+    with pytest.raises(ValueError, match="priority_epsilon must be finite"):
+        VectorReplayBuffer(10, 2, 2, 2, priority_epsilon=np.inf)
+
+
+def test_prioritized_replay_uses_exact_proportional_probabilities_and_weights():
+    replay = VectorReplayBuffer(
+        3,
+        1,
+        2,
+        2,
+        sampling="prioritized",
+        priority_alpha=1.0,
+        priority_epsilon=0.5,
+        seed=5,
+    )
+    for value in range(3):
+        replay.add(
+            np.array([value], dtype=np.float32),
+            0,
+            np.zeros(2, dtype=np.float32),
+            np.array([value + 1], dtype=np.float32),
+            False,
+            False,
+            np.array([0.5, 0.5], dtype=np.float32),
+            bootstrap_mask=np.ones(3, dtype=np.float32),
+        )
+    replay.update_priorities(np.array([0, 1, 2]), np.array([0.5, 1.5, 3.5]))
+
+    assert np.allclose(replay.sampling_probabilities(), np.array([1.0, 2.0, 4.0]) / 7.0)
+
+    batch = replay.sample(8, beta=0.5)
+    probabilities = replay.sampling_probabilities()[batch.indices]
+    expected = np.power(len(replay) * probabilities, -0.5)
+    expected /= expected.max()
+
+    assert torch.allclose(batch.importance_weights.cpu(), torch.tensor(expected, dtype=torch.float32))
+
+
+def test_prioritized_replay_new_transition_uses_current_maximum_priority():
+    replay = VectorReplayBuffer(3, 1, 2, 2, sampling="prioritized", priority_epsilon=0.1)
+    preference = np.array([0.5, 0.5], dtype=np.float32)
+    mask = np.ones(3, dtype=np.float32)
+    replay.add(np.zeros(1), 0, np.zeros(2), np.ones(1), False, False, preference, mask)
+    replay.update_priorities(np.array([0]), np.array([4.9]))
+    replay.add(np.ones(1), 1, np.ones(2), np.zeros(1), False, False, preference, mask)
+
+    assert replay.priorities[:2].tolist() == pytest.approx([5.0, 5.0])
+
+
+def test_uniform_replay_keeps_unit_importance_weights():
+    replay = VectorReplayBuffer(2, 1, 2, 2, seed=3)
+    preference = np.array([0.5, 0.5], dtype=np.float32)
+    for _ in range(2):
+        replay.add(
+            np.zeros(1),
+            0,
+            np.zeros(2),
+            np.ones(1),
+            False,
+            False,
+            preference,
+            bootstrap_mask=np.ones(3, dtype=np.float32),
+        )
+
+    batch = replay.sample(5, beta=0.9)
+
+    assert np.array_equal(batch.indices, np.random.default_rng(3).integers(0, 2, size=5))
+    assert torch.equal(batch.importance_weights, torch.ones(5))
+    assert np.array_equal(replay.sampling_probabilities(), np.array([0.5, 0.5]))
 
 
 class FixedNetwork(VectorQNetwork):
@@ -117,6 +196,59 @@ def test_masked_bootstrap_loss_excludes_unselected_heads():
     target = torch.zeros_like(predicted)
     mask = torch.tensor([[1.0, 0.0]])
     assert masked_bootstrap_loss(predicted, target, mask).item() == pytest.approx(0.5)
+
+
+def test_prioritized_td_priority_averages_objectives_and_active_heads():
+    predicted = torch.tensor(
+        [
+            [[1.0, 3.0], [2.0, 8.0]],
+            [[5.0, 7.0], [4.0, 10.0]],
+        ]
+    )
+    target = torch.zeros_like(predicted)
+    masks = torch.tensor([[1.0, 0.0], [1.0, 1.0]])
+
+    priorities = masked_mean_absolute_td_error(predicted, target, masks)
+
+    assert torch.allclose(priorities, torch.tensor([2.0, 6.0]))
+
+
+def test_prioritized_loss_weights_per_transition_masked_huber():
+    predicted = torch.tensor(
+        [
+            [[1.0, 3.0], [2.0, 4.0]],
+            [[100.0, 100.0], [6.0, 8.0]],
+        ]
+    )
+    target = torch.zeros_like(predicted)
+    masks = torch.tensor([[1.0, 0.0], [1.0, 1.0]])
+    weights = torch.tensor([1.0, 0.5])
+
+    loss = weighted_masked_huber_loss(predicted, target, masks, weights)
+
+    assert loss.item() == pytest.approx((1.5 + 0.5 * 2.5 + 0.5 * 6.5) / 3.0)
+
+
+def test_prioritized_huber_loss_with_unit_weights_matches_uniform_loss():
+    predicted = torch.tensor(
+        [
+            [[1.0, 3.0], [2.0, 4.0]],
+            [[100.0, 100.0], [6.0, 8.0]],
+        ]
+    )
+    target = torch.zeros_like(predicted)
+    masks = torch.tensor([[1.0, 0.0], [1.0, 1.0]])
+
+    uniform_loss = masked_bootstrap_loss(predicted, target, masks)
+    prioritized_loss = weighted_masked_huber_loss(predicted, target, masks, torch.ones(2))
+
+    assert prioritized_loss.item() == pytest.approx(uniform_loss.item())
+
+
+def test_priority_beta_schedule_includes_both_frozen_endpoints():
+    assert linear_priority_beta(0, 995_001, 0.4, 1.0) == pytest.approx(0.4)
+    assert linear_priority_beta(497_500, 995_001, 0.4, 1.0) == pytest.approx(0.7)
+    assert linear_priority_beta(995_000, 995_001, 0.4, 1.0) == pytest.approx(1.0)
 
 
 def test_conditioning_gap_requires_empirical_current_return():

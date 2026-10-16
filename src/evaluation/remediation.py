@@ -87,10 +87,8 @@ def load_qualification_plan(root: Path, plan_path: Path) -> tuple[dict[str, Any]
     protocol = _load_json(protocol_path)
     if protocol_hash(protocol) != environment.get("protocol_canonical_sha256"):
         raise RemediationError("Remediation protocol canonical hash mismatch")
-    diagnosis_path = _resolve_relative(root, str(plan.get("diagnosis_artifact", "")), "diagnosis artifact")
-    diagnosis_hash = plan.get("diagnosis_sha256")
-    if not isinstance(diagnosis_hash, str) or sha256_file(diagnosis_path) != diagnosis_hash:
-        raise RemediationError("Remediation diagnosis artifact hash mismatch")
+    _validate_plan_sources(root, plan)
+    _validate_prioritized_replay_contract(plan)
     build_qualification_jobs(plan)
     return plan, sha256_file(plan_path)
 
@@ -266,29 +264,29 @@ def audit_qualification_sources(
         audit_jobs.append(job_audit)
         candidates_by_seed[int(job["seed"])] = candidates
 
-    return (
-        {
-            "schema_version": 1,
-            "kind": "minecart_backbone_qualification_source_audit",
-            "plan": {
-                "path": str(plan_path.relative_to(root)),
-                "sha256": plan_sha256,
-                "id": plan["id"],
-            },
-            "execution_status": {
-                "path": str(status_path.relative_to(root)),
-                "sha256": sha256_file(status_path),
-            },
-            "execution_git_commit": execution_commit,
-            "data_firewall": plan["data_firewall"],
-            "protocol": {"path": protocol_relative, "canonical_sha256": canonical_protocol_hash},
-            "expected_seed_count": len(qualification["seeds"]),
-            "checkpoint_count": sum(len(candidates) for candidates in candidates_by_seed.values()),
-            "jobs": audit_jobs,
-            "passed": True,
+    audit = {
+        "schema_version": 1,
+        "kind": "minecart_backbone_qualification_source_audit",
+        "plan": {
+            "path": str(plan_path.relative_to(root)),
+            "sha256": plan_sha256,
+            "id": plan["id"],
         },
-        candidates_by_seed,
-    )
+        "execution_status": {
+            "path": str(status_path.relative_to(root)),
+            "sha256": sha256_file(status_path),
+        },
+        "execution_git_commit": execution_commit,
+        "data_firewall": plan["data_firewall"],
+        "protocol": {"path": protocol_relative, "canonical_sha256": canonical_protocol_hash},
+        "expected_seed_count": len(qualification["seeds"]),
+        "checkpoint_count": sum(len(candidates) for candidates in candidates_by_seed.values()),
+        "jobs": audit_jobs,
+        "passed": True,
+    }
+    if "sources" in plan:
+        audit["predecessor_sources"] = plan["sources"]
+    return audit, candidates_by_seed
 
 
 def evaluate_qualification_candidates(
@@ -597,6 +595,17 @@ def _validate_qualification_run_config(
         "save_freq": evaluation["checkpoint_steps"][0],
         "device": "cpu",
     }
+    intervention = plan.get("intervention")
+    if isinstance(intervention, dict):
+        expected.update(
+            {
+                "replay_sampling": "prioritized",
+                "priority_alpha": intervention["priority_alpha"],
+                "priority_beta_start": intervention["importance_sampling_beta_start"],
+                "priority_beta_end": intervention["importance_sampling_beta_end"],
+                "priority_epsilon": intervention["priority_epsilon"],
+            }
+        )
     for key, expected_value in expected.items():
         actual = config.get(key)
         if isinstance(expected_value, (int, float)) and not isinstance(expected_value, bool):
@@ -667,6 +676,82 @@ def sha256_file(path: Path) -> str:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def _validate_plan_sources(root: Path, plan: Mapping[str, Any]) -> None:
+    sources = plan.get("sources")
+    if sources is None:
+        diagnosis_path = _resolve_relative(root, str(plan.get("diagnosis_artifact", "")), "diagnosis artifact")
+        diagnosis_hash = plan.get("diagnosis_sha256")
+        if not isinstance(diagnosis_hash, str) or sha256_file(diagnosis_path) != diagnosis_hash:
+            raise RemediationError("Remediation diagnosis artifact hash mismatch")
+        return
+    source_bindings = _mapping(sources, "remediation sources")
+    if set(source_bindings) != {"v1_qualification", "v1_behavior_diagnosis"}:
+        raise RemediationError("Remediation v2 sources are incomplete or unexpected")
+    for name, raw_reference in source_bindings.items():
+        reference = _mapping(raw_reference, f"remediation source {name}")
+        path = _resolve_relative(root, str(reference.get("path", "")), f"remediation source {name}")
+        expected_hash = reference.get("sha256")
+        if not isinstance(expected_hash, str) or sha256_file(path) != expected_hash:
+            raise RemediationError(f"Remediation source hash mismatch: {name}")
+
+
+def _validate_prioritized_replay_contract(plan: Mapping[str, Any]) -> None:
+    intervention = plan.get("intervention")
+    if intervention is None:
+        return
+    contract = _mapping(intervention, "remediation intervention")
+    expected_loss_weighting = (
+        "Multiply each transition's masked vector Huber loss by its normalized importance weight "
+        "before the existing active-head batch reduction."
+    )
+    if (
+        contract.get("name") != "proportional_prioritized_experience_replay"
+        or contract.get("single_factor_relative_to_v1") is not True
+        or contract.get("importance_sampling_beta_schedule") != "linear_over_995001_gradient_updates"
+        or contract.get("new_transition_priority") != "current_maximum_or_one_if_empty"
+        or contract.get("loss_weighting") != expected_loss_weighting
+    ):
+        raise RemediationError("Unsupported prioritized-replay intervention contract")
+    numeric_fields = {
+        "priority_alpha": 0.6,
+        "importance_sampling_beta_start": 0.4,
+        "importance_sampling_beta_end": 1.0,
+        "priority_epsilon": 1e-6,
+    }
+    for field, expected in numeric_fields.items():
+        value = contract.get(field)
+        if not isinstance(value, (int, float)) or not np.isclose(float(value), expected):
+            raise RemediationError(f"Prioritized-replay {field} does not match the supported contract")
+    qualification = _mapping(plan.get("qualification"), "qualification")
+    training = _mapping(qualification.get("training"), "qualification training")
+    if training.get("expected_gradient_updates") != 995_001:
+        raise RemediationError("Prioritized-replay beta schedule does not match the update budget")
+    template = qualification.get("command_template")
+    if not isinstance(template, list):
+        raise RemediationError("Qualification command template is malformed")
+    expected_arguments = {
+        "--replay-sampling": "prioritized",
+        "--priority-alpha": contract["priority_alpha"],
+        "--priority-beta-start": contract["importance_sampling_beta_start"],
+        "--priority-beta-end": contract["importance_sampling_beta_end"],
+        "--priority-epsilon": contract["priority_epsilon"],
+    }
+    for flag, expected in expected_arguments.items():
+        try:
+            actual = template[template.index(flag) + 1]
+        except (ValueError, IndexError) as error:
+            raise RemediationError(f"Qualification command is missing {flag}") from error
+        if flag == "--replay-sampling":
+            matches = actual == expected
+        else:
+            try:
+                matches = np.isclose(float(actual), float(expected))
+            except (TypeError, ValueError):
+                matches = False
+        if not matches:
+            raise RemediationError(f"Qualification command {flag} does not match the intervention")
 
 
 def _load_or_initialize_status(

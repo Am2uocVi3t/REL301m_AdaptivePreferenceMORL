@@ -12,13 +12,13 @@ fixed protocol + sampler distribution
               |                    |
               |                    +--> completed raw episode return --> Pareto archive
               v
- replay(s, a, r, s', terminated, truncated, w_behavior, bootstrap_mask)
+ replay(s, a, r, s', terminated, truncated, w_behavior, bootstrap_mask, priority)
               |
               v
  update preference selected by allocation_target
               |
               v
- per-head Double-DQN target + masked Huber loss
+ per-head Double-DQN target + uniform Huber or qualified PER loss
               |
               v
  curriculum checkpoint on a separate evaluation environment
@@ -50,6 +50,8 @@ y_k  = r + gamma * (1 - terminated) * Q_target,k(s', a*_k, w)
 ```
 
 Each head chooses its own action. The per-transition bootstrap mask controls which head losses are included. Heads share a feature trunk, so documentation calls this a masked multi-head ensemble rather than a fully independent bootstrap ensemble.
+
+Uniform replay remains the default and retains uniform index sampling, unit importance weights, and the original masked Huber reduction. The Minecart remediation-v2 path uses proportional probabilities `p_i^alpha / sum_j p_j^alpha`, new-transition maximum priority, and sampled-batch-normalized importance weights. Its priority is epsilon plus the mean absolute pre-update TD error across vector objectives and active bootstrap heads. After the optimizer step that used those pre-update errors, the sampled priorities are replaced. The fixed beta schedule includes `0.4` at the first update and `1.0` at update 995,001. Importance weights multiply each transition's masked vector Huber loss before the existing active-head reduction. With unit weights, this is exactly the v1 loss. The v2 plan records this correction as a pre-execution amendment because the original squared-TD wording would have introduced a second factor; no qualification seed had run.
 
 ## Allocation modes
 
@@ -93,7 +95,7 @@ Five paired seeds imply coarse exact-test resolution. Analysis is therefore esti
 
 After a failed primary validation gate, `scripts/execute_course_matrix.py` also requires a study-specific post-validation execution gate for every non-smoke launch. Matrix v1's gate is permanently blocked after the Minecart diagnosis; it cannot resume or be edited in place. A passed gate must bind a `passed: true` qualification artifact by path and SHA-256. The predeclared Minecart remediation is a separate validation-only Uniform-PCQN backbone qualification, and any successful continuation must use a new study ID and manifest.
 
-`scripts/run_minecart_remediation.py` is the separate remediation execution and audit boundary. It renders only the three plan seeds, previews by default, requires Python 3.11 plus a clean committed worktree for execution, and records atomic job status bound to the plan hash and execution commit. Its auditor verifies run manifests, periodic checkpoints, budget counters, protocol hashes, and validation curves before independently reproducing raw validation returns. The resulting qualification artifact can authorize design of a new study after an all-seed pass, but it cannot unlock matrix v1 or final-test access.
+`scripts/run_minecart_remediation.py` is the separate remediation execution and audit boundary. It defaults to v2, renders only the three plan seeds, previews by default, requires Python 3.11 plus a clean committed worktree for execution, and records atomic job status bound to the plan hash and execution commit. Its loader hash-binds the failed v1 qualification and v1 behavior diagnosis. Its auditor additionally verifies the exact PER arguments, run manifests, periodic checkpoints, budget counters, protocol hashes, and validation curves before independently reproducing raw validation returns. The resulting qualification artifact can authorize design of a new study after an all-seed pass, but it cannot unlock matrix v1 or final-test access. V1 remains reproducible through an explicit `--plan` argument.
 
 ## Pilot calibration contract
 
@@ -110,8 +112,10 @@ The three enabled LunarLander shifts passed controlled nominal-versus-shift acti
 ## Public interfaces
 
 - `VectorReplayBuffer.add(..., terminated, truncated, behavior_preference, bootstrap_mask=None)`
+- `VectorReplayBuffer.sample(batch_size, beta=1.0)`, `.sampling_probabilities()`, and `.update_priorities(indices, td_errors)`
 - `compute_double_dqn_targets(...)`
 - `masked_bootstrap_loss(...)`
+- `masked_mean_absolute_td_error(...)` and `weighted_masked_huber_loss(...)`
 - `compute_conditioning_gap(preference, archive, current_policy_return)`
 - `AdaptivePreferenceSampler.sample()` and `.sample_batch(batch_size)`
 - `AdaptivePreferenceSampler.update_distribution(gap, uncertainty, progress, random_scores=None)`

@@ -21,6 +21,15 @@
       "sha256": "29c6d0a76b1b8dd6103ade5af280849f440923a7f4ae889bf4b5eeed506cd5a6"
     }
   },
+  "pre_execution_amendments": [
+    {
+      "date": "2026-10-17",
+      "execution_state": "No remediation-v2 qualification seed or validation evaluation had executed.",
+      "issue": "The original loss_weighting text specified squared TD although remediation v1 and the executable architecture use masked Huber loss, which would have introduced an unintended second factor.",
+      "resolution": "Retain the remediation-v1 masked Huber loss and apply each sampled transition's normalized importance weight before the existing active-head batch reduction.",
+      "scientific_effect": "Restores the declared single-factor comparison: only the replay strategy changes from uniform to proportional prioritized replay."
+    }
+  ],
   "environment": {
     "env_id": "minecart-v0",
     "protocol": "configs/protocols/course_minecart_v0.json",
@@ -40,7 +49,7 @@
     "sampling_probability": "P(i) = priority_i^alpha / sum_j priority_j^alpha",
     "importance_weight": "w_i = (N * P(i))^(-beta), normalized by the maximum weight in the sampled batch",
     "priority_update": "After each optimizer step, set priority_i to epsilon plus the mean absolute pre-update Double-DQN TD error over reward objectives and bootstrap heads active for transition i.",
-    "loss_weighting": "Multiply each transition's masked vector squared-TD loss by its normalized importance weight before the batch reduction.",
+    "loss_weighting": "Multiply each transition's masked vector Huber loss by its normalized importance weight before the existing active-head batch reduction.",
     "no_additional_changes": [
       "no n-step targets",
       "no demonstrations",
@@ -171,6 +180,7 @@
       "reward vector and reward scale",
       "discount factor and one-step targets",
       "network architecture, bootstrap masks, optimizer, and learning rate",
+      "masked Huber loss family and active-head reduction",
       "training interactions, gradient-update count, replay capacity, and batch size",
       "target-update, exploration, curriculum-evaluation, checkpoint, and validation schedules",
       "fixed training preference pool and immutable validation preferences"

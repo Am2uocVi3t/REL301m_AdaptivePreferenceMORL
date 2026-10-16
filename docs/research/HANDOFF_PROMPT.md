@@ -11,10 +11,10 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T17:26:48+00:00
-Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: 2c3f204
-Working tree dirty at generation: no
+Snapshot generated: 2026-10-16T18:17:55+00:00
+Expected working branch at generation: feature/minecart-per-remediation-v2
+Expected commit at generation: 123184e
+Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
 
@@ -80,15 +80,15 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [planned]: Minecart prioritized-replay PCQN backbone qualification
 
 Open blockers:
-- Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. A single-factor proportional prioritized-replay v2 is predeclared but not implemented, qualified, or authorized. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited.
+- Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. The single-factor proportional prioritized-replay v2 implementation and fail-closed runner are qualified for review, but its three seeds remain unauthorized and unexecuted. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited.
 
 Latest closed-session summary:
-Executed the predeclared validation-only Minecart remediation-v1 behavior diagnosis over seven hash-bound checkpoints and 1,120 episodes. Successful mining and delivery appeared at transient positive checkpoints and disappeared at later checkpoints within the same seed, selecting rare-transition retention as the next target. Predeclared a single-factor proportional prioritized-replay remediation v2 with fresh seeds and unchanged v1 budgets, checkpoint selection, and pass rule. The v2 implementation and runner remain pending; no v2 training or final-test access occurred, and matrix v1 remains blocked.
+Reviewed and qualified the Minecart remediation-v2 implementation for commit. Confirmed the amended single-factor proportional-PER contract, exact source and plan hashes, uniform-replay compatibility, fail-closed runner and auditor bindings, and execution firewall. Review found and fixed one non-finite priority-parameter validation edge case, bringing the complete Python 3.11 gate to 103 passing tests. No qualification seed, matrix-v1 job, shifted evaluation, or final-test data was accessed.
 
 Next actions:
-1. Implement the exact proportional prioritized-replay buffer, priority update, and importance-weighted loss contract with analytic tests and uniform-replay backward compatibility.
-2. Extend and qualify the fail-closed remediation runner/auditor for v2 under Python 3.11.
-3. Review the implemented v2 contract before authorizing only seeds 20264011-20264013; keep matrix v1 and final test blocked.
+1. Commit the reviewed feature branch so any later authorized execution can satisfy the clean committed-worktree gate.
+2. Only after separate explicit authorization, execute seeds 20264011-20264013 and run the validation-only source audit and frozen all-seeds decision.
+3. Keep matrix v1, checkpoint locking, revised course execution, and final test blocked until the v2 qualification decision and any required new-study gates complete.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

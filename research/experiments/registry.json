@@ -45,7 +45,7 @@
       "protocol": "configs/remediations/minecart_pcqn_backbone_v2.json",
       "claim_ids": [],
       "artifact": null,
-      "notes": "Predeclared after a validation-only, hash-bound behavior probe showed successful mining and delivery disappearing at later checkpoints within the same seed. V2 changes only uniform replay to proportional prioritized replay with fixed alpha, beta, priority, and importance-weight rules; all v1 budgets, seeds count, checkpoint selection, and pass thresholds remain unchanged. The implementation and runner are not yet qualified, execution is not authorized, and matrix v1/final test remain blocked.",
+      "notes": "Predeclared after a validation-only, hash-bound behavior probe showed successful mining and delivery disappearing at later checkpoints within the same seed. V2 changes only uniform replay to proportional prioritized replay with fixed alpha, beta, priority, and importance-weight rules; all v1 budgets, seeds count, checkpoint selection, pass thresholds, and masked Huber loss remain unchanged. A dated pre-execution amendment corrected contradictory squared-TD wording before any seed ran. The implementation and fail-closed runner/auditor are locally qualified for review in research/qualification/minecart_pcqn_backbone_v2_implementation.json. No v2 qualification seed ran, execution is not authorized, and matrix v1/final test remain blocked.",
       "created_at": "2026-10-16T17:08:44+00:00"
     }
   ]

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from src.evaluation.protocol import protocol_hash
+from src.evaluation.remediation import build_qualification_jobs, load_qualification_plan
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -89,6 +90,9 @@ def test_remediation_v2_is_single_factor_and_still_fail_closed() -> None:
     assert intervention["priority_alpha"] == 0.6
     assert intervention["importance_sampling_beta_start"] == 0.4
     assert intervention["importance_sampling_beta_end"] == 1.0
+    assert "Huber" in intervention["loss_weighting"]
+    assert "squared-TD" not in intervention["loss_weighting"]
+    assert plan["pre_execution_amendments"][0]["execution_state"].startswith("No remediation-v2")
     assert qualification["changes_from_remediation_v1"] == {
         "replay_sampling": {"from": "uniform", "to": "proportional_prioritized"}
     }
@@ -114,3 +118,22 @@ def test_remediation_v2_binds_failed_v1_and_behavior_diagnosis() -> None:
     assert diagnosis["mechanism_assessment"]["leading_v2_mechanism"] == "prioritized_replay"
     assert diagnosis["unlocks_matrix_v1"] is False
     assert diagnosis["unlocks_final_test"] is False
+
+
+def test_remediation_v2_loads_with_bound_sources_and_exact_per_command() -> None:
+    plan_path = ROOT / "configs/remediations/minecart_pcqn_backbone_v2.json"
+
+    plan, plan_sha256 = load_qualification_plan(ROOT, plan_path)
+    jobs = build_qualification_jobs(plan)
+
+    assert plan_sha256 == sha256("configs/remediations/minecart_pcqn_backbone_v2.json")
+    assert [job["seed"] for job in jobs] == [20264011, 20264012, 20264013]
+    command = jobs[0]["command"]
+    for flag, value in (
+        ("--replay-sampling", "prioritized"),
+        ("--priority-alpha", "0.6"),
+        ("--priority-beta-start", "0.4"),
+        ("--priority-beta-end", "1.0"),
+        ("--priority-epsilon", "0.000001"),
+    ):
+        assert command[command.index(flag) + 1] == value

@@ -44,3 +44,48 @@ def masked_bootstrap_loss(
     head_sample_mask = bootstrap_masks.transpose(0, 1)
     denominator = head_sample_mask.sum().clamp_min(1.0)
     return (per_element * head_sample_mask).sum() / denominator
+
+
+def masked_mean_absolute_td_error(
+    predicted_q: torch.Tensor,
+    target_q: torch.Tensor,
+    bootstrap_masks: torch.Tensor,
+) -> torch.Tensor:
+    """Mean absolute vector TD error over active heads for each transition."""
+    head_sample_mask = _validate_masked_tensors(predicted_q, target_q, bootstrap_masks)
+    absolute_error = (target_q - predicted_q).abs()
+    active_counts = head_sample_mask.sum(dim=0) * predicted_q.shape[-1]
+    return (absolute_error * head_sample_mask[..., None]).sum(dim=(0, 2)) / active_counts
+
+
+def weighted_masked_huber_loss(
+    predicted_q: torch.Tensor,
+    target_q: torch.Tensor,
+    bootstrap_masks: torch.Tensor,
+    importance_weights: torch.Tensor,
+) -> torch.Tensor:
+    """Apply per-transition importance weights to the masked Huber loss."""
+    head_sample_mask = _validate_masked_tensors(predicted_q, target_q, bootstrap_masks)
+    if importance_weights.shape != (predicted_q.shape[1],):
+        raise ValueError(f"Expected importance weight shape {(predicted_q.shape[1],)}, got {importance_weights.shape}")
+    if not torch.all(torch.isfinite(importance_weights)) or torch.any(importance_weights < 0.0):
+        raise ValueError("importance_weights must be finite and non-negative")
+    per_head_transition = F.smooth_l1_loss(predicted_q, target_q, reduction="none").mean(dim=-1)
+    denominator = head_sample_mask.sum().clamp_min(1.0)
+    return (per_head_transition * head_sample_mask * importance_weights[None, :]).sum() / denominator
+
+
+def _validate_masked_tensors(
+    predicted_q: torch.Tensor,
+    target_q: torch.Tensor,
+    bootstrap_masks: torch.Tensor,
+) -> torch.Tensor:
+    if predicted_q.shape != target_q.shape:
+        raise ValueError("predicted_q and target_q must have the same shape")
+    expected_mask_shape = (predicted_q.shape[1], predicted_q.shape[0])
+    if bootstrap_masks.shape != expected_mask_shape:
+        raise ValueError(f"Expected mask shape {expected_mask_shape}, got {tuple(bootstrap_masks.shape)}")
+    head_sample_mask = bootstrap_masks.transpose(0, 1)
+    if torch.any(head_sample_mask.sum(dim=0) <= 0.0):
+        raise ValueError("Each transition must activate at least one bootstrap head")
+    return head_sample_mask

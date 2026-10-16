@@ -33,7 +33,12 @@ from src.evaluation.protocol import (
 )
 from src.evaluation.rollout import evaluate_preferences
 from src.models.q_network import VectorQNetwork
-from src.models.update import compute_double_dqn_targets, masked_bootstrap_loss
+from src.models.update import (
+    compute_double_dqn_targets,
+    masked_bootstrap_loss,
+    masked_mean_absolute_td_error,
+    weighted_masked_huber_loss,
+)
 from src.utils.logger import ExperimentLogger
 from src.utils.provenance import collect_provenance, write_json
 
@@ -58,6 +63,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--train-freq", type=int, default=4)
     parser.add_argument("--batch-size", type=int, default=64)
     parser.add_argument("--buffer-capacity", type=int, default=200_000)
+    parser.add_argument("--replay-sampling", choices=("uniform", "prioritized"), default="uniform")
+    parser.add_argument("--priority-alpha", type=float, default=0.6)
+    parser.add_argument("--priority-beta-start", type=float, default=0.4)
+    parser.add_argument("--priority-beta-end", type=float, default=1.0)
+    parser.add_argument("--priority-epsilon", type=float, default=1e-6)
     parser.add_argument("--bootstrap-probability", type=float, default=0.8)
     parser.add_argument("--num-heads", type=int, default=3)
     parser.add_argument("--lr", type=float, default=3e-4)
@@ -99,6 +109,25 @@ def linear_epsilon(
     return start + progress * (end - start)
 
 
+def linear_priority_beta(
+    completed_updates: int,
+    total_updates: int,
+    start: float,
+    end: float,
+) -> float:
+    if total_updates <= 0:
+        raise ValueError("total_updates must be positive")
+    progress = min(1.0, max(0.0, completed_updates / max(1, total_updates - 1)))
+    return start + progress * (end - start)
+
+
+def expected_gradient_updates(total_timesteps: int, learning_starts: int, train_frequency: int) -> int:
+    first_update = ((learning_starts + train_frequency - 1) // train_frequency) * train_frequency
+    if first_update > total_timesteps:
+        return 0
+    return 1 + (total_timesteps - first_update) // train_frequency
+
+
 def choose_rollout_preference(
     args: argparse.Namespace,
     sampler: AdaptivePreferenceSampler,
@@ -134,7 +163,8 @@ def update_network(
     batch: ReplayBatch,
     preferences: torch.Tensor,
     gamma: float,
-) -> float:
+    prioritized: bool = False,
+) -> tuple[float, np.ndarray]:
     targets = compute_double_dqn_targets(
         q_network,
         target_network,
@@ -152,13 +182,22 @@ def update_network(
         q_network.reward_dim,
     )
     predicted = all_q.gather(dim=2, index=action_indices).squeeze(2)
-    loss = masked_bootstrap_loss(predicted, targets, batch.bootstrap_masks)
+    priority_td_errors = masked_mean_absolute_td_error(predicted, targets, batch.bootstrap_masks)
+    if prioritized:
+        loss = weighted_masked_huber_loss(
+            predicted,
+            targets,
+            batch.bootstrap_masks,
+            batch.importance_weights,
+        )
+    else:
+        loss = masked_bootstrap_loss(predicted, targets, batch.bootstrap_masks)
 
     optimizer.zero_grad()
     loss.backward()
     torch.nn.utils.clip_grad_norm_(q_network.parameters(), max_norm=10.0)
     optimizer.step()
-    return float(loss.item())
+    return float(loss.item()), priority_td_errors.detach().cpu().numpy()
 
 
 def update_curriculum(
@@ -346,6 +385,9 @@ def main() -> None:
         bootstrap_probability=args.bootstrap_probability,
         device=args.device,
         seed=args.seed,
+        sampling=args.replay_sampling,
+        priority_alpha=args.priority_alpha,
+        priority_epsilon=args.priority_epsilon,
     )
     archive = ParetoArchive(reward_dim)
     sampler = AdaptivePreferenceSampler(
@@ -372,6 +414,11 @@ def main() -> None:
     )
 
     step = episodes = gradient_updates = curriculum_evaluation_steps = validation_evaluation_steps = 0
+    planned_gradient_updates = expected_gradient_updates(
+        args.total_timesteps,
+        args.learning_starts,
+        args.train_freq,
+    )
     previous_utilities = np.full(args.pool_size, np.nan, dtype=np.float32)
     reference_point = resolve_reference_point(protocol)
     started_at = time.time()
@@ -421,16 +468,25 @@ def main() -> None:
             step += 1
 
             if step >= args.learning_starts and step % args.train_freq == 0:
-                batch = replay_buffer.sample(args.batch_size)
+                beta = linear_priority_beta(
+                    gradient_updates,
+                    planned_gradient_updates,
+                    args.priority_beta_start,
+                    args.priority_beta_end,
+                )
+                batch = replay_buffer.sample(args.batch_size, beta=beta)
                 update_preferences = choose_update_preferences(args, batch, sampler)
-                loss = update_network(
+                loss, priority_td_errors = update_network(
                     q_network,
                     target_network,
                     optimizer,
                     batch,
                     update_preferences,
                     args.gamma,
+                    prioritized=args.replay_sampling == "prioritized",
                 )
+                if args.replay_sampling == "prioritized":
+                    replay_buffer.update_priorities(batch.indices, priority_td_errors)
                 gradient_updates += 1
                 if gradient_updates % 100 == 0:
                     logger.log({"train/loss": loss, "train/epsilon": epsilon}, step)

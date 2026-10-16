@@ -29,7 +29,7 @@ The project studies these signals rather than claiming that preference-condition
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
 | Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
-| Minecart remediation | V1 failed; behavior diagnosis selected a predeclared PER-only v2 that is not yet implemented or executed |
+| Minecart remediation | V1 failed; the predeclared PER-only v2 implementation and fail-closed runner are qualified for review, but its three seeds are not authorized or executed |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Primary validation audit failed closed; no comparative result |
@@ -135,7 +135,7 @@ Actual execution additionally requires `--execute`, the exact `--acknowledge-stu
 
 After primary validation, non-smoke execution also requires a passed, hash-bound post-validation gate. Matrix v1's gate is blocked, so its remaining jobs cannot be resumed. Minecart backbone qualification v1 is documented in `configs/remediations/minecart_pcqn_backbone_v1.json`; its completed decision failed the all-seeds gate, so another run requires a separately versioned v2 predeclaration.
 
-The validation-only v1 behavior diagnosis is frozen in `configs/diagnostics/minecart_remediation_v1_behavior.json` and recorded in `research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json`. It selected rare-transition retention as the next target after successful mining/delivery disappeared at later checkpoints within a seed. `configs/remediations/minecart_pcqn_backbone_v2.json` therefore predeclares proportional prioritized replay as the only v2 change. Its presence does not mean the implementation is qualified or execution is authorized.
+The validation-only v1 behavior diagnosis is frozen in `configs/diagnostics/minecart_remediation_v1_behavior.json` and recorded in `research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json`. It selected rare-transition retention as the next target after successful mining/delivery disappeared at later checkpoints within a seed. `configs/remediations/minecart_pcqn_backbone_v2.json` therefore predeclares proportional prioritized replay as the only v2 change. Before execution, its amendment log corrected contradictory squared-TD wording and retained v1's masked Huber loss, so unit importance weights recover the original loss exactly. The implementation, analytic tests, runner/auditor preview, and a non-evidence 20-step smoke are qualified in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`; execution remains unauthorized.
 
 Audit completed primary checkpoints and reproduce their validation evidence without exposing a test-split option:
 
@@ -145,16 +145,25 @@ python scripts/audit_course_validation.py
 
 The workflow is checkpoint-level resumable, verifies frozen inputs and training logs, and fails closed on missing, malformed, non-finite, budget-incompatible, hash-mismatched, shifted, test-split, or degenerate evidence. Its current Minecart audit is intentionally blocked; rerunning it verifies and reuses the existing ignored per-checkpoint artifacts but does not unlock final testing.
 
-Reproduce or audit the completed Minecart backbone qualification workflow:
+Preview the current v2 qualification without executing it:
+
+```bash
+python scripts/run_minecart_remediation.py
+```
+
+The preview is validation-only and resolves exactly seeds `20264011`–`20264013`, but reports `execute: false`. Review and explicit authorization are required before any v2 seed may run.
+
+Reproduce or audit the completed v1 workflow by selecting its plan explicitly:
 
 ```bash
 python scripts/run_minecart_remediation.py \
+  --plan configs/remediations/minecart_pcqn_backbone_v1.json \
   --seed 20264001 \
   --seed 20264002 \
   --seed 20264003
 ```
 
-Qualification execution requires Python 3.11, a clean committed worktree, the exact plan acknowledgement, explicit seed selection, and a positive seed cap. Adding `--audit` performs validation-only raw-return evaluation of all ten checkpoints per seed and writes a hash-bound pass/fail artifact. V1 failed because two of three selected checkpoints had no positive ore episodes; its runner has no final-test option and never unlocks matrix v1.
+Qualification execution requires Python 3.11, a clean committed worktree, the exact plan acknowledgement, explicit seed selection, and a positive seed cap. Adding `--audit` performs validation-only raw-return evaluation of all ten checkpoints per seed and writes a hash-bound pass/fail artifact. The auditor binds v2's predecessor evidence and exact PER arguments in addition to the unchanged budgets, checkpoints, protocol, and raw returns. V1 failed because two of three selected checkpoints had no positive ore episodes; neither version exposes a final-test option or unlocks matrix v1.
 
 ### 3. Freeze pilot-derived quantities
 
