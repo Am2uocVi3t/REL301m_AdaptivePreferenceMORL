@@ -37,6 +37,16 @@
       "notes": "The predeclared validation-only Uniform-PCQN qualification completed on all three fresh seeds and failed its all-seeds gate. Seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints; seed 20264003 passed both ore floors with 28/160 positive episodes per objective. Across all ten checkpoints, positive ore behavior was absent or transient rather than reliably retained. This is backbone-qualification evidence only, promotes no allocation claim, and keeps Phase 4, matrix v1, and final test blocked.",
       "created_at": "2026-10-16T06:57:35+00:00",
       "updated_at": "2026-10-16T13:34:35+00:00"
+    },
+    {
+      "id": "minecart-pcqn-remediation-v2",
+      "title": "Minecart prioritized-replay PCQN backbone qualification",
+      "status": "planned",
+      "protocol": "configs/remediations/minecart_pcqn_backbone_v2.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "Predeclared after a validation-only, hash-bound behavior probe showed successful mining and delivery disappearing at later checkpoints within the same seed. V2 changes only uniform replay to proportional prioritized replay with fixed alpha, beta, priority, and importance-weight rules; all v1 budgets, seeds count, checkpoint selection, and pass thresholds remain unchanged. The implementation and runner are not yet qualified, execution is not authorized, and matrix v1/final test remain blocked.",
+      "created_at": "2026-10-16T17:08:44+00:00"
     }
   ]
 }

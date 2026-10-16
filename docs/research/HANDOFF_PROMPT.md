@@ -11,10 +11,10 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T13:37:11+00:00
+Snapshot generated: 2026-10-16T17:10:21+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: 2ecdd06
-Working tree dirty at generation: no
+Expected commit at generation: dc3fd33
+Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
 
@@ -77,17 +77,18 @@ Full-text requests for the user:
 Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 - minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
+- minecart-pcqn-remediation-v2 [planned]: Minecart prioritized-replay PCQN backbone qualification
 
 Open blockers:
-- Minecart remediation v1 completed and failed its predeclared all-seeds qualification gate: two selected checkpoints had 0/160 positive episodes for both ore objectives, while one seed passed with 28/160. Sparse ore behavior appeared only transiently at a few non-selected checkpoints. Matrix v1 is permanently blocked; another run requires a separately predeclared remediation v2, and checkpoint locking, any revised matrix, and final test remain prohibited.
+- Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. A single-factor proportional prioritized-replay v2 is predeclared but not implemented, qualified, or authorized. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited.
 
 Latest closed-session summary:
-Completed and independently audited Minecart remediation v1: exactly three predeclared 1M-interaction Uniform-PCQN runs, 30 checkpoints, and 4,800 nominal-validation episodes. The all-seeds gate failed because seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints, while seed 20264003 passed with 28/160 per ore objective. Sparse ore delivery was transient across checkpoints; no final-test or shifted data was accessed, no allocation claim was promoted, and matrix v1 remains permanently blocked.
+Executed the predeclared validation-only Minecart remediation-v1 behavior diagnosis over seven hash-bound checkpoints and 1,120 episodes. Successful mining and delivery appeared at transient positive checkpoints and disappeared at later checkpoints within the same seed, selecting rare-transition retention as the next target. Predeclared a single-factor proportional prioritized-replay remediation v2 with fresh seeds and unchanged v1 budgets, checkpoint selection, and pass rule. The v2 implementation and runner remain pending; no v2 training or final-test access occurred, and matrix v1 remains blocked.
 
 Next actions:
-1. Localize transient ore acquisition and retention using validation-only v1 evidence.
-2. Predeclare a separately versioned remediation v2 before any algorithmic implementation or run.
-3. Keep matrix v1, checkpoint locking, remaining course jobs, and final test blocked.
+1. Implement the exact proportional prioritized-replay buffer, priority update, and importance-weighted loss contract with analytic tests and uniform-replay backward compatibility.
+2. Extend and qualify the fail-closed remediation runner/auditor for v2 under Python 3.11.
+3. Review the implemented v2 contract before authorizing only seeds 20264011-20264013; keep matrix v1 and final test blocked.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

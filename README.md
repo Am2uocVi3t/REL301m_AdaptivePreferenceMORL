@@ -29,7 +29,7 @@ The project studies these signals rather than claiming that preference-condition
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
 | Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
-| Minecart remediation | V1 completed and failed 2/3 seeds; transient ore behavior motivates a separately predeclared v2 |
+| Minecart remediation | V1 failed; behavior diagnosis selected a predeclared PER-only v2 that is not yet implemented or executed |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Primary validation audit failed closed; no comparative result |
@@ -134,6 +134,8 @@ python scripts/execute_course_matrix.py \
 Actual execution additionally requires `--execute`, the exact `--acknowledge-study-id`, at least one explicit selector, and a positive `--max-jobs`. The executor rechecks the frozen study, protocol hashes, qualification artifacts, and manifest hash before launching anything. It resumes only between complete seeded jobs: a completed artifact is skipped after its SHA-256 is verified, while failed or interrupted jobs require an explicit retry and no existing untracked final artifact.
 
 After primary validation, non-smoke execution also requires a passed, hash-bound post-validation gate. Matrix v1's gate is blocked, so its remaining jobs cannot be resumed. Minecart backbone qualification v1 is documented in `configs/remediations/minecart_pcqn_backbone_v1.json`; its completed decision failed the all-seeds gate, so another run requires a separately versioned v2 predeclaration.
+
+The validation-only v1 behavior diagnosis is frozen in `configs/diagnostics/minecart_remediation_v1_behavior.json` and recorded in `research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json`. It selected rare-transition retention as the next target after successful mining/delivery disappeared at later checkpoints within a seed. `configs/remediations/minecart_pcqn_backbone_v2.json` therefore predeclares proportional prioritized replay as the only v2 change. Its presence does not mean the implementation is qualified or execution is authorized.
 
 Audit completed primary checkpoints and reproduce their validation evidence without exposing a test-split option:
 

@@ -35,11 +35,13 @@ updated: 2026-10-16
 - The non-test Minecart diagnosis is complete: all 15 selected training archives contain positive ore, but all 14,400 greedy validation episodes return zero ore and representative ensemble/head policies never select `Mine`. The evidence supports common sparse delayed-credit backbone underqualification, not a broken reward path or allocation-arm effect.
 - Minecart remediation v1 completed all three fresh validation-only Uniform-PCQN seeds and failed the all-seeds gate. Seeds 20264001 and 20264002 had zero ore at their selected checkpoints; seed 20264003 passed with 28/160 positive episodes per ore objective.
 - Checkpoint-wide v1 evidence contains small, transient ore-delivery pockets in seeds 20264002 and 20264003, so a larger budget alone is not justified; v2 must target retention or delayed credit under a fresh predeclaration.
+- A predeclared validation-only behavior probe evaluated seven v1 checkpoints over 1,120 episodes. Seed 20264003 moved from 35 successful-mining/27 delivery episodes at step 600,000 to zero `Mine` actions at steps 700,000 and 1,000,000; seed 20264002 showed smaller transient pockets.
+- Remediation v2 is predeclared as a single-factor proportional prioritized-replay change with fresh seeds and unchanged v1 budgets, checkpoint selection, and 5% pass rule. It is not yet implemented, qualified, or authorized.
 - Course matrix v1 is permanently blocked by a post-validation executor gate. Final test remains locked and no course-comparison claim was promoted.
 
 ## Open blockers
 
-- Minecart remediation v1 failed. Any further algorithmic intervention or run requires a separately versioned remediation v2; matrix-v1 jobs and final test remain blocked.
+- Minecart remediation v1 failed. V2 implementation and runner qualification are the next gate; its three seeds require review/authorization afterward. Matrix-v1 jobs and final test remain blocked.
 - Minecart non-nominal dynamics shifts remain disabled until a valid constructor-level intervention is identified and behaviorally tested.
 
 ## Canonical handoff

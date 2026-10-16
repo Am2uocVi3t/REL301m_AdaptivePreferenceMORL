@@ -1,0 +1,293 @@
+{
+  "checkpoints": [
+    {
+      "action_counts": [
+        10000,
+        15520,
+        15275,
+        190,
+        19920,
+        5080
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step800000.pt",
+        "sha256": "f95d2f00b19f666c5ecb06d21dab1aef0a732539ffd44cf91cb34ec580d7a2ef"
+      },
+      "environment_steps": 65985,
+      "episodes": 160,
+      "episodes_departed": 105,
+      "episodes_terminated_at_base": 95,
+      "episodes_truncated": 65,
+      "episodes_with_cargo_but_no_delivery": 0,
+      "episodes_with_mine_action": 10,
+      "episodes_with_ore_delivery": 0,
+      "episodes_with_successful_mining": 0,
+      "positive_ore_episodes_per_objective": [
+        0,
+        0
+      ],
+      "role": "selected_never_positive",
+      "step": 800000,
+      "training_seed": 20264001
+    },
+    {
+      "action_counts": [
+        9,
+        35522,
+        35808,
+        24977,
+        39960,
+        19800
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step200000.pt",
+        "sha256": "dd1ea33f6272b872a4ef24ceb9834986829e10051dbf9c58cbbfd5df6b33291e"
+      },
+      "environment_steps": 156076,
+      "episodes": 160,
+      "episodes_departed": 15,
+      "episodes_terminated_at_base": 4,
+      "episodes_truncated": 156,
+      "episodes_with_cargo_but_no_delivery": 1,
+      "episodes_with_mine_action": 5,
+      "episodes_with_ore_delivery": 4,
+      "episodes_with_successful_mining": 5,
+      "positive_ore_episodes_per_objective": [
+        4,
+        4
+      ],
+      "role": "early_transient_positive",
+      "step": 200000,
+      "training_seed": 20264002
+    },
+    {
+      "action_counts": [
+        0,
+        15100,
+        15950,
+        205,
+        9825,
+        34995
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step600000.pt",
+        "sha256": "14a49a6df7d4a8f63239302a72a5ba62697b659468d352fade8aaaf6e0747094"
+      },
+      "environment_steps": 76075,
+      "episodes": 160,
+      "episodes_departed": 105,
+      "episodes_terminated_at_base": 85,
+      "episodes_truncated": 75,
+      "episodes_with_cargo_but_no_delivery": 0,
+      "episodes_with_mine_action": 0,
+      "episodes_with_ore_delivery": 0,
+      "episodes_with_successful_mining": 0,
+      "positive_ore_episodes_per_objective": [
+        0,
+        0
+      ],
+      "role": "selected_zero_after_transient",
+      "step": 600000,
+      "training_seed": 20264002
+    },
+    {
+      "action_counts": [
+        10009,
+        2636,
+        8120,
+        226,
+        33799,
+        5176
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step800000.pt",
+        "sha256": "5410f0d2787b6b8a6e5a42afcdf79d9eceb00353eba5e0e8569a139b3511f4b8"
+      },
+      "environment_steps": 59966,
+      "episodes": 160,
+      "episodes_departed": 125,
+      "episodes_terminated_at_base": 101,
+      "episodes_truncated": 59,
+      "episodes_with_cargo_but_no_delivery": 4,
+      "episodes_with_mine_action": 15,
+      "episodes_with_ore_delivery": 1,
+      "episodes_with_successful_mining": 5,
+      "positive_ore_episodes_per_objective": [
+        1,
+        1
+      ],
+      "role": "late_transient_positive",
+      "step": 800000,
+      "training_seed": 20264002
+    },
+    {
+      "action_counts": [
+        97,
+        16968,
+        16611,
+        342,
+        34776,
+        54793
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step600000.pt",
+        "sha256": "04f8aef9058d4ac42dff4ac6dc5fe6c14f876459eb06c98c211c81ebca299381"
+      },
+      "environment_steps": 123587,
+      "episodes": 160,
+      "episodes_departed": 135,
+      "episodes_terminated_at_base": 37,
+      "episodes_truncated": 123,
+      "episodes_with_cargo_but_no_delivery": 8,
+      "episodes_with_mine_action": 40,
+      "episodes_with_ore_delivery": 27,
+      "episodes_with_successful_mining": 35,
+      "positive_ore_episodes_per_objective": [
+        27,
+        27
+      ],
+      "role": "selected_pass",
+      "step": 600000,
+      "training_seed": 20264003
+    },
+    {
+      "action_counts": [
+        0,
+        25400,
+        20260,
+        5145,
+        34300,
+        60105
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step700000.pt",
+        "sha256": "b477cdbd98aee32d85c61f5a9a50ee1e22074c318d62ce265af0f52260d7ef54"
+      },
+      "environment_steps": 145210,
+      "episodes": 160,
+      "episodes_departed": 120,
+      "episodes_terminated_at_base": 15,
+      "episodes_truncated": 145,
+      "episodes_with_cargo_but_no_delivery": 0,
+      "episodes_with_mine_action": 0,
+      "episodes_with_ore_delivery": 0,
+      "episodes_with_successful_mining": 0,
+      "positive_ore_episodes_per_objective": [
+        0,
+        0
+      ],
+      "role": "immediate_post_pass_loss",
+      "step": 700000,
+      "training_seed": 20264003
+    },
+    {
+      "action_counts": [
+        0,
+        25220,
+        40265,
+        75,
+        9975,
+        54825
+      ],
+      "checkpoint": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step1000000.pt",
+        "sha256": "b2088b88da5f6bb0695bb4b7fcf76b5c067921fa02cadc4098618c35952fea6c"
+      },
+      "environment_steps": 130360,
+      "episodes": 160,
+      "episodes_departed": 65,
+      "episodes_terminated_at_base": 30,
+      "episodes_truncated": 130,
+      "episodes_with_cargo_but_no_delivery": 0,
+      "episodes_with_mine_action": 0,
+      "episodes_with_ore_delivery": 0,
+      "episodes_with_successful_mining": 0,
+      "positive_ore_episodes_per_objective": [
+        0,
+        0
+      ],
+      "role": "final_zero_after_transient",
+      "step": 1000000,
+      "training_seed": 20264003
+    }
+  ],
+  "data_firewall": {
+    "allowed_sources": [
+      "validation"
+    ],
+    "evaluation_split": "validation",
+    "final_test_access_permitted": false,
+    "forbidden_split": "test",
+    "shift": "nominal",
+    "training_permitted": false
+  },
+  "environment": {
+    "action_count": 6,
+    "env_id": "minecart-v0",
+    "mine_action": 0,
+    "ore_objective_indices": [
+      0,
+      1
+    ],
+    "protocol": "configs/protocols/course_minecart_v0.json",
+    "protocol_canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "shift": "nominal"
+  },
+  "evaluation": {
+    "checkpoint_count": 7,
+    "environment_steps": 757259,
+    "episode_count": 1120,
+    "episodes_per_preference": 5,
+    "policy_mode": "ensemble_mean_greedy",
+    "preference_count": 32,
+    "seed_base": 670000
+  },
+  "kind": "minecart_remediation_v1_behavior_diagnosis",
+  "mechanism_assessment": {
+    "cargo_without_delivery_observed": true,
+    "delivery_lost_after_positive_within_seed": true,
+    "leading_v2_mechanism": "prioritized_replay",
+    "positive_checkpoint_count": 3,
+    "rationale": "Successful ore trajectories appear and later disappear within a seed, supporting rare-transition retention as the leading v2 target."
+  },
+  "plan": {
+    "id": "minecart-remediation-v1-behavior-diagnosis",
+    "path": "configs/diagnostics/minecart_remediation_v1_behavior.json",
+    "sha256": "95750c5f3f5e5b93a7be82f1a50e3ef747b26d7ec01eb6f7f3cd6992ced4bd5c"
+  },
+  "provenance": {
+    "config": {
+      "device": "cpu",
+      "git_commit": "dc3fd333b2855bfc616bf9231f153b9f3f704307",
+      "plan_sha256": "95750c5f3f5e5b93a7be82f1a50e3ef747b26d7ec01eb6f7f3cd6992ced4bd5c"
+    },
+    "config_sha256": "8f0214a8d6dc0d49df91e42dda7698613c6c5c3a64c32b717ce874a0b8f4f7f8",
+    "dependencies": {
+      "gymnasium": "1.4.0",
+      "mo-gymnasium": "1.3.2",
+      "morl-baselines": "1.3.0",
+      "numpy": "2.4.6",
+      "pymoo": "0.6.2",
+      "scipy": "1.17.1",
+      "torch": "2.14.1+cpu"
+    },
+    "git_commit": "dc3fd333b2855bfc616bf9231f153b9f3f704307",
+    "git_dirty": false,
+    "platform": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+    "python": "3.11.17"
+  },
+  "schema_version": 1,
+  "sources": {
+    "qualification": {
+      "path": "research/qualification/minecart_pcqn_backbone_v1.json",
+      "sha256": "9f3296ba15998671f01a7f0cd81281a880771974983823c66abb6f2c15f2e8c8"
+    },
+    "source_audit": {
+      "path": "research/evidence/minecart_pcqn_backbone_v1_source_audit.json",
+      "sha256": "344ef46a7f120523d4bea03bb22bba1bbf99735244efa95b45b335f7bb57e32b"
+    }
+  },
+  "status": "complete_validation_only",
+  "unlocks_final_test": false,
+  "unlocks_matrix_v1": false
+}

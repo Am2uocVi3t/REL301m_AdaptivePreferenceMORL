@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/pilot-calibration-protocol",
-  "updated_at": "2026-10-16T13:36:48+00:00",
+  "updated_at": "2026-10-16T17:10:21+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,13 +56,13 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Minecart remediation v1 completed and failed its predeclared all-seeds qualification gate: two selected checkpoints had 0/160 positive episodes for both ore objectives, while one seed passed with 28/160. Sparse ore behavior appeared only transiently at a few non-selected checkpoints. Matrix v1 is permanently blocked; another run requires a separately predeclared remediation v2, and checkpoint locking, any revised matrix, and final test remain prohibited."
+      "description": "Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. A single-factor proportional prioritized-replay v2 is predeclared but not implemented, qualified, or authorized. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited."
     }
   ],
   "next_actions": [
-    "Localize transient ore acquisition and retention using validation-only v1 evidence.",
-    "Predeclare a separately versioned remediation v2 before any algorithmic implementation or run.",
-    "Keep matrix v1, checkpoint locking, remaining course jobs, and final test blocked."
+    "Implement the exact proportional prioritized-replay buffer, priority update, and importance-weighted loss contract with analytic tests and uniform-replay backward compatibility.",
+    "Extend and qualify the fail-closed remediation runner/auditor for v2 under Python 3.11.",
+    "Review the implemented v2 contract before authorizing only seeds 20264011-20264013; keep matrix v1 and final test blocked."
   ],
-  "last_session_summary": "Completed and independently audited Minecart remediation v1: exactly three predeclared 1M-interaction Uniform-PCQN runs, 30 checkpoints, and 4,800 nominal-validation episodes. The all-seeds gate failed because seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints, while seed 20264003 passed with 28/160 per ore objective. Sparse ore delivery was transient across checkpoints; no final-test or shifted data was accessed, no allocation claim was promoted, and matrix v1 remains permanently blocked."
+  "last_session_summary": "Executed the predeclared validation-only Minecart remediation-v1 behavior diagnosis over seven hash-bound checkpoints and 1,120 episodes. Successful mining and delivery appeared at transient positive checkpoints and disappeared at later checkpoints within the same seed, selecting rare-transition retention as the next target. Predeclared a single-factor proportional prioritized-replay remediation v2 with fresh seeds and unchanged v1 budgets, checkpoint selection, and pass rule. The v2 implementation and runner remain pending; no v2 training or final-test access occurred, and matrix v1 remains blocked."
 }
