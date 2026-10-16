@@ -17,6 +17,7 @@ from src.evaluation.course_executor import (
     run_selected_jobs,
     select_jobs,
     verify_manifest_matches_study,
+    verify_post_validation_execution_gate,
 )
 from src.evaluation.course_matrix import load_course_study
 
@@ -26,6 +27,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", default="configs/experiments/course_paired_matrix_v1.json")
     parser.add_argument("--manifest", default="research/experiments/course_paired_matrix_v1_manifest.json")
     parser.add_argument("--gates", default="research/qualification/course_matrix_gates_v1.json")
+    parser.add_argument(
+        "--post-validation-gate",
+        default="research/qualification/course_matrix_post_validation_gate_v1.json",
+    )
     parser.add_argument("--status", default=None)
     parser.add_argument("--arm", action="append", dest="arms")
     parser.add_argument("--environment", action="append", dest="environments")
@@ -87,6 +92,13 @@ def main() -> None:
     print(json.dumps(preview, indent=2))
     if not authorized:
         return
+
+    verify_post_validation_execution_gate(
+        root,
+        root / args.post_validation_gate,
+        str(manifest["study_id"]),
+        smoke_only=args.smoke_only,
+    )
 
     if sys.version_info[:2] != (3, 11):
         raise CourseExecutionError(

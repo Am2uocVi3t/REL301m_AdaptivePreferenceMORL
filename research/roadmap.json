@@ -97,7 +97,10 @@
       "evidence_paths": [
         "research/evidence/course_primary_execution_audit_v1.json",
         "research/evidence/course_primary_validation_v1.json",
-        "research/evidence/course_primary_checkpoint_lock_v1.json"
+        "research/evidence/course_primary_checkpoint_lock_v1.json",
+        "research/evidence/minecart_validation_diagnosis_v1.json",
+        "configs/remediations/minecart_pcqn_backbone_v1.json",
+        "research/qualification/course_matrix_post_validation_gate_v1.json"
       ],
       "blocker_ids": ["run-course-matrix"],
       "allowed_next_phase_ids": ["phase-5"]

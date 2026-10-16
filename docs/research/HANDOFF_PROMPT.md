@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T06:33:44+00:00
+Snapshot generated: 2026-10-16T07:03:00+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: b251e6c
+Expected commit at generation: 04afeb9
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -76,17 +76,18 @@ Full-text requests for the user:
 
 Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
+- minecart-pcqn-remediation [planned]: Minecart sparse-credit PCQN backbone qualification
 
 Open blockers:
-- Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. The user chose to retain Minecart in the study, so checkpoint locking, the remaining 120 jobs, and final test remain prohibited pending a predeclared Minecart remediation based only on non-test evidence.
+- Non-test diagnosis found positive ore in all 15 selected training archives but zero ore in all 14,400 Minecart validation episodes; representative ensemble/head policies never selected Mine. A fixed three-seed Uniform-PCQN backbone remediation is predeclared but not authorized or executed. Matrix v1 is permanently blocked by a post-validation executor gate; checkpoint locking, any revised matrix, and final test remain prohibited until qualification and a new study freeze pass.
 
 Latest closed-session summary:
-Recorded the user's decision to retain Minecart after the failed-degenerate primary validation audit. No protocol values, result artifacts, checkpoint locks, or empirical claims changed; the final test and remaining 120 jobs stay blocked.
+Diagnosed Minecart zero-ore validation using training and validation evidence only: all 15 selected training archives contain ore, while 14,400 validation episodes returned zero ore and representative ensemble/head policies never selected Mine. Predeclared a three-seed validation-only Uniform-PCQN backbone qualification, permanently blocked matrix-v1 continuation with a hash-bound post-validation executor gate, and passed Ruff, MyPy, 81 tests, Bandit, compileall, and whitespace checks. No final-test data or additional training jobs were accessed.
 
 Next actions:
-1. Diagnose the Minecart zero-ore validation outcome using training, pilot, and validation evidence only.
-2. Predeclare and review a scientifically justified Minecart remediation before changing protocol or launching additional jobs.
-3. Keep checkpoint locking, the remaining 120 jobs, and final test blocked until the remediation gate passes.
+1. Review the predeclared Minecart backbone qualification and fixed 5% per-objective pass rule.
+2. Authorize and execute only the three qualification seeds if the predeclaration is accepted; never resume matrix v1.
+3. After a pass, freeze a new study ID with all Minecart PCQN reruns and comparator-fairness qualification; after a failure, predeclare remediation v2.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

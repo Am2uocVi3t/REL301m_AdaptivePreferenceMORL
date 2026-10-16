@@ -24,8 +24,18 @@
         "combined-allocation"
       ],
       "artifact": "research/evidence/course_primary_checkpoint_lock_v1.json",
-      "notes": "Frozen as 150 paired jobs across two environments and five seeds. The 30-job primary PCQN block completed and its source audit passed. Validation re-evaluation preserved raw and discounted returns for all 300 saved checkpoints, but failed closed because all 15 Minecart runs had zero variation in ore objectives 0 and 1. The user chose to retain Minecart, so a non-test, predeclared remediation is required; the checkpoint lock has zero locks, the remaining 120 jobs and final test remain prohibited, and no comparative claim has been promoted.",
+      "notes": "Frozen as 150 paired jobs across two environments and five seeds. The 30-job primary PCQN block completed and its source audit passed, but Minecart returned zero ore in all 14,400 validation episodes. Non-test diagnosis localized a shared sparse-credit backbone failure. Matrix v1 is now permanently blocked by a post-validation executor gate and will not resume; the remaining 120 planned jobs and final test are prohibited, and no comparative claim has been promoted.",
       "updated_at": "2026-10-16T06:31:02+00:00"
+    },
+    {
+      "id": "minecart-pcqn-remediation",
+      "title": "Minecart sparse-credit PCQN backbone qualification",
+      "status": "planned",
+      "protocol": "configs/remediations/minecart_pcqn_backbone_v1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "Predeclared validation-only Uniform-PCQN qualification on three fresh seeds. The fixed bundle increases Minecart training exposure, replay retention, exploration duration, and update density without changing reward semantics or consulting final-test data. It is not authorized or course-comparative evidence; failure keeps Phase 4 blocked, while success requires a new study ID and a separately qualified comparator-fairness contract.",
+      "created_at": "2026-10-16T06:57:35+00:00"
     }
   ]
 }

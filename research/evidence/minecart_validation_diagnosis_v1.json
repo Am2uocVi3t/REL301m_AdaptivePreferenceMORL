@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "kind": "minecart_validation_diagnosis",
+  "status": "complete_non_test_diagnosis",
+  "created_on": "2026-10-16",
+  "environment": "minecart-v0",
+  "data_scope": ["training", "pilot", "validation"],
+  "final_test_accessed": false,
+  "shifted_environment_accessed": false,
+  "sources": [
+    {
+      "path": "research/evidence/course_primary_validation_v1.json",
+      "sha256": "1319ea15e18e4d88394bdb2651fbe3139eaf382ed075d246a8d4a7dca4fcf114"
+    },
+    {
+      "path": "research/evidence/course_primary_checkpoint_lock_v1.json",
+      "sha256": "a62744238254fa825e0404e85e58894a05d122519e7ce7f18de691edcf3a3903"
+    },
+    {
+      "path": "configs/protocols/course_minecart_v0.json",
+      "sha256": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+      "canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc"
+    }
+  ],
+  "environment_contract": {
+    "package": "mo-gymnasium==1.3.2",
+    "package_wheel_sha256": "8728698efc1257b5893f69e1a7b41cca6b1f5c3e0dd3c5b6f4dce2337fd36765",
+    "action_count": 6,
+    "mine_action": 0,
+    "episode_limit": 1000,
+    "ore_reward_timing": "Ore rewards are emitted only when a departed cart returns to base; mining first requires stopping within a mine radius.",
+    "fuel_reward_timing": "Fuel cost is dense and immediate."
+  },
+  "primary_validation": {
+    "arms": ["uniform", "matched-random", "full"],
+    "training_seeds": [20262001, 20262002, 20262003, 20262004, 20262005],
+    "checkpoint_evaluations": 150,
+    "episodes": 14400,
+    "ore_objectives_constant_zero": [0, 1],
+    "episodes_at_time_limit": 13308,
+    "episodes_below_time_limit": 1092,
+    "fraction_at_time_limit": 0.9241666666666667,
+    "checkpoint_evaluations_with_all_episodes_at_time_limit": 99,
+    "checkpoint_evaluations_with_an_early_empty_return": 51
+  },
+  "training_archive_audit": {
+    "selected_checkpoints_checked": 15,
+    "selected_checkpoints_with_positive_ore": 15,
+    "total_pareto_archive_points": 192,
+    "archive_points_per_checkpoint_range": [7, 19],
+    "minimum_across_runs_of_per_run_max_return": [0.6274229884147644, 0.6385226845741272, -0.3613744080066681],
+    "maximum_across_runs_of_per_run_max_return": [1.0361467599868774, 1.048916220664978, -0.23937085270881653],
+    "interpretation": "Training generated valid nonzero ore outcomes in every arm/seed, so the environment, reward wrapper, replay insertion, and archive path can carry ore rewards."
+  },
+  "post_hoc_policy_probe": {
+    "scope": "Validation-only behavioral localization; not comparative course evidence.",
+    "validation_preferences": 32,
+    "episodes_per_preference": 1,
+    "policy_modes": ["ensemble_mean", "head_0", "head_1", "head_2"],
+    "episodes": 384,
+    "action_decisions": 345417,
+    "mine_action_count": 0,
+    "episodes_with_collected_content": 0,
+    "episodes_with_positive_ore_return": 0,
+    "checkpoints": [
+      {
+        "job_id": "minecart-v0__uniform__seed20262001",
+        "step": 350000,
+        "sha256": "c81299ed73de7b01a61ef241102804a82299f9e5ea7112759c3f3b274c2e2418",
+        "action_decisions": 121080
+      },
+      {
+        "job_id": "minecart-v0__matched-random__seed20262001",
+        "step": 450000,
+        "sha256": "00c7c3d69f7466c9f838594f526eaa27ad62efe4693ea4069e609cb4c960ec2c",
+        "action_decisions": 126020
+      },
+      {
+        "job_id": "minecart-v0__full__seed20262001",
+        "step": 250000,
+        "sha256": "296c1c25c0eca3a175c3df6b62788db1b8d1982815c1e18e93906d8c05244a57",
+        "action_decisions": 98317
+      }
+    ],
+    "probe_seed": 90901,
+    "episode_seed_rule": "20000 + validation_preference_index"
+  },
+  "root_cause_assessment": {
+    "finding": "The current PCQN backbone is underqualified for Minecart's sparse delayed-credit sequence.",
+    "confidence": "high_for_failure_mode_moderate_for_specific_optimizer_cause",
+    "supported": [
+      "Ore experiences exist during exploratory training but are not expressed by greedy policies.",
+      "The failure occurs in all three primary arms and all five seeds.",
+      "Individual ensemble heads also avoid the Mine action, so ensemble averaging is not the primary cause.",
+      "Dense immediate fuel cost competes with ore rewards that require a multi-stage departure, navigation, stopping, mining, and return sequence."
+    ],
+    "not_supported": [
+      "A broken ore reward channel.",
+      "A validation-only reward-scaling bug as the cause of zero ore.",
+      "A failure unique to one allocation signal or one random seed.",
+      "Any claim about final-test performance."
+    ],
+    "limitation": "The existing artifacts do not identify which single training hyperparameter is causal; the remediation therefore qualifies a fixed common backbone bundle rather than claiming a one-factor mechanism."
+  },
+  "decision": {
+    "retain_minecart": true,
+    "resume_course_matrix_v1": false,
+    "selected_remediation": "configs/remediations/minecart_pcqn_backbone_v1.json",
+    "remaining_jobs_authorized": false,
+    "final_test_authorized": false
+  }
+}

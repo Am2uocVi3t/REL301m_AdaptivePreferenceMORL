@@ -32,10 +32,13 @@ updated: 2026-10-16
 - The source audit passed for 30 jobs and 300 periodic checkpoints. All 300 were deterministically re-evaluated on nominal validation data with raw and discounted returns retained and logged metrics reproduced.
 - Aggregation failed closed because objectives 0 and 1 were constant zero at every checkpoint in all 15 Minecart runs. The 15 LunarLander runs were non-degenerate, but the atomic lock decision records zero locks; final test and the remaining 120 jobs stay blocked.
 - The user chose to retain Minecart in the course study. The next gate is therefore a non-test diagnosis and predeclared Minecart remediation, not environment exclusion.
+- The non-test Minecart diagnosis is complete: all 15 selected training archives contain positive ore, but all 14,400 greedy validation episodes return zero ore and representative ensemble/head policies never select `Mine`. The evidence supports common sparse delayed-credit backbone underqualification, not a broken reward path or allocation-arm effect.
+- Minecart remediation v1 is predeclared but not executed or authorized: three fresh validation-only Uniform-PCQN seeds qualify a fixed 1M-interaction, full-buffer, longer-exploration, denser-update bundle under a 5% per-objective ore-event floor.
+- Course matrix v1 is permanently blocked by a post-validation executor gate. A remediation pass requires a new study ID and rerunning all Minecart PCQN jobs; a failure requires a separately predeclared v2.
 
 ## Open blockers
 
-- The primary validation evidence is aggregated, but Minecart degeneracy prevents any checkpoint lock. Minecart must remain in scope; a predeclared remediation based only on training, pilot, and validation evidence is required before the remaining 100 signal/target PCQN jobs, 20 qualified baseline jobs, or final test.
+- Minecart remediation v1 awaits review and explicit qualification-only authorization. Matrix-v1 jobs and final test remain blocked regardless; any continuation must use a new frozen study after the qualification gate passes.
 - Minecart non-nominal dynamics shifts remain disabled until a valid constructor-level intervention is identified and behaviorally tested.
 
 ## Canonical handoff

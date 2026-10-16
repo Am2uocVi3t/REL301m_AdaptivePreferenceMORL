@@ -14,6 +14,7 @@ from src.evaluation.course_executor import (
     run_selected_jobs,
     select_jobs,
     verify_manifest_matches_study,
+    verify_post_validation_execution_gate,
 )
 from src.evaluation.course_matrix import build_course_manifest, load_course_study
 
@@ -267,3 +268,64 @@ def test_manifest_must_match_current_frozen_study_and_protocols():
 
     with pytest.raises(CourseExecutionError, match="current frozen study"):
         verify_manifest_matches_study(manifest, config, ROOT)
+
+
+def test_post_validation_gate_blocks_course_but_not_smoke(tmp_path: Path):
+    gate_path = tmp_path / "research" / "qualification" / "post_validation.json"
+    write_json(
+        gate_path,
+        {
+            "schema_version": 1,
+            "study_id": "study-v1",
+            "status": "blocked",
+            "unlocks_additional_course_execution": False,
+        },
+    )
+
+    with pytest.raises(CourseExecutionError, match="blocks additional course execution"):
+        verify_post_validation_execution_gate(
+            tmp_path,
+            gate_path,
+            "study-v1",
+            smoke_only=False,
+        )
+    verify_post_validation_execution_gate(
+        tmp_path,
+        tmp_path / "missing.json",
+        "study-v1",
+        smoke_only=True,
+    )
+
+
+def test_passed_post_validation_gate_requires_hashed_qualification(tmp_path: Path):
+    qualification = tmp_path / "research" / "qualification" / "remediation.json"
+    write_json(qualification, {"passed": True})
+    gate_path = tmp_path / "research" / "qualification" / "post_validation.json"
+    write_json(
+        gate_path,
+        {
+            "schema_version": 1,
+            "study_id": "study-v2",
+            "status": "passed",
+            "unlocks_additional_course_execution": True,
+            "qualification_artifact": {
+                "path": str(qualification.relative_to(tmp_path)),
+                "sha256": sha256(qualification),
+            },
+        },
+    )
+
+    verify_post_validation_execution_gate(
+        tmp_path,
+        gate_path,
+        "study-v2",
+        smoke_only=False,
+    )
+    write_json(qualification, {"passed": False})
+    with pytest.raises(CourseExecutionError, match="qualification artifact hash mismatch"):
+        verify_post_validation_execution_gate(
+            tmp_path,
+            gate_path,
+            "study-v2",
+            smoke_only=False,
+        )

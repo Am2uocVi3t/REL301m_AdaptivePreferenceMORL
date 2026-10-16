@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "kind": "course_post_validation_execution_gate",
+  "study_id": "course-paired-matrix-v1",
+  "status": "blocked",
+  "unlocks_additional_course_execution": false,
+  "unlocks_final_test": false,
+  "reason": "Minecart ore objectives were constant zero across all primary validation trajectories; matrix v1 cannot resume or be amended in place.",
+  "diagnosis": {
+    "path": "research/evidence/minecart_validation_diagnosis_v1.json",
+    "sha256": "26f1d8c9eb9897892561c68318ee910d656d40de412b12fade8ff57582fa6c92"
+  },
+  "remediation": {
+    "path": "configs/remediations/minecart_pcqn_backbone_v1.json",
+    "sha256": "5b1e8994f0a2af9d0bafc81adc49e96b6ac221657b32e6b6967c5624c255c769",
+    "status": "predeclared_not_executed"
+  },
+  "replacement_rule": "Only a new study ID with a passed, hash-bound qualification gate may execute additional course jobs."
+}

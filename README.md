@@ -28,7 +28,8 @@ The project studies these signals rather than claiming that preference-condition
 | Checkpoint evaluation and raw-result provenance | Implemented; end-to-end smoke tested |
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
-| Paired-seed experiment matrix | 30 primary jobs complete; Minecart degeneracy blocks checkpoint lock and remaining 120 jobs |
+| Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
+| Minecart remediation | Diagnosed and predeclared; three validation-only qualification runs are planned but not authorized/executed |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Primary validation audit failed closed; no comparative result |
@@ -132,6 +133,8 @@ python scripts/execute_course_matrix.py \
 
 Actual execution additionally requires `--execute`, the exact `--acknowledge-study-id`, at least one explicit selector, and a positive `--max-jobs`. The executor rechecks the frozen study, protocol hashes, qualification artifacts, and manifest hash before launching anything. It resumes only between complete seeded jobs: a completed artifact is skipped after its SHA-256 is verified, while failed or interrupted jobs require an explicit retry and no existing untracked final artifact.
 
+After primary validation, non-smoke execution also requires a passed, hash-bound post-validation gate. Matrix v1's gate is blocked, so its remaining jobs cannot be resumed. The planned Minecart backbone qualification and its fail-closed continuation rule are documented in `configs/remediations/minecart_pcqn_backbone_v1.json`; it is not authorized by being present in the repository.
+
 Audit completed primary checkpoints and reproduce their validation evidence without exposing a test-split option:
 
 ```bash
@@ -139,6 +142,17 @@ python scripts/audit_course_validation.py
 ```
 
 The workflow is checkpoint-level resumable, verifies frozen inputs and training logs, and fails closed on missing, malformed, non-finite, budget-incompatible, hash-mismatched, shifted, test-split, or degenerate evidence. Its current Minecart audit is intentionally blocked; rerunning it verifies and reuses the existing ignored per-checkpoint artifacts but does not unlock final testing.
+
+Preview the separately predeclared Minecart backbone qualification without launching it:
+
+```bash
+python scripts/run_minecart_remediation.py \
+  --seed 20264001 \
+  --seed 20264002 \
+  --seed 20264003
+```
+
+Qualification execution requires Python 3.11, a clean committed worktree, the exact plan acknowledgement, explicit seed selection, and a positive seed cap. Adding `--audit` performs validation-only raw-return evaluation of all ten checkpoints per seed and writes a hash-bound pass/fail artifact. The runner has no final-test option and never unlocks matrix v1.
 
 ### 3. Freeze pilot-derived quantities
 

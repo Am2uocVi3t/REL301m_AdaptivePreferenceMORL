@@ -133,6 +133,28 @@ def authorize_execution(
     return True
 
 
+def verify_post_validation_execution_gate(
+    root: Path,
+    gate_path: Path,
+    study_id: str,
+    *,
+    smoke_only: bool,
+) -> None:
+    if smoke_only:
+        return
+    if not gate_path.is_file():
+        raise CourseExecutionError(f"Post-validation execution gate is missing: {gate_path}")
+    gate = _load_json(gate_path)
+    if gate.get("study_id") != study_id:
+        raise CourseExecutionError("Post-validation execution gate belongs to a different study")
+    if gate.get("status") != "passed" or gate.get("unlocks_additional_course_execution") is not True:
+        raise CourseExecutionError("Post-validation gate blocks additional course execution")
+    qualification = gate.get("qualification_artifact")
+    if qualification is None:
+        raise CourseExecutionError("Passed post-validation gate is missing qualification evidence")
+    _verify_qualification_reference(root, qualification)
+
+
 def run_selected_jobs(
     *,
     root: Path,
