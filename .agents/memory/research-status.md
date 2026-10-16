@@ -31,10 +31,11 @@ updated: 2026-10-16
 - The primary selection finished all 30 jobs (15,000,000 interactions) with zero executor failures and all final-checkpoint hashes verified.
 - The source audit passed for 30 jobs and 300 periodic checkpoints. All 300 were deterministically re-evaluated on nominal validation data with raw and discounted returns retained and logged metrics reproduced.
 - Aggregation failed closed because objectives 0 and 1 were constant zero at every checkpoint in all 15 Minecart runs. The 15 LunarLander runs were non-degenerate, but the atomic lock decision records zero locks; final test and the remaining 120 jobs stay blocked.
+- The user chose to retain Minecart in the course study. The next gate is therefore a non-test diagnosis and predeclared Minecart remediation, not environment exclusion.
 
 ## Open blockers
 
-- The primary validation evidence is aggregated, but Minecart degeneracy prevents any checkpoint lock. A predeclared remediation or bounded exclusion decision is required before the remaining 100 signal/target PCQN jobs, 20 qualified baseline jobs, or final test.
+- The primary validation evidence is aggregated, but Minecart degeneracy prevents any checkpoint lock. Minecart must remain in scope; a predeclared remediation based only on training, pilot, and validation evidence is required before the remaining 100 signal/target PCQN jobs, 20 qualified baseline jobs, or final test.
 - Minecart non-nominal dynamics shifts remain disabled until a valid constructor-level intervention is identified and behaviorally tested.
 
 ## Canonical handoff

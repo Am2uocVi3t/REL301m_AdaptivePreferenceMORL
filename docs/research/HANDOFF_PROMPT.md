@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T04:29:03+00:00
+Snapshot generated: 2026-10-16T06:33:44+00:00
 Expected working branch at generation: feature/pilot-calibration-protocol
-Expected commit at generation: 4e8397f
+Expected commit at generation: b251e6c
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -78,14 +78,15 @@ Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 
 Open blockers:
-- Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. No checkpoint was locked; the remaining 120 jobs and final test remain prohibited pending a predeclared remediation decision.
+- Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. The user chose to retain Minecart in the study, so checkpoint locking, the remaining 120 jobs, and final test remain prohibited pending a predeclared Minecart remediation based only on non-test evidence.
 
 Latest closed-session summary:
-Hardened the completed primary validation audit before commit: reused evidence now binds the exact frozen preference matrix, discount factor, reward scale, reference point, and recomputed hypervolume to the return tensors. All 300 artifacts passed the strengthened checks. The failed-degenerate Minecart outcome and zero-lock decision are unchanged. Python 3.11 passed pip check, Ruff, MyPy, 76 tests, Bandit, compileall, research-harness doctor, and diff checks.
+Recorded the user's decision to retain Minecart after the failed-degenerate primary validation audit. No protocol values, result artifacts, checkpoint locks, or empirical claims changed; the final test and remaining 120 jobs stay blocked.
 
 Next actions:
-1. Review the failed-degenerate Minecart evidence and predeclare a remediation or bounded environment exclusion without final-test feedback.
-2. Keep checkpoint locking, the remaining 120 jobs, and final test blocked until the remediation gate passes.
+1. Diagnose the Minecart zero-ore validation outcome using training, pilot, and validation evidence only.
+2. Predeclare and review a scientifically justified Minecart remediation before changing protocol or launching additional jobs.
+3. Keep checkpoint locking, the remaining 120 jobs, and final test blocked until the remediation gate passes.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

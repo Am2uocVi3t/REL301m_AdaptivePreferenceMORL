@@ -24,8 +24,8 @@
         "combined-allocation"
       ],
       "artifact": "research/evidence/course_primary_checkpoint_lock_v1.json",
-      "notes": "Frozen as 150 paired jobs across two environments and five seeds. The 30-job primary PCQN block completed and its source audit passed. Validation re-evaluation preserved raw and discounted returns for all 300 saved checkpoints, but failed closed because all 15 Minecart runs had zero variation in ore objectives 0 and 1. The checkpoint lock is blocked with zero locks; the remaining 120 jobs and final test remain prohibited, and no comparative claim has been promoted.",
-      "updated_at": "2026-10-16T04:22:23+00:00"
+      "notes": "Frozen as 150 paired jobs across two environments and five seeds. The 30-job primary PCQN block completed and its source audit passed. Validation re-evaluation preserved raw and discounted returns for all 300 saved checkpoints, but failed closed because all 15 Minecart runs had zero variation in ore objectives 0 and 1. The user chose to retain Minecart, so a non-test, predeclared remediation is required; the checkpoint lock has zero locks, the remaining 120 jobs and final test remain prohibited, and no comparative claim has been promoted.",
+      "updated_at": "2026-10-16T06:31:02+00:00"
     }
   ]
 }

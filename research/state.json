@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "feature/pilot-calibration-protocol",
-  "updated_at": "2026-10-16T04:29:03+00:00",
+  "updated_at": "2026-10-16T06:33:44+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,12 +56,13 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. No checkpoint was locked; the remaining 120 jobs and final test remain prohibited pending a predeclared remediation decision."
+      "description": "Primary source execution audit passed, but validation aggregation failed closed: all 15 Minecart primary runs had zero variation in ore objectives 0 and 1 at every saved checkpoint. The user chose to retain Minecart in the study, so checkpoint locking, the remaining 120 jobs, and final test remain prohibited pending a predeclared Minecart remediation based only on non-test evidence."
     }
   ],
   "next_actions": [
-    "Review the failed-degenerate Minecart evidence and predeclare a remediation or bounded environment exclusion without final-test feedback.",
+    "Diagnose the Minecart zero-ore validation outcome using training, pilot, and validation evidence only.",
+    "Predeclare and review a scientifically justified Minecart remediation before changing protocol or launching additional jobs.",
     "Keep checkpoint locking, the remaining 120 jobs, and final test blocked until the remediation gate passes."
   ],
-  "last_session_summary": "Hardened the completed primary validation audit before commit: reused evidence now binds the exact frozen preference matrix, discount factor, reward scale, reference point, and recomputed hypervolume to the return tensors. All 300 artifacts passed the strengthened checks. The failed-degenerate Minecart outcome and zero-lock decision are unchanged. Python 3.11 passed pip check, Ruff, MyPy, 76 tests, Bandit, compileall, research-harness doctor, and diff checks."
+  "last_session_summary": "Recorded the user's decision to retain Minecart after the failed-degenerate primary validation audit. No protocol values, result artifacts, checkpoint locks, or empirical claims changed; the final test and remaining 120 jobs stay blocked."
 }

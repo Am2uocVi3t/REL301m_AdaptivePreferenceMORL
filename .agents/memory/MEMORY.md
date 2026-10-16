@@ -25,6 +25,7 @@
 - [project] The Phase 4 executor is qualification-aware and job-level resumable; its isolated non-evidence smoke passed before course execution began → research-status.md
 - [project] Phase 4 primary PCQN execution began after commit c4a90d6; one full-budget canary completed and the remaining primary jobs run serially without unlocking final test → research-status.md
 - [project] The 300-checkpoint primary validation audit passed source checks but failed closed on zero Minecart ore objectives across all 15 runs; zero checkpoints are locked, 120 jobs and final test remain blocked → research-status.md
+- [project] User chose to retain Minecart; next gate is a non-test diagnosis and predeclared remediation, not environment exclusion → research-status.md
 
 ## Reference
 - [reference] Detailed current state and next actions live in the canonical project status document → research-status.md

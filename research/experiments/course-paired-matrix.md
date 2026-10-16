@@ -43,6 +43,8 @@ The validation audit then verified the frozen inputs, atomic execution status, 3
 
 Aggregation failed closed. Every one of the 150 Minecart checkpoint evaluations—three arms, five seeds, ten checkpoints—had exactly zero variation in ore objectives 0 and 1. All 15 LunarLander runs were non-degenerate, but partial locking was not allowed. `research/evidence/course_primary_checkpoint_lock_v1.json` therefore records `status: blocked`, 30 diagnostic selections under the frozen hypervolume → expected utility → earlier-step rule, zero checkpoint locks, and `unlocks_final_test: false`. The remaining 120 jobs were not started.
 
+The user subsequently chose to retain Minecart in the course study rather than take the bounded-exclusion path. This scope decision does not authorize a protocol change or any additional experiment by itself. The next session must diagnose the zero-return outcome from training, pilot, and validation evidence only and predeclare a scientifically justified remediation before resuming execution; final-test access remains prohibited.
+
 ## Interpretation boundary
 
 The freeze and qualification artifacts establish precommitment and executable plumbing. They establish no multi-seed comparative result, convergence, superiority, robustness benefit, or publication-level empirical claim.

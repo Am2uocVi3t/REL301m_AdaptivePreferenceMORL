@@ -77,7 +77,7 @@ The research CLI deliberately runs without third-party dependencies, so a fresh 
 
 ### Before course conclusions
 
-1. Review the failed-degenerate Minecart evidence and predeclare either a scientifically justified remediation or a bounded environment exclusion without final-test feedback or silent protocol tuning.
+1. Retain Minecart in the course study, as explicitly chosen by the user; diagnose the failed-degenerate validation outcome using training, pilot, and validation evidence only, then predeclare a scientifically justified remediation without final-test feedback or silent protocol tuning.
 2. Keep checkpoint locking, the remaining 100 signal/target PCQN jobs, 20 qualified baseline jobs, and final-test evaluation blocked until that gate passes.
 3. Retain the non-degenerate LunarLander diagnostic selections as audit evidence only; do not treat them as a completed comparison.
 4. Retain raw results and report negative outcomes without converting difficulty or uncertainty into a learning-progress claim.
@@ -99,7 +99,7 @@ source-aware calibration v2 and protocol freeze complete
   -> Phase 4 active; bounded primary PCQN block complete
   -> source audit and 300-checkpoint validation re-evaluation complete
   -> Minecart degeneracy blocks primary checkpoint lock (zero locks)
-  -> predeclare and review remediation or bounded exclusion
+  -> retain Minecart; diagnose and predeclare a non-test remediation
   -> only after that gate passes, execute remaining signal/target ablations and qualified baselines
   -> aggregate validation results
   -> lock checkpoints/hyperparameters
