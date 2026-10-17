@@ -52,12 +52,13 @@
     {
       "id": "minecart-pcqn-replay-f1",
       "title": "Minecart successful-episode replay paired F1 feasibility screen",
-      "status": "planned",
+      "status": "failed",
       "protocol": "configs/remediations/minecart_pcqn_replay_f1.json",
       "claim_ids": [],
-      "artifact": null,
-      "notes": "",
-      "created_at": "2026-10-17T14:58:55+00:00"
+      "artifact": "research/qualification/minecart_pcqn_replay_f1.json",
+      "notes": "Six paired local jobs completed on clean commit 0660ecc865f3a3823f248f1f1955d70c2faf5936, 1M interactions each. Source audit passed all six jobs and 60 checkpoints. Independent nominal validation retained 9600 episodes / 8654847 steps. All 30 A1R1 checkpoints had zero positive raw ore episodes per objective; all three retention decisions are never_expressed and the frozen F1 gate failed. A0R0 had 79 positive episodes per ore objective across 4800 repeated checkpoint-evaluation cases. No causal replay decomposition or allocation-benefit claim follows. F2, checkpoint locking, matrix v1 and final test remain locked; no extra seeds, budget or tuning. Same-family integrity/claim reviews pending; manuscript/PDF held by user.",
+      "created_at": "2026-10-17T14:58:55+00:00",
+      "updated_at": "2026-10-17T20:53:33+00:00"
     }
   ]
 }

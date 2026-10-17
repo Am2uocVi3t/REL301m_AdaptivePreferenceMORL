@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "audit_skill": "experiment-audit",
+  "verdict": "WARN",
+  "overall_verdict": "warn",
+  "integrity_status": "warn",
+  "reason_code": "return_unit_ambiguity_and_incomplete_behavior_measurements",
+  "summary": "Retained evidence verifies the failed F1 screen. All A1R1 checkpoints have zero delivered ore. Return-unit naming, missing planned behavior diagnostics, evaluation accounting and limited scope require explicit qualifiers; no fabricated result or incorrect retention computation was found.",
+  "date": "2026-10-18",
+  "date_timezone": "Asia/Ho_Chi_Minh",
+  "generated_at": "2026-10-17T21:15:01Z",
+  "auditor": "gpt-6-astra-ultra",
+  "agent_id": "/root/f1_experiment_integrity",
+  "verdict_id": "minecart-f1-integrity-20261018-provisional",
+  "executor_model": "codex-gpt-6.1-sol",
+  "executor_family": "openai",
+  "reviewer_model": "gpt-6-astra",
+  "reviewer_reasoning": "ultra",
+  "reviewer_family": "openai",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "trace_path": ".aris/traces/experiment-audit/2026-10-18_run01/",
+  "execution_status": "completed_artifact_audit",
+  "audit_activity": {
+    "environment_rollouts": 0,
+    "training_runs": 0,
+    "final_test_accesses": 0,
+    "paid_provider_calls": 0,
+    "source_audit_recomputed_in_memory": true,
+    "source_audit_exact_match": true,
+    "qualification_recomputed_in_memory": true,
+    "qualification_exact_match": true,
+    "hash_bound_files_verified": 159,
+    "validation_artifacts_verified": 60,
+    "checkpoint_provenance_records_verified": 66,
+    "source_and_config_files_equal_execution_commit": 12,
+    "all_final_model_states_equal_step_1000000": true,
+    "trajectory_eligibility_and_projection_recomputed": true,
+    "resource_counters_and_final_bytes_verified": true,
+    "maximum_training_log_metric_delta": 4.291293542735275e-9,
+    "limitation": "Read-only internal-consistency and source-binding checks of retained artifacts; no fresh environment execution or independent historical observation."
+  },
+  "checks": {
+    "A_gt_provenance": {
+      "status": "PASS",
+      "details": "Returns accumulate actual MO-Gymnasium environment rewards. Network values only select actions. Ore reward is delivered on cargo sale at base. Frozen calibration comes from environment reference geometry, not F1 predictions.",
+      "evidence": [
+        "src/evaluation/rollout.py:55",
+        "src/evaluation/rollout.py:62",
+        "src/envs/wrapper.py:46",
+        "src/models/q_network.py:88",
+        "configs/protocols/course_minecart_v0.json:7",
+        "research/calibration/course_calibration_v2_freeze.json:31",
+        "research/calibration/minecart_v0_gamma099_reference_front.json:4"
+      ]
+    },
+    "B_score_normalization": {
+      "status": "WARN",
+      "details": "No prediction-dependent performance normalization. Validation raw_episode_returns means undiscounted protocol-scaled returns; trajectory raw_return is native-unit while its discounted_return is scaled. Positive scaling preserves the core zero/positive ore decision. Updated reports correctly disclose the unit distinction.",
+      "evidence": [
+        "src/envs/wrapper.py:30",
+        "src/evaluation/metrics.py:24",
+        "src/evaluation/metrics.py:76",
+        "src/evaluation/course_validation.py:343",
+        "src/evaluation/course_validation.py:437",
+        "scripts/train.py:513",
+        "src/core/replay_buffer.py:198",
+        "refine-logs/EXPERIMENT_RESULTS.md:49"
+      ]
+    },
+    "C_result_existence": {
+      "status": "PASS",
+      "details": "Six one-attempt jobs, 60 checkpoint evaluations and 159 artifact bindings match. All 66 checkpoint provenance records agree with the clean execution commit. Metrics, manipulation counts, trajectory projections and qualification reproduce. Training, curriculum evaluation, training-time validation and subsequent re-audit costs are separate; matched schedules do not imply equal realized evaluation steps or wall time.",
+      "evidence": [
+        "src/evaluation/remediation.py:400",
+        "src/evaluation/remediation.py:429",
+        "src/evaluation/remediation.py:463",
+        "src/evaluation/remediation.py:538",
+        "src/evaluation/replay_feasibility.py:227",
+        "src/evaluation/replay_feasibility.py:376",
+        "src/evaluation/replay_feasibility.py:408",
+        "research/qualification/minecart_pcqn_replay_f1.json:1270",
+        "research/qualification/minecart_pcqn_replay_f1.json:1301"
+      ]
+    },
+    "D_dead_code_and_measurements": {
+      "status": "WARN",
+      "details": "All reported F1 metric and retention functions are called and all metrics recompute. Planned Mine/cargo/action-margin diagnostics are not saved. Episode lengths do not preserve termination/truncation, so length1000 cannot independently certify a timeout. These gaps limit behavior localization, not the core delivered-ore retention failure. normalize_returns is unused and has no F1 score effect; IGD/regret belong to the separate evaluator and are not claimed F1 results.",
+      "evidence": [
+        "scripts/run_minecart_replay_f1.py:142",
+        "src/evaluation/course_validation.py:381",
+        "src/evaluation/course_validation.py:436",
+        "src/evaluation/rollout.py:61",
+        "src/evaluation/rollout.py:71",
+        "refine-logs/EXPERIMENT_PLAN.md:60",
+        "src/evaluation/metrics.py:62",
+        "scripts/evaluate.py:151",
+        "NARRATIVE_REPORT.md:66"
+      ]
+    },
+    "E_scope": {
+      "status": "WARN",
+      "details": "One nominal simulated environment, frozen PCQN, two cells and three paired training seeds. Repeated checkpoint episodes are not independent training replicates. Updated narrative is appropriately bounded, but the wider planned behavior-measurement set is incomplete and the experiment-plan milestone table retains prelaunch statuses. Earlier narrative/tracker staleness is synchronization debt, not fabrication.",
+      "evidence": [
+        "configs/remediations/minecart_pcqn_replay_f1.json:29",
+        "configs/remediations/minecart_pcqn_replay_f1.json:54",
+        "configs/remediations/minecart_pcqn_replay_f1.json:129",
+        "refine-logs/EXPERIMENT_PLAN.md:105",
+        "refine-logs/EXPERIMENT_TRACKER.md:26",
+        "NARRATIVE_REPORT.md:34",
+        "NARRATIVE_REPORT.md:60",
+        "research/claims.json:71"
+      ]
+    },
+    "F_evaluation_type": {
+      "status": "PASS",
+      "classification": "simulation_only",
+      "details": "Actual rewards from a simulated Minecart environment, using nominal validation preferences and seeded greedy ensemble-mean policy evaluation. Synthetic implementation fixtures are separate engineering evidence. No real-world, human-evaluation or final-test conclusion follows.",
+      "evidence": [
+        "src/envs/wrapper.py:46",
+        "src/evaluation/rollout.py:62",
+        "src/evaluation/course_validation.py:142",
+        "src/evaluation/course_validation.py:161",
+        "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step1000000.json:1119"
+      ]
+    }
+  },
+  "eval_type": "simulation_only",
+  "study": {
+    "id": "minecart-pcqn-successful-replay-f1",
+    "execution_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+    "jobs": 6,
+    "attempts_per_job": 1,
+    "cells": [
+      "A0R0",
+      "A1R1"
+    ],
+    "paired_training_seeds": [
+      20264021,
+      20264022,
+      20264023
+    ],
+    "checkpoint_evaluations": 60,
+    "episodes_per_checkpoint": 160,
+    "audit_episodes": 9600,
+    "qualification_status": "failed",
+    "a1r1_retention_statuses": [
+      "never_expressed",
+      "never_expressed",
+      "never_expressed"
+    ],
+    "a1r1_positive_episodes_per_ore_objective": 0,
+    "a0r0_positive_episodes_per_ore_objective": 79,
+    "a0r0_positive_episode_counts_by_seed": [
+      60,
+      19,
+      0
+    ],
+    "a1r1_eligible_training_trajectories_by_seed": [
+      1176,
+      1134,
+      1073
+    ],
+    "a1r1_success_stratum_positions_per_seed": 31840032,
+    "a1r1_fallback_positions_by_seed": [
+      0,
+      0,
+      0
+    ],
+    "a1r1_relabel_attempts_by_seed": [
+      47905037,
+      46778025,
+      48095879
+    ],
+    "a1r1_changed_preferences_by_seed": [
+      46313803,
+      45294470,
+      45826066
+    ],
+    "a1r1_effective_relabel_pool4_fractions_by_seed": [
+      0.8528187338629964,
+      0.8430510052530007,
+      0.8792385102266246
+    ]
+  },
+  "budget_ledger": {
+    "training_interactions": 6000000,
+    "gradient_updates": 5970006,
+    "sampled_batch_positions": 382080384,
+    "curriculum_evaluation_environment_steps": 11476292,
+    "training_time_validation_environment_steps": 8654847,
+    "subsequent_validation_audit_environment_steps": 8654847,
+    "training_job_wall_seconds": 18563.533439159393,
+    "wall_time_scope": "Six training job resource records only; excludes subsequent audit and previous research cost.",
+    "accounting_caveat": "The planning Markdown's 9600000-step validation cap describes one sweep; training-time validation plus re-audit consumed 17309694 steps. Do not present either sweep alone as all validation cost."
+  },
+  "length_evidence": {
+    "a0r0_length1000_cases": 3936,
+    "a1r1_length1000_cases": 4705,
+    "certified_timeout_counts": null,
+    "reason": "Saved evaluator artifacts contain lengths but not termination/truncation flags."
+  },
+  "claims": [
+    {
+      "id": "f1-completed-source-valid",
+      "impact": "supported",
+      "qualifier": "Retained artifacts and recorded provenance are internally consistent; six matched-training-budget runs."
+    },
+    {
+      "id": "f1-bounded-sufficiency",
+      "impact": "unsupported",
+      "qualifier": "The predeclared all-seeds expression/retention gate failed."
+    },
+    {
+      "id": "f1-bounded-negative-result",
+      "impact": "supported",
+      "qualifier": "In this frozen nominal Minecart/PCQN configuration, all evaluated A1R1 checkpoints delivered zero ore despite recorded successful replay exposure."
+    },
+    {
+      "id": "a0r0-descriptive-positive-counts",
+      "impact": "supported",
+      "qualifier": "79 repeated checkpoint cases per ore objective; no reliable-superiority or significance claim."
+    },
+    {
+      "id": "replay-component-causality",
+      "impact": "unsupported",
+      "qualifier": "F2 was not run and Mine/cargo/action-margin measurements are absent."
+    },
+    {
+      "id": "delayed-credit-mechanism",
+      "impact": "unsupported",
+      "qualifier": "Failure does not identify a unique mechanism."
+    },
+    {
+      "id": "adaptive-allocation-benefit",
+      "impact": "unsupported",
+      "qualifier": "F1 does not test adaptive allocation arms."
+    },
+    {
+      "id": "preference-or-dynamics-generalization",
+      "impact": "unsupported",
+      "qualifier": "No final-test or shifted-environment evaluation."
+    },
+    {
+      "id": "universal-replay-failure",
+      "impact": "unsupported",
+      "qualifier": "One environment/configuration with three paired seeds is not universal evidence."
+    }
+  ],
+  "action_items": [
+    "Preserve the failed qualification and locked F2/matrix/checkpoint/final-test flags; do not add seeds, budget or tuning to seek a win.",
+    "Retain explicit native-versus-protocol-scaled return semantics and separate training, curriculum, training-validation and audit ledgers in downstream reports.",
+    "Keep missing behavior diagnostics and unobserved termination flags explicit; use length-1000 cases rather than certified timeouts.",
+    "Synchronize or mark the experiment-plan milestone table historical without altering frozen scientific choices.",
+    "Persist exact source/evidence/report hashes and this same-family provisional trace; do not infer cross-family acceptance or new execution authority."
+  ],
+  "unlocks": {
+    "f2": false,
+    "matrix_v1": false,
+    "checkpoint_lock": false,
+    "final_test": false,
+    "training_or_tuning": false,
+    "cross_family_acceptance": false
+  },
+  "audited_input_hashes": {
+    "src/evaluation/replay_feasibility.py": "sha256:b2116b0ffce09caf1153281e6229972a21c1722f8c041e4ed3b1993bc748412c",
+    "src/evaluation/remediation.py": "sha256:86bd33ffc5c96cf46bd2ec3a69bb6989b2a6f0db46a441585c062ae139569386",
+    "src/evaluation/rollout.py": "sha256:8158b8435b6865b15da7fe5be906596f7593d67ab59afe728370c420bd45ae43",
+    "src/evaluation/metrics.py": "sha256:edf2b2eec1998a08fb5ea5d24597ea856199e5ae76be6d2c7d692b6dcd82be4a",
+    "src/evaluation/protocol.py": "sha256:6597b7105e4a6d8d9b3f52e322d44ad8879b638bb0f454cae8468575dfd8bd1b",
+    "src/evaluation/course_validation.py": "sha256:c46fea3458b2cbdaef06e9044a21409c964ec43d736b1141cefa8df9c4c439dd",
+    "src/core/replay_buffer.py": "sha256:73cbc4ee37ad6c465c004473e56e2bd8b869f2078fff48ceb59b7a7b6b5c5ec2",
+    "src/envs/wrapper.py": "sha256:e2a8e754214e5988ebb754816e44b4d6892990e6ec4b725b785f01f83846e65e",
+    "scripts/train.py": "sha256:21a1ce9a167f9ad69efb3fa90d7b8092a5bf6f082e486af4b21824c5ecdf0d3e",
+    "scripts/run_minecart_replay_f1.py": "sha256:41cd1f92305e55487bb5992e4f39058704ab2834f9f8dbb4c6052b20167b45ec",
+    "configs/remediations/minecart_pcqn_replay_f1.json": "sha256:3b5ac7141006b8c096d86c34896d50cce074ba90330f3fc0f64f3ac830782457",
+    "configs/protocols/course_minecart_v0.json": "sha256:ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+    "research/qualification/minecart_pcqn_replay_f1.json": "sha256:c54dfc18e7b1eb08282fd5d5548fa3da61902eff9403f450f0b1813639b0845f",
+    "research/evidence/minecart_pcqn_replay_f1_source_audit.json": "sha256:e9a796436b26f6a185acc4c5b42c473fa7678ed5683aae2e0cf7b221db602b04",
+    "artifacts/minecart-pcqn-replay-f1/execution_status.json": "sha256:5c31a241ec63a72bd3f9ff8b3bf425827dc625c704b770079b420e2daac26509",
+    "refine-logs/EXPERIMENT_TRACKER.md": "sha256:d3fa16442977696f3723e94cecabe1c3781c747318daa61d1ca7713f50c256db",
+    "refine-logs/EXPERIMENT_PLAN.md": "sha256:dfc01ba2997850c6999cf890bd1dbae0fd7df7a66b89e96014e4acc8611fa13a",
+    "refine-logs/EXPERIMENT_RESULTS.md": "sha256:f7cce6d5a0a5b64b27a097232719675c354b90979f7e4c3f81f85620ca8693dd",
+    "NARRATIVE_REPORT.md": "sha256:48a294d2810d444629df6dc3aca4c24b85966648e73ae6a71d6a54cb23450039",
+    "research/claims.json": "sha256:335fd1692abd68c05d4c8af59b73dc84b9e2ef3b4dfdd589cb7b46b90811b631",
+    "docs/research/PROJECT_STATUS.md": "sha256:191c66ac6831da4e8ebd7a3e9b9421ce4d65ba0e422068daf8af26a6eaa52dca",
+    "research/calibration/course_calibration_v2_proposal.json": "sha256:48bede31286bf0f4d0d8708005dd00bb47531f78cc7052b6ba5299509f8a8465",
+    "research/calibration/minecart_v0_gamma099_reference_front.json": "sha256:f4e48133776af48389a6b31272826887f305b72047ef737378334813803613b9"
+  },
+  "report_snapshot_note": "Coordinator synchronized narrative/tracker/status during this review. Hashes above identify the latest inspected reporting snapshots; unchanged primary evidence and executed sources bind the scientific verdict. Prelaunch reporting debt is not classified as fabricated success."
+}

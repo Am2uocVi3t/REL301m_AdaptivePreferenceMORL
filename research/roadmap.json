@@ -109,6 +109,8 @@
         "research/evidence/minecart_pcqn_backbone_v2_source_audit.json",
         "research/qualification/minecart_pcqn_backbone_v2.json",
         "research/qualification/minecart_pcqn_replay_f1_implementation.json",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json",
+        "research/qualification/minecart_pcqn_replay_f1.json",
         "research/qualification/course_matrix_post_validation_gate_v1.json"
       ],
       "blocker_ids": ["run-course-matrix"],

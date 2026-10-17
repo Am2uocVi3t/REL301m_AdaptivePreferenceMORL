@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-17T14:59:22+00:00
+Snapshot generated: 2026-10-17T21:18:50+00:00
 Expected working branch at generation: codex/aris-full-workflow
-Expected commit at generation: aba3f91
+Expected commit at generation: 0660ecc
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -78,17 +78,18 @@ Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 - minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
-- minecart-pcqn-replay-f1 [planned]: Minecart successful-episode replay paired F1 feasibility screen
+- minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 
 Open blockers:
-- Minecart v2 failed the frozen all-seeds qualification with zero ore at all 30 checkpoints. Authorization aris-full-workflow-20261017 now permits a separately versioned F1 successful-episode replay scope/protocol amendment, implementation, deterministic qualification, and six paired local training/nominal-validation runs. F2, matrix v1, checkpoint locking, revised course execution, and final test remain blocked until the declared F1 all-seeds retention and source-audit gate passes and the relevant explicit unlock is recorded.
+- F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Qualified the authorized F1 replay implementation after fresh same-family review and concrete fixes for RNG isolation, exact prelaunch validation, retry ambiguity, replay runtime costs and audit accounting. The full Python 3.11 gate passes 214 tests; final completed-episode sanity seed9196 ran 1000 interactions and 997 updates with no evaluation. PR6 exists and is mergeable. Six F1 jobs are ready for bounded launch after committing these records and fresh quota preflight; no F1 empirical result exists yet.
+Completed failed F1 evidence handoff: six jobs, source audit 60 checkpoints, 9600 nominal-validation cases. Fresh integrity WARN and result-to-claim NO archived with same-family provisional status. Separate budgets, scaled return units and missing behavior/termination diagnostics retained. 214 tests plus Ruff/MyPy/Bandit/compileall pass. No training/evaluator/protocol/TeX/PDF edits. Claude auto-review blocked before dispatch by new finite-batch and heartbeat lifecycle/confinement gates. Publishing evidence/docs to PR6, no merge or external submission.
 
 Next actions:
-1. Inspect artifacts/minecart-pcqn-replay-f1/execution_status.json, per-cell logs and live processes before any dispatch. If the bounded batch is running, monitor it; never duplicate or automatically retry a partial attempt. Keep tracked sources unchanged until completion.
-2. After all six jobs finish, run the source-bound nominal-validation audit and retention decision, then synchronize the experiment registry, tracker, claims and handoff. F2 and final-test access require their recorded evidence gates.
+1. F1 is complete and failed. Do not rerun unchanged verdicts, training, F2, matrix v1, checkpoint locking or final test; do not add seeds/budget/tuning.
+2. Read EXPERIMENT_AUDIT.json and CLAIMS_FROM_RESULTS.json; all semantic conclusions remain same-family provisional.
+3. Await user direction to lift manuscript/PDF hold or qualify a separate bounded cross-family review path. Heartbeat should be paused and watchdog unregistered after this handoff.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

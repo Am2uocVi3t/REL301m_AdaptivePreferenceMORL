@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/aris-full-workflow",
-  "updated_at": "2026-10-17T14:59:22+00:00",
+  "updated_at": "2026-10-17T21:18:50+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,12 +56,13 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Minecart v2 failed the frozen all-seeds qualification with zero ore at all 30 checkpoints. Authorization aris-full-workflow-20261017 now permits a separately versioned F1 successful-episode replay scope/protocol amendment, implementation, deterministic qualification, and six paired local training/nominal-validation runs. F2, matrix v1, checkpoint locking, revised course execution, and final test remain blocked until the declared F1 all-seeds retention and source-audit gate passes and the relevant explicit unlock is recorded."
+      "description": "F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user."
     }
   ],
   "next_actions": [
-    "Inspect artifacts/minecart-pcqn-replay-f1/execution_status.json, per-cell logs and live processes before any dispatch. If the bounded batch is running, monitor it; never duplicate or automatically retry a partial attempt. Keep tracked sources unchanged until completion.",
-    "After all six jobs finish, run the source-bound nominal-validation audit and retention decision, then synchronize the experiment registry, tracker, claims and handoff. F2 and final-test access require their recorded evidence gates."
+    "F1 is complete and failed. Do not rerun unchanged verdicts, training, F2, matrix v1, checkpoint locking or final test; do not add seeds/budget/tuning.",
+    "Read EXPERIMENT_AUDIT.json and CLAIMS_FROM_RESULTS.json; all semantic conclusions remain same-family provisional.",
+    "Await user direction to lift manuscript/PDF hold or qualify a separate bounded cross-family review path. Heartbeat should be paused and watchdog unregistered after this handoff."
   ],
-  "last_session_summary": "Qualified the authorized F1 replay implementation after fresh same-family review and concrete fixes for RNG isolation, exact prelaunch validation, retry ambiguity, replay runtime costs and audit accounting. The full Python 3.11 gate passes 214 tests; final completed-episode sanity seed9196 ran 1000 interactions and 997 updates with no evaluation. PR6 exists and is mergeable. Six F1 jobs are ready for bounded launch after committing these records and fresh quota preflight; no F1 empirical result exists yet."
+  "last_session_summary": "Completed failed F1 evidence handoff: six jobs, source audit 60 checkpoints, 9600 nominal-validation cases. Fresh integrity WARN and result-to-claim NO archived with same-family provisional status. Separate budgets, scaled return units and missing behavior/termination diagnostics retained. 214 tests plus Ruff/MyPy/Bandit/compileall pass. No training/evaluator/protocol/TeX/PDF edits. Claude auto-review blocked before dispatch by new finite-batch and heartbeat lifecycle/confinement gates. Publishing evidence/docs to PR6, no merge or external submission."
 }

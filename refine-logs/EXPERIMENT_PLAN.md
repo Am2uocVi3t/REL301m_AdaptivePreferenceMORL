@@ -1,5 +1,14 @@
 # Experiment Plan: Minecart Replay Sufficiency Amendment
 
+> Execution status note (2026-10-18): the milestone table below is the historical
+> prelaunch plan, not live dispatch authority. F1 and its audit are complete;
+> retention failed for all A1R1 seeds. See EXPERIMENT_TRACKER.md,
+> EXPERIMENT_RESULTS.md and research/qualification/minecart_pcqn_replay_f1.json.
+> F2 must not run. Frozen scientific choices and original budget wording below
+> are retained; current results separately account for training-time validation
+> and the additional independent re-audit sweep. Planned Mine/cargo/action-margin
+> measurements were not emitted; mechanism localization remains unavailable.
+
 **Problem:** Successful exploratory ore episodes do not become stable greedy
 Minecart behavior.  
 **Method thesis:** Successful-episode-stratified transition sampling and a fixed

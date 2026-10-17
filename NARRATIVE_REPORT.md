@@ -1,48 +1,88 @@
-# Narrative Report: Minecart Failure to Bounded Amendment Proposal
+# Narrative Report: Completed Minecart F1 Replay Screen
 
-## Problem and evidence
+Date: 2026-10-18 (Asia/Ho_Chi_Minh).
+Status: F1 training and nominal-validation audit complete; frozen retention
+decision failed. Semantic audit is WARN and claim review is NO; both remain
+same-family provisional. Manuscript/PDF
+writing remains held by the user.
 
-The course matrix is blocked because the common PCQN backbone produced zero
-greedy ore across the primary Minecart validation block. A subsequent authorized
-one-step TD-error PER study also produced zero ore at all 30 checkpoints, despite
-positive ore trajectories in each training archive. This supports a failure to
-convert exploratory success into stable greedy behavior, without proving a
-single cause.
+## Problem and bounded question
 
-## Chosen proposal
+The common PCQN backbone previously failed the primary Minecart qualification,
+and one-step TD-error PER did not restore greedy ore expression. The separately
+authorized F1 screen tests whether successful-episode stratification combined
+with episode-level achieved-return preference relabeling is sufficient under the
+frozen learner and budget. It does not test the course allocation-signal claims.
 
-The smallest evidence-matched next experiment is a four-cell replay study:
-uniform/original preference, successful-episode-stratified/original,
-uniform/episode relabel, and stratified/episode relabel. A successful episode
-receives one HPR Equation (1)-style preference from its discounted scaled vector
-return, projected to the existing training pool. The one-step PCQN, rewards,
-network, optimizer, exploration, budgets, and validation protocol stay fixed.
+## Method and execution
 
-## Claim boundary
+F1 compares A0R0 (uniform/original preference) with A1R1 (successful-episode
+stratification plus projected HPR-style episode relabeling) using three paired
+training seeds. All six jobs completed on source commit
+`0660ecc865f3a3823f248f1f1955d70c2faf5936`, with 1M training interactions and
+995,001 updates each. Rewards, network, optimizer, exploration and the validation
+protocol were fixed by the versioned amendment. Source audit passed 60 checkpoints.
+F2 sampling-only/relabel-only cells were conditional and were not run.
 
-The future claim, if authorized and supported, is bounded sufficiency under the
-frozen learner. The design cannot identify delayed credit causally, cannot claim
-broad replay novelty, and cannot unlock the final test by itself. F2 is
-selection-conditioned exploratory decomposition, not independent confirmation.
+## Executed results
 
-## Proposed evidence
+Every A1R1 checkpoint has zero positive ore episodes for both ore objectives:
+0/4,800 cases across its 30 checkpoint evaluations. All three seeds are
+`never_expressed`; the frozen first-pass-plus-retention qualification is
+`failed`. A0R0 has 79 positive cases per ore objective across 4,800 checkpoint
+evaluations, with isolated or late expression, not a reliable overall solution.
 
-F1 compares baseline and full intervention on three paired fresh seeds: six
-runs, 6,000,000 training interactions and 5,970,006 updates. Every intervention
-seed must first pass the existing ore gate by 800k and pass again at the next two
-checkpoints. If F1 and source audit pass, a separately authorized F2 adds the
-sampling-only and relabel-only cells, for a proposed twelve-run maximum.
+The re-audit comprises 9,600 episodes / 8,654,847 environment steps. Cases repeat
+fixed preferences and episode seeds across checkpoints; training seed, not
+episode, is the experimental unit. The counts are descriptive, not a significance
+test or causal decomposition. Evaluation "raw" tensors are undiscounted
+protocol-scaled returns; native training trajectory returns are distinct.
 
-## Current result
+## Complete accounting and evidence
 
-There is no new empirical result. Three same-family proposal reviews improved
-the plan from 6.65/10 to 9.10/10, with final status READY for amendment planning
-only and `acceptance_status: provisional`.
+Training interactions: 6,000,000; gradient updates: 5,970,006.
+Curriculum-evaluation steps during training: 11,476,292.
+Training-time validation steps: 8,654,847.
+Independent validation re-audit steps: another 8,654,847.
+Do not report 6M interactions as the entire computational cost.
 
-## Limitations and next gate
+- `refine-logs/EXPERIMENT_RESULTS.md`: per-seed counts, budget ledger,
+  manipulation exposure and return-unit caveats.
+- `research/evidence/minecart_pcqn_replay_f1_source_audit.json`: source,
+  checkpoint, budget and manipulation bindings.
+- `research/qualification/minecart_pcqn_replay_f1.json`: retention decisions,
+  60 referenced validation artifacts and locked continuation flags.
+- `artifacts/minecart-pcqn-replay-f1/validation-evidence/`: raw/discounted tensors.
+- Proposal-review score 9.10 was readiness for amendment planning only, not
+  empirical success, scientific acceptance or paper readiness.
 
-Implementation, measured resource estimates, cross-family review, training,
-matrix execution, checkpoint lock, final test, and paper claims remain absent.
-The next action is a supervisor decision between a versioned F1 amendment and
-preserving the blocked negative result.
+## Claim boundary and limitations
+
+The recorded F1 sufficiency gate failed in this Minecart/PCQN configuration.
+No universal impossibility claim, replay-component causal attribution, delayed-
+credit mechanism proof, adaptive-allocation benefit, preference-generalization
+result or environment-shift claim follows. Same-family semantic review remains
+provisional; deterministic source verification is not cross-family acceptance.
+See `EXPERIMENT_AUDIT.json` and `CLAIMS_FROM_RESULTS.json`. The integrity warning
+is attached to the negative-result claim review without replacing its verdict.
+
+The planned Mine/cargo/action-margin diagnostics are absent from saved evaluator
+artifacts, so the failure cannot be localized to mining versus cargo acquisition
+or return-to-base. Episode lengths are saved without termination/truncation flags;
+a length of 1,000 alone is not certified evidence of a timeout.
+
+## Tables, figures and writing handoff
+
+The result report contains per-seed outcome and budget/manipulation tables.
+The decision artifact provides checkpoint-wise counts for any later figure.
+No new manuscript figure or PDF was produced while the user hold is active.
+Venue is not selected. Conference fit research is advisory, not submission.
+
+## Next action and stop policy
+
+Complete the integrity and result-to-claim records, bounded internal review and
+evidence/report synchronization. Preserve the negative result. No additional
+training, seed, tuning or budget is added to seek a positive result. F2, matrix
+v1, checkpoint lock and final test remain locked. Course/conference TeX and PDF
+updates wait for the user to lift the hold.
 

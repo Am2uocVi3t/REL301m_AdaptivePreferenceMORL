@@ -31,6 +31,7 @@
 - [user] Initial progress report due 19 October 2026; local + video demo; autonomous reviewer-led work; nominal Claude budget $1/batch and $0.25/call, no auto-top-up → user-preferences.md
 
 ## Reference
+- [project] F1 six-job screen completed and source audit passed; all three A1R1 seeds failed expression/retention. Preserve negative result, no F2/final-test unlock; course/conference manuscript/PDF held by user → research-status.md
 - [project] ARIS bootstrap installed 84 pinned Codex skills plus 8 Claude overlays as copies; preflight/offline resume verified, paid/unattended still disabled pending cost/lifecycle/confinement hardening → research-status.md
 - [reference] Detailed current state and next actions live in the canonical project status document → research-status.md
 - [reference] New chats use the generated handoff prompt after running research-harness doctor/status/roadmap list → research-status.md

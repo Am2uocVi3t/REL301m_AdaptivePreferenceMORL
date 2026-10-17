@@ -1,12 +1,39 @@
 # Project Status and Handoff
 
-Last verified: **2026-10-17**
-Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked and completed Minecart remediation v2 failed; current-scope remediation stopped)**
+Last verified: **2026-10-18**
+Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+F1 executed outcome (2026-10-18 local time; supersedes prelaunch wording below):
+all six paired jobs completed on clean source commit `0660ecc865f3a3823f248f1f1955d70c2faf5936`.
+The source audit passed six jobs and 60 checkpoints. Independent nominal-validation
+re-evaluation retained 9,600 episodes / 8,654,847 environment steps and all 60
+referenced validation artifact hashes were verified. A1R1 had zero positive
+raw ore episodes for both objectives at all 30 checkpoints (4,800 episodes);
+all three retention decisions are `never_expressed`. A0R0 had 79 positive
+episodes per ore objective across its 4,800 checkpoint-evaluation episodes,
+not 79 independent training runs. These are repeated fixed validation cases,
+not a course allocation comparison or a causal replay decomposition.
+`research/qualification/minecart_pcqn_replay_f1.json` records `failed`, with
+F2, matrix v1, checkpoint locking and final test all still locked. Preserve this
+negative result; no extra seeds, budget, tuning or restart is authorized to seek
+a positive result. Fresh same-family experiment-integrity review returned WARN
+and result-to-claim returned NO; both remain provisional. Reports are
+`EXPERIMENT_AUDIT.{md,json}` and `CLAIMS_FROM_RESULTS.{md,json}`. Warnings cover
+protocol-scaled raw-return naming, separate evaluation costs, missing
+Mine/cargo/action-margin measurements and absent termination flags. These limit
+mechanism localization, not the verified failed F1 decision. The installed
+Claude review loop is blocked before dispatch by paid batch and heartbeat
+lifecycle/confinement gates; no cross-family acceptance is claimed.
+
+User hold (2026-10-18): do not update the course or conference manuscript,
+TeX or PDF until the user lifts the hold. Evidence analysis, review and state
+synchronization continue. Venue research is advisory; no venue or external
+submission has been authorized by the discussion.
 
 F1 implementation qualification (2026-10-17): PR #6 is open on
 `codex/aris-full-workflow`, stacked on PR #5. The executable amendment is
@@ -19,13 +46,14 @@ audit fixes; the verdict remains provisional. A final 1,000-interaction,
 It used zero curriculum/validation steps and produced no eligible ore episode.
 Two documented compute witnesses were independently executed verbatim.
 
-The six-job F1 batch is ready for bounded dispatch from a clean committed tree
-after fresh quota preflight. Its live execution source is
+Historical prelaunch state: the six-job F1 batch was ready for bounded dispatch
+after fresh quota preflight. Its completed execution source is
 `artifacts/minecart-pcqn-replay-f1/execution_status.json`, with separate per-cell
 logs and `.aris/runs/aris-minecart-f1-20261017.json`. Read those and check live
 processes on resume; do not duplicate a running job or retry a partial attempt.
 Source files must stay unchanged throughout the batch. These engineering checks
-do not establish an empirical F1 result or complete the course matrix.
+did not establish an empirical F1 result or complete the course matrix. The
+completed failed F1 outcome above supersedes this prelaunch state; do not relaunch.
 
 ARIS execution authority update (2026-10-17): the user explicitly authorized
 the full foreground ARIS continuation beyond read-only analysis. The immediate

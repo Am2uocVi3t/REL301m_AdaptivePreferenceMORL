@@ -30,6 +30,14 @@ code review and a completed-episode sanity run passed. Preview with
 and a clean committed tree are required before execution. Check live job status
 at `artifacts/minecart-pcqn-replay-f1/execution_status.json` before resuming.
 
+F1 outcome (18 October 2026): all six paired jobs and the 60-checkpoint source
+audit completed, but the frozen retention qualification failed for all three
+A1R1 seeds. No F2, matrix-v1, checkpoint-lock or final-test unlock follows.
+See `refine-logs/EXPERIMENT_RESULTS.md` and
+`research/qualification/minecart_pcqn_replay_f1.json`. Preserve the negative
+result without more seeds/budget/tuning. Manuscript and PDF updates are held
+by the user; evidence review and reporting are separate.
+
 ## Interactive presentation app (inference only)
 
 The current presentation deliverable is `outputs/REL301m_Interactive_Demo.zip`.
@@ -65,7 +73,7 @@ The project studies these signals rather than claiming that preference-condition
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
 | Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
-| Minecart remediation | V1 and PER-only v2 failed; a reviewed F1 successful-episode replay amendment is authorized for implementation and paired training, while final test remains conditional |
+| Minecart remediation | V1, PER-only v2 and the completed paired F1 replay screen failed; F2 and final test remain locked |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Primary validation audit failed closed; no comparative result |

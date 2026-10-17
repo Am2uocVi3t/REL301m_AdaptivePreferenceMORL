@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-10-15
-updated: 2026-10-17
+updated: 2026-10-18
 ---
 
 # Research Status
@@ -14,6 +14,15 @@ updated: 2026-10-17
 - Paid review and unattended scheduling remain disabled. F2, checkpoint lock and final test remain conditional on F1 all-seeds retention plus source audit and their explicit unlocks. Six roles are on demand; no persistent team was started.
 
 ## Current phase
+
+- F1 completed all six paired jobs and source audit passed 60 checkpoints.
+  The independent 9600-episode nominal-validation audit failed the frozen
+  retention gate: all three A1R1 seeds were never_expressed (zero positive
+  ore at all 30 checkpoints). F2, matrix v1, checkpoint lock and final test
+  remain locked; no extra seeds, budget or tuning. Integrity/claim reviews
+  completed (integrity WARN, claim NO) and stay same-family provisional. Claude
+  loop remains blocked before dispatch by paid batch/lifecycle gates. Course/conference
+  manuscript and PDF updates are held by user; evidence/state work continues.
 
 - F1 implementation is qualified for bounded launch on PR #6: 214 tests,
   same-family provisional code review, and completed-episode sanity pass.

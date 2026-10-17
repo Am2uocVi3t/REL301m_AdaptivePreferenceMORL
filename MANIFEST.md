@@ -43,3 +43,18 @@
 | 2026-10-17 22:15 | /experiment-bridge | idea-stage/docs/research_contract.md | implementation | Focused prospective claim and experiment contract |
 | 2026-10-17 22:15 | /experiment-bridge | refine-logs/EXPERIMENT_PLAN_20261017_221500.md | implementation | Launch-ready F1 plan snapshot |
 | 2026-10-17 22:15 | /experiment-bridge | refine-logs/EXPERIMENT_TRACKER_20261017_221500.md | implementation | Q000 complete; runtime status delegated to execution artifacts |
+| 2026-10-18 04:17 | /experiment-bridge | research/evidence/minecart_pcqn_replay_f1_source_audit.json | implementation | Completed six-job/60-checkpoint source audit |
+| 2026-10-18 04:17 | /experiment-bridge | research/qualification/minecart_pcqn_replay_f1.json | implementation | Failed frozen F1 retention decision; no unlocks |
+| 2026-10-18 04:17 | /experiment-bridge | refine-logs/EXPERIMENT_RESULTS_20261018_035600.md | implementation | Initial result snapshot retained unchanged |
+| 2026-10-18 04:17 | /experiment-bridge | refine-logs/EXPERIMENT_RESULTS.md | implementation | Latest seed-level results, separate budgets and diagnostic limitations |
+| 2026-10-18 04:17 | /render-html | refine-logs/EXPERIMENT_RESULTS.html | implementation | Generated offline view; no independent render-fidelity review |
+| 2026-10-18 04:17 | /research-pipeline | NARRATIVE_REPORT_20261018_035700.md | review | Initial completed-F1 narrative snapshot |
+| 2026-10-18 04:17 | /research-pipeline | NARRATIVE_REPORT.md | review | Latest negative-result narrative; manuscript/PDF held |
+| 2026-10-18 04:17 | /render-html | NARRATIVE_REPORT.html | review | Generated offline view; no independent render-fidelity review |
+| 2026-10-18 04:17 | /result-to-claim | CLAIMS_FROM_RESULTS.md | review | Bounded sufficiency unsupported; same-family provisional |
+| 2026-10-18 04:17 | /result-to-claim | CLAIMS_FROM_RESULTS.json | review | Full structured result-to-claim verdict |
+| 2026-10-18 04:17 | /auto-review-loop | review-stage/REVIEW_STATE.json | review | Blocked before Claude dispatch; no score/acquittal |
+| 2026-10-18 04:17 | /auto-review-loop | review-stage/AUTO_REVIEW.md | review | Paid/lifecycle gates and method description |
+| 2026-10-18 04:17 | /result-to-claim | findings.md | review | Negative-result postmortem and stop constraints |
+| 2026-10-18 04:19 | /experiment-audit | EXPERIMENT_AUDIT.md | review | Full fresh audit, WARN; same-family provisional |
+| 2026-10-18 04:19 | /experiment-audit | EXPERIMENT_AUDIT.json | review | Source/evidence bindings and qualified integrity verdict |

@@ -31,11 +31,19 @@ On 2026-10-17 the user authorized the separately reviewed F1 successful-episode 
 
 ## Operating rules
 
-The separate F1 replay screen is implemented and qualified for bounded launch
-on PR #6 (214 tests, same-family provisional code review, completed-episode
-sanity). Phase 4 remains active; F1 empirical evidence is pending. Live execution
-status resides under `artifacts/minecart-pcqn-replay-f1/` and must be checked
-before any resumption.
+F1 has now completed and failed its frozen retention screen (2026-10-18 local).
+The source audit passed six jobs / 60 checkpoints, but all three A1R1 seeds
+were `never_expressed`. This is a negative replay-sufficiency result, not a
+completed course comparison. F2, matrix v1, checkpoint locking and final test
+remain locked. Do not add seeds/budget or tune toward a positive outcome.
+Evidence reviews and analysis continue; manuscript/TeX/PDF updates are held
+by the user. Phase 4 remains the only active phase.
+
+The separate F1 replay screen completed on PR #6 after implementation
+qualification (214 tests, same-family provisional code review and completed-
+episode sanity). Phase 4 remains active; F1 empirical evidence now records
+failure. Completed execution status resides under
+`artifacts/minecart-pcqn-replay-f1/`; do not relaunch it.
 
 - Inspect the live state with `python scripts/research_harness.py roadmap list` and `status`.
 - Change phase/deliverable status only when the registered evidence exists.
