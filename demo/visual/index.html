@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REL301m | Policy replay</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0d1524;color:#f5f8ff;font:16px system-ui,sans-serif;height:100vh;display:flex;flex-direction:column}
+header{display:flex;align-items:center;gap:12px;padding:14px 24px}strong{margin-right:auto}button,a{border:1px solid #40516a;border-radius:8px;padding:9px 16px;background:#172439;color:#e9f3ff;text-decoration:none;font:inherit;cursor:pointer}button[aria-pressed=true]{background:#124c46;border-color:#63dfc3}button:focus-visible,a:focus-visible{outline:3px solid #ffcd79}
+main{flex:1;min-height:0;display:grid;place-items:center}video{max-width:100%;max-height:100%;width:auto;height:auto;display:block}video[hidden]{display:none}footer{padding:10px 24px;color:#9cb1ce;font-size:14px}nav{display:flex;gap:8px}@media(max-width:700px){header{flex-wrap:wrap;padding:10px}strong{width:100%}footer{font-size:12px;padding:8px}}
+</style>
+<header><strong>REL301m / SPRITE REPLAY</strong><nav aria-label="Môi trường">
+<button id="lunar" aria-pressed="true" onclick="show(0)">01 LunarLander</button>
+<button id="mine" aria-pressed="false" onclick="show(1)">02 Minecart</button></nav>
+<a href="REL301m_Progress_Report.pdf">Báo cáo PDF</a><a href="Huong_dan_nhom.pdf">Hướng dẫn</a></header>
+<main>
+<video id="v0" controls playsinline preload="metadata" poster="LunarLander-poster.jpg" aria-label="LunarLander: checkpoint đầu và cuối training"><source src="LunarLander.mp4" type="video/mp4">Mở LunarLander.mp4 bằng trình phát video.</video>
+<video id="v1" controls playsinline preload="metadata" poster="Minecart-poster.jpg" aria-label="Minecart: checkpoint đầu và cuối training" hidden><source src="Minecart.mp4" type="video/mp4">Mở Minecart.mp4 bằng trình phát video.</video>
+</main>
+<footer>← → đổi môi trường · Space phát/dừng · Fullscreen trong video · Replay thật, không training trực tiếp. Minecart vẫn thất bại; không suy ra ưu thế thuật toán.</footer>
+<script>
+let current=0;const videos=[document.getElementById('v0'),document.getElementById('v1')];
+function show(index){videos[current].pause();current=index;videos.forEach((video,i)=>video.hidden=i!==index);['lunar','mine'].forEach((id,i)=>document.getElementById(id).setAttribute('aria-pressed',String(i===index)));}
+document.addEventListener('keydown',event=>{if(['BUTTON','A','VIDEO'].includes(document.activeElement.tagName))return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();show(1-current);}if(event.code==='Space'){event.preventDefault();const v=videos[current];if(v.paused)v.play().catch(()=>{});else v.pause();}});
+</script>
+</html>

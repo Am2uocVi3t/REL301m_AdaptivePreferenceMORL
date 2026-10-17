@@ -11,19 +11,19 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-15T04:24:30+00:00
-Expected working branch at generation: feature/2026-literature-refresh
-Expected commit at generation: d6e9dee
-Working tree dirty at generation: no
-Current phase: phase-2 — Pilot calibration and protocol freeze (active)
+Snapshot generated: 2026-10-17T21:18:50+00:00
+Expected working branch at generation: codex/aris-full-workflow
+Expected commit at generation: 0660ecc
+Working tree dirty at generation: yes
+Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
 
 Roadmap:
 - phase-0 [complete]: Foundation and scientific repair
 - phase-1 [complete]: Claim and antecedent mapping
-- phase-2 [active]: Pilot calibration and protocol freeze
-- phase-3 [not_started]: Mechanism diagnostics
-- phase-4 [not_started]: Paired-seed course experiment matrix
+- phase-2 [complete]: Pilot calibration and protocol freeze
+- phase-3 [complete]: Mechanism diagnostics
+- phase-4 [active]: Paired-seed course experiment matrix
 - phase-5 [not_started]: Course paper
 - phase-6 [not_started]: Workshop and journal extension
 - phase-7 [not_started]: Submission and artifact freeze
@@ -75,23 +75,21 @@ Full-text requests for the user:
 - None currently registered.
 
 Active experiments:
-- pilot-protocol-freeze [planned]: Pilot-only reward-scale and hypervolume-reference calibration
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
+- minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
+- minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
+- minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 
 Open blockers:
-- Repair the pinned dependency set for Python 3.11; numpy==2.5.4 requires Python 3.12 or newer, so requirements.txt cannot install on the declared target runtime.
-- Freeze reward scaling and dominated hypervolume reference points from pilot-only evidence.
-- Validate GPI-LS under Python 3.11 with native cddlib headers.
-- Behaviorally validate that every enabled dynamics shift changes the intended transitions.
-- Run paired controls, signal ablations, and compatible close baselines after freezing the protocol.
+- F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Completed a focused 2026 MORL literature refresh: registered and read seven full-text primary sources, expanded structured notes, documented bounded search and exclusions, updated the literature/claim map, and narrowed broad adaptive-allocation novelty using PBMORL and MPFT as direct antecedents. Verified 22/22 papers read and passed doctor, Ruff, MyPy, 39 tests, Bandit, compileall, and diff checks in a temporary Python 3.14 verification environment.
+Completed failed F1 evidence handoff: six jobs, source audit 60 checkpoints, 9600 nominal-validation cases. Fresh integrity WARN and result-to-claim NO archived with same-family provisional status. Separate budgets, scaled return units and missing behavior/termination diagnostics retained. 214 tests plus Ruff/MyPy/Bandit/compileall pass. No training/evaluator/protocol/TeX/PDF edits. Claude auto-review blocked before dispatch by new finite-batch and heartbeat lifecycle/confinement gates. Publishing evidence/docs to PR6, no merge or external submission.
 
 Next actions:
-1. Repair the Python 3.11 dependency pins and rerun the full quality gate on the declared target runtime.
-2. Design and review pilot-only reward-scale and hypervolume-reference calibration without final-test feedback.
-3. Freeze the course matrix with geometry-only allocation and per-objective controllability added to the predeclared comparisons.
+1. F1 is complete and failed. Do not rerun unchanged verdicts, training, F2, matrix v1, checkpoint locking or final test; do not add seeds/budget/tuning.
+2. Read EXPERIMENT_AUDIT.json and CLAIMS_FROM_RESULTS.json; all semantic conclusions remain same-family provisional.
+3. Await user direction to lift manuscript/PDF hold or qualify a separate bounded cross-family review path. Heartbeat should be paused and watchdog unregistered after this handoff.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

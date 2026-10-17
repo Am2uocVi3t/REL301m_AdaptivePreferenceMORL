@@ -19,7 +19,23 @@ Do not treat the original submitted PDF as the current executable specification.
 
 For a new chat, use the complete code block in `docs/research/HANDOFF_PROMPT.md`. Re-check its generated Git snapshot against the live worktree before relying on it.
 
-## Sources of truth
+## ARIS project integration
+
+Before invoking installed ARIS workflows, read `docs/research/ARIS_INTEGRATION.md`
+and `configs/aris/project.json`. ARIS skills are copied from pinned upstream with
+Claude-review overlays; they do not override this file or frozen protocols.
+Resolve helpers from the pinned upstream path in the project config. Run
+`scripts/aris_preflight.py` with a fresh quota snapshot before dispatch.
+The user's 2026-10-17 authorization permits the versioned Minecart F1 scope and
+protocol amendment, implementation, local training, nominal-validation audit,
+Git commit/push and a new review PR. It does not waive the scientific firewall:
+checkpoint locking and final-test access remain conditional on the frozen F1
+all-seeds retention gate plus source audit. Paid review requires a separately
+defined bounded batch within the existing cost limits, and unattended/scheduled
+dispatch remains disabled until its documented lifecycle and confinement gates
+are verified. Never restart completed research to populate ARIS state.
+
+## Sources of truth (precedence)
 
 Use this precedence when sources disagree:
 

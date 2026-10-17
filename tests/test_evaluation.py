@@ -6,6 +6,7 @@ from src.evaluation.metrics import (
     compute_expected_utility,
     compute_hypervolume,
     compute_igd,
+    compute_per_objective_controllability,
     compute_scalarized_regret,
     pareto_prune,
 )
@@ -36,6 +37,16 @@ def test_utility_regret_and_igd_known_values():
     assert compute_igd(returns, reference) == pytest.approx(1.0)
 
 
+def test_per_objective_controllability_uses_tie_aware_rank_correlation():
+    preferences = np.array([[1.0, 0.0], [0.5, 0.5], [0.0, 1.0]], dtype=np.float32)
+    returns = np.array([[3.0, 0.0], [2.0, 2.0], [1.0, 4.0]], dtype=np.float32)
+
+    result = compute_per_objective_controllability(returns, preferences)
+
+    assert result["per_objective_spearman"] == pytest.approx([1.0, 1.0])
+    assert result["mean_spearman"] == pytest.approx(1.0)
+
+
 def test_five_pair_exact_test_cannot_cross_point_zero_five():
     result = paired_permutation_test(np.ones(5), np.zeros(5))
     assert result["mode"] == "exact"
@@ -55,7 +66,11 @@ def test_protocol_preferences_are_fixed_and_on_simplex():
     assert np.array_equal(first, second)
     assert loaded.shape == (32, 4)
     assert np.allclose(loaded.sum(axis=1), 1.0)
-    assert protocol["reference_point"] is None
+    reference_point = np.asarray(protocol["reference_point"], dtype=np.float32)
+    assert reference_point.shape == (4,)
+    assert np.all(np.isfinite(reference_point))
+    assert protocol["reference_point_status"] == "frozen_from_source_aware_calibration_v2"
+    assert protocol["calibration_evidence"]["source_type"] == "validation_pilot"
 
 
 def test_training_pool_size_defaults_to_protocol_and_rejects_mismatch():
@@ -94,3 +109,24 @@ def test_rollout_retains_raw_returns_and_uses_protocol_discount():
     )
     assert np.allclose(result["mean_returns"], [[2.0, 2.0]])
     assert np.allclose(result["raw_mean_returns"], [[3.0, 4.0]])
+
+
+def test_isolated_evaluation_reproduces_global_rng_rewards_and_preserves_training_stream():
+    class GlobalRandomEnv(TwoStepVectorRewardEnv):
+        def step(self, action):
+            observation, reward, terminated, truncated, info = super().step(action)
+            return observation, reward + np.random.random(2), terminated, truncated, info
+
+    network = VectorQNetwork(1, 1, 2, hidden_dims=(), num_heads=2)
+    np.random.seed(77)
+    expected_next = np.random.random(3)
+    np.random.seed(77)
+    first = evaluate_preferences(
+        GlobalRandomEnv(), network, np.array([[0.5, 0.5]], dtype=np.float32), 1, "cpu", 5, 0.99, isolate_global_rng=True
+    )
+    assert np.array_equal(np.random.random(3), expected_next)
+    np.random.seed(999)
+    second = evaluate_preferences(
+        GlobalRandomEnv(), network, np.array([[0.5, 0.5]], dtype=np.float32), 1, "cpu", 5, 0.99, isolate_global_rng=True
+    )
+    assert np.array_equal(first["episode_returns"], second["episode_returns"])

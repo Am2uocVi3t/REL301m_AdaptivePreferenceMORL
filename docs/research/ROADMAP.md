@@ -17,11 +17,33 @@ The machine-readable source is `research/roadmap.json`; this document explains h
 
 ## Current gate
 
-Phase 1 is complete. All 22 registered papers have full-text notes, including a focused 2026 refresh; every claim has an antecedent/verdict/falsifier, and the CAPQL access gap was resolved with a user-supplied ICLR 2023 PDF. The refresh identifies PBMORL as direct prior art for preference-task reallocation and MPFT as direct prior art for sparse-front training, so broad adaptive-allocation novelty is excluded. Phase 2 is active.
+Phases 0–3 are complete and Phase 4 is active. Calibration v1 failed closed on sparse Minecart returns and exposed an unmatched uniform-sampling bug, which was repaired. Source-aware calibration v2 then froze both course protocols from non-test evidence. The course matrix subsequently froze 150 planned jobs across two environments, five paired seeds, 13 PCQN arms, and two gated comparators, along with checkpoint and estimation-first analysis rules. Its manifest explicitly forbids execution.
 
-Phase 2 remains a no-go for pilot execution until the P0 dependency mismatch is repaired: the pinned NumPy version requires Python 3.12+, conflicting with the declared Python 3.11 runtime. Pilot-only reward scaling and hypervolume reference-point calibration must then be designed and reviewed before those quantities are frozen.
+Envelope and GPI-LS behavior passed bounded Python 3.11 training smokes on both course environments. All three enabled LunarLander dynamics shifts changed controlled transition/reward traces over three seeds; Minecart retains no enabled non-nominal shift. These artifacts qualified plumbing and allowed Phase 4 to begin. The 30-job primary PCQN block completed with zero executor failures and verified final-checkpoint hashes.
+
+The subsequent source audit passed for all 30 jobs and 300 saved checkpoints. Deterministic nominal-validation re-evaluation preserved raw and discounted return tensors and reproduced the logged hypervolume and expected utility at every checkpoint. The aggregation then failed closed: both Minecart ore objectives were constant zero across all validation episodes, saved checkpoints, arms, and seeds. LunarLander was non-degenerate, but the primary lock is atomic across the audited block, so zero checkpoints were locked. The user chose to retain Minecart rather than exclude it.
+
+The completed non-test diagnosis shows that all 15 selected Minecart training archives contain positive ore while all 14,400 greedy validation episodes return zero ore; 92.42% reach the time limit, and representative ensemble/head probes never choose `Mine`. This supports a shared sparse delayed-credit backbone failure rather than a reward-path failure or treatment effect. Remediation v1 then completed three fresh, validation-only Uniform-PCQN seeds and independently audited all 30 checkpoints. Its all-seeds gate failed: two selected checkpoints had zero ore, while the third passed with 28/160 positive episodes per ore objective.
+
+A predeclared behavior probe traced seven v1 checkpoints over 1,120 validation episodes and selected rare-transition retention. V2 predeclared proportional PER with fresh seeds and unchanged budgets, selection, pass rule and Huber loss; its amendment and implementation review preceded execution. After explicit user authorization, all three seeds completed 1M interactions each; source audit passed 30 checkpoints. Independent validation evaluated 4,800 episodes; raw/discounted ore returns were zero at all 30 checkpoints. Every selected step-1M checkpoint had 0/160 positive episodes and zero distinct positive values per ore objective, so v2 failed.
+
+On 2026-10-17 the user authorized the separately reviewed F1 successful-episode replay amendment, implementation, deterministic qualification, and six paired local training/nominal-validation runs. This is a new versioned scope path, not remediation-v3-by-implication and not permission to restart v1/v2. F2 remains conditional on an all-seeds F1 retention pass plus source audit. Matrix v1 and final test remain blocked until an explicit evidence-producing unlock gate passes, with no comparative claim. The 19 October initial progress report is a preparatory deliverable, not completion of Phase 4 or entry to Phase 5.
 
 ## Operating rules
+
+F1 has now completed and failed its frozen retention screen (2026-10-18 local).
+The source audit passed six jobs / 60 checkpoints, but all three A1R1 seeds
+were `never_expressed`. This is a negative replay-sufficiency result, not a
+completed course comparison. F2, matrix v1, checkpoint locking and final test
+remain locked. Do not add seeds/budget or tune toward a positive outcome.
+Evidence reviews and analysis continue; manuscript/TeX/PDF updates are held
+by the user. Phase 4 remains the only active phase.
+
+The separate F1 replay screen completed on PR #6 after implementation
+qualification (214 tests, same-family provisional code review and completed-
+episode sanity). Phase 4 remains active; F1 empirical evidence now records
+failure. Completed execution status resides under
+`artifacts/minecart-pcqn-replay-f1/`; do not relaunch it.
 
 - Inspect the live state with `python scripts/research_harness.py roadmap list` and `status`.
 - Change phase/deliverable status only when the registered evidence exists.

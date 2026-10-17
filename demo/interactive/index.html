@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tương tác trực tiếp với model MORL đã train, không huấn luyện lại.">
+<title>MORL / Preference Lab</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="mark" aria-hidden="true">M<span>↗</span></div><div><p class="eyebrow">REL301m / INTERACTIVE INFERENCE</p><h1>Một model. Nhiều ưu tiên.</h1></div><div class="engine"><span id="led" class="led"></span><span id="connection">Đang kết nối Python…</span><small>Gradient updates <b>0</b></small></div></header>
+<div class="toolbar"><div class="switcher" role="group" aria-label="Môi trường"><button id="lunar" class="selected">01 <span>LunarLander</span></button><button id="mine">02 <span>Minecart</span></button></div><span class="seed" id="seed">Cùng seed</span><label class="skin">Hiển thị <select id="skin"><option value="styled">Sprite nâng cấp</option><option value="native">Renderer gốc</option></select></label><button id="fullscreen" title="Mở toàn màn hình">⛶ <span>Toàn màn hình</span></button></div>
+<main>
+<section class="arena" aria-label="So sánh hai preference">
+<div class="stages">
+<article class="panel reference"><div class="panel-head"><div><p class="eyebrow">A / REFERENCE</p><h2>Ưu tiên mặc định</h2></div><span class="tag">FIXED w</span></div><p id="left-weights" class="weights">…</p><div class="viewport"><canvas id="left" width="800" height="500" aria-label="Môi trường với preference mặc định"></canvas><img id="left-native" alt="Renderer gốc, preference mặc định" hidden><span id="left-status" class="scene-status">Chưa bắt đầu</span></div><div class="telemetry"><div><span>BƯỚC</span><b id="left-step">0000</b></div><div><span>HÀNH ĐỘNG</span><b id="left-action">—</b></div></div></article>
+<article class="panel user"><div class="panel-head"><div><p class="eyebrow">B / YOUR PREFERENCE</p><h2>Ưu tiên của bạn</h2></div><span class="tag">SLIDER w</span></div><p id="right-weights" class="weights">…</p><div class="viewport"><canvas id="right" width="800" height="500" aria-label="Môi trường với preference người dùng"></canvas><img id="right-native" alt="Renderer gốc, preference người dùng" hidden><span id="right-status" class="scene-status">Chưa bắt đầu</span></div><div class="telemetry"><div><span>BƯỚC</span><b id="right-step">0000</b></div><div><span>HÀNH ĐỘNG</span><b id="right-action">—</b></div></div></article>
+</div>
+<section class="returns"><div class="returns-title"><h3>Reward đa mục tiêu</h3><span>Cộng dồn raw return · không phải success rate</span></div><div id="rewards"></div></section>
+<p id="comparison" class="comparison" role="status">Cùng checkpoint, cùng seed. Chỉ preference thay đổi.</p>
+</section>
+<aside>
+<section class="preference"><p class="eyebrow">ĐIỀU KHIỂN POLICY</p><h2>Bạn ưu tiên điều gì?</h2><p class="muted">Kéo trọng số. Network giữ nguyên.</p><div id="sliders"></div><div class="total">Tổng trọng số <b id="total">100%</b></div><div class="presets"><button id="default">Mặc định</button><button id="balanced">Chia đều</button></div><p id="preference-state" class="pending" role="status">Preference chưa áp dụng.</p><div class="live-control"><label><input id="live" type="checkbox"> Đổi preference khi đang chạy</label><small>Áp dụng ở bước inference tiếp theo. Không reset lịch sử.</small></div></section>
+<section class="run-control"><button id="run" class="primary" disabled>▶ Chạy so sánh</button><div class="secondary-actions"><button id="pause" disabled>Ⅱ Tạm dừng</button><button id="step" disabled>＋ Một bước</button></div><div class="speed"><label for="speed">Tốc độ</label><select id="speed"><option value="1">1× · 30 bước/s tối đa</option><option value="2">2× · 60 bước/s tối đa</option><option value="4">4× · 120 bước/s tối đa</option></select></div></section>
+<details class="model"><summary>Model &amp; nguồn gốc</summary><p id="model-info"></p><p>Q(state, w) → action. Ensemble mean, greedy. Cả hai bên dùng chính xác cùng trọng số network.</p><p>Inference demo, không final-test hoặc benchmark. Không có training/API trả phí.</p><button id="trace">Tải trace JSON</button><a href="docs/report.pdf" target="_blank" rel="noopener">Báo cáo PDF ↗</a><a href="docs/guide.pdf" target="_blank" rel="noopener">Hướng dẫn ↗</a></details>
+</aside>
+</main>
+<footer><span id="notice">Đang nạp model đã train…</span><span>LOCAL CPU / NO RETRAINING</span></footer>
+<div id="error" role="alert" hidden></div>
+<script src="renderer.js"></script><script src="app.js"></script>
+</body></html>

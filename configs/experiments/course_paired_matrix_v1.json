@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "course-paired-matrix-v1",
+  "status": "frozen",
+  "frozen_on": "2026-10-15",
+  "purpose": "Estimation-first paired course study of preference-allocation signals under matched budgets.",
+  "paired_seeds": [20262001, 20262002, 20262003, 20262004, 20262005],
+  "environments": [
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "env_id": "minecart-v0",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    }
+  ],
+  "budget": {
+    "training_interactions": 500000,
+    "learning_starts": 5000,
+    "train_frequency": 4,
+    "curriculum_update_frequency": 15000,
+    "curriculum_episodes_per_preference": 1,
+    "validation_frequency": 25000,
+    "validation_episodes_per_preference": 3,
+    "final_episodes_per_preference": 30,
+    "tuning_runs_per_environment": 0
+  },
+  "pcqn_arms": [
+    {"id": "uniform", "role": "control", "algo": "uniform-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0, "coverage_recency": 0, "progress": 0, "geometry": 0}},
+    {"id": "matched-random", "role": "control", "algo": "random-curriculum-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0, "coverage_recency": 0, "progress": 0, "geometry": 0}},
+    {"id": "geometry-only", "role": "antecedent-control", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0, "coverage_recency": 0, "progress": 0, "geometry": 1}},
+    {"id": "gap-only", "role": "signal", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 1, "uncertainty": 0, "coverage_recency": 0, "progress": 0, "geometry": 0}},
+    {"id": "disagreement-only", "role": "signal", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 1, "coverage_recency": 0, "progress": 0, "geometry": 0}},
+    {"id": "coverage-recency-only", "role": "signal", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0, "coverage_recency": 1, "progress": 0, "geometry": 0}},
+    {"id": "progress-only", "role": "signal", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0, "coverage_recency": 0, "progress": 1, "geometry": 0}},
+    {"id": "gap-progress", "role": "pairwise", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0.5, "uncertainty": 0, "coverage_recency": 0, "progress": 0.5, "geometry": 0}},
+    {"id": "disagreement-progress", "role": "pairwise", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0.5, "coverage_recency": 0, "progress": 0.5, "geometry": 0}},
+    {"id": "coverage-progress", "role": "pairwise", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0, "uncertainty": 0, "coverage_recency": 0.5, "progress": 0.5, "geometry": 0}},
+    {"id": "full", "role": "primary-treatment", "algo": "adaptive-pcqn", "allocation_target": "rollout_and_update", "signal_weights": {"gap": 0.25, "uncertainty": 0.25, "coverage_recency": 0.25, "progress": 0.25, "geometry": 0}},
+    {"id": "full-rollout-only", "role": "allocation-target", "algo": "adaptive-pcqn", "allocation_target": "rollout_only", "signal_weights": {"gap": 0.25, "uncertainty": 0.25, "coverage_recency": 0.25, "progress": 0.25, "geometry": 0}},
+    {"id": "full-update-only", "role": "allocation-target", "algo": "adaptive-pcqn", "allocation_target": "update_only", "signal_weights": {"gap": 0.25, "uncertainty": 0.25, "coverage_recency": 0.25, "progress": 0.25, "geometry": 0}}
+  ],
+  "comparators": [
+    {"id": "envelope", "runner": "envelope", "qualification_gate": "phase-3-baseline-qualification"},
+    {"id": "gpi-ls", "runner": "gpi-ls", "qualification_gate": "phase-3-baseline-qualification"}
+  ],
+  "excluded_comparators": [
+    {"id": "independent-scalarized-dqn", "reason": "No audited adapter or matched evaluation artifact contract exists at freeze time; it cannot be silently added after results are seen."}
+  ],
+  "checkpoint_selection": {
+    "split": "validation",
+    "rule": "maximum protocol-scaled hypervolume; break exact ties by expected utility, then earlier checkpoint",
+    "final_test_feedback": false
+  },
+  "final_evaluation": {
+    "split": "test_once_after_lock",
+    "nominal_first": true,
+    "shifted_evaluation_is_separate": true
+  },
+  "analysis": {
+    "unit": "training_seed",
+    "primary_contrast": {"treatment": "full", "control": "uniform"},
+    "required_control_contrast": {"treatment": "full", "control": "matched-random"},
+    "primary_metrics": ["protocol_scaled_hypervolume", "expected_utility", "validation_learning_curve_auc"],
+    "secondary_metrics": ["cvar_10_regret_when_reference_front_exists", "igd_when_reference_front_exists", "sparsity", "per_objective_spearman_controllability", "wall_clock", "peak_memory"],
+    "mechanism_metrics": ["lagged_score_to_future_utility_change_correlation", "allocation_entropy"],
+    "paired_summary": "mean paired difference with 95% seed-bootstrap confidence interval and paired dz",
+    "paired_test": "two-sided exact paired sign-flip permutation test",
+    "multiplicity": "Holm correction within each metric family and environment",
+    "small_sample_rule": "With five pairs, p-values are descriptive and no absence-of-effect or equivalence claim is permitted.",
+    "aggregation_rule": "Analyze each environment separately; report cross-environment summaries only as secondary standardized effects.",
+    "missing_run_rule": "No seed replacement. Report missingness; primary paired analysis uses complete pairs and sensitivity summaries retain all completed seeds.",
+    "negative_result_rule": "Retain negative and null results without relabeling difficulty or uncertainty as learning progress."
+  }
+}

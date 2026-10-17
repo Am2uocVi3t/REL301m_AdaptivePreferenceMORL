@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "kind": "minecart_pcqn_backbone_implementation_qualification",
+  "status": "implementation_reviewed",
+  "passed": true,
+  "verified_at": "2026-10-17",
+  "python_version": "3.11.17",
+  "git_base_commit": "123184e01ad5323a6b506f7728ba2a4b66b2a5d8",
+  "plan": {
+    "path": "configs/remediations/minecart_pcqn_backbone_v2.json",
+    "sha256": "c28b0de87731d79af71ee5ee1c5fbbd4eab0e027b72ae3df7908fa170b1873ec",
+    "id": "minecart-pcqn-backbone-remediation-v2"
+  },
+  "implementation": [
+    {
+      "path": "src/core/replay_buffer.py",
+      "sha256": "1eb39635df9b145758cfe1850d8c7f3b1055e7fab4c078cc904a39ac33f5ab16"
+    },
+    {
+      "path": "src/models/update.py",
+      "sha256": "1ad470734a7b3ae19833903e8752ce89da0da54e0a5abd33716f36836b360cdd"
+    },
+    {
+      "path": "scripts/train.py",
+      "sha256": "9259bec24ba2a94baaeba5b08e87f4e3b83186fbf7fc0ec14015cc2bc78ba65b"
+    },
+    {
+      "path": "src/evaluation/remediation.py",
+      "sha256": "6139ee12764a920d4933879a7fdc1fd5190925d38955816ffccaee87b53cfb3d"
+    },
+    {
+      "path": "scripts/run_minecart_remediation.py",
+      "sha256": "380fc18e585a013495d92041774913ff6ff56c9897cd55927ac2b5a7a7d10fb1"
+    }
+  ],
+  "analytic_tests": {
+    "paths": [
+      "tests/test_algorithm.py",
+      "tests/test_minecart_remediation.py",
+      "tests/test_remediation_executor.py"
+    ],
+    "contracts": [
+      "proportional sampling probabilities",
+      "non-finite prioritized-replay parameter rejection",
+      "current-maximum priority insertion",
+      "normalized sampled-batch importance weights",
+      "epsilon-adjusted priority updates",
+      "active-head and vector-objective TD aggregation",
+      "importance-weighted masked Huber loss with the existing active-head reduction",
+      "unit importance weights exactly recover the remediation-v1 loss",
+      "linear beta schedule endpoints",
+      "uniform-replay unit weights and sampling compatibility",
+      "v2 predecessor-source hashes and command arguments",
+      "auditor rejection of prioritized-replay argument drift"
+    ]
+  },
+  "pre_execution_amendment": {
+    "qualification_seeds_executed_before_amendment": false,
+    "change": "Corrected loss weighting from squared TD to the existing masked Huber loss and active-head reduction.",
+    "reason": "Prevent an unintended loss-family change and preserve the declared single-factor replay comparison."
+  },
+  "runtime_smoke": {
+    "course_evidence": false,
+    "qualification_seed": false,
+    "training_seed": 9192,
+    "environment": "minecart-v0",
+    "training_interactions": 20,
+    "gradient_updates": 17,
+    "curriculum_evaluation_steps": 0,
+    "validation_evaluation_steps": 0,
+    "replay_sampling": "prioritized",
+    "priority_alpha": 0.6,
+    "priority_beta_start": 0.4,
+    "priority_beta_end": 1.0,
+    "priority_epsilon": 0.000001
+  },
+  "quality_gate": {
+    "ruff_format": "passed",
+    "ruff_check": "passed",
+    "mypy": "passed_53_source_files",
+    "pytest": "passed_103_tests",
+    "bandit": "passed_no_medium_or_high_findings",
+    "compileall": "passed",
+    "git_diff_check": "passed"
+  },
+  "authorization": {
+    "execution_authorized": false,
+    "qualification_seeds_executed": false,
+    "next_gate": "Separately decide whether to authorize only seeds 20264011-20264013."
+  },
+  "scientific_boundaries": {
+    "unlocks_matrix_v1": false,
+    "unlocks_checkpoint_lock": false,
+    "unlocks_final_test": false,
+    "supports_course_comparison_claim": false
+  }
+}

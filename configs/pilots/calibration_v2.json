@@ -1,0 +1,72 @@
+{
+  "$schema": "../../research/schemas/calibration-plan-v2.schema.json",
+  "schema_version": 2,
+  "name": "course-calibration-v2-source-aware",
+  "status": "predeclared",
+  "purpose": "Calibrate each course environment from authoritative geometry when available, otherwise from an independent validation-only fixed-pool pilot.",
+  "source_split": "validation",
+  "forbidden_split": "test",
+  "method": "uniform-pcqn",
+  "seeds": [20261103, 20261104, 20261105],
+  "training": {
+    "total_timesteps": 100000,
+    "learning_starts": 5000,
+    "train_freq": 4,
+    "batch_size": 64,
+    "buffer_capacity": 200000,
+    "curriculum_diagnostics": "disabled_for_scale_calibration",
+    "checkpoint_selection": "final_pilot_checkpoint_only",
+    "preference_sampling": "uniform_fixed_protocol_pool"
+  },
+  "evaluation": {
+    "episodes_per_preference": 5,
+    "seed_base": 570000,
+    "shift": "nominal",
+    "preference_source": "immutable_validation_split"
+  },
+  "calibration_rule": {
+    "return_field": "episode_returns",
+    "scale_abs_quantile": 0.95,
+    "magnitude_floor": 1e-6,
+    "reference_span_quantiles": [0.05, 0.95],
+    "reference_margin_fraction": 0.05,
+    "reference_minimum_margin": 0.01
+  },
+  "smoke": {
+    "total_timesteps": 20,
+    "learning_starts": 21,
+    "episodes_per_preference": 1,
+    "evidence_status": "smoke_only_not_freezable"
+  },
+  "environments": [
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "calibration_source": {
+        "type": "validation_pilot",
+        "preference_sampling": "uniform_fixed_protocol_pool"
+      }
+    },
+    {
+      "env_id": "minecart-v0",
+      "protocol": "configs/protocols/course_minecart_v0.json",
+      "calibration_source": {
+        "type": "environment_reference_front",
+        "artifact": "research/calibration/minecart_v0_gamma099_reference_front.json",
+        "generator": "pareto_front",
+        "gamma": 0.99,
+        "symmetric": true,
+        "package": {"name": "mo-gymnasium", "version": "1.3.2"},
+        "environment_config_sha256": "9cbaea02440cb21bd799ede48b199799a655154526e9e7daf54225f5463037d9",
+        "determinism_seeds": [20261001, 20261002, 20261003]
+      }
+    }
+  ],
+  "review_gate": [
+    "Every validation-pilot job uses the shared fixed candidate pool, identity input reward scales, nominal dynamics, immutable validation preferences, and independent v2 seeds.",
+    "Every environment-reference-front artifact matches the predeclared package version, environment-config hash, return gamma, protocol hash, and plan hash and is identical across the declared determinism seeds.",
+    "No source artifact uses the final test split, final-test preferences, or a non-nominal dynamics shift.",
+    "Every proposed reference point is strictly dominated by every scaled point from its declared calibration source.",
+    "The versioned proposal is reviewed before a separate protocol edit freezes values; post-freeze diagnostics cannot revise them."
+  ]
+}

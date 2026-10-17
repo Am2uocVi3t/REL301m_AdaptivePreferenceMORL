@@ -1,5 +1,5 @@
 [tool.ruff]
-target-version = "py310"
+target-version = "py311"
 line-length = 120
 exclude = [".agents", ".git", ".venv"]
 
@@ -9,9 +9,10 @@ ignore = ["EXE002"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 ignore_missing_imports = true
 check_untyped_defs = true
 warn_unused_ignores = true

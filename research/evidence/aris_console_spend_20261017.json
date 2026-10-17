@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "group_id": "historical-claude-console-20261017",
+  "source": "user_supplied_console_display",
+  "status": "reconciled_aggregate",
+  "user_statement": "Không có chỗ tải nên: $0.24 spent",
+  "source_context": "User supplies Console spent display to complete the preceding daily usage and Billing evidence for the two historical Claude reviews",
+  "usage_date_utc": "2026-10-17",
+  "model_version": "claude-sonnet-5-5",
+  "workspace": "Claude Code",
+  "console_display_spent_usd": 0.24,
+  "display_precision_usd": 0.01,
+  "per_invocation_costs_known": false,
+  "legacy_source_sha256": "ad045ccf5a0cbd99a238f787c1678de91b6a9d48a5f3604a40dd269f58714ac9",
+  "reservation_ids": [
+    "legacy-ad045ccf5a0cbd99a238f787c1678de91b6a9d48a5f3604a40dd269f58714ac9-0",
+    "legacy-ad045ccf5a0cbd99a238f787c1678de91b6a9d48a5f3604a40dd269f58714ac9-1"
+  ],
+  "historical_session_ids": [
+    "72da81df-3c3a-424e-9951-65f456e4f367",
+    "976dc6d7-e379-4ca0-96f3-304bd241e8bb"
+  ],
+  "historical_cli_cost_estimates_usd": [0.0117487, 0.2251555],
+  "historical_cli_sum_usd": 0.2369042,
+  "cli_sum_rounded_to_cent_matches_display": true,
+  "prior_usage_and_balance_evidence": "research/evidence/aris_console_usage_20261017_partial.json",
+  "prior_reported_credit_balance_usd": 4.77,
+  "reported_auto_reload_enabled": false,
+  "historical_reserved_usd_preserved": 0.5,
+  "accounting_rule": "Record $0.24 once at group level, never once per row. Retain each original $0.25 reservation and keep individual actual_cost_usd null. No exact per-call bill or additional fractional-cent precision is inferred.",
+  "independently_authenticated_console_export": false
+}

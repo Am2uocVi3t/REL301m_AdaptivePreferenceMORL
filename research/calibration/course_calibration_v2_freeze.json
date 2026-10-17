@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "kind": "protocol_calibration_freeze",
+  "frozen_at": "2026-10-15",
+  "final_test_accessed": false,
+  "review": {
+    "method_selection": "user-delegated best-method choice",
+    "value_audit": "automated finite-positive-scale, non-degeneracy, provenance, budget, and strict-domination checks",
+    "automatic_protocol_mutation": false
+  },
+  "plan": {
+    "path": "configs/pilots/calibration_v2.json",
+    "file_sha256": "c2f52d0e485f023bef030a61a9975233e98084cea82ce4da8a59aa59cddc02c1",
+    "canonical_sha256": "0cf0ce2a14e5c8781628ff5cd972ecdd69ef80d9f855c47aa9e283ee3bd3e9ba"
+  },
+  "proposal": {
+    "path": "research/calibration/course_calibration_v2_proposal.json",
+    "sha256": "48bede31286bf0f4d0d8708005dd00bb47531f78cc7052b6ba5299509f8a8465",
+    "status_at_freeze": "review_required",
+    "eligible_for_freeze_review": true
+  },
+  "protocols": {
+    "mo-lunar-lander-v3": {
+      "path": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "file_sha256": "11ea5c70a130e8cabeb108ce6ba14273cf43035882ca3d024dc24bed7cb5c5b2",
+      "canonical_sha256": "5c8abd59ad2b73a74fc59b700dd446519f708b09f21dc3556e5f8b63846bcb48",
+      "source_type": "validation_pilot",
+      "reward_scale": [0.0179126033542946, 0.010918515947335474, 0.016333719502911202, 0.032479782831596124],
+      "reference_point": [-1.15737194297178, -2.3275130419645698, -1.1397362011679149, -1.6736955655595682]
+    },
+    "minecart-v0": {
+      "path": "configs/protocols/course_minecart_v0.json",
+      "file_sha256": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+      "canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+      "source_type": "environment_reference_front",
+      "reward_scale": [0.9659120784281335, 0.9659120784281335, 0.8247459754193536],
+      "reference_point": [-0.04389009065716453, -0.04389009065716453, -1.0215943973394292]
+    }
+  },
+  "post_freeze_smoke": {
+    "status": "passed_non_evidentiary",
+    "mo-lunar-lander-v3": {
+      "artifact": "artifacts/frozen-protocol-smoke-v2/evaluations/mo-lunar-lander-v3.json",
+      "sha256": "4fb44e651029978013e5a66c0bec81e8c828dfd96949f12b83105947c6c7f67d",
+      "validation_episodes": 32,
+      "evaluation_steps": 4071,
+      "hypervolume": 0.2836022001632154
+    },
+    "minecart-v0": {
+      "artifact": "artifacts/frozen-protocol-smoke-v2/evaluations/minecart-v0.json",
+      "sha256": "daf9823adf221c0de767a50ca413462553914d1c5d31bf0a61220addb89839f7",
+      "validation_episodes": 32,
+      "evaluation_steps": 32000,
+      "hypervolume": 0.0
+    }
+  },
+  "interpretation": "The freeze establishes metric inputs and executable protocol plumbing only. It does not establish policy convergence, controllability, comparative performance, or any empirical allocation claim."
+}

@@ -1,0 +1,1305 @@
+{
+  "cell_seed_decisions": [
+    {
+      "cell": "A0R0",
+      "checkpoints": [
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 100000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step100000.json",
+            "sha256": "943bdf5bc121e4866412935c092b0d8dd4925006730ae8d1a72f38b2e2c79fc0"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 200000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step200000.json",
+            "sha256": "ee007e241fa63a226bce3c5038c9ee29faefd339c478c309e41c751ddf0d716f"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 300000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step300000.json",
+            "sha256": "585845fb2b30ce26424cc2aacba30f2f57fae7badf46c63dddf3af7ac9d7fb46"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 7,
+              "passed": false,
+              "positive_episode_count": 7
+            },
+            "1": {
+              "distinct_positive_values": 7,
+              "passed": false,
+              "positive_episode_count": 7
+            }
+          },
+          "passed": false,
+          "step": 400000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step400000.json",
+            "sha256": "cd64a2b4a1dcb42859c97be51e01ce5381800edf776fecfbf07fcd40b63dcf0b"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 13,
+              "passed": true,
+              "positive_episode_count": 13
+            },
+            "1": {
+              "distinct_positive_values": 13,
+              "passed": true,
+              "positive_episode_count": 13
+            }
+          },
+          "passed": true,
+          "step": 500000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step500000.json",
+            "sha256": "dadaf1fcde51472e5a067a925bf7147f515106c62a4b9a2148bb52d024bb7d7b"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 6,
+              "passed": false,
+              "positive_episode_count": 6
+            },
+            "1": {
+              "distinct_positive_values": 6,
+              "passed": false,
+              "positive_episode_count": 6
+            }
+          },
+          "passed": false,
+          "step": 600000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step600000.json",
+            "sha256": "7b3da15e3c2231c315c05154bdf206ade708e1585ebb96b6892b688c6bae4e7a"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 5,
+              "passed": false,
+              "positive_episode_count": 5
+            },
+            "1": {
+              "distinct_positive_values": 5,
+              "passed": false,
+              "positive_episode_count": 5
+            }
+          },
+          "passed": false,
+          "step": 700000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step700000.json",
+            "sha256": "ca0eb6737d999e6c563d42185c6577d239dd8f785ddcf1d26c336516fc6bc2de"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 800000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step800000.json",
+            "sha256": "07e1312f8923f39355dac32d67a495f00c756ab7bd38640fed869c83e6bc24b0"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 10,
+              "passed": true,
+              "positive_episode_count": 10
+            },
+            "1": {
+              "distinct_positive_values": 10,
+              "passed": true,
+              "positive_episode_count": 10
+            }
+          },
+          "passed": true,
+          "step": 900000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step900000.json",
+            "sha256": "52955a22e3a6cf086b7aafc8046609e8020d844a6018425bf2e27fba74ad7c02"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 19,
+              "passed": true,
+              "positive_episode_count": 19
+            },
+            "1": {
+              "distinct_positive_values": 19,
+              "passed": true,
+              "positive_episode_count": 19
+            }
+          },
+          "passed": true,
+          "step": 1000000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264021/checkpoint_step1000000.json",
+            "sha256": "7173cf1eec4cdf4acc7fa97e57625378e2c6fe3abe5cbb8d5ebf0201b1919563"
+          }
+        }
+      ],
+      "retention": null,
+      "training_seed": 20264021
+    },
+    {
+      "cell": "A0R0",
+      "checkpoints": [
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 100000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step100000.json",
+            "sha256": "ec5fcdf21d9e4938fb751f1d3c9d720e289c884fd90d115d78995ad39e8f9268"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 200000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step200000.json",
+            "sha256": "c5918a7b8aba7fd53b74bdad1f6b86feffde1510093a326d0a9bfef0fa170739"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 300000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step300000.json",
+            "sha256": "15447ce109bdffaa882490e89400c4781ecda8eb57001b8224152fd09d7b6195"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 400000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step400000.json",
+            "sha256": "7b8bc1bade51349b9a02214e7bde6d87302100cab00c83d7e830a7b746e554a7"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 500000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step500000.json",
+            "sha256": "45ad3a49d186c396414e1efda21eb76a26ef062eaae5906fafae1eccdfed105d"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 600000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step600000.json",
+            "sha256": "2a36c492c7b33ac3204e642237bcac9dd3c31f960d6cb91be252e1651fe7cd80"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 700000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step700000.json",
+            "sha256": "c5f18b5b1846601eed67506c69120047ae7023da98f49d1a8e340dbcf3aeb928"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 800000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step800000.json",
+            "sha256": "ae8744860a6061ca674605a5f034e63c18bda3efcd840edcb1dab7d7b71cbb3b"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 2,
+              "passed": false,
+              "positive_episode_count": 2
+            },
+            "1": {
+              "distinct_positive_values": 2,
+              "passed": false,
+              "positive_episode_count": 2
+            }
+          },
+          "passed": false,
+          "step": 900000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step900000.json",
+            "sha256": "99895080e61a2e21f1232a513720eec0a0f4be91ccac6e2fddbbf7917f62e07c"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 17,
+              "passed": true,
+              "positive_episode_count": 17
+            },
+            "1": {
+              "distinct_positive_values": 17,
+              "passed": true,
+              "positive_episode_count": 17
+            }
+          },
+          "passed": true,
+          "step": 1000000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264022/checkpoint_step1000000.json",
+            "sha256": "4555d5261904098c1cea6d0411a033cd7dc36ee2ac8818110ed71ad13e5a3431"
+          }
+        }
+      ],
+      "retention": null,
+      "training_seed": 20264022
+    },
+    {
+      "cell": "A0R0",
+      "checkpoints": [
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 100000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step100000.json",
+            "sha256": "a8b35e3f2ea61653315f0b50c00d0c864305596ffdb38dfa366a744f8590ad3f"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 200000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step200000.json",
+            "sha256": "430e791388ea88d915ac2bab68ba997d4ec6d348eb2ffa2cc697203869dbcde8"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 300000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step300000.json",
+            "sha256": "f5cce0d1a01bd3a1142be9aaa3e89b0a18f75d1f34839936e5d3589f1b9bec53"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 400000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step400000.json",
+            "sha256": "4960846389fa2994a3e24af74632af28005c4d016f6769c52e37fe2e8d7bbeaf"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 500000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step500000.json",
+            "sha256": "128d575c33c36f46ba77e5592ce0acf4e4c3a484485a83980b9b34b3fb05fe3e"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 600000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step600000.json",
+            "sha256": "a9dcf94f87bd0dd63f59abce55f7d964687e6aa4c0c16fbf961c10ecd56f3776"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 700000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step700000.json",
+            "sha256": "17fed2ac45dd65ab3cdbd871cb21ba01654ad899f98113d2423c5c413264e9b8"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 800000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step800000.json",
+            "sha256": "18162983d1da0b1d021900a3aa182fee63bea322bd44737f50db238e535f5dfe"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 900000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step900000.json",
+            "sha256": "640a67a211d81a9ea2e8e75935e67c892813d0d97e2c647305afec9a49a8b1f2"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 1000000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A0R0/seed20264023/checkpoint_step1000000.json",
+            "sha256": "6bcdfaa6f728ee9a1ca4466e47117093c3ac1d67c0a33313c65d25ded5119192"
+          }
+        }
+      ],
+      "retention": null,
+      "training_seed": 20264023
+    },
+    {
+      "cell": "A1R1",
+      "checkpoints": [
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 100000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step100000.json",
+            "sha256": "223a67d16f72cdea95dbb4d9fa14d6616a17a74763b51ceef41fbff986b22a1b"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 200000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step200000.json",
+            "sha256": "5d80bd7c250e76120736fa53c8d2561c728e2acc5fcd1a98d94545cfac511215"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 300000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step300000.json",
+            "sha256": "f2c80ff838cccb2e61307a0dc676be3cfb0c3548557cfbb6a9269af702c72baf"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 400000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step400000.json",
+            "sha256": "5332d91b92468a10fe7b5aea9814303e7e64bfd5487a646ec13462abe37baf01"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 500000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step500000.json",
+            "sha256": "8da3835ee934f124cf153109ee7802a11659d654350d7233d2a5e930167e028f"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 600000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step600000.json",
+            "sha256": "baa0ef47f9bb5713d1141884b295bb9c618ac2c1c54bbfba0daf3ae83c19d5b0"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 700000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step700000.json",
+            "sha256": "e643b6a276fd524b62ff658536a7d69c991fc9da2d22b3ac432a4c0249d21db2"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 800000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step800000.json",
+            "sha256": "2cdbb790499b8fe718756f109823ec8e3b4074006876b7ea29931a230e4ff71c"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 900000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step900000.json",
+            "sha256": "9111a5dcb893b49b4ecc17b87b4198587193f6e3a4f613717319c361628fe947"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 1000000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step1000000.json",
+            "sha256": "8b4ac35fdaad53152d27326f49024cb62c90d027919718759f91ac4cae63e613"
+          }
+        }
+      ],
+      "retention": {
+        "first_pass_step": null,
+        "passed": false,
+        "status": "never_expressed"
+      },
+      "training_seed": 20264021
+    },
+    {
+      "cell": "A1R1",
+      "checkpoints": [
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 100000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step100000.json",
+            "sha256": "6d7a3f82108d7b4e47d4c35fea8d0bf570eebfd902a6c8d167b7526abb90da90"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 200000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step200000.json",
+            "sha256": "9db0579b3b56eaa1e24c34c5de78e26006242eda428354ebc06456c7c5e12755"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 300000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step300000.json",
+            "sha256": "7208180180926ed2a4cf299ab5726f510e16b464cc962802fa695d97debcc4c2"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 400000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step400000.json",
+            "sha256": "eee2d56161b9184034ba265490b6447b42d8261152a04f1e6ed9e5cf2ea6496c"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 500000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step500000.json",
+            "sha256": "f4b29ff9092fc7bec8fc5215efaaada36eb1df6acb6f1573e0f8edaf067b022c"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 600000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step600000.json",
+            "sha256": "cdfc172963c579bfadca42dc87802f17f2b947906f2afd22fea1919955ba1770"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 700000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step700000.json",
+            "sha256": "98cff66d4275e5b79b292db6b3b6caae3f291506eafe36429e718d377b04f960"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 800000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step800000.json",
+            "sha256": "422ce3df2ee5a909fbb6f51f150129830ecd60e33a82790282e8b55a8d89e002"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 900000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step900000.json",
+            "sha256": "1680b2c56e986f0b1bf2f1d663bb7dcab1824e7c933b48aac65caae5dceb06ac"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 1000000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264022/checkpoint_step1000000.json",
+            "sha256": "8b75d9a7d5e27531ced5f47496552575cd9d25fc44d53f02c2358615195864f5"
+          }
+        }
+      ],
+      "retention": {
+        "first_pass_step": null,
+        "passed": false,
+        "status": "never_expressed"
+      },
+      "training_seed": 20264022
+    },
+    {
+      "cell": "A1R1",
+      "checkpoints": [
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 100000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step100000.json",
+            "sha256": "0865039de45d0a0d503195c91a5a6c718c3197698281780bc0f5dc8903e841f2"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 200000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step200000.json",
+            "sha256": "f6f294cd5e87a05f3657568dbcd9a122405563d3c82a8a1dc4bada8972090408"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 300000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step300000.json",
+            "sha256": "2172a47bac81b7d05ad30a6ab459aa3ef2f3278450ed335c01ac29516ac65ec6"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 400000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step400000.json",
+            "sha256": "40ae9f93dbce296ce2b5733b7e87c3fb5ef941be9fc5e813c8290a4e1eacddbe"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 500000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step500000.json",
+            "sha256": "561ccde99397b7c975fb88111ef398507367bfb4a8e5d67cb06db7d91487e1ca"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 600000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step600000.json",
+            "sha256": "74f6276e2dc0fd754d1d10c75fd64fb5d38b93b0021f1c494312d245f90eda66"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 700000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step700000.json",
+            "sha256": "a83399f113564bfc29b9d36cec56fda0a12f5013ff34c7cd541fd7b401f25d11"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 800000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step800000.json",
+            "sha256": "476519351bfc2695ad6cdb7abc26a1f3bf77f0f4311115f700477c2196fce438"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 900000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step900000.json",
+            "sha256": "f931cc255c6b9b5be2c848c8a3d1082ff5543550d7c549f97cd3f794e541bc58"
+          }
+        },
+        {
+          "ore_objectives": {
+            "0": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            },
+            "1": {
+              "distinct_positive_values": 0,
+              "passed": false,
+              "positive_episode_count": 0
+            }
+          },
+          "passed": false,
+          "step": 1000000,
+          "validation_artifact": {
+            "path": "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264023/checkpoint_step1000000.json",
+            "sha256": "dc7b488f275ad45be1bbfd5f75ebd5ded6cc841b9f08066b0d0b3e35875c4bef"
+          }
+        }
+      ],
+      "retention": {
+        "first_pass_step": null,
+        "passed": false,
+        "status": "never_expressed"
+      },
+      "training_seed": 20264023
+    }
+  ],
+  "continuation": "If any A1R1 seed fails retention or the source/manipulation audit fails, stop after F1 and preserve the negative or inconclusive result. Do not run F2, lock checkpoints, or access final test.",
+  "data_firewall": {
+    "allowed_sources": [
+      "training",
+      "validation"
+    ],
+    "evaluation_split": "validation",
+    "final_test_access_permitted": false,
+    "forbidden_split": "test",
+    "shift": "nominal"
+  },
+  "eligible_for_separate_f2_authorization": false,
+  "evaluation_summary": {
+    "checkpoint_evaluations": 60,
+    "environment_steps": 8654847,
+    "episodes": 9600
+  },
+  "evidence_role": "f1_replay_sufficiency_screen_not_course_comparison",
+  "kind": "minecart_pcqn_replay_f1_qualification",
+  "pass_rule": {
+    "all_a1r1_seeds_must_pass_retention": true,
+    "first_pass_no_later_than_step": 800000,
+    "late_first_pass_status": "late_inconclusive",
+    "minimum_distinct_positive_values_per_objective": 2,
+    "minimum_positive_episodes_per_objective": 8,
+    "ore_objective_indices": [
+      0,
+      1
+    ],
+    "required_consecutive_pass_checkpoints": 3
+  },
+  "passed": false,
+  "plan": {
+    "id": "minecart-pcqn-successful-replay-f1",
+    "path": "configs/remediations/minecart_pcqn_replay_f1.json",
+    "sha256": "3b5ac7141006b8c096d86c34896d50cce074ba90330f3fc0f64f3ac830782457"
+  },
+  "schema_version": 1,
+  "source_audit": {
+    "path": "research/evidence/minecart_pcqn_replay_f1_source_audit.json",
+    "sha256": "e9a796436b26f6a185acc4c5b42c473fa7678ed5683aae2e0cf7b221db602b04"
+  },
+  "status": "failed",
+  "unlocks_checkpoint_lock": false,
+  "unlocks_f2": false,
+  "unlocks_final_test": false,
+  "unlocks_matrix_v1": false
+}

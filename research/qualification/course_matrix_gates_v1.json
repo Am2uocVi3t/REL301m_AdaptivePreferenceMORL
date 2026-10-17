@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "matrix_manifest": "research/experiments/course_paired_matrix_v1_manifest.json",
+  "matrix_manifest_sha256": "02cab77781832b1ce909036c12d9d56e54105b72f576ea91aa199b71a099c586",
+  "resolved_on": "2026-10-16",
+  "execution_authorized": false,
+  "gates": {
+    "baseline_qualification": {
+      "status": "passed",
+      "eligible_comparators": ["envelope", "gpi-ls"],
+      "artifacts": [
+        {
+          "path": "research/qualification/envelope_python311_smoke.json",
+          "sha256": "7f033b51008339af01ad19eae50c2012e4431aa2332179b1d9567531f98a5c27"
+        },
+        {
+          "path": "research/qualification/gpi_ls_python311_smoke.json",
+          "sha256": "611a55f7dabfb9dc6eefdbfafa8bff976f3e2840810a4f9226e703f2c2246b22"
+        }
+      ]
+    },
+    "dynamics_shift_qualification": {
+      "status": "passed",
+      "enabled_shifts": ["heavy_gravity", "strong_wind", "extreme_turbulence"],
+      "artifact": {
+        "path": "research/qualification/dynamics_shifts_v1.json",
+        "sha256": "914676d738eea5be2c0663a3d6bcce267017572a5aeedce291ce5c5434430408"
+      }
+    }
+  },
+  "interpretation": "These gates qualify bounded runtime and transition behavior only. They do not authorize course execution or establish comparative performance or robustness."
+}

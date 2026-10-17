@@ -3,18 +3,19 @@
   "experiments": [
     {
       "id": "pilot-protocol-freeze",
-      "title": "Pilot-only reward-scale and hypervolume-reference calibration",
-      "status": "planned",
+      "title": "Source-aware reward-scale and hypervolume-reference calibration",
+      "status": "complete",
       "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
       "claim_ids": [],
-      "artifact": null,
-      "notes": "Must not use final-test trajectories."
+      "artifact": "research/calibration/course_calibration_v2_freeze.json",
+      "notes": "V1 failed closed on sparse Minecart returns. Source-aware v2 then passed using an independent fixed-pool LunarLander pilot and a deterministic versioned Minecart environment reference front. Both course protocols now contain frozen scales/reference points with hashed evidence; no final-test data was accessed.",
+      "updated_at": "2026-10-15T14:33:34+00:00"
     },
     {
       "id": "course-paired-matrix",
       "title": "Paired-seed controls and allocation-signal ablations",
       "status": "blocked",
-      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "protocol": "configs/experiments/course_paired_matrix_v1.json",
       "claim_ids": [
         "conditioning-gap-allocation",
         "disagreement-allocation",
@@ -22,8 +23,42 @@
         "learning-progress-allocation",
         "combined-allocation"
       ],
-      "artifact": null,
-      "notes": "Blocked until pilot quantities and the matrix manifest are frozen."
+      "artifact": "research/evidence/course_primary_checkpoint_lock_v1.json",
+      "notes": "Frozen as 150 paired jobs across two environments and five seeds. The 30-job primary PCQN block completed and its source audit passed, but Minecart returned zero ore in all 14,400 validation episodes. Non-test diagnosis localized a shared sparse-credit backbone failure. Matrix v1 is now permanently blocked by a post-validation executor gate and will not resume; the remaining 120 planned jobs and final test are prohibited, and no comparative claim has been promoted.",
+      "updated_at": "2026-10-16T06:31:02+00:00"
+    },
+    {
+      "id": "minecart-pcqn-remediation",
+      "title": "Minecart sparse-credit PCQN backbone qualification",
+      "status": "failed",
+      "protocol": "configs/remediations/minecart_pcqn_backbone_v1.json",
+      "claim_ids": [],
+      "artifact": "research/qualification/minecart_pcqn_backbone_v1.json",
+      "notes": "The predeclared validation-only Uniform-PCQN qualification completed on all three fresh seeds and failed its all-seeds gate. Seeds 20264001 and 20264002 had zero positive ore episodes at their selected checkpoints; seed 20264003 passed both ore floors with 28/160 positive episodes per objective. Across all ten checkpoints, positive ore behavior was absent or transient rather than reliably retained. This is backbone-qualification evidence only, promotes no allocation claim, and keeps Phase 4, matrix v1, and final test blocked.",
+      "created_at": "2026-10-16T06:57:35+00:00",
+      "updated_at": "2026-10-16T13:34:35+00:00"
+    },
+    {
+      "id": "minecart-pcqn-remediation-v2",
+      "title": "Minecart prioritized-replay PCQN backbone qualification",
+      "status": "failed",
+      "protocol": "configs/remediations/minecart_pcqn_backbone_v2.json",
+      "claim_ids": [],
+      "artifact": "research/qualification/minecart_pcqn_backbone_v2.json",
+      "notes": "Executed after explicit user authorization on clean commit 25328e8. All three seeds completed 1,000,000 interactions and 995,001 updates each. Source audit passed 30 checkpoints; independent nominal-validation audit retained 4,800 episodes / 4,710,905 steps. All 30 checkpoints had zero ore in raw and discounted returns. All selected checkpoints were step 1M with 0/160 positive episodes and zero distinct positive values per ore objective; unchanged all-seeds qualification failed. Backbone-only evidence, not a course comparison. Completed-job training cost is 3M interactions plus at least 27,044 logged interactions from a preserved interrupted seed11 attempt; exact unflushed expenditure unknown. Stop current-scope remediation; v3/scope changes need supervisor approval. Matrix v1, checkpoint locking, revised course execution and final test remain blocked.",
+      "created_at": "2026-10-16T17:08:44+00:00",
+      "updated_at": "2026-10-17T07:52:56+00:00"
+    },
+    {
+      "id": "minecart-pcqn-replay-f1",
+      "title": "Minecart successful-episode replay paired F1 feasibility screen",
+      "status": "failed",
+      "protocol": "configs/remediations/minecart_pcqn_replay_f1.json",
+      "claim_ids": [],
+      "artifact": "research/qualification/minecart_pcqn_replay_f1.json",
+      "notes": "Six paired local jobs completed on clean commit 0660ecc865f3a3823f248f1f1955d70c2faf5936, 1M interactions each. Source audit passed all six jobs and 60 checkpoints. Independent nominal validation retained 9600 episodes / 8654847 steps. All 30 A1R1 checkpoints had zero positive raw ore episodes per objective; all three retention decisions are never_expressed and the frozen F1 gate failed. A0R0 had 79 positive episodes per ore objective across 4800 repeated checkpoint-evaluation cases. No causal replay decomposition or allocation-benefit claim follows. F2, checkpoint locking, matrix v1 and final test remain locked; no extra seeds, budget or tuning. Same-family integrity/claim reviews pending; manuscript/PDF held by user.",
+      "created_at": "2026-10-17T14:58:55+00:00",
+      "updated_at": "2026-10-17T20:53:33+00:00"
     }
   ]
 }

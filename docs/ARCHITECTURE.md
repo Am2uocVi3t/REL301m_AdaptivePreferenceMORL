@@ -12,13 +12,13 @@ fixed protocol + sampler distribution
               |                    |
               |                    +--> completed raw episode return --> Pareto archive
               v
- replay(s, a, r, s', terminated, truncated, w_behavior, bootstrap_mask)
+ replay(s, a, r, s', terminated, truncated, w_behavior, bootstrap_mask, priority)
               |
               v
  update preference selected by allocation_target
               |
               v
- per-head Double-DQN target + masked Huber loss
+ per-head Double-DQN target + uniform Huber or qualified PER loss
               |
               v
  curriculum checkpoint on a separate evaluation environment
@@ -51,6 +51,8 @@ y_k  = r + gamma * (1 - terminated) * Q_target,k(s', a*_k, w)
 
 Each head chooses its own action. The per-transition bootstrap mask controls which head losses are included. Heads share a feature trunk, so documentation calls this a masked multi-head ensemble rather than a fully independent bootstrap ensemble.
 
+Uniform replay remains the default and retains uniform index sampling, unit importance weights, and the original masked Huber reduction. The Minecart remediation-v2 path uses proportional probabilities `p_i^alpha / sum_j p_j^alpha`, new-transition maximum priority, and sampled-batch-normalized importance weights. Its priority is epsilon plus the mean absolute pre-update TD error across vector objectives and active bootstrap heads. After the optimizer step that used those pre-update errors, the sampled priorities are replaced. The fixed beta schedule includes `0.4` at the first update and `1.0` at update 995,001. Importance weights multiply each transition's masked vector Huber loss before the existing active-head reduction. With unit weights, this is exactly the v1 loss. The v2 plan records this correction as a pre-execution amendment because the original squared-TD wording would have introduced a second factor; no qualification seed had run.
+
 ## Allocation modes
 
 | Mode | Rollout preference | Update preference |
@@ -59,7 +61,7 @@ Each head chooses its own action. The per-transition bootstrap mask controls whi
 | `update_only` | uniform | adaptive |
 | `rollout_and_update` | adaptive | adaptive |
 
-For `uniform-pcqn`, both columns use uniform episode preferences and stored behavior preferences respectively. `random-curriculum-pcqn` performs the same curriculum evaluations as Adaptive-PCQN but updates its distribution from random scores.
+For `uniform-pcqn`, rollout preferences are sampled uniformly from the same protocol-seeded finite candidate pool used by adaptive methods, and updates use stored behavior preferences. `update_only` also keeps rollout sampling uniform over that fixed pool even after its adaptive update distribution changes. `random-curriculum-pcqn` performs the same curriculum evaluations as Adaptive-PCQN but updates its distribution from random scores.
 
 ## Curriculum signals
 
@@ -69,6 +71,7 @@ Candidate pool size is exact and contains simplex corners, the center, available
 - `uncertainty(w)` is the variance across masked heads' scalarized greedy values over replay states.
 - `coverage_recency(w)` combines inverse Gaussian-kernel visit density and normalized time since sampling.
 - `progress(w)` is the absolute change in measured scalarized return between curriculum checkpoints.
+- `geometry(w)` is a static inverse kernel-density score over the fixed candidate pool. It is used only by the predeclared geometry-only antecedent control and contains no visit or learner-outcome signal.
 
 Every signal is min-max normalized. Constant signals contribute zero. The final distribution is a temperature softmax mixed with the configured uniform floor.
 
@@ -78,23 +81,66 @@ Protocol JSON files define the environment, reward dimension, reward scale, pref
 
 Hypervolume is exact and deterministic: native 2-D computation or `pymoo` for three or more objectives. If `pymoo` is unavailable, high-dimensional HV fails explicitly instead of silently switching to stochastic Monte Carlo. If the reference point remains `null`, evaluation reports utility/front metrics and records HV as unavailable.
 
-The evaluator writes raw per-episode vector returns, lengths, mean returns, Pareto front, metrics, protocol hash, checkpoint hash, dependency versions, Git state, and resolved arguments.
+The evaluator writes raw per-episode vector returns, lengths, mean returns, Pareto front, metrics, per-objective Spearman controllability, protocol hash, checkpoint hash, dependency versions, Git state, and resolved arguments.
+
+## Frozen course matrix
+
+`configs/experiments/course_paired_matrix_v1.json` is the authoritative course-study contract. `scripts/build_course_matrix.py` validates it and renders a non-executing manifest; it has no execution flag. The frozen study uses five common seeds, fixed training/diagnostic/validation/final budgets, 13 PCQN arms, and two qualification-gated MORL comparator slots. Checkpoints are selected on validation data only, and the final-test split remains one-time post-lock evaluation.
+
+`scripts/execute_course_matrix.py` is the separate Phase 4 execution boundary. It fails closed unless the rendered manifest exactly matches the current frozen study and protocol hashes and all versioned qualification hashes resolve. Course execution requires an exact study-ID acknowledgement, explicit selectors, and an explicit job limit. Status updates are atomic and bind completed jobs to final-artifact SHA-256 values. Resume is job-level only; the training process itself has no checkpoint-resume contract. Its isolated 20-step smoke mode rewrites the output directory and records `course_evidence: false`, so it cannot complete or support a course result.
+
+Five paired seeds imply coarse exact-test resolution. Analysis is therefore estimation-first and cannot use a non-significant result as evidence of equivalence or absence of effect.
+
+`scripts/audit_course_validation.py` is the validation-only checkpoint-lock boundary. It binds atomic execution status, run manifests, TensorBoard curves, periodic checkpoint hashes and counters, and frozen protocol hashes before re-evaluating any checkpoint. Per-checkpoint evidence is written atomically and reused only after full validation. The compact versioned aggregate retains fixed preference identifiers, raw and discounted episode-return tensors, episode lengths, budget counters, metrics, hashes, and missingness/degeneracy diagnostics. Selection applies maximum validation hypervolume, then expected utility, then earlier step for exact ties. A missing, non-finite, incompatible, shifted, test-split, hash-mismatched, or degenerate run blocks the atomic lock; partial environment locking does not unlock final testing.
+
+After a failed primary validation gate, `scripts/execute_course_matrix.py` also requires a study-specific post-validation execution gate for every non-smoke launch. Matrix v1's gate is permanently blocked after the Minecart diagnosis; it cannot resume or be edited in place. A passed gate must bind a `passed: true` qualification artifact by path and SHA-256. The predeclared Minecart remediation is a separate validation-only Uniform-PCQN backbone qualification, and any successful continuation must use a new study ID and manifest.
+
+`scripts/run_minecart_remediation.py` is the separate remediation execution and audit boundary. It defaults to v2, renders only the three plan seeds, previews by default, requires Python 3.11 plus a clean committed worktree for execution, and records atomic job status bound to the plan hash and execution commit. Its loader hash-binds the failed v1 qualification and v1 behavior diagnosis. Its auditor additionally verifies the exact PER arguments, run manifests, periodic checkpoints, budget counters, protocol hashes, and validation curves before independently reproducing raw validation returns. The resulting qualification artifact can authorize design of a new study after an all-seed pass, but it cannot unlock matrix v1 or final-test access. V1 remains reproducible through an explicit `--plan` argument.
+
+The user-authorized F1 replay feasibility amendment is a distinct validation-only
+path in `configs/remediations/minecart_pcqn_replay_f1.json`; it does not mutate
+v1/v2 or the course matrix. `VectorReplayBuffer` can retain immutable trajectory
+IDs and generation-safe handles, finalize only complete episodes, project the
+episode-level `softplus(G)` label to the frozen preference pool, and draw a fixed
+success/uniform mixture with separate deterministic RNG streams. The effective
+preference is supplied to the unchanged current/next/target Q computations while
+the vector reward and termination record remain immutable. A0R0 leaves both
+features off; A1R1 enables both. `scripts/run_minecart_replay_f1.py` previews by
+default and requires exact plan acknowledgement, explicit seed/cell selectors,
+Python 3.11, a clean committed tree, and bounded job count for execution. Its
+source audit binds all six jobs, 60 checkpoints, replay manipulation counters,
+resource records, validation tensors and the early three-checkpoint retention
+rule. Even an F1 pass only makes the separately authorized F2 decision eligible;
+it never unlocks matrix v1, checkpoint locking, or final test.
+
+## Pilot calibration contract
+
+Calibration v1 is retained as a failed, informative attempt: its learner-derived Minecart returns were degenerate. ADR-003 and `configs/pilots/calibration_v2.json` define the accepted source-aware rule. Environments with an audited deterministic reference-front capability use a versioned geometry artifact; environments without one use independent Uniform-PCQN validation pilots sampled from the shared fixed protocol pool. `scripts/run_pilot_calibration.py` renders only the validation-pilot jobs, while `scripts/extract_reference_front.py` reproduces the declared geometry source. Final-test artifacts are rejected.
+
+`scripts/calibrate_protocol.py` verifies plan, protocol, seed, split, shift, reference-front provenance, and artifact hashes before proposing values. Per-objective scales use the inverse 95th-percentile absolute return. The scaled coordinatewise minimum minus a fixed robust margin yields a reference point strictly dominated by every point from the environment's declared source. The output is a review proposal and cannot mutate protocol JSON. The accepted proposal, source front, and freeze record are versioned under `research/calibration/`; raw pilot checkpoints and evaluation tensors remain ignored. Post-freeze diagnostics cannot revise these values.
 
 ## Dynamics shifts
 
 Constructor-level environment parameters are preferred because changing a Python attribute after Box2D initialization may not alter physics. LunarLander shifts are passed at environment construction. Attribute overrides are strict: a missing attribute raises an error. Minecart non-nominal shifts are disabled until a constructor-level intervention is identified and behaviorally verified.
 
+The three enabled LunarLander shifts passed controlled nominal-versus-shift action-trace checks over three seeds. That qualification shows that transition behavior changes; it is not evidence of robustness or robustness improvement.
+
 ## Public interfaces
 
-- `VectorReplayBuffer.add(..., terminated, truncated, behavior_preference, bootstrap_mask=None)`
+- `VectorReplayBuffer.add(..., terminated, truncated, behavior_preference, bootstrap_mask=None, trajectory_id=-1)`
+- `VectorReplayBuffer.complete_trajectory(handles, trajectory_id, discounted_return, preference_pool, ore_objective_indices=(0, 1))`
+- `VectorReplayBuffer.sample(batch_size, beta=1.0, successful_fraction=0.0, relabel_success=False)`, `.sampling_probabilities()`, `.replay_audit()`, and `.update_priorities(indices, td_errors)`
 - `compute_double_dqn_targets(...)`
 - `masked_bootstrap_loss(...)`
+- `masked_mean_absolute_td_error(...)` and `weighted_masked_huber_loss(...)`
 - `compute_conditioning_gap(preference, archive, current_policy_return)`
 - `AdaptivePreferenceSampler.sample()` and `.sample_batch(batch_size)`
 - `AdaptivePreferenceSampler.update_distribution(gap, uncertainty, progress, random_scores=None)`
 - `load_protocol(path, split)`
 - `evaluate_preferences(env, network, preferences, episodes_per_preference, device, seed)`
 - `compute_hypervolume`, `compute_expected_utility`, `compute_scalarized_regret`, `compute_igd`, `compute_sparsity`
+- `propose_calibration(returns, rule)`, `validate_calibration_artifact(...)`, and `validate_reference_front_artifact(...)`
+- `build_pilot_jobs(plan, output_dir, python_executable, device, smoke)`
 - `paired_permutation_test`, `bootstrap_ci`, `holm_adjust`
 
 ## Validation boundaries

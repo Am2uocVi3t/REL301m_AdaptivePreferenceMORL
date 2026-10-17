@@ -1,0 +1,136 @@
+{
+  "continuation": "If any seed fails, keep Phase 4 blocked. Do not try n-step returns, prioritized replay, demonstrations, reward shaping, or additional hyperparameters without a separately versioned remediation v2 predeclaration.",
+  "data_firewall": {
+    "allowed_sources": [
+      "training",
+      "pilot",
+      "validation"
+    ],
+    "evaluation_split": "validation",
+    "final_test_access_permitted": false,
+    "forbidden_split": "test",
+    "shift": "nominal"
+  },
+  "evaluation_summary": {
+    "checkpoint_evaluations": 30,
+    "environment_steps": 3966246,
+    "episodes": 4800
+  },
+  "evidence_role": "backbone_qualification_only_not_course_comparison",
+  "kind": "minecart_pcqn_backbone_qualification",
+  "pass_rule": {
+    "all_seeds_must_pass": true,
+    "minimum_distinct_positive_values_per_objective": 2,
+    "minimum_positive_episodes_per_objective": 8,
+    "ore_objective_indices": [
+      0,
+      1
+    ],
+    "selected_checkpoint_requirements": [
+      "At least 8 of 160 validation episodes have a positive return in ore objective 0.",
+      "At least 8 of 160 validation episodes have a positive return in ore objective 1.",
+      "Each ore objective has at least two distinct positive episode-return values.",
+      "All return tensors and budget counters are finite and provenance-valid.",
+      "No final-test or shifted-environment data were accessed."
+    ],
+    "threshold_rationale": "The fixed 5% event-rate floor rejects a lucky isolated ore delivery while remaining a qualification threshold rather than a performance-effect target."
+  },
+  "passed": false,
+  "plan": {
+    "id": "minecart-pcqn-backbone-remediation-v1",
+    "path": "configs/remediations/minecart_pcqn_backbone_v1.json",
+    "sha256": "5b1e8994f0a2af9d0bafc81adc49e96b6ac221657b32e6b6967c5624c255c769"
+  },
+  "schema_version": 1,
+  "seed_decisions": [
+    {
+      "ore_objectives": {
+        "0": {
+          "distinct_positive_values": 0,
+          "passed": false,
+          "positive_episode_count": 0,
+          "positive_episode_fraction": 0.0
+        },
+        "1": {
+          "distinct_positive_values": 0,
+          "passed": false,
+          "positive_episode_count": 0,
+          "positive_episode_fraction": 0.0
+        }
+      },
+      "passed": false,
+      "selected_checkpoint": {
+        "expected_utility": -0.3722701072692871,
+        "hypervolume": 0.0014765031242819553,
+        "step": 800000,
+        "validation_artifact": {
+          "path": "artifacts/minecart-pcqn-remediation-v1/validation-evidence/seed20264001/checkpoint_step800000.json",
+          "sha256": "dda4c00faa863b419b7b3b9bc96220c43e98dc3e14ec5a4deeccdba8e146e3a0"
+        }
+      },
+      "training_seed": 20264001
+    },
+    {
+      "ore_objectives": {
+        "0": {
+          "distinct_positive_values": 0,
+          "passed": false,
+          "positive_episode_count": 0,
+          "positive_episode_fraction": 0.0
+        },
+        "1": {
+          "distinct_positive_values": 0,
+          "passed": false,
+          "positive_episode_count": 0,
+          "positive_episode_fraction": 0.0
+        }
+      },
+      "passed": false,
+      "selected_checkpoint": {
+        "expected_utility": -0.29849040508270264,
+        "hypervolume": 0.0013846897019925803,
+        "step": 600000,
+        "validation_artifact": {
+          "path": "artifacts/minecart-pcqn-remediation-v1/validation-evidence/seed20264002/checkpoint_step600000.json",
+          "sha256": "2246e6aa4e03314d8d16a2b3f602e216404b45feaf49dd6137f9c1764a8204ee"
+        }
+      },
+      "training_seed": 20264002
+    },
+    {
+      "ore_objectives": {
+        "0": {
+          "distinct_positive_values": 28,
+          "passed": true,
+          "positive_episode_count": 28,
+          "positive_episode_fraction": 0.175
+        },
+        "1": {
+          "distinct_positive_values": 28,
+          "passed": true,
+          "positive_episode_count": 28,
+          "positive_episode_fraction": 0.175
+        }
+      },
+      "passed": true,
+      "selected_checkpoint": {
+        "expected_utility": -0.5086271166801453,
+        "hypervolume": 0.003779502586688245,
+        "step": 600000,
+        "validation_artifact": {
+          "path": "artifacts/minecart-pcqn-remediation-v1/validation-evidence/seed20264003/checkpoint_step600000.json",
+          "sha256": "408f414a5535fd8b51e13f366324c2745118ee587d2358e17c3354d7cb65a576"
+        }
+      },
+      "training_seed": 20264003
+    }
+  ],
+  "source_audit": {
+    "path": "research/evidence/minecart_pcqn_backbone_v1_source_audit.json",
+    "sha256": "344ef46a7f120523d4bea03bb22bba1bbf99735244efa95b45b335f7bb57e32b"
+  },
+  "status": "failed",
+  "unlocks_final_test": false,
+  "unlocks_matrix_v1": false,
+  "unlocks_new_course_study_design": false
+}

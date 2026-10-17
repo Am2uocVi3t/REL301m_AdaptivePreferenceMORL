@@ -1,0 +1,209 @@
+{
+  "automatic_protocol_mutation": false,
+  "eligible_for_freeze_review": true,
+  "environments": {
+    "minecart-v0": {
+      "absolute_return_quantile": [
+        1.035290915532746,
+        1.035290915532746,
+        1.2124945495993915
+      ],
+      "degenerate_objectives": [],
+      "original_return_max": [
+        1.0755529389199343,
+        1.0755529389199343,
+        -0.2545106111441598
+      ],
+      "original_return_min": [
+        0.0,
+        0.0,
+        -1.2124945495993915
+      ],
+      "proposed_protocol_patch": {
+        "reference_point": [
+          -0.04389009065716453,
+          -0.04389009065716453,
+          -1.0215943973394292
+        ],
+        "reference_point_status": "pilot_proposal_requires_review",
+        "reward_scale": [
+          0.9659120784281335,
+          0.9659120784281335,
+          0.8247459754193536
+        ]
+      },
+      "proposed_reference_point": [
+        -0.04389009065716453,
+        -0.04389009065716453,
+        -1.0215943973394292
+      ],
+      "proposed_reward_scale": [
+        0.9659120784281335,
+        0.9659120784281335,
+        0.8247459754193536
+      ],
+      "protocol": "configs/protocols/course_minecart_v0.json",
+      "protocol_sha256": "3415ac58c5e82649dfbee8c04ca92eab5c59702f3a32767901205987db25f7aa",
+      "reference_margin": [
+        0.04389009065716453,
+        0.04389009065716453,
+        0.021594397339429274
+      ],
+      "reference_strictly_dominated_by_all_pilot_returns": true,
+      "robust_scaled_span": [
+        0.8778018131432905,
+        0.8778018131432905,
+        0.43188794678858544
+      ],
+      "sample_count": 20,
+      "scaled_return_max": [
+        1.0388895746916411,
+        1.0388895746916411,
+        -0.20990660224266586
+      ],
+      "scaled_return_min": [
+        0.0,
+        0.0,
+        -0.9999999999999999
+      ],
+      "source_type": "environment_reference_front"
+    },
+    "mo-lunar-lander-v3": {
+      "absolute_return_quantile": [
+        55.82661437988281,
+        91.58753852844235,
+        61.22304229736327,
+        30.788383197784388
+      ],
+      "degenerate_objectives": [],
+      "original_return_max": [
+        9.910481452941895,
+        107.50593566894531,
+        0.0,
+        0.0
+      ],
+      "original_return_min": [
+        -61.7290153503418,
+        -208.68414306640625,
+        -66.7457046508789,
+        -50.016300201416016
+      ],
+      "proposed_protocol_patch": {
+        "reference_point": [
+          -1.15737194297178,
+          -2.3275130419645698,
+          -1.1397362011679149,
+          -1.6736955655595682
+        ],
+        "reference_point_status": "pilot_proposal_requires_review",
+        "reward_scale": [
+          0.0179126033542946,
+          0.010918515947335474,
+          0.016333719502911202,
+          0.032479782831596124
+        ]
+      },
+      "proposed_reference_point": [
+        -1.15737194297178,
+        -2.3275130419645698,
+        -1.1397362011679149,
+        -1.6736955655595682
+      ],
+      "proposed_reward_scale": [
+        0.0179126033542946,
+        0.010918515947335474,
+        0.016333719502911202,
+        0.032479782831596124
+      ],
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "protocol_sha256": "e27a7ed6fe77c899977c76b65a9b59fa8c02bdbb5b25230f06e2a10b7295d2b3",
+      "reference_margin": [
+        0.05164457554994454,
+        0.04899189793797535,
+        0.04953058337630315,
+        0.049176996977658594
+      ],
+      "reference_strictly_dominated_by_all_pilot_returns": true,
+      "robust_scaled_span": [
+        1.0328915109988908,
+        0.979837958759507,
+        0.990611667526063,
+        0.9835399395531718
+      ],
+      "sample_count": 480,
+      "scaled_return_max": [
+        0.1775225233166414,
+        1.173805273034601,
+        0.0,
+        0.0
+      ],
+      "scaled_return_min": [
+        -1.1057273674218353,
+        -2.2785211440265942,
+        -1.0902056177916117,
+        -1.6245185685819097
+      ],
+      "source_type": "validation_pilot"
+    }
+  },
+  "kind": "pilot_calibration_proposal",
+  "manifest": "artifacts/pilot-calibration-v2/pilot_manifest.json",
+  "manifest_sha256": "db1f2ee9b16830b5083c6427c2ae51e5a4637fb9b1590111026b9c3fa40496cf",
+  "plan": "configs/pilots/calibration_v2.json",
+  "plan_sha256": "0cf0ce2a14e5c8781628ff5cd972ecdd69ef80d9f855c47aa9e283ee3bd3e9ba",
+  "provenance": {
+    "config": {
+      "manifest": "artifacts/pilot-calibration-v2/pilot_manifest.json",
+      "output": "research/calibration/course_calibration_v2_proposal.json",
+      "plan": "configs/pilots/calibration_v2.json"
+    },
+    "config_sha256": "df64b5cc95e72f68ac65059ab694a1c9edb3a4d10fa131e5d81aede9080a5abb",
+    "dependencies": {
+      "gymnasium": "1.4.0",
+      "mo-gymnasium": "1.3.2",
+      "morl-baselines": "1.3.0",
+      "numpy": "2.4.6",
+      "pymoo": "0.6.2",
+      "scipy": "1.17.1",
+      "torch": "2.14.1+cpu"
+    },
+    "git_commit": "8b9786c5083d293f49a3b758e7d4176079416c96",
+    "git_dirty": true,
+    "platform": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+    "python": "3.11.17"
+  },
+  "schema_version": 1,
+  "source_artifacts": [
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "evaluation_seed": 570000,
+      "path": "artifacts/pilot-calibration-v2/evaluations/mo-lunar-lander-v3_seed20261103.json",
+      "sha256": "a7d1a99dd0a4144332f319caf6822e56892a5fd89a09b21607f5d890348bb1f4",
+      "source_type": "validation_pilot",
+      "training_seed": 20261103
+    },
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "evaluation_seed": 580000,
+      "path": "artifacts/pilot-calibration-v2/evaluations/mo-lunar-lander-v3_seed20261104.json",
+      "sha256": "4816378fae90d190cb9f96c243f573ab99b8a00aedba52f5c9bb4e94e2a7e64c",
+      "source_type": "validation_pilot",
+      "training_seed": 20261104
+    },
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "evaluation_seed": 590000,
+      "path": "artifacts/pilot-calibration-v2/evaluations/mo-lunar-lander-v3_seed20261105.json",
+      "sha256": "e98a32da7d6475a6599c4980389af99a01d19202460c480baabd309e13a7b0f8",
+      "source_type": "validation_pilot",
+      "training_seed": 20261105
+    },
+    {
+      "env_id": "minecart-v0",
+      "path": "research/calibration/minecart_v0_gamma099_reference_front.json",
+      "sha256": "f4e48133776af48389a6b31272826887f305b72047ef737378334813803613b9",
+      "source_type": "environment_reference_front"
+    }
+  ],
+  "status": "review_required"
+}
