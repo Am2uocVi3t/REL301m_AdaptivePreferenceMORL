@@ -31,6 +31,12 @@ On 2026-10-17 the user authorized the separately reviewed F1 successful-episode 
 
 ## Operating rules
 
+The separate F1 replay screen is implemented and qualified for bounded launch
+on PR #6 (214 tests, same-family provisional code review, completed-episode
+sanity). Phase 4 remains active; F1 empirical evidence is pending. Live execution
+status resides under `artifacts/minecart-pcqn-replay-f1/` and must be checked
+before any resumption.
+
 - Inspect the live state with `python scripts/research_harness.py roadmap list` and `status`.
 - Change phase/deliverable status only when the registered evidence exists.
 - Keep future phase evidence empty until it is generated; planned work is not evidence.

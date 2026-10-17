@@ -134,6 +134,112 @@ def test_uniform_replay_keeps_unit_importance_weights():
     assert np.array_equal(replay.sampling_probabilities(), np.array([0.5, 0.5]))
 
 
+def _add_trajectory(replay: VectorReplayBuffer, trajectory_id: int, preference: np.ndarray, count: int = 2):
+    return [
+        replay.add(
+            np.array([float(index)]),
+            index % 2,
+            np.array([1.0, 0.0, -0.1]),
+            np.array([float(index + 1)]),
+            False,
+            index == count - 1,
+            preference,
+            bootstrap_mask=np.ones(replay.num_heads, dtype=np.float32),
+            trajectory_id=trajectory_id,
+        )
+        for index in range(count)
+    ]
+
+
+def test_successful_trajectory_projection_stratification_and_relabeling():
+    replay = VectorReplayBuffer(20, 1, 2, 3, seed=5)
+    behavior = np.array([1 / 3, 1 / 3, 1 / 3], dtype=np.float32)
+    handles = _add_trajectory(replay, 7, behavior)
+    episode_return = np.array([2.0, 1.0, -1.0], dtype=np.float32)
+    continuous = np.logaddexp(0.0, episode_return)
+    continuous /= continuous.sum()
+    pool = np.stack((continuous, np.array([0.0, 0.0, 1.0])))
+
+    result = replay.complete_trajectory(handles, 7, episode_return, pool)
+    batch = replay.sample(64, successful_fraction=0.5, relabel_success=True)
+
+    assert result["eligible"] is True
+    assert result["projected_pool_index"] == 0
+    assert torch.count_nonzero(batch.sample_origins).item() == 32
+    expected = torch.tensor(continuous, dtype=torch.float32).repeat(64, 1)
+    assert torch.allclose(batch.effective_preferences, expected)
+    audit = replay.replay_audit()
+    assert audit["success_positions_requested"] == 32
+    assert audit["success_positions_sampled"] == 32
+    assert audit["fallback_positions"] == 0
+    assert audit["relabel_attempt_positions"] == 64
+    assert audit["relabel_changed_positions"] == 64
+
+
+def test_success_stratum_falls_back_and_partial_episode_is_never_eligible():
+    replay = VectorReplayBuffer(10, 1, 2, 3, seed=6)
+    preference = np.array([0.5, 0.5, 0.0], dtype=np.float32)
+    _add_trajectory(replay, 3, preference)
+
+    batch = replay.sample(64, successful_fraction=0.5, relabel_success=True)
+
+    assert torch.count_nonzero(batch.sample_origins).item() == 0
+    assert torch.allclose(batch.effective_preferences, batch.behavior_preferences)
+    assert replay.replay_audit()["fallback_positions"] == 32
+
+
+def test_generation_guard_rejects_overwritten_trajectory_handles():
+    replay = VectorReplayBuffer(1, 1, 2, 3, seed=7)
+    preference = np.array([0.5, 0.5, 0.0], dtype=np.float32)
+    stale = _add_trajectory(replay, 1, preference, count=1)
+    _add_trajectory(replay, 2, preference, count=1)
+
+    with pytest.raises(ValueError, match="stale or mismatched"):
+        replay.complete_trajectory(stale, 1, np.array([1.0, 0.0, -1.0]), np.array([[0.5, 0.5, 0.0]]))
+
+
+def test_uniform_sampling_does_not_advance_bootstrap_rng():
+    preference = np.array([0.5, 0.5], dtype=np.float32)
+    first = VectorReplayBuffer(10, 1, 2, 2, seed=8)
+    second = VectorReplayBuffer(10, 1, 2, 2, seed=8)
+    first.add(np.zeros(1), 0, np.zeros(2), np.ones(1), False, False, preference)
+    second.add(np.zeros(1), 0, np.zeros(2), np.ones(1), False, False, preference)
+    first.sample(4)
+    first.add(np.ones(1), 1, np.zeros(2), np.zeros(1), False, False, preference)
+    second.add(np.ones(1), 1, np.zeros(2), np.zeros(1), False, False, preference)
+
+    assert np.array_equal(first.bootstrap_masks[1], second.bootstrap_masks[1])
+
+
+@pytest.mark.parametrize("stratify,relabel", [(False, False), (True, False), (False, True), (True, True)])
+def test_all_replay_cells_keep_rewards_masks_and_behavior_preferences(stratify, relabel):
+    replay = VectorReplayBuffer(20, 1, 2, 3, seed=20)
+    preference = np.array([0.0, 0.0, 1.0], dtype=np.float32)
+    handles = _add_trajectory(replay, 0, preference)
+    replay.complete_trajectory(handles, 0, np.array([2.0, 0.0, -1.0]), np.array([[1.0, 0.0, 0.0]]))
+    batch = replay.sample(64, successful_fraction=0.5 if stratify else 0.0, relabel_success=relabel)
+    assert int(batch.sample_origins.sum()) == (32 if stratify else 0)
+    assert torch.equal(batch.rewards, torch.tensor([[1.0, 0.0, -0.1]]).repeat(64, 1))
+    assert torch.equal(batch.behavior_preferences, torch.tensor(preference).repeat(64, 1))
+    assert torch.equal(batch.bootstrap_masks, torch.ones((64, 3)))
+    expected = [1.0, 0.0, 0.0] if relabel else preference.tolist()
+    assert torch.allclose(batch.effective_preferences, torch.tensor(expected).repeat(64, 1))
+
+
+def test_cannot_finalize_partial_episode_or_use_stale_success_after_overwrite():
+    replay = VectorReplayBuffer(2, 1, 2, 3, seed=4)
+    preference = np.array([0.0, 0.0, 1.0], dtype=np.float32)
+    handle = replay.add(np.zeros(1), 0, np.zeros(3), np.ones(1), False, False, preference, trajectory_id=0)
+    with pytest.raises(ValueError, match="completed episode"):
+        replay.complete_trajectory([handle], 0, np.ones(3), np.array([[1.0, 0.0, 0.0]]))
+    handles = _add_trajectory(replay, 1, preference, count=1)
+    replay.complete_trajectory(handles, 1, np.ones(3), np.array([[1.0, 0.0, 0.0]]))
+    _add_trajectory(replay, 2, preference, count=2)
+    batch = replay.sample(64, successful_fraction=0.5, relabel_success=True)
+    assert not bool(batch.sample_origins.any())
+    assert torch.equal(batch.effective_preferences, batch.behavior_preferences)
+
+
 class FixedNetwork(VectorQNetwork):
     def __init__(self, values: torch.Tensor):
         super().__init__(

@@ -366,6 +366,7 @@ def evaluate_candidate(
             device=device,
             seed=expectation.evaluation_seed,
             discount_factor=gamma,
+            isolate_global_rng=bool(checkpoint.get("args", {}).get("isolate_evaluation_rng", False)),
         )
     finally:
         env.close()

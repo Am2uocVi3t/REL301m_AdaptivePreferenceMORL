@@ -24,6 +24,12 @@ those remain evidence-gated. Paid calls still require a separately configured
 finite batch under the documented cost ceiling, and scheduled unattended
 dispatch remains disabled.
 
+PR #6 contains the qualified F1 implementation: 214 tests, fresh same-family
+code review and a completed-episode sanity run passed. Preview with
+`python scripts/run_minecart_replay_f1.py`. The source-bound qualification record
+and a clean committed tree are required before execution. Check live job status
+at `artifacts/minecart-pcqn-replay-f1/execution_status.json` before resuming.
+
 ## Interactive presentation app (inference only)
 
 The current presentation deliverable is `outputs/REL301m_Interactive_Demo.zip`.

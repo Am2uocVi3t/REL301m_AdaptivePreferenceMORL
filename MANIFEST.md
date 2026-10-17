@@ -37,3 +37,9 @@
 | 2026-10-17 21:34 | /experiment-bridge | refine-logs/EXPERIMENT_PLAN.md | implementation | Latest authorized F1 plan |
 | 2026-10-17 21:34 | /experiment-bridge | refine-logs/EXPERIMENT_TRACKER_20261017_213408.md | implementation | Versioned F1 tracker updated to authorization-pending-PR state |
 | 2026-10-17 21:34 | /experiment-bridge | refine-logs/EXPERIMENT_TRACKER.md | implementation | Latest authorized F1 tracker |
+| 2026-10-17 22:15 | /experiment-bridge | configs/remediations/minecart_pcqn_replay_f1.json | implementation | Executable six-job paired F1 amendment with separate evaluation and retention gate |
+| 2026-10-17 22:15 | /experiment-bridge | research/qualification/minecart_pcqn_replay_f1_implementation.json | implementation | Source-bound engineering qualification: 214 tests, completed-episode sanity, same-family review |
+| 2026-10-17 22:15 | /experiment-bridge | refine-logs/EXPERIMENT_CODE_REVIEW.md | implementation | Fresh same-family review, resolved findings and provisional PASS |
+| 2026-10-17 22:15 | /experiment-bridge | idea-stage/docs/research_contract.md | implementation | Focused prospective claim and experiment contract |
+| 2026-10-17 22:15 | /experiment-bridge | refine-logs/EXPERIMENT_PLAN_20261017_221500.md | implementation | Launch-ready F1 plan snapshot |
+| 2026-10-17 22:15 | /experiment-bridge | refine-logs/EXPERIMENT_TRACKER_20261017_221500.md | implementation | Q000 complete; runtime status delegated to execution artifacts |

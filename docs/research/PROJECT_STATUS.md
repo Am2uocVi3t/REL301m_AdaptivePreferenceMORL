@@ -8,6 +8,25 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+F1 implementation qualification (2026-10-17): PR #6 is open on
+`codex/aris-full-workflow`, stacked on PR #5. The executable amendment is
+`configs/remediations/minecart_pcqn_replay_f1.json`; implementation qualification
+is recorded in `research/qualification/minecart_pcqn_replay_f1_implementation.json`.
+The complete Python 3.11 gate passed 214 tests. Fresh same-family code review
+passed after RNG isolation, strict prelaunch checks, retry rejection and replay
+audit fixes; the verdict remains provisional. A final 1,000-interaction,
+997-update completed-episode sanity under seed 9196 passed with both RNG flags.
+It used zero curriculum/validation steps and produced no eligible ore episode.
+Two documented compute witnesses were independently executed verbatim.
+
+The six-job F1 batch is ready for bounded dispatch from a clean committed tree
+after fresh quota preflight. Its live execution source is
+`artifacts/minecart-pcqn-replay-f1/execution_status.json`, with separate per-cell
+logs and `.aris/runs/aris-minecart-f1-20261017.json`. Read those and check live
+processes on resume; do not duplicate a running job or retry a partial attempt.
+Source files must stay unchanged throughout the batch. These engineering checks
+do not establish an empirical F1 result or complete the course matrix.
+
 ARIS execution authority update (2026-10-17): the user explicitly authorized
 the full foreground ARIS continuation beyond read-only analysis. The immediate
 scope is a dedicated branch and stacked review PR, a versioned F1 Minecart

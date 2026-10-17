@@ -109,3 +109,24 @@ def test_rollout_retains_raw_returns_and_uses_protocol_discount():
     )
     assert np.allclose(result["mean_returns"], [[2.0, 2.0]])
     assert np.allclose(result["raw_mean_returns"], [[3.0, 4.0]])
+
+
+def test_isolated_evaluation_reproduces_global_rng_rewards_and_preserves_training_stream():
+    class GlobalRandomEnv(TwoStepVectorRewardEnv):
+        def step(self, action):
+            observation, reward, terminated, truncated, info = super().step(action)
+            return observation, reward + np.random.random(2), terminated, truncated, info
+
+    network = VectorQNetwork(1, 1, 2, hidden_dims=(), num_heads=2)
+    np.random.seed(77)
+    expected_next = np.random.random(3)
+    np.random.seed(77)
+    first = evaluate_preferences(
+        GlobalRandomEnv(), network, np.array([[0.5, 0.5]], dtype=np.float32), 1, "cpu", 5, 0.99, isolate_global_rng=True
+    )
+    assert np.array_equal(np.random.random(3), expected_next)
+    np.random.seed(999)
+    second = evaluate_preferences(
+        GlobalRandomEnv(), network, np.array([[0.5, 0.5]], dtype=np.float32), 1, "cpu", 5, 0.99, isolate_global_rng=True
+    )
+    assert np.array_equal(first["episode_returns"], second["episode_returns"])

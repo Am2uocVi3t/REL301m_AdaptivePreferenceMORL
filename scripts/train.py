@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
+import resource
 import sys
 import time
 from pathlib import Path
@@ -43,7 +45,7 @@ from src.utils.logger import ExperimentLogger
 from src.utils.provenance import collect_provenance, write_json
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train a preference-conditioned vector DQN")
     parser.add_argument("--env", default="mo-lunar-lander-v3")
     parser.add_argument("--protocol", default="configs/protocols/course_mo_lunar_lander_v3.json")
@@ -68,6 +70,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--priority-beta-start", type=float, default=0.4)
     parser.add_argument("--priority-beta-end", type=float, default=1.0)
     parser.add_argument("--priority-epsilon", type=float, default=1e-6)
+    parser.add_argument("--successful-replay-stratification", action="store_true")
+    parser.add_argument("--successful-replay-relabel", action="store_true")
+    parser.add_argument("--isolate-evaluation-rng", action="store_true")
+    parser.add_argument("--independent-rng-streams", action="store_true")
     parser.add_argument("--bootstrap-probability", type=float, default=0.8)
     parser.add_argument("--num-heads", type=int, default=3)
     parser.add_argument("--lr", type=float, default=3e-4)
@@ -94,7 +100,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--wandb-project", default=None)
     parser.add_argument("--output-dir", default="artifacts")
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
-    return parser.parse_args()
+    return parser.parse_args(argv)
 
 
 def linear_epsilon(
@@ -151,7 +157,7 @@ def choose_update_preferences(
         "rollout_and_update",
     }
     if not uses_curriculum:
-        return batch.behavior_preferences
+        return batch.effective_preferences if args.successful_replay_relabel else batch.behavior_preferences
     sampled = sampler.sample_batch(len(batch.states))
     return torch.as_tensor(sampled, dtype=torch.float32, device=batch.states.device)
 
@@ -218,6 +224,7 @@ def update_curriculum(
         device=args.device,
         seed=args.eval_seed + 1_000_000,
         discount_factor=args.gamma,
+        isolate_global_rng=args.isolate_evaluation_rng,
     )
     current_returns = rollout["mean_returns"]
     current_utilities = np.sum(current_returns * sampler.pool, axis=1)
@@ -278,6 +285,7 @@ def validation_metrics(
         device=args.device,
         seed=args.eval_seed,
         discount_factor=args.gamma,
+        isolate_global_rng=args.isolate_evaluation_rng,
     )
     frontier = pareto_prune(rollout["mean_returns"])
     metrics: dict[str, float | int | None] = {
@@ -299,6 +307,7 @@ def save_checkpoint(
     args: argparse.Namespace,
     protocol: dict[str, Any],
     counters: dict[str, int],
+    replay_audit: dict[str, float | int],
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     torch.save(
@@ -319,6 +328,7 @@ def save_checkpoint(
             "protocol": protocol,
             "protocol_sha256": protocol_hash(protocol),
             "counters": counters,
+            "replay_audit": replay_audit,
             "provenance": collect_provenance(vars(args)),
         },
         path,
@@ -335,13 +345,31 @@ def main() -> None:
         raise ValueError("Protocol must explicitly define discounted returns")
     if not np.isclose(float(return_definition.get("gamma")), args.gamma):
         raise ValueError("Training gamma must match protocol return_definition.gamma")
+    if (args.successful_replay_stratification or args.successful_replay_relabel) and args.algo != "uniform-pcqn":
+        raise ValueError("Successful-episode replay is qualified only for uniform-pcqn")
+    if args.successful_replay_stratification and args.replay_sampling != "uniform":
+        raise ValueError("Successful-episode stratification requires uniform base replay")
     pool_spec = protocol.get("training_preference_pool", {})
     args.pool_size = resolve_training_pool_size(protocol, args.pool_size)
     preference_pool_seed = int(pool_spec.get("seed", 20261001))
 
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
-    rng = np.random.default_rng(args.seed)
+    role_seeds = (
+        {
+            name: int(np.random.SeedSequence([args.seed, tag]).generate_state(1)[0])
+            for name, tag in (("exploration", 4), ("action_space", 5), ("rollout_preference", 6))
+        }
+        if args.independent_rng_streams
+        else dict.fromkeys(("exploration", "action_space", "rollout_preference"), args.seed)
+    )
+    args.rng_streams = role_seeds | {
+        "uniform_replay": args.seed,
+        "bootstrap_tag": 1,
+        "success_tag": 2,
+        "diagnostic_tag": 3,
+    }
+    rng = np.random.default_rng(role_seeds["exploration"])
     output_dir = Path(args.output_dir) / f"{args.algo}_{args.env}_seed{args.seed}"
     output_dir.mkdir(parents=True, exist_ok=True)
     write_json(
@@ -351,6 +379,7 @@ def main() -> None:
 
     reward_scale = resolve_reward_scale(protocol)
     train_env = make_mo_env(args.env, seed=args.seed, reward_scale=reward_scale)
+    train_env.action_space.seed(role_seeds["action_space"])
     validation_env = make_mo_env(args.env, seed=args.eval_seed, reward_scale=reward_scale)
     curriculum_env = make_mo_env(args.env, seed=args.eval_seed + 1, reward_scale=reward_scale)
 
@@ -401,7 +430,7 @@ def main() -> None:
         temperature=args.temperature,
         uniform_floor=args.uniform_floor,
         locality_bandwidth=args.locality_bandwidth,
-        seed=args.seed,
+        seed=role_seeds["rollout_preference"],
         pool_seed=preference_pool_seed,
     )
     logger = ExperimentLogger(
@@ -433,6 +462,8 @@ def main() -> None:
         episode_length = 0
         episode_discount = 1.0
         terminated = truncated = False
+        trajectory_handles = []
+        trajectory_id = episodes
 
         while not (terminated or truncated) and step < args.total_timesteps:
             epsilon = linear_epsilon(
@@ -451,14 +482,17 @@ def main() -> None:
 
             next_observation, reward, terminated, truncated, _ = train_env.step(action)
             reward_vector = np.asarray(reward, dtype=np.float32)
-            replay_buffer.add(
-                observation,
-                action,
-                reward_vector,
-                next_observation,
-                terminated,
-                truncated,
-                behavior_preference,
+            trajectory_handles.append(
+                replay_buffer.add(
+                    observation,
+                    action,
+                    reward_vector,
+                    next_observation,
+                    terminated,
+                    truncated,
+                    behavior_preference,
+                    trajectory_id=trajectory_id,
+                )
             )
             observation = next_observation
             raw_episode_return += reward_vector
@@ -467,6 +501,22 @@ def main() -> None:
             episode_length += 1
             step += 1
 
+            if (terminated or truncated) and args.env == "minecart-v0":
+                episode_metadata = replay_buffer.complete_trajectory(
+                    trajectory_handles, trajectory_id, episode_return, sampler.pool, ore_objective_indices=(0, 1)
+                )
+                episode_metadata.update(
+                    {
+                        "step": step,
+                        "terminated": bool(terminated),
+                        "truncated": bool(truncated),
+                        "raw_return": (raw_episode_return / reward_scale).tolist(),
+                        "behavior_preference": behavior_preference.tolist(),
+                    }
+                )
+                with (output_dir / "trajectory_metadata.jsonl").open("a", encoding="utf-8") as trajectory_file:
+                    trajectory_file.write(json.dumps(episode_metadata) + "\n")
+
             if step >= args.learning_starts and step % args.train_freq == 0:
                 beta = linear_priority_beta(
                     gradient_updates,
@@ -474,7 +524,12 @@ def main() -> None:
                     args.priority_beta_start,
                     args.priority_beta_end,
                 )
-                batch = replay_buffer.sample(args.batch_size, beta=beta)
+                batch = replay_buffer.sample(
+                    args.batch_size,
+                    beta=beta,
+                    successful_fraction=0.5 if args.successful_replay_stratification else 0.0,
+                    relabel_success=args.successful_replay_relabel,
+                )
                 update_preferences = choose_update_preferences(args, batch, sampler)
                 loss, priority_td_errors = update_network(
                     q_network,
@@ -490,6 +545,8 @@ def main() -> None:
                 gradient_updates += 1
                 if gradient_updates % 100 == 0:
                     logger.log({"train/loss": loss, "train/epsilon": epsilon}, step)
+                if gradient_updates % 10_000 == 0:
+                    logger.log({f"replay/{key}": value for key, value in replay_buffer.replay_audit().items()}, step)
 
             if step % args.target_update_freq == 0:
                 q_network.update_target(target_network)
@@ -539,14 +596,15 @@ def main() -> None:
                     args,
                     protocol,
                     counters,
+                    replay_buffer.replay_audit(),
                 )
 
-        episodes += 1
         if terminated or truncated:
             archive.add(
                 episode_return,
                 {"step": step, "preference": behavior_preference.tolist()},
             )
+        episodes += 1
         logger.log(
             {
                 "episode/length": episode_length,
@@ -567,7 +625,29 @@ def main() -> None:
         "validation_evaluation_steps": validation_evaluation_steps,
     }
     final_path = output_dir / "final.pt"
-    save_checkpoint(final_path, step, q_network, optimizer, archive, args, protocol, counters)
+    write_json(output_dir / "replay_histograms.json", replay_buffer.replay_histograms())
+    save_checkpoint(
+        final_path,
+        step,
+        q_network,
+        optimizer,
+        archive,
+        args,
+        protocol,
+        counters,
+        replay_buffer.replay_audit(),
+    )
+    write_json(
+        output_dir / "resource_usage.json",
+        {
+            "schema_version": 1,
+            "wall_seconds": time.time() - started_at,
+            "peak_rss_kib": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss),
+            "final_checkpoint_bytes": final_path.stat().st_size,
+            "training_interactions": step,
+            "gradient_updates": gradient_updates,
+        },
+    )
     print(f"Training complete: {final_path.resolve()}")
 
     logger.finish()

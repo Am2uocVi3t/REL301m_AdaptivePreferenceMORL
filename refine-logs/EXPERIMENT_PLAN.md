@@ -100,9 +100,9 @@ replay novelty, establish publication-level performance, or unlock final test.
 
 | Milestone | Goal | Runs | Decision gate | Cost | Current status |
 |---|---|---:|---|---|---|
-| M0 | Record authority and create stacked review PR | 0 | PR exists with versioned amendment plan | none | AUTHORIZED_IN_PROGRESS |
-| M1 | Implement and qualify B0 | 0 training | Deterministic/code/source review pass | resource estimate required | AUTHORIZED_PENDING_PR |
-| M2 | Execute F1 B1 | 6 | exact completion, then B2 | 6M interactions + 5,970,006 updates | WAITING_M1 |
+| M0 | Record authority and create stacked review PR | 0 | PR exists with versioned amendment plan | none | COMPLETE — PR #6 |
+| M1 | Implement and qualify B0 | 0 training | Deterministic/code/source review pass | measured sanity resources recorded | COMPLETE — 214 tests, reviewer PASS |
+| M2 | Execute F1 B1 | 6 | exact completion, then B2 | 6M interactions + 5,970,006 updates | READY_TO_DISPATCH — inspect live execution status |
 | M3 | Audit and retention decision | 0 training | all A1R1 seeds retained or stop | validation separately accounted | WAITING_F1 |
 | M4 | Conditional F2 B3 | 6 | exploratory decomposition then stop | additional 6M + 5,970,006 | CONDITIONAL_F1_PASS |
 | M5 | Result-to-claim review | 0 training | evidence-bounded verdict | cross-family review desired | WAITING_EVIDENCE |
@@ -137,7 +137,7 @@ replay novelty, establish publication-level performance, or unlock final test.
 - [x] Uniform, sampling-only, relabel-only, and full cells are defined.
 - [x] All-seeds and retention rules are frozen at proposal level.
 - [x] User/supervisor authority `aris-full-workflow-20261017` exists.
-- [ ] Versioned executable amendment exists.
-- [ ] Measured resource estimate exists.
-- [ ] Implementation/source review passes.
+- [x] Versioned executable amendment exists.
+- [x] Measured resource estimate exists (v2 full-run wall/storage plus F1 sanity peak RSS; full runs retain per-run measurements).
+- [x] Implementation/source review passes (same-family provisional; qualification recorded separately from empirical claims).
 

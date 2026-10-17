@@ -48,6 +48,16 @@
       "notes": "Executed after explicit user authorization on clean commit 25328e8. All three seeds completed 1,000,000 interactions and 995,001 updates each. Source audit passed 30 checkpoints; independent nominal-validation audit retained 4,800 episodes / 4,710,905 steps. All 30 checkpoints had zero ore in raw and discounted returns. All selected checkpoints were step 1M with 0/160 positive episodes and zero distinct positive values per ore objective; unchanged all-seeds qualification failed. Backbone-only evidence, not a course comparison. Completed-job training cost is 3M interactions plus at least 27,044 logged interactions from a preserved interrupted seed11 attempt; exact unflushed expenditure unknown. Stop current-scope remediation; v3/scope changes need supervisor approval. Matrix v1, checkpoint locking, revised course execution and final test remain blocked.",
       "created_at": "2026-10-16T17:08:44+00:00",
       "updated_at": "2026-10-17T07:52:56+00:00"
+    },
+    {
+      "id": "minecart-pcqn-replay-f1",
+      "title": "Minecart successful-episode replay paired F1 feasibility screen",
+      "status": "planned",
+      "protocol": "configs/remediations/minecart_pcqn_replay_f1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "",
+      "created_at": "2026-10-17T14:58:55+00:00"
     }
   ]
 }

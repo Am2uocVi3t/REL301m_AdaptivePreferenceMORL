@@ -7,7 +7,7 @@ themselves.
 
 | Run ID | Milestone | Purpose | Cell | Seed | Split | Priority | Status | Notes |
 |---|---|---|---|---:|---|---|---|---|
-| Q000 | M1 | deterministic contract qualification | 2x2 fixtures | — | synthetic | MUST | AUTHORIZED_PENDING_PR | no environment rollout |
+| Q000 | M1 | deterministic contract qualification | 2x2 fixtures | — | synthetic | MUST | COMPLETE | 214 tests, completed-episode sanity and same-family code-review PASS |
 | F1-01 | M2 | paired baseline | A0R0 | 20264021 | train+validation | MUST | WAITING_Q000 | final test forbidden |
 | F1-02 | M2 | paired full intervention | A1R1 | 20264021 | train+validation | MUST | WAITING_Q000 | final test forbidden |
 | F1-03 | M2 | paired baseline | A0R0 | 20264022 | train+validation | MUST | WAITING_Q000 | final test forbidden |
@@ -22,4 +22,10 @@ themselves.
 | F2-05 | M4 | sampling-only decomposition | A1R0 | 20264023 | train+validation | CONDITIONAL | CONDITIONAL_F1_PASS | only after all A1R1 retention passes |
 | F2-06 | M4 | relabel-only decomposition | A0R1 | 20264023 | train+validation | CONDITIONAL | CONDITIONAL_F1_PASS | selection-conditioned |
 | AUD-2 | M5 | result-to-claim and cross-family review | all | — | artifacts | CONDITIONAL | WAITING_EVIDENCE | no final-test unlock implied |
+
+Q000 is complete. F1 rows are cleared for the bounded six-job dispatch after
+fresh quota and clean-tree checks. Runtime progress is authoritative in
+`artifacts/minecart-pcqn-replay-f1/execution_status.json`; do not change tracked
+files while that batch runs, because checkpoint provenance requires a clean
+execution commit. Reconcile these rows after the batch finishes.
 

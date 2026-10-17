@@ -596,7 +596,7 @@ def _validate_qualification_run_config(
         "device": "cpu",
     }
     intervention = plan.get("intervention")
-    if isinstance(intervention, dict):
+    if isinstance(intervention, dict) and intervention.get("name") == "proportional_prioritized_experience_replay":
         expected.update(
             {
                 "replay_sampling": "prioritized",
@@ -606,10 +606,40 @@ def _validate_qualification_run_config(
                 "priority_epsilon": intervention["priority_epsilon"],
             }
         )
+    elif isinstance(intervention, dict) and intervention.get("name") == (
+        "successful_episode_stratified_hindsight_preference_replay"
+    ):
+        cell = str(job.get("cell", ""))
+        cells = _mapping(qualification.get("cells"), "qualification cells")
+        cell_contract = _mapping(cells.get(cell), f"qualification cell {cell}")
+        expected.update(
+            {
+                "replay_sampling": "uniform",
+                "successful_replay_stratification": cell_contract.get("stratification"),
+                "successful_replay_relabel": cell_contract.get("relabel"),
+                "isolate_evaluation_rng": True,
+                "independent_rng_streams": True,
+                "gap_weight": 0.25,
+                "uncertainty_weight": 0.25,
+                "coverage_weight": 0.25,
+                "progress_weight": 0.25,
+                "geometry_weight": 0.0,
+                "temperature": 0.2,
+                "uniform_floor": 0.2,
+                "locality_bandwidth": 0.2,
+                "wandb_project": None,
+                "output_dir": str(qualification["output_root"]) + "/" + cell,
+            }
+        )
     for key, expected_value in expected.items():
         actual = config.get(key)
         if isinstance(expected_value, (int, float)) and not isinstance(expected_value, bool):
-            if not isinstance(actual, (int, float)) or not np.isclose(float(actual), float(expected_value)):
+            strict_f1 = isinstance(intervention, dict) and intervention.get("name") == (
+                "successful_episode_stratified_hindsight_preference_replay"
+            )
+            if not isinstance(actual, (int, float)) or (
+                actual != expected_value if strict_f1 else not np.isclose(float(actual), float(expected_value))
+            ):
                 raise RemediationError(f"Run config {key} mismatch for {job['job_id']}")
         elif actual != expected_value:
             raise RemediationError(f"Run config {key} mismatch for {job['job_id']}")

@@ -97,6 +97,22 @@ After a failed primary validation gate, `scripts/execute_course_matrix.py` also 
 
 `scripts/run_minecart_remediation.py` is the separate remediation execution and audit boundary. It defaults to v2, renders only the three plan seeds, previews by default, requires Python 3.11 plus a clean committed worktree for execution, and records atomic job status bound to the plan hash and execution commit. Its loader hash-binds the failed v1 qualification and v1 behavior diagnosis. Its auditor additionally verifies the exact PER arguments, run manifests, periodic checkpoints, budget counters, protocol hashes, and validation curves before independently reproducing raw validation returns. The resulting qualification artifact can authorize design of a new study after an all-seed pass, but it cannot unlock matrix v1 or final-test access. V1 remains reproducible through an explicit `--plan` argument.
 
+The user-authorized F1 replay feasibility amendment is a distinct validation-only
+path in `configs/remediations/minecart_pcqn_replay_f1.json`; it does not mutate
+v1/v2 or the course matrix. `VectorReplayBuffer` can retain immutable trajectory
+IDs and generation-safe handles, finalize only complete episodes, project the
+episode-level `softplus(G)` label to the frozen preference pool, and draw a fixed
+success/uniform mixture with separate deterministic RNG streams. The effective
+preference is supplied to the unchanged current/next/target Q computations while
+the vector reward and termination record remain immutable. A0R0 leaves both
+features off; A1R1 enables both. `scripts/run_minecart_replay_f1.py` previews by
+default and requires exact plan acknowledgement, explicit seed/cell selectors,
+Python 3.11, a clean committed tree, and bounded job count for execution. Its
+source audit binds all six jobs, 60 checkpoints, replay manipulation counters,
+resource records, validation tensors and the early three-checkpoint retention
+rule. Even an F1 pass only makes the separately authorized F2 decision eligible;
+it never unlocks matrix v1, checkpoint locking, or final test.
+
 ## Pilot calibration contract
 
 Calibration v1 is retained as a failed, informative attempt: its learner-derived Minecart returns were degenerate. ADR-003 and `configs/pilots/calibration_v2.json` define the accepted source-aware rule. Environments with an audited deterministic reference-front capability use a versioned geometry artifact; environments without one use independent Uniform-PCQN validation pilots sampled from the shared fixed protocol pool. `scripts/run_pilot_calibration.py` renders only the validation-pilot jobs, while `scripts/extract_reference_front.py` reproduces the declared geometry source. Final-test artifacts are rejected.
@@ -111,8 +127,9 @@ The three enabled LunarLander shifts passed controlled nominal-versus-shift acti
 
 ## Public interfaces
 
-- `VectorReplayBuffer.add(..., terminated, truncated, behavior_preference, bootstrap_mask=None)`
-- `VectorReplayBuffer.sample(batch_size, beta=1.0)`, `.sampling_probabilities()`, and `.update_priorities(indices, td_errors)`
+- `VectorReplayBuffer.add(..., terminated, truncated, behavior_preference, bootstrap_mask=None, trajectory_id=-1)`
+- `VectorReplayBuffer.complete_trajectory(handles, trajectory_id, discounted_return, preference_pool, ore_objective_indices=(0, 1))`
+- `VectorReplayBuffer.sample(batch_size, beta=1.0, successful_fraction=0.0, relabel_success=False)`, `.sampling_probabilities()`, `.replay_audit()`, and `.update_priorities(indices, td_errors)`
 - `compute_double_dqn_targets(...)`
 - `masked_bootstrap_loss(...)`
 - `masked_mean_absolute_td_error(...)` and `weighted_masked_huber_loss(...)`

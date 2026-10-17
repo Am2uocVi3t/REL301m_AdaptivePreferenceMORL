@@ -69,7 +69,7 @@ skill reasoning floors; use actual configured models in traces, not assumed alia
 - W3: draft background/methods and course report now; final paper needs evidence
   gates and a confirmed template/venue, not invented results.
 - W4–W6: rebuttal/resubmission/talk only when applicable and authorized.
-- Demo: local interface plus backup video; planned, not implemented. No final-test tuning.
+- Demo: the frozen-checkpoint interactive app is implemented; see the current presentation app in README.
 
 ## Preflight and resume
 
@@ -104,6 +104,12 @@ Record actual executor at run creation; do **not** enable `--provisional-advance
 Only a recorded deterministic mechanical check or independently traced
 cross-family verdict may accept its appropriate gate. The research harness
 alone owns phases/claims. Do not retroactively accept W1–W3.
+The distinct user-authorized F1 execution run records implementation checks and
+same-family code review separately. Its review stays provisional; local training
+is authorized by the explicit F1 authority and source-bound qualification, not by
+promoting that verdict to scientific acceptance. On resume, inspect live F1
+execution status before interpreting the run helper's first outstanding review
+obligation; never re-dispatch work already running or complete.
 Use one orchestrator per run; upstream locks are best-effort, not distributed scheduling.
 
 Before each dispatch and after each task, persist task state, artifacts/traces,

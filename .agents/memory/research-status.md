@@ -15,6 +15,11 @@ updated: 2026-10-17
 
 ## Current phase
 
+- F1 implementation is qualified for bounded launch on PR #6: 214 tests,
+  same-family provisional code review, and completed-episode sanity pass.
+  Inspect `artifacts/minecart-pcqn-replay-f1/execution_status.json` and live
+  processes before resuming. Keep the execution tree clean throughout the batch.
+
 - Phases 0–3 are complete; Phase 4 is active. The 30-job primary PCQN block and its validation re-evaluation are complete, but Minecart degeneracy blocks checkpoint locking and the remaining 120 jobs.
 - The defensible contribution is a controlled study of which preference-allocation signals identify hard, uncertain, or learnable regions.
 - No multi-seed course result or publication-level empirical claim has been established yet.

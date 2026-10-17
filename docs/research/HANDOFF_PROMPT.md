@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-17T14:39:05+00:00
+Snapshot generated: 2026-10-17T14:59:22+00:00
 Expected working branch at generation: codex/aris-full-workflow
-Expected commit at generation: 25328e8
+Expected commit at generation: aba3f91
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -78,17 +78,17 @@ Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 - minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
+- minecart-pcqn-replay-f1 [planned]: Minecart successful-episode replay paired F1 feasibility screen
 
 Open blockers:
 - Minecart v2 failed the frozen all-seeds qualification with zero ore at all 30 checkpoints. Authorization aris-full-workflow-20261017 now permits a separately versioned F1 successful-episode replay scope/protocol amendment, implementation, deterministic qualification, and six paired local training/nominal-validation runs. F2, matrix v1, checkpoint locking, revised course execution, and final test remain blocked until the declared F1 all-seeds retention and source-audit gate passes and the relevant explicit unlock is recorded.
 
 Latest closed-session summary:
-Ran a bounded ARIS offline continuation with fresh quota/preflight. Reused existing literature and Minecart evidence, produced a corrected successful-episode-stratified HPR-style proposal, completed three traced same-family review rounds ending at 9.10 READY/provisional, wrote a blocked 6+6 staged experiment plan/tracker and narrative HTML, and persisted the ARIS run at idea-discovery provisional. No implementation, training, rollout, final test, paid review, commit, push, or submission occurred.
+Qualified the authorized F1 replay implementation after fresh same-family review and concrete fixes for RNG isolation, exact prelaunch validation, retry ambiguity, replay runtime costs and audit accounting. The full Python 3.11 gate passes 214 tests; final completed-episode sanity seed9196 ran 1000 interactions and 997 updates with no evaluation. PR6 exists and is mergeable. Six F1 jobs are ready for bounded launch after committing these records and fresh quota preflight; no F1 empirical result exists yet.
 
 Next actions:
-1. Commit and publish the versioned ARIS authority/policy update as a stacked review PR based on feature/ai-research-harness.
-2. Implement and deterministically qualify the F1 successful-episode replay amendment, obtain same-family code/scientific review, then run only the six authorized paired local training and nominal-validation jobs with fresh preflight evidence.
-3. Keep F2, matrix v1, checkpoint locking, final test, paid review, unattended dispatch, and submission blocked until their separately documented gates pass.
+1. Inspect artifacts/minecart-pcqn-replay-f1/execution_status.json, per-cell logs and live processes before any dispatch. If the bounded batch is running, monitor it; never duplicate or automatically retry a partial attempt. Keep tracked sources unchanged until completion.
+2. After all six jobs finish, run the source-bound nominal-validation audit and retention decision, then synchronize the experiment registry, tracker, claims and handoff. F2 and final-test access require their recorded evidence gates.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

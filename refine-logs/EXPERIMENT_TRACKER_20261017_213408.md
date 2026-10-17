@@ -7,7 +7,7 @@ themselves.
 
 | Run ID | Milestone | Purpose | Cell | Seed | Split | Priority | Status | Notes |
 |---|---|---|---|---:|---|---|---|---|
-| Q000 | M1 | deterministic contract qualification | 2x2 fixtures | — | synthetic | MUST | AUTHORIZED_PENDING_PR | no environment rollout |
+| Q000 | M1 | deterministic contract qualification | 2x2 fixtures | — | synthetic | MUST | REVIEW_PENDING | 204 tests + 20-step non-evidence sanity pass; fresh-agent review required |
 | F1-01 | M2 | paired baseline | A0R0 | 20264021 | train+validation | MUST | WAITING_Q000 | final test forbidden |
 | F1-02 | M2 | paired full intervention | A1R1 | 20264021 | train+validation | MUST | WAITING_Q000 | final test forbidden |
 | F1-03 | M2 | paired baseline | A0R0 | 20264022 | train+validation | MUST | WAITING_Q000 | final test forbidden |

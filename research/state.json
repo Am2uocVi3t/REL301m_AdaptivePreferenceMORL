@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/aris-full-workflow",
-  "updated_at": "2026-10-17T15:10:00+00:00",
+  "updated_at": "2026-10-17T14:59:22+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,8 @@
     }
   ],
   "next_actions": [
-    "Commit and publish the versioned ARIS authority/policy update as a stacked review PR based on feature/ai-research-harness.",
-    "Implement and deterministically qualify the F1 successful-episode replay amendment, obtain same-family code/scientific review, then run only the six authorized paired local training and nominal-validation jobs with fresh preflight evidence.",
-    "Keep F2, matrix v1, checkpoint locking, final test, paid review, unattended dispatch, and submission blocked until their separately documented gates pass."
+    "Inspect artifacts/minecart-pcqn-replay-f1/execution_status.json, per-cell logs and live processes before any dispatch. If the bounded batch is running, monitor it; never duplicate or automatically retry a partial attempt. Keep tracked sources unchanged until completion.",
+    "After all six jobs finish, run the source-bound nominal-validation audit and retention decision, then synchronize the experiment registry, tracker, claims and handoff. F2 and final-test access require their recorded evidence gates."
   ],
-  "last_session_summary": "User authorization aris-full-workflow-20261017 resolved the F1 scope/protocol/training authority blocker. Documentation and machine policy are being updated on codex/aris-full-workflow before a stacked review PR; no F1 implementation or training has started yet. Scientific final-test, checkpoint-lock, paid-review, unattended-dispatch, and submission gates remain in force."
+  "last_session_summary": "Qualified the authorized F1 replay implementation after fresh same-family review and concrete fixes for RNG isolation, exact prelaunch validation, retry ambiguity, replay runtime costs and audit accounting. The full Python 3.11 gate passes 214 tests; final completed-episode sanity seed9196 ran 1000 interactions and 997 updates with no evaluation. PR6 exists and is mergeable. Six F1 jobs are ready for bounded launch after committing these records and fresh quota preflight; no F1 empirical result exists yet."
 }
