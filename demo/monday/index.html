@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="REL301m: báo cáo tiến độ và minh họa offline từ bằng chứng hiện có.">
+<title>REL301m | Gói review thứ Hai</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<a class="skip" href="#main">Đến nội dung chính</a>
+<header><a class="brand" href="#main">REL301m <span>RESEARCH NOTEBOOK</span></a>
+<nav aria-label="Nội dung"><a href="#results">Kết quả thật</a><a href="#illustration">Minh họa</a><a href="#monday">Thứ Hai</a></nav></header>
+<main id="main">
+<section class="intro"><div><p class="eyebrow">TEAM REVIEW · 19.10.2026</p>
+<h1>Đã xây dựng được gì?<br>Chưa chứng minh được gì?</h1>
+<p class="lead">Preference allocation trong MORL: pipeline đã triển khai; qualification Minecart v2 thất bại. Đây là báo cáo tiến độ, chưa phải kết quả so sánh thuật toán.</p>
+<div class="actions"><a class="button" href="REL301m_Progress_Report.pdf">Đọc báo cáo PDF</a><a class="button secondary" href="Huong_dan_nhom.pdf">Hướng dẫn nhóm</a><a href="video_tom_tat.mp4">Video dự phòng</a></div></div>
+<aside class="verdict"><span class="tag">SCIENTIFIC GATE</span><strong>FAILED</strong><p>Backbone chưa đạt điều kiện.</p><p>Matrix v1 và final-test vẫn bị chặn. Không có claim adaptive-allocation benefit.</p></aside></section>
+<section id="results"><div class="section-head"><p class="eyebrow">BẰNG CHỨNG HIỆN CÓ</p><h2>Qualification v2: cả ba seed không đạt</h2>
+<p>Selected checkpoint ở step 1.000.000. Mỗi mục tiêu quặng cần ít nhất 8/160 episode dương và 2 giá trị dương phân biệt; mọi seed đều phải đạt.</p></div>
+<div class="stats"><div><strong>3</strong><span>seed v2</span></div><div><strong>30</strong><span>checkpoint đã audit</span></div><div><strong>4.800</strong><span>episode validation</span></div><div><strong>0</strong><span>checkpoint được khóa</span></div></div>
+<div class="table-wrap"><table><caption>Selected-checkpoint counts từ qualification artifact, không phải dữ liệu minh họa</caption><thead><tr><th>Seed</th><th>Ore 0 dương</th><th>Ore 1 dương</th><th>Distinct dương (0/1)</th><th>Kết quả</th></tr></thead><tbody id="actual-seeds"></tbody></table></div>
+<p class="source">Nguồn: <a href="evidence/minecart_pcqn_backbone_v2.json">qualification v2 JSON</a>. 4.710.905 bước thuộc independent validation audit. Bộ đếm training-validation được ghi riêng dù có cùng giá trị.</p>
+<div class="timeline"><article><h3>Primary block</h3><p>30 jobs hoàn tất; 300 checkpoint được audit. Minecart có 15 runs với ore bằng 0 trên 14.400 episode validation.</p></article><article><h3>Remediation v1</h3><p>Hai seed không đạt; một seed có 28/160 episode dương ở selected checkpoint. All-seeds gate vẫn thất bại.</p></article><article><h3>Remediation v2</h3><p>PER là thay đổi duy nhất đã khai báo. Cả ba selected checkpoint có 0/160 ở hai ore objectives. Dừng remediation trong phạm vi hiện tại.</p></article></div>
+</section>
+<section id="illustration" class="illustration"><div class="section-head"><p class="eyebrow">MINH HỌA BẰNG DỮ LIỆU GIẢ</p><h2>Thử cách tính, không chạy policy</h2><p>Hai công cụ dưới đây chỉ giải thích scalarization và luật qualification. Không tạo bằng chứng nghiên cứu và không thay đổi bảng kết quả thật.</p></div>
+<div class="lab-grid"><article class="lab"><h3>Preference slider</h3><p>Ví dụ hai mục tiêu với ba vector reward giả định; không phải Pareto front đo được từ Minecart.</p>
+<label for="weight">Trọng số mục tiêu 0: <output id="weight-label" for="weight">0.50</output></label>
+<input id="weight" type="range" min="0" max="100" value="50" step="1">
+<p class="formula" id="formula">u = 0.50 × r₀ + 0.50 × r₁</p><div class="table-wrap"><table><thead><tr><th>Vector giả định</th><th>(r₀, r₁)</th><th>Utility</th></tr></thead><tbody id="utility-rows"></tbody></table></div>
+<p id="choice" class="live" aria-live="polite"></p><p class="hint">Kéo về 0 hoặc 1 để xem lựa chọn đổi. Không load checkpoint, không gọi API.</p></article>
+<article class="lab"><h3>Luật all-seeds</h3><label for="scenario">Tình huống giả định</label><select id="scenario"><option value="zero">Cả ba seed có zero ore</option><option value="one-fails">Hai seed đạt, một seed không đạt</option><option value="all-pass">Cả ba seed vừa đạt ngưỡng</option></select>
+<div id="scenario-result" class="scenario-result" aria-live="polite"></div><p id="scenario-details"></p>
+<p class="hint">Mỗi số dưới đây áp dụng cho cả hai ore objectives. Tình huống đạt không có nghĩa qualification thật đã đạt.</p><div id="scenario-seeds"></div></article></div></section>
+<section id="review"><div class="section-head"><p class="eyebrow">INDEPENDENT REVIEW</p><h2>Claude kiểm tra packet, không chạy lại thí nghiệm</h2></div>
+<div class="review-grid"><p>Review độc lập xác nhận số liệu và kết luận thất bại nhất quán trong packet. Source-audit pass là kiểm tra nguồn gốc; qualification fail là kết quả hành vi. Hai nghĩa không được gộp.</p>
+<p>Tensor thô và toàn bộ nội dung source audit không nằm trong packet. Review không chứng nhận lại raw results, không hoàn thành so sánh khóa học và không mở scientific gate.</p></div>
+<p class="source">Bản tóm tắt review nằm trong <a href="Huong_dan_nhom.pdf">hướng dẫn nhóm</a>. Metadata chia sẻ: <a href="evidence/review_summary.json">review_summary.json</a>. Một review có giám sát không chứng minh unattended-ready.</p></section>
+<section id="monday"><div class="section-head"><p class="eyebrow">CHUẨN BỊ TRÌNH BÀY</p><h2>Ba việc team cần chốt trước thứ Hai</h2></div>
+<ol class="checklist"><li><strong>Đọc PDF và thử demo.</strong> Kiểm tra tên nhóm, số liệu, cách giải thích kết quả âm; mở thử video khi offline.</li><li><strong>Tập phần trình bày 4 phút.</strong> Một người dẫn vấn đề, một người demo, một người trả lời giới hạn. Team tự phân công; xem <a href="SPEAKER_NOTES_VI.md">kịch bản tiếng Việt</a>.</li><li><strong>Hỏi giảng viên về phạm vi.</strong> Báo cáo kết quả âm trong scope đã đóng băng, hay cần một scope amendment có version? Evidence explorer có đáp ứng checkpoint demo không?</li></ol>
+<p class="stop">Không tự chạy v3, training mới hoặc final-test để làm demo đẹp hơn. Không bật scheduler hoặc paid review mới từ gói này.</p>
+<details><summary>Nguồn, thời điểm và giới hạn của gói</summary><p>Snapshot bằng chứng ngày 17/10/2026. Dữ liệu gốc được chọn theo allowlist trong <a href="EVIDENCE_INDEX.md">EVIDENCE_INDEX.md</a>; <a href="MANIFEST.json">MANIFEST.json</a> lưu SHA-256 của các file bàn giao.</p><p>Đây là bản chia sẻ cho team, không phải submission hay completed Phase 5. Không chứa checkpoint, log riêng, thông tin đăng nhập hoặc paper PDF của bên thứ ba.</p></details></section>
+</main><footer>REL301m · Team review package · Offline, không có network requests hoặc telemetry.</footer>
+<script src="data.js"></script><script src="app.js"></script></body></html>

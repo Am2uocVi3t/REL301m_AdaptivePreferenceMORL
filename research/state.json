@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "feature/minecart-per-remediation-v2",
-  "updated_at": "2026-10-16T18:17:29+00:00",
+  "working_branch": "codex/aris-full-workflow",
+  "updated_at": "2026-10-17T15:10:00+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -56,13 +56,13 @@
       "id": "run-course-matrix",
       "status": "open",
       "severity": "P1",
-      "description": "Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. The single-factor proportional prioritized-replay v2 implementation and fail-closed runner passed review, but its three seeds remain unauthorized and unexecuted. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited."
+      "description": "Minecart v2 failed the frozen all-seeds qualification with zero ore at all 30 checkpoints. Authorization aris-full-workflow-20261017 now permits a separately versioned F1 successful-episode replay scope/protocol amendment, implementation, deterministic qualification, and six paired local training/nominal-validation runs. F2, matrix v1, checkpoint locking, revised course execution, and final test remain blocked until the declared F1 all-seeds retention and source-audit gate passes and the relevant explicit unlock is recorded."
     }
   ],
   "next_actions": [
-    "Decide whether to explicitly authorize only remediation-v2 seeds 20264011-20264013; implementation review and commit are complete, but execution is not authorized.",
-    "Only after separate explicit authorization, execute seeds 20264011-20264013 and run the validation-only source audit and frozen all-seeds decision.",
-    "Keep matrix v1, checkpoint locking, revised course execution, and final test blocked until the v2 qualification decision and any required new-study gates complete."
+    "Commit and publish the versioned ARIS authority/policy update as a stacked review PR based on feature/ai-research-harness.",
+    "Implement and deterministically qualify the F1 successful-episode replay amendment, obtain same-family code/scientific review, then run only the six authorized paired local training and nominal-validation jobs with fresh preflight evidence.",
+    "Keep F2, matrix v1, checkpoint locking, final test, paid review, unattended dispatch, and submission blocked until their separately documented gates pass."
   ],
-  "last_session_summary": "Reviewed and qualified the Minecart remediation-v2 implementation for commit. Confirmed the amended single-factor proportional-PER contract, exact source and plan hashes, uniform-replay compatibility, fail-closed runner and auditor bindings, and execution firewall. Review found and fixed one non-finite priority-parameter validation edge case, bringing the complete Python 3.11 gate to 103 passing tests. No qualification seed, matrix-v1 job, shifted evaluation, or final-test data was accessed."
+  "last_session_summary": "User authorization aris-full-workflow-20261017 resolved the F1 scope/protocol/training authority blocker. Documentation and machine policy are being updated on codex/aris-full-workflow before a stacked review PR; no F1 implementation or training has started yet. Scientific final-test, checkpoint-lock, paid-review, unattended-dispatch, and submission gates remain in force."
 }

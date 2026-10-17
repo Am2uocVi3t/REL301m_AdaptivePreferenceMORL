@@ -41,12 +41,13 @@
     {
       "id": "minecart-pcqn-remediation-v2",
       "title": "Minecart prioritized-replay PCQN backbone qualification",
-      "status": "planned",
+      "status": "failed",
       "protocol": "configs/remediations/minecart_pcqn_backbone_v2.json",
       "claim_ids": [],
-      "artifact": null,
-      "notes": "Predeclared after a validation-only, hash-bound behavior probe showed successful mining and delivery disappearing at later checkpoints within the same seed. V2 changes only uniform replay to proportional prioritized replay with fixed alpha, beta, priority, and importance-weight rules; all v1 budgets, seeds count, checkpoint selection, pass thresholds, and masked Huber loss remain unchanged. A dated pre-execution amendment corrected contradictory squared-TD wording before any seed ran. The implementation and fail-closed runner/auditor passed local review as recorded in research/qualification/minecart_pcqn_backbone_v2_implementation.json. No v2 qualification seed ran, execution is not authorized, and matrix v1/final test remain blocked.",
-      "created_at": "2026-10-16T17:08:44+00:00"
+      "artifact": "research/qualification/minecart_pcqn_backbone_v2.json",
+      "notes": "Executed after explicit user authorization on clean commit 25328e8. All three seeds completed 1,000,000 interactions and 995,001 updates each. Source audit passed 30 checkpoints; independent nominal-validation audit retained 4,800 episodes / 4,710,905 steps. All 30 checkpoints had zero ore in raw and discounted returns. All selected checkpoints were step 1M with 0/160 positive episodes and zero distinct positive values per ore objective; unchanged all-seeds qualification failed. Backbone-only evidence, not a course comparison. Completed-job training cost is 3M interactions plus at least 27,044 logged interactions from a preserved interrupted seed11 attempt; exact unflushed expenditure unknown. Stop current-scope remediation; v3/scope changes need supervisor approval. Matrix v1, checkpoint locking, revised course execution and final test remain blocked.",
+      "created_at": "2026-10-16T17:08:44+00:00",
+      "updated_at": "2026-10-17T07:52:56+00:00"
     }
   ]
 }

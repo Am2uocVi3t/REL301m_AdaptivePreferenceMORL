@@ -1,7 +1,7 @@
 ---
 experiment_id: minecart-pcqn-remediation-v2
 plan: configs/remediations/minecart_pcqn_backbone_v2.json
-status: planned
+status: failed
 claim_ids: []
 ---
 
@@ -29,6 +29,20 @@ New transitions enter with the current maximum priority, or one when the buffer 
 
 ## Qualification gate
 
-Only seeds `20264011`–`20264013` may run. Each evaluates the same ten predeclared checkpoints and uses the unchanged checkpoint-selection and 5% per-objective pass rules. All three seeds must pass. The exact PER implementation and fail-closed runner/auditor passed analytic, integration, runtime-smoke, full Python 3.11 quality checks, and implementation review recorded in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`. No qualification seed ran; execution still requires separate explicit authorization.
+Only seeds `20264011`–`20264013` were authorized and executed. Each evaluates the same ten predeclared checkpoints and uses the unchanged checkpoint-selection and 5% per-objective pass rules. All three seeds must pass. The implementation and runner/auditor passed pre-execution review in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`.
 
 A pass requires a new course study ID, all 65 Minecart PCQN jobs rerun with the common backbone, and separate comparator-fairness qualification. A failure stops algorithmic remediation for the current course scope; remediation v3 or final-test access requires an explicit supervisor decision.
+
+## Verified outcome — 17 October 2026
+
+| Seed | Selected step | Ore 0 positive /160 | Ore 1 positive /160 | Distinct positive values, ore 0 / ore 1 | Result |
+| --- | ---: | ---: | ---: | --- | --- |
+| 20264011 | 1,000,000 | 0 | 0 | 0 / 0 | failed |
+| 20264012 | 1,000,000 | 0 | 0 | 0 / 0 | failed |
+| 20264013 | 1,000,000 | 0 | 0 | 0 / 0 | failed |
+
+Source audit passed all 30 checkpoints. All raw and discounted ore returns were zero throughout 4,800 nominal-validation episodes at all 30 checkpoints; 4,710 episodes (98.125%) reached the time limit. This is a valid failed qualification, not a runner error or an adaptive-allocation result.
+
+Completed runs consumed 3,000,000 training interactions, 2,985,003 gradient updates, 6,310,626 curriculum-evaluation steps and 4,710,905 training validation steps. Independent re-audit adds 4,710,905 evaluation steps. Preserved interrupted seed11 attempt: at least 27,044 recorded training interactions and 32,000 logged curriculum-evaluation steps; exact unflushed expenditure unknown. Keep these counters separate.
+
+Source commit: `25328e8e0a8448e1f929251afc3a55c7b8a56978`; plan hash: `c28b0de87731d79af71ee5ee1c5fbbd4eab0e027b72ae3df7908fa170b1873ec`. Evidence: `research/evidence/minecart_pcqn_backbone_v2_source_audit.json`, `research/qualification/minecart_pcqn_backbone_v2.json` and linked ignored validation artifacts. Stop current-scope remediation; no v3, new study execution, checkpoint lock or final-test access is authorized.

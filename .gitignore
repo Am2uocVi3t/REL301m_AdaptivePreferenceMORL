@@ -47,6 +47,9 @@ runs/
 # Literature source files (metadata and notes remain versioned)
 research/literature/pdfs/
 
+# Local ARIS runtime state; policy and integration docs remain versioned
+.aris/
+
 # Test, lint, and type-check caches
 .pytest_cache/
 .mypy_cache/

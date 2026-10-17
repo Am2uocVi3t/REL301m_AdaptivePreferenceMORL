@@ -88,7 +88,7 @@
       "title": "Paired-seed course experiment matrix",
       "status": "active",
       "deliverables": [
-        {"id": "paired-matrix", "description": "Uniform, matched-random, signal, combination, and close-baseline runs with paired seeds", "status": "blocked"},
+        {"id": "paired-matrix", "description": "Uniform, matched-random, signal, combination, and close-baseline runs with paired seeds; the separate F1 replay feasibility screen is authorized but does not unlock this matrix", "status": "blocked"},
         {"id": "course-analysis", "description": "Evidence-bounded course report with uncertainty and failure analysis", "status": "not_started"}
       ],
       "entry_criteria": ["Protocol, baselines, and dynamics shifts are qualified"],
@@ -106,6 +106,8 @@
         "research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json",
         "configs/remediations/minecart_pcqn_backbone_v2.json",
         "research/qualification/minecart_pcqn_backbone_v2_implementation.json",
+        "research/evidence/minecart_pcqn_backbone_v2_source_audit.json",
+        "research/qualification/minecart_pcqn_backbone_v2.json",
         "research/qualification/course_matrix_post_validation_gate_v1.json"
       ],
       "blocker_ids": ["run-course-matrix"],

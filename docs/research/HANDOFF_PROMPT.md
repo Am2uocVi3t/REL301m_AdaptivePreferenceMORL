@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-10-16T18:19:44+00:00
-Expected working branch at generation: feature/minecart-per-remediation-v2
-Expected commit at generation: 2c0b63c
+Snapshot generated: 2026-10-17T14:39:05+00:00
+Expected working branch at generation: codex/aris-full-workflow
+Expected commit at generation: 25328e8
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -77,18 +77,18 @@ Full-text requests for the user:
 Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
 - minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
-- minecart-pcqn-remediation-v2 [planned]: Minecart prioritized-replay PCQN backbone qualification
+- minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 
 Open blockers:
-- Minecart remediation v1 failed its all-seeds gate. A validation-only behavior probe then showed successful mining/delivery disappearing at later checkpoints within the same seed, selecting rare-transition retention as the v2 target. The single-factor proportional prioritized-replay v2 implementation and fail-closed runner passed review, but its three seeds remain unauthorized and unexecuted. Matrix v1, checkpoint locking, revised course execution, and final test remain prohibited.
+- Minecart v2 failed the frozen all-seeds qualification with zero ore at all 30 checkpoints. Authorization aris-full-workflow-20261017 now permits a separately versioned F1 successful-episode replay scope/protocol amendment, implementation, deterministic qualification, and six paired local training/nominal-validation runs. F2, matrix v1, checkpoint locking, revised course execution, and final test remain blocked until the declared F1 all-seeds retention and source-audit gate passes and the relevant explicit unlock is recorded.
 
 Latest closed-session summary:
-Reviewed and qualified the Minecart remediation-v2 implementation for commit. Confirmed the amended single-factor proportional-PER contract, exact source and plan hashes, uniform-replay compatibility, fail-closed runner and auditor bindings, and execution firewall. Review found and fixed one non-finite priority-parameter validation edge case, bringing the complete Python 3.11 gate to 103 passing tests. No qualification seed, matrix-v1 job, shifted evaluation, or final-test data was accessed.
+Ran a bounded ARIS offline continuation with fresh quota/preflight. Reused existing literature and Minecart evidence, produced a corrected successful-episode-stratified HPR-style proposal, completed three traced same-family review rounds ending at 9.10 READY/provisional, wrote a blocked 6+6 staged experiment plan/tracker and narrative HTML, and persisted the ARIS run at idea-discovery provisional. No implementation, training, rollout, final test, paid review, commit, push, or submission occurred.
 
 Next actions:
-1. Decide whether to explicitly authorize only remediation-v2 seeds 20264011-20264013; implementation review and commit are complete, but execution is not authorized.
-2. Only after separate explicit authorization, execute seeds 20264011-20264013 and run the validation-only source audit and frozen all-seeds decision.
-3. Keep matrix v1, checkpoint locking, revised course execution, and final test blocked until the v2 qualification decision and any required new-study gates complete.
+1. Commit and publish the versioned ARIS authority/policy update as a stacked review PR based on feature/ai-research-harness.
+2. Implement and deterministically qualify the F1 successful-episode replay amendment, obtain same-family code/scientific review, then run only the six authorized paired local training and nominal-validation jobs with fresh preflight evidence.
+3. Keep F2, matrix v1, checkpoint locking, final test, paid review, unattended dispatch, and submission blocked until their separately documented gates pass.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

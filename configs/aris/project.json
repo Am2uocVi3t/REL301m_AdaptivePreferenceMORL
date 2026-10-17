@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "upstream_commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+  "upstream_root": "/home/hei/.local/share/rel301m-aris-runtime",
+  "install_mode": "copy",
+  "packages": ["skills-codex", "skills-codex-claude-review"],
+  "scientific_authority": "research/state.json",
+  "resume": {"enabled": true, "compact": true, "provisional_advances": false},
+  "routine_actions": ["literature", "implementation", "evidence-analysis", "paper-draft", "demo-local", "offline-tests"],
+  "authority_required": ["protocol-change", "scope-change", "training", "checkpoint-lock", "final-test", "paid-review", "submission", "account-switch"],
+  "authorization": {
+    "id": "aris-full-workflow-20261017",
+    "authorized_at": "2026-10-17",
+    "status": "active",
+    "authorized_actions": ["scope-change", "protocol-change", "training"],
+    "scope": "Versioned Minecart F1 successful-episode replay amendment, implementation, deterministic qualification, six paired local training and nominal-validation runs, evidence analysis, Git commit/push, and a new review PR.",
+    "conditional_actions": {
+      "checkpoint-lock": "Only after every A1R1 seed passes the frozen F1 retention gate and the source audit passes.",
+      "final-test": "Only after an explicit evidence-producing unlock gate following F1 qualification.",
+      "paid-review": "Requires a separate finite batch record within the existing cost limits; the earlier one-batch authorization is consumed.",
+      "unattended-dispatch": "Disabled until lifecycle and confinement hardening gates are verified."
+    }
+  },
+  "minimum_codex_remaining_percent": 10,
+  "claude": {"paid_enabled": false, "batch_budget_usd": 1.0, "invocation_budget_usd": 0.25},
+  "unattended_enabled": false
+}

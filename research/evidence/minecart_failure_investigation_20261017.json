@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "kind": "minecart_failure_investigation",
+  "status": "complete_proposal_only",
+  "created_at": "2026-10-17T12:55:00+00:00",
+  "git_snapshot": {
+    "branch": "codex/interactive-model-demo",
+    "commit": "25328e8e0a8448e1f929251afc3a55c7b8a56978",
+    "dirty": true
+  },
+  "scope": {
+    "purpose": "Rank evidence-bounded hypotheses for the failed Minecart PCQN qualification and prepare a supervisor decision package.",
+    "new_training_interactions": 0,
+    "new_environment_rollouts": 0,
+    "final_test_accessed": false,
+    "shifted_environment_accessed": false,
+    "algorithm_or_protocol_changed": false,
+    "paid_provider_invocations": 0,
+    "scientific_unlocks": false
+  },
+  "aris_preflight": {
+    "checked_at": "2026-10-17T12:49:04+00:00",
+    "actions": [
+      "evidence-analysis",
+      "literature"
+    ],
+    "status": "PASS",
+    "minimum_remaining_percent_across_windows": 31.0,
+    "scope": "installation_and_routine_action_only_not_scientific_acceptance",
+    "paid_dispatch_enabled": false,
+    "unattended_ready": false
+  },
+  "methods": [
+    "Read-only audit of frozen protocol, PCQN/replay/action-selection code, source audits, diagnosis artifacts, v1/v2 qualification artifacts, and existing validation JSON.",
+    "Read-only extraction of Pareto archive points from existing safe PyTorch checkpoints with weights_only=True; no environment was instantiated or stepped.",
+    "Read-only cross-check against five already-registered full-text primary-paper notes; no literature-discovery workflow was restarted.",
+    "Two on-demand Codex workers gathered code/evidence and literature entries; the coordinator alone synthesized and wrote this artifact. Same-family findings remain evidence gathering, not independent scientific acceptance."
+  ],
+  "offline_archive_extraction": {
+    "interpretation_limit": "The archive is cumulative historical evidence of exploratory returns. It does not prove that the corresponding transitions remain in replay or that the current greedy policy retains the behavior.",
+    "v1_greedy_validation_positive_checkpoints": {
+      "20264001": [],
+      "20264002": [
+        {"step": 200000, "positive_episodes_per_ore_objective": [3, 3]},
+        {"step": 800000, "positive_episodes_per_ore_objective": [2, 2]}
+      ],
+      "20264003": [
+        {"step": 500000, "positive_episodes_per_ore_objective": [4, 4]},
+        {"step": 600000, "positive_episodes_per_ore_objective": [28, 28]},
+        {"step": 900000, "positive_episodes_per_ore_objective": [2, 2]}
+      ]
+    },
+    "v2_all_greedy_validation_checkpoints_zero_ore": true,
+    "v2_final_checkpoint_archives": [
+      {
+        "training_seed": 20264011,
+        "checkpoint_sha256": "1588ef58c4afb80030b9ad5e1ce999af4ed40fce80b6ae35b972a9b87555d555",
+        "archive_points": 22,
+        "archive_points_positive_in_at_least_one_ore_objective": 21,
+        "per_objective_maximum_scaled_discounted_return": [1.1128, 1.0019, -0.3297]
+      },
+      {
+        "training_seed": 20264012,
+        "checkpoint_sha256": "7ccc320f86fcb4a4e50b01f36e7bbbfd95dc5c3af558342e2a34e000b24b9815",
+        "archive_points": 35,
+        "archive_points_positive_in_at_least_one_ore_objective": 34,
+        "per_objective_maximum_scaled_discounted_return": [0.9834, 1.1003, -0.2868]
+      },
+      {
+        "training_seed": 20264013,
+        "checkpoint_sha256": "e410c339e7675a28176176bc234b73d7f21273320fe126138dc390f783078b63",
+        "archive_points": 18,
+        "archive_points_positive_in_at_least_one_ore_objective": 17,
+        "per_objective_maximum_scaled_discounted_return": [1.023, 1.187, -0.2868]
+      }
+    ]
+  },
+  "evidence_to_hypothesis": [
+    {
+      "id": "broken-reward-or-scaling-path",
+      "status": "ruled_out_as_general_explanation",
+      "evidence": "Positive ore returns occur in training archives for every primary run and every v2 seed; the same frozen reward scale is used for training and validation.",
+      "caveat": "Consistent scaling is not proof that the scale is optimal for learning."
+    },
+    {
+      "id": "allocation-arm-specific-failure",
+      "status": "ruled_out_for_primary-block",
+      "evidence": "Uniform, matched-random, and full adaptive arms all produced zero greedy validation ore over five paired primary seeds.",
+      "caveat": "This does not rule out every future allocation method."
+    },
+    {
+      "id": "basic-state-preference-action-or-terminal-plumbing-bug",
+      "status": "no_evidence_in_audited_paths",
+      "evidence": "Shapes and mappings are explicit and tested; preference is concatenated to state; Mine is action 0 so deterministic argmax tie-breaking does not suppress it; termination and truncation are stored separately.",
+      "caveat": "Code audit and invariant tests cannot exclude all function-approximation or unobserved implementation defects."
+    },
+    {
+      "id": "ensemble-mean-suppression",
+      "status": "ruled_out_for_three_primary_probes_uncertain_for_v2",
+      "evidence": "Neither ensemble mean nor individual heads selected Mine in 345417 primary-probe action decisions.",
+      "caveat": "No equivalent head-specific behavior probe was run for v2."
+    },
+    {
+      "id": "no-exploratory-acquisition",
+      "status": "contradicted",
+      "evidence": "Exploratory training archives contain positive ore trajectories in all audited primary and v2 seeds.",
+      "caveat": "Archive presence does not imply the greedy learner acquired or retained the behavior."
+    },
+    {
+      "id": "uniform-replay-retention-alone",
+      "status": "partially_supported_then_narrowly_falsified",
+      "evidence": "V1 showed within-seed acquisition followed by loss, but exact proportional one-step TD-error PER in v2 still yielded zero greedy ore at all 30 checkpoints.",
+      "caveat": "V2 was not a paired-seed causal comparison and does not falsify all trajectory-aware retention mechanisms."
+    },
+    {
+      "id": "long-horizon-credit-and-preference-trajectory-alignment",
+      "status": "leading_supported_hypothesis_not_causal_proof",
+      "evidence": "Ore requires a multi-stage delayed sequence while fuel cost is immediate; successful exploratory trajectories repeatedly fail to become stable greedy behavior; current PCQN uses one-step Double-DQN targets and v1/v2 Uniform-PCQN updates each transition under its behavior preference; TD-error PER alone was insufficient.",
+      "caveat": "No n-step, return-conditioned, envelope, or achieved-return preference-relabeling intervention has been executed under this study."
+    }
+  ],
+  "candidate_solutions": [
+    {
+      "priority": 1,
+      "name": "Trajectory-aware hindsight or diverse preference replay",
+      "sources": [
+        "abels2019dynamic-weights",
+        "shianifar2026hpr"
+      ],
+      "code_gap": "The completed Uniform-PCQN remediations update each sample under its stored behavior preference. Existing adaptive resampling is not achieved-return hindsight relabeling and v2 priority is not trajectory-aware.",
+      "tradeoffs": "Smallest conceptual change, but requires storing trajectory outcome or return-to-go and strictly matching update budget. It can reuse successful experience but does not guarantee exploration or solve delayed credit by itself.",
+      "authority": "Requires a versioned scope/protocol amendment and supervisor approval before any implementation or training."
+    },
+    {
+      "priority": 2,
+      "name": "Envelope value updates as a replacement Minecart backbone",
+      "sources": [
+        "yang2019envelope"
+      ],
+      "code_gap": "Current targets maximize action only under the supplied preference; they do not maximize over candidate value vectors/preferences or use the envelope loss.",
+      "tradeoffs": "Closest discrete value-based literature mechanism for cross-preference alignment, but it is a major backbone change, not a v3 hyperparameter tweak. Existing 200-step smoke proves runtime only, not Minecart performance.",
+      "authority": "Requires a new study design, fairness qualification, supervisor approval, and fresh training authorization."
+    },
+    {
+      "priority": 3,
+      "name": "Return-and-horizon conditioned trajectory archive",
+      "sources": [
+        "reymond2022pcn"
+      ],
+      "code_gap": "The repository ParetoArchive stores return vectors and metadata, not trajectories or return-to-go targets, so it cannot train a PCN-style supervised policy from rare successful episodes.",
+      "tradeoffs": "Directly targets retention of successful trajectories and avoids moving TD targets, but needs new trajectory logging and a different model/training objective. It is the largest departure and still depends on obtaining successful trajectories.",
+      "authority": "Requires a broad scope amendment and supervisor approval."
+    }
+  ],
+  "recommended_decision": {
+    "current_scope": "Preserve the failed result, do not run v3, and use this memo to decide between a bounded trajectory-aware preference-replay amendment and reporting the blocked negative result.",
+    "preferred_if_amendment_is_authorized": "Test trajectory-aware achieved-return preference relabeling first because it addresses the clearest code gap while preserving the existing conditioned value model more than Envelope or PCN.",
+    "do_not_repeat": [
+      "More plain proportional TD-error PER",
+      "Unbounded hyperparameter search",
+      "Additional interactions without a mechanism-specific falsification gate",
+      "Final-test or checkpoint locking before a revised qualified study completes"
+    ]
+  },
+  "future_falsification_plan": {
+    "proposal_only": true,
+    "preconditions": [
+      "Supervisor approves a versioned scope amendment.",
+      "A new plan freezes interactions, updates, replay/relabel count, checkpoints, validation budget, seeds, and no-final-test firewall before execution.",
+      "Successful-trajectory and replay-sampling counters are logged without changing rewards or using test data."
+    ],
+    "gates": [
+      "Acquisition: each seed records whether ore-delivery transitions exist and how often they are sampled/relabelled.",
+      "Expression: greedy validation records Mine, cargo, delivery, and positive ore per preference at every predeclared checkpoint.",
+      "Retention: after a seed first passes the ore criterion, it must retain the criterion for at least two subsequent predeclared checkpoints; a single selected spike is insufficient.",
+      "Mechanism falsifier: if relabeling materially increases exposure to successful trajectories but all seeds still have zero greedy ore and no Mine-action margin improvement, reject preference-replay insufficiency as the primary remedy and stop rather than stack more changes."
+    ]
+  },
+  "source_sha256": {
+    "src/models/q_network.py": "33abbdd3d156339fa73a42037bf066bee102ed2a858499d3512a08444f5c89ad",
+    "src/models/update.py": "1ad470734a7b3ae19833903e8752ce89da0da54e0a5abd33716f36836b360cdd",
+    "src/core/replay_buffer.py": "1eb39635df9b145758cfe1850d8c7f3b1055e7fab4c078cc904a39ac33f5ab16",
+    "src/core/pareto_archive.py": "2b58db6892f508c65388b1cdfdbe9ff4bfc248f8409539c328c1ccef6b940623",
+    "scripts/train.py": "9259bec24ba2a94baaeba5b08e87f4e3b83186fbf7fc0ec14015cc2bc78ba65b",
+    "configs/protocols/course_minecart_v0.json": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+    "configs/remediations/minecart_pcqn_backbone_v2.json": "c28b0de87731d79af71ee5ee1c5fbbd4eab0e027b72ae3df7908fa170b1873ec",
+    "research/evidence/minecart_validation_diagnosis_v1.json": "26f1d8c9eb9897892561c68318ee910d656d40de412b12fade8ff57582fa6c92",
+    "research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json": "29c6d0a76b1b8dd6103ade5af280849f440923a7f4ae889bf4b5eeed506cd5a6",
+    "research/qualification/minecart_pcqn_backbone_v1.json": "9f3296ba15998671f01a7f0cd81281a880771974983823c66abb6f2c15f2e8c8",
+    "research/qualification/minecart_pcqn_backbone_v2.json": "43a4d94bb2e091dcf2129c3226c0feb2199a76b0c2d451037f467b269c803347"
+  }
+}

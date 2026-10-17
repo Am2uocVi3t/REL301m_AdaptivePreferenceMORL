@@ -1,0 +1,17 @@
+{
+  "phase": "done",
+  "round": 3,
+  "threadId": "/root/aris_proposal_review",
+  "last_score": 9.1,
+  "last_verdict": "READY",
+  "status": "completed",
+  "timestamp": "2026-10-17T21:25:13+07:00",
+  "run_id": "aris-minecart-offline-continuation-20261017",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "paid_review_invocations": 0,
+  "implementation_authorized": false,
+  "training_authorized": false,
+  "final_test_accessed": false,
+  "next_gate": "supervisor decision on a versioned F1 scope amendment"
+}

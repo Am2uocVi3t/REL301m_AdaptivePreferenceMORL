@@ -1,0 +1,14 @@
+\begin{tikzpicture}[node distance=10mm and 9mm]
+\node[block] (pref) {Preference sampler\\$w\sim p_t(w)$};
+\node[block,right=of pref] (env) {Rollout + environment\\vector reward $r$};
+\node[block,right=of env] (replay) {Replay buffer\\transitions + provenance};
+\node[block,below=18mm of replay] (q) {Masked-head PCQN\\vector Double-DQN update};
+\node[block,left=of q] (scores) {Curriculum diagnostics\\gap / disagreement\\coverage / progress};
+\node[block,left=of scores] (alloc) {Budgeted allocation\\uniform-floor mixture};
+\draw[flow] (pref)--(env); \draw[flow] (env)--(replay);
+\draw[flow] (replay)--(q); \draw[flow] (q)--(scores);
+\draw[flow] (scores)--(alloc); \draw[flow] (alloc)--(pref);
+\node[below=11mm of scores,align=center,font=\sffamily\small,text=Muted]
+{Separate validation selects checkpoints; final-test remains locked.\\
+Controls share the preference pool and diagnostic budget.};
+\end{tikzpicture}

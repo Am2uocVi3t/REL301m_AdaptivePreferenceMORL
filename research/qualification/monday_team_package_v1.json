@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "kind": "monday_team_package_verification",
+  "status": "READY_FOR_TEAMMATE_REVIEW",
+  "checkpoint": "2026-10-19",
+  "evidence_cutoff": "2026-10-17",
+  "zip_path": "outputs/monday-team/REL301m_Team_Review_2026-10-19.zip",
+  "zip_bytes": 18460514,
+  "zip_sha256": "1ec7a77ccf4b69e3c7f5a9c18032f8739186345d976fe303ec1cbef9990acf81",
+  "report_pages": 12,
+  "brief_pages": 2,
+  "packaged_pdf_matches_latest_compilation": true,
+  "source_sha256": {
+    "scripts/build_monday_package.py": "ca975eca58dfca69d2e6a6da436970783a7ed16cc404f2b3a9e2a099280943cb",
+    "scripts/verify_monday_package.py": "e78c342327ae52e95186349b20749864c19eec52b56fa67a17c7218ee0d3a7ac",
+    "tests/test_monday_demo.cjs": "04ecc1e1f2344e9e5261a2527c3f66c64b150eaa490756295200a0cbbe487902",
+    "tests/test_monday_package.py": "518d58b53151a987f98b45498e1fb1b2363a80ddadf53facbbf81c01e990197e",
+    "demo/monday/index.html": "a94bed5434fcfd165b399ce00e805b87e69b0145f75caf2cc0355d8296ce5dff",
+    "demo/monday/app.js": "ed22a917217f1d1b5a5932f307f6c355fd50088a98164a3b0d4ac6e34cf1112a",
+    "demo/monday/style.css": "383dc211b4706dc782eb6edb030863799a2f020d7a78beba5f5b824ad8da1207",
+    "paper/REL301m/Chapters/Progress.tex": "c1567ca445b02c1935ebed4acaeacb7033e0de634bc43bd877af154b3d0e9384"
+  },
+  "python_tests_passed": 173,
+  "quality_checks": [
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/ruff format --check .",
+      "chunk_id": "3ab4eb",
+      "wall_time_seconds": 0.000014768,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "147 files already formatted\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/ruff check .",
+      "chunk_id": "ab0874",
+      "wall_time_seconds": 0.00001609,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/mypy src scripts",
+      "chunk_id": "c28d6e",
+      "wall_time_seconds": 0.000008336,
+      "exit_code": 0,
+      "original_token_count": 11,
+      "output": "Success: no issues found in 61 source files\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/python -m pytest -q",
+      "chunk_id": "c3a805",
+      "wall_time_seconds": 0.000007945,
+      "exit_code": 0,
+      "original_token_count": 65,
+      "output": "........................................................................ [ 41%]\n........................................................................ [ 83%]\n.............................                                            [100%]\n173 passed in 5.24s\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/bandit -q -r src scripts -ll",
+      "chunk_id": "ae35a2",
+      "wall_time_seconds": 0.00001057,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/python -m compileall -q src scripts tests",
+      "chunk_id": "1eed54",
+      "wall_time_seconds": 0.00002056,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "command": "git diff --check",
+      "chunk_id": "318f48",
+      "wall_time_seconds": 0.000012354,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  ],
+  "dom_logic": {
+    "status": "PASS",
+    "assertions": 14,
+    "browser_used": false
+  },
+  "portable_package": {
+    "status": "PASS",
+    "files_hashed": 29,
+    "archive_files": 30,
+    "html_links_checked": 17,
+    "all_local_links_exist": true,
+    "zip_bytes_match_manifest": true,
+    "actual_data_equals_qualification": true,
+    "credential_scan": "heuristic_clean"
+  },
+  "pdf_visual_review": {
+    "report_pages_inspected": 12,
+    "brief_pages_inspected": 2,
+    "orphan_section_heading_fixed": true,
+    "tex_warnings_or_overflow_in_final_log": false
+  },
+  "video": {
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "width": 1280,
+    "height": 720,
+    "duration_seconds": 72,
+    "audio": false,
+    "full_decode_check_passed": true,
+    "description": "Captioned summary from existing evidence, not screen recording or policy footage",
+    "representative_frames_inspected": [
+      0,
+      2,
+      5
+    ]
+  },
+  "browser_review": {
+    "status": "NOT_VERIFIED",
+    "reason": "In-app browser blocked the file URL protocol; no alternate browser or network workaround attempted",
+    "desktop_rendering_verified": false,
+    "mobile_rendering_verified": false,
+    "remaining_team_action": "Open extracted index.html and test on the actual presentation laptop; checklist included"
+  },
+  "readiness_limits": [
+    "Ready to send for internal teammate review, not final submission or a successful live trained-policy demo.",
+    "Names, instructor, division of speaking roles, presentation hardware and Monday submission requirements require human team confirmation.",
+    "No research phase transition; Minecart v2 remains failed and final-test remains locked."
+  ],
+  "paid_calls_performed": 0,
+  "new_training": false,
+  "final_test_accessed": false,
+  "external_message_sent": false,
+  "scheduler_enabled": false
+}

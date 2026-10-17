@@ -1,0 +1,79 @@
+{
+  "kind": "aris_single_batch_offline_v1",
+  "status": "PASS",
+  "checked_at": "2026-10-17T09:48:36+00:00",
+  "python": "3.11.17",
+  "tests_passed": 168,
+  "checks": [
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/ruff format --check .",
+      "chunk_id": "17c759",
+      "wall_time_seconds": 0.000022583,
+      "exit_code": 0,
+      "original_token_count": 7,
+      "output": "141 files already formatted\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/ruff check .",
+      "chunk_id": "ec91b7",
+      "wall_time_seconds": 0.000024546,
+      "exit_code": 0,
+      "original_token_count": 5,
+      "output": "All checks passed!\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/mypy src scripts",
+      "chunk_id": "d9c9d5",
+      "wall_time_seconds": 0.000012043,
+      "exit_code": 0,
+      "original_token_count": 11,
+      "output": "Success: no issues found in 59 source files\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/python -m pytest -q",
+      "chunk_id": "6a8ec5",
+      "wall_time_seconds": 0.00000532,
+      "exit_code": 0,
+      "original_token_count": 65,
+      "output": "........................................................................ [ 42%]\n........................................................................ [ 85%]\n........................                                                 [100%]\n168 passed in 4.86s\n"
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/bandit -q -r src scripts -ll",
+      "chunk_id": "712039",
+      "wall_time_seconds": 0.000009438,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "command": "/home/hei/.cache/rel301m-conda311/bin/python -m compileall -q src scripts tests",
+      "chunk_id": "261749",
+      "wall_time_seconds": 0.000019407,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    },
+    {
+      "command": "git diff --check",
+      "chunk_id": "b54163",
+      "wall_time_seconds": 0.00002142,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/aris_review_guard.py": "2c901951e2800b10f43b07fcef3b581b652160ef4d28123404eced74d359465b",
+    "scripts/run_aris_review_batch.py": "e2fa6266b7e1ef817adc834b5904c4cbf921f41e1cf9e760a17c9c00b6d8dd04",
+    "scripts/__init__.py": "055a9ea47e4f5e577094c33c7851752a24af8f66987be717946e4a5e308df409",
+    "tests/test_aris_single_batch.py": "0525233722c1b974dba2b71abdf73b2585b937107ae4a557e0d4a93447680112",
+    "configs/aris/batch_20261017.json": "0e5a457aa872d3cdf70643fc5631e3e6151bf70a2bd3cb17ff078b6614111b12"
+  },
+  "new_verified_gates": [
+    "honest_user_supplied_console_aggregate_reconciliation_preserves_reservations_and_null_individual_costs",
+    "one_dispatch_per_batch_state_across_running_and_completed_resume",
+    "ambiguous_start_timeout_stops_without_retry"
+  ],
+  "paid_calls_in_verification": 0,
+  "unattended_ready": false
+}

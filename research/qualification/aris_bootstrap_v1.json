@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "kind": "tooling_bootstrap_verification",
+  "date": "2026-10-17",
+  "scope": "installation_preflight_and_offline_resume_only",
+  "upstream_commit": "26b95cfa0d8747078e9e43b42e20952709e561b8",
+  "install_mode": "upstream_copy_installer",
+  "skills": 84,
+  "claude_review_overlays": 8,
+  "preexisting_top_level_skills_preserved": 47,
+  "verification": {
+    "project_pytest": {"passed": 118, "command": "pytest -q"},
+    "upstream_helper_pytest": {"passed": 29, "command": "pytest -q tests/test_run_state.py tests/test_verify_paper_audits.py", "cwd": "pinned upstream checkout"},
+    "ruff_format_check": "passed",
+    "ruff_check": "passed",
+    "mypy_src_scripts": "passed",
+    "bandit_medium_high": "passed",
+    "compileall_src_scripts_tests": "passed",
+    "git_diff_check": "passed",
+    "copied_content_comparison": "passed_all_84_skills_and_codex_shared_references",
+    "preflight_offline_tests_with_fresh_84_percent_snapshot": "PASS",
+    "preflight_final_test": "BLOCKED",
+    "quota_missing_low_nonfinite_out_of_range": "blocked_by_unit_tests",
+    "resume_cli_separate_processes_temporary_workspace": "unreviewed_done_stays_open_accepted_mechanical_fixture_skipped"
+  },
+  "cost": {"paid_calls": 0, "new_api_spend_usd": 0},
+  "policy_is_os_sandbox": false,
+  "unattended_ready": false,
+  "full_mainline_parity": false,
+  "semantic_cross_family_review_performed": false,
+  "research_claims_promoted": false,
+  "unlocks_training": false,
+  "unlocks_final_test": false,
+  "remaining_gates": [
+    "Actual paid cost/token/model persistence and historical Console reconciliation",
+    "Offline process-group cleanup and concurrent budget reservation tests",
+    "Review packet path/symlink/secret exclusion tests",
+    "Defined bounded cross-family workflow batch with traced verdicts"
+  ]
+}

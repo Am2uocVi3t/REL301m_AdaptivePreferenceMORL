@@ -1,0 +1,17 @@
+\documentclass[11pt,a4paper]{article}
+\input{General/Preamble}
+\begin{document}
+\hypersetup{pageanchor=false}
+\input{Chapters/0. Frontpage}
+\hypersetup{pageanchor=true}
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+\input{Chapters/Progress}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{unsrtnat}
+\bibliography{../../research/literature/library}
+\end{document}

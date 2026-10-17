@@ -1,0 +1,10 @@
+# Preserve pinned third-party ARIS content byte-for-byte; its upstream templates
+# contain historical trailing whitespace and blank EOF lines.
+.agents/skills/** -whitespace
+
+# Preserve timestamped/generated ARIS reports, including Markdown hard breaks.
+NARRATIVE_REPORT.html -whitespace
+NARRATIVE_REPORT*.md -whitespace
+docs/research/MINECART_FAILURE_INVESTIGATION_20261017.md -whitespace
+idea-stage/** -whitespace
+refine-logs/** -whitespace

@@ -1,0 +1,42 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm,headheight=22pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,booktabs,tabularx,array}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{titlesec,caption,float}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\pgfplotsset{compat=1.18}
+\usepackage{hyperref}
+\definecolor{Accent}{RGB}{225,114,58}
+\definecolor{Teal}{RGB}{35,118,125}
+\definecolor{Muted}{RGB}{110,118,126}
+\hypersetup{colorlinks=true,linkcolor=Accent,urlcolor=Accent,citecolor=Teal,
+pdftitle={REL301m Initial Progress Report},pdfsubject={Preference Allocation in MORL}}
+\urlstyle{same}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\includegraphics[height=17pt]{Figures/0. General/fpt_logo_red_small.png}}
+\fancyhead[R]{\small\sffamily REL301m | Initial Progress Report}
+\fancyfoot[C]{\small\sffamily Page \thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\titleformat{\section}{\sffamily\Large\bfseries\color{Accent}}{\thesection\enspace\textcolor{Muted}{|}}{0.6em}{}
+\titleformat{\subsection}{\sffamily\large\bfseries\color{Accent}}{\thesubsection\enspace\textcolor{Muted}{|}}{0.6em}{}
+\captionsetup{font=small,labelfont={bf,color=Accent},labelsep=period}
+\numberwithin{figure}{section}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist[itemize]{topsep=3pt,itemsep=2pt,leftmargin=18pt}
+\setlist[enumerate]{topsep=3pt,itemsep=3pt,leftmargin=18pt}
+\renewcommand{\arraystretch}{1.23}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\evidence}[1]{{\small\path{#1}}}
+\newcommand{\status}[1]{\textbf{\textcolor{Accent}{#1}}}
+\emergencystretch=2em
+\tikzset{block/.style={draw=Teal,rounded corners=3pt,fill=Teal!5,align=center,font=\sffamily\small,minimum height=13mm,text width=39mm},flow/.style={-{Stealth[length=2mm]},thick,draw=Teal}}

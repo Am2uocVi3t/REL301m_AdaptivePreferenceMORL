@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "kind": "aris_single_bounded_batch_result",
+  "status": "complete",
+  "batch_id": "aris-existing-evidence-20261017-one-batch",
+  "checked_at": "2026-10-17T09:51:07+00:00",
+  "spec": "configs/aris/batch_20261017.json",
+  "offline_gate_evidence": "research/qualification/aris_single_batch_offline_v1.json",
+  "provider_invocations": 1,
+  "job_id": "ea01538f417b451d82941abad2899c0c",
+  "thread_id": "24b6593d-2d26-41de-b1b7-aaceb1918367",
+  "actual_model": "claude-sonnet-5-5",
+  "review_independence": "cross-family",
+  "review_verdict": "packet_consistent_with_reporting_caveats; learner qualification remains failed",
+  "review_report": "research/reviews/aris_batch_20261017.md",
+  "trace_path": ".aris/traces/research-review/2026-10-17_one_batch/",
+  "cost_metadata": {
+    "packet_sha256": "60e6debe44ca5f2c7652045b3b86353b9d7cf65dbd4a3e7e5ad7c90ad949e979",
+    "requested_model": "sonnet",
+    "reserved_at": 1792230578.664348,
+    "actual_cost_usd": 0.09548890000000002,
+    "usage": {
+      "input_tokens": 2,
+      "cache_creation_input_tokens": 11032,
+      "cache_read_input_tokens": 649,
+      "output_tokens": 6784,
+      "output_tokens_details": {
+        "thinking_tokens": 4158
+      },
+      "server_tool_use": {
+        "web_search_requests": 0,
+        "web_fetch_requests": 0
+      },
+      "service_tier": "standard",
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 0,
+        "ephemeral_5m_input_tokens": 11032
+      },
+      "inference_geo": "not_available",
+      "iterations": [
+        {
+          "input_tokens": 2,
+          "output_tokens": 6784,
+          "cache_read_input_tokens": 649,
+          "cache_creation_input_tokens": 11032,
+          "cache_creation": {
+            "ephemeral_5m_input_tokens": 11032,
+            "ephemeral_1h_input_tokens": 0
+          },
+          "type": "message"
+        }
+      ],
+      "speed": "standard",
+      "fallback_credit": null
+    },
+    "model_usage": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 2,
+        "outputTokens": 6784,
+        "cacheReadInputTokens": 649,
+        "cacheCreationInputTokens": 11032,
+        "webSearchRequests": 0,
+        "costUSD": 0.09548890000000002,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 4158,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "actual_models": [
+      "claude-sonnet-5-5"
+    ],
+    "session_id": "24b6593d-2d26-41de-b1b7-aaceb1918367",
+    "cost_basis": "provider_cli_report_not_console_reconciled"
+  },
+  "historical_spending": {
+    "console_display_spent_usd": 0.24,
+    "precision_usd": 0.01,
+    "source": "user_supplied_console_display",
+    "per_call_actual_cost_unknown": true,
+    "evidence": "research/evidence/aris_console_spend_20261017.json",
+    "legacy_reservations_preserved_usd": 0.5
+  },
+  "batch_reserved_usd": 0.25,
+  "total_preserved_reservations_usd": 0.75,
+  "total_authorized_envelope_usd": 1,
+  "unused_authorization_is_not_new_dispatch_permission": true,
+  "resume_verification": {
+    "same_job_after_coordinator_process_restart": true,
+    "completed_state_reopened": true,
+    "completed_resume_checks": 1,
+    "new_batch_call_count_after_resume": 1,
+    "duplicate_dispatches": 0,
+    "hard_kill_tests": "offline synthetic fixtures only; live provider was not deliberately interrupted"
+  },
+  "source_sha256": {
+    "research/qualification/minecart_pcqn_backbone_v2.json": "43a4d94bb2e091dcf2129c3226c0feb2199a76b0c2d451037f467b269c803347",
+    "research/experiments/minecart-pcqn-remediation-v2.md": "73e481be0535f7f0827b81c56da1209fbe348cc46bfde3332042b3b9312a736f",
+    "research/qualification/course_matrix_post_validation_gate_v1.json": "15e473ba24d56f0d0159ce957070d8a68e2603991a1d89f834740fc0a32eb813",
+    "research/claims.json": "335fd1692abd68c05d4c8af59b73dc84b9e2ef3b4dfdd589cb7b46b90811b631",
+    "scripts/aris_review_guard.py": "2c901951e2800b10f43b07fcef3b581b652160ef4d28123404eced74d359465b",
+    "scripts/run_aris_review_batch.py": "e2fa6266b7e1ef817adc834b5904c4cbf921f41e1cf9e760a17c9c00b6d8dd04",
+    "configs/aris/batch_20261017.json": "0e5a457aa872d3cdf70643fc5631e3e6151bf70a2bd3cb17ff078b6614111b12"
+  },
+  "paid_policy_enabled_after_batch": false,
+  "scheduler_enabled": false,
+  "unattended_ready": false,
+  "scientific_acceptance": false,
+  "unresolved": [
+    "OS isolation against process-group escape or simultaneous guardian kill is not demonstrated.",
+    "Review packet omitted raw tensors, audit contents and source code; independent review covers internal consistency only.",
+    "Historical Console total has cent precision; new invocation cost is provider CLI list-basis metadata, not a later Console bill.",
+    "Supervisor scope decision remains required; no research/training/v3/protocol/scope/test/checkpoint/submission/commit authority was expanded."
+  ],
+  "parent_adjudication": {
+    "registry_absence_suggestion": "Not adopted: experiment registry already records failed remediation-v2; claims.json intentionally has no promoted result claim.",
+    "historical_gate_wording": "Preserved as a historical source; failed matrix/final-test locks remain unchanged."
+  }
+}

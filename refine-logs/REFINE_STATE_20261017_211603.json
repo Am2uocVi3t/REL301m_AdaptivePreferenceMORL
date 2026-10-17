@@ -1,0 +1,13 @@
+{
+  "phase": "review",
+  "round": 1,
+  "threadId": null,
+  "last_score": null,
+  "last_verdict": null,
+  "status": "in_progress",
+  "timestamp": "2026-10-17T21:16:03+07:00",
+  "run_id": "aris-minecart-offline-continuation-20261017",
+  "review_route": "codex_same_family_provisional",
+  "paid_review_enabled": false,
+  "authority_gate": "No implementation or training before a versioned scope amendment and supervisor approval."
+}

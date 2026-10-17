@@ -8,6 +8,36 @@ New contributors and coding agents should start with [`AGENTS.md`](AGENTS.md), t
 
 For work spanning multiple chats, use the [AI-assisted research workflow](docs/research/AI_RESEARCH_WORKFLOW.md), inspect the [evidence-gated roadmap](docs/research/ROADMAP.md), and copy the generated [cross-chat handoff prompt](docs/research/HANDOFF_PROMPT.md). The Git-native harness tracks phases, claims, literature metadata, experiments, blockers, and session summaries without storing paper PDFs.
 
+Pinned ARIS skills and Claude-review overlays are installed project-locally.
+Read the [integration contract](docs/research/ARIS_INTEGRATION.md) before use:
+offline hardening passes source-bound metadata, lifecycle, reservation, quota,
+packet and resume tests. Paid dispatch and unattended research remain disabled
+pending Console reconciliation, a separately authorized bounded real workflow
+and OS-isolation assessment. This does not unlock
+the failed Minecart study or final test.
+
+The user authorization `aris-full-workflow-20261017` now permits a dedicated
+review PR, a versioned F1 Minecart amendment, implementation, deterministic
+qualification, six paired local training runs and nominal-validation/source
+audit. It does not permit final-test tuning or unconditional checkpoint locking;
+those remain evidence-gated. Paid calls still require a separately configured
+finite batch under the documented cost ceiling, and scheduled unattended
+dispatch remains disabled.
+
+## Interactive presentation app (inference only)
+
+The current presentation deliverable is `outputs/REL301m_Interactive_Demo.zip`.
+It contains a real local website/backend, inference-only copies of two existing
+checkpoints, setup instructions and the PDF documents. Launch with Python 3.11
+following `demo/interactive/README_VI.md`; do not open HTML as a standalone file.
+The slider changes preference input to the same frozen network, not its weights.
+Reference and user panels reset with the same seed; optional live changes retain
+history and are labeled accordingly. The upgraded Canvas artwork uses actual
+environment coordinates, with an original-renderer toggle. No training, final
+test, provider call or scientific gate is enabled by the app. Minecart remains
+qualification-failed. Evidence and explicit browser/platform limitations:
+`research/qualification/interactive_model_demo_v1.json`.
+
 ## Research question
 
 Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?
@@ -29,7 +59,7 @@ The project studies these signals rather than claiming that preference-condition
 | LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
 | Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
 | Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
-| Minecart remediation | V1 failed; the predeclared PER-only v2 implementation and fail-closed runner passed review, but its three seeds are not authorized or executed |
+| Minecart remediation | V1 and PER-only v2 failed; a reviewed F1 successful-episode replay amendment is authorized for implementation and paired training, while final test remains conditional |
 | Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
 | Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
 | Multi-seed course results | Primary validation audit failed closed; no comparative result |
@@ -135,7 +165,7 @@ Actual execution additionally requires `--execute`, the exact `--acknowledge-stu
 
 After primary validation, non-smoke execution also requires a passed, hash-bound post-validation gate. Matrix v1's gate is blocked, so its remaining jobs cannot be resumed. Minecart backbone qualification v1 is documented in `configs/remediations/minecart_pcqn_backbone_v1.json`; its completed decision failed the all-seeds gate, so another run requires a separately versioned v2 predeclaration.
 
-The validation-only v1 behavior diagnosis is frozen in `configs/diagnostics/minecart_remediation_v1_behavior.json` and recorded in `research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json`. It selected rare-transition retention as the next target after successful mining/delivery disappeared at later checkpoints within a seed. `configs/remediations/minecart_pcqn_backbone_v2.json` therefore predeclares proportional prioritized replay as the only v2 change. Before execution, its amendment log corrected contradictory squared-TD wording and retained v1's masked Huber loss, so unit importance weights recover the original loss exactly. The implementation, analytic tests, runner/auditor preview, and a non-evidence 20-step smoke are qualified in `research/qualification/minecart_pcqn_backbone_v2_implementation.json`; execution remains unauthorized.
+The validation-only v1 behavior diagnosis is frozen in `configs/diagnostics/minecart_remediation_v1_behavior.json` and recorded in `research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json`. It selected rare-transition retention. V2 predeclared proportional PER as the only change, preserving masked Huber loss through a recorded pre-execution amendment. After implementation review and explicit user authorization, its three 1M-interaction seeds completed; source audit passed 30 checkpoints, but every raw/discounted ore return was zero across 4,800 validation episodes. All selected checkpoints failed the unchanged ore gate. See `research/qualification/minecart_pcqn_backbone_v2.json`. Current-scope remediation stops; v3 or scope amendment requires supervisor approval. No matrix or final-test gate is unlocked.
 
 Audit completed primary checkpoints and reproduce their validation evidence without exposing a test-split option:
 
@@ -151,7 +181,7 @@ Preview the current v2 qualification without executing it:
 python scripts/run_minecart_remediation.py
 ```
 
-The preview is validation-only and resolves exactly seeds `20264011`–`20264013`, but reports `execute: false`. Implementation review is complete; separate explicit execution authorization is still required before any v2 seed may run.
+The preview is validation-only and resolves exactly seeds `20264011`–`20264013`, but reports `execute: false`. These seeds already completed and their qualification failed; do not restart them. New execution must use the separately versioned F1 amendment and fresh paired seeds `20264021`–`20264023`; the v2 preview is not that execution path.
 
 Reproduce or audit the completed v1 workflow by selecting its plan explicitly:
 

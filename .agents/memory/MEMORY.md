@@ -26,8 +26,11 @@
 - [project] Phase 4 primary PCQN execution began after commit c4a90d6; one full-budget canary completed and the remaining primary jobs run serially without unlocking final test → research-status.md
 - [project] The 300-checkpoint primary validation audit passed source checks but failed closed on zero Minecart ore objectives across all 15 runs; zero checkpoints are locked, 120 jobs and final test remain blocked → research-status.md
 - [project] User chose to retain Minecart; next gate is a non-test diagnosis and predeclared remediation, not environment exclusion → research-status.md
-- [project] Minecart v1 traces show rare success then policy loss; PER-only v2 implementation/runner passed review but its seeds remain unauthorized/unexecuted, with matrix/final test blocked → research-status.md
+- [project] PER-only Minecart v2 completed three authorized 1M-interaction seeds; source audit passed but all 30 checkpoints had zero ore; all-seeds qualification failed, so current-scope remediation stops and matrix/final-test locks remain → research-status.md
+- [project] Authorization aris-full-workflow-20261017 permits a separately versioned F1 replay amendment, implementation, qualification and six paired local runs; F2/checkpoint/final-test/paid/unattended gates remain conditional → research-status.md
+- [user] Initial progress report due 19 October 2026; local + video demo; autonomous reviewer-led work; nominal Claude budget $1/batch and $0.25/call, no auto-top-up → user-preferences.md
 
 ## Reference
+- [project] ARIS bootstrap installed 84 pinned Codex skills plus 8 Claude overlays as copies; preflight/offline resume verified, paid/unattended still disabled pending cost/lifecycle/confinement hardening → research-status.md
 - [reference] Detailed current state and next actions live in the canonical project status document → research-status.md
 - [reference] New chats use the generated handoff prompt after running research-harness doctor/status/roadmap list → research-status.md
