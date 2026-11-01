@@ -32,6 +32,7 @@
 - [user] Initial progress report due 19 October 2026; local + video demo; autonomous reviewer-led work; nominal Claude budget $1/batch and $0.25/call, no auto-top-up → user-preferences.md
 
 ## Reference
+- [project] Current backbone investigation: paired Lunar heuristic diagnostic exposes learner failure even at frozen utility; earlier Envelope cohort is only partially seeded. New n=1/n=20 study is separately predeclared, not an original-gate unlock. See `docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md` and live `artifacts/credit-assignment-v1/execution_status.json` before launching anything.
 - [project] Delivered demo was behavior-tested on 80 cases: default Lunar 0/5 native +100, landing-heavy 2/5 (+100 outside pad in one case), Minecart 0/40 cargo/ore; task learning remains unqualified. See `docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md`; do not equate final report packaging with project completion.
 - [project] F1 failed; scientific locks remain. User authorized the course report/demo recovery on 01 November → research-status.md
 - [project] ARIS bootstrap installed 84 pinned Codex skills plus 8 Claude overlays as copies; preflight/offline resume verified, paid/unattended still disabled pending cost/lifecycle/confinement hardening → research-status.md

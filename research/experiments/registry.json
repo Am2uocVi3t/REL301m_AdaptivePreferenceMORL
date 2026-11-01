@@ -70,6 +70,27 @@
       "notes": "",
       "created_at": "2026-11-01T09:23:39+00:00",
       "updated_at": "2026-11-01T09:40:37+00:00"
+    },
+    {
+      "id": "lunar-objective-diagnosis-v1",
+      "title": "Paired frozen-model and handwritten-controller objective diagnostic",
+      "status": "complete",
+      "protocol": "configs/experiments/lunar_objective_diagnosis_v1.json",
+      "claim_ids": [],
+      "artifact": "research/evidence/lunar_objective_diagnosis_v1.json",
+      "notes": "",
+      "created_at": "2026-11-01T15:06:42+00:00",
+      "updated_at": "2026-11-01T15:06:42+00:00"
+    },
+    {
+      "id": "credit-assignment-v1",
+      "title": "Finite paired n-step backbone qualification",
+      "status": "planned",
+      "protocol": "configs/experiments/credit_assignment_v1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "",
+      "created_at": "2026-11-01T15:06:42+00:00"
     }
   ]
 }

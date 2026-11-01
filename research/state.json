@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/demo-behavior-audit",
-  "updated_at": "2026-11-01T11:10:43+00:00",
+  "working_branch": "codex/causal-backbone-study",
+  "updated_at": "2026-11-01T15:07:43+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Use START_COURSE_DEMO.bat or outputs/REL301m_Course_Project_20261101_httpfix.zip; read docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md and the evidence archive before presenting task success.",
-    "Prioritize a new finite backbone/task-qualification study. Existing skills suffice; do not extend completed cohorts, substitute seeds/checkpoints, or unlock final test from presentation diagnostics."
+    "Run the frozen 12-job credit-assignment-v1 cohort once from a clean commit; inspect live execution_status before any dispatch.",
+    "Audit complete evidence and integrate bounded conclusions into the group LaTeX report."
   ],
-  "last_session_summary": "Follow-up hardened artifact portability and rejected HTTP POST transport after repeated Windows full-suite reset failures. Versioned behavior JSON now LF-stable; small rejected bodies drained under existing cap/timeout. Ten repeated unauthorized requests cause no reset, two post-fix full suites pass 179/4 skips. New httpfix package passed 89-file/ZIP parity, 80 UI assertions and standalone Edge; original PDF/ZIP preserved, all models/physics unchanged and task learning remains unqualified."
+  "last_session_summary": "Investigated primary papers, diagnosed frozen Lunar against handwritten control, and qualified deterministic CUDA n-step implementation; main credit-assignment cohort remains planned."
 }

@@ -8,6 +8,31 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Backbone/process investigation (2026-11-01, `codex/causal-backbone-study`):
+the user requested primary-paper review and better controlled experiments,
+rather than declaring the packaged report complete. A 30-episode paired Lunar
+positive control now retains native per-step traces: default frozen model 0/10
+native +100, landing-heavy model 4/10 (two inside pad x), fixed Gymnasium
+heuristic 8/10 (seven inside pad x). The heuristic exceeds the default model's
+unchanged gamma=.99 utility in 9/10 paired cases. This diagnoses remaining
+learner failure; it is not a newly trained MORL result. Evidence:
+`research/evidence/lunar_objective_diagnosis_v1.json`.
+
+A source audit also identified partial seeding in the earlier Envelope runner:
+passing its seed argument does not seed Torch initialization/global NumPy and
+SciPy. The saved numeric/source audit remains valid, but those runs are not
+fully reproducible paired replicates. Full-text paper/source comparisons and
+this correction are in `docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md`.
+
+The new separately versioned `configs/experiments/credit_assignment_v1.json`
+predeclares 12 jobs / 6M total training interactions: both environments, n=1
+versus n=20, three paired seeds, 500k/job, unchanged gamma/scales and uniform
+allocation. Repeated short CUDA learning traces passed on both environments
+(24k qualification interactions, 1004 updates); see
+`research/qualification/credit_assignment_v1.json`. Main execution is not yet
+claimed here. This development screen cannot unlock the original matrix,
+F1/F2, checkpoint selection or final test.
+
 Behavioral acceptance check (2026-11-01, branch `codex/demo-behavior-audit`):
 at the user's request, the actual delivered Uniform-PCQN presentation policies
 were checked on eight fixed preferences and five environment seeds each,

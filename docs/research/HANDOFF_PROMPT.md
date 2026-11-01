@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T11:10:43+00:00
-Expected working branch at generation: codex/demo-behavior-audit
-Expected commit at generation: 6226588
+Snapshot generated: 2026-11-01T15:07:43+00:00
+Expected working branch at generation: codex/causal-backbone-study
+Expected commit at generation: a906ab7
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -79,16 +79,17 @@ Active experiments:
 - minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
+- credit-assignment-v1 [planned]: Finite paired n-step backbone qualification
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Follow-up hardened artifact portability and rejected HTTP POST transport after repeated Windows full-suite reset failures. Versioned behavior JSON now LF-stable; small rejected bodies drained under existing cap/timeout. Ten repeated unauthorized requests cause no reset, two post-fix full suites pass 179/4 skips. New httpfix package passed 89-file/ZIP parity, 80 UI assertions and standalone Edge; original PDF/ZIP preserved, all models/physics unchanged and task learning remains unqualified.
+Investigated primary papers, diagnosed frozen Lunar against handwritten control, and qualified deterministic CUDA n-step implementation; main credit-assignment cohort remains planned.
 
 Next actions:
-1. Use START_COURSE_DEMO.bat or outputs/REL301m_Course_Project_20261101_httpfix.zip; read docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md and the evidence archive before presenting task success.
-2. Prioritize a new finite backbone/task-qualification study. Existing skills suffice; do not extend completed cohorts, substitute seeds/checkpoints, or unlock final test from presentation diagnostics.
+1. Run the frozen 12-job credit-assignment-v1 cohort once from a clean commit; inspect live execution_status before any dispatch.
+2. Audit complete evidence and integrate bounded conclusions into the group LaTeX report.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

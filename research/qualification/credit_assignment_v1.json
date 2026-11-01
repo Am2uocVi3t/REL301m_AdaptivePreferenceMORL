@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "device": "cuda",
+  "seed": 20261402,
+  "n": 20,
+  "training_interactions_per_repetition": 6000,
+  "updates_per_repetition": 251,
+  "records": [
+    {
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "runs": [
+        "artifacts\\credit-assignment-v1\\qualification\\repeat0\\smoke\\mo-lunar-lander-v3_n20_seed20261402",
+        "artifacts\\credit-assignment-v1\\qualification\\repeat1\\smoke\\mo-lunar-lander-v3_n20_seed20261402"
+      ],
+      "match": true
+    },
+    {
+      "protocol": "configs/protocols/course_minecart_v0.json",
+      "runs": [
+        "artifacts\\credit-assignment-v1\\qualification\\repeat0\\smoke\\minecart-v0_n20_seed20261402",
+        "artifacts\\credit-assignment-v1\\qualification\\repeat1\\smoke\\minecart-v0_n20_seed20261402"
+      ],
+      "match": true
+    }
+  ],
+  "scope": "Same runtime/device exact initial and final parameter hashes, full episode summaries, loss samples and validation returns; not a task-learning claim"
+}
