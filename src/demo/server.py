@@ -78,6 +78,14 @@ def make_server(root: Path, port: int = 8765) -> HTTPServer:
 
         def do_POST(self):
             if not self.trusted() or not hmac.compare_digest(self.headers.get("X-Demo-Token", ""), token):
+                # An unread POST body can reset TCP before the client receives 403.
+                # Drain only bounded bodies, under the existing socket timeout.
+                try:
+                    rejected_size = int(self.headers.get("Content-Length", "0"))
+                    if 0 < rejected_size <= 32768:
+                        self.rfile.read(rejected_size)
+                except (ValueError, OSError):
+                    pass
                 self.reply(403, {"error": "Local origin/token required"})
                 return
             try:

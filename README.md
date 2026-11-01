@@ -48,6 +48,10 @@ Minecart collected/delivered no ore in 40/40 cases. Input handling works, but
 reliable task learning is **not** established. See the
 [behavioral audit](docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md) before presenting
 the app as an agent completing its task. The PDF/ZIP delivery is unchanged.
+The launcher now prefers `outputs/REL301m_Course_Project_20261101_httpfix`, which
+fixes a Windows connection-reset issue when rejecting small POST bodies and
+includes the behavioral evidence. The original ZIP is preserved; model weights
+and inference/physics behavior are unchanged.
 
 The current group-template course report is built from `paper/REL301m/main.tex`
 using `. scripts/build_course_latex_report.ps1`. The three-seed Envelope

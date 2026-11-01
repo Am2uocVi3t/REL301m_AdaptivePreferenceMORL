@@ -129,7 +129,9 @@ def main() -> None:
             ],
             "native_renderer_visibility": json.loads((browser_path.parent / "native-visibility-pass.json").read_text()),
         }
-    write_json(ROOT / "research/evidence/demo_behavior_audit_v1.json", receipt)
+    evidence_path = ROOT / "research/evidence/demo_behavior_audit_v1.json"
+    write_json(evidence_path, receipt)
+    evidence_path.write_bytes(evidence_path.read_bytes().replace(b"\r\n", b"\n"))
     output = ROOT / "outputs/demo-behavior-audit-v1"
     output.mkdir(parents=True, exist_ok=True)
     fig, axes = plt.subplots(1, 2, figsize=(13, 5.5), constrained_layout=True)

@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T11:03:53+00:00
+Snapshot generated: 2026-11-01T11:10:43+00:00
 Expected working branch at generation: codex/demo-behavior-audit
-Expected commit at generation: 025cad0
+Expected commit at generation: 6226588
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -84,12 +84,11 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-User-requested frozen-demo behavior audit completed: 80 episodes (8 preferences x 5 environment seeds x 2 environments), 58,828 diagnostic steps, no training/final test. Default Lunar 0/5 native +100; landing-heavy 2/5 (+100 outside pad in one); Minecart zero cargo/ore in all 40. Four complete Edge UI cases matched direct traces, with native image visibility checked; fixed verification harness async screenshot wait, no app/CSS/model changes. Original PDF/ZIP hashes unchanged. Technical checks 179 pass/4 skip; task learning remains unqualified.
+Follow-up hardened artifact portability and rejected HTTP POST transport after repeated Windows full-suite reset failures. Versioned behavior JSON now LF-stable; small rejected bodies drained under existing cap/timeout. Ten repeated unauthorized requests cause no reset, two post-fix full suites pass 179/4 skips. New httpfix package passed 89-file/ZIP parity, 80 UI assertions and standalone Edge; original PDF/ZIP preserved, all models/physics unchanged and task learning remains unqualified.
 
 Next actions:
-1. Read docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md and inspect outputs/demo-behavior-audit-v1 plus its evidence ZIP before presenting the app as task-solving.
-2. Prioritize a separately versioned backbone diagnosis and task qualification before new primary allocation/ablation comparisons; do not restart or extend completed cohorts or unlock final test from these diagnostic cases.
-3. Keep the delivered report as scoped implementation/failure analysis; final packaging does not establish full project completion. Existing skills suffice; no new skill was installed.
+1. Use START_COURSE_DEMO.bat or outputs/REL301m_Course_Project_20261101_httpfix.zip; read docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md and the evidence archive before presenting task success.
+2. Prioritize a new finite backbone/task-qualification study. Existing skills suffice; do not extend completed cohorts, substitute seeds/checkpoints, or unlock final test from presentation diagnostics.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

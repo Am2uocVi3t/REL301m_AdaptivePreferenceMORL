@@ -33,8 +33,9 @@ def build() -> Path:
     for name, expected in old_manifest["files"].items():
         if digest(base / name) != expected:
             raise ValueError(f"Recovery package changed: {name}")
-    output = ROOT / "outputs/REL301m_Course_Project_20261101"
+    output = ROOT / "outputs/REL301m_Course_Project_20261101_httpfix"
     shutil.copytree(base, output, dirs_exist_ok=True, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    shutil.copy2(ROOT / "src/demo/server.py", output / "src/demo/server.py")
     shutil.copy2(report, output / "docs/Bao_cao.pdf")
     for name in ("PAPER_CLAIM_AUDIT.json", "PAPER_CLAIM_AUDIT.md", "PAPER_CLAIM_AUDIT_PRE_REVISION.md"):
         history = output / "docs/historical-review"
@@ -52,6 +53,10 @@ def build() -> Path:
         "docs/GPU_COURSE_RUNTIME.md",
         "docs/COURSE_PRESENTATION_VI.md",
         "research/qualification/cuda_course_runtime_20261101.json",
+        "docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md",
+        "research/evidence/demo_behavior_audit_v1.json",
+        "configs/demos/behavior_audit_v1.json",
+        "outputs/demo-behavior-audit-v1/behavior_summary.png",
         "outputs/course-report-latex/recovered_learning_curves.pdf",
     ):
         destination = output / relative
@@ -82,6 +87,8 @@ def build() -> Path:
     readme = output / "README_VI.md"
     readme.write_text(
         "# REL301m — báo cáo theo mẫu nhóm và demo\n\n"
+        "Bản httpfix sửa xử lý body nhỏ của request bị từ chối trên Windows; model/physics không đổi.\n"
+        "Xem docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md trước khi gọi demo là task-solving.\n"
         "Báo cáo: docs/Bao_cao.pdf. Nguồn sửa được: paper/REL301m/main.tex.\n"
         "Nguồn BibTeX: research/literature/library.bib; hình kết quả ở outputs/course-report-latex.\n"
         "Dữ liệu 3 seed Envelope và 6 checkpoint mới đi kèm, tách khỏi models của app.\n"

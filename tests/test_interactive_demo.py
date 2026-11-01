@@ -213,7 +213,9 @@ def test_http_auth_bounds_allowlist_and_real_inference(demo_root):
         token = json.loads(raw)["token"]
         headers = {"X-Demo-Token": token, "Content-Type": "application/json"}
         reset = {"environment": "mine", "weights": [1 / 3] * 3, "generation": 0}
-        assert request("POST", "/api/reset", reset)[0] == 403
+        for _ in range(10):
+            assert request("POST", "/api/reset", reset)[0] == 403
+        assert json.loads(request("GET", "/api/state")[1])["resets_total"] == 0
         assert request("POST", "/api/reset", reset, {**headers, "Origin": "https://evil.example"})[0] == 403
         assert request("GET", "/api/config", headers={"Host": "evil.example"})[0] == 403
         assert request("POST", "/api/reset", reset, headers)[0] == 200

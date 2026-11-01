@@ -71,4 +71,19 @@ công và counter server cộng dồn 15.634 bước kể cả những lần th�
 Một lần chờ renderer trong harness cũ chưa đủ đã tạo screenshot sai thời điểm;
 computed style xác nhận CSS của app đã ẩn canvas đúng. Đã sửa harness chờ
 canvas ẩn, ảnh mới load xong và control trở lại sẵn sàng trước khi chụp.
-Không sửa CSS/app/model hoặc tạo bản package khác cho vấn đề này.
+Không sửa CSS/model cho vấn đề renderer này.
+
+## Sửa lỗi HTTP độc lập với đánh giá policy
+
+Khi chạy toàn bộ test trên Windows, request POST thiếu token có lúc bị ngắt
+kết nối (WinError 10053) thay vì nhận response 403. Đã tái hiện hai lần trong
+full suite và xác nhận server đóng kết nối khi body request còn chưa đọc.
+Server hiện đọc bỏ body có Content-Length hợp lệ trong giới hạn 32 KiB,
+dưới timeout socket sẵn có, trước khi trả 403. Không xử lý request bị từ chối
+thành hành động môi trường. Test gửi 10 request bị từ chối và xác nhận không
+có reset; toàn bộ 179 test đạt, 4 skip đã có lý do.
+
+Cơ sở xử lý teardown: [RFC 9112, section 9.6](https://www.rfc-editor.org/rfc/rfc9112.html#section-9.6).
+Bản `outputs/REL301m_Course_Project_20261101_httpfix.zip` mang sửa lỗi này.
+Bản ZIP/PDF trước vẫn giữ nguyên. Model, config, physics và hàm chọn action
+giống hệt bản đã đo 80 episode; sửa HTTP không cải thiện khả năng hạ cánh/ore.

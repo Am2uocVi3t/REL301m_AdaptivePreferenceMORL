@@ -40,6 +40,19 @@ Evidence: `research/evidence/demo_behavior_audit_v1.json` and
 `docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md`; full traces/screenshots remain
 on D: under `artifacts/demo-behavior-audit-v1`. Old research gates stay locked.
 
+HTTP follow-up during the final full-suite runs: two Windows runs reproduced
+WinError 10053 on a rejected POST. The server closed with an unread body;
+it now drains only valid bodies up to 32 KiB under the existing timeout before
+403. Ten repeated unauthorized requests remain rejected with zero resets;
+two post-fix full suites passed 179 tests / four skips. The original
+PDF/ZIP remain unchanged, while
+`outputs/REL301m_Course_Project_20261101_httpfix.zip` carries this transport fix,
+the behavior evidence and chart. Its 89 file hashes/ZIP bytes, 80 UI assertions
+and standalone-runtime Edge checks passed. The root launcher prefers it.
+Models, physics, preferences and action selection are byte-identical to the
+80-case audit. No CSS defect was found or patched. The behavior evidence's
+versioned JSON is explicitly LF-normalized for stable Git/hash verification.
+
 Course-template/training update (2026-11-01, supersedes the delivery format below):
 the user confirmed the existing group LaTeX template and authorized further local
 training for course completion. On `codex/course-completion-v2`, a separate
