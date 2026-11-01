@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/causal-backbone-study",
-  "updated_at": "2026-11-01T15:24:36+00:00",
+  "updated_at": "2026-11-01T15:28:34+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,9 @@
     }
   ],
   "next_actions": [
-    "Inspect artifacts/credit-assignment-v1/execution_status.json and worker progress; do not relaunch, replace seeds, or overwrite partial jobs.",
-    "After all 12 complete, run scripts/analyze_credit_assignment.py, inspect seed-level task gates and paired effects, then update the group LaTeX report using actual outcomes.",
-    "Keep original failed matrix/F1 and final-test gates locked; new development results do not automatically unlock them."
+    "Inspect live execution_status.json, worker progress and artifacts/credit-assignment-v1/postprocess.log; do not relaunch or overwrite jobs.",
+    "If complete, inspect research/evidence/credit_assignment_v1.json, its seed-level task gates and paired effects; then update and visually verify the group LaTeX report using actual outcomes.",
+    "Original failed matrix/F1 and final-test gates remain locked. No independent semantic-review PASS is claimed."
   ],
-  "last_session_summary": "Primary-source backbone review and all 30 Lunar native traces audited; 184 tests pass. Frozen 12-job credit-assignment cohort launched from 71b9690 with three CUDA workers and remains running. Separate 12-page group-template research-update PDF rendered/inspected; no improved-model or project-completion claim."
+  "last_session_summary": "Frozen 12-job local CUDA study continues, three first jobs beyond 200k each. A bounded six-hour local waiter will run the numerical/source audit once after all 12 finish; inspect postprocess.log before duplicate audit. Current 12-page research-update PDF and 30-trace diagnostic are verified; final new-study conclusions remain pending."
 }

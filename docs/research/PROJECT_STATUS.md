@@ -36,6 +36,12 @@ results are not yet established. Later documentation/analysis-only commits may
 advance HEAD; the analysis checks identical training source trees/blobs against
 the dispatch commit for every job. This development screen cannot unlock the original matrix,
 F1/F2, checkpoint selection or final test.
+A bounded six-hour local postprocessor is already waiting for all 12 jobs;
+it then runs `scripts/analyze_credit_assignment.py` once and records output in
+`artifacts/credit-assignment-v1/postprocess.log`. It stops on technical failure
+or timeout, with no training retry. Check that log and the generated evidence
+before manually invoking another audit. Report interpretation/visual review
+of the eventual main-study results still remains pending.
 
 The group-template report update is
 `outputs/research-update-20261101/REL301m_Research_Update.pdf` (12 pages;
