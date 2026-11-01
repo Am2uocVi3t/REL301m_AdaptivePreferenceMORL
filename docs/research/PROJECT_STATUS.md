@@ -8,6 +8,31 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest training check (2026-11-01, about 23:11 Asia/Bangkok) supersedes the
+running-process statements below: the credit-assignment coordinator, training
+workers and bounded postprocessor are no longer present. Two OS queries found
+no Python processes; GPU was idle (0%, 9 MiB), and both prior managed execution
+session IDs were unknown. No traceback/OOM was found in worker stderr; the
+external interruption cause is not established. The raw execution status still
+contains stale `queued_or_running` entries and is not proof of a live process.
+
+Three Lunar jobs completed 500k/123751 updates each. Three other Lunar jobs
+last recorded 325k, 300k and 300k interactions; their latest saved checkpoints
+are 250k. Six Minecart jobs have not started. At the fixed 500k checkpoint,
+landing-heavy native +100 / +100-and-pad counts are 3/10 and 1/10 for n=1
+seed 20261211, 3/10 and 1/10 for n=1 seed 20261212, and 0/10 and 0/10 for
+n=20 seed 20261211. None of these three jobs passes the 8/10 pad task screen;
+the incomplete cohort does not establish an n-step advantage or failure across
+all planned seeds. Final-test access remains zero.
+
+The experiment registry is now blocked on technical recovery. Checkpoint keys
+were inspected: model/target/optimizer are retained, but replay contents,
+pending n-step queue, RNG and environment states are absent. Exact mid-run
+resume is therefore unavailable. No job was restarted, overwritten or replaced
+during this check. Preserve the 3 complete / 3 interrupted / 6 unstarted jobs
+and define an auditable recovery amendment before dispatching more work.
+Evidence: `research/evidence/credit_assignment_training_check_20261101.json`.
+
 Backbone/process investigation (2026-11-01, `codex/causal-backbone-study`):
 the user requested primary-paper review and better controlled experiments,
 rather than declaring the packaged report complete. A 30-episode paired Lunar

@@ -1,6 +1,7 @@
 # Memory Index
 
 ## User
+- [user] On 1 November, user clarified there is no rush: prioritize research quality and useful behavior across preferences over quick report packaging; keep finite, auditable experiment stages.
 - [user] Keep all managed downloads, caches, runtimes and outputs on D:; C: is low on space → user-preferences.md
 - [user] Communicate primarily in Vietnamese; keep technical names and commands in English → user-preferences.md
 - [user] Prefer autonomous implementation with concise, evidence-based handoff → user-preferences.md
@@ -32,6 +33,7 @@
 - [user] Initial progress report due 19 October 2026; local + video demo; autonomous reviewer-led work; nominal Claude budget $1/batch and $0.25/call, no auto-top-up → user-preferences.md
 
 ## Reference
+- [project] Latest 1 November training check found no Python workers/coordinator/postprocessor: credit-assignment cohort has 3 complete Lunar jobs, 3 interrupted Lunar jobs, 6 unstarted Minecart jobs. Registry blocked; raw queued_or_running flags are stale. Checkpoints lack exact-resume state. See `research/evidence/credit_assignment_training_check_20261101.json`; do not relaunch or overwrite partial runs.
 - [project] Current backbone investigation: paired Lunar heuristic diagnostic exposes learner failure even at frozen utility; earlier Envelope cohort is only partially seeded. New n=1/n=20 study is separately predeclared, not an original-gate unlock. See `docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md` and live `artifacts/credit-assignment-v1/execution_status.json` before launching anything.
 - [project] Delivered demo was behavior-tested on 80 cases: default Lunar 0/5 native +100, landing-heavy 2/5 (+100 outside pad in one case), Minecart 0/40 cargo/ore; task learning remains unqualified. See `docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md`; do not equate final report packaging with project completion.
 - [project] F1 failed; scientific locks remain. User authorized the course report/demo recovery on 01 November → research-status.md

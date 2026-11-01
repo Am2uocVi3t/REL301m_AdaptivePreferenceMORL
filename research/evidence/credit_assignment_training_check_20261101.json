@@ -1,0 +1,202 @@
+{
+  "checked_at": "2026-11-01T16:12:11.255295+00:00",
+  "observation": "Two OS process checks found no Python processes; GPU 0 percent / 9 MiB; prior coordinator and postprocessor session IDs no longer exist",
+  "cause": "Unknown; stderr logs contain precision warnings but no traceback/OOM",
+  "execution_status_sha256": "b92344ac6ed1724fb180689137b894f176696720e0dbca71c013a1d39a56c62f",
+  "resume_limit": "Saved model/target/optimizer checkpoints omit replay contents, pending n-step queue, RNG and environment states; exact mid-run continuation is unavailable",
+  "intervention": "No training restarted, no files overwritten, no seed replaced",
+  "records": [
+    {
+      "job": "mo-lunar-lander-v3_n1_seed20261211",
+      "observed_status": "complete",
+      "last_recorded_progress": {
+        "step": 500000,
+        "updates": 123751,
+        "episodes": 2424,
+        "wall_seconds": 2388.192405939102,
+        "validation_steps": 78207,
+        "task_steps": 22437
+      },
+      "last_evaluation": {
+        "step": 500000,
+        "landing_heavy_native_plus100": 3,
+        "landing_heavy_plus100_and_pad": 1
+      },
+      "checkpoints": [
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211\\step100000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211\\step250000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211\\step500000.pt"
+      ]
+    },
+    {
+      "job": "mo-lunar-lander-v3_n20_seed20261211",
+      "observed_status": "complete",
+      "last_recorded_progress": {
+        "step": 500000,
+        "updates": 123751,
+        "episodes": 3612,
+        "wall_seconds": 2384.470900774002,
+        "validation_steps": 52705,
+        "task_steps": 17960
+      },
+      "last_evaluation": {
+        "step": 500000,
+        "landing_heavy_native_plus100": 0,
+        "landing_heavy_plus100_and_pad": 0
+      },
+      "checkpoints": [
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211\\step100000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211\\step250000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211\\step500000.pt"
+      ]
+    },
+    {
+      "job": "mo-lunar-lander-v3_n1_seed20261212",
+      "observed_status": "complete",
+      "last_recorded_progress": {
+        "step": 500000,
+        "updates": 123751,
+        "episodes": 2372,
+        "wall_seconds": 2408.480055332184,
+        "validation_steps": 95026,
+        "task_steps": 21648
+      },
+      "last_evaluation": {
+        "step": 500000,
+        "landing_heavy_native_plus100": 3,
+        "landing_heavy_plus100_and_pad": 1
+      },
+      "checkpoints": [
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212\\step100000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212\\step250000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212\\step500000.pt"
+      ]
+    },
+    {
+      "job": "mo-lunar-lander-v3_n20_seed20261212",
+      "observed_status": "interrupted_process_absent",
+      "last_recorded_progress": {
+        "step": 325000,
+        "updates": 80001,
+        "episodes": 2695,
+        "wall_seconds": 1348.2838051319122,
+        "validation_steps": 27159,
+        "task_steps": 6700
+      },
+      "last_evaluation": {
+        "step": 250000,
+        "landing_heavy_native_plus100": 0,
+        "landing_heavy_plus100_and_pad": 0
+      },
+      "checkpoints": [
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261212\\step100000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261212\\step250000.pt"
+      ],
+      "checkpoint_fields": [
+        "model_state_dict",
+        "target_state_dict",
+        "optimizer_state_dict",
+        "architecture",
+        "protocol",
+        "counters",
+        "n"
+      ]
+    },
+    {
+      "job": "mo-lunar-lander-v3_n1_seed20261213",
+      "observed_status": "interrupted_process_absent",
+      "last_recorded_progress": {
+        "step": 300000,
+        "updates": 73751,
+        "episodes": 1591,
+        "wall_seconds": 1264.4444613456726,
+        "validation_steps": 72441,
+        "task_steps": 22251
+      },
+      "last_evaluation": {
+        "step": 250000,
+        "landing_heavy_native_plus100": 0,
+        "landing_heavy_plus100_and_pad": 0
+      },
+      "checkpoints": [
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261213\\step100000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261213\\step250000.pt"
+      ],
+      "checkpoint_fields": [
+        "model_state_dict",
+        "target_state_dict",
+        "optimizer_state_dict",
+        "architecture",
+        "protocol",
+        "counters",
+        "n"
+      ]
+    },
+    {
+      "job": "mo-lunar-lander-v3_n20_seed20261213",
+      "observed_status": "interrupted_process_absent",
+      "last_recorded_progress": {
+        "step": 300000,
+        "updates": 73751,
+        "episodes": 2446,
+        "wall_seconds": 1225.2197346687317,
+        "validation_steps": 31327,
+        "task_steps": 9794
+      },
+      "last_evaluation": {
+        "step": 250000,
+        "landing_heavy_native_plus100": 0,
+        "landing_heavy_plus100_and_pad": 0
+      },
+      "checkpoints": [
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261213\\step100000.pt",
+        "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261213\\step250000.pt"
+      ],
+      "checkpoint_fields": [
+        "model_state_dict",
+        "target_state_dict",
+        "optimizer_state_dict",
+        "architecture",
+        "protocol",
+        "counters",
+        "n"
+      ]
+    },
+    {
+      "job": "minecart-v0_n1_seed20261211",
+      "observed_status": "not_started",
+      "last_recorded_progress": null,
+      "checkpoints": []
+    },
+    {
+      "job": "minecart-v0_n20_seed20261211",
+      "observed_status": "not_started",
+      "last_recorded_progress": null,
+      "checkpoints": []
+    },
+    {
+      "job": "minecart-v0_n1_seed20261212",
+      "observed_status": "not_started",
+      "last_recorded_progress": null,
+      "checkpoints": []
+    },
+    {
+      "job": "minecart-v0_n20_seed20261212",
+      "observed_status": "not_started",
+      "last_recorded_progress": null,
+      "checkpoints": []
+    },
+    {
+      "job": "minecart-v0_n1_seed20261213",
+      "observed_status": "not_started",
+      "last_recorded_progress": null,
+      "checkpoints": []
+    },
+    {
+      "job": "minecart-v0_n20_seed20261213",
+      "observed_status": "not_started",
+      "last_recorded_progress": null,
+      "checkpoints": []
+    }
+  ]
+}

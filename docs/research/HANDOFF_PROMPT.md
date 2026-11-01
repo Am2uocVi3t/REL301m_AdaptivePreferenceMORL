@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T15:28:34+00:00
+Snapshot generated: 2026-11-01T16:12:47+00:00
 Expected working branch at generation: codex/causal-backbone-study
-Expected commit at generation: 7487e1f
+Expected commit at generation: ffeb6d8
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -80,18 +80,18 @@ Active experiments:
 - minecart-pcqn-remediation [failed]: Minecart sparse-credit PCQN backbone qualification
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
-- credit-assignment-v1 [running]: Finite paired n-step backbone qualification
+- credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Frozen 12-job local CUDA study continues, three first jobs beyond 200k each. A bounded six-hour local waiter will run the numerical/source audit once after all 12 finish; inspect postprocess.log before duplicate audit. Current 12-page research-update PDF and 30-trace diagnostic are verified; final new-study conclusions remain pending.
+Training check confirmed coordinator/workers/postprocessor absent, GPU idle and stale running flags. Three Lunar jobs completed, three interrupted, six Minecart unstarted. Completed landing-heavy pad successes 1/10, 1/10, 0/10. No traceback/OOM found; checkpoints omit exact-resume state. Registry blocked; all artifacts preserved and no jobs restarted.
 
 Next actions:
-1. Inspect live execution_status.json, worker progress and artifacts/credit-assignment-v1/postprocess.log; do not relaunch or overwrite jobs.
-2. If complete, inspect research/evidence/credit_assignment_v1.json, its seed-level task gates and paired effects; then update and visually verify the group LaTeX report using actual outcomes.
-3. Original failed matrix/F1 and final-test gates remain locked. No independent semantic-review PASS is claimed.
+1. Diagnose process lifetime and define versioned technical recovery for the interrupted cohort; preserve completed runs and account for all partial compute.
+2. Qualify durable process launch and explicit checkpoint/resume semantics before further dispatch. Do not treat a warm start as exact continuation.
+3. Keep original matrix/F1/final-test gates locked; the incomplete n-step cohort supports no comparative conclusion.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

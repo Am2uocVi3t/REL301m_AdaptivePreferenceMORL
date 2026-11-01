@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/causal-backbone-study",
-  "updated_at": "2026-11-01T15:28:34+00:00",
+  "updated_at": "2026-11-01T16:12:47+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,9 @@
     }
   ],
   "next_actions": [
-    "Inspect live execution_status.json, worker progress and artifacts/credit-assignment-v1/postprocess.log; do not relaunch or overwrite jobs.",
-    "If complete, inspect research/evidence/credit_assignment_v1.json, its seed-level task gates and paired effects; then update and visually verify the group LaTeX report using actual outcomes.",
-    "Original failed matrix/F1 and final-test gates remain locked. No independent semantic-review PASS is claimed."
+    "Diagnose process lifetime and define versioned technical recovery for the interrupted cohort; preserve completed runs and account for all partial compute.",
+    "Qualify durable process launch and explicit checkpoint/resume semantics before further dispatch. Do not treat a warm start as exact continuation.",
+    "Keep original matrix/F1/final-test gates locked; the incomplete n-step cohort supports no comparative conclusion."
   ],
-  "last_session_summary": "Frozen 12-job local CUDA study continues, three first jobs beyond 200k each. A bounded six-hour local waiter will run the numerical/source audit once after all 12 finish; inspect postprocess.log before duplicate audit. Current 12-page research-update PDF and 30-trace diagnostic are verified; final new-study conclusions remain pending."
+  "last_session_summary": "Training check confirmed coordinator/workers/postprocessor absent, GPU idle and stale running flags. Three Lunar jobs completed, three interrupted, six Minecart unstarted. Completed landing-heavy pad successes 1/10, 1/10, 0/10. No traceback/OOM found; checkpoints omit exact-resume state. Registry blocked; all artifacts preserved and no jobs restarted."
 }
