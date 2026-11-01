@@ -1,10 +1,12 @@
 The predeclared screen used MORL-Baselines 1.3.0 Envelope and the pinned
 upstream Minecart example, with the repository's frozen $\gamma=0.99$ and reward
-scales. Each of three seeds ran exactly 100,000 training interactions and
+scales. Each of three seed labels ran exactly 100,000 training interactions and
 99,901 gradient updates. Gaussian behavior/update preferences were retained;
 this is not a fixed-pool or compute-matched allocation comparator. Validation
 used all 32 course preferences, three episodes each, at fixed steps 50,000 and
-100,000. Training RNGs and environments were isolated from validation. The
+100,000. Validation preserved training RNG states, but the runner did not seed
+Torch initialization or global NumPy/SciPy training draws. These are partially
+seeded feasibility runs, not fully reproducible paired replications. The
 original CUDA smoke exposed a replay-index transport bug; a tested host-index
 bridge preserved the sampled indices/priorities and allowed the pinned learner
 to run. No learning rule or hyperparameter was tuned on these validation results.

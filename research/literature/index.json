@@ -675,6 +675,32 @@
       "note": "research/literature/notes/zhao2026mpft.md",
       "added_at": "2026-10-15T04:03:52+00:00",
       "updated_at": "2026-10-15T04:07:58+00:00"
+    },
+    {
+      "id": "terekhov2024architectures",
+      "title": "In Search for Architectures and Loss Functions in Multi-Objective Reinforcement Learning",
+      "authors": [
+        "Mikhail Terekhov",
+        "Caglar Gulcehre"
+      ],
+      "year": 2024,
+      "venue": "ARLET 2024 workshop",
+      "source_type": "preprint",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Full primary PDF read in the 2026-11-01 retrieval/extraction pass, including Minecart sections 6.2/6.3 and Appendices B/D. Local ignored PDF sha256 dd5efd35c9238db46f921a2ffcd53bff14d164ae9772bec5833b08e8e0bfa533; author source commit c568cb6d689d7eaa50a2dec38197de8847f18adc checked. See focused backbone review.",
+      "access_checked_at": "2026-11-01T15:15:51+00:00",
+      "url": "https://arxiv.org/abs/2407.16807",
+      "tags": [
+        "morl",
+        "backbone"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/terekhov2024architectures.md",
+      "added_at": "2026-11-01T15:15:51+00:00",
+      "updated_at": "2026-11-01T15:17:40+00:00"
     }
   ]
 }

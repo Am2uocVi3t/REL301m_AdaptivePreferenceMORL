@@ -4,6 +4,14 @@ Search date: **2026-10-15**. Scope: primary or authoritative sources for prefere
 
 ## Antecedent matrix
 
+1 November 2026 backbone update: the registry now also includes a completed
+full-text/source note for [Terekhov and Gulcehre (2024)](https://arxiv.org/abs/2407.16807),
+bringing the registered full-text count to 23. Its stochastic-Minecart
+architecture/optimization study motivates backbone qualification; it is not
+evidence for the project's adaptive-allocation hypotheses. See
+`docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md` for budget and reproduction
+differences, including the partially seeded earlier Envelope screen.
+
 | Work | Venue/status | Mechanism | Adaptive allocation | Archive/gap | Uncertainty | Coverage/recency | Learning progress | Unseen preferences | Environment shift | Related claim IDs | Full-text evidence |
 |---|---|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|---|---|
 | [Abels et al. (2019)](https://proceedings.mlr.press/v97/abels19a.html) | ICML 2019 | weight-conditioned Q-network + diverse replay | No | No | No | Diversity only | No | Yes | No | `combined-allocation` | PMLR full text |

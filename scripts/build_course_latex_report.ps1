@@ -10,7 +10,7 @@ try {
     }
     & .venv/Scripts/python.exe scripts/reaudit_recovered_validation.py
     if ($LASTEXITCODE -ne 0) { throw 'Recovered numerical audit failed.' }
-    & .venv/Scripts/python.exe scripts/analyze_envelope_feasibility.py
+    & .venv/Scripts/python.exe scripts/analyze_envelope_feasibility.py --preserve-evidence
     if ($LASTEXITCODE -ne 0) { throw 'Envelope cohort is incomplete or failed numerical/source audit.' }
     & .venv/Scripts/python.exe scripts/plot_course_validation.py
     if ($LASTEXITCODE -ne 0) { throw 'Result figure/table generation failed.' }

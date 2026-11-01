@@ -186,6 +186,9 @@ a positive result appears would change the question after seeing outcomes.
 \subsection{Prospective Envelope backbone feasibility}
 \input{Chapters/EnvelopeResults}
 
+\subsection{Task-level positive control and protocol review}
+\input{Chapters/BackboneInvestigation}
+
 \section{Demonstration and reproducibility}
 \subsection{Real inference demonstration}
 The local application uses actual environment transitions and frozen network
@@ -231,7 +234,9 @@ generalization and dynamics generalization are separate claims.
 Lost historical weights restrict independent rollout reproduction. The new
 Envelope screen differs in learner, interaction budget and upstream preference
 sampling; it cannot serve as a compute-matched comparison against the recovered
-PCQN table. Validation means and standard deviations do not replace a held-out
+PCQN table. Its incomplete global seeding is an additional reproducibility limit.
+The current n-step development study is ongoing; its planned budget is not an
+observed improvement. Validation means and standard deviations do not replace a held-out
 final test or an adequately powered study. A completed numerical review of an
 earlier report returned WARN; the later revised-report reviewer hit its usage
 limit. No final independent semantic PASS is claimed.

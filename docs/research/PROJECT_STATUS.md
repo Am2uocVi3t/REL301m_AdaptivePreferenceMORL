@@ -29,9 +29,23 @@ predeclares 12 jobs / 6M total training interactions: both environments, n=1
 versus n=20, three paired seeds, 500k/job, unchanged gamma/scales and uniform
 allocation. Repeated short CUDA learning traces passed on both environments
 (24k qualification interactions, 1004 updates); see
-`research/qualification/credit_assignment_v1.json`. Main execution is not yet
-claimed here. This development screen cannot unlock the original matrix,
+`research/qualification/credit_assignment_v1.json`. Main execution started from
+clean commit `71b9690`, with three local CUDA workers. Check live
+`artifacts/credit-assignment-v1/execution_status.json`; completion and improved
+results are not yet established. Later documentation/analysis-only commits may
+advance HEAD; the analysis checks identical training source trees/blobs against
+the dispatch commit for every job. This development screen cannot unlock the original matrix,
 F1/F2, checkpoint selection or final test.
+
+The group-template report update is
+`outputs/research-update-20261101/REL301m_Research_Update.pdf` (12 pages;
+rendered/visually inspected). It corrects Envelope reproducibility wording and
+adds the task-level positive control and primary-source budget review. It
+explicitly labels the new main cohort ongoing; it is not a declaration of
+project completion. All 30 positive-control native traces / 19,001 diagnostic
+steps passed vector/hash/rescoring/paired-initial-state checks in
+`research/qualification/lunar_objective_diagnosis_v1.json`. Old delivered
+PDF/ZIP artifacts remain preserved.
 
 Behavioral acceptance check (2026-11-01, branch `codex/demo-behavior-audit`):
 at the user's request, the actual delivered Uniform-PCQN presentation policies

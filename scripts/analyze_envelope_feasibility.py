@@ -129,11 +129,13 @@ def audit(root: Path, plan_path: Path) -> dict[str, Any]:
 def write_tex(payload: dict[str, Any], path: Path) -> None:
     text = r"""The predeclared screen used MORL-Baselines 1.3.0 Envelope and the pinned
 upstream Minecart example, with the repository's frozen $\gamma=0.99$ and reward
-scales. Each of three seeds ran exactly 100,000 training interactions and
+scales. Each of three seed labels ran exactly 100,000 training interactions and
 99,901 gradient updates. Gaussian behavior/update preferences were retained;
 this is not a fixed-pool or compute-matched allocation comparator. Validation
 used all 32 course preferences, three episodes each, at fixed steps 50,000 and
-100,000. Training RNGs and environments were isolated from validation. The
+100,000. Validation preserved training RNG states, but the runner did not seed
+Torch initialization or global NumPy/SciPy training draws. These are partially
+seeded feasibility runs, not fully reproducible paired replications. The
 original CUDA smoke exposed a replay-index transport bug; a tested host-index
 bridge preserved the sampled indices/priorities and allowed the pinned learner
 to run. No learning rule or hyperparameter was tuned on these validation results.
@@ -184,8 +186,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("artifacts/envelope-feasibility-v1"))
     parser.add_argument("--plan", type=Path, default=Path("configs/experiments/envelope_feasibility_v1.json"))
+    parser.add_argument(
+        "--preserve-evidence", action="store_true", help="Audit and regenerate TeX without rewriting historical JSON"
+    )
     arguments = parser.parse_args()
     result = audit(arguments.root, arguments.plan)
-    write_json("research/evidence/envelope_feasibility_v1.json", result)
+    if not arguments.preserve_evidence:
+        write_json("research/evidence/envelope_feasibility_v1.json", result)
     write_tex(result, Path("paper/REL301m/Chapters/EnvelopeResults.tex"))
     print(f"Verified {len(result['runs'])} jobs, {result['episodes']} episodes, zero test steps")

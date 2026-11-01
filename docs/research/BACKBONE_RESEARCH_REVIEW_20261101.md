@@ -39,7 +39,7 @@ traces is exploratory analysis, not training with a different discount factor.
 ## Primary-source comparison
 
 The retrieval/extraction pass read the full primary papers and relevant source
-files below. Legal PDFs and extracted text are under the ignored D-drive
+files below. Legal PDFs and downloaded author source files are under the ignored D-drive
 directory `artifacts/research-review-primary-sources/`; PDFs are not committed.
 Existing literature records are historical; this focused review does not
 silently label newly screened material as a completed full-text reading.
@@ -82,6 +82,10 @@ There are exactly 12 planned jobs / 6M training interactions; checkpoint
 validation and task diagnostics have separate counters. All global RNGs are
 seeded before environment/network construction. A repeated complete short
 CUDA learning trace is required before main execution.
+Qualification used 24k training interactions / 1004 updates across four short
+runs; the preceding standalone Minecart engineering smoke used another 6k /
+251 updates. These 30k engineering interactions are separate from the frozen
+6M main-study budget, as are their evaluation steps.
 
 Returns stop at episode boundaries. True terminations stop bootstrap;
 time-limit truncations bootstrap from the actual last pre-reset observation.
