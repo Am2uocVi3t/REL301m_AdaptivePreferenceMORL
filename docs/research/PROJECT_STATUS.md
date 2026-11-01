@@ -1,12 +1,26 @@
 # Project Status and Handoff
 
-Last verified: **2026-11-01** (Windows recovery; historical empirical state below retained)
+Last verified: **2026-11-02** (durable Windows training recovery; historical empirical state below retained)
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+Live recovery launch verified (2026-11-02): clean source `a8f4cfb` dispatched
+the nine-job recovery cohort through the qualified independent Windows launcher.
+The coordinator is alive outside any Windows Job; its CUDA backward witness
+matches the qualified runtime. Three replacement Lunar jobs are running with
+fresh heartbeats and checksum-verified recovery snapshots beyond 40k steps;
+their initial parameter hashes match the corresponding interrupted originals.
+Three original completed jobs are retained and six Minecart jobs are pending.
+A duplicate launcher invocation was rejected before rewriting the active request.
+Evidence: `research/qualification/credit_recovery_launch_20261102.json`.
+The recovery registry entry is running. Inspect live status rather than the
+historical interrupted root. This is operational recovery, not an improvement
+in task success. All 186 tests / four existing skips and required checks passed;
+eight recovery files also passed Windows-targeted typing.
 
 Durable recovery implementation (user authorized 2026-11-01): branch
 `codex/durable-training-recovery` adds a separately versioned nine-job recovery

@@ -96,12 +96,13 @@
     {
       "id": "credit-assignment-recovery-v1",
       "title": "Durable, exact-boundary-resumable recovery of the interrupted n-step cohort",
-      "status": "planned",
+      "status": "running",
       "protocol": "configs/experiments/credit_assignment_recovery_v1.json",
       "claim_ids": [],
-      "artifact": null,
+      "artifact": "research/qualification/credit_recovery_launch_20261102.json",
       "notes": "",
-      "created_at": "2026-11-01T16:54:09+00:00"
+      "created_at": "2026-11-01T16:54:09+00:00",
+      "updated_at": "2026-11-01T17:06:26+00:00"
     }
   ]
 }

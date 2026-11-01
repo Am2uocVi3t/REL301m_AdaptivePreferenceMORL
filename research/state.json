@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/durable-training-recovery",
-  "updated_at": "2026-11-01T16:59:27+00:00",
+  "updated_at": "2026-11-01T17:07:37+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,10 @@
     }
   ],
   "next_actions": [
-    "Dispatch scripts/start_credit_recovery.ps1 once from committed source, then verify coordinator and worker PID/creation identities, heartbeats and first atomic recovery snapshots.",
-    "Use scripts/check_credit_recovery.py; after actual interruption only explicit ResumeExisting may adopt/live-resume qualified jobs. No automatic retries.",
-    "After 12 combined jobs complete, inspect recovery-aware numeric audit and actual task gates before reporting improvement; original failed matrix/F1/final-test locks remain."
+    "Run scripts/check_credit_recovery.py and inspect artifacts/credit-assignment-recovery-v1/execution_status.json; never relaunch while the coordinator is alive.",
+    "The bounded coordinator will dispatch nine jobs total and automatically run the recovery-aware numeric audit after the combined 12 complete. Inspect postprocess.log and research/evidence/credit_assignment_recovery_v1.json before interpreting task gates.",
+    "If actually interrupted, inspect identities and checkpoint evidence, then explicit ResumeExisting can adopt surviving workers or restore source-bound episode snapshots. Preserve all old artifacts and account for discarded compute.",
+    "Keep learner/source/protocol frozen during training. Original failed matrix/F1/final-test locks remain; operational qualification establishes no adaptive or task-learning benefit."
   ],
-  "last_session_summary": "Durable recovery implementation qualified: four old/new equality cases, four forced boundary kills/resumes, four lost-tail rewind cases, duplicate lease exclusion, and Windows service-launched no-Job CUDA witness. 186 tests passed / 4 skipped plus required checks. Three completed originals and 45 historical source files preserved. Nine-job / 4.5M recovery amendment ready for clean-commit dispatch."
+  "last_session_summary": "Durable recovery is running from clean a8f4cfb. Independent no-Job coordinator and CUDA witness verified; three restarted Lunar jobs have fresh heartbeats and valid >40k boundary snapshots, matching original initialization hashes. Three original completed jobs retained; six Minecart jobs pending. Duplicate launcher rejected. 186 tests/4 existing skips, required gate and targeted Windows typing passed."
 }

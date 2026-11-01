@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T16:59:27+00:00
+Snapshot generated: 2026-11-01T17:07:37+00:00
 Expected working branch at generation: codex/durable-training-recovery
-Expected commit at generation: 523d5c4
+Expected commit at generation: a8f4cfb
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -81,18 +81,19 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
-- credit-assignment-recovery-v1 [planned]: Durable, exact-boundary-resumable recovery of the interrupted n-step cohort
+- credit-assignment-recovery-v1 [running]: Durable, exact-boundary-resumable recovery of the interrupted n-step cohort
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Durable recovery implementation qualified: four old/new equality cases, four forced boundary kills/resumes, four lost-tail rewind cases, duplicate lease exclusion, and Windows service-launched no-Job CUDA witness. 186 tests passed / 4 skipped plus required checks. Three completed originals and 45 historical source files preserved. Nine-job / 4.5M recovery amendment ready for clean-commit dispatch.
+Durable recovery is running from clean a8f4cfb. Independent no-Job coordinator and CUDA witness verified; three restarted Lunar jobs have fresh heartbeats and valid >40k boundary snapshots, matching original initialization hashes. Three original completed jobs retained; six Minecart jobs pending. Duplicate launcher rejected. 186 tests/4 existing skips, required gate and targeted Windows typing passed.
 
 Next actions:
-1. Dispatch scripts/start_credit_recovery.ps1 once from committed source, then verify coordinator and worker PID/creation identities, heartbeats and first atomic recovery snapshots.
-2. Use scripts/check_credit_recovery.py; after actual interruption only explicit ResumeExisting may adopt/live-resume qualified jobs. No automatic retries.
-3. After 12 combined jobs complete, inspect recovery-aware numeric audit and actual task gates before reporting improvement; original failed matrix/F1/final-test locks remain.
+1. Run scripts/check_credit_recovery.py and inspect artifacts/credit-assignment-recovery-v1/execution_status.json; never relaunch while the coordinator is alive.
+2. The bounded coordinator will dispatch nine jobs total and automatically run the recovery-aware numeric audit after the combined 12 complete. Inspect postprocess.log and research/evidence/credit_assignment_recovery_v1.json before interpreting task gates.
+3. If actually interrupted, inspect identities and checkpoint evidence, then explicit ResumeExisting can adopt surviving workers or restore source-bound episode snapshots. Preserve all old artifacts and account for discarded compute.
+4. Keep learner/source/protocol frozen during training. Original failed matrix/F1/final-test locks remain; operational qualification establishes no adaptive or task-learning benefit.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
