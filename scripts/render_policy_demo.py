@@ -79,7 +79,7 @@ def render(spec: dict[str, Any], redraw_recorded: bool = False) -> dict[str, Any
         "plan": digest(ROOT / "visual-policy-demo.md"),
         "protocol": digest(protocol_path),
         "shifts": digest(ROOT / "configs/shifts/dynamics_shifts.yaml"),
-        "checkpoints": {str(path.relative_to(ROOT)): digest(path) for path in paths},
+        "checkpoints": {path.relative_to(ROOT).as_posix(): digest(path) for path in paths},
     }
     recorded = None
     if redraw_recorded:

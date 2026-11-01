@@ -8,3 +8,5 @@ NARRATIVE_REPORT*.md -whitespace
 docs/research/MINECART_FAILURE_INVESTIGATION_20261017.md -whitespace
 idea-stage/** -whitespace
 refine-logs/** -whitespace
+# Frozen evidence uses byte hashes; keep text bytes stable on Windows checkouts.
+* text=auto eol=lf

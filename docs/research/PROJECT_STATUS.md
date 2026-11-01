@@ -1,12 +1,46 @@
 # Project Status and Handoff
 
-Last verified: **2026-10-18**
+Last verified: **2026-11-01** (Windows recovery; historical empirical state below retained)
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+Recovery update (2026-11-01): latest recoverable pushed research source is
+`e223362` on `codex/aris-full-workflow`; public branch and PR refs reveal no
+19–23 October commits. The user reports both code edits and local experiments
+through 22 October on the lost laptop, so source after 18 October remains missing.
+Current continuation branch is `codex/course-recovery-20261101` and retains all
+26 pushed commits after main. The user now prioritizes an undergraduate course
+report, runnable demo and full supporting information, authorizing local work
+on the current laptop. This supersedes the earlier course-manuscript hold for
+this deliverable only; no venue submission or paid review is authorized.
+
+Python 3.11.18 CPU PCQN now runs on native Windows. Recovery fixes include
+portable peak-memory measurement, validation-default/protocol-bound evaluation,
+an explicit final-test rejection, stable LF for hash-bound text and portable
+presentation paths. Quality checks pass with 171 tests and four explicit skips
+(three Unix ARIS modules and one integration requiring missing old checkpoints).
+MyPy uses the Linux deployment target for Unix ARIS, plus an additional Windows
+check of the portable training/evaluation paths. Both environments completed
+200-interaction/43-update train/checkpoint/validation smokes. A fresh agent ran
+the documented seeded CPU forward/backward witness verbatim successfully.
+This establishes integration only. The full dependency set is **not** qualified:
+`pycddlib==2.1.6` is missing, and installed Torch is CPU-only despite an RTX 3050.
+
+Important recovered evidence: `course_primary_validation_v1.json` embeds raw
+(undiscounted scaled) and discounted returns for all 300 historical checkpoint
+evaluations. New `scripts/reaudit_recovered_validation.py` numerically validates
+28,800 episodes against frozen source metadata/protocols without environment
+rollouts. All 300 original checkpoint files are missing; their file hashes were
+not reverified. Historical failed-degeneracy, checkpoint/final-test and matrix-v1
+gates remain unchanged. No claim is promoted. See
+`research/qualification/windows_course_recovery_20261101.json`,
+`docs/WINDOWS_RECOVERY.md`, and the explicitly incomplete report draft
+`docs/research/COURSE_REPORT_RECOVERED_DRAFT.md`. The earlier holds and prelaunch
+wording below are historical where superseded by this recovery update.
 
 F1 executed outcome (2026-10-18 local time; supersedes prelaunch wording below):
 all six paired jobs completed on clean source commit `0660ecc865f3a3823f248f1f1955d70c2faf5936`.

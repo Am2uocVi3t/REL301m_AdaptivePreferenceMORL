@@ -10,6 +10,8 @@ from pathlib import Path
 
 import pytest
 
+pytest.importorskip("fcntl", reason="ARIS supervision requires Unix process locks and signals")
+
 from tests.test_aris_review_guard import prepare, result
 
 REPO = Path(__file__).resolve().parents[1]

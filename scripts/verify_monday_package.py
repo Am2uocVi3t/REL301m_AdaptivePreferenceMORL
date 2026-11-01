@@ -55,7 +55,7 @@ def verify(directory: Path) -> dict:
         raise ValueError("Demo data differs from the qualification")
     archive = directory.with_suffix(".zip")
     with zipfile.ZipFile(archive) as package:
-        expected = {str(Path(directory.name) / name) for name in [*manifest["files"], "MANIFEST.json"]}
+        expected = {(Path(directory.name) / name).as_posix() for name in [*manifest["files"], "MANIFEST.json"]}
         if set(package.namelist()) != expected:
             raise ValueError("Unexpected or missing ZIP contents")
         for name in package.namelist():

@@ -4,7 +4,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import resource
 import sys
 import time
 from pathlib import Path
@@ -43,6 +42,7 @@ from src.models.update import (
 )
 from src.utils.logger import ExperimentLogger
 from src.utils.provenance import collect_provenance, write_json
+from src.utils.resources import peak_rss_kib
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -642,7 +642,7 @@ def main() -> None:
         {
             "schema_version": 1,
             "wall_seconds": time.time() - started_at,
-            "peak_rss_kib": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss),
+            "peak_rss_kib": peak_rss_kib(),
             "final_checkpoint_bytes": final_path.stat().st_size,
             "training_interactions": step,
             "gradient_updates": gradient_updates,

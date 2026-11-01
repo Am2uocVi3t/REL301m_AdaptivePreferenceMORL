@@ -15,6 +15,8 @@ from pathlib import Path
 
 import pytest
 
+pytest.importorskip("fcntl", reason="ARIS supervision requires Unix process locks and signals")
+
 from scripts import aris_review_guard as guard
 from src.research_harness.aris import quota_errors
 

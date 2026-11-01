@@ -244,13 +244,17 @@ Do not rerun these commands to tune the frozen values. The calibrator rejects te
 python scripts/evaluate.py \
   --model-path artifacts/<run>/final.pt \
   --protocol configs/protocols/course_mo_lunar_lander_v3.json \
-  --split test \
+  --split validation \
   --episodes-per-preference 30 \
   --shift nominal \
   --output results/<run>_test_nominal.json
 ```
 
-The test split is intended for one final evaluation after checkpoint and hyperparameter selection. Use `--split validation` during development.
+The evaluator defaults to validation and rejects the test split while the study
+remains locked. It checks the checkpoint's stored protocol/hash before rollouts.
+A separately qualified study and final-test workflow are required before one-time
+final evaluation. See [Windows recovery](docs/WINDOWS_RECOVERY.md) for the verified
+local runtime and its missing `pycddlib` limitation.
 
 ## Budget contract
 

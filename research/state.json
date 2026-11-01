@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/aris-full-workflow",
-  "updated_at": "2026-10-17T21:18:50+00:00",
+  "working_branch": "codex/course-recovery-20261101",
+  "updated_at": "2026-11-01T08:03:41+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,9 @@
     }
   ],
   "next_actions": [
-    "F1 is complete and failed. Do not rerun unchanged verdicts, training, F2, matrix v1, checkpoint locking or final test; do not add seeds/budget/tuning.",
-    "Read EXPERIMENT_AUDIT.json and CLAIMS_FROM_RESULTS.json; all semantic conclusions remain same-family provisional.",
-    "Await user direction to lift manuscript/PDF hold or qualify a separate bounded cross-family review path. Heartbeat should be paused and watchdog unregistered after this handoff."
+    "Use the recovered report draft and embedded raw validation evidence; retain failed Minecart findings and avoid claiming a completed comparative study.",
+    "Restore or separately predeclare replacement demo training with fresh provenance; old checkpoint files and code edited on laptop through 22 October remain missing.",
+    "Complete remaining baseline/RQ1 and final-deliverable scope against course rubric; no matrix-v1/F1 restart or final-test access. Resolve missing pycddlib before GPI-LS qualification."
   ],
-  "last_session_summary": "Completed failed F1 evidence handoff: six jobs, source audit 60 checkpoints, 9600 nominal-validation cases. Fresh integrity WARN and result-to-claim NO archived with same-family provisional status. Separate budgets, scaled return units and missing behavior/termination diagnostics retained. 214 tests plus Ruff/MyPy/Bandit/compileall pass. No training/evaluator/protocol/TeX/PDF edits. Claude auto-review blocked before dispatch by new finite-batch and heartbeat lifecycle/confinement gates. Publishing evidence/docs to PR6, no merge or external submission."
+  "last_session_summary": "Continued course recovery from all 26 pushed commits on codex/course-recovery-20261101. Python 3.11.18 CPU PCQN works on Windows using verified exact-version native Box2D. Repaired portable memory, validation-default/protocol-bound evaluation, final-test hard lock, LF hash preservation and presentation paths. Quality checks pass: 171 tests, 4 explicit Unix/missing-checkpoint skips; additional Windows type check passes. Both environments completed separate 200-step/43-update engineering smokes. Fresh agent executed seeded CPU witness verbatim. Recomputed 300 embedded primary validation records / 28800 episodes without rollouts; original checkpoints remain missing. Draft report created, no claim/phase/final-test unlock. Full dependency set remains incomplete because pycddlib is absent; Torch CPU only. Current user authorizes work toward undergraduate report/demo, superseding old course manuscript hold but not scientific gates."
 }

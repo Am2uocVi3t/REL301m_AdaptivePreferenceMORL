@@ -35,11 +35,11 @@ from src.utils.config import load_config
 from src.utils.provenance import collect_provenance, write_json
 
 
-def parse_args() -> argparse.Namespace:
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Evaluate a checkpoint on a fixed MORL protocol")
     parser.add_argument("--model-path", required=True, help="Training checkpoint (.pt)")
     parser.add_argument("--protocol", required=True, help="Versioned protocol JSON")
-    parser.add_argument("--split", choices=("validation", "test"), default="test")
+    parser.add_argument("--split", choices=("validation", "test"), default="validation")
     parser.add_argument("--episodes-per-preference", type=int, default=30)
     parser.add_argument("--seed", type=int, default=31000)
     parser.add_argument("--shift-file", default="configs/shifts/dynamics_shifts.yaml")
@@ -50,7 +50,20 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output", default="results/evaluation.json")
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
-    return parser.parse_args()
+    return parser.parse_args(argv)
+
+
+def validate_checkpoint_protocol(checkpoint: dict[str, Any], protocol: dict[str, Any]) -> None:
+    """Reject checkpoints trained under a different return or preference contract."""
+    expected_hash = protocol_hash(protocol)
+    if checkpoint.get("protocol") != protocol or checkpoint.get("protocol_sha256") != expected_hash:
+        raise ValueError("Checkpoint protocol/hash does not match the evaluation protocol")
+    training_args = checkpoint.get("args", {})
+    if training_args.get("env") != protocol["env_id"]:
+        raise ValueError("Checkpoint environment does not match the evaluation protocol")
+    gamma = float(protocol["return_definition"]["gamma"])
+    if not np.isclose(float(training_args.get("gamma", float("nan"))), gamma):
+        raise ValueError("Checkpoint gamma does not match the evaluation protocol")
 
 
 def load_shift(path: str, env_id: str, shift_name: str) -> dict[str, Any]:
@@ -92,6 +105,11 @@ def checkpoint_hash(path: str) -> str:
 
 def main() -> None:
     args = parse_args()
+    if args.split == "test":
+        raise ValueError(
+            "Final-test evaluation remains locked. Use --split validation until a separately "
+            "qualified study provides an authorized final-test workflow."
+        )
     protocol, preferences = load_protocol(args.protocol, args.split)
     env_id = str(protocol["env_id"])
     reward_dim = int(protocol["reward_dim"])
@@ -103,9 +121,7 @@ def main() -> None:
     shift_config = load_shift(args.shift_file, env_id, args.shift)
 
     checkpoint = torch.load(args.model_path, map_location=args.device, weights_only=True)
-    checkpoint_gamma = float(checkpoint.get("args", {}).get("gamma", discount_factor))
-    if not np.isclose(checkpoint_gamma, discount_factor):
-        raise ValueError("Checkpoint gamma does not match the evaluation protocol")
+    validate_checkpoint_protocol(checkpoint, protocol)
     env = make_mo_env(
         env_id,
         seed=args.seed,
@@ -130,6 +146,7 @@ def main() -> None:
         device=args.device,
         seed=args.seed,
         discount_factor=discount_factor,
+        isolate_global_rng=bool(checkpoint["args"].get("isolate_evaluation_rng", False)),
     )
     frontier = pareto_prune(rollout["mean_returns"])
     metrics: dict[str, Any] = {

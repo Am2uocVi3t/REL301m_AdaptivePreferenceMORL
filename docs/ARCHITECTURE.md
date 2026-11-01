@@ -77,6 +77,14 @@ Every signal is min-max normalized. Constant signals contribute zero. The final 
 
 ## Evaluation contract
 
+Recovery hardening (1 November 2026): the generic checkpoint evaluator defaults
+to validation, rejects final-test requests before loading protocol/checkpoint,
+and requires exact equality of stored protocol plus canonical protocol hash,
+training environment and gamma. Final-test execution remains unavailable until
+a separately qualified workflow exists. Evaluation reuses the checkpoint's
+explicit global-RNG isolation setting. Portable process-memory accounting uses
+the native Windows peak working-set API or Unix `getrusage`, reported in KiB.
+
 Protocol JSON files define the environment, reward dimension, reward scale, preference generation seeds, and a frozen reference point. Validation preferences are reused at every checkpoint. Test preferences are reserved for final evaluation.
 
 Hypervolume is exact and deterministic: native 2-D computation or `pymoo` for three or more objectives. If `pymoo` is unavailable, high-dimensional HV fails explicitly instead of silently switching to stochastic Monte Carlo. If the reference point remains `null`, evaluation reports utility/front metrics and records HV as unavailable.

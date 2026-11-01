@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "kind": "windows_course_recovery_qualification",
+  "verified_on": "2026-11-01",
+  "source_snapshot": "e223362b9c9c3e8efdcaa961d16f9054e942818f",
+  "working_branch": "codex/course-recovery-20261101",
+  "scientific_role": "engineering_and_embedded_validation_reaudit_not_new_course_comparison",
+  "python": "3.11.18",
+  "device": "cpu",
+  "torch": "2.14.1+cpu",
+  "runtime_status": "partial_missing_pycddlib",
+  "dependency_check": {
+    "passed": false,
+    "missing": [
+      "pycddlib==2.1.6"
+    ]
+  },
+  "quality_checks": [
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "mypy",
+        "src",
+        "scripts"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "mypy",
+        "--platform",
+        "win32",
+        "src/utils/resources.py",
+        "scripts/train.py",
+        "scripts/evaluate.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "bandit",
+        "-q",
+        "-r",
+        "src",
+        "scripts",
+        "-ll"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "pytest": {
+    "passed": 171,
+    "skipped": 4,
+    "skip_scope": [
+      "three Unix-only ARIS modules",
+      "one historical-checkpoint integration test"
+    ]
+  },
+  "fresh_agent_kernel_witness": {
+    "passed": true,
+    "output": "KERNEL_WITNESS shape=(3,2,4,4) grad_finite=True device=cpu",
+    "scope": "forward_backward_only"
+  },
+  "smoke_runs": [
+    {
+      "environment": "mo-lunar-lander-v3",
+      "seed": 20261101,
+      "purpose": "engineering_smoke_only",
+      "checkpoint_path": "artifacts/recovery-smoke-20261101/adaptive-pcqn_mo-lunar-lander-v3_seed20261101/final.pt",
+      "checkpoint_sha256": "2e3122866826d2023b1ee2721629f82545d402655e95d32ddfd26be8f36e31c4",
+      "final_checkpoint_bytes": 991946,
+      "gradient_updates": 43,
+      "peak_rss_kib": 321552,
+      "schema_version": 1,
+      "training_interactions": 200,
+      "wall_seconds": 0.9173822402954102
+    },
+    {
+      "environment": "minecart-v0",
+      "seed": 20261102,
+      "purpose": "engineering_smoke_only",
+      "checkpoint_path": "artifacts/recovery-smoke-20261101/adaptive-pcqn_minecart-v0_seed20261102/final.pt",
+      "checkpoint_sha256": "57ccab00c6315cd2c782d6a1434cf5ae1793c2e5ca59a0987cb3233f5fa635aa",
+      "final_checkpoint_bytes": 1004746,
+      "gradient_updates": 43,
+      "peak_rss_kib": 352824,
+      "schema_version": 1,
+      "training_interactions": 200,
+      "wall_seconds": 4.0099265575408936
+    }
+  ],
+  "embedded_reaudit": {
+    "records": 300,
+    "episodes": 28800,
+    "new_environment_steps": 0,
+    "source": "research/evidence/course_primary_validation_v1.json",
+    "source_sha256": "1319ea15e18e4d88394bdb2651fbe3139eaf382ed075d246a8d4a7dca4fcf114",
+    "missing_historical_checkpoint_files": 300,
+    "checkpoint_files_reverified": false
+  },
+  "final_test_accessed": false,
+  "unlocks_final_test": false,
+  "unlocks_matrix_v1": false,
+  "manuscript_authority": "User requested continuation toward final undergraduate course report; no external submission authority."
+}

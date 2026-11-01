@@ -10,6 +10,8 @@ from pathlib import Path
 
 import pytest
 
+pytest.importorskip("fcntl", reason="ARIS supervision requires Unix process locks and signals")
+
 from scripts import aris_review_guard as guard
 from scripts import run_aris_review_batch as batch
 from src.research_harness.store import write_registry
