@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 import torch
 
-from scripts.run_envelope_feasibility import evaluate
+from scripts.run_envelope_feasibility import HostIndexReplay, evaluate
 
 
 class TwoStepEnv:
@@ -60,3 +60,16 @@ def test_validation_preserves_rng_and_retains_discounting_and_end_flags(monkeypa
     assert np.random.random() == expected[1]
     assert random.random() == expected[2]
     assert agent.np_random.random() == expected[3]
+
+
+def test_replay_index_bridge_preserves_indices_and_priorities() -> None:
+    class Buffer:
+        def update_priorities(self, indices: Any, priorities: Any) -> None:
+            self.indices, self.priorities = indices, priorities
+
+    buffer = Buffer()
+    priorities = np.array([0.25, 0.5])
+    HostIndexReplay(buffer).update_priorities(torch.tensor([3, 7]), priorities)
+    np.testing.assert_array_equal(buffer.indices, [3, 7])
+    assert isinstance(buffer.indices, np.ndarray)
+    assert buffer.priorities is priorities

@@ -24,6 +24,21 @@ from src.evaluation.protocol import load_protocol, protocol_hash, resolve_reward
 from src.utils.provenance import collect_provenance, write_json
 
 
+class HostIndexReplay:
+    """Keep NumPy SumTree indices on the host without changing priorities."""
+
+    def __init__(self, buffer: Any) -> None:
+        self.buffer = buffer
+
+    def __getattr__(self, name: str) -> Any:
+        return getattr(self.buffer, name)
+
+    def update_priorities(self, indices: Any, priorities: Any) -> None:
+        if isinstance(indices, torch.Tensor):
+            indices = indices.detach().cpu().numpy()
+        self.buffer.update_priorities(indices, priorities)
+
+
 def evaluate(agent: Any, protocol: dict[str, Any], weights: np.ndarray, episodes: int, seed: int) -> dict[str, Any]:
     """Evaluation cannot advance training RNGs, replay, optimizer or environment."""
     numpy_state, python_state = np.random.get_state(), random.getstate()
@@ -126,6 +141,8 @@ def run(
         agent = Envelope(
             env=env, seed=seed, device=device, log=False, gamma=protocol["return_definition"]["gamma"], **plan["agent"]
         )
+        if device == "cuda":
+            agent.replay_buffer = HostIndexReplay(agent.replay_buffer)
         manifest: dict[str, Any] = {
             "status": "running",
             "smoke": bool(smoke_steps),
