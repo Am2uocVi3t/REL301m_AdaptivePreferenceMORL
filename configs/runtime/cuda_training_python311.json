@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "purpose": "Isolated GPU training environment; preserve CPU demo runtime",
+  "python": "3.11.18",
+  "directory": "artifacts/gpu-runtime",
+  "requirements_source": "requirements.txt",
+  "torch": "2.14.1+cu130",
+  "torchvision": "0.29.1+cu130",
+  "official_wheel_index": "https://download.pytorch.org/whl/cu130",
+  "cache_policy": "dot-source scripts/use_d_runtime.ps1; all managed storage on D:",
+  "native_box2d": "verified exact-version conda-forge wheel under artifacts/runtime",
+  "excluded_platform_dependency": "pycddlib==2.1.6; GPI-LS remains unqualified",
+  "validation": ["dependency consistency with documented cdd exception", "seeded CUDA forward/backward witness", "CPU/GPU throughput measurement", "fresh agent follows documented witness"],
+  "scientific_effect": "No protocol, method, final-test or empirical claim change"
+}
