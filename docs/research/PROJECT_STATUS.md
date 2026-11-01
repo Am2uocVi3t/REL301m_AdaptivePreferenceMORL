@@ -8,6 +8,34 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Course-delivery update (2026-11-01, supersedes the draft/demo status below):
+the user authorized completion of the course package with all managed storage
+on D:. The committed presentation-only plan ran exactly two new Uniform-PCQN
+jobs, one per environment, each 100,000 training interactions and 23,751 updates,
+with fixed final checkpoints and zero curriculum/validation training steps.
+No seed/budget extension, F1 restart, final-test use or claim promotion occurred.
+New models are explicitly replacement presentation artifacts, not historical
+checkpoints or comparative research evidence.
+
+`outputs/REL301m_Course_Recovery_20261101.zip` contains the real inference app,
+new frozen models, primary raw validation evidence, six-page report, two-page
+guide, source/provenance and a D-only Windows installer with a verified native
+Box2D 2.3.8 wheel. A fresh extracted install passed its 19-package consistency
+check and both environments ran without repository imports. Backend checks,
+80 frontend assertions and real Edge tests passed, including live preference,
+native rendering, PDF links and a 390-pixel viewport. Required quality checks
+passed with 175 tests and four documented skips; the temporary workspace Git
+snapshot now rejects accidental discovery of an enclosing unrelated repository.
+
+The completed pre-revision zero-context numerical review returned WARN with
+primary counts/table statistics verified. The final revised-paper review could
+not run because its model usage limit was reached: its canonical verdict is
+ERROR, same-family/provisional, not PASS or submission-ready. These separate
+records are included in the delivery. Scientific phase/gates are unchanged;
+full GPI-LS dependencies, original checkpoint files, post-18-October laptop
+source and official course rubric/deadline remain unavailable. Evidence:
+`research/qualification/course_delivery_recovery_20261101.json`.
+
 Recovery update (2026-11-01): latest recoverable pushed research source is
 `e223362` on `codex/aris-full-workflow`; public branch and PR refs reveal no
 19â€“23 October commits. The user reports both code edits and local experiments

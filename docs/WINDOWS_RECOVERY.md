@@ -2,6 +2,8 @@
 
 Run commands from the repository root in PowerShell. Python is isolated at
 `.venv/Scripts/python.exe` (3.11.18); it does not replace system Python.
+First dot-source `scripts/use_d_runtime.ps1` in each new PowerShell session so
+temporary files, caches, downloads and managed runtimes stay on D:.
 Downloads, Python installation, native archives and cache live on D: under
 `artifacts/runtime/`. This is a **PCQN recovery runtime**, not a complete
 MORL-baselines environment: `pycddlib==2.1.6` is still absent. GPI-LS remains
@@ -70,6 +72,20 @@ is deliberately disabled until a separately qualified study supplies a final-tes
 workflow. Existing matrix-v1 and F1 decisions are unchanged.
 
 ## Git continuation
+
+The completed course delivery is `outputs/REL301m_Course_Recovery_20261101.zip`.
+Use `START_COURSE_DEMO.bat` at the repository root for the current laptop.
+The ZIP includes a D-only installer, verified exact-version native Box2D wheel,
+two new fixed-budget 100,000-step Uniform-PCQN replacement models, a six-page
+report and two-page guide. These models are for presentation only, not historical
+weights or a new allocation comparison. The extracted ZIP installed 19 compatible
+demo dependencies and ran both environments independently on Windows. Real Edge
+checks covered matching resets, pause/step, live weights, native render, PDF links
+and a 390-pixel viewport. The full research-baseline environment still lacks cdd.
+
+The prior zero-context numeric review returned WARN for the pre-revision paper;
+the final semantic re-review failed because the reviewer usage limit was reached.
+See `paper/course-recovery/PAPER_CLAIM_AUDIT.json`. Neither status is a final PASS.
 
 The current branch descends from all 26 pushed research commits after main.
 Do not recreate those changes by copying files into main. If a later laptop

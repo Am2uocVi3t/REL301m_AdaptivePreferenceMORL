@@ -35,22 +35,30 @@ audit completed, but the frozen retention qualification failed for all three
 A1R1 seeds. No F2, matrix-v1, checkpoint-lock or final-test unlock follows.
 See `refine-logs/EXPERIMENT_RESULTS.md` and
 `research/qualification/minecart_pcqn_replay_f1.json`. Preserve the negative
-result without more seeds/budget/tuning. Manuscript and PDF updates are held
-by the user; evidence review and reporting are separate.
+result without more seeds/budget/tuning. The historical manuscript/PDF hold was
+superseded by the user's 1 November authorization for the course recovery report
+and demo; external submission and scientific gate changes remain separate.
 
 ## Interactive presentation app (inference only)
 
-The current presentation deliverable is `outputs/REL301m_Interactive_Demo.zip`.
-It contains a real local website/backend, inference-only copies of two existing
-checkpoints, setup instructions and the PDF documents. Launch with Python 3.11
-following `demo/interactive/README_VI.md`; do not open HTML as a standalone file.
+The current recovery deliverable is `outputs/REL301m_Course_Recovery_20261101.zip`.
+On this laptop, run `START_COURSE_DEMO.bat` from the repository root and open
+`http://127.0.0.1:8765`. For an extracted ZIP on D:, follow its `README_VI.md`
+and `INSTALL_D.ps1`. Downloads, Python, caches and outputs stay on D:.
+The app contains two newly trained Uniform-PCQN presentation replacements,
+100,000 interactions each; they are not recovered historical checkpoints and
+do not support allocation-benefit claims. Report/guide PDFs and raw historical
+primary validation evidence are included. Do not open HTML as a standalone file.
 The slider changes preference input to the same frozen network, not its weights.
 Reference and user panels reset with the same seed; optional live changes retain
 history and are labeled accordingly. The upgraded Canvas artwork uses actual
 environment coordinates, with an original-renderer toggle. No training, final
-test, provider call or scientific gate is enabled by the app. Minecart remains
-qualification-failed. Evidence and explicit browser/platform limitations:
-`research/qualification/interactive_model_demo_v1.json`.
+test, provider call or scientific gate is enabled by the app. The historical
+Minecart qualification remains failed. Evidence and browser/platform checks:
+`research/qualification/course_delivery_recovery_20261101.json`. The historical
+v1 presentation package is not the current recovered artifact. The final
+revised-paper semantic review could not run because of reviewer usage limits;
+its explicit error record is `paper/course-recovery/PAPER_CLAIM_AUDIT.json`.
 
 ## Research question
 

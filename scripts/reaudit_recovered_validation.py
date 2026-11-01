@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import sys
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -118,6 +119,7 @@ def reaudit(root: Path, aggregate_path: Path | None = None) -> dict[str, Any]:
         )
     return {
         "schema_version": 1,
+        "verified_at": datetime.now(UTC).isoformat(),
         "kind": "recovered_embedded_validation_reaudit",
         "aggregate_sha256": digest(aggregate_path),
         "source_audit_sha256": digest(audit_path),

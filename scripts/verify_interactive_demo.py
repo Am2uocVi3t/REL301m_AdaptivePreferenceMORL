@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import platform
 import re
 import subprocess
 import sys
@@ -37,7 +38,7 @@ def verify_files(package: Path) -> dict:
             raise ValueError(f"Changed package file: {name}")
         if any(part in {".env", ".aris", ".git"} for part in relative.parts):
             raise ValueError("Private file in package")
-        if path.suffix in {".py", ".html", ".js", ".json", ".md", ".css", ".txt"}:
+        if path.suffix in {".py", ".html", ".js", ".json", ".md", ".css", ".txt", ".ps1", ".bat"}:
             if re.search(r"sk-(?:ant-)?[A-Za-z0-9_-]{16,}|-----BEGIN .*PRIVATE KEY-----", path.read_text()):
                 raise ValueError("Potential credential in shareable text")
     if any(name.endswith((".mp4", ".gif")) or Path(name).name.startswith("train") for name in manifest["files"]):
@@ -68,7 +69,7 @@ def verify_files(package: Path) -> dict:
     }
 
 
-def verify_real_models(package: Path) -> dict:
+def verify_real_models(package: Path, output_directory: Path | None = None) -> dict:
     runtime = DemoRuntime(package)
     outputs = {}
     try:
@@ -113,7 +114,8 @@ def verify_real_models(package: Path) -> dict:
                 if not np.allclose(discounted, panel.discounted):
                     raise ValueError("Discounted vector return mismatch")
             trace = runtime.trace()
-            path = ROOT / "artifacts/presentation-verification/2026-10-17" / f"{name}-trace.json"
+            trace_directory = output_directory or ROOT / "artifacts/presentation-verification/2026-10-17"
+            path = trace_directory / f"{name}-trace.json"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(trace, indent=2, ensure_ascii=False) + "\n")
             unchanged = all(torch.equal(value, before[key]) for key, value in model.state_dict().items())
@@ -209,7 +211,7 @@ def verify_isolated_launch(package: Path) -> dict:
                         "extracted_zip_launch": True,
                         "repository_import_path": False,
                         "http_reset_and_inference_both_environments": True,
-                        "os": "Linux Python 3.11 CPU",
+                        "os": f"{platform.system()} Python {platform.python_version()} CPU",
                     }
                 finally:
                     client.close()

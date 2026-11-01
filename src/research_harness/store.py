@@ -114,6 +114,8 @@ class ResearchStore:
             return completed.stdout.strip()
 
         try:
+            if Path(run("rev-parse", "--show-toplevel")).resolve() != self.root.resolve():
+                return {"branch": "UNKNOWN", "commit": "UNKNOWN", "dirty": "UNKNOWN"}
             branch = run("branch", "--show-current") or "DETACHED"
             commit = run("rev-parse", "--short", "HEAD")
             dirty = "yes" if run("status", "--porcelain") else "no"

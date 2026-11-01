@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "kind": "course_recovery_delivery_qualification",
+  "verified_at": "2026-11-01T08:53:27.004509+00:00",
+  "role": "engineering_presentation_and_evidence_bounded_reporting_not_scientific_study_completion",
+  "storage_policy": "All task-managed installations/downloads/caches/temp/output under D:; existing programs/fonts on C: read only",
+  "presentation_training": {
+    "plan": "configs/demos/recovery_presentation_v1.json",
+    "jobs": 2,
+    "interactions_per_job": 100000,
+    "updates_per_job": 23751,
+    "selection": "fixed_final_checkpoint",
+    "course_evidence": false
+  },
+  "quality": {
+    "all_required_checks_passed": true,
+    "checks": 9,
+    "pytest_passed": 175,
+    "pytest_skipped": 4,
+    "skip_reasons": [
+      "Unix-only ARIS modules",
+      "missing historical model integration"
+    ]
+  },
+  "demo": {
+    "backend": "passed both environments",
+    "fake_dom_assertions": 80,
+    "fresh_windows_install": "passed; 19 pinned/resolved packages compatible; bootstrap/python/venv/cache on D:",
+    "real_edge_browser": "passed; no page errors; no mobile horizontal overflow at width 390",
+    "zip_allowlist_and_bytes": "passed"
+  },
+  "report": {
+    "pages": 6,
+    "guide_pages": 2,
+    "visual_inspection": "all final report and guide pages inspected; no clipped text or split results table",
+    "primary_evidence": "300 records / 28800 validation episodes numerically re-audited",
+    "original_checkpoint_files_recovered": false
+  },
+  "independent_review": {
+    "prior_completed_numeric_review": "WARN, same-family provisional; pre-revision table/counts verified",
+    "final_revised_review": "ERROR: reviewer usage limit; no PASS or submission-readiness assertion",
+    "record": "paper/course-recovery/PAPER_CLAIM_AUDIT.json"
+  },
+  "full_morl_baseline_environment_ready": false,
+  "missing_optional_baseline_dependency": "pycddlib==2.1.6",
+  "final_test_accessed": false,
+  "unlocks_matrix_v1": false,
+  "unlocks_final_test": false,
+  "artifacts": {
+    "outputs\\course-report\\REL301m_Course_Report.pdf": {
+      "bytes": 583639,
+      "sha256": "828f88c58697beca99f4760bd58d99b49533524f2ce77b3fbf0661bac100689f"
+    },
+    "outputs\\course-report\\Huong_dan_Demo.pdf": {
+      "bytes": 85504,
+      "sha256": "6d04c9a5c84d131ab6489db8a7485909793f32e80f561912ec5c0f7d250de2fe"
+    },
+    "outputs\\REL301m_Course_Recovery_20261101.zip": {
+      "bytes": 17517737,
+      "sha256": "24009e024c6f408b2e0b1cbf4826610d23fd840ce2fddb4f72eac35feabb47f5"
+    }
+  }
+}

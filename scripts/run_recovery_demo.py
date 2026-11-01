@@ -98,7 +98,7 @@ def execute(plan: dict[str, Any], jobs: list[dict[str, Any]]) -> None:
     output.mkdir(parents=True, exist_ok=True)
     status_path = output / "execution_status.json"
     plan_hash = digest(PLAN)
-    status = (
+    status: dict[str, Any] = (
         json.loads(status_path.read_text())
         if status_path.exists()
         else {"plan_sha256": plan_hash, "course_evidence": False, "final_test_accessed": False, "jobs": {}}

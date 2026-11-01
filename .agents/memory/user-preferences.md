@@ -1,7 +1,7 @@
 ---
 type: user
 created: 2026-07-18
-updated: 2026-10-17
+updated: 2026-11-01
 ---
 
 # User Preferences
@@ -13,6 +13,9 @@ updated: 2026-10-17
 - Prefer concise conclusions and explicit evidence over lengthy narration.
 
 ## Collaboration
+
+- On 2026-11-01 the user explicitly required all task-managed downloads, caches, environments and outputs on D: because C: has little free space. Dot-source `scripts/use_d_runtime.ps1` for commands in this repository. Keep test temp directories and portable installers on D:, too. Existing program/font files on C: may be read; do not install new toolchains or dependencies there.
+- Current priority is the undergraduate course report plus a runnable real inference demo with full information. No required positive result, publication claim or external submission. Report limitations and preserve failed Minecart evidence. Current authority permits the versioned, two-job fixed-budget presentation replacement plan; it does not reopen failed F1/matrix-v1 or final-test gates.
 
 - When scope is sufficiently clear, implement and verify autonomously instead of repeatedly asking for confirmation.
 - Keep files organized so a new chat or teammate can recover the project state without conversation history.

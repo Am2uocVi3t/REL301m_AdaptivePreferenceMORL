@@ -8,6 +8,8 @@ $recoveryCacheRoot = Join-Path $recoveryRepoRoot 'artifacts/runtime'
 $recoveryStorageVariables = @{
     TEMP = 'tmp'; TMP = 'tmp'; TMPDIR = 'tmp'
     UV_CACHE_DIR = 'uv-cache'; PIP_CACHE_DIR = 'pip-cache'
+    UV_PYTHON_INSTALL_DIR = 'python'; UV_PYTHON_BIN_DIR = 'python-bin'
+    UV_TOOL_DIR = 'uv-tools'; UV_TOOL_BIN_DIR = 'uv-bin'
     PYTHONPYCACHEPREFIX = 'pycache'; PYTHONUSERBASE = 'python-user'
     MPLCONFIGDIR = 'matplotlib'; TORCH_HOME = 'torch'
     HF_HOME = 'huggingface'; XDG_CACHE_HOME = 'cache'
