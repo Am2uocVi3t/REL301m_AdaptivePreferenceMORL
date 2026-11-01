@@ -8,6 +8,29 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Completed recovery screen (verified 2026-11-02): all 12 combined jobs completed
+their fixed 500k budgets and automatic numerical/provenance audit passed.
+The coordinator exited normally (`complete_audited`, postprocess return 0);
+GPU is idle because the finite run finished. Evidence:
+`research/evidence/credit_assignment_recovery_v1.json`; interpretation:
+`docs/research/CREDIT_ASSIGNMENT_RESULTS_20261102.md`.
+Totals are 6M logical training interactions / 1,485,012 updates, 3,456 validation
+episodes / 1,377,795 validation steps, 720 task-diagnostic episodes / 428,406
+diagnostic steps, zero final test. Extra interrupted/engineering work remains
+separate. The recovery registry is complete for execution; all 12 final task
+gates fail, and the original matrix/F1/final-test locks remain unchanged.
+
+Lunar pad successes across three seeds are 1/10, 1/10, 5/10 for n=1 versus
+0/10, 0/10, 1/10 for n=20. Minecart has zero ore/cargo in all 120 final task
+cases and zero ore in all 576 final validation episodes (also all 1728
+Minecart checkpoint-validation episodes). Its mean utility improves from
+-.63997 to -.16218, but all ore components are zero, so this reflects the
+discounted fuel component and does not demonstrate the ore task. Training
+logs nevertheless contain 875/4264 and 3880/21806 ore-positive completed behavior
+episodes for n=1/n=20 respectively. Investigate behavior-head/exploration versus
+greedy ensemble-mean extraction on frozen models before another intervention;
+no unique cause is established. Do not extend this completed screen.
+
 Live recovery launch verified (2026-11-02): clean source `a8f4cfb` dispatched
 the nine-job recovery cohort through the qualified independent Windows launcher.
 The coordinator is alive outside any Windows Job; its CUDA backward witness

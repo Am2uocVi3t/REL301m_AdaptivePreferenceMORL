@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T17:07:37+00:00
+Snapshot generated: 2026-11-01T23:35:48+00:00
 Expected working branch at generation: codex/durable-training-recovery
-Expected commit at generation: a8f4cfb
+Expected commit at generation: fd40b73
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -81,19 +81,17 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
-- credit-assignment-recovery-v1 [running]: Durable, exact-boundary-resumable recovery of the interrupted n-step cohort
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Durable recovery is running from clean a8f4cfb. Independent no-Job coordinator and CUDA witness verified; three restarted Lunar jobs have fresh heartbeats and valid >40k boundary snapshots, matching original initialization hashes. Three original completed jobs retained; six Minecart jobs pending. Duplicate launcher rejected. 186 tests/4 existing skips, required gate and targeted Windows typing passed.
+All 12 combined n-step jobs completed and numeric/provenance audit passed: 6M logical interactions, 1485012 updates, 3456 validation and 720 diagnostic episodes. All final task gates failed. Minecart utility improved without ore; logs contain ore-positive training behavior, motivating frozen policy-extraction diagnosis. Coordinator exited normally; no training active.
 
 Next actions:
-1. Run scripts/check_credit_recovery.py and inspect artifacts/credit-assignment-recovery-v1/execution_status.json; never relaunch while the coordinator is alive.
-2. The bounded coordinator will dispatch nine jobs total and automatically run the recovery-aware numeric audit after the combined 12 complete. Inspect postprocess.log and research/evidence/credit_assignment_recovery_v1.json before interpreting task gates.
-3. If actually interrupted, inspect identities and checkpoint evidence, then explicit ResumeExisting can adopt surviving workers or restore source-bound episode snapshots. Preserve all old artifacts and account for discarded compute.
-4. Keep learner/source/protocol frozen during training. Original failed matrix/F1/final-test locks remain; operational qualification establishes no adaptive or task-learning benefit.
+1. Read CREDIT_ASSIGNMENT_RESULTS_20261102.md and predeclare frozen-model individual-head/ensemble/behavior diagnostics to investigate the behavior-to-greedy gap before further training.
+2. Integrate completed bounded results into the group LaTeX report without declaring task competence or adaptive benefit; preserve all negative outcomes and separate extra interrupted compute.
+3. Do not relaunch/extend the completed n-step cohort. Original matrix/F1/final-test locks remain unchanged; no independent semantic-review PASS is claimed.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
