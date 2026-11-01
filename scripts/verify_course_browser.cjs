@@ -6,7 +6,7 @@ const {chromium} = require('playwright');
 
 (async () => {
   const root = process.cwd();
-  const output = path.join(root, 'artifacts/presentation-verification/2026-11-01');
+  const output = path.resolve(process.argv[2] || path.join(root, 'artifacts/presentation-verification/2026-11-01'));
   fs.mkdirSync(output, {recursive:true});
   const errors = [];
   const context = await chromium.launchPersistentContext(path.join(output, 'edge-profile'), {

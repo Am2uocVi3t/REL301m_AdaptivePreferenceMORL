@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T08:56:30+00:00
-Expected working branch at generation: codex/course-recovery-20261101
-Expected commit at generation: c7d6ae1
+Snapshot generated: 2026-11-01T09:44:21+00:00
+Expected working branch at generation: codex/course-completion-v2
+Expected commit at generation: a7c2aad
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -84,12 +84,12 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Completed D-drive course recovery delivery: fixed presentation plan trained two new Uniform-PCQN final models, 100000 interactions and 23751 updates each, no training-time curriculum/validation, no seed/budget expansion. Six-page report and two-page guide rendered and visually verified. ZIP includes real app, provenance, recovered primary raw data, D-only installer, verified Box2D wheel and licenses; extracted fresh Windows environment passed 19-package check. Both real models, isolated ZIP launch, 80 fake-DOM assertions and real Edge desktop/mobile tests pass. All required quality checks pass: 175 tests, 4 explicit skips; new nested-workspace Git snapshot fix prevents parent-repo provenance leakage. Original 300 checkpoints and post-18-Oct source still missing; full baseline cdd dependency unresolved. Prior zero-context numeric audit WARN verified reported counts/statistics; final revised-paper review failed at reviewer usage limit, explicitly ERROR/provisional, never PASS. All managed downloads/cache/temp/runtimes/outputs on D:, preference saved in memory. Scientific phase, failed F1/matrix and final-test locks unchanged; no submission or push.
+Completed scoped course delivery using original FPT LaTeX template (11-page PDF), three fixed 100k-step Envelope seeds and numerical audit of 576 new validation episodes. Preserved failed primary/F1 and final-test locks; no adaptive or reliable ore-learning claim. Delivered new source/evidence/demo ZIP, verified 85 file hashes/ZIP, real models, 80 UI assertions and standalone-runtime Edge. Quality gate 179 passed, 4 documented skips; no independent final semantic PASS or lecturer acceptance claimed.
 
 Next actions:
-1. Use START_COURSE_DEMO.bat and the ZIP/report/guide under outputs for course presentation; confirm official rubric/deadline with the lecturer.
-2. If a final independent semantic review is required, rerun it on the current report after reviewer quota is available; preserve the explicit ERROR and prior pre-revision WARN history.
-3. Keep presentation replacement models separate from historical empirical evidence; any future scientific study or final-test workflow needs its own valid scope/qualification.
+1. Present outputs/course-report-latex/REL301m_Course_Project_Report.pdf and outputs/REL301m_Course_Project_20261101.zip; use START_COURSE_DEMO.bat and docs/COURSE_PRESENTATION_VI.md.
+2. Confirm the official course rubric/deadline with the lecturer. Original full factorial matrix/final-test study is incomplete and remains gated; do not extend the completed Envelope cohort or substitute seeds/checkpoints.
+3. Copy the generated Git bundle and delivery ZIP off this laptop for backup; no remote push or external submission was performed.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

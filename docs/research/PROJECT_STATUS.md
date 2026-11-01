@@ -8,6 +8,51 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Course-template/training update (2026-11-01, supersedes the delivery format below):
+the user confirmed the existing group LaTeX template and authorized further local
+training for course completion. On `codex/course-completion-v2`, a separate
+predeclared Envelope feasibility cohort completed all three seeds (20261121--23),
+100,000 training interactions and 99,901 updates each. Its six fixed validation
+records retain 576 episodes and 530,664 separate evaluation steps, with zero
+curriculum or final-test steps. The source/model/tensor/optimizer-budget and
+metric audit passed; complete raw vectors/end flags are embedded in
+`research/evidence/envelope_feasibility_v1.json`.
+
+At 50k steps, ore-positive counts per objective were 0, 0 and 2 episodes out of
+96 for seeds 21, 22 and 23 respectively. At 100k they were 0, 2 and 0. These
+are repeated fixed validation cases, not independent successful training runs.
+The screen does not establish consistent ore-task learning, adaptive benefit,
+or a compute-matched Envelope/PCQN comparison. It does not unlock matrix-v1,
+F1/F2, checkpoint selection or final test. The original full proposal remains
+partially fulfilled; the finite course-delivery scope is explicit in
+`docs/research/COURSE_COMPLETION_SCOPE_V2.md`.
+
+An isolated D-drive CUDA runtime passed a seeded forward/backward witness and a
+fresh agent following the documented command verbatim. A pinned upstream replay
+CUDA-index/NumPy-SumTree incompatibility was fixed with a tested lossless host
+index bridge before the main cohort. CUDA Envelope passed a 1000-step smoke;
+the missing pycddlib dependency/GPI-LS exception remains. The CPU demo runtime
+is preserved. Portable Tectonic and its cache are on D:; the actual group
+template now builds with Unicode Latin Modern fonts, original FPT styling and
+the confirmed roster. Current sources are `paper/REL301m/main.tex` and
+`Chapters/Final.tex`. Required code checks passed with 179 tests and four
+documented skips, plus a separate Windows type check. No final independent
+semantic-review PASS or official lecturer acceptance is claimed.
+
+Delivered files: `outputs/course-report-latex/REL301m_Course_Project_Report.pdf`
+(11 visually checked pages) and `outputs/REL301m_Course_Project_20261101.zip`.
+The ZIP retains editable LaTeX/BibTeX/figure sources, primary raw evidence,
+new raw Envelope tensors and all six new model files, plus the unchanged
+inference app and labeled Uniform-PCQN replacements. All 85 packaged files,
+ZIP bytes/links, frozen source-equal models and 80 frontend assertions passed.
+Real Edge verified both environments, preference changes, native rendering,
+PDF links and mobile width on a separately installed matching runtime from an
+empty D-drive CWD. That runtime was reused with byte-identical requirements;
+this was not a fresh reinstall of the new ZIP. Temporary test servers stopped.
+The root launcher prefers the new package. Receipt:
+`research/qualification/course_project_delivery_20261101.json`. Presentation
+notes in Vietnamese: `docs/COURSE_PRESENTATION_VI.md`.
+
 Course-delivery update (2026-11-01, supersedes the draft/demo status below):
 the user authorized completion of the course package with all managed storage
 on D:. The committed presentation-only plan ran exactly two new Uniform-PCQN

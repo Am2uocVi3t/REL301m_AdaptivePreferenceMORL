@@ -1,4 +1,35 @@
-# REL301m initial progress report
+# REL301m course project report — current group-template edition
+
+Current content is `Chapters/Final.tex`, with generated `PrimaryTable.tex` and
+`EnvelopeResults.tex`. The FPT/group styling, roster and English are retained.
+From the repository root run `. scripts/build_course_latex_report.ps1`.
+It requires all three new Envelope jobs to be complete and numerically audited,
+generates tables/figures from real records, and compiles with Tectonic/XeLaTeX.
+Compiler/cache/outputs stay on D:. The PDF is
+`outputs/course-report-latex/REL301m_Course_Project_Report.pdf`.
+With another distribution, use XeLaTeX/BibTeX: fontspec replaces the archived
+pdflatex setup below. See `docs/GPU_COURSE_RUNTIME.md`.
+
+Current evidence: `research/evidence/course_primary_validation_v1.json`,
+`research/evidence/course_primary_execution_audit_v1.json`,
+`research/qualification/minecart_pcqn_replay_f1.json`, and the newly generated
+`research/evidence/envelope_feasibility_v1.json` (created after all new jobs
+pass the audit). Historical model files remain missing. Full proposal
+ablations/final test remain incomplete and locked. See
+`docs/research/COURSE_COMPLETION_SCOPE_V2.md` and `docs/COURSE_PRESENTATION_VI.md`.
+
+The prior report's WARN/quota ERROR do not review this LaTeX report. No final
+independent semantic PASS or official academic acceptance is claimed. The old
+progress chapter, qualification figures and `EVIDENCE_INDEX.md` are historical.
+The Windows pre-edit template backup is under
+`artifacts/report-backups/2026-11-01-before-completion-v2` on D:.
+
+---
+
+## Archived initial progress edition (17–19 October; superseded above)
+
+The following commands/delivery descriptions concern the old edition only.
+Availability of the original Linux-host backup path below is not asserted.
 
 Reporting checkpoint: **19 October 2026**. Evidence cutoff: **17 October 2026, after completed Minecart remediation-v2 qualification**.
 This is a progress report, not a final comparative paper or a Phase 5 completion claim.

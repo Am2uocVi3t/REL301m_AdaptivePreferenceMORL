@@ -41,6 +41,18 @@ and demo; external submission and scientific gate changes remain separate.
 
 ## Interactive presentation app (inference only)
 
+The current group-template course report is built from `paper/REL301m/main.tex`
+using `. scripts/build_course_latex_report.ps1`. The three-seed Envelope
+feasibility cohort completed 300,000 training interactions, 299,703 updates and
+576 fixed validation episodes; its full vectors are retained in
+`research/evidence/envelope_feasibility_v1.json`. Only one seed had positive ore
+in 2/96 final-checkpoint cases per ore objective. This is not a qualified
+allocation comparison or reliable task-learning claim. Original proposal
+ablations/final test remain incomplete. See
+[`COURSE_COMPLETION_SCOPE_V2.md`](docs/research/COURSE_COMPLETION_SCOPE_V2.md).
+The new delivery is `outputs/REL301m_Course_Project_20261101.zip`; the launcher
+prefers it when present. The earlier recovery package below is preserved.
+
 The current recovery deliverable is `outputs/REL301m_Course_Recovery_20261101.zip`.
 On this laptop, run `START_COURSE_DEMO.bat` from the repository root and open
 `http://127.0.0.1:8765`. For an extracted ZIP on D:, follow its `README_VI.md`

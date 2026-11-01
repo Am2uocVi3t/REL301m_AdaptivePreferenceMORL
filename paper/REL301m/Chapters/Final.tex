@@ -1,0 +1,268 @@
+\section{Abstract}
+Preference-conditioned multi-objective reinforcement learning (MORL) aims to
+represent several objective trade-offs with one policy. This project implements
+a vector Q-network and investigates whether difficulty, ensemble disagreement,
+coverage/recency, and observed learning progress can guide training allocation.
+The recovered primary experiment comprises 30 runs: two environments, three
+allocation arms, and five paired training seeds, with 500,000 interactions per
+run. All 300 retained checkpoint-evaluation records were numerically re-audited,
+covering 28,800 validation episodes. Minecart produced zero ore in both ore
+objectives throughout its 14,400 primary validation episodes. The comparative
+qualification therefore failed; adaptive superiority is not established.
+We present the implementation, descriptive results, failure analysis, recovery
+limitations, and a real inference demonstration. A separate predeclared Envelope
+backbone feasibility screen is reported independently. The original full
+baseline/ablation matrix and final-test study remain incomplete.
+
+\section{Problem and research questions}
+\subsection{Motivation and scope}
+In ordinary reinforcement learning, an agent maximizes one scalar reward.
+MORL instead provides $r_t\in\mathbb{R}^d$, with potentially conflicting
+objectives. A user specifies $w\in\Delta^{d-1}$, where $w_i\geq0$ and
+$\sum_iw_i=1$. The discounted return is
+\[
+ G=\sum_{t=0}^{T-1}\gamma^t r_t,\qquad U_w(G)=w^\top G.
+\]
+A preference-conditioned policy receives both observation and preference,
+allowing users to change trade-offs without retraining a separate model.
+This does not guarantee that every requested trade-off is learned.
+
+Training time is limited. A difficult region, an uncertain region, and a region
+with improving performance are different reasons to allocate additional effort.
+The project asks which signals predict later improvement (RQ1), whether adaptive
+allocation improves learning over uniform and matched-random controls (RQ2),
+whether effects arise at rollout or update time (RQ3), and whether results
+transfer across preferences or dynamics (RQ4). The executed evidence does not
+fully answer all four questions. The undergraduate deliverable is an implemented,
+auditable investigation and demonstration, with unresolved questions stated
+explicitly; acceptance against the lecturer's rubric remains external to this report.
+
+\subsection{Environments}
+\texttt{mo-lunar-lander-v3}\footnote{\url{https://mo-gymnasium.farama.org/environments/mo-lunar-lander/}}
+supplies four objectives covering landing outcome,
+shaping, and two engine costs. \texttt{minecart-v0}\footnote{\url{https://mo-gymnasium.farama.org/environments/minecart/}}
+supplies two delivered-ore
+objectives and a fuel-cost objective. Minecart requires a multi-step sequence
+of navigation, mining and delivery; a low fuel cost alone does not establish
+ore collection. Both environments have discrete actions and vector rewards.
+Frozen course protocols use $\gamma=0.99$ and pilot-derived static reward scales
+and hypervolume reference points. They are not recalibrated using final-test data.
+
+\section{Research background}
+Dynamic-weight Q-learning~\cite{abels2019dynamic-weights} and Envelope
+Q-learning~\cite{yang2019envelope} are direct antecedents of conditioned
+multi-objective value learning. PCN conditions a policy on desired return and
+horizon~\cite{reymond2022pcn}; it differs from this project's preference-conditioned
+Q-network. Preference conditioning is therefore not a novelty claim.
+PG-MORL~\cite{xu2020pgmorl} and GPI prioritization~\cite{alegre2023gpi-prioritization}
+already direct effort toward promising trade-offs. The project's narrower
+interest is a controlled comparison of allocation signals and their failure modes.
+
+Value disagreement motivates exploration~\cite{zhang2020value-disagreement},
+while ALP-GMM~\cite{portelas2020alp-gmm} and CURIOUS~\cite{colas2019curious}
+motivate competence-progress curricula. Absolute change can include forgetting;
+it is not automatically signed improvement. A shared representation also means
+our head disagreement is not independently calibrated epistemic uncertainty.
+These sources motivate mechanisms, not claims that they work in this implementation.
+
+\section{Implemented system}
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{\input{Figures/morl-pipeline}}
+\caption{Implemented allocation loop. Validation is separate from training;
+checkpoint selection and final test remain subject to scientific gates.}
+\end{figure}
+
+\subsection{Vector value function and update}
+The network receives $(s,w)$ and emits a vector value for each action, using
+three masked heads over a shared trunk. Greedy inference uses
+\[
+ a^*(s,w)=\arg\max_a w^\top\frac1K\sum_{k=1}^K Q_{\theta,k}(s,a,w).
+\]
+Each head has its own Double-DQN action selection in the Bellman target:
+\[
+ a'_k=\arg\max_a w^\top Q_{\theta,k}(s',a,w),\quad
+ y_k=r+\gamma(1-\mathrm{terminated})Q_{\bar\theta,k}(s',a'_k,w).
+\]
+Masked vector Huber losses update the online network; a target network supplies
+continuation values. True termination disables bootstrapping, whereas time-limit
+truncation ends collection without automatically suppressing continuation.
+Replay retains the vector reward, behavior preference, both end flags, and a
+bootstrap mask. Analytic unit tests cover these contracts.
+
+\subsection{Allocation mechanism and controls}
+An archive-relative conditioning gap estimates current utility shortfall.
+Masked-head disagreement measures variation across head predictions.
+Coverage/recency penalizes neglected candidate regions. Absolute utility change
+between diagnostic measurements estimates observed learning progress.
+Normalized scores form a softmax distribution mixed with a uniform floor:
+\[
+ p_t(w_i)=(1-\eta)\operatorname{softmax}(z_t/\tau)_i+\eta/N.
+\]
+The uniform floor preserves exploration. The implementation distinguishes
+rollout-only, update-only, and joint allocation, but the recovered primary block
+only compares uniform, matched-random and full joint allocation. The remaining
+factorial ablations must not be implied by the existence of their code paths.
+
+Uniform uses the same fixed candidate pool. Matched-random retains the
+diagnostic schedule but replaces adaptive scores with random scores. Interaction
+and gradient-update budgets are matched; actual evaluation environment steps
+and wall-clock can differ because episode lengths differ. There is no claim
+that every source of compute cost is exactly equal.
+
+\section{Experimental design and evidence provenance}
+\subsection{Recovered primary block}
+Each of three arms was run on both environments with five paired seeds
+(20262001--20262005): 30 jobs and 15 million training interactions in total.
+Each job used 500,000 interactions and 123,751 gradient updates, with ten saved
+checkpoints at 50,000-step intervals. Nominal validation used 32 fixed preferences
+and three episodes per preference. The aggregate retains all 300 checkpoint
+records, 28,800 episode vectors and 18,304,760 evaluation steps.
+
+The latter count covers the retained checkpoint re-evaluations, not the entire
+training-time evaluation cost. Historical final counters separately record
+36,758,477 validation steps and 19,531,144 curriculum-evaluation steps.
+Training, updates, curriculum and validation are separate accounting categories.
+Repeated episodes across checkpoints are not independent training replicates;
+the training seed is the experimental unit.
+
+\subsection{Metrics and data units}
+Expected utility is the mean of $w_i^\top\bar G_i$ across fixed preferences.
+Hypervolume measures the union of regions dominated by return vectors above a
+fixed maximization reference point. Both metrics use discounted protocol-scaled
+returns. A nonzero hypervolume can occur without completing Minecart's ore task.
+The field named \texttt{raw\_episode\_returns} is undiscounted
+\emph{protocol-scaled} reward, not native environment units.
+
+\subsection{Recovery limits}
+The latest recovered pushed research snapshot is \texttt{e223362}, dated
+18 October 2026. The user recalls local code edits and experiments through
+22 October on the subsequently lost laptop; those changes have not been recovered.
+The aggregate contains numerical episode evidence, but all 300 referenced
+historical checkpoint files are missing. The 1 November re-audit verifies
+retained tensors, preferences, metadata, protocol/source bindings and metrics.
+It is not a new rollout reproduction or a new verification of missing model files.
+
+\section{Results and failure analysis}
+\subsection{Fixed-budget descriptive results}
+Table~\ref{tab:primary} uses the fixed 500,000-step checkpoint and reports
+mean $\pm$ sample standard deviation across five seeds. These are validation
+diagnostics, not selected final-test results or qualified superiority estimates.
+\input{Chapters/PrimaryTable}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{../../outputs/course-report-latex/recovered_learning_curves.pdf}
+\caption{All retained primary checkpoints: mean and sample standard deviation
+across five training seeds. Shading is seed variation, not a confidence interval.
+These are validation diagnostics; no best-checkpoint selection is applied.}
+\end{figure}
+
+The full adaptive arm is not numerically best on LunarLander in this summary.
+Neither this observation nor a small Minecart metric difference establishes
+superiority, equivalence, or a general mechanism. All 14,400 Minecart primary
+validation episodes have zero positive return in both ore objectives. The
+study was marked \texttt{failed\_degenerate}; its checkpoint-selection,
+remaining matrix-v1 runs and final-test workflow remain blocked.
+
+\subsection{Why more steps alone are not a completion rule}
+Separate remediation studies investigated the backbone before attempting an
+allocation conclusion. PER-only v2 ran three one-million-interaction seeds;
+its all-seeds qualification failed. F1 tested successful-episode replay and
+achieved-return relabeling in six paired jobs. Its source audit covered 60
+checkpoints, with 9,600 validation episodes recorded historically. The A1R1
+variant had zero positive ore episodes at every checkpoint (4,800 episodes).
+The A0R0 comparator recorded 79 positive cases per ore objective across 4,800
+repeated validation episodes, not 79 independent training runs. F1 failed its
+retention screen. These separate studies are not merged into Table~\ref{tab:primary}.
+Unlike the primary aggregate, their complete raw tensors and models were not
+recovered locally; interpretation relies on retained audit records.
+
+Sparse delivery, temporal credit assignment and preference alignment remain
+candidate explanations. The evidence does not identify a unique cause or show
+that all replay methods fail. Repeatedly extending a failed experiment until
+a positive result appears would change the question after seeing outcomes.
+
+\subsection{Prospective Envelope backbone feasibility}
+\input{Chapters/EnvelopeResults}
+
+\section{Demonstration and reproducibility}
+\subsection{Real inference demonstration}
+The local application uses actual environment transitions and frozen network
+inference. Reference and user panels begin with the same seed and checkpoint;
+the slider changes preference input, not model weights. Pause/step, live
+preference changes, original environment rendering and trace export expose
+observations, actions and rewards for inspection. Live changes retain prior
+trajectory history and therefore are not a fresh paired episode comparison.
+
+Because historical weights were lost, two separately identified Uniform-PCQN
+replacement models were trained with exactly 100,000 interactions and 23,751
+updates each. Only fixed final checkpoints were packaged; no validation or
+curriculum selection was used in those presentation runs. They are neither
+recovered historical models nor evidence of successful landing, ore delivery,
+convergence, or allocation benefit. Their manifests preserve the actual source
+commit, dirty-state flags and plan hashes, rather than asserting clean provenance.
+
+\subsection{Execution and quality assurance}
+On Windows, run \path{START_COURSE_DEMO.bat} from the repository root, then
+open \url{http://127.0.0.1:8765}. The package installer, Python runtimes,
+downloads, caches, checkpoints and compiler outputs are stored on D:.
+The Python 3.11 CPU environment is retained separately from the CUDA environment.
+The pinned \texttt{pycddlib} dependency is unavailable, so GPI-LS is not
+qualified on this machine. Device execution does not imply algorithmic success.
+
+Backend tests, 80 frontend assertions and real Edge browser checks verified the
+presentation application, including live preference behavior, native rendering,
+report links and mobile-width overflow. An extracted package was installed and
+run independently of repository imports. The new Envelope runner additionally
+tests that validation preserves training RNG states, discounted/raw returns and
+termination/truncation flags. These checks establish engineering behavior,
+not the research hypotheses.
+
+\section{Discussion, limitations and conclusions}
+The deliverable establishes a working preference-conditioned value-learning
+framework, controlled primary validation, an auditable negative Minecart outcome,
+and a real inference demo. It does not establish that adaptive allocation is
+better than uniform or random allocation. RQ1 lacks a complete four-signal
+prospective signed-improvement study; RQ3 lacks the complete executed allocation
+target ablations; RQ4 has no qualified dynamics-generalization result. Preference
+generalization and dynamics generalization are separate claims.
+
+Lost historical weights restrict independent rollout reproduction. The new
+Envelope screen differs in learner, interaction budget and upstream preference
+sampling; it cannot serve as a compute-matched comparison against the recovered
+PCQN table. Validation means and standard deviations do not replace a held-out
+final test or an adequately powered study. A completed numerical review of an
+earlier report returned WARN; the later revised-report reviewer hit its usage
+limit. No final independent semantic PASS is claimed.
+
+The defensible conclusion is that the backbone must demonstrate the task before
+allocation benefits can be interpreted. This report documents a scoped course
+investigation comprising implementation, primary validation, failure analysis
+and an additional bounded backbone screen. The real inference demo exposes
+preference-conditioned action selection. The original full proposal remains
+partially fulfilled; a broader final
+comparative study requires a separately frozen protocol and qualification,
+not silent reopening of failed studies. The lecturer's final deadline and
+minimum rubric have not yet been confirmed.
+
+\appendix
+\section{Evidence index and reproduction commands}
+\begin{itemize}
+\raggedright
+\item \evidence{research/evidence/course_primary_validation_v1.json}: all retained primary episode vectors.
+\item \evidence{research/evidence/course_primary_execution_audit_v1.json}: historical counters and source identities.
+\item \evidence{configs/experiments/course_paired_matrix_v1.json}: original frozen design.
+\item \evidence{research/qualification/minecart_pcqn_replay_f1.json}: failed F1 decision.
+\item \evidence{configs/experiments/envelope_feasibility_v1.json}: new bounded feasibility plan.
+\item \evidence{scripts/reaudit_recovered_validation.py}: numerical re-audit without environment rollouts.
+\item \evidence{scripts/run_envelope_feasibility.py}: new validation-isolated Envelope runner.
+\end{itemize}
+\begin{verbatim}
+. scripts/use_d_runtime.ps1
+.venv/Scripts/python.exe scripts/reaudit_recovered_validation.py
+.venv/Scripts/python.exe -m pytest -q
+\end{verbatim}
+The group template, roster, FPT branding, orange section style, table of contents,
+header/footer and bibliography are preserved. The compiler/cache and pre-edit
+template backup are on D:. No external submission has been performed.

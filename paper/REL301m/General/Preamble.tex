@@ -1,6 +1,7 @@
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[BoldFont=lmroman10-bold.otf,ItalicFont=lmroman10-italic.otf,BoldItalicFont=lmroman10-bolditalic.otf]
+\setsansfont{lmsans10-regular.otf}[BoldFont=lmsans10-bold.otf,ItalicFont=lmsans10-oblique.otf,BoldItalicFont=lmsans10-boldoblique.otf]
+\setmonofont{lmmono10-regular.otf}
 \usepackage[margin=25mm,headheight=22pt]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx,booktabs,tabularx,array}
@@ -18,12 +19,12 @@
 \definecolor{Teal}{RGB}{35,118,125}
 \definecolor{Muted}{RGB}{110,118,126}
 \hypersetup{colorlinks=true,linkcolor=Accent,urlcolor=Accent,citecolor=Teal,
-pdftitle={REL301m Initial Progress Report},pdfsubject={Preference Allocation in MORL}}
+pdftitle={REL301m Final Course Report},pdfsubject={Preference Allocation in MORL}}
 \urlstyle{same}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\includegraphics[height=17pt]{Figures/0. General/fpt_logo_red_small.png}}
-\fancyhead[R]{\small\sffamily REL301m | Initial Progress Report}
+\fancyhead[R]{\small\sffamily REL301m | Final Course Report}
 \fancyfoot[C]{\small\sffamily Page \thepage}
 \renewcommand{\footrulewidth}{0.4pt}
 \titleformat{\section}{\sffamily\Large\bfseries\color{Accent}}{\thesection\enspace\textcolor{Muted}{|}}{0.6em}{}

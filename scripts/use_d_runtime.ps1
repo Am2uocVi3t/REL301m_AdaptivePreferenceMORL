@@ -12,6 +12,8 @@ $recoveryStorageVariables = @{
     UV_TOOL_DIR = 'uv-tools'; UV_TOOL_BIN_DIR = 'uv-bin'
     PYTHONPYCACHEPREFIX = 'pycache'; PYTHONUSERBASE = 'python-user'
     MPLCONFIGDIR = 'matplotlib'; TORCH_HOME = 'torch'
+    CUDA_CACHE_PATH = 'cuda-cache'; TRITON_CACHE_DIR = 'triton-cache'
+    TORCHINDUCTOR_CACHE_DIR = 'torchinductor-cache'; TECTONIC_CACHE_DIR = 'tectonic'
     HF_HOME = 'huggingface'; XDG_CACHE_HOME = 'cache'
     WANDB_DIR = 'wandb'; WANDB_CACHE_DIR = 'wandb-cache'
     WANDB_CONFIG_DIR = 'wandb-config'; WANDB_DATA_DIR = 'wandb-data'
