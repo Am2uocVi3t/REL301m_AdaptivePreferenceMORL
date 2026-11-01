@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/causal-backbone-study",
-  "updated_at": "2026-11-01T16:12:47+00:00",
+  "working_branch": "codex/durable-training-recovery",
+  "updated_at": "2026-11-01T16:59:27+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,9 @@
     }
   ],
   "next_actions": [
-    "Diagnose process lifetime and define versioned technical recovery for the interrupted cohort; preserve completed runs and account for all partial compute.",
-    "Qualify durable process launch and explicit checkpoint/resume semantics before further dispatch. Do not treat a warm start as exact continuation.",
-    "Keep original matrix/F1/final-test gates locked; the incomplete n-step cohort supports no comparative conclusion."
+    "Dispatch scripts/start_credit_recovery.ps1 once from committed source, then verify coordinator and worker PID/creation identities, heartbeats and first atomic recovery snapshots.",
+    "Use scripts/check_credit_recovery.py; after actual interruption only explicit ResumeExisting may adopt/live-resume qualified jobs. No automatic retries.",
+    "After 12 combined jobs complete, inspect recovery-aware numeric audit and actual task gates before reporting improvement; original failed matrix/F1/final-test locks remain."
   ],
-  "last_session_summary": "Training check confirmed coordinator/workers/postprocessor absent, GPU idle and stale running flags. Three Lunar jobs completed, three interrupted, six Minecart unstarted. Completed landing-heavy pad successes 1/10, 1/10, 0/10. No traceback/OOM found; checkpoints omit exact-resume state. Registry blocked; all artifacts preserved and no jobs restarted."
+  "last_session_summary": "Durable recovery implementation qualified: four old/new equality cases, four forced boundary kills/resumes, four lost-tail rewind cases, duplicate lease exclusion, and Windows service-launched no-Job CUDA witness. 186 tests passed / 4 skipped plus required checks. Three completed originals and 45 historical source files preserved. Nine-job / 4.5M recovery amendment ready for clean-commit dispatch."
 }

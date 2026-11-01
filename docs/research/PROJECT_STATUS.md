@@ -8,6 +8,36 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Durable recovery implementation (user authorized 2026-11-01): branch
+`codex/durable-training-recovery` adds a separately versioned nine-job recovery
+dispatch. Three completed original jobs and their learning-source modules are
+hash-bound and retained; three interrupted jobs restart from original seeds
+in new directories, and six unstarted jobs use the unchanged plan. The new
+budget is 4.5M logical interactions / 1,113,759 updates, with prior interrupted
+compute accounted separately. See `configs/experiments/credit_assignment_recovery_v1.json`
+and `docs/research/TRAINING_RECOVERY_V1.md`. The original interrupted registry
+entry stays blocked; recovery has its own entry and evidence.
+
+Engineering qualification passed both environments and both n-step arms:
+old/new numerical compatibility, fresh-process forced kill at a checkpoint,
+duplicate-job rejection, and forced loss of unsaved learning followed by
+deterministic rewind/replay all matched model, target, optimizer, episodes,
+losses and evaluation returns. A separate Windows process witness survives
+its parent's kill-on-close Job teardown and runs a finite seeded CUDA backward
+pass outside any Windows Job. The old stop trigger is still unknown; the
+tested Windows lifetime hazard is addressed, not retroactively proven as the
+unique cause. All runtimes/caches/output remain on D:; no scheduled task or
+new service is installed, and no automatic training retries are enabled.
+
+The new launcher uses the existing local WMI provider with explicit environment
+and breakaway flags, bypassing the venv redirector's extra lifetime parent.
+Recovery checkpoints are atomic, checksum-bound, keep two generations and
+reconstruct only a fresh episode; arbitrary mid-episode engine serialization
+is not claimed. Main dispatch must start from committed qualified source;
+check `artifacts/credit-assignment-recovery-v1/execution_status.json` and
+`scripts/check_credit_recovery.py` for actual process liveness. An implementation
+qualification is not evidence of improved task learning or final completion.
+
 Latest training check (2026-11-01, about 23:11 Asia/Bangkok) supersedes the
 running-process statements below: the credit-assignment coordinator, training
 workers and bounded postprocessor are no longer present. Two OS queries found

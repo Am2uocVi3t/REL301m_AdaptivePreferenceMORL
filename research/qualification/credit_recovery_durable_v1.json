@@ -1,0 +1,47 @@
+{
+  "status": "pass",
+  "parent_kill_on_close_job": {
+    "pid": 30248,
+    "birth": "134380256497403692",
+    "job": {
+      "member": true,
+      "flags": 10240,
+      "kill_on_job_close": true
+    },
+    "handle": 628
+  },
+  "independent_worker": {
+    "pid": 15280,
+    "birth": "134380256518289466",
+    "token": "8a0250e7-9111-4d71-8ab2-7b2f33a22918",
+    "job": {
+      "member": false,
+      "flags": 0,
+      "kill_on_job_close": false
+    },
+    "runtime": {
+      "prefix": "D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\gpu-runtime",
+      "torch": "2.14.1+cu130",
+      "cuda_kernel_loss": 1.0461750030517578,
+      "device": "NVIDIA GeForce RTX 3050 Laptop GPU"
+    }
+  },
+  "observed_heartbeat": {
+    "pid": 15280,
+    "birth": "134380256518289466",
+    "tick": 167,
+    "updated_unix": 1793552221.6420257,
+    "token": "8a0250e7-9111-4d71-8ab2-7b2f33a22918"
+  },
+  "scope": "Final-source fresh invocation: parent absent, no worker Windows Job membership, matching CUDA runtime and finite seeded backward pass. No installed service/scheduled task or reboot-survival claim.",
+  "prior_witnesses_preserved": [
+    "artifacts/durable-launch-witness-v1",
+    "artifacts/durable-launch-witness-v2",
+    "artifacts/durable-launch-witness-v3",
+    "artifacts/durable-launch-witness-v4"
+  ],
+  "source_sha256": {
+    "scripts\\start_credit_recovery.ps1": "29d6f9cbd724454cb892de4f2e05eb26edf11a8d106ce26efa83a565cdbb975b",
+    "scripts\\launch_credit_recovery.py": "53a38387ad45bc84cbf487cba3d1c6a05f3d7f4cde29ae2591cc1afe5bde524a"
+  }
+}

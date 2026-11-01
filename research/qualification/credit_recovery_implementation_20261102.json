@@ -1,0 +1,23 @@
+{
+  "status": "engineering_qualification_pass",
+  "verified_at": "2026-11-01T17:03:38.282945+00:00",
+  "receipts": {
+    "research\\qualification\\credit_recovery_numerical_v1.json": "51c48a08e6d56fb8f1c5e2ea13505cb199eda6f5f9f8f32964fb0223231a9a2f",
+    "research\\qualification\\credit_recovery_tail_v1.json": "c324797d012b4620429b992cf9d173445ea040d1329abe08317b9742f10c36d9",
+    "research\\qualification\\credit_recovery_durable_v1.json": "0bd2a7db23d34b296049a75bdfe7741f5ac59b2e63903b734f3ffe68369a2558",
+    "research\\qualification\\credit_recovery_retained_jobs_v1.json": "2fdf0272ff11fc870efd75ef33c7ef93e05499d585793b57938c7249b9c2f833"
+  },
+  "required_checks": "ruff format/check; configured mypy src/scripts; pytest 186 passed/4 existing skips; bandit medium/high gate; compileall; git diff check",
+  "windows_targeted_type_check": "8 new/modified recovery files passed; legacy Unix-only ARIS/F1 paths remain unqualified on Windows",
+  "qualification_training": {
+    "numerical_compatibility_and_boundary_kill": 144000,
+    "lost_tail_logical_training": 48000,
+    "lost_tail_extra_training_bounds": [
+      2110,
+      6110
+    ],
+    "development_smoke": 7242
+  },
+  "research_result_scope": "Execution reliability only; no new task-learning or allocation-benefit claim",
+  "dispatch": "Not started at this receipt; clean committed source and qualification preflight required"
+}

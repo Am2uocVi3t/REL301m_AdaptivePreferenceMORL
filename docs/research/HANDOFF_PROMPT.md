@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T16:12:47+00:00
-Expected working branch at generation: codex/causal-backbone-study
-Expected commit at generation: ffeb6d8
+Snapshot generated: 2026-11-01T16:59:27+00:00
+Expected working branch at generation: codex/durable-training-recovery
+Expected commit at generation: 523d5c4
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -81,17 +81,18 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
+- credit-assignment-recovery-v1 [planned]: Durable, exact-boundary-resumable recovery of the interrupted n-step cohort
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Training check confirmed coordinator/workers/postprocessor absent, GPU idle and stale running flags. Three Lunar jobs completed, three interrupted, six Minecart unstarted. Completed landing-heavy pad successes 1/10, 1/10, 0/10. No traceback/OOM found; checkpoints omit exact-resume state. Registry blocked; all artifacts preserved and no jobs restarted.
+Durable recovery implementation qualified: four old/new equality cases, four forced boundary kills/resumes, four lost-tail rewind cases, duplicate lease exclusion, and Windows service-launched no-Job CUDA witness. 186 tests passed / 4 skipped plus required checks. Three completed originals and 45 historical source files preserved. Nine-job / 4.5M recovery amendment ready for clean-commit dispatch.
 
 Next actions:
-1. Diagnose process lifetime and define versioned technical recovery for the interrupted cohort; preserve completed runs and account for all partial compute.
-2. Qualify durable process launch and explicit checkpoint/resume semantics before further dispatch. Do not treat a warm start as exact continuation.
-3. Keep original matrix/F1/final-test gates locked; the incomplete n-step cohort supports no comparative conclusion.
+1. Dispatch scripts/start_credit_recovery.ps1 once from committed source, then verify coordinator and worker PID/creation identities, heartbeats and first atomic recovery snapshots.
+2. Use scripts/check_credit_recovery.py; after actual interruption only explicit ResumeExisting may adopt/live-resume qualified jobs. No automatic retries.
+3. After 12 combined jobs complete, inspect recovery-aware numeric audit and actual task gates before reporting improvement; original failed matrix/F1/final-test locks remain.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

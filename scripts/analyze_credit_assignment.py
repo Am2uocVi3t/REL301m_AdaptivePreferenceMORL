@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import subprocess
@@ -45,10 +46,29 @@ def verify_training_source(commit: str, frozen: str) -> None:
             raise ValueError(f"Training source changed: {path} at {commit}")
 
 
-def main() -> None:
+def main(recovery: bool = False) -> None:
     if not __debug__:
         raise RuntimeError("Run the evidence audit without Python optimization flags")
-    plan, execution = read(PLAN), read(ROOT / "execution_status.json")
+    root = Path("artifacts/credit-assignment-recovery-v1") if recovery else ROOT
+    plan, execution = read(PLAN), read(root / "execution_status.json")
+    if recovery:
+        retained = read(Path("research/qualification/credit_recovery_retained_jobs_v1.json"))
+        for filename, expected in retained["files"].items():
+            if digest(Path(filename)) != expected:
+                raise ValueError("Preserved original artifact or learning source changed")
+        for name in ("credit_recovery_durable_v1.json", "credit_recovery_tail_v1.json"):
+            receipt = read(Path("research/qualification") / name)
+            if receipt["status"] != "pass":
+                raise ValueError("Recovery launch and rewind qualification must pass")
+            for filename, expected in receipt["source_sha256"].items():
+                if digest(Path(filename)) != expected:
+                    raise ValueError("Qualified recovery infrastructure changed")
+        numerical = read(Path("research/qualification/credit_recovery_numerical_v1.json"))
+        if numerical["status"] != "pass":
+            raise ValueError("Recovery numerical compatibility qualification is required")
+        for filename, expected in numerical["source_sha256"].items():
+            if digest(Path(filename)) != expected:
+                raise ValueError("Qualified recovery source changed")
     assert execution["plan_sha256"] == digest(PLAN)
     assert len(execution["jobs"]) == 12
     assert all(job["state"] == "complete" for job in execution["jobs"]), "Cohort still running or failed"
@@ -61,10 +81,22 @@ def main() -> None:
         final_test_steps=0,
     )
     for job in execution["jobs"]:
-        directory = ROOT / "runs" / job["name"]
+        directory = Path(job["directory"]) if recovery else root / "runs" / job["name"]
         manifest, complete = [read(directory / filename) for filename in ("manifest.json", "complete.json")]
         assert manifest["plan_sha256"] == digest(PLAN) and manifest["plan"] == plan
-        verify_training_source(manifest["provenance"]["git_commit"], execution["source_commit"])
+        if recovery and job["origin"] == "recovery":
+            for filename, expected in manifest["recovery_binding"]["source_files"].items():
+                if digest(Path(filename)) != expected:
+                    raise ValueError("Recovery worker dependency changed")
+            if manifest["recovery_binding"]["runner_sha256"] != digest(
+                Path("scripts/run_credit_assignment_recoverable.py")
+            ):
+                raise ValueError("Recovery worker source changed")
+        else:
+            verify_training_source(
+                manifest["provenance"]["git_commit"],
+                execution["original_source_commit"] if recovery else execution["source_commit"],
+            )
         assert manifest["provenance"]["git_dirty"] is False
         assert manifest["n"] == job["n"] and manifest["seed"] == job["seed"]
         protocol, preferences = load_protocol(job["protocol"], "validation")
@@ -193,7 +225,7 @@ def main() -> None:
                 }
             )
     result = {
-        "study_id": plan["study_id"],
+        "study_id": execution["study_id"] if recovery else plan["study_id"],
         "audit": "numeric_and_provenance_pass",
         "review_independence": "executor_numeric_check_only",
         "source_commit": execution["source_commit"],
@@ -207,10 +239,19 @@ def main() -> None:
             "no best-checkpoint selection, no significance claim from three pairs"
         ),
     }
-    destination = Path("research/evidence/credit_assignment_v1.json")
+    if recovery:
+        result["recovery_amendment"] = read(Path("configs/experiments/credit_assignment_recovery_v1.json"))
+        result["execution"] = execution
+    destination = Path(
+        "research/evidence/credit_assignment_recovery_v1.json"
+        if recovery
+        else "research/evidence/credit_assignment_v1.json"
+    )
     destination.write_bytes((json.dumps(result, indent=2, allow_nan=False) + "\n").encode())
     print(json.dumps({"totals": totals, "summaries": summaries, "paired_effects": effects}, indent=2))
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(__doc__)
+    parser.add_argument("--recovery", action="store_true")
+    main(parser.parse_args().recovery)

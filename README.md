@@ -4,6 +4,13 @@ REL301m course research project, Fall 2026.
 
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 
+Windows training recovery: the interrupted n-step study has a separately
+qualified recovery path. Read [the operating contract](docs/research/TRAINING_RECOVERY_V1.md)
+and run `.venv/Scripts/python.exe scripts/check_credit_recovery.py` to inspect
+actual process liveness before any launch. The independent launcher is
+`scripts/start_credit_recovery.ps1`; completed original jobs and all scientific
+locks are preserved. This repairs execution reliability, not task competence.
+
 New contributors and coding agents should start with [`AGENTS.md`](AGENTS.md), then read the [current project status](docs/research/PROJECT_STATUS.md). The [documentation map](docs/README.md) identifies the authoritative document for each concern.
 
 For work spanning multiple chats, use the [AI-assisted research workflow](docs/research/AI_RESEARCH_WORKFLOW.md), inspect the [evidence-gated roadmap](docs/research/ROADMAP.md), and copy the generated [cross-chat handoff prompt](docs/research/HANDOFF_PROMPT.md). The Git-native harness tracks phases, claims, literature metadata, experiments, blockers, and session summaries without storing paper PDFs.
