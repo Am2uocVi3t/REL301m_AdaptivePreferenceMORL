@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T09:44:21+00:00
-Expected working branch at generation: codex/course-completion-v2
-Expected commit at generation: a7c2aad
+Snapshot generated: 2026-11-01T11:03:53+00:00
+Expected working branch at generation: codex/demo-behavior-audit
+Expected commit at generation: 025cad0
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -84,12 +84,12 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Completed scoped course delivery using original FPT LaTeX template (11-page PDF), three fixed 100k-step Envelope seeds and numerical audit of 576 new validation episodes. Preserved failed primary/F1 and final-test locks; no adaptive or reliable ore-learning claim. Delivered new source/evidence/demo ZIP, verified 85 file hashes/ZIP, real models, 80 UI assertions and standalone-runtime Edge. Quality gate 179 passed, 4 documented skips; no independent final semantic PASS or lecturer acceptance claimed.
+User-requested frozen-demo behavior audit completed: 80 episodes (8 preferences x 5 environment seeds x 2 environments), 58,828 diagnostic steps, no training/final test. Default Lunar 0/5 native +100; landing-heavy 2/5 (+100 outside pad in one); Minecart zero cargo/ore in all 40. Four complete Edge UI cases matched direct traces, with native image visibility checked; fixed verification harness async screenshot wait, no app/CSS/model changes. Original PDF/ZIP hashes unchanged. Technical checks 179 pass/4 skip; task learning remains unqualified.
 
 Next actions:
-1. Present outputs/course-report-latex/REL301m_Course_Project_Report.pdf and outputs/REL301m_Course_Project_20261101.zip; use START_COURSE_DEMO.bat and docs/COURSE_PRESENTATION_VI.md.
-2. Confirm the official course rubric/deadline with the lecturer. Original full factorial matrix/final-test study is incomplete and remains gated; do not extend the completed Envelope cohort or substitute seeds/checkpoints.
-3. Copy the generated Git bundle and delivery ZIP off this laptop for backup; no remote push or external submission was performed.
+1. Read docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md and inspect outputs/demo-behavior-audit-v1 plus its evidence ZIP before presenting the app as task-solving.
+2. Prioritize a separately versioned backbone diagnosis and task qualification before new primary allocation/ablation comparisons; do not restart or extend completed cohorts or unlock final test from these diagnostic cases.
+3. Keep the delivered report as scoped implementation/failure analysis; final packaging does not establish full project completion. Existing skills suffice; no new skill was installed.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

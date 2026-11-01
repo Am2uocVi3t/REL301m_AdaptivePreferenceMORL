@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "purpose": "Diagnostic task behavior of the delivered frozen presentation policies; not research final test, training or checkpoint selection",
+  "package": "outputs/REL301m_Course_Project_20261101",
+  "seed_offsets": [0, 1, 2, 3, 4],
+  "maximum_steps_per_episode": 1000,
+  "training_updates": 0,
+  "final_test_steps": 0,
+  "selection": "Evaluate every listed preference and environment seed; do not select/replace weights or hide failures",
+  "environments": {
+    "lunar": {
+      "weights_sha256": "760086f8ff7a3acc54b459c7f053d4e1a02f29df8dec2cb3bfe2785337324cda",
+      "preferences": {
+        "default": null,
+        "balanced": [0.25, 0.25, 0.25, 0.25],
+        "landing_only": [1.0, 0.0, 0.0, 0.0],
+        "shaping_only": [0.0, 1.0, 0.0, 0.0],
+        "main_fuel_only": [0.0, 0.0, 1.0, 0.0],
+        "side_fuel_only": [0.0, 0.0, 0.0, 1.0],
+        "landing_heavy": [0.7, 0.1, 0.1, 0.1],
+        "fuel_heavy": [0.05, 0.05, 0.45, 0.45]
+      }
+    },
+    "mine": {
+      "weights_sha256": "5466de992b46fab5f7940f8d7fe128b41b730f7bdb1faa3bf04187402718fa07",
+      "preferences": {
+        "default": null,
+        "balanced": [0.3333333333333333, 0.3333333333333333, 0.3333333333333333],
+        "ore1_only": [1.0, 0.0, 0.0],
+        "ore2_only": [0.0, 1.0, 0.0],
+        "fuel_only": [0.0, 0.0, 1.0],
+        "ore1_heavy": [0.8, 0.1, 0.1],
+        "ore2_heavy": [0.1, 0.8, 0.1],
+        "ores_heavy": [0.45, 0.45, 0.1]
+      }
+    }
+  }
+}

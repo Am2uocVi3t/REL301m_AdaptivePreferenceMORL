@@ -8,6 +8,38 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Behavioral acceptance check (2026-11-01, branch `codex/demo-behavior-audit`):
+at the user's request, the actual delivered Uniform-PCQN presentation policies
+were checked on eight fixed preferences and five environment seeds each,
+80 complete diagnostic episodes / 58,828 steps. These are two frozen models,
+not five training replicates, and not final-test evidence. All 80 trace hashes,
+native raw sums, discounted/scaled sums, lengths and model immutability passed.
+No weights, default seeds, app assets or delivered ZIP/PDF were changed.
+
+Lunar default and balanced produced no environment-reported +100 in five cases
+each. Landing-heavy `[0.7,0.1,0.1,0.1]` produced +100 in two cases, only one
+with the lander x coordinate inside the pad interval; the latter is a spatial
+diagnostic, not a newly invented qualification gate. Pure-fuel anchors can
+rationally sacrifice landing and are not by themselves evidence of broken
+preference handling. Minecart delivered zero ore and collected zero cargo in
+all 40 cases; policies mostly brake or idle, and no case reached a mine radius.
+The app demonstrates inference/preference input, but task learning is not
+qualified. Calling the previous artifact delivery "final" does not establish
+that the project or task-performing policies are complete.
+
+Same-state probes establish that weights change Q scores/actions (e.g. Lunar
+balanced differs from default on 39.6% of 500 default-trajectory states).
+Four complete UI episodes through Edge matched direct diagnostic steps,
+preferences and native returns. Native renderer visibility is now explicitly
+checked: computed styles confirm canvas hidden and native image visible.
+An initial screenshot was captured before its async switch completed; the
+verification harness was fixed, no CSS/product defect was found. The successful
+UI pass used 7,813 separate steps; server cumulative counter including prior
+harness attempts was 15,634. These are separate from the 80-episode matrix.
+Evidence: `research/evidence/demo_behavior_audit_v1.json` and
+`docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md`; full traces/screenshots remain
+on D: under `artifacts/demo-behavior-audit-v1`. Old research gates stay locked.
+
 Course-template/training update (2026-11-01, supersedes the delivery format below):
 the user confirmed the existing group LaTeX template and authorized further local
 training for course completion. On `codex/course-completion-v2`, a separate

@@ -41,6 +41,14 @@ and demo; external submission and scientific gate changes remain separate.
 
 ## Interactive presentation app (inference only)
 
+Behavior check: the frozen demo policies were run on 8 preferences x 5
+environment seeds each (80 diagnostic episodes). Lunar default had no +100
+outcomes; landing-heavy had 2/5 +100 outcomes, only one inside the pad x interval.
+Minecart collected/delivered no ore in 40/40 cases. Input handling works, but
+reliable task learning is **not** established. See the
+[behavioral audit](docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md) before presenting
+the app as an agent completing its task. The PDF/ZIP delivery is unchanged.
+
 The current group-template course report is built from `paper/REL301m/main.tex`
 using `. scripts/build_course_latex_report.ps1`. The three-seed Envelope
 feasibility cohort completed 300,000 training interactions, 299,703 updates and

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "scope": "diagnostic acceptance of existing frozen demo, not final research test",
+  "behavioral_task_learning_qualified": false,
+  "technical_input_and_browser_checks": "passed",
+  "episodes": 80,
+  "presentation_matrix_steps": 58828,
+  "successful_UI_pass_steps": 7813,
+  "UI_server_cumulative_steps_including_attempts": 15634,
+  "training_updates": 0,
+  "models_and_app_assets_changed": false,
+  "results": "research/evidence/demo_behavior_audit_v1.json",
+  "results_sha256": "8b3a2499a184a9d779cf0772465e5a231d908ead7d55f4765474535ff1c9ccdc",
+  "archive": "outputs\\REL301m_Demo_Behavior_Audit_20261101.zip",
+  "archive_sha256": "9b46523dcb60ccfd5f9350e5e1edf90fd3fcc1ad4fe96bab895d4f8c01f4acbd",
+  "software_gate": {
+    "passed_tests": 179,
+    "skipped_tests": 4,
+    "ruff": "passed",
+    "mypy": "passed",
+    "bandit_ll": "passed",
+    "compileall": "passed",
+    "diff_check": "passed"
+  },
+  "independent_semantic_review": "not performed; no PASS claimed"
+}
