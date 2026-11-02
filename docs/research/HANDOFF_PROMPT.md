@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T10:07:05+00:00
+Snapshot generated: 2026-11-02T10:35:16+00:00
 Expected working branch at generation: codex/preference-transfer-recovery
-Expected commit at generation: c5b334e
+Expected commit at generation: 2406431
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -88,11 +88,11 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Explicit user-requested P2 check and resume: previous resumed segment also exited0xC000013A. Reverified unchanged source, retained five completions, three snapshot states and seeded CUDA backward. Third execution segment verified live at461k/302k/57k; four jobs pending, no actor or budget change. C now5.7GiB free; all managed output D:.
+P2 check: seven complete with zero task deliveries, two third-seed A/B workers live; D seed12 failed at303k on atomic heartbeat WinError5, recovery valid297188, two pending. Reproduced read-handle/delete-sharing mechanism and tested bounded-retry candidate in ignored outputs; live source unchanged. Monitor with FILE_SHARE_DELETE; do not bypass active coordinator.
 
 Next actions:
-1. Check current P2 coordinator/worker process birth identities and heartbeats; no duplicate launch or automatic retry. Preserve five completed jobs and fixed budgets.
-2. On completion audit analysis.json and register all paired results, with separately accounted interruption tails; no scientific gate unlock or outcome-based extension.
+1. Let current P2 workers finish; use FILE_SHARE_DELETE for live JSON monitoring to avoid atomic-rename read races. Check process identities before any dispatch.
+2. Before resuming failed D/pending jobs, qualify a source-bound I/O recovery amendment or inspected operational mitigation. Preserve fixed budgets, completed jobs and separately account replayed tails.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

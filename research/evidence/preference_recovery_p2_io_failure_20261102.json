@@ -1,0 +1,51 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "observed_unix": 1793615716.2184708,
+  "completed_jobs": 7,
+  "active_jobs": [
+    {
+      "job": "minecart-v0_A_seed20263213",
+      "heartbeat": {
+        "pid": 30328,
+        "process_birth": "134380878626770151",
+        "step": 342000,
+        "updates": 84251,
+        "updated_unix": 1793615715.2134762,
+        "resume_step": 341931
+      },
+      "alive": true
+    },
+    {
+      "job": "minecart-v0_B_seed20263213",
+      "heartbeat": {
+        "pid": 27752,
+        "process_birth": "134380885935675870",
+        "step": 190000,
+        "updates": 46251,
+        "updated_unix": 1793615713.398285,
+        "resume_step": 187666
+      },
+      "alive": true
+    }
+  ],
+  "failed_job": "minecart-v0_D_seed20263212",
+  "failed_job_last_heartbeat_step": 303000,
+  "verified_resume_step": 297188,
+  "pending_jobs": 2,
+  "error": "PermissionError WinError5 replacing heartbeat.json.tmp -> heartbeat.json",
+  "mechanism": "An open reader handle without FILE_SHARE_DELETE reproduces the same WinError5 with the current helper; closing the handle restores writes. Actual reader identity unknown.",
+  "candidate_witness": {
+    "old_helper_failure": "Reproduced WinError5 under a reader handle denying delete sharing",
+    "candidate_transient_lock": "passed after .15s reader release",
+    "elapsed_seconds": 0.1720000000204891,
+    "persistent_lock": "bounded failure, original target preserved",
+    "persistent_elapsed_seconds": 1.577999999979511,
+    "applied_to_live_source": false,
+    "candidate": "artifacts\\preference-recovery-p2-v1\\io_lock_fix_proposal\\training_recovery_candidate.py",
+    "reason_not_applied": "Two qualified workers still running; preserve frozen source/resume binding until a safe amendment and requalification."
+  },
+  "live_actor_changed": false,
+  "monitoring_mitigation": "This witness uses FILE_SHARE_DELETE when opening live JSON status/heartbeat files.",
+  "next": "Allow two active qualified jobs to finish; then review/qualify a source-bound I/O repair/resume amendment or inspected operational mitigation before further dispatch. Do not bypass active coordinator lease, change learning settings or restart completed jobs.",
+  "final_test_steps": 0
+}

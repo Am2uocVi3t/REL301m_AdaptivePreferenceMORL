@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/preference-transfer-recovery",
-  "updated_at": "2026-11-02T10:07:05+00:00",
+  "updated_at": "2026-11-02T10:35:16+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Check current P2 coordinator/worker process birth identities and heartbeats; no duplicate launch or automatic retry. Preserve five completed jobs and fixed budgets.",
-    "On completion audit analysis.json and register all paired results, with separately accounted interruption tails; no scientific gate unlock or outcome-based extension."
+    "Let current P2 workers finish; use FILE_SHARE_DELETE for live JSON monitoring to avoid atomic-rename read races. Check process identities before any dispatch.",
+    "Before resuming failed D/pending jobs, qualify a source-bound I/O recovery amendment or inspected operational mitigation. Preserve fixed budgets, completed jobs and separately account replayed tails."
   ],
-  "last_session_summary": "Explicit user-requested P2 check and resume: previous resumed segment also exited0xC000013A. Reverified unchanged source, retained five completions, three snapshot states and seeded CUDA backward. Third execution segment verified live at461k/302k/57k; four jobs pending, no actor or budget change. C now5.7GiB free; all managed output D:."
+  "last_session_summary": "P2 check: seven complete with zero task deliveries, two third-seed A/B workers live; D seed12 failed at303k on atomic heartbeat WinError5, recovery valid297188, two pending. Reproduced read-handle/delete-sharing mechanism and tested bounded-retry candidate in ignored outputs; live source unchanged. Monitor with FILE_SHARE_DELETE; do not bypass active coordinator."
 }

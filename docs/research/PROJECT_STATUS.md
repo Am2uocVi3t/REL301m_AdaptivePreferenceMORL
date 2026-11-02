@@ -8,6 +8,23 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest P2 check (2026-11-02): seven completed jobs all have 0/10 deliveries
+at both task profiles; two third-seed A/B jobs remain alive, two C/D jobs are
+pending. D seed12 failed at ~303k with PermissionError WinError5 replacing
+heartbeat.json, not a CUDA/numeric traceback. Its checksum-verified recovery
+state is step297188. Coordinator stops new dispatch but lets the two active
+jobs finish. Do not bypass its active lease or restart completed jobs.
+Evidence: `research/evidence/preference_recovery_p2_io_failure_20261102.json`.
+The same error is reproduced with an open Windows reader handle lacking delete
+sharing; actual locking process is unknown. A bounded retry candidate passed
+transient-lock and persistent-lock/target-preservation witnesses under ignored
+`artifacts/preference-recovery-p2-v1/io_lock_fix_proposal`; it is NOT applied to
+live source. Live monitoring now uses FILE_SHARE_DELETE. After the active jobs
+finish, qualify a source-bound I/O recovery amendment or inspected operational
+mitigation before resuming D and the pending jobs. Keep study budgets and all
+historical scientific gates unchanged. Earlier snapshots below are historical.
+
+
 Latest user-requested P2 resume (2026-11-02): the previous resumed segment
 also exited 0xC000013A shortly after its live witness. Source, completed-file
 hashes and three full resume states were inspected again; seeded CUDA backward
