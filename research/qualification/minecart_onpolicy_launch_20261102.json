@@ -1,0 +1,48 @@
+{
+  "status": "running_verified",
+  "observed_unix": 1793624678.9423456,
+  "training_source_commit": "30a9baaab96694addb43bb78b790e9b52771e416",
+  "git_dirty_at_start": false,
+  "manifest_sha256": "2d6ec485c0c4af40415c7cc7ccc409a29e47c72523a281722a6ca4929e0b525e",
+  "qualification_sha256": "baf3c9bfc1aa4afa3f966301919656f2e136a9d72fc72909ca1d0edb701aaf5b",
+  "pid": 33828,
+  "process_birth": "134380982087065447",
+  "native_monitor_study": "Minecart / PPO specialist",
+  "progress": {
+    "name": "minecart-v0_S_seed20264111",
+    "arm": "S",
+    "seed": 20264111,
+    "state": "running",
+    "step": 25088,
+    "budget": 4000000,
+    "updates": 1568,
+    "resume_step": 40960,
+    "task": [],
+    "rate": 671,
+    "pid": 33828,
+    "alive": true,
+    "heartbeat_unix": 1793624650.8741677
+  },
+  "snapshot_metadata": [
+    {
+      "file": "resume_step000032768.pt",
+      "bytes": 1888484
+    },
+    {
+      "file": "resume_step000040960.pt",
+      "bytes": 1938916
+    }
+  ],
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "utilization": 47,
+    "memory_used": 218,
+    "memory_total": 4096,
+    "temperature": 53
+  },
+  "training_budget": 4000000,
+  "final_test_steps": 0,
+  "conditional_dispatch": false,
+  "claim": "Execution liveness only; no task success established."
+}

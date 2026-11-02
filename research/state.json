@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/minecart-onpolicy-backbone",
-  "updated_at": "2026-11-02T13:02:50+00:00",
+  "updated_at": "2026-11-02T13:05:14+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Launch S only from clean qualified source and verify actual worker/log/snapshot liveness; retain P2 and Lunar unchanged.",
-    "At S completion audit all4 checkpoints and final sampled/argmax gates separately before considering conditional pilot; no automatic extensions or original gate unlock."
+    "Monitor artifacts/minecart-onpolicy-specialist-v1 and native terminal; do not restart or change the active source. Any interruption requires source/snapshot/tail inspection before explicit resume.",
+    "At4M completion audit all4 checkpoints,928 development episodes and final sampled/argmax task gates separately; only then consider a separately frozen C protocol. No outcome-based extension or final-test unlock."
   ],
-  "last_session_summary": "Implemented Minecart-only utility-preserving PPO specialist and vector PopArt critic. CUDA8-stream exact process-kill/resume PASS;12928 engineering interactions,215 tests pass/4 skips and full quality gate. Frozen S4M/250080 actor/500160 critic updates/928 development episodes; native terminal support. Main not launched yet; clean source launch next. C/G and final test disabled."
+  "last_session_summary": "Minecart-only PPO specialist implemented, CUDA8-stream exact actual-kill/resume qualified, full quality215pass4skip. Source30a9baa clean launch verified PID33828/birth, stdout25088/1568 actor updates, durable40960 snapshot, GPU47%218MiB. Native terminal opened and new study recognized; duplicate launch blocked before log mutation. Fixed S4M; C/G and final test disabled. P2 negative results and Lunar unchanged."
 }

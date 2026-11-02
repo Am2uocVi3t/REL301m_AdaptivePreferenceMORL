@@ -19,8 +19,12 @@ S is one seed, fixed[.45,.45,.1],4M interactions,250,080 actor /500,160 critic
 updates,928 development episodes max928k steps, sampled/argmax separate and
 final-only task gate. No C/G auto dispatch. Native monitor recognizes new study.
 Lunar is not part of this change; no task-competence or allocation claim follows.
-Main launch must be witnessed from clean committed qualified source; update
-registry/status after liveness is verified. Historical snapshots below retained.
+S is now RUNNING from clean committed source30a9baa; verified worker PID33828
+with creation identity, native terminal recognition, stdout25,088 interactions /
+1,568 actor updates and durable snapshot40,960. No traceback; GPU47%,218MiB in
+the launch witness `research/qualification/minecart_onpolicy_launch_20261102.json`.
+Progress stdout is coarse, snapshot metadata can be ahead; neither is task success.
+No automatic resume/C/G dispatch. Historical snapshots below retained.
 
 Latest verified P2 findings (2026-11-02): COMPLETE_AUDITED,12/12 jobs,6M logical
 training interactions /1,485,012 updates. Re-ran the combined numeric/source/

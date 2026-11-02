@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T13:02:51+00:00
+Snapshot generated: 2026-11-02T13:05:14+00:00
 Expected working branch at generation: codex/minecart-onpolicy-backbone
-Expected commit at generation: 0c05fe2
+Expected commit at generation: 30a9baa
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,17 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- minecart-onpolicy-specialist-v1 [planned]: Qualified utility-preserving Minecart PPO specialist feasibility pilot
+- minecart-onpolicy-specialist-v1 [running]: Qualified utility-preserving Minecart PPO specialist feasibility pilot
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Implemented Minecart-only utility-preserving PPO specialist and vector PopArt critic. CUDA8-stream exact process-kill/resume PASS;12928 engineering interactions,215 tests pass/4 skips and full quality gate. Frozen S4M/250080 actor/500160 critic updates/928 development episodes; native terminal support. Main not launched yet; clean source launch next. C/G and final test disabled.
+Minecart-only PPO specialist implemented, CUDA8-stream exact actual-kill/resume qualified, full quality215pass4skip. Source30a9baa clean launch verified PID33828/birth, stdout25088/1568 actor updates, durable40960 snapshot, GPU47%218MiB. Native terminal opened and new study recognized; duplicate launch blocked before log mutation. Fixed S4M; C/G and final test disabled. P2 negative results and Lunar unchanged.
 
 Next actions:
-1. Launch S only from clean qualified source and verify actual worker/log/snapshot liveness; retain P2 and Lunar unchanged.
-2. At S completion audit all4 checkpoints and final sampled/argmax gates separately before considering conditional pilot; no automatic extensions or original gate unlock.
+1. Monitor artifacts/minecart-onpolicy-specialist-v1 and native terminal; do not restart or change the active source. Any interruption requires source/snapshot/tail inspection before explicit resume.
+2. At4M completion audit all4 checkpoints,928 development episodes and final sampled/argmax task gates separately; only then consider a separately frozen C protocol. No outcome-based extension or final-test unlock.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
