@@ -118,12 +118,23 @@
     {
       "id": "preference-transfer-p1-v1",
       "title": "Frozen-checkpoint GPI and epsilon factorial, P1",
-      "status": "planned",
+      "status": "complete",
       "protocol": "configs/experiments/preference_transfer_p1_v1.json",
+      "claim_ids": [],
+      "artifact": "research/evidence/preference_transfer_p1_v1.json",
+      "notes": "",
+      "created_at": "2026-11-02T02:42:05+00:00",
+      "updated_at": "2026-11-02T02:48:10+00:00"
+    },
+    {
+      "id": "preference-recovery-p2-v1",
+      "title": "Minecart 2x2 uniform relabel and utility Huber recovery",
+      "status": "planned",
+      "protocol": "configs/experiments/preference_recovery_p2_v1.json",
       "claim_ids": [],
       "artifact": null,
       "notes": "",
-      "created_at": "2026-11-02T02:42:05+00:00"
+      "created_at": "2026-11-02T02:53:48+00:00"
     }
   ]
 }

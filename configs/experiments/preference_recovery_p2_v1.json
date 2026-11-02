@@ -1,0 +1,125 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "authorization": "2026-11-02 user authorized staged recovery plan, contingent on P1 failing Minecart gate and implementation qualification",
+  "purpose": "Prospective 2x2 factorial of uniform preference relabeling and utility-aligned auxiliary loss; all source and task gates retained",
+  "arms": [
+    1
+  ],
+  "seeds": [
+    20263211,
+    20263212,
+    20263213
+  ],
+  "protocols": [
+    "configs/protocols/course_minecart_v0.json"
+  ],
+  "training_interactions_per_job": 500000,
+  "checkpoints": [
+    100000,
+    250000,
+    500000
+  ],
+  "gamma": 0.99,
+  "learning_starts": 5000,
+  "train_freq": 4,
+  "batch_size": 64,
+  "replay_capacity": 200000,
+  "lr": 0.0003,
+  "target_sync": 1000,
+  "hidden_dims": [
+    256,
+    256
+  ],
+  "num_heads": 3,
+  "bootstrap_probability": 0.8,
+  "epsilon": {
+    "start": 1.0,
+    "end": 0.05,
+    "fraction": 0.3
+  },
+  "allocation": "Uniform same protocol pool, fixed behavior preference/head per episode in every arm. Relabel arms independently draw ONE pool weight per replay row for both Q input and DDQN target. No extra samples or updates.",
+  "validation_episodes_per_preference": 3,
+  "validation_environment_seed": 20263250,
+  "task_environment_seeds": [
+    20263231,
+    20263232,
+    20263233,
+    20263234,
+    20263235,
+    20263236,
+    20263237,
+    20263238,
+    20263239,
+    20263240
+  ],
+  "task_preferences": {
+    "minecart-v0": [
+      [
+        0.45,
+        0.45,
+        0.1
+      ],
+      [
+        0.8,
+        0.1,
+        0.1
+      ]
+    ]
+  },
+  "screen_gate": {
+    "checkpoint": "500k final only",
+    "minecart": "Every seed >=8/10 deliveries at BOTH task profiles; positive paired utility vs A at each profile for each seed. Preserve A baseline and all failures. Prefer passing simpler B/C; choose by minimum seed/profile success then mean paired utility, ties B before C before D; freeze selection before P3.",
+    "effect": "Show each paired seed effect, factorial main/interaction contrasts and uncertainty; n=3 is feasibility, no superiority significance claim."
+  },
+  "limitations": [
+    "New controls use deliberately separated RNG streams; no exact old-training trajectory claim",
+    "Conditional Q and loss interventions may still fail",
+    "No adaptive benefit or dynamics generalization claim",
+    "No reference/scale/checkpoint/final-test tuning"
+  ],
+  "final_test_steps": 0,
+  "stop_rule": "Exactly twelve new jobs; fixed final-only gate, no seed substitution, outcome extension or automatic retries. Technical resume requires explicit inspected state; no original-study restart.",
+  "factorial_arms": {
+    "A": {
+      "relabel": false,
+      "utility_aux_lambda": 0.0
+    },
+    "B": {
+      "relabel": true,
+      "utility_aux_lambda": 0.0
+    },
+    "C": {
+      "relabel": false,
+      "utility_aux_lambda": 0.5
+    },
+    "D": {
+      "relabel": true,
+      "utility_aux_lambda": 0.5
+    }
+  },
+  "protocol_file_sha256": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+  "rng_roles": {
+    "rollout_preference": 10,
+    "episode_head": 11,
+    "exploration_coin": 12,
+    "random_action": 13,
+    "replay": 14,
+    "bootstrap_mask": 15,
+    "counterfactual_weight": 16
+  },
+  "loss": "Masked vector Huber at lambda=0; (1-lambda)*vector Huber + lambda*Huber(w-dot TD), lambda=.5 for C/D, common active-head normalization. Fixed prospective coefficients, not optimized defaults.",
+  "validation_episodes": 3456,
+  "task_diagnostic_episodes": 240,
+  "validation_max_steps": 3456000,
+  "task_max_steps": 240000,
+  "training_interactions_total": 6000000,
+  "updates_per_job": 123751,
+  "gradient_updates_total": 1485012,
+  "max_episode_steps": 1000,
+  "probe_stride": 20,
+  "task_evaluation_checkpoints": [
+    500000
+  ],
+  "p1_evidence": "research/evidence/preference_transfer_p1_v1.json",
+  "p1_evidence_sha256": "e76664dfcc618c4e710b013ce1bb1b2ec18bdb4264672f9df8ad4af8aa1693df"
+}
