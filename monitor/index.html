@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MORL / Training Console</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="rail">
+    <a class="brand" href="#overview" aria-label="Training console home">M<span>_</span></a>
+    <span class="rail-title">REL301m</span>
+    <nav aria-label="Dashboard sections"><a href="#overview" class="active">01<span>Overview</span></a><a href="#workers">02<span>Workers</span></a><a href="#telemetry">03<span>Telemetry</span></a></nav>
+    <div class="rail-foot"><span class="dot"></span> LOCAL<br>READ ONLY</div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">RESEARCH LAB <span>/</span> MORL <span>/</span> <strong>TRAINING</strong></div><div class="connection"><span id="connection-dot" class="dot amber"></span><span id="connection">CONNECTING</span><time id="clock">—</time></div></header>
+    <main>
+      <section id="overview" aria-labelledby="heading">
+        <div class="title-row"><div><div class="eyebrow">EXPERIMENT OPERATIONS <span class="slash">//</span> P2</div><h1 id="heading">Training console<span class="cursor">_</span></h1><p class="subtitle">Minecart · preference recovery · <span class="mono">2 × 2 factorial</span></p></div><div class="toolbar"><button id="pause" type="button">Pause view</button><button id="refresh" class="primary" type="button">Refresh <kbd>R</kbd></button></div></div>
+        <div id="offline" class="notice hidden" role="alert"></div>
+        <div class="run-strip"><div><span class="muted">STUDY</span> <span id="study">preference-recovery-p2-v1</span></div><div><span class="muted">SOURCE</span> <span id="source">—</span></div><div><span class="muted">NODE</span> <span id="session">—</span></div><span class="readonly">OBSERVE ONLY</span></div>
+        <div class="progress-panel"><div class="progress-header"><div><span class="eyebrow">RECORDED TRAINING PROGRESS</span><div class="big-number"><span id="percentage">—</span><span class="percent-sign">%</span><span id="run-status" class="badge neutral">LOADING</span></div></div><div class="step-total"><strong id="steps">—</strong><span> / <span id="budget">6,000,000</span> interactions</span><small>Live counts follow 25k-step logs; task success is separate.</small></div></div><div id="progress-track" class="segmented" role="progressbar" aria-label="Total training interactions" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div><div class="progress-footer"><span><i class="legend completed"></i><b id="done">—</b> complete</span><span><i class="legend live"></i><b id="active">—</b> active</span><span><i class="legend error"></i><b id="failed">—</b> interrupted / failed</span><span><i class="legend waiting"></i><b id="pending">—</b> pending</span><span class="sample">Sampled <time id="sampled">—</time></span></div></div>
+        <div id="alert" class="status-banner"><span class="prompt">&gt;</span><div><strong id="alert-title">Reading experiment state…</strong><p id="alert-text">Waiting for the local telemetry endpoint.</p></div></div>
+      </section>
+      <section class="operations" id="workers" aria-label="Workers and hardware">
+        <div class="panel workers-panel"><div class="panel-heading"><h2><span class="section-number">01</span> Worker matrix</h2><label class="filter-label"><span class="sr-only">Filter workers</span><select id="filter"><option value="all">All workers</option><option value="active">Active</option><option value="failed">Needs attention</option><option value="complete">Complete</option><option value="pending">Pending</option></select></label></div><div class="table-wrap"><table><thead><tr><th>WORKER / SEED</th><th>STATUS</th><th>TRAINING STEPS</th><th>UPDATES</th><th>LAST SIGNAL</th></tr></thead><tbody id="jobs"><tr><td colspan="5" class="empty">Reading worker telemetry…</td></tr></tbody></table></div><div class="table-foot"><span id="worker-count">12 planned workers</span><span>Select a worker to inspect its telemetry <span class="mint">↗</span></span></div></div>
+        <aside class="panel hardware"><div class="panel-heading"><h2><span class="section-number">02</span> Compute node</h2><span id="gpu-available" class="badge neutral">—</span></div><div class="hardware-body"><div class="eyebrow">LOCAL GPU</div><h3 id="gpu-name">Reading hardware…</h3><div class="gpu-value"><span id="gpu-load">—</span><small>% utilization</small></div><div class="meter"><span id="gpu-meter"></span></div><dl class="spec-list"><div><dt>VRAM</dt><dd id="gpu-memory">—</dd></div><div><dt>Temperature</dt><dd id="gpu-temp">—</dd></div><div><dt>D: free</dt><dd id="disk-work">—</dd></div><div><dt>C: free</dt><dd id="disk-system">—</dd></div></dl><div class="node-note"><span class="dot"></span> Artifacts &amp; runtime on D:</div></div></aside>
+      </section>
+      <section id="telemetry" class="telemetry" aria-label="Selected worker telemetry">
+        <div class="panel inspector"><div class="panel-heading"><h2><span class="section-number">03</span> Worker inspector</h2><span id="selected-badge" class="badge neutral">—</span></div><div class="inspector-body"><h3 id="selected-name">Select a worker</h3><p id="arm-description" class="muted">—</p><dl class="spec-list"><div><dt>Process</dt><dd id="selected-pid">—</dd></div><div><dt>Snapshot file</dt><dd id="selected-resume">—</dd></div><div><dt>Recorded rate</dt><dd id="selected-rate">—</dd></div><div><dt>Final deliveries</dt><dd id="selected-task">Not evaluated</dd></div></dl><div class="plot-title"><span>LOSS / TRAINING INTERACTIONS</span><span id="loss-value">—</span></div><div id="loss-plot" class="loss-plot"><span class="muted">No recorded loss history yet.</span></div><p id="loss-note" class="small muted">Loss history is available when the worker writes its final results.</p></div></div>
+        <div class="panel logs"><div class="panel-heading log-heading"><h2><span class="section-number">04</span> Log stream</h2><div class="tabs" role="tablist" aria-label="Log stream"><button id="tab-stderr" type="button" role="tab" aria-selected="true">stderr</button><button id="tab-stdout" type="button" role="tab" aria-selected="false">stdout</button></div></div><div class="log-meta"><span id="log-name">No worker selected</span><span id="log-modified">—</span></div><pre id="log" tabindex="0" aria-label="Selected worker log">Waiting for telemetry…</pre><div class="log-foot"><span>Retained log · includes earlier execution segments</span><span>LAST 65 LINES</span></div></div>
+      </section>
+      <footer><span><span class="mint">morl@local</span>:<span class="muted">~/experiments</span>$ <span id="footer-state">connecting</span></span><span id="refresh-label">AUTO REFRESH 5s <span class="dot"></span></span></footer>
+    </main>
+  </div>
+</body>
+</html>

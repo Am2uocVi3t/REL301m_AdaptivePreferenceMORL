@@ -1,0 +1,53 @@
+{
+  "feature": "training-monitor-v1",
+  "status": "pass",
+  "observed_unix": 1793617606.49068,
+  "url": "http://127.0.0.1:8770/",
+  "source_files": {
+    "monitor\\server.py": "5f70397f941d7d9f7c6ffaba3362b9f095a7552038522801e588a1d7a961f821",
+    "monitor\\__init__.py": "5bd2607b788285e45a37f812578a237bfc212df3d85a5d6fb6e11b591f1e4baf",
+    "monitor\\app.js": "e59db99f944b4d248addfe71efb39d37b9cf3ca1828ea5893ad44abe1983cc81",
+    "monitor\\style.css": "e37b1a5fdddfc75649046e2c483787b73ce25b17d91652c8acc528b32cc886ff",
+    "monitor\\index.html": "0a0c0124612968c89d2cf798a3cdf08789637d2dbf710abe91cdece3f8afe2f5",
+    "scripts\\start_training_monitor.ps1": "340e5ec77a4783e89c6d499ab1e79227331248c7750826b98f6cd5e4d25a367a",
+    "scripts\\verify_training_monitor.cjs": "3bd13cf1ad65852fdcad153aee70d231328a03e09d631d757733bdde27ebc2ce",
+    "START_TRAINING_MONITOR.bat": "53851097206e7e96bcfb10e353c30a06f311ddfa10ae21d1bfc9be007fa745ac",
+    "tests\\test_training_monitor.py": "e49e5cbeb13b0dbca19fcb5fcc91e24a34d23196b2ea4b923a31277fd0586404"
+  },
+  "quality_gate": {
+    "pytest_passed": 199,
+    "existing_skips": 4,
+    "format_lint_mypy_bandit_compile_diff": "pass"
+  },
+  "browser": {
+    "status": "pass",
+    "observed": "2026-11-02T11:04:08.926Z",
+    "counts": {
+      "complete": 9,
+      "running": 0,
+      "stale": 0,
+      "starting": 0,
+      "failed": 1,
+      "interrupted": 0,
+      "pending": 2,
+      "unknown": 0
+    },
+    "steps": 4800000,
+    "checks": [
+      "real data rendered",
+      "worker filters",
+      "selection and recorded loss plot",
+      "log tabs",
+      "pause and refresh",
+      "desktop/mobile no body overflow",
+      "disconnect warning and reconnection",
+      "no unexpected browser errors"
+    ],
+    "desktop": "D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\training-monitor\\verification\\desktop.png",
+    "mobile": "D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\training-monitor\\verification\\mobile.png"
+  },
+  "noninterference": "Live collector never opens rotating heartbeat/progress/execution/resume JSON. Process enumeration, append-only logs and completion-gated immutable results only. Unit test guards forbidden reads; training source qualification hashes remain unchanged.",
+  "io_discovery": "A FILE_SHARE_DELETE reader still blocked os.replace on this machine in a controlled witness. Delete sharing alone is not a complete fix; monitoring avoids those files instead.",
+  "scientific_limits": "Recorded live steps lag stdout cadence of25k; snapshot filename metadata is not checksum validation; no fabricated live loss, ETA, successful task result or original gate unlock.",
+  "launch": "Independent localhost CPU server via existing D: runtime/WMI path; no scheduler, paid dispatch or new training control."
+}

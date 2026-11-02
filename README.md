@@ -2,6 +2,11 @@
 
 REL301m course research project, Fall 2026.
 
+**Live training console:** double-click `START_TRAINING_MONITOR.bat` or open
+[localhost:8770](http://127.0.0.1:8770/). The terminal-style, read-only dashboard
+shows the current P2 workers, recorded progress, GPU, logs and final task counts.
+It refreshes every five seconds; [usage and telemetry limits](monitor/README.md).
+
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 
 Windows training recovery: the interrupted n-step study has a separately

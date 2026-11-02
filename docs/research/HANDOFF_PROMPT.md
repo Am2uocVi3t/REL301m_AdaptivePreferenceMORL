@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T10:35:16+00:00
-Expected working branch at generation: codex/preference-transfer-recovery
-Expected commit at generation: 2406431
+Snapshot generated: 2026-11-02T11:06:47+00:00
+Expected working branch at generation: codex/training-monitor
+Expected commit at generation: a7cc558
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -82,17 +82,17 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
-- preference-recovery-p2-v1 [running]: Minecart 2x2 uniform relabel and utility Huber recovery
+- preference-recovery-p2-v1 [blocked]: Minecart 2x2 uniform relabel and utility Huber recovery
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-P2 check: seven complete with zero task deliveries, two third-seed A/B workers live; D seed12 failed at303k on atomic heartbeat WinError5, recovery valid297188, two pending. Reproduced read-handle/delete-sharing mechanism and tested bounded-retry candidate in ignored outputs; live source unchanged. Monitor with FILE_SHARE_DELETE; do not bypass active coordinator.
+Delivered live terminal-style read-only monitor at localhost8770, one-click launcher, real desktop/mobile controls tested,199 tests pass/4 skips, all gates pass. Collector avoids rotating JSON after controlled share-delete rename witness failed; uses OS/append logs/finalized results. Actor hashes unchanged. P2 now blocked:9 complete(all zero deliveries),1 IO failure,2 pending,no active workers.
 
 Next actions:
-1. Let current P2 workers finish; use FILE_SHARE_DELETE for live JSON monitoring to avoid atomic-rename read races. Check process identities before any dispatch.
-2. Before resuming failed D/pending jobs, qualify a source-bound I/O recovery amendment or inspected operational mitigation. Preserve fixed budgets, completed jobs and separately account replayed tails.
+1. Use START_TRAINING_MONITOR.bat or localhost8770 to observe progress. Never infer running from stored flags, and never read rotating JSON during writes.
+2. Before P2 resume, review and qualify bounded I/O recovery amendment or explicit operational mitigation. Preserve9 completed jobs, fixed500k budgets, source provenance and tail accounting; no automatic retry.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

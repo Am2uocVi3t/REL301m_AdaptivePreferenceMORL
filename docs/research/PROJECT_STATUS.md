@@ -8,6 +8,28 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest dashboard delivery / P2 check (2026-11-02, Asia/Bangkok): read-only
+terminal console is running at http://127.0.0.1:8770/; double-click
+`START_TRAINING_MONITOR.bat` to reopen it. Auto refresh5s, OS process state,
+append-only progress/logs, GPU, snapshot filenames and final task counts.
+See `monitor/README.md`; qualification: `research/qualification/training_monitor_v1.json`.
+199 tests pass/four existing skips, required gates and real Edge desktop/mobile
+interaction checks pass. Actor/protocol hashes remain unchanged.
+
+P2 is now BLOCKED: nine completed jobs (all0/10 deliveries at both task profiles),
+one D seed12 I/O failure and two C/D seed13 jobs pending. No training workers
+remain. Dashboard records4.8M/6M steps from coarse25k logs, NOT an exact resumable
+counter. Latest witness: `research/evidence/preference_recovery_p2_monitor_check_20261102.json`.
+A new controlled witness shows even FILE_SHARE_DELETE did not permit replacement
+while a reader remained open on this machine. Earlier delete-sharing-only
+monitoring guidance is insufficient. The dashboard NEVER opens rotating
+heartbeat/progress/execution/resume JSON; evaluations/losses are read only after
+completion publication. Before resuming, qualify the bounded I/O repair or an
+explicit operational recovery amendment; the prepared candidate is not applied.
+No duplicate/restart, new budget, checkpoint-lock or final-test access follows.
+Historical running snapshots below are superseded by this check.
+
+
 Latest P2 check (2026-11-02): seven completed jobs all have 0/10 deliveries
 at both task profiles; two third-seed A/B jobs remain alive, two C/D jobs are
 pending. D seed12 failed at ~303k with PermissionError WinError5 replacing
