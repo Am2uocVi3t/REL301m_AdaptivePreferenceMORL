@@ -8,6 +8,24 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+P2 interruption inspected (2026-11-02, after 04:40 UTC): five jobs completed;
+three second-seed workers terminated with 0xC000013A (STATUS_CONTROL_C_EXIT),
+four third-seed jobs unstarted. Coordinator stopped dispatch and exited as
+intended. No worker Python traceback/OOM was found; the control-event sender
+is unknown. NVIDIA FECS events ~90s earlier and only ~230MiB free on C: are
+observations, not proven causes. All managed artifacts remain on D:.
+Evidence: `research/evidence/preference_recovery_p2_interruption_20261102.json`.
+Seeded CUDA forward/backward passes; three checksum-verified recovery states
+match unchanged source/device/config. An operator-inspected exact resume is
+prepared under the existing plan authorization, keeping five completed jobs
+and the original 500k/job budgets. Resume A/C/D seed 20263212 from steps
+456950/298101/50520. Unsaved tail re-execution is separately bounded at
+16,429â€“19,426 interactions, not extra scientific samples. Inspect live status
+for the resume outcome; no code, method or scientific-gate change. Five final
+models so far have zero deliveries at both task profiles; no all-seeds success
+claim is possible from these partial data. Full factorial remains incomplete.
+
+
 User-authorized plan execution (2026-11-02): P1 completed 960 episodes /
 443,192 diagnostic steps, zero training/test. All predeclared gates failed;
 Lunar n20 GPI improves landing-heavy pad successes [0,0,1] -> [4,4,6]/10 but

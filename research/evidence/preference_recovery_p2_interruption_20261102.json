@@ -1,0 +1,60 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "observed_unix": 1793594551.1849422,
+  "state": "inspected_for_explicit_resume",
+  "completed_jobs": 5,
+  "technical_failures": [
+    {
+      "job": "minecart-v0_A_seed20263212",
+      "returncode": 3221225786,
+      "exit_status": "0xC000013A",
+      "last_heartbeat_step": 464000,
+      "verified_resume_step": 456950,
+      "unsaved_tail_lower_bound": 7050,
+      "unsaved_tail_upper_bound": 8049,
+      "resume_pointer": {
+        "file": "resume_step000456950.pt",
+        "sha256": "3d8f6b4a6647cf545dd61adced303ecec0c94c699234dac4d4b9134990707163",
+        "step": 456950
+      }
+    },
+    {
+      "job": "minecart-v0_C_seed20263212",
+      "returncode": 3221225786,
+      "exit_status": "0xC000013A",
+      "last_heartbeat_step": 303000,
+      "verified_resume_step": 298101,
+      "unsaved_tail_lower_bound": 4899,
+      "unsaved_tail_upper_bound": 5898,
+      "resume_pointer": {
+        "file": "resume_step000298101.pt",
+        "sha256": "a9e672ca123c9e6f2c8d1b1237adac123c56de2bc5a8f46900023863304e8d56",
+        "step": 298101
+      }
+    },
+    {
+      "job": "minecart-v0_D_seed20263212",
+      "returncode": 3221225786,
+      "exit_status": "0xC000013A",
+      "last_heartbeat_step": 55000,
+      "verified_resume_step": 50520,
+      "unsaved_tail_lower_bound": 4480,
+      "unsaved_tail_upper_bound": 5479,
+      "resume_pointer": {
+        "file": "resume_step000050520.pt",
+        "sha256": "6cdeb2adf3d55cac0e00ab08f9218dd38ab753b74ae5a9be63900b57cc95b36a",
+        "step": 50520
+      }
+    }
+  ],
+  "not_started_jobs": 4,
+  "status_snapshot": "artifacts\\preference-recovery-p2-v1\\interruption_20261102T044038Z.json",
+  "status_snapshot_sha256": "92278e41862f9c56de24404e1dcf5f2eeb5522c1e2370151b674f873a367f73f",
+  "cause_assessment": "All three worker exits are STATUS_CONTROL_C_EXIT; no Python traceback/OOM. A control-event-style termination signature is established, not its sender. NVIDIA FECS exceptions occurred about 90s earlier; temporal association only. C free space ~242MB and system temp database creation errors are additional observations, not proven cause.",
+  "cuda_witness": "Seeded CUDA forward/backward finite: torch2.14.1+cu130, loss1277.6865, grad43.0354.",
+  "action": "One operator-inspected exact resume under existing plan authorization; preserve five completed jobs and fixed 500k budgets, no automatic retry or code/hyperparameter change.",
+  "unsaved_tail_reexecution_lower_bound": 16429,
+  "unsaved_tail_reexecution_upper_bound": 19426,
+  "source_reference": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-erref/596a1078-e883-4972-9bbc-49e60bebca55",
+  "final_test_steps": 0
+}
