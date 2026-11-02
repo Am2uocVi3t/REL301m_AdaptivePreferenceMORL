@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T02:35:00+00:00
-Expected working branch at generation: codex/policy-extraction-diagnosis
-Expected commit at generation: 15239e4
+Snapshot generated: 2026-11-02T02:59:11+00:00
+Expected working branch at generation: codex/preference-transfer-recovery
+Expected commit at generation: 95b5282
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -82,17 +82,18 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
+- preference-recovery-p2-v1 [running]: Minecart 2x2 uniform relabel and utility Huber recovery
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Completed frozen-model policy diagnosis: 3720 episodes, 2045511 diagnostic steps, zero training/test; traces/source audited, 240 old cases reproduced. Documented action traps, conditioning/calibration gap and bounded positive ore-only behavior. Proposed conditional inference-first recovery plan; execution disabled. All required checks pass: 188 tests passed, 4 existing skips.
+Executed authorized P1: 960 episodes/443192 diagnostic steps, all gates fail; bounded Lunar n20 GPI gain retained. Qualified four-cell P2 with exact CUDA kill/resume and duplicate rejection; 194 tests passed/4 skipped. Launched 12-job/6M Minecart P2 from clean 95b5282, three first-seed workers live with paired initialization. No final P2 outcomes, no original gate/test unlock.
 
 Next actions:
-1. Read ROOT_CAUSE_ANALYSIS_20261102.md and versioned recovery plan; implement and qualify P1 approximate-GPI/epsilon factorial on frozen models before any new training.
-2. Keep P2 training conditional on P1 insufficiency; freeze executable protocols and qualification before dispatch. Do not extend completed cohorts or access final test.
-3. Update group LaTeX report with bounded positive and negative findings; adaptive-benefit claim remains unsupported pending matched uniform/random comparison.
+1. Inspect artifacts/preference-recovery-p2-v1/execution_status.json, coordinator and heartbeat birth/liveness before any launch; do not duplicate, retry automatically or modify frozen actor source.
+2. After P2 completes, inspect analysis.json and raw/evaluation provenance; register the evidence, report all paired factorial outcomes and preserve failures. No outcome-based budget extension.
+3. Only if a method meets the all-seeds task and utility gates, freeze a separate P3 confirmation protocol before execution. P4 adaptive claims remain conditional on competent backbone and matched controls.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

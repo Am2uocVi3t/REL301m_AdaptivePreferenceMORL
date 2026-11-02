@@ -129,12 +129,13 @@
     {
       "id": "preference-recovery-p2-v1",
       "title": "Minecart 2x2 uniform relabel and utility Huber recovery",
-      "status": "planned",
+      "status": "running",
       "protocol": "configs/experiments/preference_recovery_p2_v1.json",
       "claim_ids": [],
-      "artifact": null,
+      "artifact": "research/qualification/preference_recovery_p2_launch_20261102.json",
       "notes": "",
-      "created_at": "2026-11-02T02:53:48+00:00"
+      "created_at": "2026-11-02T02:53:48+00:00",
+      "updated_at": "2026-11-02T02:58:42+00:00"
     }
   ]
 }

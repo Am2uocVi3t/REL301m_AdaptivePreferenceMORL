@@ -8,6 +8,37 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+User-authorized plan execution (2026-11-02): P1 completed 960 episodes /
+443,192 diagnostic steps, zero training/test. All predeclared gates failed;
+Lunar n20 GPI improves landing-heavy pad successes [0,0,1] -> [4,4,6]/10 but
+is below the all-seeds threshold. Minecart remains unqualified. Evidence:
+`research/evidence/preference_transfer_p1_v1.json`; interpretation:
+`docs/research/PREFERENCE_TRANSFER_P1_RESULTS_20261102.md`.
+
+Conditional P2 is now RUNNING on branch `codex/preference-transfer-recovery`,
+from clean dispatch source `95b5282`. Three first-seed A/B/C workers have live
+birth-verified identities, fresh learning heartbeats and matching initialization;
+nine jobs are pending. Launch witness:
+`research/qualification/preference_recovery_p2_launch_20261102.json`.
+Protocol `configs/experiments/preference_recovery_p2_v1.json` freezes twelve
+500k Minecart n=1 jobs /6M interactions, paired relabel/loss 2x2, final-only
+8/10 task gates at both profiles and paired utility checks. Qualification:
+all four CUDA cells exact forced-kill/resume, duplicate rejection, 96k engineering
+interactions /8k validation steps, plus two task-trace episodes /2k steps.
+An interrupted pre-lint engineering attempt is separately retained/accounted at
+<=42,782 training interactions; it is not a scientific seed. Required checks:
+194 passed, four existing skips, all configured gates pass. All storage on D:.
+
+Inspect `artifacts/preference-recovery-p2-v1/execution_status.json`, fresh
+heartbeats and process birth before any action. The independent coordinator
+stops dispatch on failure, never automatically retries, and audits after normal
+completion into `artifacts/preference-recovery-p2-v1/analysis.json`. Do not
+modify actor source, repeat completed studies, or infer success from progress.
+P3/P4 require separate protocol freezes; original F1/matrix/final-test locks
+remain unchanged. Historical execution-disabled/no-active-training statements
+below describe the earlier proposal, superseded by this authorization/run.
+
+
 Frozen-model diagnosis COMPLETE (2026-11-02), branch
 `codex/policy-extraction-diagnosis`: 3,720 diagnostic episodes / 2,045,511 steps,
 zero learning or final test. All 240 old task cases reproduced. Numeric trace
