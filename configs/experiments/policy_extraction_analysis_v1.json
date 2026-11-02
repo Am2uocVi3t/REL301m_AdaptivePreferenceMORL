@@ -1,0 +1,14 @@
+{
+  "study_id": "policy-extraction-analysis-v1",
+  "parent_plan_sha256": "1827a36720e6382d7e8ac34715c235868febd3897da45db7e087758c61b93ff6",
+  "recorded_at": "2026-11-02T01:56:09.606004+00:00",
+  "timing": "Analysis extension recorded after diagnostic launch and before inspecting new paired outcomes. No additional rollouts or changes to frozen parent matrix.",
+  "analyses": [
+    "Head-greedy start-state predicted vector/utility versus ten-case Monte Carlo mean; not a calibrated uncertainty claim",
+    "Mean-policy common-state action support across heads, using exact on-device stored argmax indices",
+    "Cross-rescore fixed mean-policy trajectories under each fixed preference; mean over ten cases BEFORE selecting an empirical reference. Label exploratory conditioning gap, not true optimality/regret; never choose a deployment head or checkpoint from this reference."
+  ],
+  "training_interactions": 0,
+  "additional_environment_steps": 0,
+  "final_test_steps": 0
+}
