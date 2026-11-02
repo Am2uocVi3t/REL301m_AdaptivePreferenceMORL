@@ -17,7 +17,12 @@ exactly. CUDA actual-kill/resume qualified,221 tests pass/4 skip; method/evidenc
 `research/qualification/minecart_onpolicy_conditional_v1.json`.
 S/P2 source and results preserved. C budget4M,250,080 actor /500,160 critic
 updates,928 development episodes, final-only both-profile/mode gates; no G,
-Lunar or final-test dispatch. Main launch must be witnessed after clean commit.
+Lunar or final-test dispatch. C now RUNNING from clean660aa97, worker PID20100
+with creation identity verified, stdout25,088 steps /1,568 actor updates and
+durable snapshot32,768. Native conditional32 terminal opened; duplicate launch
+guard verified before log changes; GPU40%/218MiB at witness. See
+`research/qualification/minecart_conditional_launch_20261102.json`.
+No C task result yet; current progress is execution evidence only.
 
 Latest Minecart PPO S result (2026-11-02): COMPLETE, fixed4M interactions /
 250,080 actor /500,160 critic updates. Executor numeric/source/budget audit

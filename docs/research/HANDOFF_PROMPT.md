@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T14:41:17+00:00
+Snapshot generated: 2026-11-02T14:43:06+00:00
 Expected working branch at generation: codex/minecart-conditional-ppo
-Expected commit at generation: dd3ddbb
+Expected commit at generation: 660aa97
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,17 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- minecart-onpolicy-conditional-v1 [planned]: Uniform32 episode-fixed Minecart PPO conditional feasibility pilot C
+- minecart-onpolicy-conditional-v1 [running]: Uniform32 episode-fixed Minecart PPO conditional feasibility pilot C
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Minecart conditional C implemented and frozen: uniform episode-fixed original32 pool, fresh same seed/candidate, independent sampler RNG/exposure exact across8 streams. Actual CUDA kill/resume6208 vs4096+2112 PASS;221 tests pass4skip full quality gate. S+C engineering25472<50k. Fixed C4M/250080 actor500160 critic/928 development episodes, both-profile utility/task gates bymode. No main launch yet; clean commit then verify. S/P2/Lunar unchanged.
+Minecart conditional C implemented/qualified and RUNNING from clean660aa97. Uniform episode-fixed original32 pool, fresh initialization, all8 sampler/env states exact CUDA kill/resume;221pass4skip full gate. Verified PID20100/birth, stdout25088/1568actor updates, durable32768 snapshot, GPU40%218MiB; native terminal conditional32 opened, duplicate launch blocked before log mutation. Fixed4M/928dev, both-mode/both-profile final gates. S/P2 source/results unchanged; no G/Lunar/test.
 
 Next actions:
-1. Launch C only from clean qualified source, verify birth/liveness/native conditional32/logs/snapshots, preserve completed S.
-2. At C4M audit all milestones and final both-profile sampled/argmax gates plus preference exposure. G/Lunar and original final test stay unlaunched; no outcome-based extension.
+1. Observe C with START_TRAINING_MONITOR.bat or immutable logs. Do not edit active source, duplicate, restart or extend; inspect any interruption before explicit resume.
+2. At4M completion audit all4 checkpoints/928 development episodes, both-profile sampled/argmax utility/task gates, and per-preference episode draw versus interaction exposure; keep G and original final test disabled pending separate freeze.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
