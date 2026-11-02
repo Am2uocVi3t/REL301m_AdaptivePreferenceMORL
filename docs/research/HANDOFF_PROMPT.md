@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T11:38:53+00:00
-Expected working branch at generation: codex/p2-io-recovery
-Expected commit at generation: 3a159fe
+Snapshot generated: 2026-11-02T12:44:25+00:00
+Expected working branch at generation: codex/p2-findings-and-next-study
+Expected commit at generation: 781b4f7
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -82,17 +82,18 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
-- preference-recovery-p2-v1 [running]: Minecart 2x2 uniform relabel and utility Huber recovery
+- onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Continued P2 via qualified IO-only adapter from clean3a159fe: nine completed jobs/252 hashes retained; D resumed297188, C/D seed13 started. Three live workers316k/32k/32k,GPU94%, native terminal reopened. Four-cell old/new and Dkill/resume exact;108k engineering,205 tests pass/4 skips. No learner/budget/seed/test changes; combined audit publication separately unit-qualified and recorded.
+P2 complete_audited12/12:6M logical interactions,1,485,012 updates; combined audit rerun passed, source/evidence registered. All3456 validation episodes zero ore;0/240 final deliveries and0 Mine actions. Four-cell EU differences are fuel-only. Analyzed4041 ore-positive training episodes,1064 above balanced idle by counterfactual rescore. Primary paper/author-default mapping refreshed; separate on-policy specialist/conditioned proposal execution=false, no new training.205 tests pass/4 skips; reproducible figures and Vietnamese report saved.
 
 Next actions:
-1. Watch the native terminal or passive Monitor collector; verify process identities before any action. Three remaining P2 jobs run to their unchanged500k endpoints; no duplicates or automatic job retry.
-2. After normal completion inspect combined analysis.json and all IO segment/retained-file/source receipts; register full paired factorial evidence with interruption/engineering compute separate. No P3/P4 or original final-test unlock without their explicit evidence gates.
+1. Read P2_RESULTS_AND_NEXT_DIRECTION_20261102.md and the on-policy proposal. Preserve completed P2 without extra steps/seeds and keep old P3/P4 inactive because every P2 gate failed.
+2. Implement/qualify the separately proposed F0 on-policy backbone, paper/default mapping, exact update/evaluation matrices,8-stream resume and native terminal support before any pilot dispatch. Specialist first; conditioned and independent confirmation remain conditional.
+3. Integrate audited negative results and bounded claims into the group report; do not describe task competence, arbitrary-parameter generalization or adaptive benefit as established.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

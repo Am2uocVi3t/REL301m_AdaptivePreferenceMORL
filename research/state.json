@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/p2-io-recovery",
-  "updated_at": "2026-11-02T11:38:53+00:00",
+  "working_branch": "codex/p2-findings-and-next-study",
+  "updated_at": "2026-11-02T12:44:25+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,9 @@
     }
   ],
   "next_actions": [
-    "Watch the native terminal or passive Monitor collector; verify process identities before any action. Three remaining P2 jobs run to their unchanged500k endpoints; no duplicates or automatic job retry.",
-    "After normal completion inspect combined analysis.json and all IO segment/retained-file/source receipts; register full paired factorial evidence with interruption/engineering compute separate. No P3/P4 or original final-test unlock without their explicit evidence gates."
+    "Read P2_RESULTS_AND_NEXT_DIRECTION_20261102.md and the on-policy proposal. Preserve completed P2 without extra steps/seeds and keep old P3/P4 inactive because every P2 gate failed.",
+    "Implement/qualify the separately proposed F0 on-policy backbone, paper/default mapping, exact update/evaluation matrices,8-stream resume and native terminal support before any pilot dispatch. Specialist first; conditioned and independent confirmation remain conditional.",
+    "Integrate audited negative results and bounded claims into the group report; do not describe task competence, arbitrary-parameter generalization or adaptive benefit as established."
   ],
-  "last_session_summary": "Continued P2 via qualified IO-only adapter from clean3a159fe: nine completed jobs/252 hashes retained; D resumed297188, C/D seed13 started. Three live workers316k/32k/32k,GPU94%, native terminal reopened. Four-cell old/new and Dkill/resume exact;108k engineering,205 tests pass/4 skips. No learner/budget/seed/test changes; combined audit publication separately unit-qualified and recorded."
+  "last_session_summary": "P2 complete_audited12/12:6M logical interactions,1,485,012 updates; combined audit rerun passed, source/evidence registered. All3456 validation episodes zero ore;0/240 final deliveries and0 Mine actions. Four-cell EU differences are fuel-only. Analyzed4041 ore-positive training episodes,1064 above balanced idle by counterfactual rescore. Primary paper/author-default mapping refreshed; separate on-policy specialist/conditioned proposal execution=false, no new training.205 tests pass/4 skips; reproducible figures and Vietnamese report saved."
 }

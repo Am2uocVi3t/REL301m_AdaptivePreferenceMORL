@@ -18,6 +18,10 @@
     "2026 MORL Pareto sparse-region training",
     "2026 MORL predictable reactive preferences",
     "automatic curriculum value disagreement reinforcement learning",
-    "prioritized level replay coverage staleness curriculum"
+    "prioritized level replay coverage staleness curriculum",
+    "\"2407.16807\" Minecart PPO entropy architecture",
+    "site.proceedings.neurips.cc \"Pareto Conditioned Networks\" Minecart",
+    "\"Terekhov\" \"pymorl\" github",
+    "\"In Search for Architectures\" github source code"
   ]
 }

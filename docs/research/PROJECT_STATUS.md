@@ -8,6 +8,37 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest verified P2 findings (2026-11-02): COMPLETE_AUDITED,12/12 jobs,6M logical
+training interactions /1,485,012 updates. Re-ran the combined numeric/source/
+retained-artifact/runtime-I/O audit successfully. Validation3456 episodes /
+3,097,203 steps; final task240 episodes /240,000 steps; final test0.
+All3456 validation episodes have zero ore; final tasks0/240 deliveries and
+zero Mine actions across240k steps. No arm meets the frozen gate. No training
+workers remain; the native terminal shows completion, which is not task success.
+Evidence: `research/evidence/preference_recovery_p2_v1.json`; reproducible
+findings: `research/evidence/preference_recovery_p2_findings_v1.json` and
+`scripts/summarize_p2_findings.py`. Read the Vietnamese report
+`docs/research/P2_RESULTS_AND_NEXT_DIRECTION_20261102.md`.
+
+A/B/C/D final seed-mean EU is-.6240/-.6436/-.5511/-.5662; all final ore components
+are zero, so EU differences are fuel-only. Training contains4041 ore-positive
+completed behavior episodes;1064 have rescored utility above idle at the balanced
+profile, descriptive counts rather than independent seed replicates. The data
+rule out total reward absence but do not establish one unique training cause.
+Executor claim assessment says no intervention sufficiency under this setup;
+no independent semantic-review PASS. Original claims/gates remain unchanged.
+
+Do not extend P2 or dispatch old P3/P4: all P2 arms failed. A separately versioned
+on-policy specialist/conditioned proposal is prepared with execution disabled:
+`configs/experiments/onpolicy_backbone_pilot_proposal_v1.json` and
+`refine-logs/EXPERIMENT_PLAN_20261102_ONPOLICY_PILOT.md`. It needs source/implementation/
+resume/native-monitor qualification and exact update/evaluation matrices before
+new training. Pilot specialist4M then conditional4M only if it passes; independent
+confirmation is conditional, not a queued run. Paper/code entropy/PopArt/horizon
+default mismatches are explicitly mapped; no PPO success or matched-budget
+superiority is claimed. Historical running snapshots below are superseded.
+
+
 Latest authorized P2 continuation (2026-11-02): RUNNING again after a versioned,
 qualified I/O-only amendment. Nine completed jobs /252 frozen artifact hashes
 are retained unchanged. D seed12 resumes at297188; C/D seed13 start under the

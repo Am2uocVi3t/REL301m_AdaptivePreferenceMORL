@@ -1,0 +1,22 @@
+{
+  "claim_supported": "no",
+  "scope": "Sufficiency of uniform relabel/utility auxiliary for robust greedy task behavior at frozen n1/500k, three paired seeds",
+  "supported": [
+    "Completed audited finite2x2 experiment",
+    "Both ore objectives zero in all3456 checkpoint-validation episodes",
+    "Zero Mine actions and zero deliveries in240 final task cases",
+    "Positive behavior episodes show reward was encountered",
+    "EU differences do not imply ore competence"
+  ],
+  "not_supported": [
+    "A robust task-learning improvement from any intervention",
+    "Adaptive allocation benefit",
+    "Universal preference or dynamics generalization",
+    "Unique causal diagnosis or guaranteed PPO remedy"
+  ],
+  "next": "Stop completed P2; prepare and qualify a separately versioned on-policy specialist/conditioned pilot before any new dispatch.",
+  "review_independence": "executor_only",
+  "acceptance_status": "provisional",
+  "source": "research/evidence/preference_recovery_p2_v1.json",
+  "external_review": "No independent semantic-review PASS. ARIS preflight blocked by unavailable pinned checkout and fresh quota snapshot; no paid/orchestrated dispatch."
+}

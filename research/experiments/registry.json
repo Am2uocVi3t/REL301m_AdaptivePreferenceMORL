@@ -129,13 +129,23 @@
     {
       "id": "preference-recovery-p2-v1",
       "title": "Minecart 2x2 uniform relabel and utility Huber recovery",
-      "status": "running",
+      "status": "complete",
       "protocol": "configs/experiments/preference_recovery_p2_v1.json",
       "claim_ids": [],
-      "artifact": "research/qualification/preference_recovery_p2_io_launch_20261102.json",
+      "artifact": "research/evidence/preference_recovery_p2_v1.json",
       "notes": "",
       "created_at": "2026-11-02T02:53:48+00:00",
-      "updated_at": "2026-11-02T11:38:53+00:00"
+      "updated_at": "2026-11-02T12:40:09+00:00"
+    },
+    {
+      "id": "onpolicy-backbone-pilot-v1",
+      "title": "Proposed source-mapped on-policy specialist and conditioned feasibility pilot",
+      "status": "planned",
+      "protocol": "configs/experiments/onpolicy_backbone_pilot_proposal_v1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "",
+      "created_at": "2026-11-02T12:40:09+00:00"
     }
   ]
 }

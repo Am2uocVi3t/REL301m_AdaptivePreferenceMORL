@@ -1,0 +1,40 @@
+{
+  "review": "targeted reread of already registered full-text papers and pinned author configs",
+  "paper_id": "terekhov2024architectures",
+  "paper_url": "https://arxiv.org/html/2407.16807v1",
+  "author_repo": "https://github.com/CLAIRE-Labo/tunable-morl-public",
+  "commit": "c568cb6d689d7eaa50a2dec38197de8847f18adc",
+  "files": {
+    "artifacts\\research-review-primary-sources\\moppo-src-pymorl-configs-train_moe.yaml": "238481c3ef0452f29f054b89a72015277ca3ccb5e8651af025e37149d936026b",
+    "artifacts\\research-review-primary-sources\\moppo-src-pymorl-configs-env-minecart.yaml": "356e7f336cb69b0c10fdb6cf63e7f505745656c319662ece64be3b41b8d1b523",
+    "artifacts\\research-review-primary-sources\\moppo-src-pymorl-configs-env-minecart_long.yaml": "fbeab9dd3b4168569b697adc6681b892924f57c3f0811a455606ecfa76e93e74",
+    "artifacts\\research-review-primary-sources\\moppo-src-pymorl-configs-model-multibody_deep_mlp_popart.yaml": "3259bec69b37c7b838543490178b91b87efaac0dce4c94fcd5ce921a1858492f"
+  },
+  "training_config_refetched_publicly_and_canonical_match": true,
+  "mismatches": [
+    {
+      "setting": "entropy minimum",
+      "paper": 0.4,
+      "author_base_default": 0.1
+    },
+    {
+      "setting": "MDMM damping",
+      "paper": 0.01,
+      "author_base_default": 0.05
+    },
+    {
+      "setting": "PopArt rate",
+      "paper": 0.001,
+      "author_model_default": 0.01
+    },
+    {
+      "setting": "episode horizon",
+      "current_project": 1000,
+      "author_minecart": 192,
+      "author_minecart_long": 1000
+    }
+  ],
+  "inference": "Do not treat source defaults as the paper run or transfer numerical rankings; source-aligned PPO is a hypothesis, not an already-qualified improvement.",
+  "review_independence": "executor_only",
+  "default_context": "The base train_moe config selects Deep Sea Treasure and can be overridden by Hydra. These are base/model defaults, not proof of actual author-run settings."
+}

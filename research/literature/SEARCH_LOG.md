@@ -48,3 +48,25 @@ Append one section per search session. Search primary or authoritative sources, 
 - Screened out by scope after primary abstract/proceedings review: *Constrained Multi-Objective Reinforcement Learning with Max-Min Criterion* (fixed fairness/constraints); *Knothe-Rosenblatt Quantile Regression for Risk-sensitive MORL* (risk distributions); *Learning from Comparison: Constrained Projection Policy Optimization for Pareto-Front Improvement* (constrained optimizer rather than preference scheduler); *PROMO* and *ScenePilot* (application-focused); *Multi-Objective Preference Optimization* (LLM alignment rather than MOMDP preference allocation).
 - Retrieval limitation: automated OpenReview PDF access for MORL-FB returned HTTP 403; the author-posted arXiv full text was used. No paywall or access control was bypassed. All temporary PDFs/text remained outside Git.
 - Negative result and limitation: no 2026 source in this bounded sweep was found that compares the exact gap, masked-value disagreement, local coverage/recency, and lagged-progress signals in one preference-conditioned policy under matched rollout/update/evaluation budgets. This bounded venue/query sweep is not proof of global absence and should be refreshed before a publication submission.
+
+
+### 2026-11-02 — completed P2 failure and on-policy feasibility direction
+
+- Purpose: distinguish task learning from fuel-only utility after the fixed P2
+  factorial; no extension or final-test use.
+- Queries: `"2407.16807" Minecart PPO entropy architecture`;
+  `site.proceedings.neurips.cc "Pareto Conditioned Networks" Minecart`;
+  `"Terekhov" "pymorl" github`;
+  `"In Search for Architectures" github source code`.
+- Primary sources revisited: arXiv2407.16807v1 Sections5.2/6.2/6.3, AppendixA.4,
+  Table2; AAMAS2022 PCN full text; CLAIRE-Labo/tunable-morl-public pinned author
+  configs at c568cb6d689d7eaa50a2dec38197de8847f18adc. These papers were already
+  registered full-text reads; this pass is a targeted reread, not a newly
+  completed full reading inferred from a search snippet.
+- Public raw source fetch via urllib matched the saved train_moe.yaml canonically,
+  SHA256238481c3ef0452f29f054b89a72015277ca3ccb5e8651af025e37149d936026b.
+  Web raw-URL cache misses were handled using a normal public HTTPS request,
+  with no access-control bypass. No paper PDFs committed.
+- Evidence/default mapping: research/evidence/onpolicy_primary_source_map_20261102.json.
+  Fixed source defaults differ from paper entropy/PopArt settings and horizon.
+  PPO is a candidate, not guaranteed improvement or a matched historical comparison.

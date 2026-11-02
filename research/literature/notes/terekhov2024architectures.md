@@ -58,3 +58,17 @@ before claiming an advantage here.
 Paraphrase pointers: Sections 6.2/6.3 (Minecart and baseline comparison),
 Appendix C Table 2 (hyperparameters), Appendix D (compute), and author
 `env/minecart.yaml` versus `env/minecart_long.yaml` (episode lengths).
+
+
+## Targeted P2 follow-up — 2026-11-02
+
+Revisited Sections5.2/6.2/6.3, AppendixA.4 and Table2 after the completed negative
+P2 factorial. Author repository: https://github.com/CLAIRE-Labo/tunable-morl-public.
+Pinned public train_moe.yaml was fetched again and matches the saved source
+canonically. Defaults are not the paper configuration: entropy minimum .1
+versus paper .4; damping .05 versus .01; cached PopArt model default .01 versus
+paper .001. Minecart default horizon192 has a separate long1000 configuration.
+Source/default mapping and hashes live in
+research/evidence/onpolicy_primary_source_map_20261102.json. A proposed finite
+PPO specialist/conditioned pilot is an adaptation under our unchanged protocol;
+none of these sources proves it will resolve the current greedy-control failure.
