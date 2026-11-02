@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T11:06:47+00:00
-Expected working branch at generation: codex/training-monitor
-Expected commit at generation: a7cc558
+Snapshot generated: 2026-11-02T11:18:26+00:00
+Expected working branch at generation: codex/native-training-terminal
+Expected commit at generation: fa48125
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -88,11 +88,11 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Delivered live terminal-style read-only monitor at localhost8770, one-click launcher, real desktop/mobile controls tested,199 tests pass/4 skips, all gates pass. Collector avoids rotating JSON after controlled share-delete rename witness failed; uses OS/append logs/finalized results. Actor hashes unchanged. P2 now blocked:9 complete(all zero deliveries),1 IO failure,2 pending,no active workers.
+Corrected UI interpretation: delivered actual native Rich terminal, changed default bat/PS launcher, stopped prior web server, verified interactive PTY key input and visible terminal window.201 tests pass/4 skips, all gates pass, actor unchanged. P2 not done:9 complete/1 IO failure/2 pending, no training active.
 
 Next actions:
-1. Use START_TRAINING_MONITOR.bat or localhost8770 to observe progress. Never infer running from stored flags, and never read rotating JSON during writes.
-2. Before P2 resume, review and qualify bounded I/O recovery amendment or explicit operational mitigation. Preserve9 completed jobs, fixed500k budgets, source provenance and tail accounting; no automatic retry.
+1. Open START_TRAINING_MONITOR.bat for the native terminal (not browser); arrow/J/K select, Tab logs, Space pause view, R refresh, Q close monitor.
+2. Before P2 resume qualify pending bounded I/O repair/recovery amendment. Preserve9 completed jobs and frozen budgets; P2 task gates and original final-test locks remain unchanged.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

@@ -8,6 +8,19 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+User correction implemented (2026-11-02): the requested UI is a NATIVE TERMINAL,
+not a web page. `START_TRAINING_MONITOR.bat` now opens the Rich interface in
+PowerShell; visible native window/processes verified. Direct passive collector,
+no browser/HTTP dependency. Arrow/J/K selection, Tab logs, Space pause view,
+R refresh, Q close monitor. Web prototype is historical/optional, its server
+stopped; it is no longer the default launcher. See `monitor/README.md` and
+`research/qualification/native_training_terminal_v1.json`.201 tests pass /four
+existing skips; required checks and real interactive PTY key smoke pass.
+P2 remains BLOCKED:9 completed models,1 failed D-seed12,2 pending,no active
+training. The terminal clearly separates completion from success; actor hashes
+are unchanged. Qualify the pending I/O recovery amendment before resuming.
+
+
 Latest dashboard delivery / P2 check (2026-11-02, Asia/Bangkok): read-only
 terminal console is running at http://127.0.0.1:8770/; double-click
 `START_TRAINING_MONITOR.bat` to reopen it. Auto refresh5s, OS process state,

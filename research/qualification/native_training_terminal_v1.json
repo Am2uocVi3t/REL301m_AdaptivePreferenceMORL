@@ -1,0 +1,39 @@
+{
+  "feature": "native-training-terminal-v1",
+  "status": "pass",
+  "observed_unix": 1793618305.7540047,
+  "source_files": {
+    "monitor\\terminal.py": "b7f19edb0a88ccd1b9a86d88a1a741a50694d0a9065570daf75b5d7873f6267f",
+    "scripts\\training_terminal.py": "4e22ab6d18185fa8cfa1f67ad0cc4799c6f63da4a46797f8d4a4317dafa3d5fc",
+    "scripts\\start_training_monitor.ps1": "9e4de23427545de553a09aec4d0563bb157c5c881db29c5aa0cd7da7ad4a9a4f",
+    "START_TRAINING_MONITOR.bat": "2a34b8bb9be48b322806d7a635d5ebf6d735e965483c454563f474dfe77403ff",
+    "monitor\\requirements-terminal.txt": "30af74b6b722ede1c8f2ed07fbe34fbfe316a8d201ff0da8bbc472791d5f712f",
+    "tests\\test_native_training_terminal.py": "6a524dcd7bfc99ae4784bc84e4afa756036865e9c5cb4458b0f9709f0655a603"
+  },
+  "quality": {
+    "pytest_passed": 201,
+    "existing_skips": 4,
+    "format_lint_types_bandit_compile_diff": "pass"
+  },
+  "execution_witnesses": [
+    "Actual --once frame and native-terminal.svg exported from live telemetry",
+    "Actual interactive PTY: frame rendered; J/Tab/Space/R/Q accepted, clean exit0",
+    "Visible PowerShell terminal launched; monitor Python processes18108/13772, window14140",
+    "Previous web server stopped; default launcher invokes native Rich terminal without HTTP"
+  ],
+  "training_source_unchanged": true,
+  "current_counts": {
+    "complete": 9,
+    "running": 0,
+    "stale": 0,
+    "starting": 0,
+    "failed": 1,
+    "interrupted": 0,
+    "pending": 2,
+    "unknown": 0
+  },
+  "current_state": "blocked",
+  "read_only": true,
+  "terminal_dependency": "rich15.0.0 already installed; monitor-only pin, GPU env unchanged",
+  "frame": "artifacts/training-monitor/native-terminal.svg"
+}

@@ -1,6 +1,7 @@
 # Memory Index
 
 ## User
+- [user] Explicitly wants a native terminal UI, NOT a webpage styled as a terminal. START_TRAINING_MONITOR.bat must open the native Rich/PowerShell app; no browser by default.
 - [user] On 1 November, user clarified there is no rush: prioritize research quality and useful behavior across preferences over quick report packaging; keep finite, auditable experiment stages.
 - [user] Keep all managed downloads, caches, runtimes and outputs on D:; C: is low on space → user-preferences.md
 - [user] Communicate primarily in Vietnamese; keep technical names and commands in English → user-preferences.md
@@ -33,6 +34,7 @@
 - [user] Initial progress report due 19 October 2026; local + video demo; autonomous reviewer-led work; nominal Claude budget $1/batch and $0.25/call, no auto-top-up → user-preferences.md
 
 ## Reference
+- [project] Native terminal correction delivered: scripts/training_terminal.py, Rich15 already installed CPU runtime, interactive arrows/J/K/Tab/Space/R/Q verified in real PTY, visible PowerShell window opened; web server stopped and bat defaults native.201 tests pass/4 skips, actor unchanged. P2 still9 complete/1 IO failure/2 pending; no training active. Qualification native_training_terminal_v1.json.
 - [project] Latest: read-only terminal dashboard delivered at http://127.0.0.1:8770/ via START_TRAINING_MONITOR.bat; server independent, auto5s, process/log based, no rotating JSON reads. FILE_SHARE_DELETE alone failed actual rename witness; earlier guidance corrected. 199 tests pass/4 skips + real Edge desktop/mobile verification; actor unchanged. P2 now BLOCKED:9 complete(all zero deliveries),1 D-seed12 IO failure,2 pending,no active training. See training_monitor_v1.json and preference_recovery_p2_monitor_check_20261102.json. Qualify IO recovery before resume.
 - [project] Latest P2 check: 7 complete (all zero deliveries), 2 active third-seed A/B, 1 D-seed12 technical failure at303k, 2 pending. WinError5 on atomic heartbeat replace reproduced with a reader denying delete sharing. Step297188 resume checksum valid. Ignored bounded-retry candidate tested, NOT applied to live source; monitoring uses FILE_SHARE_DELETE. Let active jobs finish; qualify I/O recovery amendment/operational mitigation before resume, no duplicate coordinator or scientific changes. See preference_recovery_p2_io_failure_20261102.json.
 - [project] Latest explicit user-requested P2 resume: segment3 live 2 November at A/C/D seed12 461k/302k/57k, 5 complete/3 active/4 pending. Previous segment exited0xC000013A again; source/completed hashes/resume/CUDA reverified, no actor change. See qualification/preference_recovery_p2_resume_segment3_20261102.json and evidence/preference_recovery_p2_interruption_segment2_20261102.json; additional tail 11,429–14,426 separate. C now ~5.7GiB free, all managed output D:.
