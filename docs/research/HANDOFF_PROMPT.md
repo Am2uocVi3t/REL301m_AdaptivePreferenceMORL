@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T14:43:06+00:00
+Snapshot generated: 2026-11-02T16:53:35+00:00
 Expected working branch at generation: codex/minecart-conditional-ppo
-Expected commit at generation: 660aa97
+Expected commit at generation: e888005
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,17 +83,16 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- minecart-onpolicy-conditional-v1 [running]: Uniform32 episode-fixed Minecart PPO conditional feasibility pilot C
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Minecart conditional C implemented/qualified and RUNNING from clean660aa97. Uniform episode-fixed original32 pool, fresh initialization, all8 sampler/env states exact CUDA kill/resume;221pass4skip full gate. Verified PID20100/birth, stdout25088/1568actor updates, durable32768 snapshot, GPU40%218MiB; native terminal conditional32 opened, duplicate launch blocked before log mutation. Fixed4M/928dev, both-mode/both-profile final gates. S/P2 source/results unchanged; no G/Lunar/test.
+Minecart conditional C COMPLETE; executor source/numeric/budget/exposure audit PASS.4M interactions,250080actor/500160critic,928dev episodes88828steps,160task trace hashes/actions/returns checked,0test. Both final profiles10/10 in sampled and argmax;utilities.455617/.765890 and.463566/.829602. Validation ore76/96 sampled81/96 argmax. All32 preferences sampled,draw/exposure exactly reconciled158616completed+8active. No worker, no new training. Single seed; G/Lunar/original final test unlaunched.
 
 Next actions:
-1. Observe C with START_TRAINING_MONITOR.bat or immutable logs. Do not edit active source, duplicate, restart or extend; inspect any interruption before explicit resume.
-2. At4M completion audit all4 checkpoints/928 development episodes, both-profile sampled/argmax utility/task gates, and per-preference episode draw versus interaction exposure; keep G and original final test disabled pending separate freeze.
+1. Preserve completed C/S/P2 and read ONPOLICY_CONDITIONAL_RESULTS_20261102.md; no restarts/extensions or original gate unlock.
+2. Prepare a separately frozen G confirmation protocol using three fresh training seeds and new development cases/preferences; qualify budgets/source/resume/native monitor before dispatch. Lunar remains a separate unresolved task.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

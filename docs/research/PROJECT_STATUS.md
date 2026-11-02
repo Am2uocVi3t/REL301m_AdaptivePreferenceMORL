@@ -8,6 +8,19 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0�
 
 ## Research direction
 
+Latest Minecart PPO C result (2026-11-02): COMPLETE and executor-audited,
+4M interactions /250,080 actor /500,160 critic updates;928 development episodes /
+88,828 steps,160 task traces checked; final test0. Final BOTH profiles in BOTH
+modes10/10 deliveries. Utilities sampled p0/p1 .455617/.765890; argmax
+.463566/.829602; all above idle. Final validation ore76/96 sampled,81/96 argmax,
+not an every-weight competence claim. One training seed only. All32 pool weights
+sampled4,835–5,132 episodes each but67,760–228,489 interactions each; exposure
+fully reconciled. No active worker; do not restart/extend. See
+`research/evidence/minecart_onpolicy_conditional_v1.json` and
+`docs/research/ONPOLICY_CONDITIONAL_RESULTS_20261102.md`. G needs a separate
+freeze/qualification; Lunar and original locks unchanged. No independent
+semantic-review PASS. Historical running snapshots below superseded.
+
 Minecart conditional PPO C implementation (2026-11-02): new executable freeze
 `configs/experiments/minecart_onpolicy_conditional_v1.json` uses exactly32 frozen
 training weights, uniform draws per episode, same candidate/seed and fresh model.
