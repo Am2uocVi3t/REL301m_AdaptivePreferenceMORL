@@ -8,6 +8,17 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Minecart conditional PPO C implementation (2026-11-02): new executable freeze
+`configs/experiments/minecart_onpolicy_conditional_v1.json` uses exactly32 frozen
+training weights, uniform draws per episode, same candidate/seed and fresh model.
+All8 active weights, independent preference RNG and exposure counts are resumed
+exactly. CUDA actual-kill/resume qualified,221 tests pass/4 skip; method/evidence:
+`docs/research/ONPOLICY_CONDITIONAL_V1.md` and
+`research/qualification/minecart_onpolicy_conditional_v1.json`.
+S/P2 source and results preserved. C budget4M,250,080 actor /500,160 critic
+updates,928 development episodes, final-only both-profile/mode gates; no G,
+Lunar or final-test dispatch. Main launch must be witnessed after clean commit.
+
 Latest Minecart PPO S result (2026-11-02): COMPLETE, fixed4M interactions /
 250,080 actor /500,160 critic updates. Executor numeric/source/budget audit
 passed928 development episodes /148,181 steps and160 retained task traces;

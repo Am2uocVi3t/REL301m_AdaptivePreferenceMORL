@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T14:28:19+00:00
-Expected working branch at generation: codex/minecart-onpolicy-backbone
-Expected commit at generation: c3b48eb
+Snapshot generated: 2026-11-02T14:41:17+00:00
+Expected working branch at generation: codex/minecart-conditional-ppo
+Expected commit at generation: dd3ddbb
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,16 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
+- minecart-onpolicy-conditional-v1 [planned]: Uniform32 episode-fixed Minecart PPO conditional feasibility pilot C
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Minecart PPO specialist S complete:4M interactions,250080 actor/500160 critic updates; numeric/source/budget audit PASS928 dev episodes148181 steps,160 trace hashes/raw discounted scaled return checks,0 final test. Final trained profile sampled10/10 utility.468334,argmax10/10 .475012; secondary sampled9/10,argmax10/10. No active worker. One training seed only; no conditional-policy or matched-budget superiority claim. Lunar unchanged.
+Minecart conditional C implemented and frozen: uniform episode-fixed original32 pool, fresh same seed/candidate, independent sampler RNG/exposure exact across8 streams. Actual CUDA kill/resume6208 vs4096+2112 PASS;221 tests pass4skip full quality gate. S+C engineering25472<50k. Fixed C4M/250080 actor500160 critic/928 development episodes, both-profile utility/task gates bymode. No main launch yet; clean commit then verify. S/P2/Lunar unchanged.
 
 Next actions:
-1. Preserve completed S and review ONPOLICY_SPECIALIST_RESULTS_20261102.md. Do not restart/extend or unlock original gates.
-2. Prepare separate C executable freeze and episode-fixed uniform32 sampling from fresh initialization; qualify source/resume/native terminal before dispatch. C/G remain unlaunched.
+1. Launch C only from clean qualified source, verify birth/liveness/native conditional32/logs/snapshots, preserve completed S.
+2. At C4M audit all milestones and final both-profile sampled/argmax gates plus preference exposure. G/Lunar and original final test stay unlaunched; no outcome-based extension.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

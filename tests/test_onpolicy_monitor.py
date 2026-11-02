@@ -58,3 +58,53 @@ def test_native_monitor_switches_to_specialist_without_reading_rotating_state(tm
     final = monitor.snapshot()
     assert final["state"] == "complete"
     assert [t["mode"] for t in final["jobs"][0]["task"]] == ["sampled", "argmax"]
+
+
+def test_conditional_manifest_takes_priority_and_displays_both_profiles(tmp_path, monkeypatch):
+    root = tmp_path / "artifacts/minecart-onpolicy-conditional-v1"
+    name = "minecart-v0_C_seed20264111"
+    job = root / "runs" / name
+    job.mkdir(parents=True)
+    (job / "manifest.json").write_text(json.dumps({"provenance": {"git_commit": "conditional-source"}}))
+    old = tmp_path / "artifacts/minecart-onpolicy-specialist-v1/runs/minecart-v0_S_seed20264111"
+    old.mkdir(parents=True)
+    (old / "manifest.json").write_text("{}")
+    plans = tmp_path / "configs/experiments"
+    plans.mkdir(parents=True)
+    (plans / "minecart_onpolicy_conditional_v1.json").write_text(json.dumps({"training_interactions": 4000000}))
+    (root / f"{name}.stdout.log").write_text("step=25088 updates=1568 sps=600 entropy=1.7000 target=1.7800\n")
+    monkeypatch.setattr(
+        server.Monitor, "processes", lambda _: [{"pid": 8, "command": f"{tmp_path} run_minecart_conditional.py"}]
+    )
+    monkeypatch.setattr(server.Monitor, "hardware", lambda _: {"available": False})
+    monitor = server.Monitor(tmp_path)
+    running = monitor.snapshot()
+    assert running["study_label"] == "Minecart / PPO conditional32" and running["state"] == "running"
+    assert running["jobs"][0]["arm"] == "C" and running["jobs"][0]["pid"] == 8
+    assert "updates=1568" in monitor.detail(name, "stdout")["log"]
+    (job / "complete.json").write_text(
+        json.dumps(
+            {
+                "training_interactions": 4000000,
+                "gates": {
+                    mode: {
+                        "profiles": [
+                            {"profile": profile, "deliveries": 9, "episodes": 10, "mean_utility": 0.1}
+                            for profile in [0, 1]
+                        ],
+                        "pass": True,
+                    }
+                    for mode in ["sampled", "argmax"]
+                },
+            }
+        )
+    )
+    monitor.onpolicy.sampled = 0
+    final = monitor.snapshot()
+    assert final["state"] == "complete" and len(final["jobs"][0]["task"]) == 4
+    assert [(t["mode"], t["profile"]) for t in final["jobs"][0]["task"]] == [
+        ("sampled", 0),
+        ("sampled", 1),
+        ("argmax", 0),
+        ("argmax", 1),
+    ]

@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "scope": "engineering numerical/CUDA/exact process-kill resume only, not task competence",
+  "source": {
+    "src/models/onpolicy.py": "f53279a91b760ea3e6c73c2f7208b4a1e711e49ca3aa4e6a1bd4692b5bc0d214",
+    "scripts/run_minecart_onpolicy.py": "578e8f69387bc5883f87f002c1bd3df98940c4488f8c3e0778dc48685a137478",
+    "src/envs/wrapper.py": "d90407ad34175976dfcd30c3d13ffe02827eb424f20ec87f2b942328b405ba7e",
+    "src/utils/training_recovery.py": "9c0cd2adec1dc252613ccd219c798c5965cfdbe75b002241fbe5b4e8d781e861",
+    "src/utils/provenance.py": "dec1ab1efcf6d6697f2359b65a28e923b10b3160ad90051361ea692d97cc2f3f",
+    "src/evaluation/protocol.py": "ead69074f628be5529093721844c3341d09295fbea4948225f338f4009e81bdf",
+    "configs\\experiments\\minecart_onpolicy_specialist_v1.json": "4743576e5569a8cc4b3e7b96d17061853cf389d2d24f67b54d998c6c512b315c",
+    "scripts/run_minecart_conditional.py": "fc0766e41badaa5d92f6eebc024cfd61c687899aed92f9f682d8b9ab6e96ea9e",
+    "src/core/episode_preferences.py": "f6c741fd93771d2d1899edc84ed7508b16f319e6592a1a7fa480330ecac9b7f6",
+    "src/curriculum/sampler.py": "ea3df9f6ce8616cedd17fb6d821bf9158fb92e2d0bc9fd2ac8dd7abf5229db29",
+    "configs\\experiments\\minecart_onpolicy_conditional_v1.json": "e8317a0887fd925bdc50af342c3a6c1c171cfe758c7cbcbc2c5c89e432a054d2"
+  },
+  "runtime": {
+    "protocol": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+    "environment_source": "a74557d59840b342da241e6fec88b48b4b9e1023ccaccaf51a2b4d5357dc9298",
+    "environment_config": "9cbaea02440cb21bd799ede48b199799a655154526e9e7daf54225f5463037d9",
+    "device": "cuda",
+    "dependencies": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "torch": "2.14.1+cu130",
+      "gymnasium": "1.4.0",
+      "mo-gymnasium": "1.3.2",
+      "morl-baselines": "1.3.0",
+      "pymoo": "0.6.2"
+    }
+  },
+  "qualifier_sha256": "76a828bddb2922f701054033e6a3f72b92182101c30a53832b225719b89b78fe",
+  "reference": "reference-20261102-213613",
+  "resumed": "killed-20261102-213613",
+  "eight_stream_exact": true,
+  "killed_at_step": 4096,
+  "final_partial_batch": 64,
+  "training_interactions": 12416,
+  "prior_S_engineering_interactions": 12928,
+  "combined_S_C_engineering_interactions": 25344,
+  "preference_rng_and_exposure_exact": true,
+  "preference_draws": 47,
+  "pool_count": 32,
+  "development_evaluation_steps": 2274,
+  "final_test_steps": 0,
+  "wall_seconds": 52.13999999995576,
+  "training_trace_sha256": "d50498008cae013d49b7bc6e228e2b493a11c805e7a3eba3ea852e16bbe588ff",
+  "review_independence": "executor_only",
+  "task_success_claim": false,
+  "quality_gate": {
+    "tests_passed": 221,
+    "tests_skipped": 4,
+    "ruff_format": true,
+    "ruff_check": true,
+    "mypy": true,
+    "bandit_medium_high": true,
+    "compileall": true,
+    "git_diff_check": true
+  },
+  "additional_real_reset_test_training_interactions": 128,
+  "combined_S_C_engineering_interactions_including_reset_tests": 25472,
+  "fresh_initialization_verified": true,
+  "monitor_and_launcher_source": {
+    "monitor/server.py": "2a6fcdd434aa48b2bb7033eaff14f7c2c8f04fd4dfcf98db6614d52ae4696714",
+    "monitor/onpolicy.py": "d398c1f9c7fdeeed110bbb9635a772029c4b180b7f952b9dd8ea960d75c8ecc5",
+    "monitor/terminal.py": "6e97a950220a5bdf3bec2a843c5b1482f5c29aa23850c774917a2012efd880ed",
+    "scripts/start_minecart_conditional.ps1": "e92d999276e08e09a252fb424b9a98b0e593294c4a6700674627db5a0c59fdea"
+  },
+  "additional_checks": [
+    "exact frozen32 pool",
+    "per-episode uniform local RNG",
+    "per-transition preference no-alias through real resets inside fragment",
+    "both-profile task and utility gates preserve failing mode",
+    "native conditional32 priority over completed specialist",
+    "shared S helpers and PPO source unchanged"
+  ]
+}

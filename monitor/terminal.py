@@ -136,7 +136,10 @@ def render(
             values.extend(
                 [
                     f"{job['updates']:,}" if job["updates"] is not None else "—",
-                    " · ".join(f"{t.get('mode', '')} {t['successes']}/{t['episodes']}".strip() for t in job["task"])
+                    " · ".join(
+                        f"{t.get('mode', '')}/p{t['profile']} {t['successes']}/{t['episodes']}".strip()
+                        for t in job["task"]
+                    )
                     or "—",
                 ]
             )

@@ -73,6 +73,8 @@ def worker_state(
 
 
 class Monitor:
+    onpolicy: Any
+
     def __init__(self, repo: Path = REPO):
         self.repo = repo
         self.root = repo / "artifacts/preference-recovery-p2-v1"
@@ -170,6 +172,15 @@ class Monitor:
             return {}, ""
 
     def snapshot(self) -> dict[str, Any]:
+        conditional_manifest = (
+            self.repo / "artifacts/minecart-onpolicy-conditional-v1/runs/minecart-v0_C_seed20264111/manifest.json"
+        )
+        if type(self) is Monitor and conditional_manifest.exists():
+            from monitor.onpolicy import OnPolicyMonitor
+
+            if not hasattr(self, "onpolicy") or self.onpolicy.stage != "C":
+                self.onpolicy = OnPolicyMonitor(self.repo, stage="C")
+            return self.onpolicy.snapshot()
         new_manifest = (
             self.repo / "artifacts/minecart-onpolicy-specialist-v1/runs/minecart-v0_S_seed20264111/manifest.json"
         )
@@ -332,7 +343,7 @@ class Monitor:
             return snapshot
 
     def detail(self, name: str, stream: str) -> dict[str, Any]:
-        if type(self) is Monitor and name == "minecart-v0_S_seed20264111":
+        if type(self) is Monitor and name in ("minecart-v0_S_seed20264111", "minecart-v0_C_seed20264111"):
             self.snapshot()
             return self.onpolicy.detail(name, stream)
         directory = self.directory(name)

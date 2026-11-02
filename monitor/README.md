@@ -19,6 +19,9 @@ duyệt, HTTP server hay cài thêm package vào môi trường GPU training.
 ```
 
 Terminal tự chuyển sang Minecart PPO specialist khi có manifest của pilot mới;
+nếu có manifest conditional C, ưu tiên theo dõi **Minecart / PPO conditional32**.
+Kết quả cuối hiển thị sampled/argmax và profile p0/p1 riêng; C không dùng lại
+weights specialist và không tự động chạy confirmation.
 nếu chưa có thì theo dõi cohort P2 Minecart. Với PPO, hiển thị ngân sách4M,
 entropy/target từ stdout và final deliveries sampled/argmax riêng ở profile được
 train. Evaluation chi tiết cả hai profile được giữ trong artifact của checkpoint.

@@ -16,6 +16,11 @@ stage. The completed single-seed pilot passed its final specialist task gate
 LunarLander change or established preference generalization.
 [Results](docs/research/ONPOLICY_SPECIALIST_RESULTS_20261102.md).
 
+The next Minecart conditional pilot samples the frozen32 training preferences
+uniformly per episode, starts from fresh weights and has its own qualified
+runner/4M budget. [Contract](docs/research/ONPOLICY_CONDITIONAL_V1.md).
+The native monitor automatically follows C when its manifest is present.
+
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 
 Windows training recovery: the interrupted n-step study has a separately

@@ -12,14 +12,18 @@ from monitor.server import Monitor, shared_read
 
 
 class OnPolicyMonitor(Monitor):
-    def __init__(self, repo: Path):
+    def __init__(self, repo: Path, stage: str = "S"):
         super().__init__(repo)
-        self.root = repo / "artifacts/minecart-onpolicy-specialist-v1"
+        if stage not in ("S", "C"):
+            raise ValueError("Unknown on-policy stage")
+        self.stage = stage
+        self.kind = "specialist" if stage == "S" else "conditional"
+        self.root = repo / f"artifacts/minecart-onpolicy-{self.kind}-v1"
         self.runs = self.root / "runs"
 
     def directory(self, name: str) -> Path:
-        if name != "minecart-v0_S_seed20264111":
-            raise ValueError("Unknown specialist job")
+        if name != f"minecart-v0_{self.stage}_seed20264111":
+            raise ValueError("Unknown on-policy job")
         return self.runs / name
 
     def snapshot(self) -> dict[str, Any]:
@@ -28,15 +32,16 @@ class OnPolicyMonitor(Monitor):
                 return self.last_snapshot
             warnings: list[str] = []
             plan = (
-                self.read_json(self.repo / "configs/experiments/minecart_onpolicy_specialist_v1.json", warnings) or {}
+                self.read_json(self.repo / f"configs/experiments/minecart_onpolicy_{self.kind}_v1.json", warnings) or {}
             )
-            name = "minecart-v0_S_seed20264111"
+            name = f"minecart-v0_{self.stage}_seed20264111"
             directory = self.directory(name)
             processes = self.processes()
             workers = [
                 p
                 for p in processes or []
-                if "run_minecart_onpolicy.py" in (p.get("command") or "")
+                if ("run_minecart_onpolicy.py" if self.stage == "S" else "run_minecart_conditional.py")
+                in (p.get("command") or "")
                 and "--engineering" not in (p.get("command") or "")
                 and str(self.repo).lower() in (p.get("command") or "").lower()
             ]
@@ -62,20 +67,22 @@ class OnPolicyMonitor(Monitor):
                 else "pending"
             )
             snapshots = [int(p.stem.removeprefix("resume_step")) for p in directory.glob("resume_step*.pt")]
-            task = [
-                {
-                    "mode": mode,
-                    "profile": 0,
-                    "successes": gate["deliveries"],
-                    "episodes": gate["episodes"],
-                    "utility": gate["mean_utility"],
-                }
-                for mode, gate in complete.get("gates", {}).items()
-            ]
+            task = []
+            for mode, gate in complete.get("gates", {}).items():
+                for profile in gate.get("profiles", [gate]):
+                    task.append(
+                        {
+                            "mode": mode,
+                            "profile": profile.get("profile", 0),
+                            "successes": profile["deliveries"],
+                            "episodes": profile["episodes"],
+                            "utility": profile["mean_utility"],
+                        }
+                    )
             budget = plan.get("training_interactions", 4000000)
             job = {
                 "name": name,
-                "arm": "S",
+                "arm": self.stage,
                 "seed": plan.get("seed", 20264111),
                 "state": state,
                 "step": complete.get("training_interactions", progress.get("step", 0)),
@@ -97,7 +104,7 @@ class OnPolicyMonitor(Monitor):
             self.last_snapshot = {
                 "observed_unix": time.time(),
                 "study_id": plan.get("study_id"),
-                "study_label": "Minecart / PPO specialist",
+                "study_label": "Minecart / PPO " + ("specialist" if self.stage == "S" else "conditional32"),
                 "state": state,
                 "coordinator_alive": alive,
                 "jobs": [job],
