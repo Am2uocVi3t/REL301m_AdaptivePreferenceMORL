@@ -107,12 +107,13 @@
     {
       "id": "policy-extraction-diagnosis-v1",
       "title": "Frozen head, voting, exploration and replay diagnosis after completed n-step screen",
-      "status": "planned",
+      "status": "complete",
       "protocol": "configs/experiments/policy_extraction_diagnosis_v1.json",
       "claim_ids": [],
-      "artifact": null,
+      "artifact": "research/evidence/policy_extraction_diagnosis_v1.json",
       "notes": "",
-      "created_at": "2026-11-02T01:48:23+00:00"
+      "created_at": "2026-11-02T01:48:23+00:00",
+      "updated_at": "2026-11-02T02:34:34+00:00"
     }
   ]
 }

@@ -1,12 +1,36 @@
 # Project Status and Handoff
 
-Last verified: **2026-11-02** (durable Windows training recovery; historical empirical state below retained)
+Last verified: **2026-11-02** (completed frozen-model diagnosis; historical empirical state below retained)
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+Frozen-model diagnosis COMPLETE (2026-11-02), branch
+`codex/policy-extraction-diagnosis`: 3,720 diagnostic episodes / 2,045,511 steps,
+zero learning or final test. All 240 old task cases reproduced. Numeric trace
+and source audit passed (executor-only); one explicitly retained dirty-source
+context exception is documented in the evidence receipt. Both mixed Minecart
+preferences fail for every greedy head, mean and vote across all six models.
+At pure ore1, n=20 mean greedy succeeds [10,0,0]/10 versus mean epsilon .05
+[10,8,10]/10, but mixed preference behavior remains unreliable and one epsilon
+seed has lower utility than random. Deterministic action traps, positive-Q /
+poor-return discrepancies and an empirical conditioning gap are observed;
+no unique training cause or universal remedy is established. Lunar remains
+below the all-seeds pad gate.
+
+Evidence: `research/evidence/policy_extraction_diagnosis_v1.json`; Vietnamese
+interpretation: `docs/research/ROOT_CAUSE_ANALYSIS_20261102.md`. Proposed staged
+plan: `refine-logs/EXPERIMENT_PLAN_20261102_POLICY_RECOVERY.md` and
+`configs/experiments/preference_transfer_recovery_proposal_v1.json`.
+Execution is disabled: P1 proposes 960 zero-training approximate-GPI/epsilon
+cases before any new learning; conditional P2 is a 12-job/6M Minecart 2x2
+relabel/loss study. P3/P4 require further explicit protocol freeze. No new
+training was dispatched; all completed studies and original locks are retained.
+Historical running-process statements below are superseded by completed status.
+
 
 Completed recovery screen (verified 2026-11-02): all 12 combined jobs completed
 their fixed 500k budgets and automatic numerical/provenance audit passed.

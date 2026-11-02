@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/durable-training-recovery",
-  "updated_at": "2026-11-01T23:35:48+00:00",
+  "working_branch": "codex/policy-extraction-diagnosis",
+  "updated_at": "2026-11-02T02:35:00+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,9 @@
     }
   ],
   "next_actions": [
-    "Read CREDIT_ASSIGNMENT_RESULTS_20261102.md and predeclare frozen-model individual-head/ensemble/behavior diagnostics to investigate the behavior-to-greedy gap before further training.",
-    "Integrate completed bounded results into the group LaTeX report without declaring task competence or adaptive benefit; preserve all negative outcomes and separate extra interrupted compute.",
-    "Do not relaunch/extend the completed n-step cohort. Original matrix/F1/final-test locks remain unchanged; no independent semantic-review PASS is claimed."
+    "Read ROOT_CAUSE_ANALYSIS_20261102.md and versioned recovery plan; implement and qualify P1 approximate-GPI/epsilon factorial on frozen models before any new training.",
+    "Keep P2 training conditional on P1 insufficiency; freeze executable protocols and qualification before dispatch. Do not extend completed cohorts or access final test.",
+    "Update group LaTeX report with bounded positive and negative findings; adaptive-benefit claim remains unsupported pending matched uniform/random comparison."
   ],
-  "last_session_summary": "All 12 combined n-step jobs completed and numeric/provenance audit passed: 6M logical interactions, 1485012 updates, 3456 validation and 720 diagnostic episodes. All final task gates failed. Minecart utility improved without ore; logs contain ore-positive training behavior, motivating frozen policy-extraction diagnosis. Coordinator exited normally; no training active."
+  "last_session_summary": "Completed frozen-model policy diagnosis: 3720 episodes, 2045511 diagnostic steps, zero training/test; traces/source audited, 240 old cases reproduced. Documented action traps, conditioning/calibration gap and bounded positive ore-only behavior. Proposed conditional inference-first recovery plan; execution disabled. All required checks pass: 188 tests passed, 4 existing skips."
 }

@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-01T23:35:48+00:00
-Expected working branch at generation: codex/durable-training-recovery
-Expected commit at generation: fd40b73
+Snapshot generated: 2026-11-02T02:35:00+00:00
+Expected working branch at generation: codex/policy-extraction-diagnosis
+Expected commit at generation: 15239e4
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -71,6 +71,7 @@ Literature queue:
 - hu2026reactive-preferences [read; full_text; access=open_full_text]: Time-Consistent Robust Multi-Objective Reinforcement Learning via a Bellman–Isaacs Weight-Adversary Recursion
 - zhao2026mpft [read; full_text; access=open_full_text]: Population-Free Pareto Tracking for Sample-Efficient Multi-Policy MORL
 - terekhov2024architectures [read; full_text; access=open_full_text]: In Search for Architectures and Loss Functions in Multi-Objective Reinforcement Learning
+- osband2016bootstrapped-dqn [read; full_text; access=open_full_text]: Deep Exploration via Bootstrapped DQN
 
 Full-text requests for the user:
 - None currently registered.
@@ -86,12 +87,12 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-All 12 combined n-step jobs completed and numeric/provenance audit passed: 6M logical interactions, 1485012 updates, 3456 validation and 720 diagnostic episodes. All final task gates failed. Minecart utility improved without ore; logs contain ore-positive training behavior, motivating frozen policy-extraction diagnosis. Coordinator exited normally; no training active.
+Completed frozen-model policy diagnosis: 3720 episodes, 2045511 diagnostic steps, zero training/test; traces/source audited, 240 old cases reproduced. Documented action traps, conditioning/calibration gap and bounded positive ore-only behavior. Proposed conditional inference-first recovery plan; execution disabled. All required checks pass: 188 tests passed, 4 existing skips.
 
 Next actions:
-1. Read CREDIT_ASSIGNMENT_RESULTS_20261102.md and predeclare frozen-model individual-head/ensemble/behavior diagnostics to investigate the behavior-to-greedy gap before further training.
-2. Integrate completed bounded results into the group LaTeX report without declaring task competence or adaptive benefit; preserve all negative outcomes and separate extra interrupted compute.
-3. Do not relaunch/extend the completed n-step cohort. Original matrix/F1/final-test locks remain unchanged; no independent semantic-review PASS is claimed.
+1. Read ROOT_CAUSE_ANALYSIS_20261102.md and versioned recovery plan; implement and qualify P1 approximate-GPI/epsilon factorial on frozen models before any new training.
+2. Keep P2 training conditional on P1 insufficiency; freeze executable protocols and qualification before dispatch. Do not extend completed cohorts or access final test.
+3. Update group LaTeX report with bounded positive and negative findings; adaptive-benefit claim remains unsupported pending matched uniform/random comparison.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
