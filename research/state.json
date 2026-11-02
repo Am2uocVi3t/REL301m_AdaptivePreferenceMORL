@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/minecart-onpolicy-backbone",
-  "updated_at": "2026-11-02T13:05:14+00:00",
+  "updated_at": "2026-11-02T14:28:19+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Monitor artifacts/minecart-onpolicy-specialist-v1 and native terminal; do not restart or change the active source. Any interruption requires source/snapshot/tail inspection before explicit resume.",
-    "At4M completion audit all4 checkpoints,928 development episodes and final sampled/argmax task gates separately; only then consider a separately frozen C protocol. No outcome-based extension or final-test unlock."
+    "Preserve completed S and review ONPOLICY_SPECIALIST_RESULTS_20261102.md. Do not restart/extend or unlock original gates.",
+    "Prepare separate C executable freeze and episode-fixed uniform32 sampling from fresh initialization; qualify source/resume/native terminal before dispatch. C/G remain unlaunched."
   ],
-  "last_session_summary": "Minecart-only PPO specialist implemented, CUDA8-stream exact actual-kill/resume qualified, full quality215pass4skip. Source30a9baa clean launch verified PID33828/birth, stdout25088/1568 actor updates, durable40960 snapshot, GPU47%218MiB. Native terminal opened and new study recognized; duplicate launch blocked before log mutation. Fixed S4M; C/G and final test disabled. P2 negative results and Lunar unchanged."
+  "last_session_summary": "Minecart PPO specialist S complete:4M interactions,250080 actor/500160 critic updates; numeric/source/budget audit PASS928 dev episodes148181 steps,160 trace hashes/raw discounted scaled return checks,0 final test. Final trained profile sampled10/10 utility.468334,argmax10/10 .475012; secondary sampled9/10,argmax10/10. No active worker. One training seed only; no conditional-policy or matched-budget superiority claim. Lunar unchanged."
 }

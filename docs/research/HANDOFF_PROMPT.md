@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T13:05:14+00:00
+Snapshot generated: 2026-11-02T14:28:19+00:00
 Expected working branch at generation: codex/minecart-onpolicy-backbone
-Expected commit at generation: 30a9baa
+Expected commit at generation: c3b48eb
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,17 +83,16 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- minecart-onpolicy-specialist-v1 [running]: Qualified utility-preserving Minecart PPO specialist feasibility pilot
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Minecart-only PPO specialist implemented, CUDA8-stream exact actual-kill/resume qualified, full quality215pass4skip. Source30a9baa clean launch verified PID33828/birth, stdout25088/1568 actor updates, durable40960 snapshot, GPU47%218MiB. Native terminal opened and new study recognized; duplicate launch blocked before log mutation. Fixed S4M; C/G and final test disabled. P2 negative results and Lunar unchanged.
+Minecart PPO specialist S complete:4M interactions,250080 actor/500160 critic updates; numeric/source/budget audit PASS928 dev episodes148181 steps,160 trace hashes/raw discounted scaled return checks,0 final test. Final trained profile sampled10/10 utility.468334,argmax10/10 .475012; secondary sampled9/10,argmax10/10. No active worker. One training seed only; no conditional-policy or matched-budget superiority claim. Lunar unchanged.
 
 Next actions:
-1. Monitor artifacts/minecart-onpolicy-specialist-v1 and native terminal; do not restart or change the active source. Any interruption requires source/snapshot/tail inspection before explicit resume.
-2. At4M completion audit all4 checkpoints,928 development episodes and final sampled/argmax task gates separately; only then consider a separately frozen C protocol. No outcome-based extension or final-test unlock.
+1. Preserve completed S and review ONPOLICY_SPECIALIST_RESULTS_20261102.md. Do not restart/extend or unlock original gates.
+2. Prepare separate C executable freeze and episode-fixed uniform32 sampling from fresh initialization; qualify source/resume/native terminal before dispatch. C/G remain unlaunched.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

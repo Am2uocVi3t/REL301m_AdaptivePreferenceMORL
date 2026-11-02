@@ -11,7 +11,10 @@ view updates and Q closes only the monitor. [Usage](monitor/README.md).
 CUDA resume qualification are documented in
 [the method contract](docs/research/ONPOLICY_IMPLEMENTATION_V1.md).
 Its finite pilot uses4M steps at one fixed preference before any conditioned
-stage. This is not a LunarLander change or a demonstrated task-learning fix.
+stage. The completed single-seed pilot passed its final specialist task gate
+(10/10 sampled and argmax at the trained preference); this is not a
+LunarLander change or established preference generalization.
+[Results](docs/research/ONPOLICY_SPECIALIST_RESULTS_20261102.md).
 
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 

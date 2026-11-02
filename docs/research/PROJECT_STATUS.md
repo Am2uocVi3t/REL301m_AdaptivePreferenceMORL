@@ -8,6 +8,18 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest Minecart PPO S result (2026-11-02): COMPLETE, fixed4M interactions /
+250,080 actor /500,160 critic updates. Executor numeric/source/budget audit
+passed928 development episodes /148,181 steps and160 retained task traces;
+final test0. Both trained-profile final gates pass: sampled10/10 utility.468334,
+argmax10/10 utility.475012. Secondary profile sampled9/10, argmax10/10; do not
+claim perfect success or arbitrary preference control. One training seed only.
+Evidence: `research/evidence/minecart_onpolicy_specialist_v1.json`; report:
+`docs/research/ONPOLICY_SPECIALIST_RESULTS_20261102.md`. No active worker remains.
+Preserve S; prepare/qualify a separate C freeze before any conditional dispatch.
+Lunar unchanged; original matrix/F1/final-test locks remain. Historical running
+snapshots below superseded. No independent semantic-review PASS.
+
 Minecart on-policy implementation (2026-11-02): separate utility-preserving
 categorical PPO + vector PopArt critic implemented and F0 CUDA exact8-stream
 process-kill/resume qualified. Frozen S-only executable plan:
