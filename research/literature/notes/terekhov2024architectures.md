@@ -30,8 +30,8 @@ deterministic argmax demo; these results do not establish greedy-demo behavior.
 
 ## Evidence and experimental protocol
 
-Stochastic Minecart uses 4M interactions, five seeds and gamma .99. Appendix B
-Table 2 gives hidden width 256, clip .2, eight trajectories/batch, four PPO
+Stochastic Minecart uses 4M interactions, five seeds and gamma .99. Table 2
+(printed p16, introduced under Appendix C) gives hidden width 256, clip .2, eight trajectories/batch, four PPO
 epochs, eight minibatches and PopArt rate .001. Appendix D reports about five
 hours per Minecart run on V100. This is not a runtime prediction for our laptop.
 Envelope uses a best-HV checkpoint due late collapse, whereas PPO/PCN use final
@@ -56,5 +56,5 @@ before claiming an advantage here.
 ## Quotable facts
 
 Paraphrase pointers: Sections 6.2/6.3 (Minecart and baseline comparison),
-Appendix B Table 2 (hyperparameters), Appendix D (compute), and author
+Appendix C Table 2 (hyperparameters), Appendix D (compute), and author
 `env/minecart.yaml` versus `env/minecart_long.yaml` (episode lengths).

@@ -701,6 +701,34 @@
       "note": "research/literature/notes/terekhov2024architectures.md",
       "added_at": "2026-11-01T15:15:51+00:00",
       "updated_at": "2026-11-01T15:17:40+00:00"
+    },
+    {
+      "id": "osband2016bootstrapped-dqn",
+      "title": "Deep Exploration via Bootstrapped DQN",
+      "authors": [
+        "Ian Osband",
+        "Charles Blundell",
+        "Alexander Pritzel",
+        "Benjamin Van Roy"
+      ],
+      "year": 2016,
+      "venue": "NeurIPS 2016",
+      "source_type": "peer-reviewed",
+      "status": "read",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": false,
+      "access_note": "Final primary main paper and official supplement read in full by read-only literature shard on 2026-11-02. Main PDF sha db2cfc03428dcc294839ca2497d9fb42df7a13c7564fd070d93f113bfcf37847; supplement sha 385ca707763c1dcebcd5aa27e64df16510dd18120605a78bd8909f96cada4944. Episode-fixed training head and Appendix D.1 voting evaluation verified; paper does not validate our mean-Q or tie-break.",
+      "access_checked_at": "2026-11-02T01:45:58+00:00",
+      "url": "https://arxiv.org/abs/1602.04621",
+      "tags": [
+        "exploration",
+        "ensemble"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/osband2016bootstrapped-dqn.md",
+      "added_at": "2026-11-02T01:45:58+00:00",
+      "updated_at": "2026-11-02T01:48:23+00:00"
     }
   ]
 }

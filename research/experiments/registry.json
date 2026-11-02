@@ -103,6 +103,16 @@
       "notes": "",
       "created_at": "2026-11-01T16:54:09+00:00",
       "updated_at": "2026-11-01T23:35:48+00:00"
+    },
+    {
+      "id": "policy-extraction-diagnosis-v1",
+      "title": "Frozen head, voting, exploration and replay diagnosis after completed n-step screen",
+      "status": "planned",
+      "protocol": "configs/experiments/policy_extraction_diagnosis_v1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "",
+      "created_at": "2026-11-02T01:48:23+00:00"
     }
   ]
 }
