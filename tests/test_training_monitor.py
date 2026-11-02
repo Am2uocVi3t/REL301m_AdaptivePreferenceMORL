@@ -102,7 +102,8 @@ def test_http_api_rejects_mutation_rebinding_cross_origin_and_traversal(tmp_path
         worker.join(3)
 
 
-def test_monitor_never_opens_rotating_json_even_with_active_workers(tmp_path, monkeypatch):
+@pytest.mark.parametrize("worker_script", ["run_preference_recovery.py", "run_preference_recovery_io.py"])
+def test_monitor_never_opens_rotating_json_even_with_active_workers(tmp_path, monkeypatch, worker_script):
     monitor = fixture_monitor(tmp_path, monkeypatch)
     forbidden = {
         "heartbeat.json",
@@ -128,7 +129,7 @@ def test_monitor_never_opens_rotating_json_even_with_active_workers(tmp_path, mo
             {
                 "pid": 9,
                 "parent": 1,
-                "command": str(tmp_path) + "/python.exe scripts/run_preference_recovery.py --arm A --seed 20263211",
+                "command": str(tmp_path) + f"/python.exe scripts/{worker_script} --arm A --seed 20263211",
             }
         ],
     )

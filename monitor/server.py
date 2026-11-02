@@ -182,7 +182,9 @@ class Monitor:
             if processes is None:
                 warnings.append("OS process query unavailable; liveness is unknown")
             local = [p for p in (processes or []) if str(self.repo).lower() in (p.get("command") or "").lower()]
-            coordinators = [p for p in local if "run_preference_recovery_cohort.py" in (p.get("command") or "")]
+            coordinators = [
+                p for p in local if re.search(r"run_preference_recovery(?:_io)?_cohort\.py", p.get("command") or "")
+            ]
             coordinator_alive = bool(coordinators) if processes is not None else None
             now = time.time()
             jobs, source_commit = [], None
@@ -194,7 +196,7 @@ class Monitor:
                     candidates = [
                         p
                         for p in local
-                        if "run_preference_recovery.py" in (p.get("command") or "")
+                        if re.search(r"run_preference_recovery(?:_io)?\.py", p.get("command") or "")
                         and re.search(rf"--arm\s+{arm}(?:\s|$)", p["command"])
                         and re.search(rf"--seed\s+{seed}(?:\s|$)", p["command"])
                     ]
