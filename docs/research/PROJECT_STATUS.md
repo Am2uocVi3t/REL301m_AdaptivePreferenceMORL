@@ -1,12 +1,25 @@
 # Project Status and Handoff
 
-Last verified: **2026-11-02** (P2 audited; new Minecart on-policy implementation qualified; historical state below retained)
+Last verified: **2026-11-03** (Minecart G confirmation qualified after audited S/C; historical state below retained)
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+Minecart G confirmation prepared/qualified (2026-11-03): separately frozen plan
+`configs/experiments/minecart_onpolicy_confirmation_v1.json`, protocol
+`configs/protocols/minecart_confirmation_development_v1.json`. Three fresh seeds
+20264311/12/13, same frozen C candidate and original32 training pool,4M/job12M
+total. New32 development weights seed20264421, seven anchors reported separately,
+new task cases20264431..440.274 episodes/checkpoint,1096/job3288 overall,
+<=3.288M dev steps,0 final test. Both modes/profiles must pass every seed at4M.
+CUDA3-worker kill/resume exact all seeds/8 streams,226pass4skip; engineering
+32064<50k. Method/qualification: ONPOLICY_CONFIRMATION_V1.md and
+`research/qualification/minecart_onpolicy_confirmation_v1.json`. Clean committed
+launch and liveness still to be witnessed. No G outcome or multi-seed claim yet.
+S/C/P2 source/results preserved, Lunar/original final-test locks unchanged.
 
 Latest Minecart PPO C result (2026-11-02): COMPLETE and executor-audited,
 4M interactions /250,080 actor /500,160 critic updates;928 development episodes /

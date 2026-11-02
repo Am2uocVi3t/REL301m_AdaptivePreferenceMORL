@@ -168,6 +168,16 @@
       "notes": "",
       "created_at": "2026-11-02T14:40:31+00:00",
       "updated_at": "2026-11-02T16:53:35+00:00"
+    },
+    {
+      "id": "minecart-onpolicy-confirmation-v1",
+      "title": "Three fresh-seed frozen Minecart conditional PPO confirmation G",
+      "status": "planned",
+      "protocol": "configs/experiments/minecart_onpolicy_confirmation_v1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "",
+      "created_at": "2026-11-02T17:04:10+00:00"
     }
   ]
 }

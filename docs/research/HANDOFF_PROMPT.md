@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T16:53:35+00:00
-Expected working branch at generation: codex/minecart-conditional-ppo
-Expected commit at generation: e888005
+Snapshot generated: 2026-11-02T17:05:40+00:00
+Expected working branch at generation: codex/minecart-confirmation
+Expected commit at generation: e266da4
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,16 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
+- minecart-onpolicy-confirmation-v1 [planned]: Three fresh-seed frozen Minecart conditional PPO confirmation G
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Minecart conditional C COMPLETE; executor source/numeric/budget/exposure audit PASS.4M interactions,250080actor/500160critic,928dev episodes88828steps,160task trace hashes/actions/returns checked,0test. Both final profiles10/10 in sampled and argmax;utilities.455617/.765890 and.463566/.829602. Validation ore76/96 sampled81/96 argmax. All32 preferences sampled,draw/exposure exactly reconciled158616completed+8active. No worker, no new training. Single seed; G/Lunar/original final test unlaunched.
+Prepared frozen Minecart G confirmation:3fresh seeds20264311/12/13,same C learner/training pool,4M each12M total. New32 validation weights seed20264421,7anchors separate,new task cases20264431..440;1096eval/job3288cohort,0test. Concurrent3-seed CUDA actual-kill/resume exact all8streams incl sampler/RNG/optimizer and64partial;226pass4skip full quality. Cumulative engineering32064<50k. Main not launched yet; clean commit then witness. S/C/P2 and Lunar unchanged.
 
 Next actions:
-1. Preserve completed C/S/P2 and read ONPOLICY_CONDITIONAL_RESULTS_20261102.md; no restarts/extensions or original gate unlock.
-2. Prepare a separately frozen G confirmation protocol using three fresh training seeds and new development cases/preferences; qualify budgets/source/resume/native monitor before dispatch. Lunar remains a separate unresolved task.
+1. Launch G3 workers from clean qualified source, verify all seed commands/births/manifests/logs/snapshots and native confirmation terminal.
+2. At fixed4M each, audit all3 final results, raw vectors/anchor split/exposure and every-seed both-mode task gates. No extensions/seed replacement/mode selection or original final-test unlock.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

@@ -172,6 +172,13 @@ class Monitor:
             return {}, ""
 
     def snapshot(self) -> dict[str, Any]:
+        confirmation_root = self.repo / "artifacts/minecart-onpolicy-confirmation-v1"
+        if type(self) is Monitor and (confirmation_root / "cohort_manifest.json").exists():
+            from monitor.confirmation import ConfirmationMonitor
+
+            if not hasattr(self, "confirmation"):
+                self.confirmation = ConfirmationMonitor(self.repo)
+            return self.confirmation.snapshot()
         conditional_manifest = (
             self.repo / "artifacts/minecart-onpolicy-conditional-v1/runs/minecart-v0_C_seed20264111/manifest.json"
         )
@@ -343,6 +350,9 @@ class Monitor:
             return snapshot
 
     def detail(self, name: str, stream: str) -> dict[str, Any]:
+        if type(self) is Monitor and re.fullmatch(r"minecart-v0_G_seed2026431[123]", name):
+            self.snapshot()
+            return self.confirmation.detail(name, stream)
         if type(self) is Monitor and name in ("minecart-v0_S_seed20264111", "minecart-v0_C_seed20264111"):
             self.snapshot()
             return self.onpolicy.detail(name, stream)

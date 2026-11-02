@@ -12,17 +12,18 @@ from monitor.server import Monitor, shared_read
 
 
 class OnPolicyMonitor(Monitor):
-    def __init__(self, repo: Path, stage: str = "S"):
+    def __init__(self, repo: Path, stage: str = "S", seed: int = 20264111):
         super().__init__(repo)
-        if stage not in ("S", "C"):
+        if stage not in ("S", "C", "G"):
             raise ValueError("Unknown on-policy stage")
         self.stage = stage
-        self.kind = "specialist" if stage == "S" else "conditional"
+        self.seed = seed
+        self.kind = {"S": "specialist", "C": "conditional", "G": "confirmation"}[stage]
         self.root = repo / f"artifacts/minecart-onpolicy-{self.kind}-v1"
         self.runs = self.root / "runs"
 
     def directory(self, name: str) -> Path:
-        if name != f"minecart-v0_{self.stage}_seed20264111":
+        if name != f"minecart-v0_{self.stage}_seed{self.seed}":
             raise ValueError("Unknown on-policy job")
         return self.runs / name
 
@@ -34,14 +35,19 @@ class OnPolicyMonitor(Monitor):
             plan = (
                 self.read_json(self.repo / f"configs/experiments/minecart_onpolicy_{self.kind}_v1.json", warnings) or {}
             )
-            name = f"minecart-v0_{self.stage}_seed20264111"
+            name = f"minecart-v0_{self.stage}_seed{self.seed}"
             directory = self.directory(name)
             processes = self.processes()
             workers = [
                 p
                 for p in processes or []
-                if ("run_minecart_onpolicy.py" if self.stage == "S" else "run_minecart_conditional.py")
+                if {
+                    "S": "run_minecart_onpolicy.py",
+                    "C": "run_minecart_conditional.py",
+                    "G": "run_minecart_confirmation.py",
+                }[self.stage]
                 in (p.get("command") or "")
+                and (self.stage != "G" or re.search(rf"--seed\s+{self.seed}(?:\s|$)", p.get("command") or ""))
                 and "--engineering" not in (p.get("command") or "")
                 and str(self.repo).lower() in (p.get("command") or "").lower()
             ]
@@ -83,7 +89,7 @@ class OnPolicyMonitor(Monitor):
             job = {
                 "name": name,
                 "arm": self.stage,
-                "seed": plan.get("seed", 20264111),
+                "seed": self.seed if self.stage == "G" else plan.get("seed", 20264111),
                 "state": state,
                 "step": complete.get("training_interactions", progress.get("step", 0)),
                 "budget": budget,
@@ -104,7 +110,8 @@ class OnPolicyMonitor(Monitor):
             self.last_snapshot = {
                 "observed_unix": time.time(),
                 "study_id": plan.get("study_id"),
-                "study_label": "Minecart / PPO " + ("specialist" if self.stage == "S" else "conditional32"),
+                "study_label": "Minecart / PPO "
+                + {"S": "specialist", "C": "conditional32", "G": "confirmation"}[self.stage],
                 "state": state,
                 "coordinator_alive": alive,
                 "jobs": [job],

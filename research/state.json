@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/minecart-conditional-ppo",
-  "updated_at": "2026-11-02T16:53:35+00:00",
+  "working_branch": "codex/minecart-confirmation",
+  "updated_at": "2026-11-02T17:05:39+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Preserve completed C/S/P2 and read ONPOLICY_CONDITIONAL_RESULTS_20261102.md; no restarts/extensions or original gate unlock.",
-    "Prepare a separately frozen G confirmation protocol using three fresh training seeds and new development cases/preferences; qualify budgets/source/resume/native monitor before dispatch. Lunar remains a separate unresolved task."
+    "Launch G3 workers from clean qualified source, verify all seed commands/births/manifests/logs/snapshots and native confirmation terminal.",
+    "At fixed4M each, audit all3 final results, raw vectors/anchor split/exposure and every-seed both-mode task gates. No extensions/seed replacement/mode selection or original final-test unlock."
   ],
-  "last_session_summary": "Minecart conditional C COMPLETE; executor source/numeric/budget/exposure audit PASS.4M interactions,250080actor/500160critic,928dev episodes88828steps,160task trace hashes/actions/returns checked,0test. Both final profiles10/10 in sampled and argmax;utilities.455617/.765890 and.463566/.829602. Validation ore76/96 sampled81/96 argmax. All32 preferences sampled,draw/exposure exactly reconciled158616completed+8active. No worker, no new training. Single seed; G/Lunar/original final test unlaunched."
+  "last_session_summary": "Prepared frozen Minecart G confirmation:3fresh seeds20264311/12/13,same C learner/training pool,4M each12M total. New32 validation weights seed20264421,7anchors separate,new task cases20264431..440;1096eval/job3288cohort,0test. Concurrent3-seed CUDA actual-kill/resume exact all8streams incl sampler/RNG/optimizer and64partial;226pass4skip full quality. Cumulative engineering32064<50k. Main not launched yet; clean commit then witness. S/C/P2 and Lunar unchanged."
 }

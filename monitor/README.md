@@ -1,5 +1,9 @@
 # Native training terminal
 
+Khi có cohort G, terminal ưu tiên **Minecart / PPO confirmation (3 seeds)**:
+ba dòng worker, tổng12M bước, log/checkpoint riêng từng seed. Đóng monitor không
+dừng training. G chỉ xác nhận Minecart; kết quả S/C cũ được giữ nguyên.
+
 Bấm đúp **START_TRAINING_MONITOR.bat** ở thư mục gốc. Nó mở giao diện terminal
 thật trong PowerShell, dùng Rich có sẵn trên runtime CPU ở D:. Không cần trình
 duyệt, HTTP server hay cài thêm package vào môi trường GPU training.
