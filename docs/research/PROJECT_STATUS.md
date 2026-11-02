@@ -8,6 +8,21 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest user-requested P2 resume (2026-11-02): the previous resumed segment
+also exited 0xC000013A shortly after its live witness. Source, completed-file
+hashes and three full resume states were inspected again; seeded CUDA backward
+is finite. The user explicitly requested another check/resume. Execution segment
+3 is now live, with A/C/D seed12 heartbeats at 461k/302k/57k and matching process
+births; five completed jobs retained, four pending. Witness:
+`research/qualification/preference_recovery_p2_resume_segment3_20261102.json`.
+Interruption evidence: `research/evidence/preference_recovery_p2_interruption_segment2_20261102.json`.
+The additional unsaved tail is 11,429â€“14,426 interactions, separate from logical
+budgets and earlier tail/engineering compute. C: now has ~5.7GiB free; all
+managed storage stays D:. No actor/config change or automatic retry was added.
+Inspect current process identities and heartbeats; historical snapshots below
+are not live status or evidence that P2 task learning succeeded.
+
+
 P2 interruption inspected (2026-11-02, after 04:40 UTC): five jobs completed;
 three second-seed workers terminated with 0xC000013A (STATUS_CONTROL_C_EXIT),
 four third-seed jobs unstarted. Coordinator stopped dispatch and exited as
