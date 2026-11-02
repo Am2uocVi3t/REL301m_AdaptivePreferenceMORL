@@ -6,7 +6,7 @@
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/minecart-confirmation",
-  "updated_at": "2026-11-02T17:05:39+00:00",
+  "updated_at": "2026-11-02T17:07:37+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Launch G3 workers from clean qualified source, verify all seed commands/births/manifests/logs/snapshots and native confirmation terminal.",
-    "At fixed4M each, audit all3 final results, raw vectors/anchor split/exposure and every-seed both-mode task gates. No extensions/seed replacement/mode selection or original final-test unlock."
+    "Monitor three G workers via START_TRAINING_MONITOR.bat or append-only logs. Keep active sources/configs frozen; no duplicates, automatic restarts or outcome-based extensions.",
+    "When all3 fixed4M jobs finish, audit checkpoints/traces/budgets/exposure and all-seed both-mode/profile gates; report new-preference and anchor results separately. Original final test and Lunar remain unlaunched."
   ],
-  "last_session_summary": "Prepared frozen Minecart G confirmation:3fresh seeds20264311/12/13,same C learner/training pool,4M each12M total. New32 validation weights seed20264421,7anchors separate,new task cases20264431..440;1096eval/job3288cohort,0test. Concurrent3-seed CUDA actual-kill/resume exact all8streams incl sampler/RNG/optimizer and64partial;226pass4skip full quality. Cumulative engineering32064<50k. Main not launched yet; clean commit then witness. S/C/P2 and Lunar unchanged."
+  "last_session_summary": "G3-seed confirmation RUNNING from clean a316d4a. Verified fresh seeds20264311/12/13, actual PID10544/18300/18452+birth identities, distinctinitialhashes, stdout25088/1568actor each and durable24576 snapshots. GPU94%635MiB, native3-seed terminal opened, duplicate launch guard passed before log changes. Same frozen C candidate,4M/job12M,new32 development weights+separate7anchors,1096eval/job3288overall,0test.226pass4skip full technical gate; engineering32064<50k. No G outcomes yet; S/C/P2/Lunar unchanged."
 }

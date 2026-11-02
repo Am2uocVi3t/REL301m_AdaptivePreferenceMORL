@@ -172,12 +172,13 @@
     {
       "id": "minecart-onpolicy-confirmation-v1",
       "title": "Three fresh-seed frozen Minecart conditional PPO confirmation G",
-      "status": "planned",
+      "status": "running",
       "protocol": "configs/experiments/minecart_onpolicy_confirmation_v1.json",
       "claim_ids": [],
-      "artifact": null,
+      "artifact": "research/qualification/minecart_confirmation_launch_20261103.json",
       "notes": "",
-      "created_at": "2026-11-02T17:04:10+00:00"
+      "created_at": "2026-11-02T17:04:10+00:00",
+      "updated_at": "2026-11-02T17:06:50+00:00"
     }
   ]
 }

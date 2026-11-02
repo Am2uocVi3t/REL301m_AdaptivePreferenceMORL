@@ -1,0 +1,115 @@
+{
+  "status": "three_workers_running_verified",
+  "observed_unix": 1793639209.7103693,
+  "source_commit": "a316d4ac2cd337530dba3342ec85a0ede08d15fb",
+  "git_dirty_at_start": false,
+  "qualification_sha256": "b7b475a5a2d96bf7442985165cb10901d782acda3e2a5175b71db0f45a24ce2b",
+  "native_study": "Minecart / PPO confirmation (3 seeds)",
+  "jobs": [
+    {
+      "progress": {
+        "name": "minecart-v0_G_seed20264311",
+        "arm": "G",
+        "seed": 20264311,
+        "state": "running",
+        "step": 25088,
+        "budget": 4000000,
+        "updates": 1568,
+        "resume_step": 24576,
+        "task": [],
+        "rate": 508,
+        "pid": 10544,
+        "alive": true,
+        "heartbeat_unix": 1793639195.4938846
+      },
+      "pid": 10544,
+      "process_birth": "134381127411138379",
+      "manifest_sha256": "c135dac11dbc9ae5097422879dc54f68342755c112007ace60e36d4e0e4c8a5f",
+      "snapshot_metadata": [
+        {
+          "name": "resume_step000016384.pt",
+          "bytes": 1856804
+        },
+        {
+          "name": "resume_step000024576.pt",
+          "bytes": 1900068
+        }
+      ],
+      "initial_parameter_sha256": "0ac06ba8d95552ee77b2fb90b441ee4953b7dd0a052093ab3c9de55f7638d00b"
+    },
+    {
+      "progress": {
+        "name": "minecart-v0_G_seed20264312",
+        "arm": "G",
+        "seed": 20264312,
+        "state": "running",
+        "step": 25088,
+        "budget": 4000000,
+        "updates": 1568,
+        "resume_step": 24576,
+        "task": [],
+        "rate": 515,
+        "pid": 18300,
+        "alive": true,
+        "heartbeat_unix": 1793639194.8588052
+      },
+      "pid": 18300,
+      "process_birth": "134381127411239926",
+      "manifest_sha256": "ab6ef3baed528c66c43fb8de6937f3a74f9cc30cfa437df3e7289fb20d988bee",
+      "snapshot_metadata": [
+        {
+          "name": "resume_step000016384.pt",
+          "bytes": 1849508
+        },
+        {
+          "name": "resume_step000024576.pt",
+          "bytes": 1888740
+        }
+      ],
+      "initial_parameter_sha256": "2a7c00f6a41391e7aad19b353d6361dbfa78208c0295c44dd71d171dc8e73ef4"
+    },
+    {
+      "progress": {
+        "name": "minecart-v0_G_seed20264313",
+        "arm": "G",
+        "seed": 20264313,
+        "state": "running",
+        "step": 25088,
+        "budget": 4000000,
+        "updates": 1568,
+        "resume_step": 24576,
+        "task": [],
+        "rate": 505,
+        "pid": 18452,
+        "alive": true,
+        "heartbeat_unix": 1793639195.7835534
+      },
+      "pid": 18452,
+      "process_birth": "134381127411114762",
+      "manifest_sha256": "52071a6e187b0e569c2a51bbfaa693ef189ca0dcb5567aab7b2dec97b29d629f",
+      "snapshot_metadata": [
+        {
+          "name": "resume_step000016384.pt",
+          "bytes": 1842596
+        },
+        {
+          "name": "resume_step000024576.pt",
+          "bytes": 1879268
+        }
+      ],
+      "initial_parameter_sha256": "9b78824b0d7fdc1b900a9e1479d136da27c99b3a2c3d655677c72b5efb185b11"
+    }
+  ],
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "utilization": 94,
+    "memory_used": 635,
+    "memory_total": 4096,
+    "temperature": 58
+  },
+  "training_interactions_budget": 12000000,
+  "warm_start": false,
+  "final_test_steps": 0,
+  "claim": "Execution liveness only; no confirmation outcome established."
+}

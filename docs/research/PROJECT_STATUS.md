@@ -17,8 +17,13 @@ new task cases20264431..440.274 episodes/checkpoint,1096/job3288 overall,
 <=3.288M dev steps,0 final test. Both modes/profiles must pass every seed at4M.
 CUDA3-worker kill/resume exact all seeds/8 streams,226pass4skip; engineering
 32064<50k. Method/qualification: ONPOLICY_CONFIRMATION_V1.md and
-`research/qualification/minecart_onpolicy_confirmation_v1.json`. Clean committed
-launch and liveness still to be witnessed. No G outcome or multi-seed claim yet.
+`research/qualification/minecart_onpolicy_confirmation_v1.json`. G now RUNNING
+from clean committed a316d4a: all3 seeds have fresh birth-verified workers,
+stdout25,088 steps /1,568 actor updates each, durable24,576 snapshots. Native
+three-seed terminal opened; GPU94%/635MiB at launch witness. Duplicate cohort
+launch rejected before touching logs. Evidence:
+`research/qualification/minecart_confirmation_launch_20261103.json`.
+No G task outcome or multi-seed empirical claim yet; no automatic retries.
 S/C/P2 source/results preserved, Lunar/original final-test locks unchanged.
 
 Latest Minecart PPO C result (2026-11-02): COMPLETE and executor-audited,

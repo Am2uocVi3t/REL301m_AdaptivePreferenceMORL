@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T17:05:40+00:00
+Snapshot generated: 2026-11-02T17:07:37+00:00
 Expected working branch at generation: codex/minecart-confirmation
-Expected commit at generation: e266da4
+Expected commit at generation: a316d4a
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,17 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- minecart-onpolicy-confirmation-v1 [planned]: Three fresh-seed frozen Minecart conditional PPO confirmation G
+- minecart-onpolicy-confirmation-v1 [running]: Three fresh-seed frozen Minecart conditional PPO confirmation G
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Prepared frozen Minecart G confirmation:3fresh seeds20264311/12/13,same C learner/training pool,4M each12M total. New32 validation weights seed20264421,7anchors separate,new task cases20264431..440;1096eval/job3288cohort,0test. Concurrent3-seed CUDA actual-kill/resume exact all8streams incl sampler/RNG/optimizer and64partial;226pass4skip full quality. Cumulative engineering32064<50k. Main not launched yet; clean commit then witness. S/C/P2 and Lunar unchanged.
+G3-seed confirmation RUNNING from clean a316d4a. Verified fresh seeds20264311/12/13, actual PID10544/18300/18452+birth identities, distinctinitialhashes, stdout25088/1568actor each and durable24576 snapshots. GPU94%635MiB, native3-seed terminal opened, duplicate launch guard passed before log changes. Same frozen C candidate,4M/job12M,new32 development weights+separate7anchors,1096eval/job3288overall,0test.226pass4skip full technical gate; engineering32064<50k. No G outcomes yet; S/C/P2/Lunar unchanged.
 
 Next actions:
-1. Launch G3 workers from clean qualified source, verify all seed commands/births/manifests/logs/snapshots and native confirmation terminal.
-2. At fixed4M each, audit all3 final results, raw vectors/anchor split/exposure and every-seed both-mode task gates. No extensions/seed replacement/mode selection or original final-test unlock.
+1. Monitor three G workers via START_TRAINING_MONITOR.bat or append-only logs. Keep active sources/configs frozen; no duplicates, automatic restarts or outcome-based extensions.
+2. When all3 fixed4M jobs finish, audit checkpoints/traces/budgets/exposure and all-seed both-mode/profile gates; report new-preference and anchor results separately. Original final test and Lunar remain unlaunched.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
