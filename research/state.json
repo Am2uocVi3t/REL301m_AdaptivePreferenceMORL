@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "no multi-seed empirical claim established",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/p2-findings-and-next-study",
-  "updated_at": "2026-11-02T12:44:25+00:00",
+  "working_branch": "codex/minecart-onpolicy-backbone",
+  "updated_at": "2026-11-02T13:02:50+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,9 +60,8 @@
     }
   ],
   "next_actions": [
-    "Read P2_RESULTS_AND_NEXT_DIRECTION_20261102.md and the on-policy proposal. Preserve completed P2 without extra steps/seeds and keep old P3/P4 inactive because every P2 gate failed.",
-    "Implement/qualify the separately proposed F0 on-policy backbone, paper/default mapping, exact update/evaluation matrices,8-stream resume and native terminal support before any pilot dispatch. Specialist first; conditioned and independent confirmation remain conditional.",
-    "Integrate audited negative results and bounded claims into the group report; do not describe task competence, arbitrary-parameter generalization or adaptive benefit as established."
+    "Launch S only from clean qualified source and verify actual worker/log/snapshot liveness; retain P2 and Lunar unchanged.",
+    "At S completion audit all4 checkpoints and final sampled/argmax gates separately before considering conditional pilot; no automatic extensions or original gate unlock."
   ],
-  "last_session_summary": "P2 complete_audited12/12:6M logical interactions,1,485,012 updates; combined audit rerun passed, source/evidence registered. All3456 validation episodes zero ore;0/240 final deliveries and0 Mine actions. Four-cell EU differences are fuel-only. Analyzed4041 ore-positive training episodes,1064 above balanced idle by counterfactual rescore. Primary paper/author-default mapping refreshed; separate on-policy specialist/conditioned proposal execution=false, no new training.205 tests pass/4 skips; reproducible figures and Vietnamese report saved."
+  "last_session_summary": "Implemented Minecart-only utility-preserving PPO specialist and vector PopArt critic. CUDA8-stream exact process-kill/resume PASS;12928 engineering interactions,215 tests pass/4 skips and full quality gate. Frozen S4M/250080 actor/500160 critic updates/928 development episodes; native terminal support. Main not launched yet; clean source launch next. C/G and final test disabled."
 }

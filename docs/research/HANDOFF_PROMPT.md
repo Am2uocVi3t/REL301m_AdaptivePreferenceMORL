@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T12:44:25+00:00
-Expected working branch at generation: codex/p2-findings-and-next-study
-Expected commit at generation: 781b4f7
+Snapshot generated: 2026-11-02T13:02:51+00:00
+Expected working branch at generation: codex/minecart-onpolicy-backbone
+Expected commit at generation: 0c05fe2
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -83,17 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
+- minecart-onpolicy-specialist-v1 [planned]: Qualified utility-preserving Minecart PPO specialist feasibility pilot
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-P2 complete_audited12/12:6M logical interactions,1,485,012 updates; combined audit rerun passed, source/evidence registered. All3456 validation episodes zero ore;0/240 final deliveries and0 Mine actions. Four-cell EU differences are fuel-only. Analyzed4041 ore-positive training episodes,1064 above balanced idle by counterfactual rescore. Primary paper/author-default mapping refreshed; separate on-policy specialist/conditioned proposal execution=false, no new training.205 tests pass/4 skips; reproducible figures and Vietnamese report saved.
+Implemented Minecart-only utility-preserving PPO specialist and vector PopArt critic. CUDA8-stream exact process-kill/resume PASS;12928 engineering interactions,215 tests pass/4 skips and full quality gate. Frozen S4M/250080 actor/500160 critic updates/928 development episodes; native terminal support. Main not launched yet; clean source launch next. C/G and final test disabled.
 
 Next actions:
-1. Read P2_RESULTS_AND_NEXT_DIRECTION_20261102.md and the on-policy proposal. Preserve completed P2 without extra steps/seeds and keep old P3/P4 inactive because every P2 gate failed.
-2. Implement/qualify the separately proposed F0 on-policy backbone, paper/default mapping, exact update/evaluation matrices,8-stream resume and native terminal support before any pilot dispatch. Specialist first; conditioned and independent confirmation remain conditional.
-3. Integrate audited negative results and bounded claims into the group report; do not describe task competence, arbitrary-parameter generalization or adaptive benefit as established.
+1. Launch S only from clean qualified source and verify actual worker/log/snapshot liveness; retain P2 and Lunar unchanged.
+2. At S completion audit all4 checkpoints and final sampled/argmax gates separately before considering conditional pilot; no automatic extensions or original gate unlock.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

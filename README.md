@@ -7,6 +7,12 @@ It opens the live Rich interface in PowerShell: worker progress, GPU, snapshots
 and retained logs. Arrow keys select workers, Tab changes logs, Space pauses
 view updates and Q closes only the monitor. [Usage](monitor/README.md).
 
+**Minecart PPO specialist:** the new on-policy feasibility implementation and
+CUDA resume qualification are documented in
+[the method contract](docs/research/ONPOLICY_IMPLEMENTATION_V1.md).
+Its finite pilot uses4M steps at one fixed preference before any conditioned
+stage. This is not a LunarLander change or a demonstrated task-learning fix.
+
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 
 Windows training recovery: the interrupted n-step study has a separately

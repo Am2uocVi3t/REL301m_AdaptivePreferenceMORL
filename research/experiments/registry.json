@@ -146,6 +146,16 @@
       "artifact": null,
       "notes": "",
       "created_at": "2026-11-02T12:40:09+00:00"
+    },
+    {
+      "id": "minecart-onpolicy-specialist-v1",
+      "title": "Qualified utility-preserving Minecart PPO specialist feasibility pilot",
+      "status": "planned",
+      "protocol": "configs/experiments/minecart_onpolicy_specialist_v1.json",
+      "claim_ids": [],
+      "artifact": null,
+      "notes": "",
+      "created_at": "2026-11-02T13:01:02+00:00"
     }
   ]
 }

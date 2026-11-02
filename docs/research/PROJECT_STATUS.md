@@ -1,12 +1,26 @@
 # Project Status and Handoff
 
-Last verified: **2026-11-02** (completed frozen-model diagnosis; historical empirical state below retained)
+Last verified: **2026-11-02** (P2 audited; new Minecart on-policy implementation qualified; historical state below retained)
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
 Publication state: **no multi-seed empirical claim established**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+Minecart on-policy implementation (2026-11-02): separate utility-preserving
+categorical PPO + vector PopArt critic implemented and F0 CUDA exact8-stream
+process-kill/resume qualified. Frozen S-only executable plan:
+`configs/experiments/minecart_onpolicy_specialist_v1.json`; engineering receipt:
+`research/qualification/minecart_onpolicy_v1.json`; method/departures:
+`docs/research/ONPOLICY_IMPLEMENTATION_V1.md`. Qualification consumed12,928
+engineering training interactions including earlier spine; not task evidence.
+S is one seed, fixed[.45,.45,.1],4M interactions,250,080 actor /500,160 critic
+updates,928 development episodes max928k steps, sampled/argmax separate and
+final-only task gate. No C/G auto dispatch. Native monitor recognizes new study.
+Lunar is not part of this change; no task-competence or allocation claim follows.
+Main launch must be witnessed from clean committed qualified source; update
+registry/status after liveness is verified. Historical snapshots below retained.
 
 Latest verified P2 findings (2026-11-02): COMPLETE_AUDITED,12/12 jobs,6M logical
 training interactions /1,485,012 updates. Re-ran the combined numeric/source/

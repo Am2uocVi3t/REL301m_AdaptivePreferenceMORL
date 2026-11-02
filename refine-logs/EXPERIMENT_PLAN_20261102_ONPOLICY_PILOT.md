@@ -3,6 +3,12 @@
 Trạng thái: **đề xuất; chưa triển khai/dispatch training**. Không mở rộng P2.
 Machine-readable: `configs/experiments/onpolicy_backbone_pilot_proposal_v1.json`.
 
+Cập nhật triển khai sau đề xuất: F0 đã được kiểm chứng và S có executable riêng
+`configs/experiments/minecart_onpolicy_specialist_v1.json`; đọc contract
+`docs/research/ONPOLICY_IMPLEMENTATION_V1.md` cho các quyết định đã đóng băng,
+đặc biệt scalarization giữ utility gốc thay vì chia sigma từng objective.
+JSON đề xuất cũ giữ execution=false để không biến C/G thành queue ngầm.
+
 ## Câu hỏi và giả thuyết
 
 Policy greedy Q-learning không thể hiện nhiệm vụ dù training có reward; relabel

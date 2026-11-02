@@ -70,3 +70,13 @@ Append one section per search session. Search primary or authoritative sources, 
 - Evidence/default mapping: research/evidence/onpolicy_primary_source_map_20261102.json.
   Fixed source defaults differ from paper entropy/PopArt settings and horizon.
   PPO is a candidate, not guaranteed improvement or a matched historical comparison.
+# 2026-11-02 — Minecart on-policy implementation mapping
+
+Targeted full-text reread of already registered Terekhov/Gulcehre2024:
+https://arxiv.org/html/2407.16807v1, Eq10/19/21 and Appendix Algorithm2.
+Recorded project departures before implementation in ONPOLICY_IMPLEMENTATION_V1:
+critic-only PopArt normalization preserves frozen utility; scalar advantage
+standardization, fixed collection targets and separate optimizer accounting.
+The raw GitHub ppo.py URL lookup returned cache miss and was not used as code
+evidence. No new full-reading or exact-reproduction claim. Prior pinned author
+config mapping remains in onpolicy_primary_source_map_20261102.json.

@@ -18,7 +18,11 @@ duyệt, HTTP server hay cài thêm package vào môi trường GPU training.
 .venv/Scripts/python.exe scripts/training_terminal.py --once
 ```
 
-Terminal theo dõi cohort P2 Minecart. Running dựa trên process command thực tế
+Terminal tự chuyển sang Minecart PPO specialist khi có manifest của pilot mới;
+nếu chưa có thì theo dõi cohort P2 Minecart. Với PPO, hiển thị ngân sách4M,
+entropy/target từ stdout và final deliveries sampled/argmax riêng ở profile được
+train. Evaluation chi tiết cả hai profile được giữ trong artifact của checkpoint.
+Running dựa trên process command thực tế
 trong Windows; Complete nghĩa là ghi xong job, chưa phải đạt task gate. Tiến độ
 live lấy từ stdout theo mốc 25k bước, có thể trễ. Final deliveries hiển thị hai
 profile riêng. Tên file snapshot là metadata, chưa phải checksum validation.

@@ -170,6 +170,15 @@ class Monitor:
             return {}, ""
 
     def snapshot(self) -> dict[str, Any]:
+        new_manifest = (
+            self.repo / "artifacts/minecart-onpolicy-specialist-v1/runs/minecart-v0_S_seed20264111/manifest.json"
+        )
+        if type(self) is Monitor and new_manifest.exists():
+            from monitor.onpolicy import OnPolicyMonitor
+
+            if not hasattr(self, "onpolicy"):
+                self.onpolicy = OnPolicyMonitor(self.repo)
+            return self.onpolicy.snapshot()
         with self.lock:
             if time.monotonic() - self.sampled < 3:
                 return self.last_snapshot
@@ -323,6 +332,9 @@ class Monitor:
             return snapshot
 
     def detail(self, name: str, stream: str) -> dict[str, Any]:
+        if type(self) is Monitor and name == "minecart-v0_S_seed20264111":
+            self.snapshot()
+            return self.onpolicy.detail(name, stream)
         directory = self.directory(name)
         if name not in {j["name"] for j in self.snapshot()["jobs"]}:
             raise ValueError("Unknown job")

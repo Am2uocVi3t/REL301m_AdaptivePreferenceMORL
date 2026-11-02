@@ -66,7 +66,7 @@ def render(
     percentage = min(100, 100 * total / budget)
     color = COLORS.get(state["state"], MUTED)
     header = Text(" MORL // TRAINING MONITOR", style="bold #70e4c4")
-    header.append("   REL301m / P2", style=MUTED)
+    header.append("   REL301m / " + state.get("study_label", "P2 Minecart"), style=MUTED)
     header.append(
         "   " + datetime.fromtimestamp(state["observed_unix"], timezone(timedelta(hours=7))).strftime("%H:%M:%S ICT"),
         style=MUTED,
@@ -93,6 +93,8 @@ def render(
     )
     hardware += f"  |  D: {state['disks_gib'].get('workspace', '—')} GiB free"
     note = " Live counts: stdout every 25k steps. Completion is separate from task success."
+    if state.get("entropy"):
+        note += f" Entropy {state['entropy'][0]} / target {state['entropy'][1]}."
     alert = (
         " Dispatch stopped: recovery required. No training workers are running."
         if state["state"] == "blocked"
@@ -112,7 +114,7 @@ def render(
     table.add_column("ARM", width=3)
     table.add_column("SEED", width=8)
     table.add_column("STATE", width=11)
-    table.add_column("STEPS / 500k", justify="right")
+    table.add_column(f"STEPS / {jobs[0].get('budget', 500000):,}" if jobs else "STEPS", justify="right")
     if width >= 105:
         table.add_column("UPDATES", justify="right")
         table.add_column("DELIVERIES", justify="right")
@@ -134,7 +136,8 @@ def render(
             values.extend(
                 [
                     f"{job['updates']:,}" if job["updates"] is not None else "—",
-                    " · ".join(f"{t['successes']}/{t['episodes']}" for t in job["task"]) or "—",
+                    " · ".join(f"{t.get('mode', '')} {t['successes']}/{t['episodes']}".strip() for t in job["task"])
+                    or "—",
                 ]
             )
         values.append(f"{job['resume_step']:,}" if job["resume_step"] is not None else "—")
