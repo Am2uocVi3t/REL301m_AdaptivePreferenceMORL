@@ -16,12 +16,13 @@ is unknown. NVIDIA FECS events ~90s earlier and only ~230MiB free on C: are
 observations, not proven causes. All managed artifacts remain on D:.
 Evidence: `research/evidence/preference_recovery_p2_interruption_20261102.json`.
 Seeded CUDA forward/backward passes; three checksum-verified recovery states
-match unchanged source/device/config. An operator-inspected exact resume is
-prepared under the existing plan authorization, keeping five completed jobs
+match unchanged source/device/config. An operator-inspected exact resume was launched and verified live under the
+existing plan authorization, keeping five completed jobs
 and the original 500k/job budgets. Resume A/C/D seed 20263212 from steps
 456950/298101/50520. Unsaved tail re-execution is separately bounded at
-16,429–19,426 interactions, not extra scientific samples. Inspect live status
-for the resume outcome; no code, method or scientific-gate change. Five final
+16,429–19,426 interactions, not extra scientific samples. Live resumed worker heartbeats reached 459k/300k/58k with a live coordinator
+and GPU utilization 81%; witness: `research/qualification/preference_recovery_p2_resume_20261102.json`.
+Inspect current status before further action; no code, method or scientific-gate change. Five final
 models so far have zero deliveries at both task profiles; no all-seeds success
 claim is possible from these partial data. Full factorial remains incomplete.
 

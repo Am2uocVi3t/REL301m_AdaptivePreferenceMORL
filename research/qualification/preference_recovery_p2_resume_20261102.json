@@ -1,0 +1,53 @@
+{
+  "observed_unix": 1793594623.7626336,
+  "coordinator_pid": 13720,
+  "coordinator_birth": "134380681731197726",
+  "workers": [
+    {
+      "name": "minecart-v0_A_seed20263212",
+      "heartbeat": {
+        "pid": 15840,
+        "process_birth": "134380681792722177",
+        "step": 459000,
+        "updates": 113501,
+        "updated_unix": 1793594620.064053,
+        "resume_step": 456950
+      },
+      "resume_markers": [
+        "resumed_from_step456950.json"
+      ]
+    },
+    {
+      "name": "minecart-v0_C_seed20263212",
+      "heartbeat": {
+        "pid": 28296,
+        "process_birth": "134380681793518946",
+        "step": 300000,
+        "updates": 73751,
+        "updated_unix": 1793594619.5370927,
+        "resume_step": 298101
+      },
+      "resume_markers": [
+        "resumed_from_step298101.json"
+      ]
+    },
+    {
+      "name": "minecart-v0_D_seed20263212",
+      "heartbeat": {
+        "pid": 23088,
+        "process_birth": "134380681794460922",
+        "step": 58000,
+        "updates": 13251,
+        "updated_unix": 1793594623.2240145,
+        "resume_step": 50520
+      },
+      "resume_markers": [
+        "resumed_from_step50520.json"
+      ]
+    }
+  ],
+  "retained_completed_jobs": 5,
+  "pending_jobs": 4,
+  "status": "live_resume_verified",
+  "scientific_gate_unlock": false
+}

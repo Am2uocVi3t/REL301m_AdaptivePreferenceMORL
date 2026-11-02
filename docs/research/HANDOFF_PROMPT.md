@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T04:42:52+00:00
+Snapshot generated: 2026-11-02T04:44:21+00:00
 Expected working branch at generation: codex/preference-transfer-recovery
-Expected commit at generation: 2e8ea4f
+Expected commit at generation: c23e075
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -88,11 +88,11 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-P2 check found external/control-event-style interruption: five complete, three second-seed workers exit0xC000013A, four pending. CUDA witness and three exact-resume bindings/checksums pass. Preparing one inspected resume under existing authorization, no source/budget change; interrupted tail separately accounted. All five completed models zero task deliveries.
+P2 inspected resume verified: coordinator and three resumed workers live, fresh heartbeats beyond saved steps, GPU81%; five completed jobs retained, four pending. Control-event-style interruption sender unknown; no code/budget/method change. C free ~230MiB observed; all managed artifacts D:.
 
 Next actions:
-1. Verify the explicitly resumed independent P2 coordinator, worker birth identities and progress beyond saved steps; no duplicate or automatic retry.
-2. After normal completion inspect analysis.json and register all bounded factorial outcomes; do not extend budget or claim competence from incomplete results.
+1. Inspect current P2 birth/liveness and heartbeats before any further action; preserve completed jobs and do not automatically retry.
+2. When cohort completes inspect analysis.json, account interrupted-tail compute separately, and register full paired results without outcome-based extension or gate unlock.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
