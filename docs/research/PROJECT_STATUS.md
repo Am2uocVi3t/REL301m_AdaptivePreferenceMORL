@@ -8,6 +8,36 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Latest authorized P2 continuation (2026-11-02): RUNNING again after a versioned,
+qualified I/O-only amendment. Nine completed jobs /252 frozen artifact hashes
+are retained unchanged. D seed12 resumes at297188; C/D seed13 start under the
+same frozen settings. Live witness from clean dispatch source3a159fe:
+`research/qualification/preference_recovery_p2_io_launch_20261102.json`.
+Three workers have fresh birth-verified heartbeats at316k/32k/32k, GPU94%, paired
+seed13 initialization matches A/B. Native terminal has been reopened with the
+updated command recognizer and shows9 complete/3 active. All managed storage D:.
+
+Amendment `configs/experiments/preference_recovery_p2_io_v1.json` changes only
+bounded atomic-JSON retries (Windows5/32/33,8 attempts,max1.575s total sleep).
+Original learner/helper/coordinator/analyzer source files and original plan
+remain unchanged; runtime adapter/source/amendment receipts are explicit.
+Qualification: four old/new CUDA cells exact, D kill/resume exact, duplicate
+rejection and real transient/persistent lock witnesses pass (108k engineering
+training interactions, separate from study). Combined-audit publication was
+independently unit-qualified after the CUDA witness with its source update
+recorded; no learner/adapter changes or extra training. Required gates:
+205 tests pass/four existing skips. See `docs/research/P2_IO_RECOVERY_V1.md`.
+
+Remaining logical work was1,202,812 interactions before launch; failed D's
+extra unsaved tail5,812â€“6,811 is accounted separately from earlier tails.
+Budget/method/seed/checkpoint/final-test gates remain fixed. Independent I/O
+coordinator stops on permanent failure, with no training-job auto retry, then
+runs the original numeric audit plus retained/source/runtime adapter checks and
+publishes the combined result once. No task improvement is claimed; nine final
+models so far still have zero deliveries. Historical BLOCKED snapshots below
+are superseded by this verified continuation.
+
+
 User correction implemented (2026-11-02): the requested UI is a NATIVE TERMINAL,
 not a web page. `START_TRAINING_MONITOR.bat` now opens the Rich interface in
 PowerShell; visible native window/processes verified. Direct passive collector,

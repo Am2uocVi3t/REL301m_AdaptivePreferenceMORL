@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T11:18:26+00:00
-Expected working branch at generation: codex/native-training-terminal
-Expected commit at generation: fa48125
+Snapshot generated: 2026-11-02T11:38:53+00:00
+Expected working branch at generation: codex/p2-io-recovery
+Expected commit at generation: 3a159fe
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: no multi-seed empirical claim established
@@ -82,17 +82,17 @@ Active experiments:
 - minecart-pcqn-remediation-v2 [failed]: Minecart prioritized-replay PCQN backbone qualification
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
-- preference-recovery-p2-v1 [blocked]: Minecart 2x2 uniform relabel and utility Huber recovery
+- preference-recovery-p2-v1 [running]: Minecart 2x2 uniform relabel and utility Huber recovery
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Corrected UI interpretation: delivered actual native Rich terminal, changed default bat/PS launcher, stopped prior web server, verified interactive PTY key input and visible terminal window.201 tests pass/4 skips, all gates pass, actor unchanged. P2 not done:9 complete/1 IO failure/2 pending, no training active.
+Continued P2 via qualified IO-only adapter from clean3a159fe: nine completed jobs/252 hashes retained; D resumed297188, C/D seed13 started. Three live workers316k/32k/32k,GPU94%, native terminal reopened. Four-cell old/new and Dkill/resume exact;108k engineering,205 tests pass/4 skips. No learner/budget/seed/test changes; combined audit publication separately unit-qualified and recorded.
 
 Next actions:
-1. Open START_TRAINING_MONITOR.bat for the native terminal (not browser); arrow/J/K select, Tab logs, Space pause view, R refresh, Q close monitor.
-2. Before P2 resume qualify pending bounded I/O repair/recovery amendment. Preserve9 completed jobs and frozen budgets; P2 task gates and original final-test locks remain unchanged.
+1. Watch the native terminal or passive Monitor collector; verify process identities before any action. Three remaining P2 jobs run to their unchanged500k endpoints; no duplicates or automatic job retry.
+2. After normal completion inspect combined analysis.json and all IO segment/retained-file/source receipts; register full paired factorial evidence with interruption/engineering compute separate. No P3/P4 or original final-test unlock without their explicit evidence gates.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.
