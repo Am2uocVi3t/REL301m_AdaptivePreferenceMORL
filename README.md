@@ -2,13 +2,13 @@
 
 REL301m course research project, Fall 2026.
 
-**Latest reviewed package:** `outputs/REL301m_Course_Submission_Review_20261103`
-and ZIP. The launcher prefers it and prints the free port (verified8767).
-Current group-template report:16 pages with6 research figures. Frozen actors are
-unchanged: Minecart lowest confirmation seed, Lunar labelled pilot. Fresh ZIP
-extraction40-case inference,81 JS checks and Edge desktop/mobile/PDF checks pass.
-[Readiness and remaining scope](docs/research/SUBMISSION_READINESS_20261103.md).
-Prior releases are preserved; no training is active.
+**Latest research/reference review:** `outputs/REL301m_Course_Reference_Review_20261103`
+and ZIP. Report19 pages,21 substantive citations,28-paper library (24 historical
+read records plus4 foundations screened after targeted reading). Seven author
+lists were corrected against primary sources. Models/protocols/results unchanged.
+[Research positioning and reference review](docs/research/RESEARCH_REFERENCE_REVIEW_20261103.md).
+The launcher prefers this release (verified8768);40 extracted real cases,81JS
+assertions and Edge checks pass. Prior releases preserved; use corrected references.
 
 **Lunar confirmation completed:** both prospective fresh seeds passed the final4M
 trained-profile landing gate,10/10 in sampled and argmax. The pilot remains

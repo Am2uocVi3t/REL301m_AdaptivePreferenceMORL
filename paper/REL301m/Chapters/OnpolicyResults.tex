@@ -3,7 +3,8 @@ The completed n-step and subsequent relabel/loss screens failed their task gates
 the latter produced zero deliveries in 240 final task cases despite ore-positive
 training episodes. These failures motivated a separate categorical actor with
 a vector state-value critic, rather than extending a failed experiment.
-The candidate uses a multibody architecture, clipped PPO, critic PopArt and
+The candidate uses a multibody architecture, clipped PPO~\cite{schulman2017ppo},
+critic PopArt~\cite{vanhasselt2016popart} and
 MDMM entropy control motivated by MOPPO~\cite{terekhov2024architectures}.
 Unlike its objective-wise normalized actor advantage, this project scalarizes
 the original fixed-scaled vector advantage before batch standardization, preserving

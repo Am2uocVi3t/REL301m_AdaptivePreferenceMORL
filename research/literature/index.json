@@ -38,7 +38,7 @@
       "title": "A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation",
       "authors": [
         "Runzhe Yang",
-        "Xiaolong Sun",
+        "Xingyuan Sun",
         "Karthik Narasimhan"
       ],
       "year": 2019,
@@ -60,7 +60,9 @@
       ],
       "note": "research/literature/notes/yang2019envelope.md",
       "added_at": "2026-10-14T19:56:14+00:00",
-      "updated_at": "2026-10-14T19:59:50+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://arxiv.org/abs/1908.08342"
     },
     {
       "id": "xu2020pgmorl",
@@ -69,8 +71,9 @@
         "Jie Xu",
         "Yunsheng Tian",
         "Pingchuan Ma",
-        "Dinesh Manocha",
-        "Wenping Wang"
+        "Daniela Rus",
+        "Shinjiro Sueda",
+        "Wojciech Matusik"
       ],
       "year": 2020,
       "venue": "ICML 2020",
@@ -93,7 +96,9 @@
       ],
       "note": "research/literature/notes/xu2020pgmorl.md",
       "added_at": "2026-10-14T19:56:14+00:00",
-      "updated_at": "2026-10-14T19:59:51+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://proceedings.mlr.press/v119/xu20h.html"
     },
     {
       "id": "reymond2022pcn",
@@ -151,7 +156,8 @@
       ],
       "note": "research/literature/notes/lu2023capql.md",
       "added_at": "2026-10-14T19:56:15+00:00",
-      "updated_at": "2026-10-14T20:19:04+00:00"
+      "updated_at": "2026-10-14T20:19:04+00:00",
+      "metadata_verification_url": "https://haoyelu.github.io/files/haoye_cv.pdf"
     },
     {
       "id": "basaklar2023pdmorl",
@@ -180,7 +186,8 @@
       ],
       "note": "research/literature/notes/basaklar2023pdmorl.md",
       "added_at": "2026-10-14T19:56:15+00:00",
-      "updated_at": "2026-10-14T19:59:52+00:00"
+      "updated_at": "2026-10-14T19:59:52+00:00",
+      "metadata_verification_url": "https://arxiv.org/abs/2208.07914"
     },
     {
       "id": "alegre2023gpi-prioritization",
@@ -188,6 +195,8 @@
       "authors": [
         "Lucas N. Alegre",
         "Ana L. C. Bazzan",
+        "Diederik M. Roijers",
+        "Ann Nowé",
         "Bruno C. da Silva"
       ],
       "year": 2023,
@@ -211,7 +220,9 @@
       ],
       "note": "research/literature/notes/alegre2023gpi-prioritization.md",
       "added_at": "2026-10-14T19:56:16+00:00",
-      "updated_at": "2026-10-14T19:59:52+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2003.pdf"
     },
     {
       "id": "zhang2020value-disagreement",
@@ -310,7 +321,8 @@
       "title": "CURIOUS: Intrinsically Motivated Modular Multi-Goal Reinforcement Learning",
       "authors": [
         "Cédric Colas",
-        "Tristan Karch",
+        "Pierre Fournier",
+        "Mohamed Chetouani",
         "Olivier Sigaud",
         "Pierre-Yves Oudeyer"
       ],
@@ -334,15 +346,17 @@
       ],
       "note": "research/literature/notes/colas2019curious.md",
       "added_at": "2026-10-14T19:56:17+00:00",
-      "updated_at": "2026-10-14T19:59:55+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://proceedings.mlr.press/v97/colas19a.html"
     },
     {
       "id": "teoh2025morl-generalization",
       "title": "On Generalization Across Environments In Multi-Objective Reinforcement Learning",
       "authors": [
-        "Jia Wei Teoh",
+        "Jayden Teoh",
         "Pradeep Varakantham",
-        "Karl Mason"
+        "Peter Vamplew"
       ],
       "year": 2025,
       "venue": "ICLR 2025",
@@ -363,13 +377,15 @@
       ],
       "note": "research/literature/notes/teoh2025morl-generalization.md",
       "added_at": "2026-10-14T19:56:18+00:00",
-      "updated_at": "2026-10-14T19:59:56+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/c97d5a0a332ac6a8e4836de20462c576-Abstract-Conference.html"
     },
     {
       "id": "shianifar2026hpr",
       "title": "Hindsight Preference Replay Improves Preference-Conditioned Multi-Objective Reinforcement Learning",
       "authors": [
-        "Hadi Shianifar",
+        "Jonaid Shianifar",
         "Michael Schukat",
         "Karl Mason"
       ],
@@ -392,7 +408,9 @@
       ],
       "note": "research/literature/notes/shianifar2026hpr.md",
       "added_at": "2026-10-14T19:56:18+00:00",
-      "updated_at": "2026-10-14T19:59:56+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://arxiv.org/abs/2601.11604"
     },
     {
       "id": "liu2025cmorl",
@@ -434,11 +452,9 @@
       "title": "Preference Controllable Reinforcement Learning with Advanced Multi-Objective Optimization",
       "authors": [
         "Yucheng Yang",
-        "Shengjun Wang",
-        "Wenjie Li",
-        "Huaqing Xiong",
-        "Gang Li",
-        "Wei Pan"
+        "Tianyi Zhou",
+        "Mykola Pechenizkiy",
+        "Meng Fang"
       ],
       "year": 2025,
       "venue": "ICML 2025",
@@ -459,7 +475,9 @@
       ],
       "note": "research/literature/notes/yang2025pcrl.md",
       "added_at": "2026-10-14T19:56:19+00:00",
-      "updated_at": "2026-10-14T19:59:58+00:00"
+      "updated_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verified_at": "2026-11-03T14:02:31+00:00",
+      "metadata_verification_url": "https://proceedings.mlr.press/v267/yang25ax.html"
     },
     {
       "id": "chen2026morl-fb",
@@ -491,7 +509,8 @@
       ],
       "note": "research/literature/notes/chen2026morl-fb.md",
       "added_at": "2026-10-15T04:03:51+00:00",
-      "updated_at": "2026-10-15T04:07:57+00:00"
+      "updated_at": "2026-10-15T04:07:57+00:00",
+      "metadata_verification_url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/54e12eaf098fa4eaeb215e6ff66c0abe-Abstract-Conference.html"
     },
     {
       "id": "ambadkar2026d3po",
@@ -729,6 +748,122 @@
       "note": "research/literature/notes/osband2016bootstrapped-dqn.md",
       "added_at": "2026-11-02T01:45:58+00:00",
       "updated_at": "2026-11-02T01:48:23+00:00"
+    },
+    {
+      "id": "schulman2017ppo",
+      "title": "Proximal Policy Optimization Algorithms",
+      "authors": [
+        "John Schulman",
+        "Filip Wolski",
+        "Prafulla Dhariwal",
+        "Alec Radford",
+        "Oleg Klimov"
+      ],
+      "year": 2017,
+      "venue": "arXiv 2017",
+      "source_type": "preprint",
+      "status": "screened",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": true,
+      "access_note": "Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.",
+      "access_checked_at": "2026-11-03T14:02:31+00:00",
+      "url": "https://arxiv.org/abs/1707.06347",
+      "tags": [
+        "foundation",
+        "targeted-full-text-consultation"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/schulman2017ppo.md",
+      "added_at": "2026-11-03T14:02:31+00:00",
+      "updated_at": "2026-11-03T14:02:31+00:00"
+    },
+    {
+      "id": "schulman2015gae",
+      "title": "High-Dimensional Continuous Control Using Generalized Advantage Estimation",
+      "authors": [
+        "John Schulman",
+        "Philipp Moritz",
+        "Sergey Levine",
+        "Michael I. Jordan",
+        "Pieter Abbeel"
+      ],
+      "year": 2015,
+      "venue": "arXiv 2015; v6 revised 2018",
+      "source_type": "preprint",
+      "status": "screened",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": true,
+      "access_note": "Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.",
+      "access_checked_at": "2026-11-03T14:02:31+00:00",
+      "url": "https://arxiv.org/abs/1506.02438",
+      "tags": [
+        "foundation",
+        "targeted-full-text-consultation"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/schulman2015gae.md",
+      "added_at": "2026-11-03T14:02:31+00:00",
+      "updated_at": "2026-11-03T14:02:31+00:00"
+    },
+    {
+      "id": "vanhasselt2016popart",
+      "title": "Learning values across many orders of magnitude",
+      "authors": [
+        "Hado van Hasselt",
+        "Arthur Guez",
+        "Matteo Hessel",
+        "Volodymyr Mnih",
+        "David Silver"
+      ],
+      "year": 2016,
+      "venue": "NeurIPS 2016",
+      "source_type": "peer-reviewed",
+      "status": "screened",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": true,
+      "access_note": "Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.",
+      "access_checked_at": "2026-11-03T14:02:31+00:00",
+      "url": "https://arxiv.org/abs/1602.07714v2",
+      "tags": [
+        "foundation",
+        "targeted-full-text-consultation"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/vanhasselt2016popart.md",
+      "added_at": "2026-11-03T14:02:31+00:00",
+      "updated_at": "2026-11-03T14:02:31+00:00"
+    },
+    {
+      "id": "agarwal2021evaluation",
+      "title": "Deep Reinforcement Learning at the Edge of the Statistical Precipice",
+      "authors": [
+        "Rishabh Agarwal",
+        "Max Schwarzer",
+        "Pablo Samuel Castro",
+        "Aaron Courville",
+        "Marc G. Bellemare"
+      ],
+      "year": 2021,
+      "venue": "NeurIPS 2021",
+      "source_type": "peer-reviewed",
+      "status": "screened",
+      "access_status": "open_full_text",
+      "evidence_level": "full_text",
+      "full_text_required": true,
+      "access_note": "Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.",
+      "access_checked_at": "2026-11-03T14:02:31+00:00",
+      "url": "https://arxiv.org/abs/2108.13264",
+      "tags": [
+        "foundation",
+        "targeted-full-text-consultation"
+      ],
+      "claim_ids": [],
+      "note": "research/literature/notes/agarwal2021evaluation.md",
+      "added_at": "2026-11-03T14:02:31+00:00",
+      "updated_at": "2026-11-03T14:02:31+00:00"
     }
   ]
 }

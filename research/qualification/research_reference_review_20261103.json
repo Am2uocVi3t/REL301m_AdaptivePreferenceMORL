@@ -1,0 +1,747 @@
+{
+  "review": "research positioning and bibliography coverage",
+  "review_independence": "executor_only",
+  "acceptance_status": "provisional",
+  "original_registry_papers": 24,
+  "original_cited_papers": 9,
+  "current_registry_papers": 28,
+  "current_cited_papers": 21,
+  "historical_read_records_preserved": 24,
+  "new_screened_foundations": 4,
+  "author_records_corrected": [
+    {
+      "id": "yang2019envelope",
+      "old_authors": [
+        "Runzhe Yang",
+        "Xiaolong Sun",
+        "Karthik Narasimhan"
+      ],
+      "correct_authors": [
+        "Runzhe Yang",
+        "Xingyuan Sun",
+        "Karthik Narasimhan"
+      ],
+      "primary_verification_url": "https://arxiv.org/abs/1908.08342"
+    },
+    {
+      "id": "xu2020pgmorl",
+      "old_authors": [
+        "Jie Xu",
+        "Yunsheng Tian",
+        "Pingchuan Ma",
+        "Dinesh Manocha",
+        "Wenping Wang"
+      ],
+      "correct_authors": [
+        "Jie Xu",
+        "Yunsheng Tian",
+        "Pingchuan Ma",
+        "Daniela Rus",
+        "Shinjiro Sueda",
+        "Wojciech Matusik"
+      ],
+      "primary_verification_url": "https://proceedings.mlr.press/v119/xu20h.html"
+    },
+    {
+      "id": "alegre2023gpi-prioritization",
+      "old_authors": [
+        "Lucas N. Alegre",
+        "Ana L. C. Bazzan",
+        "Bruno C. da Silva"
+      ],
+      "correct_authors": [
+        "Lucas N. Alegre",
+        "Ana L. C. Bazzan",
+        "Diederik M. Roijers",
+        "Ann Nowé",
+        "Bruno C. da Silva"
+      ],
+      "primary_verification_url": "https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2003.pdf"
+    },
+    {
+      "id": "colas2019curious",
+      "old_authors": [
+        "Cédric Colas",
+        "Tristan Karch",
+        "Olivier Sigaud",
+        "Pierre-Yves Oudeyer"
+      ],
+      "correct_authors": [
+        "Cédric Colas",
+        "Pierre Fournier",
+        "Mohamed Chetouani",
+        "Olivier Sigaud",
+        "Pierre-Yves Oudeyer"
+      ],
+      "primary_verification_url": "https://proceedings.mlr.press/v97/colas19a.html"
+    },
+    {
+      "id": "teoh2025morl-generalization",
+      "old_authors": [
+        "Jia Wei Teoh",
+        "Pradeep Varakantham",
+        "Karl Mason"
+      ],
+      "correct_authors": [
+        "Jayden Teoh",
+        "Pradeep Varakantham",
+        "Peter Vamplew"
+      ],
+      "primary_verification_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/c97d5a0a332ac6a8e4836de20462c576-Abstract-Conference.html"
+    },
+    {
+      "id": "shianifar2026hpr",
+      "old_authors": [
+        "Hadi Shianifar",
+        "Michael Schukat",
+        "Karl Mason"
+      ],
+      "correct_authors": [
+        "Jonaid Shianifar",
+        "Michael Schukat",
+        "Karl Mason"
+      ],
+      "primary_verification_url": "https://arxiv.org/abs/2601.11604"
+    },
+    {
+      "id": "yang2025pcrl",
+      "old_authors": [
+        "Yucheng Yang",
+        "Shengjun Wang",
+        "Wenjie Li",
+        "Huaqing Xiong",
+        "Gang Li",
+        "Wei Pan"
+      ],
+      "correct_authors": [
+        "Yucheng Yang",
+        "Tianyi Zhou",
+        "Mykola Pechenizkiy",
+        "Meng Fang"
+      ],
+      "primary_verification_url": "https://proceedings.mlr.press/v267/yang25ax.html"
+    }
+  ],
+  "metadata_inventory": [
+    {
+      "id": "abels2019dynamic-weights",
+      "cited_in_current_report": true,
+      "authors": [
+        "Axel Abels",
+        "Diederik Roijers",
+        "Tom Lenaerts",
+        "Ann Nowé",
+        "Denis Steckelmacher"
+      ],
+      "year": 2019,
+      "venue": "ICML 2019",
+      "verification_source": "https://proceedings.mlr.press/v97/abels19a.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "yang2019envelope",
+      "cited_in_current_report": true,
+      "authors": [
+        "Runzhe Yang",
+        "Xingyuan Sun",
+        "Karthik Narasimhan"
+      ],
+      "year": 2019,
+      "venue": "NeurIPS 2019",
+      "verification_source": "https://arxiv.org/abs/1908.08342",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "xu2020pgmorl",
+      "cited_in_current_report": true,
+      "authors": [
+        "Jie Xu",
+        "Yunsheng Tian",
+        "Pingchuan Ma",
+        "Daniela Rus",
+        "Shinjiro Sueda",
+        "Wojciech Matusik"
+      ],
+      "year": 2020,
+      "venue": "ICML 2020",
+      "verification_source": "https://proceedings.mlr.press/v119/xu20h.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "reymond2022pcn",
+      "cited_in_current_report": true,
+      "authors": [
+        "Mathieu Reymond",
+        "Eugenio Bargiacchi",
+        "Ann Nowé"
+      ],
+      "year": 2022,
+      "venue": "AAMAS 2022",
+      "verification_source": "https://arxiv.org/abs/2204.05036",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "lu2023capql",
+      "cited_in_current_report": false,
+      "authors": [
+        "Haoye Lu",
+        "Daniel Herman",
+        "Yaoliang Yu"
+      ],
+      "year": 2023,
+      "venue": "ICLR 2023",
+      "verification_source": "https://haoyelu.github.io/files/haoye_cv.pdf",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "basaklar2023pdmorl",
+      "cited_in_current_report": false,
+      "authors": [
+        "Toygun Basaklar",
+        "Suat Gumussoy",
+        "Umit Y. Ogras"
+      ],
+      "year": 2023,
+      "venue": "ICLR 2023",
+      "verification_source": "https://arxiv.org/abs/2208.07914",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "alegre2023gpi-prioritization",
+      "cited_in_current_report": true,
+      "authors": [
+        "Lucas N. Alegre",
+        "Ana L. C. Bazzan",
+        "Diederik M. Roijers",
+        "Ann Nowé",
+        "Bruno C. da Silva"
+      ],
+      "year": 2023,
+      "venue": "AAMAS 2023",
+      "verification_source": "https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p2003.pdf",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "zhang2020value-disagreement",
+      "cited_in_current_report": true,
+      "authors": [
+        "Yunzhi Zhang",
+        "Pieter Abbeel",
+        "Lerrel Pinto"
+      ],
+      "year": 2020,
+      "venue": "NeurIPS 2020",
+      "verification_source": "https://papers.nips.cc/paper/2020/hash/566f0ea4f6c2e947f36795c8f58ba901-Abstract.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "portelas2020alp-gmm",
+      "cited_in_current_report": true,
+      "authors": [
+        "Rémy Portelas",
+        "Cédric Colas",
+        "Katja Hofmann",
+        "Pierre-Yves Oudeyer"
+      ],
+      "year": 2020,
+      "venue": "CoRL 2019 / PMLR 2020",
+      "verification_source": "https://proceedings.mlr.press/v100/portelas20a.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "jiang2021plr",
+      "cited_in_current_report": true,
+      "authors": [
+        "Minqi Jiang",
+        "Edward Grefenstette",
+        "Tim Rocktäschel"
+      ],
+      "year": 2021,
+      "venue": "ICML 2021",
+      "verification_source": "https://proceedings.mlr.press/v139/jiang21b.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "colas2019curious",
+      "cited_in_current_report": true,
+      "authors": [
+        "Cédric Colas",
+        "Pierre Fournier",
+        "Mohamed Chetouani",
+        "Olivier Sigaud",
+        "Pierre-Yves Oudeyer"
+      ],
+      "year": 2019,
+      "venue": "ICML 2019",
+      "verification_source": "https://proceedings.mlr.press/v97/colas19a.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "teoh2025morl-generalization",
+      "cited_in_current_report": true,
+      "authors": [
+        "Jayden Teoh",
+        "Pradeep Varakantham",
+        "Peter Vamplew"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2025",
+      "verification_source": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/c97d5a0a332ac6a8e4836de20462c576-Abstract-Conference.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "shianifar2026hpr",
+      "cited_in_current_report": true,
+      "authors": [
+        "Jonaid Shianifar",
+        "Michael Schukat",
+        "Karl Mason"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026; authors state AICS 2025 acceptance",
+      "verification_source": "https://arxiv.org/abs/2601.11604",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "liu2025cmorl",
+      "cited_in_current_report": false,
+      "authors": [
+        "Ruohong Liu",
+        "Yuxin Pan",
+        "Linjie Xu",
+        "Lei Song",
+        "Pengcheng You",
+        "Yize Chen",
+        "Jiang Bian"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2025",
+      "verification_source": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/adb77ecc8ba1c2d3135c86a46b8f2496-Abstract-Conference.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "yang2025pcrl",
+      "cited_in_current_report": false,
+      "authors": [
+        "Yucheng Yang",
+        "Tianyi Zhou",
+        "Mykola Pechenizkiy",
+        "Meng Fang"
+      ],
+      "year": 2025,
+      "venue": "ICML 2025",
+      "verification_source": "https://proceedings.mlr.press/v267/yang25ax.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "chen2026morl-fb",
+      "cited_in_current_report": false,
+      "authors": [
+        "Ying-Tu Chen",
+        "Wei Hung",
+        "Bing-Shu Wu",
+        "Zhang-Wei Hong",
+        "Ping-Chun Hsieh"
+      ],
+      "year": 2026,
+      "venue": "ICLR 2026",
+      "verification_source": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/54e12eaf098fa4eaeb215e6ff66c0abe-Abstract-Conference.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "ambadkar2026d3po",
+      "cited_in_current_report": true,
+      "authors": [
+        "Tanmay Ambadkar",
+        "Sourav Panda",
+        "Shreyash Kale",
+        "Jonathan Dodge",
+        "Abhinav Verma"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "verification_source": "https://arxiv.org/abs/2602.07764",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "delasheras2026controllability",
+      "cited_in_current_report": true,
+      "authors": [
+        "Pau de las Heras Molins",
+        "Beyazit Yalcinkaya",
+        "Lasse Peters",
+        "David Fridovich-Keil",
+        "Georgios Bakirtzis"
+      ],
+      "year": 2026,
+      "venue": "arXiv 2026",
+      "verification_source": "https://arxiv.org/abs/2605.10585",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "hu2026predictable-preferences",
+      "cited_in_current_report": false,
+      "authors": [
+        "Mingxi Hu",
+        "Meiling Yu"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "verification_source": "https://proceedings.mlr.press/v306/hu26bc.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "hu2026pbmorl",
+      "cited_in_current_report": true,
+      "authors": [
+        "Tianmeng Hu",
+        "Biao Luo",
+        "Ke Li"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "verification_source": "https://proceedings.mlr.press/v306/hu26am.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "hu2026reactive-preferences",
+      "cited_in_current_report": false,
+      "authors": [
+        "Mingxi Hu",
+        "Meiling Yu"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "verification_source": "https://proceedings.mlr.press/v306/hu26bd.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "zhao2026mpft",
+      "cited_in_current_report": true,
+      "authors": [
+        "Zeyu Zhao",
+        "Yueling Che",
+        "Kaichen Liu",
+        "Jian Li",
+        "Junmei Yao"
+      ],
+      "year": 2026,
+      "venue": "ICML 2026",
+      "verification_source": "https://proceedings.mlr.press/v306/zhao26b.html",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "terekhov2024architectures",
+      "cited_in_current_report": true,
+      "authors": [
+        "Mikhail Terekhov",
+        "Caglar Gulcehre"
+      ],
+      "year": 2024,
+      "venue": "ARLET 2024 workshop",
+      "verification_source": "https://arxiv.org/abs/2407.16807",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "osband2016bootstrapped-dqn",
+      "cited_in_current_report": true,
+      "authors": [
+        "Ian Osband",
+        "Charles Blundell",
+        "Alexander Pritzel",
+        "Benjamin Van Roy"
+      ],
+      "year": 2016,
+      "venue": "NeurIPS 2016",
+      "verification_source": "https://arxiv.org/abs/1602.04621",
+      "registry_reading_status": "read",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "schulman2017ppo",
+      "cited_in_current_report": true,
+      "authors": [
+        "John Schulman",
+        "Filip Wolski",
+        "Prafulla Dhariwal",
+        "Alec Radford",
+        "Oleg Klimov"
+      ],
+      "year": 2017,
+      "venue": "arXiv 2017",
+      "verification_source": "https://arxiv.org/abs/1707.06347",
+      "registry_reading_status": "screened",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "schulman2015gae",
+      "cited_in_current_report": true,
+      "authors": [
+        "John Schulman",
+        "Philipp Moritz",
+        "Sergey Levine",
+        "Michael I. Jordan",
+        "Pieter Abbeel"
+      ],
+      "year": 2015,
+      "venue": "arXiv 2015; v6 revised 2018",
+      "verification_source": "https://arxiv.org/abs/1506.02438",
+      "registry_reading_status": "screened",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "vanhasselt2016popart",
+      "cited_in_current_report": true,
+      "authors": [
+        "Hado van Hasselt",
+        "Arthur Guez",
+        "Matteo Hessel",
+        "Volodymyr Mnih",
+        "David Silver"
+      ],
+      "year": 2016,
+      "venue": "NeurIPS 2016",
+      "verification_source": "https://arxiv.org/abs/1602.07714v2",
+      "registry_reading_status": "screened",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    },
+    {
+      "id": "agarwal2021evaluation",
+      "cited_in_current_report": true,
+      "authors": [
+        "Rishabh Agarwal",
+        "Max Schwarzer",
+        "Pablo Samuel Castro",
+        "Aaron Courville",
+        "Marc G. Bellemare"
+      ],
+      "year": 2021,
+      "venue": "NeurIPS 2021",
+      "verification_source": "https://arxiv.org/abs/2108.13264",
+      "registry_reading_status": "screened",
+      "current_review_scope": "Metadata comparison; relevant full-text sections/previous structured notes where used. No new whole-paper reading certification."
+    }
+  ],
+  "citation_contexts": [
+    {
+      "key": "abels2019dynamic-weights",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 67,
+      "context": "\\section{Research background} \\subsection{Conditioned policies and allocation antecedents} Dynamic-weight Q-learning~\\cite{abels2019dynamic-weights} and Envelope Q-learning~\\cite{yang2019envelope} are direct antecedents of conditioned multi-objective value learning. PCN conditions a policy on desired return and"
+    },
+    {
+      "key": "yang2019envelope",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 68,
+      "context": "\\subsection{Conditioned policies and allocation antecedents} Dynamic-weight Q-learning~\\cite{abels2019dynamic-weights} and Envelope Q-learning~\\cite{yang2019envelope} are direct antecedents of conditioned multi-objective value learning. PCN conditions a policy on desired return and horizon~\\cite{reymond2022pcn}; it differs from this project's preference-conditioned"
+    },
+    {
+      "key": "reymond2022pcn",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 70,
+      "context": "Q-learning~\\cite{yang2019envelope} are direct antecedents of conditioned multi-objective value learning. PCN conditions a policy on desired return and horizon~\\cite{reymond2022pcn}; it differs from this project's preference-conditioned Q-network. Preference conditioning is therefore not a novelty claim. PG-MORL~\\cite{xu2020pgmorl} and GPI prioritization~\\cite{alegre2023gpi-prioritization}"
+    },
+    {
+      "key": "xu2020pgmorl",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 72,
+      "context": "horizon~\\cite{reymond2022pcn}; it differs from this project's preference-conditioned Q-network. Preference conditioning is therefore not a novelty claim. PG-MORL~\\cite{xu2020pgmorl} and GPI prioritization~\\cite{alegre2023gpi-prioritization} already direct effort toward promising trade-offs. The project's narrower interest is a controlled comparison of allocation signals and their failure modes."
+    },
+    {
+      "key": "alegre2023gpi-prioritization",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 72,
+      "context": "horizon~\\cite{reymond2022pcn}; it differs from this project's preference-conditioned Q-network. Preference conditioning is therefore not a novelty claim. PG-MORL~\\cite{xu2020pgmorl} and GPI prioritization~\\cite{alegre2023gpi-prioritization} already direct effort toward promising trade-offs. The project's narrower interest is a controlled comparison of allocation signals and their failure modes."
+    },
+    {
+      "key": "zhang2020value-disagreement",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 76,
+      "context": "interest is a controlled comparison of allocation signals and their failure modes.  Value disagreement motivates goal-sampling curricula~\\cite{zhang2020value-disagreement}, while ALP-GMM~\\cite{portelas2020alp-gmm} and CURIOUS~\\cite{colas2019curious} motivate competence-progress curricula. Absolute change can include forgetting;"
+    },
+    {
+      "key": "portelas2020alp-gmm",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 77,
+      "context": " Value disagreement motivates goal-sampling curricula~\\cite{zhang2020value-disagreement}, while ALP-GMM~\\cite{portelas2020alp-gmm} and CURIOUS~\\cite{colas2019curious} motivate competence-progress curricula. Absolute change can include forgetting; it is not automatically signed improvement. A shared representation also means"
+    },
+    {
+      "key": "colas2019curious",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 77,
+      "context": " Value disagreement motivates goal-sampling curricula~\\cite{zhang2020value-disagreement}, while ALP-GMM~\\cite{portelas2020alp-gmm} and CURIOUS~\\cite{colas2019curious} motivate competence-progress curricula. Absolute change can include forgetting; it is not automatically signed improvement. A shared representation also means"
+    },
+    {
+      "key": "jiang2021plr",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 84,
+      "context": " PLR uses learning-potential scores and staleness for level replay rather than preference sampling~\\cite{jiang2021plr}. It is a structural antecedent for our coverage/recency component. Bootstrapped DQN motivates randomized value heads for exploration~\\cite{osband2016bootstrapped-dqn}; sharing parameters and using"
+    },
+    {
+      "key": "osband2016bootstrapped-dqn",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 86,
+      "context": "preference sampling~\\cite{jiang2021plr}. It is a structural antecedent for our coverage/recency component. Bootstrapped DQN motivates randomized value heads for exploration~\\cite{osband2016bootstrapped-dqn}; sharing parameters and using masked heads here does not establish calibrated epistemic uncertainty. Broad adaptive allocation is already prior art: PBMORL steers multi-policy"
+    },
+    {
+      "key": "hu2026pbmorl",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 89,
+      "context": "masked heads here does not establish calibrated epistemic uncertainty. Broad adaptive allocation is already prior art: PBMORL steers multi-policy optimization using human preference feedback~\\cite{hu2026pbmorl}, while MPFT extends policy sets through Pareto tracking and sparse-region filling~\\cite{zhao2026mpft}. Our proposed distinction is autonomous outcome-derived signals for one"
+    },
+    {
+      "key": "zhao2026mpft",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 90,
+      "context": "Broad adaptive allocation is already prior art: PBMORL steers multi-policy optimization using human preference feedback~\\cite{hu2026pbmorl}, while MPFT extends policy sets through Pareto tracking and sparse-region filling~\\cite{zhao2026mpft}. Our proposed distinction is autonomous outcome-derived signals for one conditioned learner and separated rollout/update effects. That distinction is"
+    },
+    {
+      "key": "schulman2017ppo",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 115,
+      "context": "\\subsection{Backbone choices and evaluation limits} Clipped PPO supplies the policy-ratio surrogate and minibatch-update procedure~\\cite{schulman2017ppo}. GAE supplies the discounted TD-residual estimator~\\cite{schulman2015gae}; choosing $\\lambda=.95$ here is a frozen design choice, not a proven optimum. PopArt preserves unnormalized value outputs when"
+    },
+    {
+      "key": "schulman2015gae",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 116,
+      "context": "Clipped PPO supplies the policy-ratio surrogate and minibatch-update procedure~\\cite{schulman2017ppo}. GAE supplies the discounted TD-residual estimator~\\cite{schulman2015gae}; choosing $\\lambda=.95$ here is a frozen design choice, not a proven optimum. PopArt preserves unnormalized value outputs when target statistics change~\\cite{vanhasselt2016popart}. Our multi-objective"
+    },
+    {
+      "key": "vanhasselt2016popart",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 118,
+      "context": "estimator~\\cite{schulman2015gae}; choosing $\\lambda=.95$ here is a frozen design choice, not a proven optimum. PopArt preserves unnormalized value outputs when target statistics change~\\cite{vanhasselt2016popart}. Our multi-objective architecture follows MOPPO's design study~\\cite{terekhov2024architectures} with documented departures, including critic-only normalization and fixed-utility"
+    },
+    {
+      "key": "terekhov2024architectures",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 119,
+      "context": "choice, not a proven optimum. PopArt preserves unnormalized value outputs when target statistics change~\\cite{vanhasselt2016popart}. Our multi-objective architecture follows MOPPO's design study~\\cite{terekhov2024architectures} with documented departures, including critic-only normalization and fixed-utility actor scalarization. These sources explain the components; only our own"
+    },
+    {
+      "key": "ambadkar2026d3po",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 125,
+      "context": " Recent D$^3$PO examines late preference weighting and behavioral diversity~\\cite{ambadkar2026d3po}; HPR evaluates preference replay in a different actor--critic setting~\\cite{shianifar2026hpr}. They are relevant alternatives, not implementations silently reproduced here. Our failed relabel/loss studies"
+    },
+    {
+      "key": "shianifar2026hpr",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 126,
+      "context": "Recent D$^3$PO examines late preference weighting and behavioral diversity~\\cite{ambadkar2026d3po}; HPR evaluates preference replay in a different actor--critic setting~\\cite{shianifar2026hpr}. They are relevant alternatives, not implementations silently reproduced here. Our failed relabel/loss studies do not falsify their mechanisms, and our later PPO successes do not establish"
+    },
+    {
+      "key": "delasheras2026controllability",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 132,
+      "context": " Controllability asks whether preference changes induce appropriately ordered objective returns, which aggregate MORL metrics may miss~\\cite{delasheras2026controllability}. The corner-case diagnosis in this report reveals limitations but is not a complete implementation of that paper's metric. Generalization across"
+    },
+    {
+      "key": "teoh2025morl-generalization",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 135,
+      "context": "The corner-case diagnosis in this report reveals limitations but is not a complete implementation of that paper's metric. Generalization across environment configurations is separate~\\cite{teoh2025morl-generalization}; new preference weights in nominal dynamics do not establish it. Few-run evaluation also carries substantial uncertainty~\\cite{agarwal2021evaluation}."
+    },
+    {
+      "key": "agarwal2021evaluation",
+      "file": "paper/REL301m/Chapters/Final.tex",
+      "line": 137,
+      "context": "environment configurations is separate~\\cite{teoh2025morl-generalization}; new preference weights in nominal dynamics do not establish it. Few-run evaluation also carries substantial uncertainty~\\cite{agarwal2021evaluation}. We retain seed-level outcomes, separate the observed Lunar pilot from the two prospective seeds, and avoid best-checkpoint selection or significance claims."
+    },
+    {
+      "key": "abels2019dynamic-weights",
+      "file": "paper/REL301m/Chapters/BackboneInvestigation.tex",
+      "line": 36,
+      "context": " The full-text/source review also corrects budget comparability. Abels et al.~\\cite{abels2019dynamic-weights} report Minecart to one million decision steps with a different optimizer and discount factor. The 100k Envelope setup is a library example; Minecart is not an experimental task in"
+    },
+    {
+      "key": "yang2019envelope",
+      "file": "paper/REL301m/Chapters/BackboneInvestigation.tex",
+      "line": 39,
+      "context": "decision steps with a different optimizer and discount factor. The 100k Envelope setup is a library example; Minecart is not an experimental task in the original Envelope paper~\\cite{yang2019envelope}. The author PCN Minecart implementation~\\cite{reymond2022pcn} instead uses a deterministic environment and ten million interactions."
+    },
+    {
+      "key": "reymond2022pcn",
+      "file": "paper/REL301m/Chapters/BackboneInvestigation.tex",
+      "line": 40,
+      "context": "Envelope setup is a library example; Minecart is not an experimental task in the original Envelope paper~\\cite{yang2019envelope}. The author PCN Minecart implementation~\\cite{reymond2022pcn} instead uses a deterministic environment and ten million interactions. A later stochastic-Minecart architecture study uses four million interactions"
+    },
+    {
+      "key": "terekhov2024architectures",
+      "file": "paper/REL301m/Chapters/BackboneInvestigation.tex",
+      "line": 43,
+      "context": "deterministic environment and ten million interactions. A later stochastic-Minecart architecture study uses four million interactions and five seeds~\\cite{terekhov2024architectures}. These are implementation differences to disclose, not evidence that longer training alone fixes our learner. "
+    },
+    {
+      "key": "schulman2017ppo",
+      "file": "paper/REL301m/Chapters/OnpolicyResults.tex",
+      "line": 6,
+      "context": "training episodes. These failures motivated a separate categorical actor with a vector state-value critic, rather than extending a failed experiment. The candidate uses a multibody architecture, clipped PPO~\\cite{schulman2017ppo}, critic PopArt~\\cite{vanhasselt2016popart} and MDMM entropy control motivated by MOPPO~\\cite{terekhov2024architectures}."
+    },
+    {
+      "key": "vanhasselt2016popart",
+      "file": "paper/REL301m/Chapters/OnpolicyResults.tex",
+      "line": 7,
+      "context": "a vector state-value critic, rather than extending a failed experiment. The candidate uses a multibody architecture, clipped PPO~\\cite{schulman2017ppo}, critic PopArt~\\cite{vanhasselt2016popart} and MDMM entropy control motivated by MOPPO~\\cite{terekhov2024architectures}. Unlike its objective-wise normalized actor advantage, this project scalarizes"
+    },
+    {
+      "key": "terekhov2024architectures",
+      "file": "paper/REL301m/Chapters/OnpolicyResults.tex",
+      "line": 8,
+      "context": "The candidate uses a multibody architecture, clipped PPO~\\cite{schulman2017ppo}, critic PopArt~\\cite{vanhasselt2016popart} and MDMM entropy control motivated by MOPPO~\\cite{terekhov2024architectures}. Unlike its objective-wise normalized actor advantage, this project scalarizes the original fixed-scaled vector advantage before batch standardization, preserving"
+    }
+  ],
+  "source_hashes": {
+    "paper\\REL301m\\main.tex": "4d83fb809bc1d43486dba2fdf2c27d87ae6497558b2ebe189aa1f5c7c0eb1839",
+    "paper\\REL301m\\General\\Preamble.tex": "4fdd9eeb08001e258dbbb1cbb380273acbaf1d1dc79605c324276ca5bc4d4d6d",
+    "paper\\REL301m\\Chapters\\0. Frontpage.tex": "36bce109cd0d8f396415284def48cdb5bba05549575fbff8c037dddb5305f54a",
+    "paper\\REL301m\\Chapters\\Final.tex": "86a9d9975dfde467e2f8b606ea8a32f53275dbdc192fdde9fe1dd8430c5a665e",
+    "paper\\REL301m\\Figures\\morl-pipeline.tex": "0c69b088347bc6d46d74b5ea73662ee0f12df925eba9cb3d1aa3cbf31f79e192",
+    "paper\\REL301m\\Chapters\\PrimaryTable.tex": "c01406ed3da95c75e975db47a148469a53207e457a5b383fbd6ce8e908f82d60",
+    "paper\\REL301m\\Chapters\\EnvelopeResults.tex": "14ac23c244ea3a9e541e82456b98c0b10f9be062ea19bc9bf6dfd92ba33ac49c",
+    "paper\\REL301m\\Chapters\\BackboneInvestigation.tex": "9a7e51a52a497a65657e7bbc6f1a01cdba2aa5fc99f6fb96fa53d85292e555dd",
+    "paper\\REL301m\\Chapters\\OnpolicyResults.tex": "bfa1ed96addb47a355e73d49465b38b67d6be7bd6501651d69b143043edeb5c8",
+    "paper\\REL301m\\Figures\\ppo-inference.tex": "e688a7d91dab0621a57d40b7baa63805855be83631a1dcfdef8cf0a65706ddd5",
+    "research\\literature\\index.json": "e5fb87dcbb8bcb96741e56f8470f6eb6dc7e0f3735472c93bf19d1e3f186f1e0",
+    "research\\literature\\library.bib": "b1ffd9972b8a13f37133516f1928917c17e25dd9136ed634186cd69fab9b7565"
+  },
+  "access_notes": [
+    "OpenReview browser challenges were respected; metadata alternatives were author CV, arXiv and official ICLR proceedings",
+    "PPO HTML wrapper did not expose text; public arXiv PDF Section3 consulted",
+    "PBMORL/MPFT official raw PDF MIME unsupported by web renderer; legal PDFs downloaded only to ignored D-drive cache and target passages extracted",
+    "PopArt uses v2 title and five-author metadata; v1 differs"
+  ],
+  "scientific_verdict": "Real empirical course investigation with audited negative and bounded positive findings; no validated new allocation method or matched-budget superiority.",
+  "no_training_or_protocol_changes": true,
+  "final_test_steps": 0,
+  "limits": [
+    "Not independent cross-family semantic acceptance",
+    "Historical24 full-reading records not independently recertified by this metadata/targeted review",
+    "Four foundations screened only; complete-paper reading remains outstanding",
+    "No baseline benchmark results imported as repository evidence"
+  ]
+}

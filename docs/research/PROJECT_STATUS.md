@@ -1,3 +1,21 @@
+Research/reference review3 November2026: library24->28 records, report9->21
+substantive citations. Corrected7 author lists against primary sources (Envelope,
+PG-MORL,GPI prioritization,CURIOUS,HPR,PCRL,Teoh generalization). Previous key/path
+checks had not verified author identity. Historical24 read records preserved,
+not independently recertified;4 new PPO/GAE/PopArt/evaluation foundations remain
+screened after targeted full-text sections, no new whole-paper reading claimed.
+Report19 pages now explicitly distinguishes actual contribution, antecedents,
+unimplemented alternatives, controllability, dynamics and few-run limits.
+No algorithm/normalization/protocol/training/checkpoint/outcome change. New
+outputs/REL301m_Course_Reference_Review_20261103 +ZIP has corrected library;
+40 extracted real cases/source equivalence,81 JS,Edge and launcher8768 pass.
+233 tests pass4skip;Ruff/mypy147/Bandit/compileall/diff pass. Prior releases
+preserved; do not use old bibliography for final hand-in. Executor-only
+provisional review, not independent semantic acceptance. Read
+RESEARCH_REFERENCE_REVIEW_20261103.md and qualification research_reference_review_20261103.json
+plus research_reference_delivery_20261103.json. Original adaptive claims still
+unestablished; no training active or automatically authorized by this review.
+
 Submission review verified3 November2026: new package/ZIP
 outputs/REL301m_Course_Submission_Review_20261103 contains the current16-page
 report with6 research figures and unchanged verified actors. Fresh extraction,

@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T13:49:43+00:00
-Expected working branch at generation: codex/submission-readiness-audit
-Expected commit at generation: fcc0211
+Snapshot generated: 2026-11-03T14:17:57+00:00
+Expected working branch at generation: codex/research-reference-review
+Expected commit at generation: f5b2eaf
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
@@ -72,9 +72,16 @@ Literature queue:
 - zhao2026mpft [read; full_text; access=open_full_text]: Population-Free Pareto Tracking for Sample-Efficient Multi-Policy MORL
 - terekhov2024architectures [read; full_text; access=open_full_text]: In Search for Architectures and Loss Functions in Multi-Objective Reinforcement Learning
 - osband2016bootstrapped-dqn [read; full_text; access=open_full_text]: Deep Exploration via Bootstrapped DQN
+- schulman2017ppo [screened; full_text; access=open_full_text]: Proximal Policy Optimization Algorithms
+- schulman2015gae [screened; full_text; access=open_full_text]: High-Dimensional Continuous Control Using Generalized Advantage Estimation
+- vanhasselt2016popart [screened; full_text; access=open_full_text]: Learning values across many orders of magnitude
+- agarwal2021evaluation [screened; full_text; access=open_full_text]: Deep Reinforcement Learning at the Edge of the Statistical Precipice
 
 Full-text requests for the user:
-- None currently registered.
+- schulman2017ppo: Proximal Policy Optimization Algorithms — https://arxiv.org/abs/1707.06347 — Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.
+- schulman2015gae: High-Dimensional Continuous Control Using Generalized Advantage Estimation — https://arxiv.org/abs/1506.02438 — Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.
+- vanhasselt2016popart: Learning values across many orders of magnitude — https://arxiv.org/abs/1602.07714v2 — Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.
+- agarwal2021evaluation: Deep Reinforcement Learning at the Edge of the Statistical Precipice — https://arxiv.org/abs/2108.13264 — Relevant full-text sections consulted; status remains screened. Whole-paper reading not completed or claimed. Full text is legally accessible; no upload required.
 
 Active experiments:
 - course-paired-matrix [blocked]: Paired-seed controls and allocation-signal ablations
@@ -88,10 +95,10 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Readiness audit reran233 Python tests4skip,81 JS assertions, fresh ZIP40 real cases/actor-return equivalence and Edge desktop/mobile/native/PDF checks. Fixed stale Minecart-failure assertion. Added PPO diagram/Lunar curves/preference diagnostic heatmap; report16p6figs rendered/verified. New versioned submission-review ZIP with unchanged actors; launcher8767 report hash verified. No training/test.
+Reviewed research positioning and references:7 author-list errors corrected from primary sources; old24 reading records retained/not recertified;4 foundations screened targeted-only,28 library/21 cited. Report19p clarifies contribution, antecedents and unimplemented alternatives. New corrected ZIP verified40cases+81JS+Edge+launcher8768;233pass4skip. Executor-only provisional; no training/protocol/result changes.
 
 Next actions:
-1. Use verified submission-review package and report for bounded course scope. Prepare actual slide deck/current demo backup video and confirm lecturer rubric/deadline, especially adaptive-comparison requirement. Do not claim full original proposal/arbitrary preferences/dynamics or start more training automatically.
+1. Use corrected19-page reference-review package and bibliography; prepare final slides/current-demo recording and confirm lecturer scope. Original allocation comparison remains unestablished. No automatic training or independent-semantic acceptance claim; four foundations still need complete-paper review before marking read.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

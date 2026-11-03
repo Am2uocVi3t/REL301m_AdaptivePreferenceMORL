@@ -1,0 +1,1243 @@
+{
+  "status": "reference_review_and_delivery_verified",
+  "review_independence": "executor_only",
+  "semantic_acceptance": "provisional_not_independent",
+  "package": "outputs\\REL301m_Course_Reference_Review_20261103",
+  "zip_sha256": "c952512fe7c05f07b9185e5594d5b66c02ba63c92c69779ed24b46cd976dab0b",
+  "manifest_sha256": "b1dcaaeb968b6bd8b6832fe4e494cbb9b38a1c8d5ecd0d5eea6376c4362492bf",
+  "report_sha256": "bd81614c77f3e35a6db670eebaad89d92909f1e2dd0e115cb9b6064ac5e50f33",
+  "report_pages": 19,
+  "library_records": 28,
+  "cited_sources": 21,
+  "new_readings_claimed": 0,
+  "new_foundation_records_screened": 4,
+  "metadata_review": "research/qualification/research_reference_review_20261103.json",
+  "metadata_review_sha256": "0f5bddb36f70c132371fcf7a75e8ffd02eaca79d5a3727f3b655a0d8ca4c8f4a",
+  "physics": {
+    "status": "pass",
+    "scope": "Extracted-package CPU presentation diagnostics; reused development cases, not independent research replication",
+    "package_root": "D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\reference-review-20261103\\extracted\\REL301m_Course_Reference_Review_20261103",
+    "package_manifest_sha256": "b1dcaaeb968b6bd8b6832fe4e494cbb9b38a1c8d5ecd0d5eea6376c4362492bf",
+    "imports_confined_to_package": true,
+    "portable_source_actor_equivalence": true,
+    "native_render_both_environments": true,
+    "records": [
+      {
+        "environment": "lunar",
+        "seed": 20265321,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 235,
+        "raw_return": [
+          100.0,
+          191.2194458609763,
+          -103.0,
+          -30.0
+        ],
+        "discounted_scaled_return": [
+          0.17052742928563192,
+          0.6352789517656002,
+          -0.7118864387660876,
+          -0.2974899903766447
+        ],
+        "utility": 0.08195945017193508,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265321-p0.json",
+        "trace_sha256": "322e91ce2e91d016270e89a15acac3e198ac80e7af7e4fc4a9523d8b7842f663"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265321,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 267,
+        "raw_return": [
+          100.0,
+          193.68807156972537,
+          -99.0,
+          -43.0
+        ],
+        "discounted_scaled_return": [
+          0.1236290329735265,
+          0.5651948010052879,
+          -0.7042743562573472,
+          -0.3810417368659337
+        ],
+        "utility": -0.09912306478611665,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265321-p1.json",
+        "trace_sha256": "245ca6d20fdfbcc7c41692c0cbe711ba23d1ef2277ca1824b7ea9ad7727c0871"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265322,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 281,
+        "raw_return": [
+          100.0,
+          237.95895833280463,
+          -126.0,
+          -43.0
+        ],
+        "discounted_scaled_return": [
+          0.10740220473242909,
+          0.48357066525894143,
+          -0.6708654168361603,
+          -0.5787131308964387
+        ],
+        "utility": -0.0014192473564401467,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265322-p0.json",
+        "trace_sha256": "7f34cef8c4d20bb940f039dc83487ad82b8e7b66a3e03729bba89692087ee2ea"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265322,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 265,
+        "raw_return": [
+          100.0,
+          229.35368721959722,
+          -117.0,
+          -39.0
+        ],
+        "discounted_scaled_return": [
+          0.12613920311552546,
+          0.5150627502371277,
+          -0.6247367042271816,
+          -0.5036747372861484
+        ],
+        "utility": -0.12180237204016922,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265322-p1.json",
+        "trace_sha256": "cb87391541c56d350dba9b2dad9526abd2f56884821c7b1cd121af70b05c9c55"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265323,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 217,
+        "raw_return": [
+          100.0,
+          200.56372838276073,
+          -93.0,
+          -24.0
+        ],
+        "discounted_scaled_return": [
+          0.20434345982421667,
+          0.7866346694026801,
+          -0.7023424380183926,
+          -0.24358895813165035
+        ],
+        "utility": 0.1271107465288809,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265323-p0.json",
+        "trace_sha256": "f14150bd9fb1808afedc98f84ac6735d1cad285c8efacf91a89190adfd9259ee"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265323,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 419,
+        "raw_return": [
+          100.0,
+          191.60919993283682,
+          -94.0,
+          -140.0
+        ],
+        "discounted_scaled_return": [
+          0.026833050687498184,
+          0.7460266150390973,
+          -0.7031949803879239,
+          -0.529911631382084
+        ],
+        "utility": -0.11506173651085311,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265323-p1.json",
+        "trace_sha256": "e50eca7fd8327a3f659b79b2b137c6885fb5e069e476277f22e04699b63ad5cd"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265324,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 215,
+        "raw_return": [
+          100.0,
+          175.5253854989576,
+          -99.0,
+          -17.0
+        ],
+        "discounted_scaled_return": [
+          0.20849245977371358,
+          0.5624915793216004,
+          -0.6599846857549309,
+          -0.1981662567724156
+        ],
+        "utility": 0.11637878259503433,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265324-p0.json",
+        "trace_sha256": "bb9b238b4b7f26c0906dfbe5de8199bc5857126c2462cebea8bacbb316fd1b92"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265324,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 213,
+        "raw_return": [
+          100.0,
+          163.5041316599236,
+          -81.0,
+          -73.0
+        ],
+        "discounted_scaled_return": [
+          0.21272570122815385,
+          0.6218797659318415,
+          -0.5925898045230666,
+          -0.5055027665583404
+        ],
+        "utility": -0.06587177598035293,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265324-p1.json",
+        "trace_sha256": "ec47a5e6aab5e0a3a13d05e43e5a69a366496d1e97c390caf7b9ea6053448bb3"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265325,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 267,
+        "raw_return": [
+          100.0,
+          233.37814149434624,
+          -119.0,
+          -33.0
+        ],
+        "discounted_scaled_return": [
+          0.1236290329735265,
+          0.6379821551029043,
+          -0.64794578807534,
+          -0.4540685609346429
+        ],
+        "utility": 0.040137101525525916,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265325-p0.json",
+        "trace_sha256": "ca2446001be79d362f39217c742e23275996ae4c2d6e370a21f423882e31b7fa"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265325,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 223,
+        "raw_return": [
+          100.0,
+          239.24641094998657,
+          -90.0,
+          -31.0
+        ],
+        "discounted_scaled_return": [
+          0.19238531108442075,
+          0.7620973454117069,
+          -0.5723476803500711,
+          -0.4715951792313086
+        ],
+        "utility": -0.022365050771312997,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265325-p1.json",
+        "trace_sha256": "3361f6bfdd6ea661e13845fb16934a5f4a6ccc6585665688ae58cb228c7bb21c"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265326,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 250,
+        "raw_return": [
+          100.0,
+          208.98978666408016,
+          -104.0,
+          -11.0
+        ],
+        "discounted_scaled_return": [
+          0.14666354025260922,
+          0.6907235595469635,
+          -0.6033320751085657,
+          -0.158457359942225
+        ],
+        "utility": 0.09555788877218167,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265326-p0.json",
+        "trace_sha256": "66b77cee1a8cd630ce3f01363bc456b8e37687656b4772512fb23963218e4ea0"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265326,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 270,
+        "raw_return": [
+          100.0,
+          195.33238103084096,
+          -102.0,
+          -30.0
+        ],
+        "discounted_scaled_return": [
+          0.11995712706517979,
+          0.6783913728069167,
+          -0.6014714228432696,
+          -0.2386554073143846
+        ],
+        "utility": -0.010444582571389409,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265326-p1.json",
+        "trace_sha256": "11357e5620f20a25f9d24f2d6ebc905f480ef7acf2b10b4dcd3db716fab265eb"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265327,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 242,
+        "raw_return": [
+          100.0,
+          208.763865648381,
+          -122.0,
+          -30.0
+        ],
+        "discounted_scaled_return": [
+          0.15894270770479713,
+          0.6634020860400537,
+          -0.7950817929696902,
+          -0.4410713397119586
+        ],
+        "utility": 0.05398478798098817,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265327-p0.json",
+        "trace_sha256": "2623afab3b0eea9d0ff150c9d2ffcca897ebe4c757381c5eb21e0ad5a5ade3ce"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265327,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 237,
+        "raw_return": [
+          100.0,
+          214.0497838839928,
+          -104.0,
+          -27.0
+        ],
+        "discounted_scaled_return": [
+          0.16713393344284783,
+          0.7228218053834231,
+          -0.7330624666985553,
+          -0.30755952261894043
+        ],
+        "utility": -0.037666562622806224,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265327-p1.json",
+        "trace_sha256": "3cee683ff21159e6e9affe4f799d2e7a5e5361271ae6c329dc6a2cf9207dcf50"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265328,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 251,
+        "raw_return": [
+          100.0,
+          241.65194388774717,
+          -121.0,
+          -30.0
+        ],
+        "discounted_scaled_return": [
+          0.14519690485008316,
+          0.8546488469187722,
+          -0.8642787388197188,
+          -0.5164975244520834
+        ],
+        "utility": 0.049025089244882275,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265328-p0.json",
+        "trace_sha256": "cad18f96174ed391a8dc0e617f96aa78cf08db013a018273eeb15501debf7754"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265328,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 191,
+        "raw_return": [
+          100.0,
+          242.9594340139114,
+          -90.0,
+          -27.0
+        ],
+        "discounted_scaled_return": [
+          0.2653662472517117,
+          1.0905357413332972,
+          -0.725405173280164,
+          -0.5010872747411805
+        ],
+        "utility": 0.03235238514091612,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265328-p1.json",
+        "trace_sha256": "d259df0c0e1c752c901608c225bfe7e3db36a6733580d4b2073e94247de3047a"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265329,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 189,
+        "raw_return": [
+          100.0,
+          172.72300437968158,
+          -91.0,
+          -10.0
+        ],
+        "discounted_scaled_return": [
+          0.2707542569653216,
+          0.6189542275115173,
+          -0.6797551087487225,
+          -0.09261597796096381
+        ],
+        "utility": 0.1741862904996571,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265329-p0.json",
+        "trace_sha256": "292b023031e3ab389596eca79f87b9cee0afbd0012be66a946efbce647273850"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265329,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 177,
+        "raw_return": [
+          100.0,
+          153.35756790587288,
+          -83.0,
+          -4.0
+        ],
+        "discounted_scaled_return": [
+          0.3054590230552045,
+          0.5973966074784685,
+          -0.6471861532306474,
+          -0.04165420336784164
+        ],
+        "utility": 0.053503818483795984,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265329-p1.json",
+        "trace_sha256": "8dca582de9d0f0b08436ad74c386173f4fd4394eb057076defba93240439985b"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265330,
+        "profile": 0,
+        "preference": [
+          0.699999988079071,
+          0.10000000149011612,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 240,
+        "raw_return": [
+          100.0,
+          177.4533074945586,
+          -93.0,
+          -36.0
+        ],
+        "discounted_scaled_return": [
+          0.1621698884856618,
+          0.5229604518021178,
+          -0.6610818306902781,
+          -0.281344725330444
+        ],
+        "utility": 0.07157230895983391,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265330-p0.json",
+        "trace_sha256": "4038e0c42fa7b4980cf23fb86a314ab0cf6cba08e5bdc96a2841ed567a6d5efe"
+      },
+      {
+        "environment": "lunar",
+        "seed": 20265330,
+        "profile": 1,
+        "preference": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "steps": 253,
+        "raw_return": [
+          100.0,
+          164.3152293677564,
+          -93.0,
+          -30.0
+        ],
+        "discounted_scaled_return": [
+          0.14230748644356647,
+          0.47661295013430516,
+          -0.6488351507267329,
+          -0.24570662009012245
+        ],
+        "utility": -0.06890533355974593,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\lunar-20265330-p1.json",
+        "trace_sha256": "20e01e44632e81b70d66f74a450e6388eb1c28b6955698529f2bc800e4b982ee"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264431,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.3977017402648926,
+          0.10229822248220444,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.1495165180783737,
+          0.08413346934165235,
+          -0.8769066395307865
+        ],
+        "utility": 0.4674518143729865,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264431-p0.json",
+        "trace_sha256": "37deed9a3aca3019851778d858835158409c796f2cf9aaa8fb8c4b130e56a0da"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264431,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.3977017402648926,
+          0.10229822248220444,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.1728563596351127,
+          0.08584171956091455,
+          -1.0002158124951597
+        ],
+        "utility": 0.8468476910336795,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264431-p1.json",
+        "trace_sha256": "39a6b5bcb0e03b8abdbc6d0e3ff6e7c81b373a31b213fb868e55191c6de49477"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264432,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.3218964338302612,
+          0.17810359597206116,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.0871717063103874,
+          0.14647833625809195,
+          -0.8769066395307865
+        ],
+        "utility": 0.4674518391897898,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264432-p0.json",
+        "trace_sha256": "4df9c68184273d87ef4c618aa0ff24be17e55a27cf7163bac57f6c723c61cbbc"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264432,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.3218964338302612,
+          0.17810359597206116,
+          -1.2000000178813934
+        ],
+        "discounted_scaled_return": [
+          1.1092456956539003,
+          0.14945243981031725,
+          -0.927111573120429
+        ],
+        "utility": 0.8096306552565458,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264432-p1.json",
+        "trace_sha256": "b5adbd79201829472f4ae52a70caa8ca22b4df82264fd7cf2fbbf6d8a8cc4b30"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264433,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.4299471378326416,
+          0.04547969251871109,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.176036208272869,
+          0.03740401566465517,
+          -0.8769066395307865
+        ],
+        "utility": 0.45835742104677973,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264433-p0.json",
+        "trace_sha256": "85c2effcdc631ba1bb5666b83440cf912f7f1d64095413f50a4749b9efe6398f"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264433,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.4299471378326416,
+          0.04547969251871109,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.199914506961401,
+          0.03816346869161838,
+          -1.0002158124951597
+        ],
+        "utility": 0.8637263840592926,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264433-p1.json",
+        "trace_sha256": "e12a1e6f5222248c5b5ae51d3ea1fd3b241d1d1bb365799095dcbe3771af6cc0"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264434,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.3160881996154785,
+          0.1839117854833603,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.0823948208144194,
+          0.15125518498842447,
+          -0.8769066395307865
+        ],
+        "utility": 0.46745182264525426,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264434-p0.json",
+        "trace_sha256": "996e9bdd676e7cb66662bf86c1a9e83738e2169a2dd9bcb8c00a540fc770e9d3"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264434,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.3160881996154785,
+          0.1839117854833603,
+          -1.2000000178813934
+        ],
+        "discounted_scaled_return": [
+          1.1043718200330777,
+          0.15432627791901282,
+          -0.927111573120429
+        ],
+        "utility": 0.8062189385199187,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264434-p1.json",
+        "trace_sha256": "765c11d266a3c31e05ad74b3aae660a3239eb841751e150e1fb21fef0154b905"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264435,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.4176108837127686,
+          0.08238916099071503,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.1658904615277024,
+          0.0677595932959891,
+          -0.8769066395307865
+        ],
+        "utility": 0.46745184470463513,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264435-p0.json",
+        "trace_sha256": "2b46834e463602636f71f99dadbc6fcab943031ef529fadfe8662e4ebf835f74"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264435,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.4176108837127686,
+          0.08238916099071503,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.1895627604608736,
+          0.0691353875073861,
+          -1.0002158124951597
+        ],
+        "utility": 0.8585421786631967,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264435-p1.json",
+        "trace_sha256": "ca2da61cb8561575eee5db4d33f0252a9a5376a2be25ed2d177bf13114848882"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264436,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.469645380973816,
+          0.03035464882850647,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.2086853671848574,
+          0.024964675383621963,
+          -0.8769066395307865
+        ],
+        "utility": 0.4674518391897898,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264436-p0.json",
+        "trace_sha256": "43124917a02dcaf19de3ee6791e7a5779126623e19901c2ef4240a2e0690e106"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264436,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.469645380973816,
+          0.03035464882850647,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.233226576048217,
+          0.02547155941600037,
+          -1.0002158124951597
+        ],
+        "utility": 0.889106848779382,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264436-p1.json",
+        "trace_sha256": "74d1d6aeee4cc1e1cd4517525c3553b1198d56decff1e936b278eb9ac554371d"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264437,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.4398425817489624,
+          0.0601574070751667,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.1841745513169102,
+          0.04947545754973681,
+          -0.8769066395307865
+        ],
+        "utility": 0.46745182402396573,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264437-p0.json",
+        "trace_sha256": "c4cb2ae4c4f7924e71056aba68c3d1275d937e003a8dda2e13ff580594691f76"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264437,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.4398425817489624,
+          0.0601574070751667,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.208218091334466,
+          0.05048000974363515,
+          -1.0002158124951597
+        ],
+        "utility": 0.8716009057802858,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264437-p1.json",
+        "trace_sha256": "3ebd47ba761a0a962428f6d9271137e3c819b5a91224c4d017b8b79f85e91a85"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264438,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.4229682683944702,
+          0.07703176140785217,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.1702965533339191,
+          0.06335348923456045,
+          -0.8769066395307865
+        ],
+        "utility": 0.4674518391897899,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264438-p0.json",
+        "trace_sha256": "5ddb78846452ad16c58ec3dee52e594ec2919ca15043e2f317a19f7ab24607a0"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264438,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.4229682683944702,
+          0.07703176140785217,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.1940583137781033,
+          0.06463982168611412,
+          -1.0002158124951597
+        ],
+        "utility": 0.8616890647817457,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264438-p1.json",
+        "trace_sha256": "2e8cb7801b7c077e91f7f9b38407161e1feb1963235ffb7687ce5f8905da7664"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264439,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 17,
+        "raw_return": [
+          1.3943672180175781,
+          0.10563282668590546,
+          -1.1400000117719173
+        ],
+        "discounted_scaled_return": [
+          1.1467740957912975,
+          0.08687595903239384,
+          -0.8769066395307865
+        ],
+        "utility": 0.46745184470463513,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264439-p0.json",
+        "trace_sha256": "57b8923e7f5cb2e8335c0c541e87873c9e0927077e0062d81255fe12ee2ad961"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264439,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.3943672180175781,
+          0.10563282668590546,
+          -1.3000000230967999
+        ],
+        "discounted_scaled_return": [
+          1.1700582550671335,
+          0.08863989290112624,
+          -1.0002158124951597
+        ],
+        "utility": 0.8448890246841307,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264439-p1.json",
+        "trace_sha256": "8e1249359e65cea0cf48eb039096489d8dcb34de04053051cb419659464d15a0"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264440,
+        "profile": 0,
+        "preference": [
+          0.44999998807907104,
+          0.44999998807907104,
+          0.10000000149011612
+        ],
+        "steps": 16,
+        "raw_return": [
+          1.2549328804016113,
+          0.24506716430187225,
+          -1.2200000174343586
+        ],
+        "discounted_scaled_return": [
+          1.0425238859051151,
+          0.20358728058346212,
+          -0.9345113774568835
+        ],
+        "utility": 0.4672988709268383,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264440-p0.json",
+        "trace_sha256": "ed8ecfdec4dfae18b630b8639474e57d1358efdc215b11631c52c058c7a159c7"
+      },
+      {
+        "environment": "mine",
+        "seed": 20264440,
+        "profile": 1,
+        "preference": [
+          0.800000011920929,
+          0.10000000149011612,
+          0.10000000149011612
+        ],
+        "steps": 15,
+        "raw_return": [
+          1.2549328804016113,
+          0.24506716430187225,
+          -1.2000000178813934
+        ],
+        "discounted_scaled_return": [
+          1.053054430207187,
+          0.20564371776107282,
+          -0.927111573120429
+        ],
+        "utility": 0.77029677010813,
+        "task_success": true,
+        "trace": "artifacts\\reference-review-20261103\\physics\\mine-20264440-p1.json",
+        "trace_sha256": "f7b7cc73031d5e5a4cf3414ac12390211db1e28689964079ac53bf9fdb9022f4"
+      }
+    ],
+    "diagnostic_steps": 5221,
+    "training_interactions": 0,
+    "final_test_steps": 0
+  },
+  "browser": {
+    "status": "PASS",
+    "browser": "Microsoft Edge headless",
+    "independently_launched_package": true,
+    "minecart_ppo_verified": true,
+    "lunar_ppo_verified": true,
+    "base_url": "http://127.0.0.1:18770",
+    "matched_reset": true,
+    "single_step": true,
+    "pending_slider_no_steps": true,
+    "live_preference_without_reset": true,
+    "native_render_no_steps": true,
+    "both_environments": true,
+    "pdf_links": true,
+    "page_errors": [],
+    "mobile_dimensions": {
+      "body": 390,
+      "viewport": 390
+    },
+    "mobile_horizontal_overflow": false
+  },
+  "launcher_browser": {
+    "status": "PASS",
+    "browser": "Microsoft Edge headless",
+    "independently_launched_package": true,
+    "minecart_ppo_verified": true,
+    "lunar_ppo_verified": true,
+    "base_url": "http://127.0.0.1:8768",
+    "matched_reset": true,
+    "single_step": true,
+    "pending_slider_no_steps": true,
+    "live_preference_without_reset": true,
+    "native_render_no_steps": true,
+    "both_environments": true,
+    "pdf_links": true,
+    "page_errors": [],
+    "mobile_dimensions": {
+      "body": 390,
+      "viewport": 390
+    },
+    "mobile_horizontal_overflow": false
+  },
+  "quality_gate": "Ruff/format/mypy147/Bandit/compileall/diff pass;233 tests passed4 skipped;81 JS assertions pass",
+  "source_audit": {
+    "status": "deterministic_source_numeric_and_reference_checks_pass",
+    "independent_semantic_review": false,
+    "full_text_citation_context_audit": false,
+    "source_files": {
+      "paper/REL301m/main.tex": "4d83fb809bc1d43486dba2fdf2c27d87ae6497558b2ebe189aa1f5c7c0eb1839",
+      "paper/REL301m/General/Preamble.tex": "4fdd9eeb08001e258dbbb1cbb380273acbaf1d1dc79605c324276ca5bc4d4d6d",
+      "paper/REL301m/Chapters/0. Frontpage.tex": "36bce109cd0d8f396415284def48cdb5bba05549575fbff8c037dddb5305f54a",
+      "paper/REL301m/Chapters/Final.tex": "86a9d9975dfde467e2f8b606ea8a32f53275dbdc192fdde9fe1dd8430c5a665e",
+      "paper/REL301m/Figures/morl-pipeline.tex": "0c69b088347bc6d46d74b5ea73662ee0f12df925eba9cb3d1aa3cbf31f79e192",
+      "paper/REL301m/Chapters/PrimaryTable.tex": "c01406ed3da95c75e975db47a148469a53207e457a5b383fbd6ce8e908f82d60",
+      "paper/REL301m/Chapters/EnvelopeResults.tex": "14ac23c244ea3a9e541e82456b98c0b10f9be062ea19bc9bf6dfd92ba33ac49c",
+      "paper/REL301m/Chapters/BackboneInvestigation.tex": "9a7e51a52a497a65657e7bbc6f1a01cdba2aa5fc99f6fb96fa53d85292e555dd",
+      "paper/REL301m/Chapters/OnpolicyResults.tex": "bfa1ed96addb47a355e73d49465b38b67d6be7bd6501651d69b143043edeb5c8",
+      "paper/REL301m/Figures/ppo-inference.tex": "e688a7d91dab0621a57d40b7baa63805855be83631a1dcfdef8cf0a65706ddd5"
+    },
+    "cited_keys": [
+      "abels2019dynamic-weights",
+      "agarwal2021evaluation",
+      "alegre2023gpi-prioritization",
+      "ambadkar2026d3po",
+      "colas2019curious",
+      "delasheras2026controllability",
+      "hu2026pbmorl",
+      "jiang2021plr",
+      "osband2016bootstrapped-dqn",
+      "portelas2020alp-gmm",
+      "reymond2022pcn",
+      "schulman2015gae",
+      "schulman2017ppo",
+      "shianifar2026hpr",
+      "teoh2025morl-generalization",
+      "terekhov2024architectures",
+      "vanhasselt2016popart",
+      "xu2020pgmorl",
+      "yang2019envelope",
+      "zhang2020value-disagreement",
+      "zhao2026mpft"
+    ],
+    "citation_metadata_status": {
+      "abels2019dynamic-weights": "read",
+      "agarwal2021evaluation": "screened",
+      "alegre2023gpi-prioritization": "read",
+      "ambadkar2026d3po": "read",
+      "colas2019curious": "read",
+      "delasheras2026controllability": "read",
+      "hu2026pbmorl": "read",
+      "jiang2021plr": "read",
+      "osband2016bootstrapped-dqn": "read",
+      "portelas2020alp-gmm": "read",
+      "reymond2022pcn": "read",
+      "schulman2015gae": "screened",
+      "schulman2017ppo": "screened",
+      "shianifar2026hpr": "read",
+      "teoh2025morl-generalization": "read",
+      "terekhov2024architectures": "read",
+      "vanhasselt2016popart": "screened",
+      "xu2020pgmorl": "read",
+      "yang2019envelope": "read",
+      "zhang2020value-disagreement": "read",
+      "zhao2026mpft": "read"
+    },
+    "repository_paths_checked": [
+      "START_COURSE_DEMO.bat",
+      "configs/experiments/course_paired_matrix_v1.json",
+      "configs/experiments/envelope_feasibility_v1.json",
+      "configs/experiments/lunar_onpolicy_specialist_v1.json",
+      "docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md",
+      "docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md",
+      "docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md",
+      "paper/REL301m/CLAIM_EVIDENCE_MATRIX.md",
+      "paper/REL301m/FINAL_REPORT_OUTLINE.md",
+      "research/evidence/course_primary_execution_audit_v1.json",
+      "research/evidence/course_primary_validation_v1.json",
+      "research/evidence/credit_assignment_recovery_v1.json",
+      "research/evidence/lunar_onpolicy_confirmation_v1.json",
+      "research/evidence/lunar_onpolicy_specialist_v1.json",
+      "research/evidence/minecart_onpolicy_confirmation_v1.json",
+      "research/evidence/ppo_demo_preference_diagnosis_v1.json",
+      "research/qualification/minecart_pcqn_replay_f1.json",
+      "scripts/reaudit_recovered_validation.py",
+      "scripts/run_envelope_feasibility.py"
+    ],
+    "graphics_checked": [
+      "Figures/0. General/fpt_logo_red_small.png",
+      "Figures/0. General/fpt_logo_gray.png",
+      "Figures/0. General/fpt.png",
+      "Figures/0. General/fpt_logo_red_small.png",
+      "../../outputs/course-report-latex/recovered_learning_curves.pdf",
+      "../../outputs/course-report-latex/preference_diagnosis.pdf",
+      "../../outputs/course-report-latex/lunar_confirmation.pdf",
+      "../../outputs/course-report-latex/minecart_confirmation.pdf"
+    ],
+    "confirmation_evidence_sha256": "9a3d01b24e64a890055bca98b89181da10aa1877b1cc0ef71dfd7cd149bcc27e",
+    "confirmation_seed_count": 3,
+    "lunar_training_budget_planned": 4000000,
+    "lunar_editorial_readiness": "Audited Lunar pilot and two prospective confirmation seeds included; pilot separate",
+    "final_hand_in_ready": false,
+    "remaining": [
+      "new final release verification",
+      "lecturer rubric/deadline confirmation; independent semantic review not available"
+    ],
+    "training_interactions": 0,
+    "final_test_steps": 0
+  },
+  "fresh_install_repeated": false,
+  "previous_releases_preserved": true,
+  "training_interactions": 0,
+  "final_test_steps": 0,
+  "scope": "Report/reference correction only; models, protocols, outcomes and original scientific locks unchanged"
+}

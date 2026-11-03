@@ -53,7 +53,17 @@ ore collection. Both environments have discrete actions and vector rewards.
 Frozen course protocols use $\gamma=0.99$ and pilot-derived static reward scales
 and hypervolume reference points. They are not recalibrated using final-test data.
 
+\subsection{Contribution and falsifiable limits}
+The demonstrated course contribution is an auditable implementation, a negative
+task-qualification result for the recovered value-learning block, and separately
+declared on-policy task screens with prospective replication. It is not a new
+PPO algorithm or evidence that the four-signal allocator improves learning.
+The allocation hypothesis requires signals measured before subsequent gains
+and paired uniform/compute-matched random controls. Task replication is a
+prerequisite for that comparison, not a substitute for it.
+
 \section{Research background}
+\subsection{Conditioned policies and allocation antecedents}
 Dynamic-weight Q-learning~\cite{abels2019dynamic-weights} and Envelope
 Q-learning~\cite{yang2019envelope} are direct antecedents of conditioned
 multi-objective value learning. PCN conditions a policy on desired return and
@@ -63,12 +73,71 @@ PG-MORL~\cite{xu2020pgmorl} and GPI prioritization~\cite{alegre2023gpi-prioritiz
 already direct effort toward promising trade-offs. The project's narrower
 interest is a controlled comparison of allocation signals and their failure modes.
 
-Value disagreement motivates exploration~\cite{zhang2020value-disagreement},
+Value disagreement motivates goal-sampling curricula~\cite{zhang2020value-disagreement},
 while ALP-GMM~\cite{portelas2020alp-gmm} and CURIOUS~\cite{colas2019curious}
 motivate competence-progress curricula. Absolute change can include forgetting;
 it is not automatically signed improvement. A shared representation also means
 our head disagreement is not independently calibrated epistemic uncertainty.
 These sources motivate mechanisms, not claims that they work in this implementation.
+
+PLR uses learning-potential scores and staleness for level replay rather than
+preference sampling~\cite{jiang2021plr}. It is a structural antecedent for our
+coverage/recency component. Bootstrapped DQN motivates randomized value heads
+for exploration~\cite{osband2016bootstrapped-dqn}; sharing parameters and using
+masked heads here does not establish calibrated epistemic uncertainty.
+Broad adaptive allocation is already prior art: PBMORL steers multi-policy
+optimization using human preference feedback~\cite{hu2026pbmorl}, while MPFT
+extends policy sets through Pareto tracking and sparse-region filling~\cite{zhao2026mpft}.
+Our proposed distinction is autonomous outcome-derived signals for one
+conditioned learner and separated rollout/update effects. That distinction is
+implemented but its empirical advantage remains unestablished.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{p{.22\textwidth}p{.33\textwidth}p{.35\textwidth}}
+\toprule
+Research thread & What earlier work supplies & Scope of this project\\
+\midrule
+Dynamic weights / Envelope & Conditioned vector-value learning & Implementation antecedents; conditioning is not novel.\\
+PG-MORL / GPI prioritization & Directed effort across trade-offs & Different policies/estimators; no reproduced superiority claim.\\
+VDS / ALP-GMM / PLR & Disagreement, progress and staleness curricula & Candidate signal motivation; predictive value still unverified.\\
+PBMORL / MPFT & Preference-guided or sparse-region optimization & Closest allocation context; not the same feedback or learner unit.\\
+MOPPO / PPO / GAE / PopArt & Actor--critic architecture, loss and estimation tools & Adapted task-feasibility screens, not a new algorithm.\\
+Controllability / generalization & Preference response and environment transfer & Task success does not prove either universally.\\
+\bottomrule
+\end{tabular}
+\caption{How prior work constrains the contribution. The named methods are
+antecedents, not all implemented or evaluated baselines.}
+\end{table}
+
+\subsection{Backbone choices and evaluation limits}
+Clipped PPO supplies the policy-ratio surrogate and minibatch-update
+procedure~\cite{schulman2017ppo}. GAE supplies the discounted TD-residual
+estimator~\cite{schulman2015gae}; choosing $\lambda=.95$ here is a frozen design
+choice, not a proven optimum. PopArt preserves unnormalized value outputs when
+target statistics change~\cite{vanhasselt2016popart}. Our multi-objective
+architecture follows MOPPO's design study~\cite{terekhov2024architectures} with
+documented departures, including critic-only normalization and fixed-utility
+actor scalarization. These sources explain the components; only our own
+experiments establish behavior under our protocol.
+
+Recent D$^3$PO examines late preference weighting and behavioral
+diversity~\cite{ambadkar2026d3po}; HPR evaluates preference replay in a different
+actor--critic setting~\cite{shianifar2026hpr}. They are relevant alternatives,
+not implementations silently reproduced here. Our failed relabel/loss studies
+do not falsify their mechanisms, and our later PPO successes do not establish
+that optimizer choice alone caused the change.
+
+Controllability asks whether preference changes induce appropriately ordered
+objective returns, which aggregate MORL metrics may miss~\cite{delasheras2026controllability}.
+The corner-case diagnosis in this report reveals limitations but is not a
+complete implementation of that paper's metric. Generalization across
+environment configurations is separate~\cite{teoh2025morl-generalization};
+new preference weights in nominal dynamics do not establish it.
+Few-run evaluation also carries substantial uncertainty~\cite{agarwal2021evaluation}.
+We retain seed-level outcomes, separate the observed Lunar pilot from the two
+prospective seeds, and avoid best-checkpoint selection or significance claims.
+Episode counts and a functioning slider are not independent training replications.
 
 \section{Implemented system}
 \begin{figure}[htbp]

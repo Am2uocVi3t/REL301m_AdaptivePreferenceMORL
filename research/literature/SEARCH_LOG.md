@@ -100,3 +100,17 @@ is weak; maximizing over runs/checkpoints changes the reported estimator.
 Applied conservatively: pilot separate, n=2 fresh prospective seeds, final-only
 checkpoint, per-seed results and descriptive sample SD, no significance claim.
 Repository-native work; no ARIS/paid/scheduled dispatch or guessed quota.
+
+## 2026-11-03 — Research positioning and reference integrity
+All24 original metadata records checked against primary publisher/arXiv/author
+sources;7 author lists corrected (Envelope,PG-MORL,GPI prioritization,CURIOUS,
+HPR,PCRL,Teoh generalization). OpenReview challenges respected; used official
+ICLR proceedings/arXiv/author-CV metadata alternatives. No new whole-paper
+reading certification for historical24 records. Added PPO,GAE,PopArt v2 and
+Agarwal evaluation as screened: full text legally accessible, targeted sections
+consulted; complete reading remains outstanding. PopArt v1 title/authors differ
+from v2 and were not mixed. PPO public PDF used because HTML is a wrapper.
+PBMORL andMPFT legal publisher raw PDFs cached only onD; target passages read
+(PBMORL p4 Section3.2,MPFT p2 method outline). Current citations9->21, library24->28.
+See RESEARCH_REFERENCE_REVIEW_20261103.md and matching qualification JSON.
+No ARIS/paid/fresh-reviewer dispatch or independent semantic PASS is claimed.

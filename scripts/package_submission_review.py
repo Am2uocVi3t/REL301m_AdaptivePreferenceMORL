@@ -1,5 +1,6 @@
 """Package the current report and unchanged verified actors for course review."""
 
+import argparse
 import json
 import shutil
 import sys
@@ -12,8 +13,15 @@ from scripts.run_minecart_onpolicy import publish, sha
 
 
 def main():
-    base = Path("outputs/REL301m_Course_Project_20261103_LunarPPO")
-    output = Path("outputs/REL301m_Course_Submission_Review_20261103")
+    parser = argparse.ArgumentParser(__doc__)
+    parser.add_argument("--base", type=Path, default=Path("outputs/REL301m_Course_Project_20261103_LunarPPO"))
+    parser.add_argument("--output", type=Path, default=Path("outputs/REL301m_Course_Submission_Review_20261103"))
+    args = parser.parse_args()
+    base, output = args.base, args.output
+    if not output.resolve().is_relative_to(Path("outputs").resolve()) or output.resolve() == Path("outputs").resolve():
+        raise ValueError("Versioned package must be a child of repository outputs")
+    if output.resolve().is_relative_to(base.resolve()):
+        raise ValueError("New release must not be nested inside its preserved base")
     if output.exists() or output.with_suffix(".zip").exists():
         raise ValueError("Preserve existing versioned review release")
     manifest = json.loads((base / "MANIFEST.json").read_text())
@@ -21,6 +29,7 @@ def main():
     shutil.copytree(base, output, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     shutil.copy2("outputs/course-report-latex/REL301m_Course_Project_Report.pdf", output / "docs/Bao_cao.pdf")
     shutil.copytree("paper/REL301m", output / "paper/REL301m", dirs_exist_ok=True)
+    shutil.copytree("research/literature", output / "research/literature", dirs_exist_ok=True)
     for name in [
         "lunar_confirmation.pdf",
         "preference_diagnosis.pdf",
@@ -36,6 +45,8 @@ def main():
         "docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md",
         "docs/research/PPO_PREFERENCE_DIAGNOSIS_20261103.md",
         "docs/research/COURSE_TALK_VI_20261103.md",
+        "docs/research/RESEARCH_REFERENCE_REVIEW_20261103.md",
+        "research/qualification/research_reference_review_20261103.json",
     ]:
         destination = output / name
         destination.parent.mkdir(exist_ok=True, parents=True)
