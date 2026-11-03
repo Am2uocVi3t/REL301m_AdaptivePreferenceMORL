@@ -11,12 +11,12 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-02T17:07:37+00:00
+Snapshot generated: 2026-11-03T00:41:46+00:00
 Expected working branch at generation: codex/minecart-confirmation
-Expected commit at generation: a316d4a
+Expected commit at generation: e8931f5
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
-Publication state: no multi-seed empirical claim established
+Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
 
 Roadmap:
 - phase-0 [complete]: Foundation and scientific repair
@@ -83,17 +83,16 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- minecart-onpolicy-confirmation-v1 [running]: Three fresh-seed frozen Minecart conditional PPO confirmation G
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-G3-seed confirmation RUNNING from clean a316d4a. Verified fresh seeds20264311/12/13, actual PID10544/18300/18452+birth identities, distinctinitialhashes, stdout25088/1568actor each and durable24576 snapshots. GPU94%635MiB, native3-seed terminal opened, duplicate launch guard passed before log changes. Same frozen C candidate,4M/job12M,new32 development weights+separate7anchors,1096eval/job3288overall,0test.226pass4skip full technical gate; engineering32064<50k. No G outcomes yet; S/C/P2/Lunar unchanged.
+G3-seed confirmation COMPLETE and executor source/runtime/numeric/budget/exposure audit PASS:12M training,750240actor/1500480critic,3288dev episodes372775steps,480task traces checked,0test. Every final seed BOTH profiles/modes10/10 deliveries plusutility>idle. New32pref EU seedmeanSD sampled.19835+/-.03540,argmax.17680+/-.07376,n3;anchors separate. No workers or new training. Bounded nominal task confirmation, not arbitrary-weight/dynamics or adaptive benefit. Lunar unchanged.
 
 Next actions:
-1. Monitor three G workers via START_TRAINING_MONITOR.bat or append-only logs. Keep active sources/configs frozen; no duplicates, automatic restarts or outcome-based extensions.
-2. When all3 fixed4M jobs finish, audit checkpoints/traces/budgets/exposure and all-seed both-mode/profile gates; report new-preference and anchor results separately. Original final test and Lunar remain unlaunched.
+1. Preserve G/S/C/P2, use ONPOLICY_CONFIRMATION_RESULTS_20261103.md for bounded report/demo evidence; do not extend completed cohorts or unlock original final test.
+2. Define next separate course scope: integrate verified conditional checkpoints into demo/report and address Lunar task feasibility; adaptive-allocation claims still require matched uniform/random/adaptive controls.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

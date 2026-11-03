@@ -21,12 +21,15 @@ uniformly per episode, starts from fresh weights and has its own qualified
 runner/4M budget. [Contract](docs/research/ONPOLICY_CONDITIONAL_V1.md).
 The native monitor automatically follows C when its manifest is present.
 Its single-seed final checkpoint passed both task profiles in both modes
-(10/10 each); independent-seed confirmation remains pending.
+(10/10 each); the subsequent three-seed confirmation also passed the task gate.
 [Conditional results](docs/research/ONPOLICY_CONDITIONAL_RESULTS_20261102.md).
 
 Minecart confirmation G has a separately frozen three-seed12M budget and new
 development preferences/cases. [Confirmation contract](docs/research/ONPOLICY_CONFIRMATION_V1.md).
 The native terminal follows its three workers when the cohort manifest exists.
+G is now complete: every seed passed both task profiles in both modes (10/10
+each), with new development cases. [Confirmation results](docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md).
+Adaptive-allocation benefit and Lunar competence remain unestablished.
 
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 

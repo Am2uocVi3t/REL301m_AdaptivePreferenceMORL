@@ -2,11 +2,24 @@
 
 Last verified: **2026-11-03** (Minecart G confirmation qualified after audited S/C; historical state below retained)
 Current phase: **Phase 4 — paired-seed course experiment matrix (active; matrix v1 blocked; F1 replay screen completed and failed; no F2/final-test unlock)**
-Publication state: **no multi-seed empirical claim established**
+Publication state: **bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished**
 
 Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0–7 roadmap**
 
 ## Research direction
+
+Latest G confirmation result (2026-11-03): COMPLETE, all3 seeds20264311/12/13
+fixed4M each,12M total;750,240 actor /1,500,480 critic updates. Executor audit
+passed3,288 development episodes /372,775 steps and480 task traces, including
+source/runtime/seed/checkpoint bindings and exact preference exposure. BOTH
+final profiles in BOTH modes10/10 in EVERY seed, utility above idle. New32-weight
+EU across seeds sampled .198350+/- .035400, argmax .176802+/- .073761 (sample SD,
+n=3); anchors separate. No active worker; no extensions or new runs. Evidence:
+`research/evidence/minecart_onpolicy_confirmation_v1.json`; report:
+`docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md`. This supports the
+bounded nominal task gate, not arbitrary preference/dynamics optimality or
+adaptive benefit. Lunar unchanged; original final-test locks remain. No
+independent semantic-review PASS; earlier running snapshots below superseded.
 
 Minecart G confirmation prepared/qualified (2026-11-03): separately frozen plan
 `configs/experiments/minecart_onpolicy_confirmation_v1.json`, protocol

@@ -3,10 +3,10 @@
   "project": "Preference Allocation in Preference-Conditioned MORL",
   "phase": "paired-seed course experiment matrix",
   "roadmap_phase_id": "phase-4",
-  "publication_state": "no multi-seed empirical claim established",
+  "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/minecart-confirmation",
-  "updated_at": "2026-11-02T17:07:37+00:00",
+  "updated_at": "2026-11-03T00:41:46+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Monitor three G workers via START_TRAINING_MONITOR.bat or append-only logs. Keep active sources/configs frozen; no duplicates, automatic restarts or outcome-based extensions.",
-    "When all3 fixed4M jobs finish, audit checkpoints/traces/budgets/exposure and all-seed both-mode/profile gates; report new-preference and anchor results separately. Original final test and Lunar remain unlaunched."
+    "Preserve G/S/C/P2, use ONPOLICY_CONFIRMATION_RESULTS_20261103.md for bounded report/demo evidence; do not extend completed cohorts or unlock original final test.",
+    "Define next separate course scope: integrate verified conditional checkpoints into demo/report and address Lunar task feasibility; adaptive-allocation claims still require matched uniform/random/adaptive controls."
   ],
-  "last_session_summary": "G3-seed confirmation RUNNING from clean a316d4a. Verified fresh seeds20264311/12/13, actual PID10544/18300/18452+birth identities, distinctinitialhashes, stdout25088/1568actor each and durable24576 snapshots. GPU94%635MiB, native3-seed terminal opened, duplicate launch guard passed before log changes. Same frozen C candidate,4M/job12M,new32 development weights+separate7anchors,1096eval/job3288overall,0test.226pass4skip full technical gate; engineering32064<50k. No G outcomes yet; S/C/P2/Lunar unchanged."
+  "last_session_summary": "G3-seed confirmation COMPLETE and executor source/runtime/numeric/budget/exposure audit PASS:12M training,750240actor/1500480critic,3288dev episodes372775steps,480task traces checked,0test. Every final seed BOTH profiles/modes10/10 deliveries plusutility>idle. New32pref EU seedmeanSD sampled.19835+/-.03540,argmax.17680+/-.07376,n3;anchors separate. No workers or new training. Bounded nominal task confirmation, not arbitrary-weight/dynamics or adaptive benefit. Lunar unchanged."
 }
