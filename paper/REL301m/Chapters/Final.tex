@@ -13,8 +13,9 @@ We present the implementation, descriptive results, failure analysis, recovery
 limitations, and a real inference demonstration. A separate predeclared Envelope
 backbone feasibility screen is reported independently. A later uniform on-policy
 Minecart confirmation passed both task profiles in both inference modes across
-three fresh training seeds. Lunar competence and adaptive-allocation benefit
-remain unestablished. The original full baseline/ablation matrix and final-test
+three fresh training seeds. A separate single-seed Lunar specialist subsequently
+passed its final landing gate; independent Lunar replication and adaptive-allocation
+benefit remain unestablished. The original full baseline/ablation matrix and final-test
 study remain incomplete.
 
 \section{Problem and research questions}
@@ -242,17 +243,27 @@ RQ4: generalization & Three-seed nominal Minecart task gate passes on new cases;
 \caption{Research-question coverage. Backbone confirmation does not answer all allocation questions.}
 \end{table}
 
-\subsection{Lunar completion rule}
-A separate Lunar specialist pilot is frozen at four million interactions with
+\subsection{Single-seed Lunar specialist outcome and limits}
+A separate Lunar specialist pilot completed four million interactions with
 landing-heavy weights $(.7,.1,.1,.1)$. It uses categorical PPO with vector
 GAE($\lambda=.95$), eight streams and 128-step fragments. Unlike Minecart's
 six-action setting, its entropy schedule starts at $\log4$. Final-only task
 assessment requires native +100 and lander x inside the pad on at least 8/10
-new development cases in each inference mode. This single-seed pilot is still
-running at the report build; no completed Lunar PPO outcome is included.
-If it fails, the failure is reported without automatic extension. If it passes,
-independent confirmation needs a separate protocol. Its planned budget is not
-recorded as completed expenditure or multi-seed evidence.
+new development cases in each inference mode. The final checkpoint reached
+10/10 in both modes at the trained preference. Mean utility was 0.09723 sampled
+and 0.08085 argmax. At the uniform secondary profile, both modes also reached
+10/10 but mean utilities were negative, distinguishing landing competence from
+appropriate utility across all trade-offs.
+
+The outcome uses one training seed, not a claim of independent-seed stability.
+The audit checked 928 development episodes, 315,564 steps and 160 task traces.
+Replaying their recorded actions in the pinned Box2D engine reproduced native
+states/rewards and final pad-x/end flags exactly. The additional 67,807 replay
+steps are verification cost, not new independent episodes or training.
+No original final-test data were used. A stronger Lunar claim requires a
+separate confirmation protocol; the current demo release still labels its
+legacy Lunar model explicitly until a new package is verified.
+\evidence{research/evidence/lunar_onpolicy_specialist_v1.json}
 
 \subsection{Limits of the current conclusion}
 The deliverable establishes a working preference-conditioned value-learning
@@ -295,7 +306,7 @@ minimum rubric have not yet been confirmed.
 \item \evidence{scripts/run_envelope_feasibility.py}: new validation-isolated Envelope runner.
 \item \evidence{research/evidence/minecart_onpolicy_confirmation_v1.json}: completed three-seed Minecart task confirmation.
 \item \evidence{docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md}: exact scope, budgets and limits.
-\item \evidence{configs/experiments/lunar_onpolicy_specialist_v1.json}: running Lunar pilot, not a completed result.
+\item \evidence{configs/experiments/lunar_onpolicy_specialist_v1.json}: completed single-seed Lunar pilot protocol.
 \item \evidence{paper/REL301m/FINAL_REPORT_OUTLINE.md}: finalization outline and remaining evidence gates.
 \item \evidence{paper/REL301m/CLAIM_EVIDENCE_MATRIX.md}: statements linked to retained data.
 \item \evidence{docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md}: demonstration and reproduction checklist.

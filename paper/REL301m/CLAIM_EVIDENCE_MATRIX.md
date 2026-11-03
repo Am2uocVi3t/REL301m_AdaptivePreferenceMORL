@@ -12,7 +12,7 @@
 | G:3288 dev episodes/372775 steps/480 task traces | Same G evidence, source/checkpoint/file hashes | Executor checks only; final test0 |
 | G new-preference EU .19835+/-.03540 sampled; .17680+/-.07376 argmax | G statistics, kind=validation, n=3 | Sample SD over seeds, anchors excluded; not every-weight optimality or significance |
 | Real Minecart demo uses lowest seed20264311 final4M argmax | course_onpolicy_delivery_20261103.json; onpolicy_course_demo_20261103.json under research/qualification | Frozen portable actor;20 presentation cases, not new benchmark evidence |
-| Lunar PPO is running | lunar_onpolicy_launch_20261103.json; fixed Lunar plan | No final result or reliable landing claim until audited4M completion |
+| Lunar PPO specialist final gate passes, one seed | research/evidence/lunar_onpolicy_specialist_v1.json; fixed Lunar plan |10/10 native+100 AND pad-x in both modes at trained preference; no independent-seed or arbitrary-preference guarantee |
 | Adaptive allocation beats controls | No qualified supporting comparison | Do not claim |
 | Arbitrary preference / dynamics robustness | No supporting coverage guarantee/dynamics study | Do not claim |
 | Teacher accepts final report | Rubric/deadline not confirmed | External decision; never infer from passed tests |

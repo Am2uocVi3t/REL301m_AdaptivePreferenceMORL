@@ -6,7 +6,7 @@
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/course-final-report-review",
-  "updated_at": "2026-11-03T02:52:19+00:00",
+  "updated_at": "2026-11-03T04:20:38+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,7 @@
     }
   ],
   "next_actions": [
-    "Keep Lunar fixed4M source/config unchanged; at completion audit final checkpoint/native+100 ANDpad success forboth modes and all counters/traces before editing result claims.",
-    "Use FINAL_REPORT_OUTLINE.md and CLAIM_EVIDENCE_MATRIX.md to synchronize abstract/results/conclusion after Lunar final audit; publish a new versioned package only after final PDF/demo/reproduction checks."
+    "Verify and export a separately versioned portable Lunar demo/report package; preserve prior release. Freeze independent Lunar confirmation only if stronger stability claims are pursued. No automatic training or final-test access."
   ],
-  "last_session_summary": "Completed current-report finalization outline, claim/evidence matrix and demo/reproduction checklist. Reviewed workingPDF14pages in group template, updatedcover/RQcoverage/Lunar pendingrule and removed stale installation assertion. New read-only report auditor verifies9TeX inputs/9registered citations/artifactpaths/Gtask table-EU-budgets; build regeneratesGfigure and audits before compile.231pass4skip full quality; finalPDFvisual/no undefined markers. New reviewedPDF preserved separately, released3NovZIP unchanged. Active Lunar source hashes verified unchanged; final outcome still pending, no training changes or empirical overclaims."
+  "last_session_summary": "Lunar specialist completed 4M; executor audit reconciled 928 development episodes and replayed 160 Box2D traces exactly. Both modes trained-profile 10/10 pad landings; n=1 only. Working report updated; 231 tests pass, 4 skipped."
 }

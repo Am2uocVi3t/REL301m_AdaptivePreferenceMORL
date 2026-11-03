@@ -1,3 +1,19 @@
+Latest verified update (3 November 2026): Lunar PPO specialist COMPLETE at
+4,000,000 training interactions (seed 20265311; fixed preference [.7,.1,.1,.1]).
+Final trained-profile sampled and argmax both achieved 10/10 native +100
+terminations inside the helipad; utilities .097226 and .080849 respectively.
+Uniform secondary profile also landed 10/10 in each mode, with negative utility.
+Executor audit reconciled 928 development episodes /315,564 steps and replayed
+all 160 task traces exactly (67,807 additional diagnostic replay steps).
+Evidence: research/evidence/lunar_onpolicy_specialist_v1.json; interpretation:
+docs/research/LUNAR_PPO_RESULTS_20261103.md. This is one training seed, unlike
+Minecart's three-seed confirmation; no arbitrary-preference, adaptive-allocation
+or dynamics-generalization claim. No new training or final-test access.
+Working report includes this outcome. Previously released 3Nov demo/ZIP still
+uses the legacy Lunar model and must not be represented as this new PPO model.
+New portable Lunar delivery needs separate export and execution verification.
+Earlier running snapshots below are historical. Phase 4 and original locks stay.
+
 # Project Status and Handoff
 
 Last verified: **2026-11-03** (Minecart G confirmation qualified after audited S/C; historical state below retained)

@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T02:52:19+00:00
+Snapshot generated: 2026-11-03T04:20:38+00:00
 Expected working branch at generation: codex/course-final-report-review
-Expected commit at generation: b62924d
+Expected commit at generation: f4c527d
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
@@ -83,17 +83,15 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- lunar-onpolicy-specialist-v1 [running]: Lunar landing-heavy categorical PPO with vector GAE specialist feasibility
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Completed current-report finalization outline, claim/evidence matrix and demo/reproduction checklist. Reviewed workingPDF14pages in group template, updatedcover/RQcoverage/Lunar pendingrule and removed stale installation assertion. New read-only report auditor verifies9TeX inputs/9registered citations/artifactpaths/Gtask table-EU-budgets; build regeneratesGfigure and audits before compile.231pass4skip full quality; finalPDFvisual/no undefined markers. New reviewedPDF preserved separately, released3NovZIP unchanged. Active Lunar source hashes verified unchanged; final outcome still pending, no training changes or empirical overclaims.
+Lunar specialist completed 4M; executor audit reconciled 928 development episodes and replayed 160 Box2D traces exactly. Both modes trained-profile 10/10 pad landings; n=1 only. Working report updated; 231 tests pass, 4 skipped.
 
 Next actions:
-1. Keep Lunar fixed4M source/config unchanged; at completion audit final checkpoint/native+100 ANDpad success forboth modes and all counters/traces before editing result claims.
-2. Use FINAL_REPORT_OUTLINE.md and CLAIM_EVIDENCE_MATRIX.md to synchronize abstract/results/conclusion after Lunar final audit; publish a new versioned package only after final PDF/demo/reproduction checks.
+1. Verify and export a separately versioned portable Lunar demo/report package; preserve prior release. Freeze independent Lunar confirmation only if stronger stability claims are pursued. No automatic training or final-test access.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

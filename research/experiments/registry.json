@@ -183,13 +183,13 @@
     {
       "id": "lunar-onpolicy-specialist-v1",
       "title": "Lunar landing-heavy categorical PPO with vector GAE specialist feasibility",
-      "status": "running",
+      "status": "complete",
       "protocol": "configs/experiments/lunar_onpolicy_specialist_v1.json",
       "claim_ids": [],
-      "artifact": "research/qualification/lunar_onpolicy_launch_20261103.json",
+      "artifact": "research/evidence/lunar_onpolicy_specialist_v1.json",
       "notes": "",
       "created_at": "2026-11-03T02:31:27+00:00",
-      "updated_at": "2026-11-03T02:34:30+00:00"
+      "updated_at": "2026-11-03T04:19:16+00:00"
     }
   ]
 }

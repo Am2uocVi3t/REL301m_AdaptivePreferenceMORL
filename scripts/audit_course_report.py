@@ -92,7 +92,23 @@ def audit() -> dict[str, Any]:
     # The paragraph is deliberately explicit about pending results; a completed
     # run requires a new evidence-based editorial pass, never automatic success.
     if lunar_complete.exists():
-        readiness = "Lunar complete marker exists: final numeric/task audit and editorial update required"
+        lunar_evidence = ROOT / "research/evidence/lunar_onpolicy_specialist_v1.json"
+        if not lunar_evidence.exists():
+            raise ValueError("Lunar completed: audit and editorial update required")
+        lunar = json.loads(lunar_evidence.read_text())
+        if not lunar["final_specialist_gate_pass"] or lunar["training_interactions"] != 4000000:
+            raise ValueError("Lunar final evidence differs from current positive report wording")
+        if lunar["audit"] != "source_numeric_budget_and_physics_trace_replay_pass":
+            raise ValueError("Lunar physical/numeric audit required")
+        for name, expected in lunar["source_sha256"].items():
+            if digest(ROOT / name) != expected:
+                raise ValueError(f"Lunar source changed: {name}")
+        body = (PAPER / "Chapters/Final.tex").read_text()
+        for mode in ["sampled", "argmax"]:
+            primary = next(r for r in lunar["milestones"][-1]["task"] if r["mode"] == mode and r["profile"] == 0)
+            if primary["pad_successes"] != 10 or f"{primary['mean_utility']:.5f}" not in body:
+                raise ValueError("Lunar report success/utility differs")
+        readiness = "Audited single-seed Lunar outcome included; independent replication pending"
     else:
         readiness = "Lunar final outcome pending; report must retain running-only wording"
     return {
@@ -110,7 +126,7 @@ def audit() -> dict[str, Any]:
         "lunar_editorial_readiness": readiness,
         "final_hand_in_ready": False,
         "remaining": [
-            "Lunar final audit and synchronized conclusion",
+            "Independent Lunar replication if stronger stability claims are intended",
             "new final release verification",
             "lecturer rubric/deadline confirmation; independent semantic review not available",
         ],

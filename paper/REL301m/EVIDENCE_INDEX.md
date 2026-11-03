@@ -12,7 +12,7 @@ map; FINAL_REPORT_OUTLINE.md defines finalization gates.
 | Historical primary block numerical evidence | research/evidence/course_primary_validation_v1.json; research/evidence/course_primary_execution_audit_v1.json |
 | Envelope feasibility | research/evidence/envelope_feasibility_v1.json |
 | Current portable demo verification | research/qualification/course_onpolicy_delivery_20261103.json; research/qualification/onpolicy_course_demo_20261103.json |
-| Lunar prospective protocol/launch, not a final result | configs/experiments/lunar_onpolicy_specialist_v1.json; research/qualification/lunar_onpolicy_launch_20261103.json |
+| Lunar completed single-seed specialist, executor audited | research/evidence/lunar_onpolicy_specialist_v1.json; docs/research/LUNAR_PPO_RESULTS_20261103.md |
 | Current deterministic report audit | research/qualification/course_report_review_20261103.json |
 
 The current audit is executor-only and does not imply independent semantic or
