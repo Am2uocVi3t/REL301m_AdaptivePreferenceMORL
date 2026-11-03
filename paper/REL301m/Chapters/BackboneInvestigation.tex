@@ -45,13 +45,15 @@ differences to disclose, not evidence that longer training alone fixes our learn
 
 A new development-only screen was frozen before execution: $n=1$ versus
 $n=20$ vector returns, both environments, three paired training seeds, and
-500k interactions per job (12 jobs, six million planned interactions).
+500k interactions per job (12 jobs, six million executed interactions).
 All other learner settings, uniform preference allocation, static scales and
 $\gamma=.99$ are matched. The $n=20$ choice is an unvalidated long-credit
 hypothesis, not a paper-established Minecart default. Uncorrected off-policy
 multi-step targets may introduce bias. Short repeated CUDA learning traces
-matched exactly before main execution. Main training is currently ongoing.
-No outcome or completed six-million-step budget is claimed in this report update.
+matched exactly before main execution. This screen subsequently completed and
+failed its task gates; the following on-policy section reports the later
+separate intervention. The completed negative screen is retained in
+\path{research/evidence/credit_assignment_recovery_v1.json}.
 
 Only final checkpoints can pass the predeclared development task screen:
 each training seed needs at least 8/10 native +100-and-pad Lunar cases at

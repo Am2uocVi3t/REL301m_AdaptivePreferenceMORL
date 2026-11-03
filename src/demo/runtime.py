@@ -13,6 +13,7 @@ import numpy as np
 import torch
 from PIL import Image
 
+from src.demo.onpolicy import CategoricalDemoPolicy
 from src.envs.wrapper import make_mo_env
 from src.models.q_network import VectorQNetwork
 
@@ -67,7 +68,7 @@ class Panel:
     def done(self) -> bool:
         return self.terminated or self.truncated or self.steps >= 1000
 
-    def advance(self, network: VectorQNetwork) -> None:
+    def advance(self, network: VectorQNetwork | CategoricalDemoPolicy) -> None:
         if self.done:
             return
         before = np.asarray(self.observation).tolist()
@@ -163,7 +164,7 @@ class DemoRuntime:
     def __init__(self, root: Path):
         self.root = root
         self.config = json.loads((root / "config.json").read_text())
-        self.models: dict[str, VectorQNetwork] = {}
+        self.models: dict[str, VectorQNetwork | CategoricalDemoPolicy] = {}
         self.specs = self.config["environments"]
         self.panels: list[Panel] = []
         self.environment: str | None = None
@@ -175,15 +176,20 @@ class DemoRuntime:
         self.total_resets = 0
         self.fault: str | None = None
 
-    def model(self, name: str) -> VectorQNetwork:
+    def model(self, name: str) -> VectorQNetwork | CategoricalDemoPolicy:
         if name not in self.models:
             spec = self.specs[name]
             path = self.root / spec["weights_file"]
             if sha256(path) != spec["weights_sha256"]:
                 raise ValueError("Model hash không khớp; dừng nạp checkpoint")
             checkpoint = torch.load(path, map_location="cpu", weights_only=True)
-            network = VectorQNetwork(**checkpoint["architecture"])
-            network.load_state_dict(checkpoint["model_state_dict"])
+            network: VectorQNetwork | CategoricalDemoPolicy
+            if checkpoint.get("model_kind") == "categorical_ppo":
+                network = CategoricalDemoPolicy(**checkpoint["architecture"])
+                network.network.load_state_dict(checkpoint["model_state_dict"])
+            else:
+                network = VectorQNetwork(**checkpoint["architecture"])
+                network.load_state_dict(checkpoint["model_state_dict"])
             network.eval().requires_grad_(False)
             self.models[name] = network
         return self.models[name]

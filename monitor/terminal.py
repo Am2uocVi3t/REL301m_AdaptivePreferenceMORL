@@ -117,7 +117,7 @@ def render(
     table.add_column(f"STEPS / {jobs[0].get('budget', 500000):,}" if jobs else "STEPS", justify="right")
     if width >= 105:
         table.add_column("UPDATES", justify="right")
-        table.add_column("DELIVERIES", justify="right")
+        table.add_column(state.get("task_label", "DELIVERIES"), justify="right")
     table.add_column("SNAPSHOT", justify="right")
     # Keep selection visible even in a short terminal window.
     visible = max(3, min(12, height - 22))

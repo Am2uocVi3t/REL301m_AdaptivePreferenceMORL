@@ -74,6 +74,7 @@ def worker_state(
 
 class Monitor:
     onpolicy: Any
+    lunar: Any
 
     def __init__(self, repo: Path = REPO):
         self.repo = repo
@@ -172,6 +173,18 @@ class Monitor:
             return {}, ""
 
     def snapshot(self) -> dict[str, Any]:
+        if (
+            type(self) is Monitor
+            and (
+                self.repo
+                / "artifacts/lunar-onpolicy-specialist-v1/runs/mo-lunar-lander-v3_L_seed20265311/manifest.json"
+            ).exists()
+        ):
+            from monitor.onpolicy import OnPolicyMonitor
+
+            if not hasattr(self, "lunar"):
+                self.lunar = OnPolicyMonitor(self.repo, stage="L")
+            return self.lunar.snapshot()
         confirmation_root = self.repo / "artifacts/minecart-onpolicy-confirmation-v1"
         if type(self) is Monitor and (confirmation_root / "cohort_manifest.json").exists():
             from monitor.confirmation import ConfirmationMonitor
@@ -350,6 +363,9 @@ class Monitor:
             return snapshot
 
     def detail(self, name: str, stream: str) -> dict[str, Any]:
+        if type(self) is Monitor and name == "mo-lunar-lander-v3_L_seed20265311":
+            self.snapshot()
+            return self.lunar.detail(name, stream)
         if type(self) is Monitor and re.fullmatch(r"minecart-v0_G_seed2026431[123]", name):
             self.snapshot()
             return self.confirmation.detail(name, stream)

@@ -80,3 +80,12 @@ standardization, fixed collection targets and separate optimizer accounting.
 The raw GitHub ppo.py URL lookup returned cache miss and was not used as code
 evidence. No new full-reading or exact-reproduction claim. Prior pinned author
 config mapping remains in onpolicy_primary_source_map_20261102.json.
+
+## 2026-11-03 — Lunar implementation source mapping
+Official Farama MO-Lunar and Gymnasium Lunar docs plus pinned installed source
+checked:8 observations,4 actions,4 rewards, native sleep/+100 versus explicit
+pad-x success. GAE arxiv1506.02438v6 Section3 Eq16 targeted formula consulted;
+PPO arxiv1707.06347 metadata checked (HTML wrapper did not expose full text).
+No new full-paper reading claimed. Candidate GAE.95/entropy/rollout parameters
+are prospective choices; see LUNAR_PPO_SPECIALIST_V1.md. No defaults claimed
+optimal and no Lunar empirical success inferred from Minecart.

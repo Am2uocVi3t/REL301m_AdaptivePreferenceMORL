@@ -11,8 +11,7 @@ objectives throughout its 14,400 primary validation episodes. The comparative
 qualification therefore failed; adaptive superiority is not established.
 We present the implementation, descriptive results, failure analysis, recovery
 limitations, and a real inference demonstration. A separate predeclared Envelope
-backbone feasibility screen is reported independently. The original full
-baseline/ablation matrix and final-test study remain incomplete.
+backbone feasibility screen is reported independently. A later uniform on-policy Minecart confirmation passed both task profiles in both inference modes across three fresh training seeds. Lunar competence and adaptive-allocation benefit remain unestablished. The original full baseline/ablation matrix and final-test study remain incomplete.
 
 \section{Problem and research questions}
 \subsection{Motivation and scope}
@@ -189,6 +188,8 @@ a positive result appears would change the question after seeing outcomes.
 \subsection{Task-level positive control and protocol review}
 \input{Chapters/BackboneInvestigation}
 
+\input{Chapters/OnpolicyResults}
+
 \section{Demonstration and reproducibility}
 \subsection{Real inference demonstration}
 The local application uses actual environment transitions and frozen network
@@ -198,13 +199,14 @@ preference changes, original environment rendering and trace export expose
 observations, actions and rewards for inspection. Live changes retain prior
 trajectory history and therefore are not a fresh paired episode comparison.
 
-Because historical weights were lost, two separately identified Uniform-PCQN
-replacement models were trained with exactly 100,000 interactions and 23,751
-updates each. Only fixed final checkpoints were packaged; no validation or
-curriculum selection was used in those presentation runs. They are neither
-recovered historical models nor evidence of successful landing, ore delivery,
-convergence, or allocation benefit. Their manifests preserve the actual source
-commit, dirty-state flags and plan hashes, rather than asserting clean provenance.
+The updated Minecart demo uses the final4M categorical PPO checkpoint from
+confirmation seed20264311, selected by the fixed lowest-seed rule rather than
+observed score. Inference uses actor argmax; the two panels share the same
+weights and initial environment seed. The other two confirmation models and
+all confirmation evidence are retained. The Lunar panel still uses the earlier
+100k-interaction Uniform-PCQN replacement and is explicitly labelled as not
+qualified for reliable landing. Neither panel is a recovered historical model.
+The demonstration does not establish arbitrary preference or allocation benefit.
 
 \subsection{Execution and quality assurance}
 On Windows, run \path{START_COURSE_DEMO.bat} from the repository root, then
@@ -235,8 +237,7 @@ Lost historical weights restrict independent rollout reproduction. The new
 Envelope screen differs in learner, interaction budget and upstream preference
 sampling; it cannot serve as a compute-matched comparison against the recovered
 PCQN table. Its incomplete global seeding is an additional reproducibility limit.
-The current n-step development study is ongoing; its planned budget is not an
-observed improvement. Validation means and standard deviations do not replace a held-out
+The completed n-step and relabel/loss studies failed their task screens; the later three-seed PPO confirmation supports only its bounded Minecart task gate. Validation means and standard deviations do not replace a held-out
 final test or an adequately powered study. A completed numerical review of an
 earlier report returned WARN; the later revised-report reviewer hit its usage
 limit. No final independent semantic PASS is claimed.
@@ -244,7 +245,7 @@ limit. No final independent semantic PASS is claimed.
 The defensible conclusion is that the backbone must demonstrate the task before
 allocation benefits can be interpreted. This report documents a scoped course
 investigation comprising implementation, primary validation, failure analysis
-and an additional bounded backbone screen. The real inference demo exposes
+and bounded backbone screens, culminating in a three-seed Minecart task confirmation. The real inference demo exposes
 preference-conditioned action selection. The original full proposal remains
 partially fulfilled; a broader final
 comparative study requires a separately frozen protocol and qualification,

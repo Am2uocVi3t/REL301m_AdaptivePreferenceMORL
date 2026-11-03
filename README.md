@@ -2,6 +2,14 @@
 
 REL301m course research project, Fall 2026.
 
+**Latest course package (3 November):** `outputs/REL301m_Course_Project_20261103`
+and ZIP. `START_COURSE_DEMO.bat` uses the verified Minecart PPO final checkpoint;
+Lunar's presentation model remains explicitly unqualified. The group-template
+report now includes the completed three-seed Minecart confirmation.
+[Delivery details](docs/research/COURSE_ONPOLICY_DELIVERY_20261103.md).
+The separately qualified Lunar PPO pilot is described
+[here](docs/research/LUNAR_PPO_SPECIALIST_V1.md); planned training is not a result.
+
 **Native training terminal:** double-click `START_TRAINING_MONITOR.bat`.
 It opens the live Rich interface in PowerShell: worker progress, GPU, snapshots
 and retained logs. Arrow keys select workers, Tab changes logs, Space pauses

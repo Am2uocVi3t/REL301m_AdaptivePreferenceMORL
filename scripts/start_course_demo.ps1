@@ -3,7 +3,10 @@ $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'use_d_runtime.ps1')
 $courseDemoRepo = Split-Path -Parent $PSScriptRoot
 $courseDemoPython = Join-Path $courseDemoRepo '.venv/Scripts/python.exe'
-$courseDemoEntry = Join-Path $courseDemoRepo 'outputs/REL301m_Course_Project_20261101_httpfix/launch.py'
+$courseDemoEntry = Join-Path $courseDemoRepo 'outputs/REL301m_Course_Project_20261103/launch.py'
+if (-not (Test-Path -LiteralPath $courseDemoEntry)) {
+    $courseDemoEntry = Join-Path $courseDemoRepo 'outputs/REL301m_Course_Project_20261101_httpfix/launch.py'
+}
 if (-not (Test-Path -LiteralPath $courseDemoEntry)) {
     $courseDemoEntry = Join-Path $courseDemoRepo 'outputs/REL301m_Course_Project_20261101/launch.py'
 }

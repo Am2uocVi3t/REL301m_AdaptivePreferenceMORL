@@ -69,6 +69,36 @@ def test_invalid_preferences_rejected(value):
         preference(value, 3)
 
 
+def test_portable_ppo_demo_matches_direct_actor_and_keeps_weights_frozen(demo_root):
+    from src.models.onpolicy import ActorCritic
+
+    with torch.random.fork_rng():
+        torch.manual_seed(12)
+        actor = ActorCritic(7, 6, 3, width=16)
+    architecture = {"state_dim": 7, "action_dim": 6, "reward_dim": 3, "width": 16}
+    path = demo_root / "mine.pt"
+    torch.save(
+        {"model_kind": "categorical_ppo", "architecture": architecture, "model_state_dict": actor.state_dict()}, path
+    )
+    config = json.loads((demo_root / "config.json").read_text())
+    config["environments"]["mine"]["weights_sha256"] = sha256(path)
+    (demo_root / "config.json").write_text(json.dumps(config))
+    runtime = DemoRuntime(demo_root)
+    try:
+        state = runtime.reset("mine", [0.45, 0.45, 0.1], 0)
+        observation = torch.tensor(state["panels"][1]["observation"])
+        with torch.no_grad():
+            expected = actor.distribution(observation.unsqueeze(0), torch.tensor([[0.45, 0.45, 0.1]])).probs[0]
+        after = runtime.tick({"generation": 1, "tick_id": 1, "steps": 1})
+        assert after["panels"][1]["action"] == int(expected.argmax())
+        np.testing.assert_allclose(after["panels"][1]["action_scores"], expected.numpy())
+        assert after["training_updates"] == 0
+        for k, v in actor.state_dict().items():
+            torch.testing.assert_close(v, runtime.model("mine").network.state_dict()[k], atol=0, rtol=0)
+    finally:
+        runtime.close()
+
+
 @pytest.mark.parametrize("name", ["lunar", "mine"])
 def test_matched_start_native_skin_and_rng_are_read_only(demo_root, name):
     runtime = DemoRuntime(demo_root)

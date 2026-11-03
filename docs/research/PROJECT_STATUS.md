@@ -8,6 +8,19 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Course delivery updated (2026-11-03): group-template13-page report incorporates
+G confirmation; new package `outputs/REL301m_Course_Project_20261103` uses final
+Minecart seed20264311 by fixed lowest-ID rule and argmax.20 real presentation
+cases/source-equivalence and actual Edge desktop/mobile/PDF links pass. Lunar
+panel remains explicitly legacy/unqualified. Source/docs:
+`docs/research/COURSE_ONPOLICY_DELIVERY_20261103.md` and delivery qualification.
+Separate Lunar PPO+vectorGAE(.95) specialist is frozen/qualified: new seed20265311,
+fixed[.7,.1,.1,.1],4M steps,125088 actor/250176 critic updates,928 dev episodes,
+no test. Eight Box2D streams resume exactly by seed/action reconstruction;4224
+engineering training +239 replay reconstruction steps separate.231 tests pass,
+4 skips. Clean-source main launch next; no Lunar competence claim yet. Read
+`docs/research/LUNAR_PPO_SPECIALIST_V1.md`. Minecart results/source preserved.
+
 Latest G confirmation result (2026-11-03): COMPLETE, all3 seeds20264311/12/13
 fixed4M each,12M total;750,240 actor /1,500,480 critic updates. Executor audit
 passed3,288 development episodes /372,775 steps and480 task traces, including

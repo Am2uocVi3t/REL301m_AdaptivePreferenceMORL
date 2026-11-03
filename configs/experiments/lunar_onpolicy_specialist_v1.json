@@ -1,0 +1,99 @@
+{
+  "study_id": "lunar-onpolicy-specialist-v1",
+  "stage": "L",
+  "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+  "seed": 20265311,
+  "preference": [
+    0.7,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "training_interactions": 4000000,
+  "checkpoints": [
+    500000,
+    1000000,
+    2000000,
+    4000000
+  ],
+  "streams": 8,
+  "fragment_steps": 128,
+  "width": 256,
+  "gamma": 0.99,
+  "horizon": 1000,
+  "epochs": 4,
+  "minibatches": 8,
+  "critic_steps_per_actor": 2,
+  "actor_lr": 0.0003,
+  "critic_lr": 0.0003,
+  "adam_eps": 1e-05,
+  "clip": 0.2,
+  "max_grad_norm": 0.5,
+  "popart_rate": 0.001,
+  "popart_std_floor": 0.0001,
+  "entropy_end": 0.2,
+  "entropy_initial_multiplier": 0.01,
+  "entropy_damping": 0.01,
+  "entropy_multiplier_lr": 3e-05,
+  "actor_advantage": "frozen-utility scalarization then batch standardization; no objective-wise sigma division",
+  "snapshot_interval": 8192,
+  "expected_rounds": 3909,
+  "expected_actor_updates": 125088,
+  "expected_critic_updates": 250176,
+  "task_preferences": [
+    [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  ],
+  "task_seeds": [
+    20265321,
+    20265322,
+    20265323,
+    20265324,
+    20265325,
+    20265326,
+    20265327,
+    20265328,
+    20265329,
+    20265330
+  ],
+  "validation_seeds": [
+    20265341,
+    20265342,
+    20265343
+  ],
+  "evaluation_modes": [
+    "sampled",
+    "argmax"
+  ],
+  "evaluation_episodes": 928,
+  "evaluation_step_ceiling": 928000,
+  "selection": "final4M only; trained profile native+100 and pad-x >=8/10 in both modes",
+  "task_gate": {
+    "minimum_pad_successes": 8,
+    "episodes_per_profile": 10
+  },
+  "conditional_dispatch": false,
+  "final_test_steps": 0,
+  "engineering_step_ceiling": 20000,
+  "method_contract": "docs/research/LUNAR_PPO_SPECIALIST_V1.md",
+  "gae_lambda": 0.95,
+  "protocol_file_sha256": "11ea5c70a130e8cabeb108ce6ba14273cf43035882ca3d024dc24bed7cb5c5b2",
+  "nominal": {
+    "constructor_kwargs": {
+      "gravity": -10.0,
+      "enable_wind": false,
+      "wind_power": 0.0,
+      "turbulence_power": 0.0
+    }
+  }
+}
