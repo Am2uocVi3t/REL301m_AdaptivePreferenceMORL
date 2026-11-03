@@ -111,6 +111,25 @@ def audit() -> dict[str, Any]:
         readiness = "Audited single-seed Lunar outcome included; independent replication pending"
     else:
         readiness = "Lunar final outcome pending; report must retain running-only wording"
+    lunar_confirmation = ROOT / "research/evidence/lunar_onpolicy_confirmation_v1.json"
+    if lunar_confirmation.exists():
+        confirmation = json.loads(lunar_confirmation.read_text())
+        if (
+            confirmation["audit"] != "source_numeric_budget_and_all_task_physics_replay_pass"
+            or not confirmation["all_seed_both_mode_primary_gate_pass"]
+            or confirmation["prospective_training_seeds"] != 2
+            or confirmation["pilot_included"]
+        ):
+            raise ValueError("Prospective Lunar confirmation evidence differs")
+        for name, expected in confirmation["source"].items():
+            if digest(ROOT / name) != expected:
+                raise ValueError(f"Lunar confirmation source changed: {name}")
+        body = (PAPER / "Chapters/Final.tex").read_text()
+        for job in confirmation["jobs"]:
+            for cell in job["milestones"][-1]["task"]:
+                if cell["profile"] == 0 and (cell["pad_successes"] != 10 or f"{cell['mean_utility']:.5f}" not in body):
+                    raise ValueError("Prospective Lunar report success/utility differs")
+        readiness = "Audited Lunar pilot and two prospective confirmation seeds included; pilot separate"
     return {
         "status": "deterministic_source_numeric_and_reference_checks_pass",
         "independent_semantic_review": False,
@@ -126,7 +145,6 @@ def audit() -> dict[str, Any]:
         "lunar_editorial_readiness": readiness,
         "final_hand_in_ready": False,
         "remaining": [
-            "Independent Lunar replication if stronger stability claims are intended",
             "new final release verification",
             "lecturer rubric/deadline confirmation; independent semantic review not available",
         ],

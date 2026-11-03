@@ -15,7 +15,7 @@
 | Lunar PPO specialist final gate passes, one seed | research/evidence/lunar_onpolicy_specialist_v1.json; fixed Lunar plan |10/10 native+100 AND pad-x in both modes at trained preference; no independent-seed or arbitrary-preference guarantee |
 | LunarPPO delivery: both portable actors,40 real cases, Edge desktop/mobile | research/qualification/course_lunar_delivery_20261103.json; lunar_ppo_course_demo_20261103.json | Presentation diagnostics reuse development cases; not independent replication |
 | Frozen demo55-case preference diagnosis; Lunar default4/5, Minecart pure-ore0/5 | research/evidence/ppo_demo_preference_diagnosis_v1.json; research/qualification/ppo_demo_preference_diagnosis_v1.json | One fixed actor per environment; exact replay audit, not independent training seeds or tuning evidence |
-| Lunar two-fresh-seed confirmation running | configs/experiments/lunar_onpolicy_confirmation_v1.json; research/qualification/lunar_confirmation_launch_20261103.json | Launch evidence only; no task outcome yet; pilot outside prospective n=2 |
+| Lunar two prospective seeds complete: each final4M primary sampled/argmax10/10 | research/evidence/lunar_onpolicy_confirmation_v1.json | Executor source/numeric/320-trace physics audit; pilot outside prospective n=2; trained-profile nominal task replication only |
 | Adaptive allocation beats controls | No qualified supporting comparison | Do not claim |
 | Arbitrary preference / dynamics robustness | No supporting coverage guarantee/dynamics study | Do not claim |
 | Teacher accepts final report | Rubric/deadline not confirmed | External decision; never infer from passed tests |

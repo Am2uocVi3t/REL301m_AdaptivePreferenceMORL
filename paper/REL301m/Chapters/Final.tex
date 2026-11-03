@@ -14,8 +14,9 @@ limitations, and a real inference demonstration. A separate predeclared Envelope
 backbone feasibility screen is reported independently. A later uniform on-policy
 Minecart confirmation passed both task profiles in both inference modes across
 three fresh training seeds. A separate single-seed Lunar specialist subsequently
-passed its final landing gate; independent Lunar replication and adaptive-allocation
-benefit remain unestablished. The original full baseline/ablation matrix and final-test
+passed its final landing gate, followed by two fresh prospective confirmation
+seeds that also passed. Adaptive-allocation
+benefit remains unestablished. The original full baseline/ablation matrix and final-test
 study remain incomplete.
 
 \section{Problem and research questions}
@@ -261,12 +262,12 @@ The audit checked 928 development episodes, 315,564 steps and 160 task traces.
 Replaying their recorded actions in the pinned Box2D engine reproduced native
 states/rewards and final pad-x/end flags exactly. The additional 67,807 replay
 steps are verification cost, not new independent episodes or training.
-No original final-test data were used. A stronger Lunar claim requires a
-separate confirmation protocol. The LunarPPO demo labels this single-seed scope
+No original final-test data were used. Prospective replication is reported
+separately below. The released LunarPPO demo labels this single-seed scope
 explicitly; earlier released packages preserve their legacy Lunar model.
 \evidence{research/evidence/lunar_onpolicy_specialist_v1.json}
 
-\subsection{Frozen-actor preference diagnosis and prospective replication}
+\subsection{Frozen-actor preference diagnosis}
 A separate presentation diagnosis used five new environment seeds, the default,
 uniform and each simplex-corner preference, with frozen argmax actors. Lunar
 landed inside the pad in4/5 default cases and4/5 uniform cases; shaping-only
@@ -279,12 +280,39 @@ pinned physics. The18,394 diagnostic steps and18,394 additional replay steps
 are separate from training and the original final test.
 \evidence{research/evidence/ppo_demo_preference_diagnosis_v1.json}
 
-Two fresh Lunar seeds are separately predeclared at4M each with the pilot's
-unchanged candidate and a new development-weight/case set. The pilot remains
-exploratory, outside the prospective n=2 confirmation group. Each fresh seed
-must achieve at least8/10 native+100 pad landings in both modes at final4M.
-No confirmation outcome is claimed here; failed seeds will be retained.
-\evidence{configs/experiments/lunar_onpolicy_confirmation_v1.json}
+\subsection{Two prospective Lunar confirmation seeds}
+The separately predeclared seeds20266311 and20266312 completed4M interactions
+each using the unchanged specialist and new development preferences/cases.
+The observed pilot is excluded from this prospective n=2 group. Both seeds
+exceeded the final-only gate of at least8/10 native+100 pad landings in BOTH
+inference modes at the trained preference (.7,.1,.1,.1).
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Training seed & Sampled landings & Argmax landings & Sampled utility & Argmax utility\\
+\midrule
+20266311 &10/10&10/10&0.19593&0.17405\\
+20266312 &10/10&10/10&0.14129&0.12979\\
+\bottomrule
+\end{tabular}
+\caption{Final4M prospective Lunar outcomes. Training seeds are the replication
+units; the pilot is separate. Utilities use the frozen discounted/scaled definition.}
+\end{table}
+
+Uniform-profile landings were10/10 and9/10 respectively in each mode. Those
+are secondary diagnostics, not the primary gate or a universal preference
+guarantee. The across-seed mean primary utility was0.16861 sampled and0.15192
+argmax; sample SD was0.03863 and0.03130 respectively, with only two replication
+units and no significance claim. The cohort used8M training interactions,
+250,176 actor and500,352 critic updates, plus1,856 development episodes and
+630,302 evaluation steps. All320 task traces replayed exactly; the additional
+112,508 replay steps are diagnostic verification cost. Original final-test
+steps and training-restoration steps were zero. The confirmation establishes
+bounded nominal task replication, not adaptive advantage, arbitrary-weight
+competence or dynamics generalization.
+\evidence{research/evidence/lunar_onpolicy_confirmation_v1.json}
 
 \subsection{Limits of the current conclusion}
 The deliverable establishes a working preference-conditioned value-learning
@@ -307,7 +335,9 @@ limit. No final independent semantic PASS is claimed.
 The defensible conclusion is that the backbone must demonstrate the task before
 allocation benefits can be interpreted. This report documents a scoped course
 investigation comprising implementation, primary validation, failure analysis
-and bounded backbone screens, culminating in a three-seed Minecart task confirmation. The real inference demo exposes
+and bounded backbone screens, culminating in a three-seed Minecart task confirmation
+and two prospective Lunar confirmations reported separately from the pilot.
+The real inference demo exposes
 preference-conditioned action selection. The original full proposal remains
 partially fulfilled; a broader final
 comparative study requires a separately frozen protocol and qualification,

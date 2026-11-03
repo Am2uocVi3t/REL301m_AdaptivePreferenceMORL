@@ -1,3 +1,9 @@
+Cập nhật kết quả đã audit: hai seed Lunar prospective20266311/12 đều hoàn tất4M,
+đáp đúng bãi10/10 ở cả sampled và argmax tại preference train. Thay mọi ô pending
+trong bản kịch bản lịch sử dưới đây bằng kết quả này; pilot vẫn tách riêng.
+Uniform secondary10/10 và9/10; không bảo đảm mọi preference. Xem
+LUNAR_CONFIRMATION_RESULTS_20261103.md. Không có training đang chạy.
+
 # Kịch bản trình bày REL301m — bản làm việc 3/11/2026
 
 Chỉ dùng kết quả đã audit. Phần hai seed Lunar mới là kế hoạch đang thực hiện,

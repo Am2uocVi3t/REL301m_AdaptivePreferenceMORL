@@ -15,13 +15,14 @@ are preserved. [Delivery evidence](docs/research/COURSE_LUNAR_DELIVERY_20261103.
 [demo checklist](docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md).
 Arbitrary-preference competence and adaptive-allocation advantage are not established.
 
-**New Lunar confirmation:** two fresh seeds are running at4M each with the
-unchanged specialist; the observed pilot remains separate from prospective n=2.
-[Protocol](docs/research/LUNAR_ONPOLICY_CONFIRMATION_V1.md).
-A55-case frozen-actor diagnosis found limits at extreme preferences:
-[results](docs/research/PPO_PREFERENCE_DIAGNOSIS_20261103.md).
-[Presentation script and lecturer-question draft](docs/research/COURSE_TALK_VI_20261103.md).
-No new confirmation outcome is claimed before completion/audit.
+**Lunar confirmation completed:** both prospective fresh seeds passed the final4M
+trained-profile landing gate,10/10 in sampled and argmax. The pilot remains
+separate from prospective n=2. [Results](docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md).
+A55-case frozen demo diagnosis retains observed limits at extreme preferences:
+[diagnosis](docs/research/PPO_PREFERENCE_DIAGNOSIS_20261103.md).
+No training is active; released demo/ZIP still uses its labelled pilot model.
+Adaptive advantage, arbitrary-preference competence and dynamics robustness
+remain unestablished.
 
 **Native training terminal:** double-click `START_TRAINING_MONITOR.bat`.
 It opens the live Rich interface in PowerShell: worker progress, GPU, snapshots

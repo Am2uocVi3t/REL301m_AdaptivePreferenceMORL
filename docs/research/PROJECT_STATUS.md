@@ -1,3 +1,16 @@
+Latest verified Lunar LG result (3 November 2026): COMPLETE and executor-audited.
+Both fresh prospective seeds20266311/12 reached final4M and10/10 pad landings in
+BOTH modes at trained preference. Pilot remains separate from prospective n=2.
+8M train,250176 actor/500352 critic,1856 dev episodes/630302 steps. All320 task
+traces replayed exactly for112508 additional diagnostic steps;0 test/restoration.
+Final uniform secondary profile10/10 and9/10 in each mode. No active workers,
+no new training/extension/test access or automatic best-seed promotion.
+Read docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md and evidence
+research/evidence/lunar_onpolicy_confirmation_v1.json. Existing corner failures
+still limit arbitrary-preference claims; adaptive advantage remains unestablished.
+Working report updated; old demo/report ZIP preserved, labelled pilot remains
+its presentation model. Earlier running/pending snapshots below are historical.
+
 Lunar confirmation LG is now RUNNING (3 November 2026) from clean c3a1d27.
 Both new seeds20266311/12 were verified at75,776 interactions /2,368 actor
 updates each, durable73,728; actual workers11448/35376 with distinct initial
