@@ -74,7 +74,7 @@ These sources motivate mechanisms, not claims that they work in this implementat
 \begin{figure}[htbp]
 \centering
 \resizebox{\textwidth}{!}{\input{Figures/morl-pipeline}}
-\caption{Implemented allocation loop. Validation is separate from training;
+\caption{Historical PCQN allocation loop. Validation is separate from training;
 checkpoint selection and final test remain subject to scientific gates.}
 \end{figure}
 
@@ -280,6 +280,15 @@ pinned physics. The18,394 diagnostic steps and18,394 additional replay steps
 are separate from training and the original final test.
 \evidence{research/evidence/ppo_demo_preference_diagnosis_v1.json}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{../../outputs/course-report-latex/preference_diagnosis.pdf}
+\caption{Frozen demo actors on five new environment cases per profile. Counts
+are task completions, not independently trained models or utility optimality.
+All profiles, including failures, are shown. The hatched fuel-only Minecart cell
+does not reward ore, so zero deliveries alone is not a preference-fitness failure.}
+\end{figure}
+
 \subsection{Two prospective Lunar confirmation seeds}
 The separately predeclared seeds20266311 and20266312 completed4M interactions
 each using the unchanged specialist and new development preferences/cases.
@@ -313,6 +322,15 @@ steps and training-restoration steps were zero. The confirmation establishes
 bounded nominal task replication, not adaptive advantage, arbitrary-weight
 competence or dynamics generalization.
 \evidence{research/evidence/lunar_onpolicy_confirmation_v1.json}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{../../outputs/course-report-latex/lunar_confirmation.pdf}
+\caption{Every prospective Lunar seed and inference mode at the four recorded
+milestones; lines connect observations without smoothing. The dotted task line
+is the final gate8/10, not an early-stopping rule. The observed pilot is excluded;
+overlapping lines may coincide. No confidence band is inferred from two seeds.}
+\end{figure}
 
 \subsection{Limits of the current conclusion}
 The deliverable establishes a working preference-conditioned value-learning

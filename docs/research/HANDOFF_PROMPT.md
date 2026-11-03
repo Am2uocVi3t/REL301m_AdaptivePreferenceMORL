@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T07:34:24+00:00
-Expected working branch at generation: codex/lunar-confirmation-v1
-Expected commit at generation: a7a1fde
+Snapshot generated: 2026-11-03T13:49:43+00:00
+Expected working branch at generation: codex/submission-readiness-audit
+Expected commit at generation: fcc0211
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
@@ -88,10 +88,10 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Lunar prospective confirmation complete: both fresh seeds final4M primary sampled/argmax10/10. Audited1856 development records/630302steps and replayed320 task traces exactly (112508 additional diagnostic steps). Pilot excluded. Working report15pages rebuilt/numeric/text/visual checks;233 tests pass4skip, mypy144. No active training or final test.
+Readiness audit reran233 Python tests4skip,81 JS assertions, fresh ZIP40 real cases/actor-return equivalence and Edge desktop/mobile/native/PDF checks. Fixed stale Minecart-failure assertion. Added PPO diagram/Lunar curves/preference diagnostic heatmap; report16p6figs rendered/verified. New versioned submission-review ZIP with unchanged actors; launcher8767 report hash verified. No training/test.
 
 Next actions:
-1. Use audited Lunar confirmation in the course presentation; preserve pilot and prior release. Verify a new versioned report/demo package before replacing distribution; retain arbitrary-preference/adaptive/dynamics limits and confirm lecturer rubric/deadline. Do not extend or restart completed research.
+1. Use verified submission-review package and report for bounded course scope. Prepare actual slide deck/current demo backup video and confirm lecturer rubric/deadline, especially adaptive-comparison requirement. Do not claim full original proposal/arbitrary preferences/dynamics or start more training automatically.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

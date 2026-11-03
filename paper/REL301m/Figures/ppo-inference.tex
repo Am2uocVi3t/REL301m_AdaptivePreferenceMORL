@@ -1,0 +1,11 @@
+\begin{tikzpicture}[node distance=10mm and 10mm]
+\node[block] (input) {State $s$\\preference $w$};
+\node[block,right=of input,yshift=12mm] (actor) {Actor MultiBody\\objective-wise features\\weighted by $w$};
+\node[block,right=of actor] (policy) {Categorical policy\\sample in training\\argmax in demo};
+\node[block,below=12mm of actor] (critic) {Separate critic MultiBody\\vector value + PopArt\\used during training};
+\draw[flow] (input)--(actor);
+\draw[flow] (actor)--(policy);
+\draw[flow] (input)--(critic);
+\node[below=7mm of critic,align=center,font=\sffamily\small,text=Muted]
+{Same input; separate actor and critic parameters.\\PPO task screens do not establish adaptive-allocation benefit.};
+\end{tikzpicture}

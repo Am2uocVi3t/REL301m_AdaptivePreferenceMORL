@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/lunar-confirmation-v1",
-  "updated_at": "2026-11-03T07:34:23+00:00",
+  "working_branch": "codex/submission-readiness-audit",
+  "updated_at": "2026-11-03T13:49:43+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,7 +60,7 @@
     }
   ],
   "next_actions": [
-    "Use audited Lunar confirmation in the course presentation; preserve pilot and prior release. Verify a new versioned report/demo package before replacing distribution; retain arbitrary-preference/adaptive/dynamics limits and confirm lecturer rubric/deadline. Do not extend or restart completed research."
+    "Use verified submission-review package and report for bounded course scope. Prepare actual slide deck/current demo backup video and confirm lecturer rubric/deadline, especially adaptive-comparison requirement. Do not claim full original proposal/arbitrary preferences/dynamics or start more training automatically."
   ],
-  "last_session_summary": "Lunar prospective confirmation complete: both fresh seeds final4M primary sampled/argmax10/10. Audited1856 development records/630302steps and replayed320 task traces exactly (112508 additional diagnostic steps). Pilot excluded. Working report15pages rebuilt/numeric/text/visual checks;233 tests pass4skip, mypy144. No active training or final test."
+  "last_session_summary": "Readiness audit reran233 Python tests4skip,81 JS assertions, fresh ZIP40 real cases/actor-return equivalence and Edge desktop/mobile/native/PDF checks. Fixed stale Minecart-failure assertion. Added PPO diagram/Lunar curves/preference diagnostic heatmap; report16p6figs rendered/verified. New versioned submission-review ZIP with unchanged actors; launcher8767 report hash verified. No training/test."
 }

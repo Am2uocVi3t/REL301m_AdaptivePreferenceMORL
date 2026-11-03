@@ -9,6 +9,14 @@ Unlike its objective-wise normalized actor advantage, this project scalarizes
 the original fixed-scaled vector advantage before batch standardization, preserving
 the protocol utility weights. It is a new candidate, not an exact reproduction.
 
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{\input{Figures/ppo-inference}}
+\caption{PPO screen architecture, separate from the historical PCQN loop.
+Actor and critic each use objective-wise state features merged by preference;
+critic PopArt does not change the actor's frozen utility weights.}
+\end{figure}
+
 A one-preference specialist and then a fresh uniform-32-preference conditional
 pilot each ran 4 million interactions. Their final task gates passed. A separate
 confirmation froze three fresh training seeds (20264311--20264313), new task

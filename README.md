@@ -2,18 +2,13 @@
 
 REL301m course research project, Fall 2026.
 
-**Latest verified package:** `outputs/REL301m_Course_Project_20261103_LunarPPO`
-and ZIP. `START_COURSE_DEMO.bat` now prefers this release and prints the actual
-free port. Both environments use final4M PPO actors: Minecart has three-seed
-confirmation, Lunar is a single-seed landing specialist. Extracted-package checks
-passed40 real task cases plus Edge desktop/mobile controls and PDF links.
-Group-template report14 pages; updated Vietnamese guide1 page. Prior releases
-are preserved. [Delivery evidence](docs/research/COURSE_LUNAR_DELIVERY_20261103.md).
-
-[Report outline](paper/REL301m/FINAL_REPORT_OUTLINE.md),
-[claim/evidence matrix](paper/REL301m/CLAIM_EVIDENCE_MATRIX.md), and
-[demo checklist](docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md).
-Arbitrary-preference competence and adaptive-allocation advantage are not established.
+**Latest reviewed package:** `outputs/REL301m_Course_Submission_Review_20261103`
+and ZIP. The launcher prefers it and prints the free port (verified8767).
+Current group-template report:16 pages with6 research figures. Frozen actors are
+unchanged: Minecart lowest confirmation seed, Lunar labelled pilot. Fresh ZIP
+extraction40-case inference,81 JS checks and Edge desktop/mobile/PDF checks pass.
+[Readiness and remaining scope](docs/research/SUBMISSION_READINESS_20261103.md).
+Prior releases are preserved; no training is active.
 
 **Lunar confirmation completed:** both prospective fresh seeds passed the final4M
 trained-profile landing gate,10/10 in sampled and argmax. The pilot remains

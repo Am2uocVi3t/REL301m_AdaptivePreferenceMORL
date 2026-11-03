@@ -1,3 +1,9 @@
+Current submission review update3 November: report16 pages/6 research figures,
+new verified package/ZIP and fresh execution receipt:
+research/qualification/course_submission_readiness_20261103.json.
+Earlier report/delivery receipts below are historical snapshots. The actor
+checkpoints are unchanged and labelled; original scientific locks remain.
+
 # Current report evidence index — reviewed3 November2026
 
 Current entry is main.tex -> Chapters/Final.tex, with OnpolicyResults and the

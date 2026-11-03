@@ -3,7 +3,10 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const vm=require('node:vm');
 const path=require('node:path');
-const directory=process.argv[2]||'outputs/REL301m_Interactive_Demo';
+const directory=process.argv[2]||(
+  fs.existsSync('outputs/REL301m_Course_Project_20261103_LunarPPO/config.json')
+    ?'outputs/REL301m_Course_Project_20261103_LunarPPO':'outputs/REL301m_Interactive_Demo'
+);
 const config=JSON.parse(fs.readFileSync(path.join(directory,'config.json'),'utf8')).environments;
 const elements=new Map();
 class Element{
@@ -64,7 +67,9 @@ let checks=0;const check=(condition,label)=>{assert.ok(condition,label);checks++
   await event('pause','click');const paused=JSON.stringify(backend);await settle();check(JSON.stringify(backend)===paused,'pause no physics');
   const beforeSkin=JSON.stringify(backend);document.getElementById('skin').value='native';await event('skin','change');check(JSON.stringify(backend)===beforeSkin,'skin no tick');check(document.getElementById('left').hidden,'native mode hides cosmetic canvas');
   document.getElementById('skin').value='styled';await event('skin','change');await event('mine','click');check(backend.environment==='mine'&&backend.panels[0].steps===0,'Minecart selected/reset paused');check(document.getElementById('sliders').children.length===3,'three Minecart sliders');
-  await event('step','click');check(backend.panels[0].steps===1,'Minecart tick');check(document.getElementById('notice').textContent.includes('chưa đạt'),'Minecart failure visible');
+  await event('step','click');check(backend.panels[0].steps===1,'Minecart tick');
+  check(document.getElementById('notice').textContent===config.mine.caveat,'current model evidence caveat visible');
+  check(document.getElementById('model-info').textContent.includes(String(config.mine.training_seed)),'current training seed visible');
   const renderer=new context.window.SceneRenderer(new Element(),'#70e4c4');const input=panel([.3,.3,.4],'mine');const original=JSON.stringify(input);renderer.draw(input);check(JSON.stringify(input)===original,'renderer never changes state');renderer.draw(input);check(renderer.trail.length===1,'paused render does not duplicate trail');check(draws>0,'both sprite render paths executed');
   networkFailure=true;const count=posts.length;await event('step','click');check(!document.getElementById('error').hidden,'error visible');check(document.getElementById('step').disabled&&document.getElementById('pause').disabled,'fault halts controls');check(posts.length===count,'failed call not retried');
   console.log(JSON.stringify({status:'PASS',assertions:checks,scope:'Fake DOM/canvas/transport unit tests only, not browser rendering',draw_calls:draws}));

@@ -1,3 +1,18 @@
+Submission review verified3 November2026: new package/ZIP
+outputs/REL301m_Course_Submission_Review_20261103 contains the current16-page
+report with6 research figures and unchanged verified actors. Fresh extraction,
+40 real task cases/source actor+return equivalence,81 JS assertions and Edge
+controls/mobile/native/PDF checks pass, including launcher8767.233 Python tests
+pass/4 skips (3 Unix-only ARIS modules,1 missing original-host checkpoint);
+Ruff/mypy147/Bandit/compileall/diff pass. Stale historical Minecart-failure UI
+assertion corrected to actual model evidence caveat/seed. Fresh install not
+repeated; current pinned Windows CPU environment only. No training/test access.
+Read SUBMISSION_READINESS_20261103.md and qualification
+course_submission_readiness_20261103.json. Technically ready for bounded course
+scope; full adaptive proposal unfulfilled, arbitrary/dynamics guarantees absent.
+Actual PPTX/video still missing (talk script exists), rubric/deadline unconfirmed.
+Prior releases/models retained; no best-seed promotion. Older notes historical.
+
 Latest verified Lunar LG result (3 November 2026): COMPLETE and executor-audited.
 Both fresh prospective seeds20266311/12 reached final4M and10/10 pad landings in
 BOTH modes at trained preference. Pilot remains separate from prospective n=2.

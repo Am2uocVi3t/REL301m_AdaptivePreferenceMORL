@@ -16,6 +16,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Result figure/table generation failed.' }
     & .venv/Scripts/python.exe scripts/plot_onpolicy_confirmation.py
     if ($LASTEXITCODE -ne 0) { throw 'Minecart confirmation figure generation failed.' }
+    & .venv/Scripts/python.exe scripts/plot_lunar_confirmation.py
+    if ($LASTEXITCODE -ne 0) { throw 'Lunar confirmation figure generation failed.' }
+    & .venv/Scripts/python.exe scripts/plot_preference_diagnosis.py
+    if ($LASTEXITCODE -ne 0) { throw 'Preference diagnosis figure generation failed.' }
     & .venv/Scripts/python.exe scripts/audit_course_report.py
     if ($LASTEXITCODE -ne 0) { throw 'Report source/numeric/reference checks failed.' }
     $courseReportOutput = Join-Path $courseReportRepo 'outputs/course-report-latex'
