@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T04:20:38+00:00
-Expected working branch at generation: codex/course-final-report-review
-Expected commit at generation: f4c527d
+Snapshot generated: 2026-11-03T04:34:08+00:00
+Expected working branch at generation: codex/lunar-ppo-demo-delivery
+Expected commit at generation: 9ef5c85
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
@@ -88,10 +88,10 @@ Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Lunar specialist completed 4M; executor audit reconciled 928 development episodes and replayed 160 Box2D traces exactly. Both modes trained-profile 10/10 pad landings; n=1 only. Working report updated; 231 tests pass, 4 skipped.
+Delivered separately versioned LunarPPO report/demo ZIP; 40 extracted real cases and source probabilities/actions/return accounting passed, Edge desktop/mobile/native/PDF checks pass. 14-page report and new 1-page guide inspected. 231 tests pass, 4 skipped. Old release preserved; launcher verified on8766. Zero training/final-test.
 
 Next actions:
-1. Verify and export a separately versioned portable Lunar demo/report package; preserve prior release. Freeze independent Lunar confirmation only if stronger stability claims are pursued. No automatic training or final-test access.
+1. Use verified LunarPPO package for presentation and confirm lecturer rubric/deadline. Independent Lunar training-seed confirmation requires a separate frozen scope if stronger stability claims are wanted; do not automatically launch training or access final test.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

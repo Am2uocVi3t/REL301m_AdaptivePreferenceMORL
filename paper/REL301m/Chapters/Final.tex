@@ -208,9 +208,10 @@ The updated Minecart demo uses the final4M categorical PPO checkpoint from
 confirmation seed20264311, selected by the fixed lowest-seed rule rather than
 observed score. Inference uses actor argmax; the two panels share the same
 weights and initial environment seed. The other two confirmation models and
-all confirmation evidence are retained. The Lunar panel still uses the earlier
-100k-interaction Uniform-PCQN replacement and is explicitly labelled as not
-qualified for reliable landing. Neither panel is a recovered historical model.
+all confirmation evidence are retained. The separately versioned LunarPPO
+package uses the final4M Lunar specialist from seed20265311, with the trained
+preference (.7,.1,.1,.1) as the default. It is labelled as a single-seed pilot;
+the older release retains its legacy PCQN Lunar model. Neither panel is a recovered historical model.
 The demonstration does not establish arbitrary preference or allocation benefit.
 
 \subsection{Execution and quality assurance}
@@ -261,8 +262,8 @@ Replaying their recorded actions in the pinned Box2D engine reproduced native
 states/rewards and final pad-x/end flags exactly. The additional 67,807 replay
 steps are verification cost, not new independent episodes or training.
 No original final-test data were used. A stronger Lunar claim requires a
-separate confirmation protocol; the current demo release still labels its
-legacy Lunar model explicitly until a new package is verified.
+separate confirmation protocol. The LunarPPO demo labels this single-seed scope
+explicitly; earlier released packages preserve their legacy Lunar model.
 \evidence{research/evidence/lunar_onpolicy_specialist_v1.json}
 
 \subsection{Limits of the current conclusion}

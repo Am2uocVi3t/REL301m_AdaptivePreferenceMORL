@@ -1,3 +1,20 @@
+# Current verified delivery: LunarPPO, 3 November 2026
+
+- New package/ZIP: outputs/REL301m_Course_Project_20261103_LunarPPO.
+- Lunar: final4M seed20265311, one-seed specialist; default [.7,.1,.1,.1].
+- Minecart: final4M lowest confirmation seed20264311; three-seed evidence.
+- Both actor argmax;40 real extracted-package cases, source equivalence and
+  return checks passed. These reuse development cases.
+- Edge desktop/mobile, native renderer, controls and both PDF links passed.
+- Group-template report14 pages, updated guide1 page; old guides archived.
+- Launcher prefers new release and prints actual free port; current8766.
+- Receipt: research/qualification/course_lunar_delivery_20261103.json.
+- Before hand-in: confirm rubric/deadline; retain trace/optional recording.
+  Do not imply arbitrary-preference success or adaptive-allocation advantage.
+
+The checklist below describes the PREVIOUS release. Preserve it unchanged;
+its legacy Lunar model does not describe the new LunarPPO release.
+
 # Course demonstration and reproduction checklist
 
 ## Current release already verified

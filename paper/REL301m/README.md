@@ -1,3 +1,17 @@
+Latest delivery (3 November 2026): the separately versioned
+outputs/REL301m_Course_Project_20261103_LunarPPO and ZIP are verified. Both
+panels now use PPO actors: Minecart lowest confirmation seed20264311 (n=3),
+Lunar final4M specialist seed20265311 (n=1). Extracted-package CPU checks passed
+40 real task cases with source-action/probability equivalence and exact return
+accounting; 5,221 additional presentation diagnostic steps, zero training/test.
+Edge desktop/mobile, controls, native renderer and PDF links passed. Report14
+pages and new guide1 page inspected. Old release preserved. Repository launcher
+prefers the new package and selects a free port; verified live instance8766.
+Receipt: research/qualification/course_lunar_delivery_20261103.json.
+Fresh dependency installation was not repeated. No automatic new training;
+Lunar multi-seed stability/adaptive advantage remain unestablished. Earlier
+legacy-demo and pending-delivery notes below describe historical snapshots.
+
 Latest verified update (3 November 2026): Lunar PPO specialist COMPLETE at
 4,000,000 training interactions (seed 20265311; fixed preference [.7,.1,.1,.1]).
 Final trained-profile sampled and argmax both achieved 10/10 native +100

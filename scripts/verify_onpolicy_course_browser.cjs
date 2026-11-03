@@ -9,6 +9,7 @@ const {chromium} = require('playwright');
   const output = path.resolve(process.argv[2] || path.join(root, 'artifacts/presentation-verification/2026-11-01'));
   fs.mkdirSync(output, {recursive:true});
   const errors = [];
+  const baseUrl = process.env.REL301M_DEMO_URL || 'http://127.0.0.1:18766';
   const context = await chromium.launchPersistentContext(path.join(output, 'edge-profile'), {
     executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
     headless:true, viewport:{width:1440,height:1000},
@@ -17,11 +18,15 @@ const {chromium} = require('playwright');
   try {
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(String(error)));
-    await page.goto('http://127.0.0.1:18766', {waitUntil:'networkidle'});
+    await page.goto(baseUrl, {waitUntil:'networkidle'});
     await page.waitForFunction(() => document.querySelector('#led').classList.contains('ready'));
     const state = () => page.evaluate(() => fetch('/api/state').then(response=>response.json()));
     let before = await state();
     assert.equal(before.environment,'lunar');
+    if (process.env.REL301M_LUNAR_PPO === '1') {
+      assert.match(await page.locator('#notice').textContent(),/Lunar PPO/);
+      assert.match(await page.locator('#model-info').textContent(),/20265311/);
+    }
     assert.deepEqual(before.panels[0].observation,before.panels[1].observation);
     await page.locator('#step').click();
     await page.waitForFunction(() => document.querySelector('#left-step').textContent==='0001');
@@ -51,7 +56,7 @@ const {chromium} = require('playwright');
     assert.equal((await state()).environment,'mine');
     await page.screenshot({path:path.join(output,'minecart-browser.png'),fullPage:true});
     for (const endpoint of ['/docs/report.pdf','/docs/guide.pdf']) {
-      const response=await page.request.get('http://127.0.0.1:18766'+endpoint);
+      const response=await page.request.get(baseUrl+endpoint);
       assert.equal(response.status(),200);assert.match(response.headers()['content-type'],/pdf/);
     }
     await page.setViewportSize({width:390,height:844});
@@ -59,7 +64,8 @@ const {chromium} = require('playwright');
     const dimensions=await page.evaluate(()=>({body:document.body.scrollWidth,viewport:window.innerWidth}));
     assert.deepEqual(errors,[]);
     const result={status:'PASS',browser:'Microsoft Edge headless',
-      independently_launched_package:true, minecart_ppo_verified:true,matched_reset:true,single_step:true,
+      independently_launched_package:true, minecart_ppo_verified:true,
+      lunar_ppo_verified:process.env.REL301M_LUNAR_PPO === '1',base_url:baseUrl,matched_reset:true,single_step:true,
       pending_slider_no_steps:true,live_preference_without_reset:true,
       native_render_no_steps:true,both_environments:true,pdf_links:true,page_errors:errors,
       mobile_dimensions:dimensions,mobile_horizontal_overflow:dimensions.body>dimensions.viewport};

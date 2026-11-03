@@ -2,20 +2,18 @@
 
 REL301m course research project, Fall 2026.
 
-**Report finalization:** the reviewed working source/PDF now has14 pages with
-an explicit RQ coverage table and pending Lunar result rule.
-[Outline](paper/REL301m/FINAL_REPORT_OUTLINE.md),
+**Latest verified package:** `outputs/REL301m_Course_Project_20261103_LunarPPO`
+and ZIP. `START_COURSE_DEMO.bat` now prefers this release and prints the actual
+free port. Both environments use final4M PPO actors: Minecart has three-seed
+confirmation, Lunar is a single-seed landing specialist. Extracted-package checks
+passed40 real task cases plus Edge desktop/mobile controls and PDF links.
+Group-template report14 pages; updated Vietnamese guide1 page. Prior releases
+are preserved. [Delivery evidence](docs/research/COURSE_LUNAR_DELIVERY_20261103.md).
+
+[Report outline](paper/REL301m/FINAL_REPORT_OUTLINE.md),
 [claim/evidence matrix](paper/REL301m/CLAIM_EVIDENCE_MATRIX.md), and
 [demo checklist](docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md).
-The existing release ZIP is preserved; a final release follows the Lunar audit.
-
-**Latest course package (3 November):** `outputs/REL301m_Course_Project_20261103`
-and ZIP. `START_COURSE_DEMO.bat` uses the verified Minecart PPO final checkpoint;
-Lunar's presentation model remains explicitly unqualified. The group-template
-report now includes the completed three-seed Minecart confirmation.
-[Delivery details](docs/research/COURSE_ONPOLICY_DELIVERY_20261103.md).
-The separately qualified Lunar PPO pilot is described
-[here](docs/research/LUNAR_PPO_SPECIALIST_V1.md); planned training is not a result.
+Arbitrary-preference competence and adaptive-allocation advantage are not established.
 
 **Native training terminal:** double-click `START_TRAINING_MONITOR.bat`.
 It opens the live Rich interface in PowerShell: worker progress, GPU, snapshots
@@ -44,7 +42,7 @@ development preferences/cases. [Confirmation contract](docs/research/ONPOLICY_CO
 The native terminal follows its three workers when the cohort manifest exists.
 G is now complete: every seed passed both task profiles in both modes (10/10
 each), with new development cases. [Confirmation results](docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md).
-Adaptive-allocation benefit and Lunar competence remain unestablished.
+Adaptive-allocation benefit and multi-seed Lunar stability remain unestablished.
 
 **Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
 

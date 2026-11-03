@@ -1,3 +1,9 @@
+Delivery update: final Lunar audit, report rebuild, new LunarPPO package/ZIP,
+extracted40-case verification and Edge desktop/mobile checks are COMPLETE.
+See docs/research/COURSE_LUNAR_DELIVERY_20261103.md. Finalization steps1–5
+below are now recorded as completed; external rubric/review and optional
+independent Lunar confirmation remain separate. No automatic training.
+
 Latest verified update (3 November 2026): Lunar PPO specialist COMPLETE at
 4,000,000 training interactions (seed 20265311; fixed preference [.7,.1,.1,.1]).
 Final trained-profile sampled and argmax both achieved 10/10 native +100
