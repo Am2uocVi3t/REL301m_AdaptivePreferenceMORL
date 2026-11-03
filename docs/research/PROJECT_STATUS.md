@@ -1,3 +1,14 @@
+Lunar confirmation LG is now RUNNING (3 November 2026) from clean c3a1d27.
+Both new seeds20266311/12 were verified at75,776 interactions /2,368 actor
+updates each, durable73,728; actual workers11448/35376 with distinct initial
+hashes. GPU72%/430MiB at witness. Native terminal opened and two-job collector
+verified; duplicate cohort launch refused before touching logs. Receipt:
+research/qualification/lunar_confirmation_launch_20261103.json. Fixed4M each,
+8M total; first development evaluation500k. No confirmation task outcome yet.
+Do not edit frozen training sources, extend budgets, auto-retry or access test.
+Pilot remains exploratory and outside prospective n=2. Runtime/doc/task
+qualification and the55-case preference diagnosis below are separate evidence.
+
 Latest authorized continuation (3 November 2026): two-seed Lunar confirmation
 is frozen and CUDA-qualified, not yet a result. Plan lunar_onpolicy_confirmation_v1.json;
 seeds20266311/12,4M each/8M total, final-only trained-profile >=8/10 pad landings

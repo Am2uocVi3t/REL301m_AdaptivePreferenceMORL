@@ -6,7 +6,7 @@
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/lunar-confirmation-v1",
-  "updated_at": "2026-11-03T05:01:56+00:00",
+  "updated_at": "2026-11-03T05:05:03+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,7 +60,7 @@
     }
   ],
   "next_actions": [
-    "Launch only the frozen two-seed Lunar cohort from clean committed source, verify live progress and native monitor. Pilot remains exploratory, no arbitrary-weight/adaptive advantage or final-test claim. Keep released package unchanged; lecturer question draft requires user to contact lecturer."
+    "Let fixed two-seed LG4M jobs run without source changes or extensions. On completion audit checkpoints, budgets, traces and per-seed outcomes, then update confirmation results/report. Keep released ZIP unchanged until a separately verified update; user confirms lecturer rubric/deadline using drafted message."
   ],
-  "last_session_summary": "User authorized next steps. Froze two fresh-seed Lunar confirmation; concurrent CUDA kill/resume exact both seeds/all8, 8448 engineering training. 233 tests pass/4 skipped. Completed55-case frozen preference diagnosis and exact replay: Lunar default4/5, Minecart pure-ore delivery0/5. Report and talk/script draft include limits, no tuning."
+  "last_session_summary": "Launched two authorized fresh Lunar confirmation seeds from clean c3a1d27; both verified75776 steps/2368 actor, durable73728, GPU72%430MiB; native terminal and duplicate guard verified.233 tests pass4 skipped.55 preference diagnosis cases+exact replay audited; working report14pages and talk/script include failures. Pilot separate; no confirmation outcome/test."
 }

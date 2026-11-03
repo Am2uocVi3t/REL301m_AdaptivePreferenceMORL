@@ -1,0 +1,109 @@
+{
+  "status": "two_live_source_bound_workers_verified",
+  "observed_unix": 1793682257.1030922,
+  "source_commit": "c3a1d2757214ff9cd8477fb65d6da1ee56e58d6a",
+  "source": {
+    "scripts/run_lunar_onpolicy.py": "149153aa68a4dae946d2a0e415eda6660826d6a34b6cf56e5710e765d488fabf",
+    "scripts/run_lunar_confirmation.py": "4a9f913f891820dbefa00dcb5b4988c182a6841a594a5164cc22d44ee434eb5a",
+    "configs/experiments/lunar_onpolicy_specialist_v1.json": "5a33cb33130ee591da211fcceaea5c1e9ada07f181017e0414073c0f921cf5e8",
+    "configs/protocols/lunar_confirmation_development_v1.json": "ea8173c569e5f23425dbf02c550e9064c08e40c841e936f0edcbb953a1c7837c",
+    "src/models/lunar_onpolicy.py": "e995d2d82623998bcba11ccf16c7f1ba73dc1bedeef8c26b0407c45026263298",
+    "src/envs/lunar_replay.py": "9b7422849036eb140ff9a1348f46ae86ea2e43afc8748c881fdcdcbc7f29054f",
+    "scripts/run_minecart_onpolicy.py": "578e8f69387bc5883f87f002c1bd3df98940c4488f8c3e0778dc48685a137478",
+    "src/models/onpolicy.py": "f53279a91b760ea3e6c73c2f7208b4a1e711e49ca3aa4e6a1bd4692b5bc0d214",
+    "src/envs/wrapper.py": "d90407ad34175976dfcd30c3d13ffe02827eb424f20ec87f2b942328b405ba7e",
+    "src/utils/training_recovery.py": "9c0cd2adec1dc252613ccd219c798c5965cfdbe75b002241fbe5b4e8d781e861",
+    "src/utils/provenance.py": "dec1ab1efcf6d6697f2359b65a28e923b10b3160ad90051361ea692d97cc2f3f",
+    "src/evaluation/protocol.py": "ead69074f628be5529093721844c3341d09295fbea4948225f338f4009e81bdf",
+    "configs\\experiments\\lunar_onpolicy_confirmation_v1.json": "4bc4bbfec1bf5c53698f2f59524d766121c23971c19d8a9bfd4efadb9c27ff5d"
+  },
+  "plan_sha256": "4bc4bbfec1bf5c53698f2f59524d766121c23971c19d8a9bfd4efadb9c27ff5d",
+  "qualification_sha256": "15572e930c22f76780106f3791990d318529baf9bc5735ca5c3f1707cac66838",
+  "manifests": [
+    {
+      "seed": 20266311,
+      "manifest": "artifacts\\lunar-onpolicy-confirmation-v1\\runs\\mo-lunar-lander-v3_LG_seed20266311\\manifest.json",
+      "sha256": "d543ef4caae1776bd730c9587934ff7a3c90348736d26da2618f096825725bb0",
+      "source_commit": "c3a1d2757214ff9cd8477fb65d6da1ee56e58d6a",
+      "initial_parameter_sha256": "28b5f9e8bc0d4c805b29b8387bd259b8f720a2c3693b1e00b5a14901af25c416"
+    },
+    {
+      "seed": 20266312,
+      "manifest": "artifacts\\lunar-onpolicy-confirmation-v1\\runs\\mo-lunar-lander-v3_LG_seed20266312\\manifest.json",
+      "sha256": "fd55e6310929af4e3ecc4a5a8e29fcaf96ffcc4150b6bf34a5217aa9650c86d1",
+      "source_commit": "c3a1d2757214ff9cd8477fb65d6da1ee56e58d6a",
+      "initial_parameter_sha256": "81b7ded2d59df4d33f468aa9087f99f2fb2c72a4d4989680cb80d64145b6af20"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "mo-lunar-lander-v3_LG_seed20266311",
+      "arm": "LG",
+      "seed": 20266311,
+      "state": "running",
+      "step": 75776,
+      "budget": 4000000,
+      "updates": 2368,
+      "resume_step": 73728,
+      "task": [],
+      "rate": 977,
+      "pid": 11448,
+      "alive": true,
+      "heartbeat_unix": 1793682254.1635404
+    },
+    {
+      "name": "mo-lunar-lander-v3_LG_seed20266312",
+      "arm": "LG",
+      "seed": 20266312,
+      "state": "running",
+      "step": 75776,
+      "budget": 4000000,
+      "updates": 2368,
+      "resume_step": 73728,
+      "task": [],
+      "rate": 974,
+      "pid": 35376,
+      "alive": true,
+      "heartbeat_unix": 1793682254.4592881
+    }
+  ],
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "utilization": 72,
+    "memory_used": 430,
+    "memory_total": 4096,
+    "temperature": 57
+  },
+  "duplicate_launch_refused": true,
+  "worker_processes": [
+    {
+      "pid": 19340,
+      "parent": 32456,
+      "command": "\"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\gpu-runtime\\Scripts\\python.exe\" \"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\scripts\\run_lunar_confirmation.py\" --device cuda --seed 20266311"
+    },
+    {
+      "pid": 16372,
+      "parent": 32456,
+      "command": "\"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\gpu-runtime\\Scripts\\python.exe\" \"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\scripts\\run_lunar_confirmation.py\" --device cuda --seed 20266312"
+    },
+    {
+      "pid": 11448,
+      "parent": 19340,
+      "command": "\"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\runtime\\python\\cpython-3.11-windows-x86_64-none\\python.exe\"  \"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\scripts\\run_lunar_confirmation.py\" --device cuda --seed 20266311"
+    },
+    {
+      "pid": 35376,
+      "parent": 16372,
+      "command": "\"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\runtime\\python\\cpython-3.11-windows-x86_64-none\\python.exe\"  \"D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\scripts\\run_lunar_confirmation.py\" --device cuda --seed 20266312"
+    }
+  ],
+  "native_terminal_verified_pids": [
+    25480,
+    31776,
+    18300
+  ],
+  "final_test_steps": 0,
+  "task_result_available": false,
+  "scope": "Launch/progress witness only; final4M confirmation outcome remains pending; pilot excluded from prospective n=2"
+}

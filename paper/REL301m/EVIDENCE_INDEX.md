@@ -13,7 +13,9 @@ map; FINAL_REPORT_OUTLINE.md defines finalization gates.
 | Envelope feasibility | research/evidence/envelope_feasibility_v1.json |
 | Current two-PPO portable demo verification | research/qualification/course_lunar_delivery_20261103.json; research/qualification/lunar_ppo_course_demo_20261103.json |
 | Lunar completed single-seed specialist, executor audited | research/evidence/lunar_onpolicy_specialist_v1.json; docs/research/LUNAR_PPO_RESULTS_20261103.md |
-| Current deterministic report audit | research/qualification/course_report_review_20261103.json |
+| Current working report diagnosis update | research/qualification/course_report_preference_update_20261103.json |
+| Frozen actor preference diagnosis and exact replay | research/evidence/ppo_demo_preference_diagnosis_v1.json; research/qualification/ppo_demo_preference_diagnosis_v1.json |
+| Prospective Lunar confirmation launch, no outcome yet | research/qualification/lunar_confirmation_launch_20261103.json |
 
 The current audit is executor-only and does not imply independent semantic or
 full-text citation-context review. Original final test remains locked. Earlier
