@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T02:32:44+00:00
+Snapshot generated: 2026-11-03T02:35:53+00:00
 Expected working branch at generation: codex/course-demo-lunar-ppo
-Expected commit at generation: 8b4cd44
+Expected commit at generation: d5ff9e6
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
@@ -83,17 +83,17 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
-- lunar-onpolicy-specialist-v1 [planned]: Lunar landing-heavy categorical PPO with vector GAE specialist feasibility
+- lunar-onpolicy-specialist-v1 [running]: Lunar landing-heavy categorical PPO with vector GAE specialist feasibility
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Updated group-template report13pages with audited G confirmation table/curves; new3Nov package/ZIP and launcher use Minecart PPO lowest seed20264311 final4M argmax.20real demo/source-equivalence cases and Edge desktop/mobile/PDF links pass, no semantic-review PASS. Separate Lunar PPO+vectorGAE.95/log4 pilot fixed4M landingheavy/newseed20265311 implemented and CUDA8stream Box2D exact kill/resume qualified:4224engineering +239 reconstruction,231pass4skip full gate. Main Lunar not launched yet; clean source next. Original Minecart sources/results and final-test locks preserved.
+Delivered group-template report13pages with G table/curves and verified new3Nov package/ZIP; Minecart final4M lowest seed20264311 argmax,20realcases/sourceactor equivalence+Edge desktop/mobile/PDF checks pass. Demo8765 listening. Separate Lunar PPO+vectorGAE.95 specialist now RUNNING clean d5ff9e6, PID30368/birth,100352steps/3136actor,durable98304,GPU30%220MiB,native collector Lunar/landings. CUDA8Box2Dstream reconstruction kill/resume exact;231pass4skip full gate. Fixed4M,928dev,0test; no Lunar task resultyet. No original gate unlock or adaptive-benefit claim.
 
 Next actions:
-1. Launch qualified Lunar specialist from clean committed source, verify liveness/checkpoint/native landing monitor; no automatic conditional continuation.
-2. Use updated course package/report and demo at8765; preserve scope: Minecart bounded confirmation, Lunar still unqualified until completed evidence.
+1. Monitor Lunar via START_TRAINING_MONITOR.bat/current collector or append-only logs; leave active learner/source/config frozen. First evaluation500k, final-only at4M.
+2. Use new report/PDF/ZIP and localhost8765 demo; Minecart bounded3-seed evidence, Lunar panel stilllegacy/unqualified. At Lunar completion audit both inference modes/task metric/raw vectors and reconstruction costs before any continuation.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

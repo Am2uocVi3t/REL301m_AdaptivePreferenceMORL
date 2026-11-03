@@ -6,7 +6,7 @@
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/course-demo-lunar-ppo",
-  "updated_at": "2026-11-03T02:32:44+00:00",
+  "updated_at": "2026-11-03T02:35:53+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Launch qualified Lunar specialist from clean committed source, verify liveness/checkpoint/native landing monitor; no automatic conditional continuation.",
-    "Use updated course package/report and demo at8765; preserve scope: Minecart bounded confirmation, Lunar still unqualified until completed evidence."
+    "Monitor Lunar via START_TRAINING_MONITOR.bat/current collector or append-only logs; leave active learner/source/config frozen. First evaluation500k, final-only at4M.",
+    "Use new report/PDF/ZIP and localhost8765 demo; Minecart bounded3-seed evidence, Lunar panel stilllegacy/unqualified. At Lunar completion audit both inference modes/task metric/raw vectors and reconstruction costs before any continuation."
   ],
-  "last_session_summary": "Updated group-template report13pages with audited G confirmation table/curves; new3Nov package/ZIP and launcher use Minecart PPO lowest seed20264311 final4M argmax.20real demo/source-equivalence cases and Edge desktop/mobile/PDF links pass, no semantic-review PASS. Separate Lunar PPO+vectorGAE.95/log4 pilot fixed4M landingheavy/newseed20265311 implemented and CUDA8stream Box2D exact kill/resume qualified:4224engineering +239 reconstruction,231pass4skip full gate. Main Lunar not launched yet; clean source next. Original Minecart sources/results and final-test locks preserved."
+  "last_session_summary": "Delivered group-template report13pages with G table/curves and verified new3Nov package/ZIP; Minecart final4M lowest seed20264311 argmax,20realcases/sourceactor equivalence+Edge desktop/mobile/PDF checks pass. Demo8765 listening. Separate Lunar PPO+vectorGAE.95 specialist now RUNNING clean d5ff9e6, PID30368/birth,100352steps/3136actor,durable98304,GPU30%220MiB,native collector Lunar/landings. CUDA8Box2Dstream reconstruction kill/resume exact;231pass4skip full gate. Fixed4M,928dev,0test; no Lunar task resultyet. No original gate unlock or adaptive-benefit claim."
 }

@@ -18,7 +18,12 @@ Separate Lunar PPO+vectorGAE(.95) specialist is frozen/qualified: new seed202653
 fixed[.7,.1,.1,.1],4M steps,125088 actor/250176 critic updates,928 dev episodes,
 no test. Eight Box2D streams resume exactly by seed/action reconstruction;4224
 engineering training +239 replay reconstruction steps separate.231 tests pass,
-4 skips. Clean-source main launch next; no Lunar competence claim yet. Read
+4 skips. Lunar now RUNNING from clean d5ff9e6, verified actual PID30368/birth,
+stdout100,352 steps /3,136 actor updates and durable98,304 snapshot. GPU30%/220MiB
+at witness; native collector displays Lunar landing specialist. Evidence:
+`research/qualification/lunar_onpolicy_launch_20261103.json`. Updated demo is
+served on localhost8765; training remains a separate native terminal view.
+No Lunar competence claim yet. Read
 `docs/research/LUNAR_PPO_SPECIALIST_V1.md`. Minecart results/source preserved.
 
 Latest G confirmation result (2026-11-03): COMPLETE, all3 seeds20264311/12/13

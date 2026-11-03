@@ -1,0 +1,36 @@
+{
+  "status": "running_verified",
+  "observed_unix": 1793673270.50176,
+  "source_commit": "d5ff9e691be2bccf33a679a94be9dcdecd8cd509",
+  "git_dirty_at_start": false,
+  "manifest_sha256": "a403a2656290b3a327aecee2c8299c775469539d38b692ce80c87a6906fa73cc",
+  "pid": 30368,
+  "process_birth": "134381467650107457",
+  "native_study": "Lunar / PPO landing specialist",
+  "progress": {
+    "name": "mo-lunar-lander-v3_L_seed20265311",
+    "arm": "L",
+    "seed": 20265311,
+    "state": "running",
+    "step": 100352,
+    "budget": 4000000,
+    "updates": 3136,
+    "resume_step": 98304,
+    "task": [],
+    "rate": 1004,
+    "pid": 30368,
+    "alive": true,
+    "heartbeat_unix": 1793673268.111884
+  },
+  "gpu": {
+    "available": true,
+    "name": "NVIDIA GeForce RTX 3050 Laptop GPU",
+    "utilization": 30,
+    "memory_used": 220,
+    "memory_total": 4096,
+    "temperature": 48
+  },
+  "training_budget": 4000000,
+  "final_test_steps": 0,
+  "claim": "Liveness only, no learned Lunar task outcome yet."
+}
