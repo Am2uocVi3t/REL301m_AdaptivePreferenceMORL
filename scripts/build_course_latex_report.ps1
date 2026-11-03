@@ -14,6 +14,10 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Envelope cohort is incomplete or failed numerical/source audit.' }
     & .venv/Scripts/python.exe scripts/plot_course_validation.py
     if ($LASTEXITCODE -ne 0) { throw 'Result figure/table generation failed.' }
+    & .venv/Scripts/python.exe scripts/plot_onpolicy_confirmation.py
+    if ($LASTEXITCODE -ne 0) { throw 'Minecart confirmation figure generation failed.' }
+    & .venv/Scripts/python.exe scripts/audit_course_report.py
+    if ($LASTEXITCODE -ne 0) { throw 'Report source/numeric/reference checks failed.' }
     $courseReportOutput = Join-Path $courseReportRepo 'outputs/course-report-latex'
     New-Item -ItemType Directory -Force $courseReportOutput | Out-Null
     & $courseReportCompiler -b https://data1b.fullyjustified.net/tlextras-2022.0r0.tar --keep-logs --keep-intermediates --outdir $courseReportOutput paper/REL301m/main.tex *> (Join-Path $courseReportOutput 'build.log')

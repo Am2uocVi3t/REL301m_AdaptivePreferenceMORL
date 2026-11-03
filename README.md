@@ -2,6 +2,13 @@
 
 REL301m course research project, Fall 2026.
 
+**Report finalization:** the reviewed working source/PDF now has14 pages with
+an explicit RQ coverage table and pending Lunar result rule.
+[Outline](paper/REL301m/FINAL_REPORT_OUTLINE.md),
+[claim/evidence matrix](paper/REL301m/CLAIM_EVIDENCE_MATRIX.md), and
+[demo checklist](docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md).
+The existing release ZIP is preserved; a final release follows the Lunar audit.
+
 **Latest course package (3 November):** `outputs/REL301m_Course_Project_20261103`
 and ZIP. `START_COURSE_DEMO.bat` uses the verified Minecart PPO final checkpoint;
 Lunar's presentation model remains explicitly unqualified. The group-template

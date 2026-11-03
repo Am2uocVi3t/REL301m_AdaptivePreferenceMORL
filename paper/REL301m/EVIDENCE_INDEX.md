@@ -1,4 +1,27 @@
-# Progress report evidence index — 17 October 2026
+# Current report evidence index — reviewed3 November2026
+
+Current entry is main.tex -> Chapters/Final.tex, with OnpolicyResults and the
+generated historical tables. CLAIM_EVIDENCE_MATRIX.md is the statement-level
+map; FINAL_REPORT_OUTLINE.md defines finalization gates.
+
+| Current report statement | Canonical repository evidence |
+|---|---|
+| Three fresh-seed Minecart task confirmation | research/evidence/minecart_onpolicy_confirmation_v1.json |
+| Single-seed S/C feasibility, distinct from confirmation | research/evidence/minecart_onpolicy_specialist_v1.json; research/evidence/minecart_onpolicy_conditional_v1.json |
+| Completed negative n-step/relabel-loss studies | research/evidence/credit_assignment_recovery_v1.json; research/evidence/preference_recovery_p2_v1.json |
+| Historical primary block numerical evidence | research/evidence/course_primary_validation_v1.json; research/evidence/course_primary_execution_audit_v1.json |
+| Envelope feasibility | research/evidence/envelope_feasibility_v1.json |
+| Current portable demo verification | research/qualification/course_onpolicy_delivery_20261103.json; research/qualification/onpolicy_course_demo_20261103.json |
+| Lunar prospective protocol/launch, not a final result | configs/experiments/lunar_onpolicy_specialist_v1.json; research/qualification/lunar_onpolicy_launch_20261103.json |
+| Current deterministic report audit | research/qualification/course_report_review_20261103.json |
+
+The current audit is executor-only and does not imply independent semantic or
+full-text citation-context review. Original final test remains locked. Earlier
+snapshot data below is retained as HISTORICAL, not the current verification date.
+
+---
+
+## Archived progress report evidence index — 17 October2026
 
 Paths below are relative to the research repository root. No large raw artifact or paper PDF is copied into the report folder.
 

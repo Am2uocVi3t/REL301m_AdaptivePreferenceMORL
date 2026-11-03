@@ -8,6 +8,21 @@ Cross-chat workflow: **Git-native research harness with evidence-gated Phase 0â€
 
 ## Research direction
 
+Final-report preparation (2026-11-03): reviewed working PDF14 pages, updated
+cover edition, explicit RQ1â€“4 coverage and pending-only Lunar completion rule.
+Outline: `paper/REL301m/FINAL_REPORT_OUTLINE.md`; statement/evidence mapping:
+`paper/REL301m/CLAIM_EVIDENCE_MATRIX.md`; demo/reproduction checklist:
+`docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md`. New read-only
+`scripts/audit_course_report.py` checks9 active TeX inputs,9 registered BibTeX
+citations, cited artifact paths and confirmation table/EU/budget numbers.
+Receipt `research/qualification/course_report_review_20261103.json` is executor
+deterministic evidence, NOT independent semantic or full-text citation review.
+Build script now regenerates the Minecart confirmation figure and audits source
+before compile.231 tests pass/4 skips; PDF cover/results-discussion inspected,
+no undefined references. Existing released demo ZIP preserved. Active Lunar
+source hashes unchanged; final report/package release still awaits Lunar final
+audit and synchronized result/conclusion, not an automatic phase transition.
+
 Course delivery updated (2026-11-03): group-template13-page report incorporates
 G confirmation; new package `outputs/REL301m_Course_Project_20261103` uses final
 Minecart seed20264311 by fixed lowest-ID rule and argmax.20 real presentation

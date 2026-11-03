@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/course-demo-lunar-ppo",
-  "updated_at": "2026-11-03T02:35:53+00:00",
+  "working_branch": "codex/course-final-report-review",
+  "updated_at": "2026-11-03T02:52:19+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Monitor Lunar via START_TRAINING_MONITOR.bat/current collector or append-only logs; leave active learner/source/config frozen. First evaluation500k, final-only at4M.",
-    "Use new report/PDF/ZIP and localhost8765 demo; Minecart bounded3-seed evidence, Lunar panel stilllegacy/unqualified. At Lunar completion audit both inference modes/task metric/raw vectors and reconstruction costs before any continuation."
+    "Keep Lunar fixed4M source/config unchanged; at completion audit final checkpoint/native+100 ANDpad success forboth modes and all counters/traces before editing result claims.",
+    "Use FINAL_REPORT_OUTLINE.md and CLAIM_EVIDENCE_MATRIX.md to synchronize abstract/results/conclusion after Lunar final audit; publish a new versioned package only after final PDF/demo/reproduction checks."
   ],
-  "last_session_summary": "Delivered group-template report13pages with G table/curves and verified new3Nov package/ZIP; Minecart final4M lowest seed20264311 argmax,20realcases/sourceactor equivalence+Edge desktop/mobile/PDF checks pass. Demo8765 listening. Separate Lunar PPO+vectorGAE.95 specialist now RUNNING clean d5ff9e6, PID30368/birth,100352steps/3136actor,durable98304,GPU30%220MiB,native collector Lunar/landings. CUDA8Box2Dstream reconstruction kill/resume exact;231pass4skip full gate. Fixed4M,928dev,0test; no Lunar task resultyet. No original gate unlock or adaptive-benefit claim."
+  "last_session_summary": "Completed current-report finalization outline, claim/evidence matrix and demo/reproduction checklist. Reviewed workingPDF14pages in group template, updatedcover/RQcoverage/Lunar pendingrule and removed stale installation assertion. New read-only report auditor verifies9TeX inputs/9registered citations/artifactpaths/Gtask table-EU-budgets; build regeneratesGfigure and audits before compile.231pass4skip full quality; finalPDFvisual/no undefined markers. New reviewedPDF preserved separately, released3NovZIP unchanged. Active Lunar source hashes verified unchanged; final outcome still pending, no training changes or empirical overclaims."
 }
