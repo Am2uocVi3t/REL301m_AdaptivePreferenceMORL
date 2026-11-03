@@ -1,3 +1,20 @@
+Latest authorized continuation (3 November 2026): two-seed Lunar confirmation
+is frozen and CUDA-qualified, not yet a result. Plan lunar_onpolicy_confirmation_v1.json;
+seeds20266311/12,4M each/8M total, final-only trained-profile >=8/10 pad landings
+in BOTH modes in EACH seed. Pilot20265311 remains exploratory, separate from
+prospective n=2. New32 development weights/cases, original utility/dynamics fixed.
+Exact concurrent kill/resume passed both seeds/all8 streams:8448 engineering
+training +684 reconstruction +964 development steps, no final test.233 tests
+pass/4 skipped. Main clean launch next; no automatic extensions or tuning.
+55-case portable preference diagnosis and exact physics replay completed,
+18,394 diagnostic +18,394 replay steps. Lunar default/uniform4/5; shaping-only1/5;
+Minecart default/uniform5/5, pure-ore corners0/5 deliveries. Fuel-only delivery
+is not a utility-fitness gate. No universal preference claim. See
+PPO_PREFERENCE_DIAGNOSIS_20261103.md and LUNAR_ONPOLICY_CONFIRMATION_V1.md.
+Working report now includes these limits; prior released ZIP remains unchanged.
+Talk outline/script and lecturer-question draft: COURSE_TALK_VI_20261103.md.
+Repository-native local work; no paid/ARIS/scheduled dispatch or quota guess.
+
 Latest delivery (3 November 2026): the separately versioned
 outputs/REL301m_Course_Project_20261103_LunarPPO and ZIP are verified. Both
 panels now use PPO actors: Minecart lowest confirmation seed20264311 (n=3),

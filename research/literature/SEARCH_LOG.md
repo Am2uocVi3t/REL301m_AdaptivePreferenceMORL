@@ -89,3 +89,14 @@ PPO arxiv1707.06347 metadata checked (HTML wrapper did not expose full text).
 No new full-paper reading claimed. Candidate GAE.95/entropy/rollout parameters
 are prospective choices; see LUNAR_PPO_SPECIALIST_V1.md. No defaults claimed
 optimal and no Lunar empirical success inferred from Minecart.
+
+## 2026-11-03 — Prospective Lunar replication design
+Primary full-text HTML consulted: Agarwal et al. (2021), arXiv2108.13264v3,
+introduction, formalism, Section4.1 and AppendixA.4.
+https://arxiv.org/html/2108.13264v3
+Targeted reading only, not a completed whole-paper reading or new read count.
+Evidence used: few training runs imply uncertainty; single-task small-n bootstrap
+is weak; maximizing over runs/checkpoints changes the reported estimator.
+Applied conservatively: pilot separate, n=2 fresh prospective seeds, final-only
+checkpoint, per-seed results and descriptive sample SD, no significance claim.
+Repository-native work; no ARIS/paid/scheduled dispatch or guessed quota.

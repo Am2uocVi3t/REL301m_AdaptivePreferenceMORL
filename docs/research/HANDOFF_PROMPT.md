@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T04:34:08+00:00
-Expected working branch at generation: codex/lunar-ppo-demo-delivery
-Expected commit at generation: 9ef5c85
+Snapshot generated: 2026-11-03T05:01:56+00:00
+Expected working branch at generation: codex/lunar-confirmation-v1
+Expected commit at generation: 5873b0a
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
@@ -83,15 +83,16 @@ Active experiments:
 - minecart-pcqn-replay-f1 [failed]: Minecart successful-episode replay paired F1 feasibility screen
 - credit-assignment-v1 [blocked]: Finite paired n-step backbone qualification
 - onpolicy-backbone-pilot-v1 [planned]: Proposed source-mapped on-policy specialist and conditioned feasibility pilot
+- lunar-onpolicy-confirmation-v1 [planned]: Lunar frozen PPO specialist: two prospective seeds, pilot separate
 
 Open blockers:
 - F1 completed all six paired jobs and passed source audit, but all three A1R1 seeds never expressed positive ore at any of 30 checkpoints; frozen retention qualification failed. Preserve the negative result and stop F1 training. F2, matrix v1, checkpoint locking and final test remain locked. No extra seeds, budget or tuning to seek a win. Independent semantic evidence reviews and non-manuscript analysis continue; course/conference manuscript and PDF are held by user.
 
 Latest closed-session summary:
-Delivered separately versioned LunarPPO report/demo ZIP; 40 extracted real cases and source probabilities/actions/return accounting passed, Edge desktop/mobile/native/PDF checks pass. 14-page report and new 1-page guide inspected. 231 tests pass, 4 skipped. Old release preserved; launcher verified on8766. Zero training/final-test.
+User authorized next steps. Froze two fresh-seed Lunar confirmation; concurrent CUDA kill/resume exact both seeds/all8, 8448 engineering training. 233 tests pass/4 skipped. Completed55-case frozen preference diagnosis and exact replay: Lunar default4/5, Minecart pure-ore delivery0/5. Report and talk/script draft include limits, no tuning.
 
 Next actions:
-1. Use verified LunarPPO package for presentation and confirm lecturer rubric/deadline. Independent Lunar training-seed confirmation requires a separate frozen scope if stronger stability claims are wanted; do not automatically launch training or access final test.
+1. Launch only the frozen two-seed Lunar cohort from clean committed source, verify live progress and native monitor. Pilot remains exploratory, no arbitrary-weight/adaptive advantage or final-test claim. Keep released package unchanged; lecturer question draft requires user to contact lecturer.
 
 Non-negotiable scientific guardrails:
 - Do not label a claim `experimentally_supported` without a versioned raw-result artifact.

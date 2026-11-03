@@ -1,0 +1,109 @@
+{
+  "study_id": "lunar-onpolicy-confirmation-v1",
+  "stage": "LG",
+  "protocol": "configs/protocols/lunar_confirmation_development_v1.json",
+  "preference": [
+    0.7,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "training_interactions": 4000000,
+  "checkpoints": [
+    500000,
+    1000000,
+    2000000,
+    4000000
+  ],
+  "streams": 8,
+  "fragment_steps": 128,
+  "width": 256,
+  "gamma": 0.99,
+  "horizon": 1000,
+  "epochs": 4,
+  "minibatches": 8,
+  "critic_steps_per_actor": 2,
+  "actor_lr": 0.0003,
+  "critic_lr": 0.0003,
+  "adam_eps": 1e-05,
+  "clip": 0.2,
+  "max_grad_norm": 0.5,
+  "popart_rate": 0.001,
+  "popart_std_floor": 0.0001,
+  "entropy_end": 0.2,
+  "entropy_initial_multiplier": 0.01,
+  "entropy_damping": 0.01,
+  "entropy_multiplier_lr": 3e-05,
+  "actor_advantage": "frozen-utility scalarization then batch standardization; no objective-wise sigma division",
+  "snapshot_interval": 8192,
+  "expected_rounds": 3909,
+  "expected_actor_updates": 125088,
+  "expected_critic_updates": 250176,
+  "task_preferences": [
+    [
+      0.7,
+      0.1,
+      0.1,
+      0.1
+    ],
+    [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  ],
+  "task_seeds": [
+    20266431,
+    20266432,
+    20266433,
+    20266434,
+    20266435,
+    20266436,
+    20266437,
+    20266438,
+    20266439,
+    20266440
+  ],
+  "validation_seeds": [
+    20266451,
+    20266452,
+    20266453
+  ],
+  "evaluation_modes": [
+    "sampled",
+    "argmax"
+  ],
+  "evaluation_episodes": 928,
+  "evaluation_step_ceiling": 928000,
+  "selection": "final4M only; BOTH new seeds primary profile >=8/10 native+100 inside pad in BOTH modes; no extensions or best checkpoint selection",
+  "task_gate": {
+    "minimum_pad_successes": 8,
+    "episodes_per_profile": 10
+  },
+  "conditional_dispatch": false,
+  "final_test_steps": 0,
+  "engineering_step_ceiling": 20000,
+  "method_contract": "docs/research/LUNAR_ONPOLICY_CONFIRMATION_V1.md",
+  "gae_lambda": 0.95,
+  "protocol_file_sha256": "ea8173c569e5f23425dbf02c550e9064c08e40c841e936f0edcbb953a1c7837c",
+  "nominal": {
+    "constructor_kwargs": {
+      "gravity": -10.0,
+      "enable_wind": false,
+      "wind_power": 0.0,
+      "turbulence_power": 0.0
+    }
+  },
+  "seeds": [
+    20266311,
+    20266312
+  ],
+  "cohort_training_interactions": 8000000,
+  "cohort_actor_updates": 250176,
+  "cohort_critic_updates": 500352,
+  "cohort_evaluation_episodes": 1856,
+  "cohort_evaluation_step_ceiling": 1856000,
+  "prospective_confirmation_seeds": 2,
+  "pilot_role": "Seed20265311 is exploratory only; report separately, not a third prospective confirmation seed"
+}

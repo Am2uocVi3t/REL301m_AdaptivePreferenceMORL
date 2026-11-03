@@ -266,6 +266,26 @@ separate confirmation protocol. The LunarPPO demo labels this single-seed scope
 explicitly; earlier released packages preserve their legacy Lunar model.
 \evidence{research/evidence/lunar_onpolicy_specialist_v1.json}
 
+\subsection{Frozen-actor preference diagnosis and prospective replication}
+A separate presentation diagnosis used five new environment seeds, the default,
+uniform and each simplex-corner preference, with frozen argmax actors. Lunar
+landed inside the pad in4/5 default cases and4/5 uniform cases; shaping-only
+reached1/5. Minecart delivered ore in5/5 default and5/5 uniform cases, but0/5
+at either pure-ore corner. The fuel-only profile also had no ore delivery;
+that count alone is not a preference-fitness failure because its utility does
+not reward ore. These are55 episodes from the already-selected models, not
+independent training replications. All55 action traces replayed exactly in the
+pinned physics. The18,394 diagnostic steps and18,394 additional replay steps
+are separate from training and the original final test.
+\evidence{research/evidence/ppo_demo_preference_diagnosis_v1.json}
+
+Two fresh Lunar seeds are separately predeclared at4M each with the pilot's
+unchanged candidate and a new development-weight/case set. The pilot remains
+exploratory, outside the prospective n=2 confirmation group. Each fresh seed
+must achieve at least8/10 native+100 pad landings in both modes at final4M.
+No confirmation outcome is claimed here; failed seeds will be retained.
+\evidence{configs/experiments/lunar_onpolicy_confirmation_v1.json}
+
 \subsection{Limits of the current conclusion}
 The deliverable establishes a working preference-conditioned value-learning
 framework, controlled primary validation, an auditable negative Minecart outcome,

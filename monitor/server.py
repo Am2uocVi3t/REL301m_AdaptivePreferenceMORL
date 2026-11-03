@@ -175,6 +175,15 @@ class Monitor:
     def snapshot(self) -> dict[str, Any]:
         if (
             type(self) is Monitor
+            and (self.repo / "artifacts/lunar-onpolicy-confirmation-v1/cohort_manifest.json").exists()
+        ):
+            from monitor.confirmation import LunarConfirmationMonitor
+
+            if not hasattr(self, "lunar_confirmation"):
+                self.lunar_confirmation = LunarConfirmationMonitor(self.repo)
+            return self.lunar_confirmation.snapshot()
+        if (
+            type(self) is Monitor
             and (
                 self.repo
                 / "artifacts/lunar-onpolicy-specialist-v1/runs/mo-lunar-lander-v3_L_seed20265311/manifest.json"
@@ -363,6 +372,9 @@ class Monitor:
             return snapshot
 
     def detail(self, name: str, stream: str) -> dict[str, Any]:
+        if type(self) is Monitor and re.fullmatch(r"mo-lunar-lander-v3_LG_seed2026631[12]", name):
+            self.snapshot()
+            return self.lunar_confirmation.detail(name, stream)
         if type(self) is Monitor and name == "mo-lunar-lander-v3_L_seed20265311":
             self.snapshot()
             return self.lunar.detail(name, stream)

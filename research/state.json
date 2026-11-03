@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/lunar-ppo-demo-delivery",
-  "updated_at": "2026-11-03T04:34:08+00:00",
+  "working_branch": "codex/lunar-confirmation-v1",
+  "updated_at": "2026-11-03T05:01:56+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,7 +60,7 @@
     }
   ],
   "next_actions": [
-    "Use verified LunarPPO package for presentation and confirm lecturer rubric/deadline. Independent Lunar training-seed confirmation requires a separate frozen scope if stronger stability claims are wanted; do not automatically launch training or access final test."
+    "Launch only the frozen two-seed Lunar cohort from clean committed source, verify live progress and native monitor. Pilot remains exploratory, no arbitrary-weight/adaptive advantage or final-test claim. Keep released package unchanged; lecturer question draft requires user to contact lecturer."
   ],
-  "last_session_summary": "Delivered separately versioned LunarPPO report/demo ZIP; 40 extracted real cases and source probabilities/actions/return accounting passed, Edge desktop/mobile/native/PDF checks pass. 14-page report and new 1-page guide inspected. 231 tests pass, 4 skipped. Old release preserved; launcher verified on8766. Zero training/final-test."
+  "last_session_summary": "User authorized next steps. Froze two fresh-seed Lunar confirmation; concurrent CUDA kill/resume exact both seeds/all8, 8448 engineering training. 233 tests pass/4 skipped. Completed55-case frozen preference diagnosis and exact replay: Lunar default4/5, Minecart pure-ore delivery0/5. Report and talk/script draft include limits, no tuning."
 }

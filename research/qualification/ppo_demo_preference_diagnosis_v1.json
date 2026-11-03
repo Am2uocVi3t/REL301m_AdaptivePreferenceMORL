@@ -1,0 +1,11 @@
+{
+  "status": "exact_physics_replay_and_numeric_pass",
+  "scope": "Same55 action traces replayed; not new independent cases or training",
+  "evidence_sha256": "9241fc489da22c11575ba9b3f4a253a950ef7ad5869820ef5ad9aab73a4268f4",
+  "episodes": 55,
+  "diagnostic_steps": 18394,
+  "additional_physics_replay_steps": 18394,
+  "training_interactions": 0,
+  "final_test_steps": 0,
+  "review_independence": "executor_only"
+}

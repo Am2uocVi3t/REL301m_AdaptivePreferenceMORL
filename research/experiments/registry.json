@@ -190,6 +190,17 @@
       "notes": "",
       "created_at": "2026-11-03T02:31:27+00:00",
       "updated_at": "2026-11-03T04:19:16+00:00"
+    },
+    {
+      "id": "lunar-onpolicy-confirmation-v1",
+      "title": "Lunar frozen PPO specialist: two prospective seeds, pilot separate",
+      "status": "planned",
+      "protocol": "configs/experiments/lunar_onpolicy_confirmation_v1.json",
+      "claim_ids": [],
+      "artifact": "research/qualification/lunar_onpolicy_confirmation_v1.json",
+      "notes": "",
+      "created_at": "2026-11-03T04:59:30+00:00",
+      "updated_at": "2026-11-03T05:01:56+00:00"
     }
   ]
 }

@@ -17,6 +17,7 @@ class ConfirmationMonitor(Monitor):
         self.runs = self.root / "runs"
         self.seeds = [20264311, 20264312, 20264313]
         self.children = [OnPolicyMonitor(repo, stage="G", seed=seed) for seed in self.seeds]
+        self.study_label = "Minecart / PPO confirmation (3 seeds)"
 
     def directory(self, name: str) -> Path:
         if name not in {f"minecart-v0_G_seed{seed}" for seed in self.seeds}:
@@ -33,7 +34,7 @@ class ConfirmationMonitor(Monitor):
             failures = counts["failed"] + counts["interrupted"]
             state = (
                 "complete"
-                if counts["complete"] == 3
+                if counts["complete"] == len(self.seeds)
                 else "draining"
                 if failures and counts["running"]
                 else "blocked"
@@ -46,14 +47,29 @@ class ConfirmationMonitor(Monitor):
             )
             self.last_snapshot = {
                 **states[0],
-                "study_label": "Minecart / PPO confirmation (3 seeds)",
+                "study_label": self.study_label,
                 "state": state,
                 "jobs": jobs,
                 "counts": counts,
                 "total_steps": sum(j["step"] or 0 for j in jobs),
-                "budget": 12000000,
+                "budget": 4000000 * len(self.seeds),
                 "warnings": [w for s in states for w in s["warnings"]],
                 "entropy": None,
             }
             self.sampled = time.monotonic()
             return self.last_snapshot
+
+
+class LunarConfirmationMonitor(ConfirmationMonitor):
+    def __init__(self, repo: Path):
+        Monitor.__init__(self, repo)
+        self.root = repo / "artifacts/lunar-onpolicy-confirmation-v1"
+        self.runs = self.root / "runs"
+        self.seeds = [20266311, 20266312]
+        self.children = [OnPolicyMonitor(repo, stage="LG", seed=seed) for seed in self.seeds]
+        self.study_label = "Lunar / PPO confirmation (2 fresh seeds; pilot separate)"
+
+    def directory(self, name: str) -> Path:
+        if name not in {f"mo-lunar-lander-v3_LG_seed{seed}" for seed in self.seeds}:
+            raise ValueError("Unknown Lunar confirmation job")
+        return self.runs / name
