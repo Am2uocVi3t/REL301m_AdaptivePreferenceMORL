@@ -128,7 +128,8 @@ def build() -> Path:
     if not guide.is_file():
         raise ValueError("Build the current interactive guide before packaging")
     copy(guide, "docs/Huong_dan.pdf")
-    copy(ROOT / "DESIGN.md", "DESIGN.md")
+    design_path = (ROOT / "demo/interactive/DESIGN.md") if (ROOT / "demo/interactive/DESIGN.md").exists() else (ROOT / "DESIGN.md")
+    copy(design_path, "DESIGN.md")
     text(
         "config.json",
         json.dumps(

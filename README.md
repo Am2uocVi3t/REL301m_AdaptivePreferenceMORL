@@ -1,8 +1,24 @@
 # Preference Allocation in Preference-Conditioned MORL
 
-REL301m course research project, Fall 2026.
+Academic research codebase & REL301m course capstone project, Fall 2026.
 
-**Final presentation & course delivery materials:** See [docs/presentation/README.md](docs/presentation/README.md) for the 3-speaker presentation script (Hưng, Việt, Nam), visual slide outline, comprehensive MORL terminology glossary, and standalone demo guide.
+---
+
+## 📌 Quick Navigation
+
+| Target Track | Directory / Launcher | Key Contents |
+| :--- | :--- | :--- |
+| **🎓 REL301m Course Delivery** | [`docs/course/README.md`](docs/course/README.md) | Master course delivery hub, milestones, and guide |
+| **🎤 Final Presentation Kit** | [`docs/course/presentation/`](docs/course/presentation/README.md) | 3-speaker script (Hưng, Việt, Nam), visual slide outline, Q&A defense prep |
+| **📄 Academic Paper (LaTeX)** | [`paper/REL301m/`](paper/REL301m/README.md) | Official 16–19 page paper draft, figures, bibliography |
+| **🎮 Interactive Web Demo** | [`START_COURSE_DEMO.bat`](START_COURSE_DEMO.bat) | Local interactive slider interface at `http://127.0.0.1:8765` |
+| **📊 Native Training Monitor** | [`START_TRAINING_MONITOR.bat`](START_TRAINING_MONITOR.bat) | Real-time Rich/PowerShell console for GPU, loss, workers |
+| **🔬 Scientific Status & Harness** | [`docs/research/PROJECT_STATUS.md`](docs/research/PROJECT_STATUS.md) | Current verified state, Phase 0–7 evidence-gated roadmap |
+| **📦 Historical Archive** | [`docs/archive/`](docs/archive/README.md) | Archived ARIS logs, prompt runs, and legacy diagnoses |
+
+---
+
+**Final presentation & course delivery materials:** See [docs/course/presentation/README.md](docs/course/presentation/README.md) for the 3-speaker presentation script (Hưng, Việt, Nam), visual slide outline, comprehensive MORL terminology glossary, and standalone demo guide.
 
 **Latest research/reference review:** `outputs/REL301m_Course_Reference_Review_20261103`
 and ZIP. Report19 pages,21 substantive citations,28-paper library (24 historical

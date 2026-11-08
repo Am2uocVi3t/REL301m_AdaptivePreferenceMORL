@@ -11,9 +11,9 @@ Before acting:
 3. Run `git status --short --branch`; do not overwrite unrelated changes.
 4. Read the relevant protocol/config/code directly before making scientific claims.
 
-Snapshot generated: 2026-11-03T14:17:57+00:00
-Expected working branch at generation: codex/research-reference-review
-Expected commit at generation: f5b2eaf
+Snapshot generated: 2026-11-08T07:39:55+00:00
+Expected working branch at generation: cleanup/repo-restructure-rel301m
+Expected commit at generation: 074adc2
 Working tree dirty at generation: yes
 Current phase: phase-4 — Paired-seed course experiment matrix (active)
 Publication state: bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished
