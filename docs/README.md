@@ -16,6 +16,8 @@ Use this page to find the authoritative document for each concern.
 | Team branching and review | `GIT_WORKFLOW.md` | Collaboration policy |
 | Component ownership and task notes | `tasks/` | Supporting documentation |
 | Repeatable alignment/novelty audit prompt | `audit/RESEARCH_ALIGNMENT_NOVELTY_AUDIT_PROMPT.md` | Audit procedure |
-| Final course presentation, 3-speaker roles and slide outline | `presentation/README.md` | Final team presentation kit |
+| Course REL301m master delivery, presentation & milestones | `course/README.md` | Course hand-in & presentation kit |
+| Final course presentation, 3-speaker roles and slide outline | `course/presentation/README.md` | Final team presentation kit |
+| Historical logs, ARIS run artifacts & failure analysis | `archive/README.md` | Archival records |
 
 For machine/agent onboarding, start at the repository-root `AGENTS.md`.
