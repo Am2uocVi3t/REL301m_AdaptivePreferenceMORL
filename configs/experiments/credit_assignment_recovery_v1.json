@@ -1,0 +1,19 @@
+{
+  "study_id": "credit-assignment-recovery-v1",
+  "authorization": "User authorized durable-launch, exact-resume qualification and recovery on 2026-11-01 after reviewing the interruption",
+  "parent_plan": "configs/experiments/credit_assignment_v1.json",
+  "parent_plan_sha256": "90ebf8ba756f104c0345da5b7a626b6d9174cc627021ed5789c1cb677b7cf5ca",
+  "interruption_evidence": "research/evidence/credit_assignment_training_check_20261101.json",
+  "retained_original_jobs": ["mo-lunar-lander-v3_n1_seed20261211", "mo-lunar-lander-v3_n20_seed20261211", "mo-lunar-lander-v3_n1_seed20261212"],
+  "new_jobs": ["mo-lunar-lander-v3_n20_seed20261212", "mo-lunar-lander-v3_n1_seed20261213", "mo-lunar-lander-v3_n20_seed20261213", "minecart-v0_n1_seed20261211", "minecart-v0_n20_seed20261211", "minecart-v0_n1_seed20261212", "minecart-v0_n20_seed20261212", "minecart-v0_n1_seed20261213", "minecart-v0_n20_seed20261213"],
+  "new_training_interactions": 4500000,
+  "new_updates": 1113759,
+  "interrupted_original_compute": "At least 925000 recorded interactions, at most 999997 before next 25k progress flush, plus separately retained evaluation work; never relabel as exact continuation",
+  "restart_policy": "Exactly the three interrupted jobs restart from their original seeds in new directories; three completed originals are retained; six unstarted jobs run unchanged. No seed replacement or outcome-based extension.",
+  "learner_changes": "None intended. Same parent plan, architecture, optimizer, RNG draw sequence, n-step targets, budgets, checkpoints and evaluation cases. Old/new numerical compatibility required for both environments and both arms.",
+  "checkpoint_policy": "Atomic two-generation, checksum-bound recovery snapshots at the first completed episode after each 10k interval; save replay, target, optimizer, all RNGs, sampler, counters, histories, next episode reconstruction. Abrupt loss may replay the tail since the last boundary; record process segments separately.",
+  "launch_policy": "Hidden independent Windows process; OS-held byte leases prevent duplicate coordinator/workers; heartbeat plus PID/creation time distinguish pending/running/stopped; no scheduled dispatch or automatic training retries",
+  "qualification": "Old/new same-seed numerical equality for both environments and n=1/20; uninterrupted versus fresh-process killed/resumed equality; active duplicate rejected; worker survives launching shell termination",
+  "final_test_steps": 0,
+  "scientific_gates": "Original failed matrix/F1/final-test locks remain unchanged. Complete execution does not imply task success."
+}

@@ -1,0 +1,377 @@
+\section{Executive summary}
+
+The project investigates how to allocate a fixed reinforcement-learning budget
+across user preferences when objectives conflict. A preference may be difficult,
+uncertain, under-sampled, or currently learnable; these are different properties.
+The research question is whether allocation signals predict future improvement
+and improve performance relative to uniform and compute-matched random controls.
+
+The preference-conditioned Q-learning pipeline, four allocation signals, paired
+controls, fixed evaluation protocols, provenance tracking, and validation audits
+have been implemented. The backbone implementation gate passed 103 tests;
+the subsequent tooling and bounded-review gate passed 168 tests with formatting,
+static analysis, security, and compilation checks. These are software checks,
+not evidence of algorithm convergence or adaptive-allocation benefit.
+Thirty primary course runs completed, but a validation audit found zero ore
+returns throughout the Minecart block, invalidating a comparative interpretation.
+
+Two predeclared backbone qualifications were then completed. V1 failed its
+all-seeds gate; v2 tested proportional prioritized replay as a single change.
+V2 source checks passed for all 30 checkpoints, but all three selected
+checkpoints returned zero ore in both ore objectives across 160 episodes each.
+\textbf{V2 therefore failed the unchanged qualification rule.} The current
+research contribution is implementation and an audited failure diagnosis, not
+evidence that adaptive preference allocation improves learning.
+
+\section{Problem and research objectives}
+
+\subsection{Why preference allocation matters}
+In multi-objective reinforcement learning (MORL), the environment returns a
+vector reward rather than one scalar. A preference vector $w$ specifies the
+relative importance of objectives, with $w_i\geq0$ and $\sum_iw_i=1$.
+A conditioned policy should adapt to these preferences without training a
+separate policy for every trade-off. The unresolved training decision is where
+to spend the next interaction or gradient update under a fixed total budget.
+
+The course scope uses \texttt{minecart-v0} and
+\texttt{mo-lunar-lander-v3}. Minecart is especially diagnostic because ore
+collection and delivery require sparse, delayed successful behavior. A learner
+that fails to acquire or retain this behavior cannot establish whether an
+allocation signal is useful.
+
+\subsection{Questions and bounded novelty}
+The study asks:
+\begin{enumerate}
+\item Which signal best predicts later improvement: conditioning gap,
+ensemble disagreement, local coverage/recency, or observed learning progress?
+\item Does adaptive allocation improve sample efficiency or weak-region
+performance over uniform and compute-matched random allocation?
+\item Does any effect arise from rollout preferences, update preferences, or both?
+\item How stable are findings across held-out preferences and separately
+qualified environment shifts?
+\end{enumerate}
+
+\clearpage
+\section{Related work and research positioning}
+
+The repository records 22 primary-source full-text readings and structured
+mechanism/evidence notes. The following synthesis uses that existing reading
+record; it is not a claim that every method has been reproduced locally.
+
+\subsection{Conditioned policies are the starting point, not the novelty}
+Dynamic-weight value learning~\cite{abels2019dynamic-weights} and Envelope
+Q-learning~\cite{yang2019envelope} establish important antecedents for learning
+across linear preference weights. PCN instead conditions a policy on desired
+returns and horizon~\cite{reymond2022pcn}; it should not be confused with this
+project's preference-conditioned Q-network. CAPQL~\cite{lu2023capql} and
+PD-MORL~\cite{basaklar2023pdmorl} further establish modern conditioned continuous-control
+methods. PCRL/PreCo addresses objective/preference gradient conflicts through
+multi-objective optimization~\cite{yang2025pcrl}. These works rule out a broad
+claim that conditioning one policy on trade-offs is new.
+
+More recent mechanisms also constrain interpretation. Hindsight Preference
+Replay relabels experience using achieved returns~\cite{shianifar2026hpr},
+whereas MORL-FB changes representation learning and preference-guided latent
+exploration under a fixed preference distribution~\cite{chen2026morl-fb}.
+D$^3$PO uses objective-specific clipped surrogates and a diversity regularizer
+to resist collapse~\cite{ambadkar2026d3po}. HPR and D$^3$PO are cited through
+author-posted preprints; their status is not silently upgraded. Replay reuse,
+optimizer quality, and controllability are potential explanations for an
+apparent gain and must be distinguished from allocation itself.
+
+\subsection{Adaptive allocation already has direct antecedents}
+PG-MORL predicts improvement to guide population-based training~\cite{xu2020pgmorl}.
+GPI prioritization explicitly directs exploration across scalarization
+weights~\cite{alegre2023gpi-prioritization}. C-MORL extends sparse regions of a
+front through constrained search~\cite{liu2025cmorl}; MPFT allocates further
+multi-policy tracking to sparse front regions~\cite{zhao2026mpft}.
+PBMORL learns human utility and uncertainty and reallocates multi-policy
+optimization toward a region of interest~\cite{hu2026pbmorl}.
+Thus, neither adaptive effort over weights nor coverage-directed training is
+a defensible stand-alone novelty claim. The narrower proposed study compares
+outcome-derived signals inside one shared conditioned learner, separates rollout
+from update allocation, and accounts for diagnostic evaluation cost.
+
+\subsection{Curriculum signals need predictive validation}
+Value-disagreement curricula motivate uncertainty-driven selection using
+multiple value estimators~\cite{zhang2020value-disagreement}. The present shared-trunk
+masked heads are correlated; disagreement is a measured score, not a calibrated
+epistemic uncertainty guarantee. ALP-GMM~\cite{portelas2020alp-gmm} and
+CURIOUS~\cite{colas2019curious} motivate absolute learning/competence progress
+as a selection signal. Absolute changes may also capture forgetting or noise,
+so predictive association with subsequent improvement must be tested rather
+than assumed. Prioritized Level Replay prioritizes environment levels with
+learning-potential proxies and staleness~\cite{jiang2021plr}; it is not the
+transition-level prioritized replay used in remediation v2.
+
+\subsection{Evaluation must separate the claims}
+Environment-context generalization is distinct from interpolation across
+preferences~\cite{teoh2025morl-generalization}. A controllability study shows
+why front-level metrics alone need not establish that a policy follows its
+input weights~\cite{delasheras2026controllability}; this source is a preprint.
+Theory for predictable adversarial preferences and preference-free exploration
+uses different assumptions from deep-control curriculum allocation and raises
+explicit hypervolume semantics~\cite{hu2026predictable-preferences}. Reactive
+step-wise weight adversaries define another robustness game, not a physical
+dynamics shift~\cite{hu2026reactive-preferences}. These readings inform boundaries;
+they do not authorize changing frozen metrics or claiming untested robustness.
+
+\section{Implemented method and experimental controls}
+
+\begin{figure}[htbp]
+\centering
+\input{Figures/morl-pipeline}
+\caption{Implemented allocation loop at a conceptual level. Allocation can act
+on rollout preferences, update preferences, or both; the diagram shows the joint
+case. Diagnostic evaluation is budgeted separately from training.}
+\end{figure}
+
+\subsection{Preference-conditioned value learning}
+The network predicts a vector action value $Q_{\theta,k}(s,a,w)$ for each
+masked ensemble head $k$. Greedy evaluation chooses
+\[
+ a^*(s,w)=\arg\max_a w^\top\frac{1}{K}\sum_{k=1}^{K}Q_{\theta,k}(s,a,w).
+\]
+Training uses per-head Double-DQN targets and a masked Huber loss. Heads
+share a feature trunk; they are not described as fully independent bootstrap
+models. Replay preserves behavior preferences, vector rewards, bootstrap masks,
+and distinct termination/truncation flags. Time-limit truncation ends a rollout
+but does not itself remove Bellman continuation.
+
+\subsection{Allocation signals and controls}
+\begin{tabularx}{\textwidth}{@{}p{36mm}Y@{}}
+\toprule
+\textbf{Signal} & \textbf{Operational interpretation} \\
+\midrule
+Conditioning gap & Difference between archive-supported utility and the
+current policy's measured utility for a preference. \\
+Disagreement & Variance of scalarized values across masked heads; calibration
+is not assumed. \\
+Coverage/recency & Local preference visitation density and time since sampling. \\
+Learning progress & Absolute change in measured utility between curriculum checkpoints. \\
+\bottomrule
+\end{tabularx}
+
+Normalized signals drive temperature-based sampling mixed with a uniform floor.
+The implementation separates \texttt{rollout\_only}, \texttt{update\_only}, and
+\texttt{rollout\_and\_update}. Uniform-PCQN samples from the same finite
+protocol-seeded preference pool. The random curriculum control performs matched
+diagnostic evaluations but allocates from random scores. These controls prevent
+extra evaluation or a different preference pool from masquerading as an
+adaptive-allocation effect.
+
+\subsection{Evaluation and reproducibility}
+Training interactions, gradient updates, curriculum-evaluation interactions,
+and validation/final-evaluation interactions are counted separately. Pilot-only
+calibration froze scales and hypervolume reference points before final testing.
+Validation selects checkpoints; the final-test split stays locked until the
+complete study and selection gates pass.
+
+Primary measures include hypervolume, expected utility, tail regret, and
+learning-curve summaries. Raw and discounted vector returns are retained.
+Analysis is paired at training-seed level, emphasizing effect sizes and
+confidence intervals rather than treating five seeds as strong significance
+evidence. Preference generalization is distinct from environment-shift robustness.
+
+\section{Completed work and verified findings}
+
+\subsection{Progress ledger}
+\begin{figure}[htbp]
+\centering
+\input{Figures/research-timeline}
+\caption{Evidence progression and the present scientific stop. Completed jobs
+are not equivalent to a passed behavioral qualification or a supported claim.}
+\end{figure}
+\begin{tabularx}{\textwidth}{@{}p{39mm}Y@{}}
+\toprule
+\textbf{Workstream} & \textbf{Evidence-bounded status} \\
+\midrule
+Research foundation & Revised executable question, architecture contracts,
+claim registry, and primary-source literature notes completed. \\
+Calibration and plumbing & Both course protocols frozen from non-test
+sources; Envelope/GPI-LS and enabled LunarLander shifts passed bounded qualification. \\
+Primary block & 30 full-budget jobs completed; source audit and
+300-checkpoint validation re-evaluation completed. \\
+Scientific comparison & Blocked: all 15 Minecart primary runs had zero ore
+at every evaluated checkpoint; zero checkpoints locked. \\
+Backbone remediation & V1 and v2 completed and failed their all-seeds rules.
+No allocation-effect claim was promoted. \\
+Demo and manuscript & Native-sprite checkpoint replays prepared for LunarLander
+and Minecart. This document reports progress, not a completed comparative paper
+or a qualified Minecart policy. \\
+\bottomrule
+\end{tabularx}
+
+\subsection{Primary-block failure and localization}
+The primary block comprised Uniform-PCQN, matched-random curriculum, and the
+full adaptive rule across two environments and five paired seeds. All 30 jobs
+completed. Their source audit passed, but both Minecart ore objectives were
+constant zero across 14,400 validation episodes spanning all 150 Minecart
+checkpoints. The LunarLander block was non-degenerate; the atomic selection
+gate nevertheless prohibited partial checkpoint locking.
+
+All 15 diagnostically selected Minecart training archives contained positive
+ore returns, while greedy validation did not reproduce them. Of the 14,400
+validation episodes, 13,308 (92.42\%) reached the 1,000-step limit. A separate
+representative head/action probe made 345,417 action decisions without a
+\texttt{Mine} action. These observations are consistent with an underqualified
+sparse-credit backbone; they do not identify a treatment effect of allocation.
+
+\subsection{Remediation v1: transient success was insufficient}
+V1 ran three fresh Uniform-PCQN seeds for 1,000,000 training interactions each.
+All ten checkpoints per seed were evaluated under the predeclared nominal
+validation protocol. The selected checkpoints produced:
+
+\begin{center}
+\begin{tabular}{@{}rrrrl@{}}
+\toprule
+\textbf{Seed} & \textbf{Selected step} & \textbf{Ore 0 positive} &
+\textbf{Ore 1 positive} & \textbf{Gate} \\
+\midrule
+20264001 & 800,000 & 0/160 & 0/160 & Fail \\
+20264002 & 600,000 & 0/160 & 0/160 & Fail \\
+20264003 & 600,000 & 28/160 & 28/160 & Pass \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+V1 failed because two seeds failed. A predeclared probe (seven checkpoints,
+1,120 episodes) found 35 cargo-acquisition and 27 delivery episodes at seed
+20264003, step 600,000, followed by zero \texttt{Mine} actions at later checkpoints.
+This motivated the retention-oriented v2 intervention.
+
+\subsection{Remediation v2: prioritized replay did not qualify the backbone}
+V2 changed only uniform replay to proportional prioritized replay, with
+$\alpha=0.6$, $\beta:0.4\rightarrow1.0$, and priority epsilon $10^{-6}$.
+The masked Huber loss and all other predeclared v1 training/evaluation choices
+were preserved. A loss-wording inconsistency was corrected and recorded before
+execution; unit importance weights reproduce the v1 loss.
+
+All three jobs completed 1,000,000 training interactions and 995,001 gradient
+updates each. The source audit passed all 30 checkpoints. The qualification
+evaluated 4,800 nominal-validation episodes, totaling 4,710,905 environment
+steps. At the protocol-selected checkpoints:
+
+\begin{center}
+\begin{tabular}{@{}rrrrl@{}}
+\toprule
+\textbf{Seed} & \textbf{Selected step} & \textbf{Ore 0 positive} &
+\textbf{Ore 1 positive} & \textbf{Gate} \\
+\midrule
+20264011 & 1,000,000 & 0/160 & 0/160 & Fail \\
+20264012 & 1,000,000 & 0/160 & 0/160 & Fail \\
+20264013 & 1,000,000 & 0/160 & 0/160 & Fail \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each selected ore objective also had zero distinct positive values. The rule
+required at least 8/160 positive episodes \emph{and} two distinct positive
+values per ore objective, for every seed. V2 therefore failed. Nonzero
+hypervolume alone cannot override this behavioral gate. A first interrupted
+attempt of seed 20264011 is preserved separately and must remain disclosed as
+additional expenditure; 3,000,000 interactions describes the three completed
+runs, not the entire tuning history.
+
+\textbf{Interpretation.} This particular predeclared PER intervention did not
+meet the Minecart backbone qualification. The result does not establish that
+PER never works, that all MORL methods fail, or that adaptive allocation has
+no benefit. It prevents a valid allocation comparison under the current scope.
+
+\begin{figure}[htbp]
+\centering
+\input{Figures/qualification-results}
+\caption{Selected-checkpoint ore-positive counts from qualification artifacts.
+Both ore objectives have identical counts, so each marker represents either
+objective, not their sum. Labels abbreviate seeds 20264001--03 and 20264011--13.
+The count threshold is only one gate: two distinct positive values per objective
+and all-seeds success are also required. The two batches use different seeds;
+this is not a paired estimate of PER's effect.}
+\end{figure}
+
+\clearpage
+\section{Next steps, risks, and presentation demo}
+
+\subsection{Immediate course deliverable}
+For the 19 October checkpoint, the deliverable is this evidence-bounded
+progress report: implemented functionality, audited experiments, negative
+findings, blockers, and a concrete plan. A finished conference paper or a
+successful adaptive-policy demonstration is not claimed.
+
+The frozen failure rule stops current-scope algorithmic remediation. A
+supervisor-approved, versioned scope decision is required before v3, a changed
+Minecart study, or any additional training batch. Matrix v1 remains permanently
+blocked. Checkpoints are not locked, and final-test data remain inaccessible.
+The next scientific recommendation must be based on existing evidence rather
+than unreviewed tuning until a desired result appears.
+
+\subsection{Native-sprite checkpoint replay demo}
+The companion videos render actual MO-Gymnasium environments using saved
+checkpoints: LunarLander at 50k/500k interactions (adaptive seed 20262001) and
+Minecart at 100k/1M (v2 seed 20264011). Each pair uses one predeclared nominal
+validation seed and the existing validation preference nearest the simplex
+centre. Both panels use greedy ensemble-mean inference; neither performs
+training. These are new replays of saved training stages, not original training
+footage or a MORL-versus-non-MORL comparison.
+
+In the fixed LunarLander example, the landing component changes from $-100$
+to $+100$; this single trajectory pair is not a success-rate estimate. Both
+Minecart examples reach 1,000 steps with zero ore. Actions, cumulative raw
+vector returns and terminal states remain visible; failed behavior is retained.
+The two MP4s and local video player work without research dependencies. No
+training, final-test evaluation or paid review is triggered by opening them.
+The predeclared selection and full traces are recorded separately from
+qualification evidence and do not unlock any scientific gate.
+
+\subsection{AI-assisted workflow and risk controls}
+ARIS skills and a tools-off Codex-to-Claude review bridge have been installed.
+Offline checks cover cost/model metadata, transactional reservations, packet
+boundaries, quota freshness, interruption cleanup, and resume behavior. These
+application controls are not an operating-system isolation guarantee.
+
+Exactly one subsequently authorized supervised batch reviewed four existing
+research artifacts. The actual reviewer was \texttt{claude-sonnet-5-5}; CLI
+list-basis cost was \$0.0954889, below the \$0.25 invocation cap. The reviewer
+found packet reporting internally consistent with caveats, while explicitly
+not re-auditing omitted raw tensors or source-audit contents. A historical gate
+field still described v1 as predeclared; that wording does not change the latest
+failed v2 decision. The coordinator verified that the experiment registry already
+records the negative outcome. No claim was promoted.
+
+Historical reservations of \$0.50 were preserved and the one new invocation
+reserved \$0.25, totaling \$0.75 within the nominal \$1 envelope. The historical
+Console total was user-reported as \$0.24 at cent precision; individual historical
+costs were not invented. Completed-state resume retained exactly one new call.
+The single-batch authority is consumed and paid dispatch is disabled again.
+Auto-reload remains off according to the user's Console evidence. No recurring
+scheduler is enabled. Unattended operation is not qualified: OS isolation for
+process-group escape or simultaneous guardian termination remains unverified,
+and one supervised review does not certify every research workflow.
+
+\subsection{Decisions to request from the supervisor}
+The team should ask whether the course checkpoint should present the blocked
+negative result under the frozen scope, or whether a separately versioned scope
+amendment is desired. A further clarification is whether a presentation of the
+implemented pipeline and diagnostic evidence meets the initial-demo requirement.
+These questions seek direction; they do not implement a scope change or authorize
+v3, new training, checkpoint locking, or final-test access.
+
+\section{Conclusion}
+The project has progressed from a proposal to an executable, provenance-aware
+research system with paired controls, frozen evaluation choices, tested
+implementation invariants, and reproducible negative evidence. The main
+blocker is scientific rather than a missing training script: the Minecart
+backbone has failed two predeclared qualifications. Reporting that failure and
+preserving the data are necessary progress toward a trustworthy study.
+The course checkpoint can demonstrate this engineering and diagnostic work
+without claiming an adaptive-allocation improvement that the evidence does
+not establish.
+
+\section*{Evidence and reproducibility notes}
+\addcontentsline{toc}{section}{Evidence and reproducibility notes}
+Training source: \texttt{25328e8}. The companion \texttt{EVIDENCE\_INDEX.md}
+links primary validation, checkpoint-lock decisions, both qualifications,
+behavior diagnostics, source audit and raw returns. This report changes no
+protocol, completes no research phase and unlocks no final-test data.
+
+\clearpage

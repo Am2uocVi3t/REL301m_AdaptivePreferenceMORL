@@ -1,0 +1,83 @@
+{
+  "status": "deterministic_source_numeric_and_reference_checks_pass",
+  "independent_semantic_review": false,
+  "full_text_citation_context_audit": false,
+  "source_files": {
+    "paper/REL301m/main.tex": "4d83fb809bc1d43486dba2fdf2c27d87ae6497558b2ebe189aa1f5c7c0eb1839",
+    "paper/REL301m/General/Preamble.tex": "4fdd9eeb08001e258dbbb1cbb380273acbaf1d1dc79605c324276ca5bc4d4d6d",
+    "paper/REL301m/Chapters/0. Frontpage.tex": "36bce109cd0d8f396415284def48cdb5bba05549575fbff8c037dddb5305f54a",
+    "paper/REL301m/Chapters/Final.tex": "f787f1a3fddc16eb4d37c59c0a5e88684190f2880654bffd116a7cb5146e1804",
+    "paper/REL301m/Figures/morl-pipeline.tex": "0c69b088347bc6d46d74b5ea73662ee0f12df925eba9cb3d1aa3cbf31f79e192",
+    "paper/REL301m/Chapters/PrimaryTable.tex": "c01406ed3da95c75e975db47a148469a53207e457a5b383fbd6ce8e908f82d60",
+    "paper/REL301m/Chapters/EnvelopeResults.tex": "14ac23c244ea3a9e541e82456b98c0b10f9be062ea19bc9bf6dfd92ba33ac49c",
+    "paper/REL301m/Chapters/BackboneInvestigation.tex": "9a7e51a52a497a65657e7bbc6f1a01cdba2aa5fc99f6fb96fa53d85292e555dd",
+    "paper/REL301m/Chapters/OnpolicyResults.tex": "dd6b56c25a344859835e46eec902022c5c0edf91547a62baef1686e888eadb7c"
+  },
+  "cited_keys": [
+    "abels2019dynamic-weights",
+    "alegre2023gpi-prioritization",
+    "colas2019curious",
+    "portelas2020alp-gmm",
+    "reymond2022pcn",
+    "terekhov2024architectures",
+    "xu2020pgmorl",
+    "yang2019envelope",
+    "zhang2020value-disagreement"
+  ],
+  "citation_metadata_status": {
+    "abels2019dynamic-weights": "read",
+    "alegre2023gpi-prioritization": "read",
+    "colas2019curious": "read",
+    "portelas2020alp-gmm": "read",
+    "reymond2022pcn": "read",
+    "terekhov2024architectures": "read",
+    "xu2020pgmorl": "read",
+    "yang2019envelope": "read",
+    "zhang2020value-disagreement": "read"
+  },
+  "repository_paths_checked": [
+    "START_COURSE_DEMO.bat",
+    "configs/experiments/course_paired_matrix_v1.json",
+    "configs/experiments/envelope_feasibility_v1.json",
+    "configs/experiments/lunar_onpolicy_specialist_v1.json",
+    "docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md",
+    "docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md",
+    "docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md",
+    "paper/REL301m/CLAIM_EVIDENCE_MATRIX.md",
+    "paper/REL301m/FINAL_REPORT_OUTLINE.md",
+    "research/evidence/course_primary_execution_audit_v1.json",
+    "research/evidence/course_primary_validation_v1.json",
+    "research/evidence/credit_assignment_recovery_v1.json",
+    "research/evidence/lunar_onpolicy_confirmation_v1.json",
+    "research/evidence/lunar_onpolicy_specialist_v1.json",
+    "research/evidence/minecart_onpolicy_confirmation_v1.json",
+    "research/evidence/ppo_demo_preference_diagnosis_v1.json",
+    "research/qualification/minecart_pcqn_replay_f1.json",
+    "scripts/reaudit_recovered_validation.py",
+    "scripts/run_envelope_feasibility.py"
+  ],
+  "graphics_checked": [
+    "Figures/0. General/fpt_logo_red_small.png",
+    "Figures/0. General/fpt_logo_gray.png",
+    "Figures/0. General/fpt.png",
+    "Figures/0. General/fpt_logo_red_small.png",
+    "../../outputs/course-report-latex/recovered_learning_curves.pdf",
+    "../../outputs/course-report-latex/minecart_confirmation.pdf"
+  ],
+  "confirmation_evidence_sha256": "9a3d01b24e64a890055bca98b89181da10aa1877b1cc0ef71dfd7cd149bcc27e",
+  "confirmation_seed_count": 3,
+  "lunar_training_budget_planned": 4000000,
+  "lunar_editorial_readiness": "Audited Lunar pilot and two prospective confirmation seeds included; pilot separate",
+  "final_hand_in_ready": false,
+  "remaining": [
+    "new final release verification",
+    "lecturer rubric/deadline confirmation; independent semantic review not available"
+  ],
+  "training_interactions": 0,
+  "final_test_steps": 0,
+  "pdf_sha256": "341481690006972fe04356c235f4485867889794b537b927189ed03c55b78810",
+  "pdf_pages": 15,
+  "undefined_reference_markers": false,
+  "quality_gate": "Ruff/mypy144files/233tests pass4skip/Bandit/compileall/diff pass",
+  "release_package_updated": false
+}

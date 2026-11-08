@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "scope": "diagnostic acceptance of existing frozen demo, not final research test",
+  "behavioral_task_learning_qualified": false,
+  "technical_input_and_browser_checks": "passed",
+  "episodes": 80,
+  "presentation_matrix_steps": 58828,
+  "successful_UI_pass_steps": 7813,
+  "UI_server_cumulative_steps_including_attempts": 15634,
+  "training_updates": 0,
+  "results": "research/evidence/demo_behavior_audit_v1.json",
+  "results_sha256": "da0070f23d5e34bdcdda194d81fb61e841bba55756dcac92f1c140cde492dd58",
+  "archive": "outputs\\REL301m_Demo_Behavior_Audit_20261101.zip",
+  "archive_sha256": "f54ba34e0e6372b8279c4f12e3c57aa9cd221bc20d9214d0473a06b58259508d",
+  "software_gate": {
+    "passed_tests": 179,
+    "skipped_tests": 4,
+    "ruff": "passed",
+    "mypy": "passed",
+    "bandit_ll": "passed",
+    "compileall": "passed",
+    "diff_check": "passed"
+  },
+  "independent_semantic_review": "not performed; no PASS claimed",
+  "versioned_evidence_newlines": "LF, stable across Git checkouts; numeric content unchanged",
+  "models_changed": false,
+  "frontend_assets_changed": false,
+  "server_transport_changed": "Bounded rejected-body drain prevents Windows TCP reset before 403; repeated unauthorized requests do not reset the environment",
+  "updated_package": {
+    "path": "outputs\\REL301m_Course_Project_20261101_httpfix.zip",
+    "sha256": "3d67d88fedc57443562d238b4e61811c4477d9254e1f4e37d15fc488b33748ad",
+    "files_hashed": 89,
+    "zip_and_links": "passed",
+    "frontend_assertions": 80,
+    "browser": {
+      "status": "PASS",
+      "browser": "Microsoft Edge headless",
+      "independently_installed_package": true,
+      "matched_reset": true,
+      "single_step": true,
+      "pending_slider_no_steps": true,
+      "live_preference_without_reset": true,
+      "native_render_no_steps": true,
+      "both_environments": true,
+      "pdf_links": true,
+      "page_errors": [],
+      "mobile_dimensions": {
+        "body": 390,
+        "viewport": 390
+      },
+      "mobile_horizontal_overflow": false
+    }
+  },
+  "scope_transfer_to_httpfix": "Model files/config/runtime/physics identical; authorized rollout path unchanged. Full-episode UI traces collected before transport-only fix; new package UI checks passed after fix."
+}

@@ -1,0 +1,558 @@
+{
+  "study_id": "preference-transfer-p1-v1",
+  "authorization": "2026-11-02 user: cứ thực hiện theo kế hoạch đi; inference first, conditional qualified P2; original gates unchanged",
+  "parent_proposal": "configs/experiments/preference_transfer_recovery_proposal_v1.json",
+  "models": [
+    {
+      "name": "mo-lunar-lander-v3_n1_seed20261211",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "67f36d4bbe4c38a4b6021498801844a3e4421ce0cadc655dd2e72345b8cabd1b",
+      "directory": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n20_seed20261211",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "694f555e3d8944df98bfdd91fc9a797ed746a665a7d9daab0037fb07c7844847",
+      "directory": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n1_seed20261212",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "a138939ac6bb63db16c9f6a24102754540560096d543ff4b7dc473f4857369ac",
+      "directory": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n20_seed20261212",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "5e7e52db716eecd15846a261818097ae157ee52d89983d43eb2179dc6907a59f",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261212",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n1_seed20261213",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n1_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "246f7c999e906f30922c285dd846b7bb5632d4f417e15d95618cfedc3297b611",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n1_seed20261213",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n20_seed20261213",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "a4756d6bea731a379509c77ba1689aa4641c649424da3bc53d33c1ee4951899b",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261213",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "minecart-v0_n1_seed20261211",
+      "env_id": "minecart-v0",
+      "n": 1,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "d8bf9d23251ff0caa389c272daaeccd9b9be4fecc103bd4d4bba74cff4531a76",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261211",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n20_seed20261211",
+      "env_id": "minecart-v0",
+      "n": 20,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "0b5df34a3f23bba0a2f3b120e2b7a924407aa939d081a034393df07752d78cc8",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261211",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n1_seed20261212",
+      "env_id": "minecart-v0",
+      "n": 1,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "7ad39e97e6623ddf514e075c6e11632c73c25ce83aa356b2c8b5fa6e39a4639e",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261212",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n20_seed20261212",
+      "env_id": "minecart-v0",
+      "n": 20,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "915307c6e7c7edc2cd4a334e1985d836575a61c04dbdc5bac48d1fdf093b2f34",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261212",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n1_seed20261213",
+      "env_id": "minecart-v0",
+      "n": 1,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "2a3789e65ed9614292023d2eab74f6a4865515de97f9c616cc80795a41448266",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261213",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n20_seed20261213",
+      "env_id": "minecart-v0",
+      "n": 20,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "b98938d93f8936df2444504529e52ac19976fda2919e743851c0e94407ac0d55",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261213",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    }
+  ],
+  "source_banks": {
+    "mo-lunar-lander-v3": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      [
+        0.5,
+        0.5,
+        0.0,
+        0.0
+      ],
+      [
+        0.5,
+        0.0,
+        0.5,
+        0.0
+      ],
+      [
+        0.5,
+        0.0,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.5,
+        0.5,
+        0.0
+      ],
+      [
+        0.0,
+        0.5,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.0,
+        0.5,
+        0.5
+      ],
+      [
+        0.34942588210105896,
+        0.10128869861364365,
+        0.05407436192035675,
+        0.49521106481552124
+      ],
+      [
+        0.19785000383853912,
+        0.19090867042541504,
+        0.24267688393592834,
+        0.3685644268989563
+      ],
+      [
+        0.4047907888889313,
+        0.2798313498497009,
+        0.24586744606494904,
+        0.06951042264699936
+      ],
+      [
+        0.16006191074848175,
+        0.40320155024528503,
+        0.20310494303703308,
+        0.23363161087036133
+      ],
+      [
+        0.19779719412326813,
+        0.5105445981025696,
+        0.12483344227075577,
+        0.16682475805282593
+      ],
+      [
+        0.04621025174856186,
+        0.35857030749320984,
+        0.36607083678245544,
+        0.22914862632751465
+      ],
+      [
+        0.15793947875499725,
+        0.18774980306625366,
+        0.23388095200061798,
+        0.4204297661781311
+      ],
+      [
+        0.1664375364780426,
+        0.01606822945177555,
+        0.32867109775543213,
+        0.4888231158256531
+      ],
+      [
+        0.4599568843841553,
+        0.15853972733020782,
+        0.20146512985229492,
+        0.18003825843334198
+      ],
+      [
+        0.40343040227890015,
+        0.0283068660646677,
+        0.4493429958820343,
+        0.11891971528530121
+      ],
+      [
+        0.03619399294257164,
+        0.18061518669128418,
+        0.10034754127264023,
+        0.6828432679176331
+      ],
+      [
+        0.3172557055950165,
+        0.029086288064718246,
+        0.13001222908496857,
+        0.5236457586288452
+      ],
+      [
+        0.41822290420532227,
+        0.1286039650440216,
+        0.09898032993078232,
+        0.3541927933692932
+      ],
+      [
+        0.2941123843193054,
+        0.249442920088768,
+        0.23597979545593262,
+        0.22046490013599396
+      ],
+      [
+        0.7743719816207886,
+        0.08854874968528748,
+        0.1069856509566307,
+        0.0300936046987772
+      ],
+      [
+        0.3718881607055664,
+        0.13608096539974213,
+        0.44751161336898804,
+        0.04451925680041313
+      ],
+      [
+        0.058565061539411545,
+        0.588444173336029,
+        0.20995301008224487,
+        0.14303773641586304
+      ],
+      [
+        0.06479926407337189,
+        0.30077993869781494,
+        0.5903329849243164,
+        0.04408784210681915
+      ],
+      [
+        0.4880082309246063,
+        0.17543251812458038,
+        0.32974061369895935,
+        0.006818637251853943
+      ],
+      [
+        0.08656527101993561,
+        0.8164670467376709,
+        0.037883225828409195,
+        0.0590844564139843
+      ],
+      [
+        0.21628792583942413,
+        0.015476793050765991,
+        0.3899742364883423,
+        0.3782610595226288
+      ]
+    ],
+    "minecart-v0": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      [
+        0.5,
+        0.5,
+        0.0
+      ],
+      [
+        0.5,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.5,
+        0.5
+      ],
+      [
+        0.6922217607498169,
+        0.20065554976463318,
+        0.10712271183729172
+      ],
+      [
+        0.7182813286781311,
+        0.14337438344955444,
+        0.13834427297115326
+      ],
+      [
+        0.12005866318941116,
+        0.18233856558799744,
+        0.6976027488708496
+      ],
+      [
+        0.4701395034790039,
+        0.41307732462882996,
+        0.11678317189216614
+      ],
+      [
+        0.20885765552520752,
+        0.5261197686195374,
+        0.2650226056575775
+      ],
+      [
+        0.11217261105775833,
+        0.24791671335697174,
+        0.6399106979370117
+      ],
+      [
+        0.40822917222976685,
+        0.5455487966537476,
+        0.04622204601764679
+      ],
+      [
+        0.3759427070617676,
+        0.38380661606788635,
+        0.24025066196918488
+      ],
+      [
+        0.27251136302948,
+        0.32394659519195557,
+        0.40354204177856445
+      ],
+      [
+        0.7022829651832581,
+        0.27150532603263855,
+        0.02621169574558735
+      ],
+      [
+        0.34324178099632263,
+        0.5104936361312866,
+        0.14626456797122955
+      ],
+      [
+        0.2935686409473419,
+        0.37305378913879395,
+        0.33337756991386414
+      ],
+      [
+        0.45788154006004333,
+        0.03212745115160942,
+        0.5099909901618958
+      ],
+      [
+        0.3408869206905365,
+        0.11003193259239197,
+        0.5490811467170715
+      ],
+      [
+        0.09518366307020187,
+        0.6477041840553284,
+        0.25711214542388916
+      ],
+      [
+        0.04260202497243881,
+        0.19042594730854034,
+        0.766972005367279
+      ],
+      [
+        0.6475971937179565,
+        0.19913676381111145,
+        0.1532660573720932
+      ],
+      [
+        0.08205843716859818,
+        0.4966890811920166,
+        0.4212524890899658
+      ],
+      [
+        0.33551469445228577,
+        0.3134557008743286,
+        0.35102957487106323
+      ],
+      [
+        0.392454594373703,
+        0.4741683304309845,
+        0.1333770751953125
+      ],
+      [
+        0.38921576738357544,
+        0.14242146909236908,
+        0.4683627784252167
+      ],
+      [
+        0.039646219462156296,
+        0.08692793548107147,
+        0.8734258413314819
+      ],
+      [
+        0.5458179116249084,
+        0.37185731530189514,
+        0.0823247879743576
+      ],
+      [
+        0.32162073254585266,
+        0.6312366127967834,
+        0.04714265093207359
+      ],
+      [
+        0.49135860800743103,
+        0.1766369491815567,
+        0.3320044279098511
+      ]
+    ]
+  },
+  "protocol_sha256": {
+    "configs/protocols/course_mo_lunar_lander_v3.json": "11ea5c70a130e8cabeb108ce6ba14273cf43035882ca3d024dc24bed7cb5c5b2",
+    "configs/protocols/course_minecart_v0.json": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935"
+  },
+  "policies": [
+    "mean_greedy",
+    "mean_eps005",
+    "gpi_mean_greedy",
+    "gpi_mean_eps005"
+  ],
+  "preferences": {
+    "minecart-v0": [
+      [
+        0.45,
+        0.45,
+        0.1
+      ],
+      [
+        0.8,
+        0.1,
+        0.1
+      ]
+    ],
+    "mo-lunar-lander-v3": [
+      [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    ]
+  },
+  "development_environment_seeds": [
+    20263101,
+    20263102,
+    20263103,
+    20263104,
+    20263105,
+    20263106,
+    20263107,
+    20263108,
+    20263109,
+    20263110
+  ],
+  "qualification_environment_seeds": [
+    20263091
+  ],
+  "gamma": 0.99,
+  "epsilon": 0.05,
+  "max_episode_steps": 1000,
+  "probe_stride": 20,
+  "expected_episodes": 960,
+  "maximum_environment_steps": 960000,
+  "training_interactions": 0,
+  "gradient_updates": 0,
+  "final_test_steps": 0,
+  "source_bank_rule": "Exactly the existing 32 protocol-seeded training preferences, no additions or outcome selection; source weight inside network, target outside.",
+  "gpi_rule": "For each action maximize target-weight scalarized head-mean vector over source weights; ties lowest source index, then lowest action index. Retain the selected source vector as a whole, not coordinate-wise maxima. Approximate heuristic, no certified guarantee.",
+  "probe_semantics": "For GPI, vector Q probes are all heads at one selected source per action, not direct Q(s,a,target). No MC calibration claim from these composite probes.",
+  "gate": {
+    "task": "Minecart: >=8/10 deliveries at BOTH task preferences, every seed of a fixed n-step arm. Lunar: >=8/10 native+100 AND pad at landing-heavy preference, every seed. Uniform Lunar profile secondary only, consistent with original task-oriented criterion.",
+    "utility": "Strict positive mean paired utility difference versus mean_greedy at each task-oriented preference for each seed. Compare all policies; report paired epsilon comparison separately. No best-seed or post-hoc profile selection.",
+    "next": "If neither environment has a qualifying all-seeds extraction, P1 insufficient and conditional P2 may be prepared. If only one environment passes, preserve that partial result; P2 Minecart still conditional on Minecart failing. No original gate unlock."
+  },
+  "analysis": "Publish all seed/profile/policy success counts, native and scaled discounted vector means, paired utility differences vs mean_greedy and mean_eps005. Count episodes independently only within each model-case, never pool repeated reference cases across models.",
+  "qualification": "Two model jobs, one per environment, eight episodes each on separate dev seeds; exact mean-greedy replication and independent literal GPI source enumeration at stored probe states. Engineering steps separate.",
+  "stop_rule": "Exactly 12 frozen models x2 profiles x10 seeds x4 policies; no checkpoint/seed replacement, retry, training or test access."
+}

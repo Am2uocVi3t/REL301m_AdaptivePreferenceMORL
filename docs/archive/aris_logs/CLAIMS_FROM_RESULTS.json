@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "review_type": "result-to-claim",
+  "reviewer_model": "gpt-6-astra",
+  "reviewer_reasoning": "ultra",
+  "reviewer_family": "openai",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "integrity_status": "warn",
+  "integrity_status_at_reviewer_call": "unavailable",
+  "attached_integrity_audit": "EXPERIMENT_AUDIT.json",
+  "integrity_note": "Original claim review saw no completed integrity report. Coordinator subsequently attached EXPERIMENT_AUDIT.json (WARN, same-family provisional) without rerunning or altering the claim verdict. Original response and unavailable-at-review status remain in the trace.",
+  "evaluation_type": "simulation_only",
+  "claim_supported": "no",
+  "confidence": "high",
+  "confidence_scope": "High confidence in the finite, frozen F1 failure decision, conditional on the pending integrity assessment. This is not confidence in a causal mechanism or universal failure claim.",
+  "intended_claims": [
+    {
+      "id": "C1",
+      "claim": "The combined A1R1 replay intervention is sufficient for retained greedy ore behavior in all three predeclared seeds under the frozen budget.",
+      "claim_supported": "no",
+      "reason": "Every A1R1 checkpoint has zero positive episodes for both ore objectives. No intervention seed reaches the expression threshold, so none can pass retention.",
+      "evidence": [
+        "refine-logs/EXPERIMENT_PLAN.md:17",
+        "configs/remediations/minecart_pcqn_replay_f1.json:136",
+        "research/qualification/minecart_pcqn_replay_f1.json:828",
+        "research/qualification/minecart_pcqn_replay_f1.json:1039",
+        "research/qualification/minecart_pcqn_replay_f1.json:1250"
+      ]
+    },
+    {
+      "id": "C2",
+      "claim": "Sampling, relabeling, or their combination can be decomposed through the planned selection-conditioned four-cell study.",
+      "claim_supported": "no",
+      "reason": "Only A0R0 and A1R1 were executed. The F1 retention gate failed, so the entry condition for A1R0/A0R1 was not met. This claim is untested, not refuted.",
+      "evidence": [
+        "refine-logs/EXPERIMENT_PLAN.md:18",
+        "refine-logs/EXPERIMENT_PLAN.md:84",
+        "research/qualification/minecart_pcqn_replay_f1.json:1269"
+      ]
+    }
+  ],
+  "what_results_support": [
+    {
+      "statement": "A bounded negative result: the specified combined replay intervention did not produce ore delivery at any of the ten saved nominal-validation checkpoints in any of its three seeds.",
+      "details": "A1R1 has 0/4800 positive episodes for each ore objective across 30 checkpoint evaluations. Raw undiscounted and discounted tensors agree on zero ore.",
+      "evidence": [
+        "research/qualification/minecart_pcqn_replay_f1.json:625",
+        "research/qualification/minecart_pcqn_replay_f1.json:836",
+        "research/qualification/minecart_pcqn_replay_f1.json:1047",
+        "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step100000.json:25",
+        "artifacts/minecart-pcqn-replay-f1/validation-evidence/A1R1/seed20264021/checkpoint_step100000.json:1417"
+      ]
+    },
+    {
+      "statement": "The observed failure is operationally replay-expression insufficiency after acquisition and exposure, rather than the predeclared no-acquisition category.",
+      "details": "A1R1 seeds 20264021, 20264022, and 20264023 acquired 1176, 1134, and 1073 eligible completed training trajectories. Each sampled 31840032 success-branch positions with zero fallback. Actual preference changes occurred at 46313803, 45294470, and 45826066 sampled positions. These counters establish recorded exposure, not successful greedy learning or a causal failure mechanism.",
+      "evidence": [
+        "refine-logs/EXPERIMENT_PLAN.md:67",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:409",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:863",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:1315"
+      ]
+    },
+    {
+      "statement": "The baseline contains intermittent or late positive greedy behavior; a claim that every F1 run returned zero ore would be false.",
+      "details": "A0R0 seed 20264021 passes expression at 500k, 900k, and 1M, with 13, 10, and 19 positive episodes per ore objective. It fails at 600k and 700k, so the earliest pass is not retained. Seed 20264022 first passes at 1M with 17/160 per objective. Seed 20264023 never passes. These are paired descriptive observations, not a general superiority or causal-component estimate.",
+      "evidence": [
+        "research/qualification/minecart_pcqn_replay_f1.json:86",
+        "research/qualification/minecart_pcqn_replay_f1.json:106",
+        "research/qualification/minecart_pcqn_replay_f1.json:126",
+        "research/qualification/minecart_pcqn_replay_f1.json:166",
+        "research/qualification/minecart_pcqn_replay_f1.json:186",
+        "research/qualification/minecart_pcqn_replay_f1.json:393",
+        "research/qualification/minecart_pcqn_replay_f1.json:418"
+      ]
+    },
+    {
+      "statement": "The finite evidence accounting and failure decision reproduce from the supplied artifacts.",
+      "details": "I read all 60 referenced validation JSON files, verified their hashes, and independently recomputed all expression-pass flags and positive-episode counts. They agree with the qualification artifact. Totals are 9600 episodes and 8654847 independent audit steps. Source counters separately record 6000000 training interactions, 5970006 updates, 11476292 curriculum-evaluation steps, and 8654847 validation steps during training.",
+      "evidence": [
+        "research/qualification/minecart_pcqn_replay_f1.json:1270",
+        "src/evaluation/replay_feasibility.py:376",
+        "src/evaluation/replay_feasibility.py:408",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:175",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:398",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:630",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:852",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:1082",
+        "research/evidence/minecart_pcqn_replay_f1_source_audit.json:1304"
+      ]
+    }
+  ],
+  "what_results_dont_support": [
+    "C1 positive bounded sufficiency, convergence, stable greedy ore behavior, or successful retention.",
+    "Attribution to stratification, relabeling, their interaction, delayed credit, preference-map concentration, or another specific mechanism.",
+    "A general causal claim that the intervention is harmful or that uniform replay is superior.",
+    "Any promotion of the six course allocation claims in research/claims.json: no adaptive-allocation comparison or signal-to-future-progress test was conducted here.",
+    "Preference generalization, dynamics-shift robustness, or final-test performance.",
+    "Universal impossibility of successful replay, HPR, one-step PCQN, or Minecart learning.",
+    "Treating 9600 repeated evaluation cases as 9600 independent experimental replicates; the experimental unit is the paired training seed.",
+    "Treating source-audit PASS, evidence-existence verification, or successful training execution as learner qualification or scientific acceptance."
+  ],
+  "missing_evidence": [
+    {
+      "gap": "Independent semantic integrity audit and any subsequent cross-family scientific assessment.",
+      "impact": "Acceptance remains provisional. Attach the pending integrity assessment and downgrade confidence if it identifies material integrity failures."
+    },
+    {
+      "gap": "The predeclared B1 Mine-action, cargo, and action-margin diagnostics are absent from the reviewed validation artifacts and evaluator output.",
+      "impact": "Positive/zero delivered ore is sufficient to resolve the frozen expression gate, but cannot distinguish failure to mine, acquire cargo, return to base, or choose actions with adequate margins.",
+      "evidence": [
+        "refine-logs/EXPERIMENT_PLAN.md:60",
+        "src/evaluation/rollout.py:59",
+        "src/evaluation/rollout.py:70",
+        "src/evaluation/course_validation.py:432"
+      ]
+    },
+    {
+      "gap": "A1R0 and A0R1 are absent, as required after the failed F1 entry gate.",
+      "impact": "Component decomposition remains untested; this is not permission to execute F2."
+    },
+    {
+      "gap": "No broader-seed, held-out preference, shifted-environment, or final-test evidence exists within F1.",
+      "impact": "Restrict all conclusions to this predeclared simulation screen. No additional evidence is needed to determine that its positive primary claim failed."
+    }
+  ],
+  "suggested_claim_revision": "In the predeclared nominal-validation Minecart F1 screen, successful-episode stratification plus deterministic achieved-return preference relabeling was insufficient to produce retained greedy ore behavior under the frozen one-step PCQN and 1M-interaction budget. All three intervention seeds acquired eligible training trajectories and received successful-episode replay exposure, yet both ore returns were zero across all 30 saved intervention-checkpoint evaluations. The paired uniform baseline showed intermittent or late ore expression in two seeds. These observations do not identify the responsible component or establish universal replay failure, adaptive-allocation effects, or generalization.",
+  "return_semantics": {
+    "note": "Validation raw_episode_returns contains undiscounted protocol-scaled returns, not native environment-unit returns. Discounted returns use the same scaled reward stream. Positive scaling preserves the zero/nonzero ore decision.",
+    "evidence": [
+      "src/evaluation/course_validation.py:343",
+      "src/evaluation/course_validation.py:374",
+      "src/evaluation/rollout.py:62"
+    ]
+  },
+  "next_experiments_needed": [],
+  "next_action": "Stop F1 and preserve/report the negative result. Attach the pending integrity report and synchronize evidence records. Do not add seeds, extend budgets, tune, restart, run F2, lock checkpoints, revive matrix v1, or access final test. Any materially different future research requires separately authorized predeclaration; none is proposed for execution here.",
+  "gates": {
+    "f2_eligible": false,
+    "checkpoint_lock_unlocked": false,
+    "matrix_v1_unlocked": false,
+    "final_test_unlocked": false,
+    "scientific_acceptance_granted": false
+  },
+  "stop_policy_evidence": [
+    "configs/remediations/minecart_pcqn_replay_f1.json:145",
+    "research/qualification/minecart_pcqn_replay_f1.json:1258",
+    "research/qualification/minecart_pcqn_replay_f1.json:1300"
+  ],
+  "evidence_precheck_interpretation": "The five verified entries establish existence only. The semantic verdict above follows direct examination of the frozen claim definitions, evaluator, source records, and all referenced validation tensors.",
+  "review_actions": {
+    "files_edited": false,
+    "training_performed": false,
+    "environment_rollouts_performed": false,
+    "paid_calls_performed": false
+  }
+}

@@ -1,0 +1,571 @@
+{
+  "checkpoint_count": 30,
+  "data_firewall": {
+    "allowed_sources": [
+      "training",
+      "pilot",
+      "validation"
+    ],
+    "evaluation_split": "validation",
+    "final_test_access_permitted": false,
+    "forbidden_split": "test",
+    "shift": "nominal"
+  },
+  "execution_git_commit": "081fb6d1934ed4fd9c20a3d53412b72f5c6006d6",
+  "execution_status": {
+    "path": "artifacts/minecart-pcqn-remediation-v1/execution_status.json",
+    "sha256": "a1a4806ec221c36dd5e0fbae5542b15d250da58f1d362bcd806e23bd98d46cb1"
+  },
+  "expected_seed_count": 3,
+  "jobs": [
+    {
+      "attempts": 1,
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step100000.pt",
+          "sha256": "2bef72cf934e0d5da3f30b811645f2d290dc7bf8cf05c0e31aa51ceb667ff5c7",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6480867862701416,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step200000.pt",
+          "sha256": "9cc672885ef3b85a29b05f7d6a000d7d359a86a7ea52f4f90aee1ebcdfa4d4f0",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.6480867862701416,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 640000,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 480000
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step300000.pt",
+          "sha256": "e3a918843fb216bca9c6bf367568661d84022b91c42d6c547dec97aa68373833",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.6506970524787903,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 832000,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 640000
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step400000.pt",
+          "sha256": "b43d171136253e167f31fee8a45eaea087f9f673269acc50c4519c808d826ff6",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.6540763974189758,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1041179,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 795055
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step500000.pt",
+          "sha256": "6cdfdaf633c47772eac37cb68f4d3782b492fbd5dd973bc02cd3d21a136c62eb",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.65111243724823,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1233491,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 955055
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step600000.pt",
+          "sha256": "dac129025ceb9561fa8bd799f67005275aa448f54a2c5e47e711e63f347a8739",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.6731691360473633,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1399786,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 1085325
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step700000.pt",
+          "sha256": "2264f39296ee461eb031610963f6b0f85239d48c35f67944e0f11e5f76406d65",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.5870586633682251,
+            "hypervolume": 0.001386185409501195
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1556482,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1151310
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step800000.pt",
+          "sha256": "f95d2f00b19f666c5ecb06d21dab1aef0a732539ffd44cf91cb34ec580d7a2ef",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.3722701072692871,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1730045,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1281935
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step900000.pt",
+          "sha256": "6dc88d152cfc938cff147d3f3a7a88fbca420622f65c1940de448d81f320fd13",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.5785248279571533,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1840903,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1322925
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/checkpoint_step1000000.pt",
+          "sha256": "4bd27abbb03edde73a877cae9e1497cdc8916b58527e2c197c3caccc5e405a30",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.18449047207832336,
+            "hypervolume": 0.0013846897054463625
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 1840903,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1322925
+        },
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/final.pt",
+        "sha256": "799b31e6e1603d9e11d0eabf011df831283c1fe45119497d141954bf4f7a94db"
+      },
+      "job_id": "minecart-v0__uniform-backbone__seed20264001",
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/run_manifest.json",
+        "sha256": "480ec6fb143be96912cd24233e4efd5b60565da76067801b2ac5ec45afa27c2e"
+      },
+      "training_git_commit": "081fb6d1934ed4fd9c20a3d53412b72f5c6006d6",
+      "training_git_dirty": false,
+      "training_seed": 20264001,
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264001/logs/uniform-pcqn_minecart-v0_seed20264001/events.out.tfevents.1792137892.hei-laptop.20.0",
+          "sha256": "96e0764d61d0c897225886beda64052a3b321693c7de7b007ad620d7dba8f066"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step100000.pt",
+          "sha256": "80f2279f7e540ec53b5dbf2c89a7aec6066b3723594e770969cc06210d83196e",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6692564487457275,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 317057
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step200000.pt",
+          "sha256": "dd1ea33f6272b872a4ef24ceb9834986829e10051dbf9c58cbbfd5df6b33291e",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.7712468504905701,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 612340,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 432442
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step300000.pt",
+          "sha256": "a77e4dc7e2abde25b55c4492706cdf3a0f0321774c9bf8479cbf600722fe81f2",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.4691113829612732,
+            "hypervolume": 0.0013846897054463625
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 762821,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 592442
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step400000.pt",
+          "sha256": "dcb6ffdab680c6cf8a894bb30bdaa7b8f6a9dc6839fc216fde5eae739ef1a840",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.6746870875358582,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 951206,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 663382
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step500000.pt",
+          "sha256": "7673cfd3728d307973dd76b5a3ade93b6eeffb0bfdcf97e4a82fc77c4fb3411b",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.3554190695285797,
+            "hypervolume": 0.0013846897054463625
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1083160,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 739457
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step600000.pt",
+          "sha256": "14a49a6df7d4a8f63239302a72a5ba62697b659468d352fade8aaaf6e0747094",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.29849040508270264,
+            "hypervolume": 0.0013846897054463625
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1213879,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 899457
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step700000.pt",
+          "sha256": "f269a8873bfa43f545fdc36e1ded68dad6a2a041fc280bc6ed2834998afbc7fc",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.659999430179596,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1385425,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 957482
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step800000.pt",
+          "sha256": "5410f0d2787b6b8a6e5a42afcdf79d9eceb00353eba5e0e8569a139b3511f4b8",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.3317139744758606,
+            "hypervolume": 0.0013846897054463625
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1529419,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1083062
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step900000.pt",
+          "sha256": "d4f556f04f7705524169c555b002ada29bf3ca227f3f745bf2131025caf5b2fd",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.5119659900665283,
+            "hypervolume": 0.0013329576468095183
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1673212,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1228197
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/checkpoint_step1000000.pt",
+          "sha256": "52d97fde03f0b00ab0fa9f36a55e11c9c7e9f9628a2bd1526be928cb9b02b575",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.6087720394134521,
+            "hypervolume": 0.0013846897054463625
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 1673212,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1228197
+        },
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/final.pt",
+        "sha256": "3532876592f52d760cf71d57b4c715ce01078f0ec650bdc3a612bb97101dcd98"
+      },
+      "job_id": "minecart-v0__uniform-backbone__seed20264002",
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/run_manifest.json",
+        "sha256": "e6ad11dab23b889bb5209b77ecd552e442f4576e380bf7f08862769f9a0a2478"
+      },
+      "training_git_commit": "081fb6d1934ed4fd9c20a3d53412b72f5c6006d6",
+      "training_git_dirty": false,
+      "training_seed": 20264002,
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264002/logs/uniform-pcqn_minecart-v0_seed20264002/events.out.tfevents.1792141574.hei-laptop.84.0",
+          "sha256": "926ffde0502b911fc7dac05bb15981814fcd87956976648b77189eaa3bd127fa"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step100000.pt",
+          "sha256": "fd9a227ccba263ea8f899243c6073cd711a3f81b4f180901780ca75620360b79",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6491763591766357,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 415045,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 305995
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step200000.pt",
+          "sha256": "1e7452bc7c74c9dbce1d5cab12d903be1eeb19dd8152665fbff687d84f12ca91",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.699039101600647,
+            "hypervolume": 0.0007572275935672224
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 633162,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 430373
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step300000.pt",
+          "sha256": "d663cb1f39016c4f00a5054fc9bff53076578c0843c50bfd225964df72a571b3",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.627795398235321,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 818347,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 565643
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step400000.pt",
+          "sha256": "d862249b20e3727a715ebf1b3cad068d8d8afdd5ac0a3e1aba760978e1973242",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.5504962801933289,
+            "hypervolume": 0.001386185409501195
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1001759,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 721707
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step500000.pt",
+          "sha256": "e2b45165cfdc50a17efff06c66b0fb7c3396df19084500b1c893fdee7babd679",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.6427529454231262,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1159818,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 844319
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step600000.pt",
+          "sha256": "04f8aef9058d4ac42dff4ac6dc5fe6c14f876459eb06c98c211c81ebca299381",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.5040392875671387,
+            "hypervolume": 0.0034241534303873777
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1327169,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 989529
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step700000.pt",
+          "sha256": "b477cdbd98aee32d85c61f5a9a50ee1e22074c318d62ce265af0f52260d7ef54",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.6185277700424194,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1490245,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1124769
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step800000.pt",
+          "sha256": "e75b4d4f01526400c2e4d77a42ceace16d97970cab7f03a093428459f2c3cbcb",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.5426192879676819,
+            "hypervolume": 0.001386185409501195
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1693746,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1282813
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step900000.pt",
+          "sha256": "09a02cc9b04eb2197a006a3a74c2ba4f1054601d384667ac0e9c0a366465a1c7",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.6444096565246582,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1840358,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1413173
+          },
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/checkpoint_step1000000.pt",
+          "sha256": "b2088b88da5f6bb0695bb4b7fcf76b5c067921fa02cadc4098618c35952fea6c",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.5171887874603271,
+            "hypervolume": 0.0014480538666248322
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 1840358,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1413173
+        },
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/final.pt",
+        "sha256": "fec5fffe4d649ae01ae9708f687bb99a17bcd5b7cf08fb10b09dcb3f3718f6d4"
+      },
+      "job_id": "minecart-v0__uniform-backbone__seed20264003",
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/run_manifest.json",
+        "sha256": "2c9524ee27430a736f09bf6d47fb7bf3644af4cecb813be23e41c26ad313714f"
+      },
+      "training_git_commit": "081fb6d1934ed4fd9c20a3d53412b72f5c6006d6",
+      "training_git_dirty": false,
+      "training_seed": 20264003,
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-remediation-v1/uniform-pcqn_minecart-v0_seed20264003/logs/uniform-pcqn_minecart-v0_seed20264003/events.out.tfevents.1792146557.hei-laptop.148.0",
+          "sha256": "d81011f3eff37537aa9068a361a45053301cb4c859b04ef60c8ca33310625986"
+        }
+      ]
+    }
+  ],
+  "kind": "minecart_backbone_qualification_source_audit",
+  "passed": true,
+  "plan": {
+    "id": "minecart-pcqn-backbone-remediation-v1",
+    "path": "configs/remediations/minecart_pcqn_backbone_v1.json",
+    "sha256": "5b1e8994f0a2af9d0bafc81adc49e96b6ac221657b32e6b6967c5624c255c769"
+  },
+  "protocol": {
+    "canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "path": "configs/protocols/course_minecart_v0.json"
+  },
+  "schema_version": 1
+}

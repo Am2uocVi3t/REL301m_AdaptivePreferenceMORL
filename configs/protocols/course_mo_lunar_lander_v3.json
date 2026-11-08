@@ -4,9 +4,16 @@
   "env_id": "mo-lunar-lander-v3",
   "reward_dim": 4,
   "return_definition": {"type": "discounted", "gamma": 0.99},
-  "reward_scale": [1.0, 1.0, 1.0, 1.0],
-  "reference_point": null,
-  "reference_point_status": "pilot_required_before_final_test",
+  "reward_scale": [0.0179126033542946, 0.010918515947335474, 0.016333719502911202, 0.032479782831596124],
+  "reference_point": [-1.15737194297178, -2.3275130419645698, -1.1397362011679149, -1.6736955655595682],
+  "reference_point_status": "frozen_from_source_aware_calibration_v2",
+  "calibration_evidence": {
+    "plan": "configs/pilots/calibration_v2.json",
+    "plan_canonical_sha256": "0cf0ce2a14e5c8781628ff5cd972ecdd69ef80d9f855c47aa9e283ee3bd3e9ba",
+    "proposal": "research/calibration/course_calibration_v2_proposal.json",
+    "proposal_sha256": "48bede31286bf0f4d0d8708005dd00bb47531f78cc7052b6ba5299509f8a8465",
+    "source_type": "validation_pilot"
+  },
   "training_preference_pool": {"generator": "anchors_plus_dirichlet", "seed": 20261001, "count": 32},
   "preference_splits": {
     "validation": {"generator": "dirichlet", "alpha": 1.0, "seed": 20261015, "count": 32},

@@ -47,6 +47,8 @@ Run paired seeds with identical protocol and budget arguments. At minimum schedu
 
 Do not use the test split during training. Validation preferences are fixed by the protocol and reused at every checkpoint.
 
+Use `scripts/execute_course_matrix.py` for the frozen matrix rather than reconstructing commands by hand. Start with a dry-run selection, then use `--execute` only with the exact study acknowledgement and an explicit `--max-jobs`. Preserve the executor status JSON together with each downloaded artifact.
+
 ## Final evaluation
 
 After selecting the checkpoint and freezing the protocol reference point:
@@ -66,3 +68,5 @@ Download the raw evaluation JSON, checkpoints, run manifest, resolved environmen
 ## Resume status
 
 Training resume is not implemented. There is deliberately no `--load-checkpoint` flag. Split long experiments into independent complete seeded runs until resume support includes optimizer, replay, RNG, sampler, counters, and protocol state.
+
+The course executor's resumability is only between seeded jobs. It verifies and skips a previously completed final artifact; it does not continue an interrupted training process from an intermediate checkpoint.

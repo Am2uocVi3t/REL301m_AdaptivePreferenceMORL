@@ -1,0 +1,241 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "status": "pass",
+  "device": "cuda",
+  "plan_sha256": "176a9e0110e119cb774f6814e3d207d6bc5962d1c85aec37f0bf0930ebba969e",
+  "source_sha256": {
+    "src/__init__.py": "07b9ea7f887e560e42990d6da3a1cc253f7c6dae18e938beca51501415fcaf88",
+    "src/baselines/morl_baselines_runner.py": "d31af8416d10d43b2529e64687db49719dd5f699b97479955db12d31434ea050",
+    "src/baselines/__init__.py": "03f536393cbade6ad62e24b90795bdcd75ee5ebec9a8bd8c2d5f7763ddeca4b1",
+    "src/core/n_step.py": "8767d7bd5fb3f0053913ba1be0233366faa931e422461276c45a901dbd81d6e5",
+    "src/core/pareto_archive.py": "24ad0ed31f6dd1cf31d7e218b6b7eb18a7ac4296ff4e538e8d413094d686f71e",
+    "src/core/replay_buffer.py": "67a9a7f63704d7f6613eb1ea81925f84c4ccba96c2c2000b31bbe84ea3fae705",
+    "src/core/__init__.py": "12732a43d2df1f74f3180e5571f4b00f4def095f28adaa66dd8a90ae5cbf2bf0",
+    "src/curriculum/gap.py": "c1205fa54a0ce3ccf06b2689deeb27ee6090630180ec0881c5fa836f7fa0c2b2",
+    "src/curriculum/sampler.py": "ea3df9f6ce8616cedd17fb6d821bf9158fb92e2d0bc9fd2ac8dd7abf5229db29",
+    "src/curriculum/uncertainty.py": "ac386d48a9748b01a3153f2d5dc1106c85955c3d6ca2fe86206cabb8455bab0d",
+    "src/curriculum/__init__.py": "a29e73d42b419e13b7d7ac2c2eb42b127257aa6d7fa074d5690b058e1076a624",
+    "src/demo/runtime.py": "6e790e47fc1de1975491a94961760e72e91b9e127b085483af83c0ce9ae37be3",
+    "src/demo/server.py": "e62dc7567c31698c94d049fa7b993d6b33fc334c3169a653601851f402cb0f38",
+    "src/demo/__init__.py": "bce66f60b26372af4ac6f431aa4ba774aab22fbf17bcc83b080e9eb6039012e1",
+    "src/envs/shift.py": "1319a5ac27ff39a32cf1d2b7e79df913c599992f5880f93c3082790da7f0b339",
+    "src/envs/wrapper.py": "d90407ad34175976dfcd30c3d13ffe02827eb424f20ec87f2b942328b405ba7e",
+    "src/envs/__init__.py": "b12b4f3ee22acec289585c927bce0f00c2052ad90ad544d4f0fdfadcb3577b78",
+    "src/evaluation/calibration.py": "af0f933e9ce58bc8ab39818c3c449ae6baffd25ada8b769b72f639f44cda535c",
+    "src/evaluation/course_executor.py": "d3690092098cd0aeeabdbe7de6f82fcf7ed1e17f7c7791a8df1994a901738c84",
+    "src/evaluation/course_matrix.py": "d94dfbc175eb8f6c83c6436d1a74acf2538dec8cd783289d503f2bd53f6c3ab8",
+    "src/evaluation/course_validation.py": "c0283f8ac9e51fc46404670f386ab8a93a85f7724e63bf6061f06ce6068026e9",
+    "src/evaluation/metrics.py": "95c498591e3feb3e72f6d17e17b885233b7aa52f1b2efb9a9f6aec48ff0ba1fa",
+    "src/evaluation/minecart_diagnosis.py": "133a8846aa1b69b758ce78e4b55ca03ab46cac56db8b9f20fef0ae23782c461e",
+    "src/evaluation/pilot.py": "c41b0bc8ab3785ef0a60460caa7b48d0041ad02fcc1185d3e72f76cf1ef76404",
+    "src/evaluation/protocol.py": "ead69074f628be5529093721844c3341d09295fbea4948225f338f4009e81bdf",
+    "src/evaluation/remediation.py": "fddc00e9aff2e4ba412dc2e445c2759f9a23bc60b2254103a3e9579f11cbccea",
+    "src/evaluation/replay_feasibility.py": "6f2a22ccbfcba5ec3d11f09bc9d1be4e68236cff5cb1b815c896ebb0b6dbec42",
+    "src/evaluation/rollout.py": "1b1908ddfd98ff29d94b3811ecf14ebc765b4fb21ad3f88b90816fb5ebe29bbe",
+    "src/evaluation/stats.py": "b55a976d2972a0c99eba90bd9004b12ae130c69012c7e505fd275a5d3c0c2c30",
+    "src/evaluation/visualizer.py": "99debdeac877a00d8e8564dc4c75ab7f4deb90abdb42c96884af0ba78b49dad1",
+    "src/evaluation/__init__.py": "a1f482d65983ed1702d279d03d00bce9b3a0a832a04a733c0896a0273ead3e99",
+    "src/models/q_network.py": "885c11fc14690e56ca55f406f82c591052c4965976d5e59fb6d21e790039ca1b",
+    "src/models/update.py": "f5a8cfbea0a942c8ed9e530a594440bbeee22e7e4d4e1754051e5574d15432ef",
+    "src/models/__init__.py": "fae47e3cba01ff0c365725d387a52cb0a31676d7a68220183cf6623033acdff2",
+    "src/research_harness/aris.py": "a732b0eecc45413628777d6716f1568f920f25f5521f329e9a28c9fa8dc37df0",
+    "src/research_harness/cli.py": "1d352ea004df6db5afe386170494161c6dc36c8afbfde67618e19ba9c059dcd5",
+    "src/research_harness/render.py": "808671c13893aadd4c3af4101b19aa8460de80a83be25ec4fa8571dfa1ac3279",
+    "src/research_harness/store.py": "c17fb5ca59eb10c12f158551865e6284fa0281a7fced150251722b348c883b25",
+    "src/research_harness/__init__.py": "b56c785cccdba797a07d06a364551d8a43e16129bf59b73912e0a6dc85aa95ad",
+    "src/utils/config.py": "e427c6ca170b4095192d6befcc8b5b4be5533d7ed5102ce1871757e0fd886334",
+    "src/utils/logger.py": "40fa77e50126eaee402ad37977bf8a6483259acad2e8f3e8fcfd3bb65eb7dcdd",
+    "src/utils/provenance.py": "dec1ab1efcf6d6697f2359b65a28e923b10b3160ad90051361ea692d97cc2f3f",
+    "src/utils/resources.py": "56e1c6d0dc4b970512e2a0139f62d2fe07731b393c3eb1d4f7b5aa6680ec4c9e",
+    "src/utils/training_recovery.py": "9c0cd2adec1dc252613ccd219c798c5965cfdbe75b002241fbe5b4e8d781e861",
+    "src/utils/__init__.py": "c0df2ed63c7808a23573ba270854bcd53dfae7b3d71d0886bd1f113e29b0d11d",
+    "configs/experiments/preference_recovery_p2_v1.json": "176a9e0110e119cb774f6814e3d207d6bc5962d1c85aec37f0bf0930ebba969e",
+    "scripts/run_preference_recovery.py": "af11e59cf0d7b56486a11ac9d8fe58405ef6785982c8d5e5a0c6831ebbf0a1f1",
+    "scripts/preference_recovery_core.py": "1b670f4d744f795b4d9846ece6a307992a23aa43dc481ac93703838bd6d8cb53",
+    "scripts/run_preference_recovery_cohort.py": "dcbde2d8b97ea84aaaa9f82811029488d66e6bd7b72a9916fb7c32f375fd3ed4",
+    "scripts/analyze_preference_recovery.py": "4981e2784774e60d7a8e111e899e7e073cb0073542616854bc5815ca217ab341",
+    "scripts/diagnose_policy_extraction.py": "a0fbd0e2c813312e064bc3334057df694163c38fc6272e514dfc090456d757f0",
+    "scripts/start_preference_recovery.ps1": "9c8a6eec8d6d7c0f5265b121ac984093b947b3e5c33bf35bc3c23e300a1b7c7c",
+    "D:/Hung_will_delete/REL301m_AdaptivePreferenceMORL/scripts/qualify_preference_recovery.py": "aa28be85d4143e8dfbf026e4bf0a750ebac92839688179e549cff3b8e755cd80"
+  },
+  "records": [
+    {
+      "arm": "A",
+      "initial_hash": "193cd588c1ebf7f7f8a47f05fb0c10ffbea4fcc54228768709c858f2c449aefc",
+      "final_hash": "a78bd1fecfb5b2e0936caca129f1fa0cc38271ccd0527b88c2ecf02ec790f68d",
+      "kill_resume": "exact model/target/optimizer/episodes/losses/returns",
+      "duplicate_rejected": true,
+      "boundary_step": 6947,
+      "engineering_interactions": 24000,
+      "validation_steps": 2000
+    },
+    {
+      "arm": "B",
+      "initial_hash": "193cd588c1ebf7f7f8a47f05fb0c10ffbea4fcc54228768709c858f2c449aefc",
+      "final_hash": "3ba543b4c3420b6d4ba5bd5dfb96f448de3d4e009b6c8c8ab236a6a8bfda825b",
+      "kill_resume": "exact model/target/optimizer/episodes/losses/returns",
+      "duplicate_rejected": true,
+      "boundary_step": 6782,
+      "engineering_interactions": 24000,
+      "validation_steps": 2000
+    },
+    {
+      "arm": "C",
+      "initial_hash": "193cd588c1ebf7f7f8a47f05fb0c10ffbea4fcc54228768709c858f2c449aefc",
+      "final_hash": "b7a90ea8397512095a8bdeeff75d15708ced2d3ccabae63b40d4e87fcfb51195",
+      "kill_resume": "exact model/target/optimizer/episodes/losses/returns",
+      "duplicate_rejected": true,
+      "boundary_step": 7434,
+      "engineering_interactions": 24000,
+      "validation_steps": 2000
+    },
+    {
+      "arm": "D",
+      "initial_hash": "193cd588c1ebf7f7f8a47f05fb0c10ffbea4fcc54228768709c858f2c449aefc",
+      "final_hash": "7b9dc3ad0f789850196462c9083bb105cb655b3d7b29d0d925d5f89da18abbe3",
+      "kill_resume": "exact model/target/optimizer/episodes/losses/returns",
+      "duplicate_rejected": true,
+      "boundary_step": 7218,
+      "engineering_interactions": 24000,
+      "validation_steps": 2000
+    }
+  ],
+  "engineering_training_interactions": 96000,
+  "engineering_validation_steps": 8000,
+  "review_independence": "executor_only",
+  "final_test_steps": 0,
+  "qualification_only": true,
+  "scope": "Four cells: finite gradients, paired initialization and exact RNG/loss/relabel restoration. Old Windows launcher/tail qualification retained; no old-trajectory equivalence claimed.",
+  "engineering_task_trace_witness": {
+    "episodes": 2,
+    "steps": 2000,
+    "checkpoint_sha256": "63d1fa89f03062e31fc2aab050758b2a7b0ef8675452fb3fe78002bce58241e6",
+    "audit": "native trace hash/return/discount/action/state checks passed",
+    "records": [
+      {
+        "policy": "mean_greedy",
+        "preference": [
+          0.45,
+          0.45,
+          0.1
+        ],
+        "seed": 20263082,
+        "sampled_episode_head": 1,
+        "steps": 1000,
+        "native_raw_return": [
+          0.0,
+          0.0,
+          -19.999999552965164
+        ],
+        "native_discounted_return": [
+          0.0,
+          0.0,
+          -1.9999136128036246
+        ],
+        "scaled_discounted_return": [
+          0.0,
+          0.0,
+          -1.6494206586754678
+        ],
+        "utility": -0.16494206586754678,
+        "objective_utility_contributions": [
+          0.0,
+          0.0,
+          -0.16494206586754678
+        ],
+        "terminated": false,
+        "truncated": true,
+        "action_counts": [
+          0,
+          0,
+          3,
+          0,
+          997,
+          0
+        ],
+        "initial_state_sha256": "e17da07f1854c9abb15a391955d503b26cfb4e990f270d96e2258a5caacfe4c0",
+        "ore_delivered": false,
+        "cargo_peak": 0.0,
+        "trace": "artifacts\\preference-recovery-p2-qualification-v1\\task_trace_witness\\pref0_seed20263082.npz",
+        "trace_sha256": "e5f0bc071f1926e9179749405485dafc7134f9fcd376847986bdef0b47818bde",
+        "wall_seconds": 0.6871256828308105,
+        "preference_index": 0
+      },
+      {
+        "policy": "mean_greedy",
+        "preference": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "seed": 20263082,
+        "sampled_episode_head": 1,
+        "steps": 1000,
+        "native_raw_return": [
+          0.0,
+          0.0,
+          -119.60000474750996
+        ],
+        "native_discounted_return": [
+          0.0,
+          0.0,
+          -11.605442501296867
+        ],
+        "scaled_discounted_return": [
+          0.0,
+          0.0,
+          -9.571541736682486
+        ],
+        "utility": -0.9571541736682486,
+        "objective_utility_contributions": [
+          0.0,
+          0.0,
+          -0.9571541736682486
+        ],
+        "terminated": false,
+        "truncated": true,
+        "action_counts": [
+          0,
+          4,
+          0,
+          996,
+          0,
+          0
+        ],
+        "initial_state_sha256": "e17da07f1854c9abb15a391955d503b26cfb4e990f270d96e2258a5caacfe4c0",
+        "ore_delivered": false,
+        "cargo_peak": 0.0,
+        "trace": "artifacts\\preference-recovery-p2-qualification-v1\\task_trace_witness\\pref1_seed20263082.npz",
+        "trace_sha256": "384e45543176f9f981fdb6c0681096cbff93fd53a82b69eab0764be0cb62c83a",
+        "wall_seconds": 0.631887674331665,
+        "preference_index": 1
+      }
+    ]
+  },
+  "additional_pre_lint_attempt": {
+    "reason": "Engineering run stopped before dispatch to correct two overlong documentation strings; preserve all partial artifacts. No main P2 training occurred.",
+    "training_interactions_upper_bound": 42782,
+    "details": [
+      {
+        "directory": "A\\continuous\\smoke\\minecart-v0_A_seed20263081",
+        "steps_or_upper_bound": 12000,
+        "basis": "complete"
+      },
+      {
+        "directory": "A\\resumed\\smoke\\minecart-v0_A_seed20263081",
+        "steps_or_upper_bound": 12000,
+        "basis": "complete"
+      },
+      {
+        "directory": "B\\continuous\\smoke\\minecart-v0_B_seed20263081",
+        "steps_or_upper_bound": 12000,
+        "basis": "complete"
+      },
+      {
+        "directory": "B\\resumed\\smoke\\minecart-v0_B_seed20263081",
+        "steps_or_upper_bound": 6782,
+        "basis": "held boundary"
+      }
+    ]
+  }
+}

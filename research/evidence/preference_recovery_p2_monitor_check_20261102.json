@@ -1,0 +1,356 @@
+{
+  "observed_unix": 1793617606.493408,
+  "study_id": "preference-recovery-p2-v1",
+  "cohort_status": "blocked",
+  "counts": {
+    "complete": 9,
+    "running": 0,
+    "stale": 0,
+    "starting": 0,
+    "failed": 1,
+    "interrupted": 0,
+    "pending": 2,
+    "unknown": 0
+  },
+  "recorded_interactions": 4800000,
+  "sampling": "append-only stdout, 25k intervals; finalized counts are exact",
+  "jobs": [
+    {
+      "name": "minecart-v0_A_seed20263211",
+      "arm": "A",
+      "seed": 20263211,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 26098.855587482452,
+      "heartbeat_unix": 1793591507.5361702,
+      "resume_step": 496351,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 154
+    },
+    {
+      "name": "minecart-v0_B_seed20263211",
+      "arm": "B",
+      "seed": 20263211,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 27299.62553191185,
+      "heartbeat_unix": 1793590306.7662258,
+      "resume_step": 497434,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.17318952582851502
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 245
+    },
+    {
+      "name": "minecart-v0_C_seed20263211",
+      "arm": "C",
+      "seed": 20263211,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 25966.37871146202,
+      "heartbeat_unix": 1793591640.0130463,
+      "resume_step": 494731,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 148
+    },
+    {
+      "name": "minecart-v0_D_seed20263211",
+      "arm": "D",
+      "seed": 20263211,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 24555.601734161377,
+      "heartbeat_unix": 1793593050.7900236,
+      "resume_step": 497107,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1731070512289053
+        }
+      ],
+      "rate": 183
+    },
+    {
+      "name": "minecart-v0_A_seed20263212",
+      "arm": "A",
+      "seed": 20263212,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 3353.869779109955,
+      "heartbeat_unix": 1793614252.5219786,
+      "resume_step": 498114,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 162
+    },
+    {
+      "name": "minecart-v0_B_seed20263212",
+      "arm": "B",
+      "seed": 20263212,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 23386.20346736908,
+      "heartbeat_unix": 1793594220.1882904,
+      "resume_step": 490274,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 195
+    },
+    {
+      "name": "minecart-v0_C_seed20263212",
+      "arm": "C",
+      "seed": 20263212,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 2619.6982052326202,
+      "heartbeat_unix": 1793614986.6935525,
+      "resume_step": 494696,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 216
+    },
+    {
+      "name": "minecart-v0_D_seed20263212",
+      "arm": "D",
+      "seed": 20263212,
+      "state": "failed",
+      "declared_state": "technical_failure",
+      "step": 300000,
+      "budget": 500000,
+      "updates": 73751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 2374.5933504104614,
+      "heartbeat_unix": 1793615231.7984073,
+      "resume_step": 297188,
+      "resume_available": true,
+      "task": [],
+      "rate": 210
+    },
+    {
+      "name": "minecart-v0_A_seed20263213",
+      "arm": "A",
+      "seed": 20263213,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 1181.7279300689697,
+      "heartbeat_unix": 1793616424.6638277,
+      "resume_step": 499512,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 232
+    },
+    {
+      "name": "minecart-v0_B_seed20263213",
+      "arm": "B",
+      "seed": 20263213,
+      "state": "complete",
+      "declared_state": "running",
+      "step": 500000,
+      "budget": 500000,
+      "updates": 123751,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": 585.0674276351929,
+      "heartbeat_unix": 1793617021.32433,
+      "resume_step": 499772,
+      "resume_available": true,
+      "task": [
+        {
+          "profile": 0,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        },
+        {
+          "profile": 1,
+          "successes": 0,
+          "episodes": 10,
+          "utility": -0.1649420658675468
+        }
+      ],
+      "rate": 247
+    },
+    {
+      "name": "minecart-v0_C_seed20263213",
+      "arm": "C",
+      "seed": 20263213,
+      "state": "pending",
+      "declared_state": "pending",
+      "step": null,
+      "budget": 500000,
+      "updates": null,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": null,
+      "heartbeat_unix": null,
+      "resume_step": null,
+      "resume_available": false,
+      "task": [],
+      "rate": null
+    },
+    {
+      "name": "minecart-v0_D_seed20263213",
+      "arm": "D",
+      "seed": 20263213,
+      "state": "pending",
+      "declared_state": "pending",
+      "step": null,
+      "budget": 500000,
+      "updates": null,
+      "pid": null,
+      "alive": false,
+      "heartbeat_age": null,
+      "heartbeat_unix": null,
+      "resume_step": null,
+      "resume_available": false,
+      "task": [],
+      "rate": null
+    }
+  ],
+  "training_source_unchanged": true,
+  "monitor_url": "http://127.0.0.1:8770/",
+  "final_test_steps": 0,
+  "interpretation": "Nine models completed; all have0/10 delivery at both task profiles. D seed12 heartbeat replace failure remains unresolved; its saved state297188 was previously checksum-verified. Two third-seed jobs remain unstarted. No overall audit or success claim."
+}

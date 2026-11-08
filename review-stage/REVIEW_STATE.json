@@ -1,0 +1,15 @@
+{
+  "run_id": "f1-postresult-20261018",
+  "status": "blocked_before_dispatch",
+  "round": 0,
+  "backend": "claude-review",
+  "reason": "Installed Claude overlay cannot be dispatched by this heartbeat continuation until lifecycle/confinement gates pass. Existing runner is pinned to the consumed historical batch. A new approved packet/batch and safe foreground execution path are required; paid policy remains disabled.",
+  "preserved_reservations_usd": 0.75,
+  "remaining_nominal_envelope_usd": 0.25,
+  "reservation_capacity_verified_read_only": true,
+  "review_independence": "not_run",
+  "acceptance_status": "not_granted",
+  "pending_experiments": [],
+  "manuscript_pdf_hold": true,
+  "no_automatic_retry_on_unchanged_artifact": true
+}

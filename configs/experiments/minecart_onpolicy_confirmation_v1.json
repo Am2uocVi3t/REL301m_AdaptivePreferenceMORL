@@ -1,0 +1,307 @@
+{
+  "study_id": "minecart-onpolicy-confirmation-v1",
+  "stage": "G",
+  "protocol": "configs/protocols/minecart_confirmation_development_v1.json",
+  "training_interactions": 4000000,
+  "checkpoints": [
+    500000,
+    1000000,
+    2000000,
+    4000000
+  ],
+  "streams": 8,
+  "fragment_steps": 64,
+  "width": 256,
+  "gamma": 0.99,
+  "horizon": 1000,
+  "epochs": 4,
+  "minibatches": 8,
+  "critic_steps_per_actor": 2,
+  "actor_lr": 0.0003,
+  "critic_lr": 0.0003,
+  "adam_eps": 1e-05,
+  "clip": 0.2,
+  "max_grad_norm": 0.5,
+  "popart_rate": 0.001,
+  "popart_std_floor": 0.0001,
+  "entropy_end": 0.4,
+  "entropy_initial_multiplier": 0.01,
+  "entropy_damping": 0.01,
+  "entropy_multiplier_lr": 3e-05,
+  "actor_advantage": "frozen-utility scalarization then batch standardization; no objective-wise sigma division",
+  "snapshot_interval": 8192,
+  "expected_rounds": 7815,
+  "expected_actor_updates": 250080,
+  "expected_critic_updates": 500160,
+  "task_preferences": [
+    [
+      0.45,
+      0.45,
+      0.1
+    ],
+    [
+      0.8,
+      0.1,
+      0.1
+    ]
+  ],
+  "task_seeds": [
+    20264431,
+    20264432,
+    20264433,
+    20264434,
+    20264435,
+    20264436,
+    20264437,
+    20264438,
+    20264439,
+    20264440
+  ],
+  "validation_seeds": [
+    20264431,
+    20264432,
+    20264433
+  ],
+  "evaluation_modes": [
+    "sampled",
+    "argmax"
+  ],
+  "evaluation_episodes": 1096,
+  "evaluation_step_ceiling": 1096000,
+  "idle_discounted_scaled_fuel": -1.6494206586754678,
+  "selection": "final4M; every seed both profiles in both modes",
+  "task_gate": {
+    "minimum_deliveries": 8,
+    "episodes_per_profile": 10,
+    "utility_above_idle": true
+  },
+  "conditional_dispatch": false,
+  "final_test_steps": 0,
+  "engineering_step_ceiling": 24528,
+  "method_contract": "docs/research/ONPOLICY_CONFIRMATION_V1.md",
+  "training_preference_pool": {
+    "generator": "anchors_plus_dirichlet",
+    "seed": 20261001,
+    "count": 32,
+    "values": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      [
+        0.5,
+        0.5,
+        0.0
+      ],
+      [
+        0.5,
+        0.0,
+        0.5
+      ],
+      [
+        0.0,
+        0.5,
+        0.5
+      ],
+      [
+        0.6922217607498169,
+        0.20065554976463318,
+        0.10712271183729172
+      ],
+      [
+        0.7182813286781311,
+        0.14337438344955444,
+        0.13834427297115326
+      ],
+      [
+        0.12005866318941116,
+        0.18233856558799744,
+        0.6976027488708496
+      ],
+      [
+        0.4701395034790039,
+        0.41307732462882996,
+        0.11678317189216614
+      ],
+      [
+        0.20885765552520752,
+        0.5261197686195374,
+        0.2650226056575775
+      ],
+      [
+        0.11217261105775833,
+        0.24791671335697174,
+        0.6399106979370117
+      ],
+      [
+        0.40822917222976685,
+        0.5455487966537476,
+        0.04622204601764679
+      ],
+      [
+        0.3759427070617676,
+        0.38380661606788635,
+        0.24025066196918488
+      ],
+      [
+        0.27251136302948,
+        0.32394659519195557,
+        0.40354204177856445
+      ],
+      [
+        0.7022829651832581,
+        0.27150532603263855,
+        0.02621169574558735
+      ],
+      [
+        0.34324178099632263,
+        0.5104936361312866,
+        0.14626456797122955
+      ],
+      [
+        0.2935686409473419,
+        0.37305378913879395,
+        0.33337756991386414
+      ],
+      [
+        0.45788154006004333,
+        0.03212745115160942,
+        0.5099909901618958
+      ],
+      [
+        0.3408869206905365,
+        0.11003193259239197,
+        0.5490811467170715
+      ],
+      [
+        0.09518366307020187,
+        0.6477041840553284,
+        0.25711214542388916
+      ],
+      [
+        0.04260202497243881,
+        0.19042594730854034,
+        0.766972005367279
+      ],
+      [
+        0.6475971937179565,
+        0.19913676381111145,
+        0.1532660573720932
+      ],
+      [
+        0.08205843716859818,
+        0.4966890811920166,
+        0.4212524890899658
+      ],
+      [
+        0.33551469445228577,
+        0.3134557008743286,
+        0.35102957487106323
+      ],
+      [
+        0.392454594373703,
+        0.4741683304309845,
+        0.1333770751953125
+      ],
+      [
+        0.38921576738357544,
+        0.14242146909236908,
+        0.4683627784252167
+      ],
+      [
+        0.039646219462156296,
+        0.08692793548107147,
+        0.8734258413314819
+      ],
+      [
+        0.5458179116249084,
+        0.37185731530189514,
+        0.0823247879743576
+      ],
+      [
+        0.32162073254585266,
+        0.6312366127967834,
+        0.04714265093207359
+      ],
+      [
+        0.49135860800743103,
+        0.1766369491815567,
+        0.3320044279098511
+      ]
+    ],
+    "allocation": "uniform_with_replacement_per_episode",
+    "rng_seed_sequence": [
+      20264111,
+      20
+    ]
+  },
+  "prerequisite": {
+    "evidence": "research/evidence/minecart_onpolicy_conditional_v1.json",
+    "sha256": "034eb1374dabbc8a61375534b69fce27734be732008ad022fc778473c34ba953",
+    "required": "full_conditional_gate_pass true and numeric/source/budget/exposure audit pass"
+  },
+  "warm_start": false,
+  "protocol_file_sha256": "f152053d0beee2ee15ac238cbeffb248cf29c4f207a9298dc89010075e2a418d",
+  "seeds": [
+    20264311,
+    20264312,
+    20264313
+  ],
+  "anchor_preferences": [
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ],
+    [
+      0.3333333432674408,
+      0.3333333432674408,
+      0.3333333432674408
+    ],
+    [
+      0.5,
+      0.5,
+      0.0
+    ],
+    [
+      0.5,
+      0.0,
+      0.5
+    ],
+    [
+      0.0,
+      0.5,
+      0.5
+    ]
+  ],
+  "cohort_evaluation_episodes": 3288,
+  "cohort_training_interactions": 12000000,
+  "cohort_actor_updates": 750240,
+  "cohort_critic_updates": 1500480
+}

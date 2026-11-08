@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import random
 from typing import Any
 
 import numpy as np
@@ -17,8 +18,20 @@ def evaluate_preferences(
     device: str,
     seed: int,
     discount_factor: float,
+    isolate_global_rng: bool = False,
 ) -> dict[str, Any]:
     """Evaluate a conditioned policy on an immutable preference matrix."""
+    if isolate_global_rng:
+        numpy_state, python_state = np.random.get_state(), random.getstate()
+        try:
+            np.random.seed(seed)
+            random.seed(seed)
+            return evaluate_preferences(
+                env, q_network, preferences, episodes_per_preference, device, seed, discount_factor
+            )
+        finally:
+            np.random.set_state(numpy_state)
+            random.setstate(python_state)
     if episodes_per_preference <= 0:
         raise ValueError("episodes_per_preference must be positive")
     if not 0.0 < discount_factor <= 1.0:

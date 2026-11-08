@@ -1,0 +1,39 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "observed_unix": 1793613948.7532036,
+  "authorization": "2026-11-02 user explicitly requested check and rerun/resume",
+  "prior_execution_segments": 2,
+  "completed_jobs_retained": 5,
+  "jobs_to_resume": [
+    {
+      "job": "minecart-v0_A_seed20263212",
+      "exitcode": 3221225786,
+      "last_heartbeat_step": 459000,
+      "verified_resume_step": 456950,
+      "discarded_tail_lower_bound": 2050,
+      "discarded_tail_upper_bound": 3049
+    },
+    {
+      "job": "minecart-v0_C_seed20263212",
+      "exitcode": 3221225786,
+      "last_heartbeat_step": 300000,
+      "verified_resume_step": 298101,
+      "discarded_tail_lower_bound": 1899,
+      "discarded_tail_upper_bound": 2898
+    },
+    {
+      "job": "minecart-v0_D_seed20263212",
+      "exitcode": 3221225786,
+      "last_heartbeat_step": 58000,
+      "verified_resume_step": 50520,
+      "discarded_tail_lower_bound": 7480,
+      "discarded_tail_upper_bound": 8479
+    }
+  ],
+  "unstarted_jobs": 4,
+  "cuda_witness": "finite seeded forward/backward",
+  "source_qualification": "all pinned file hashes unchanged",
+  "cause": "Three worker STATUS_CONTROL_C_EXIT signatures again; sender not established, no new Python traceback identified.",
+  "action": "One explicit inspected same-state resume; original budgets/source unchanged; no automatic retry.",
+  "final_test_steps": 0
+}

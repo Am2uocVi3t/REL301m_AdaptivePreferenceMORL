@@ -1,0 +1,20 @@
+{
+  "status": "replication_and_action_semantics_pass",
+  "rows": [
+    {
+      "job": "minecart-v0_n1_seed20261211",
+      "episodes": 20,
+      "steps": 20000,
+      "file": "artifacts\\policy-extraction-diagnosis-v1\\qualification\\minecart-v0_n1_seed20261211\\complete.json",
+      "sha256": "d55d14331f5123d747fa47883efa18898228cc406a11a96277471d1f1f29535c"
+    },
+    {
+      "job": "mo-lunar-lander-v3_n1_seed20261211",
+      "episodes": 20,
+      "steps": 3217,
+      "file": "artifacts\\policy-extraction-diagnosis-v1\\qualification\\mo-lunar-lander-v3_n1_seed20261211\\complete.json",
+      "sha256": "f890958a8480871d6e085369c667177d2b3b2773a25dd2bc2832902ba5849173"
+    }
+  ],
+  "note": "Forty known-case engineering replications plus exact production mean/head score ordering and plurality tie-rule unit tests. Main run repeats all 240 controls and fails closed on mismatch. This does not establish a cause or task success."
+}

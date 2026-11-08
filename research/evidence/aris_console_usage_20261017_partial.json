@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "kind": "user_supplied_console_usage_and_balance",
+  "received_at": "2026-10-17T09:40:02+00:00",
+  "source": "User-pasted Console usage export row and Billing text in this chat; not independently retrieved from Console",
+  "status": "PARTIAL_EVIDENCE_COST_USD_MISSING",
+  "usage": {
+    "usage_date_utc": "2026-10-17",
+    "model_version": "claude-sonnet-5-5",
+    "api_key_label_omitted": true,
+    "workspace": "Claude Code",
+    "usage_type": "standard",
+    "context_window": "<= 200k",
+    "usage_input_tokens_no_cache": 16,
+    "usage_input_tokens_cache_write_5m": 54093,
+    "usage_input_tokens_cache_write_1h": 0,
+    "usage_input_tokens_cache_read": 125697,
+    "usage_output_tokens": 8907,
+    "web_search_count": 0,
+    "inference_geo": null,
+    "speed": "standard",
+    "console_cost_usd": null
+  },
+  "billing": {
+    "reported_credit_balance_usd": 4.77,
+    "reported_auto_reload_enabled": false,
+    "setting_changed_by_agent": false
+  },
+  "historical_reconciliation": {
+    "reservation_count": 2,
+    "reserved_usd": 0.5,
+    "reservations_preserved": true,
+    "cli_estimated_costs_usd": [0.0117487, 0.2251555],
+    "cli_estimated_total_usd": 0.2369042,
+    "actual_console_cost_usd": null,
+    "usage_row_scope": "Daily aggregate by model/key/workspace; not an invocation-level cost record",
+    "missing_evidence": "Console Cost USD record(s) covering the two historical invocations on 2026-10-17 UTC, with date/model/key/workspace or time/request identifiers sufficient to match scope. Token usage and rounded current balance alone do not state actual billed historical cost.",
+    "no_cost_inferred_from_balance_or_token_pricing": true
+  },
+  "paid_dispatch": {
+    "status": "BLOCKED_UNKNOWN_HISTORICAL_SPEND",
+    "new_invocations": 0,
+    "new_reservations": 0,
+    "new_claude_cost_usd": 0.0,
+    "existing_single_batch_authorization_preserved": true
+  }
+}

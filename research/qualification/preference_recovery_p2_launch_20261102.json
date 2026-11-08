@@ -1,0 +1,56 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "status": "live_launch_verified",
+  "observed_unix": 1793588322.1208537,
+  "coordinator_pid": 31708,
+  "coordinator_birth": "134380618532142758",
+  "source_commit": "95b52820ac5b2f939a66343e3c32012f5ac9746b",
+  "plan_sha256": "176a9e0110e119cb774f6814e3d207d6bc5962d1c85aec37f0bf0930ebba969e",
+  "workers": [
+    {
+      "name": "minecart-v0_A_seed20263211",
+      "heartbeat": {
+        "pid": 15300,
+        "process_birth": "134380618567283703",
+        "step": 18000,
+        "updates": 3251,
+        "updated_unix": 1793588317.9342136,
+        "resume_step": 10105
+      },
+      "initial_hash": "93728ca5929b2e0eb81f46fed82338289a05efd2cc397310999fed1f38553640",
+      "clean_source": true,
+      "source_commit": "95b52820ac5b2f939a66343e3c32012f5ac9746b"
+    },
+    {
+      "name": "minecart-v0_B_seed20263211",
+      "heartbeat": {
+        "pid": 27588,
+        "process_birth": "134380618568948183",
+        "step": 27000,
+        "updates": 5501,
+        "updated_unix": 1793588321.376921,
+        "resume_step": 20091
+      },
+      "initial_hash": "93728ca5929b2e0eb81f46fed82338289a05efd2cc397310999fed1f38553640",
+      "clean_source": true,
+      "source_commit": "95b52820ac5b2f939a66343e3c32012f5ac9746b"
+    },
+    {
+      "name": "minecart-v0_C_seed20263211",
+      "heartbeat": {
+        "pid": 13992,
+        "process_birth": "134380618568158376",
+        "step": 18000,
+        "updates": 3251,
+        "updated_unix": 1793588321.5259514,
+        "resume_step": 10106
+      },
+      "initial_hash": "93728ca5929b2e0eb81f46fed82338289a05efd2cc397310999fed1f38553640",
+      "clean_source": true,
+      "source_commit": "95b52820ac5b2f939a66343e3c32012f5ac9746b"
+    }
+  ],
+  "pending_jobs": 9,
+  "scientific_gate_unlock": false,
+  "note": "Snapshot of actual process identities and fresh heartbeat; not evidence of final task success."
+}

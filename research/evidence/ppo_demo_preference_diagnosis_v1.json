@@ -1,0 +1,1584 @@
+{
+  "scope": "Presentation diagnostic on frozen actors; no candidate tuning or independent training replication",
+  "package_manifest_sha256": "46e9bbbe4c86f41da5ea73a379a5d57dd01f8fd419e928949332411afacbb1f7",
+  "records": [
+    {
+      "environment": "lunar",
+      "profile": "default",
+      "seed": 20266511,
+      "preference": [
+        0.699999988079071,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "steps": 673,
+      "raw_return": [
+        100.0,
+        123.02277932409788,
+        -101.0,
+        -16.0
+      ],
+      "discounted_scaled_return": [
+        0.002089341731844954,
+        0.6824907021135299,
+        -0.6712192062437933,
+        -0.19670244289406866
+      ],
+      "utility": -0.017080555791362254,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-default-20266511.json",
+      "trace_sha256": "7638a64e0afe91c404a13e9b0212eda322cb9ffa18c90802712ba88b865a5a4d"
+    },
+    {
+      "environment": "lunar",
+      "profile": "default",
+      "seed": 20266512,
+      "preference": [
+        0.699999988079071,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "steps": 219,
+      "raw_return": [
+        100.0,
+        207.8615273338621,
+        -99.0,
+        -21.0
+      ],
+      "discounted_scaled_return": [
+        0.20027702497371477,
+        0.8709223006119431,
+        -0.7585537825684375,
+        -0.22969806187530667
+      ],
+      "utility": 0.1284609605360974,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-default-20266512.json",
+      "trace_sha256": "20ef541dc72be9910fe7dc807f712b3a4a45218b0a30729d53ef0e373ac548b2"
+    },
+    {
+      "environment": "lunar",
+      "profile": "default",
+      "seed": 20266513,
+      "preference": [
+        0.699999988079071,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "steps": 265,
+      "raw_return": [
+        100.0,
+        201.02041053296676,
+        -115.0,
+        -22.0
+      ],
+      "discounted_scaled_return": [
+        0.12613920311552546,
+        0.5734151663283726,
+        -0.5893494697613241,
+        -0.18111750466554133
+      ],
+      "utility": 0.068592259573692,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-default-20266513.json",
+      "trace_sha256": "4ca0a14882b77113f568df40196f6f1a46d53be00322663890185383a9883d5f"
+    },
+    {
+      "environment": "lunar",
+      "profile": "default",
+      "seed": 20266514,
+      "preference": [
+        0.699999988079071,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "steps": 267,
+      "raw_return": [
+        100.0,
+        196.43107910528846,
+        -106.0,
+        -17.0
+      ],
+      "discounted_scaled_return": [
+        0.1236290329735265,
+        0.6436387963687955,
+        -0.5543977078548186,
+        -0.14856877838570115
+      ],
+      "utility": 0.08060755253211806,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-default-20266514.json",
+      "trace_sha256": "f0060f5811f289934a6e95997716ca1ade8d986133dae71a20cc83185fbc5371"
+    },
+    {
+      "environment": "lunar",
+      "profile": "default",
+      "seed": 20266515,
+      "preference": [
+        0.699999988079071,
+        0.10000000149011612,
+        0.10000000149011612,
+        0.10000000149011612
+      ],
+      "steps": 224,
+      "raw_return": [
+        100.0,
+        170.4978078395444,
+        -106.0,
+        -17.0
+      ],
+      "discounted_scaled_return": [
+        0.19046145797357655,
+        0.4990413638981972,
+        -0.6482130546393787,
+        -0.15912904689133173
+      ],
+      "utility": 0.10249294408837085,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-default-20266515.json",
+      "trace_sha256": "b799a06d0515cdb6d2c2147633faf89ad3b38ad1653719dbf596e6c5b07bba1a"
+    },
+    {
+      "environment": "lunar",
+      "profile": "uniform",
+      "seed": 20266511,
+      "preference": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "steps": 614,
+      "raw_return": [
+        100.0,
+        124.22294860733956,
+        -85.0,
+        -52.0
+      ],
+      "discounted_scaled_return": [
+        0.0037803585925386377,
+        0.705803312549667,
+        -0.6165934577532629,
+        -0.494897560647171
+      ],
+      "utility": -0.10047683681455706,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-uniform-20266511.json",
+      "trace_sha256": "bb90f1cf6cc97f8cab5f96e6cd71f8980459405fe7353e3d766dcf4f92050665"
+    },
+    {
+      "environment": "lunar",
+      "profile": "uniform",
+      "seed": 20266512,
+      "preference": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "steps": 219,
+      "raw_return": [
+        100.0,
+        205.76057194392513,
+        -94.0,
+        -26.0
+      ],
+      "discounted_scaled_return": [
+        0.20027702497371477,
+        0.8265618163617576,
+        -0.7373457325213926,
+        -0.25914626067072316
+      ],
+      "utility": 0.0075867120358391466,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-uniform-20266512.json",
+      "trace_sha256": "d44f53152f08bf31eb4c31377379c74d0b56e0dcfc04ee1ed42afaeb6e20e0c3"
+    },
+    {
+      "environment": "lunar",
+      "profile": "uniform",
+      "seed": 20266513,
+      "preference": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "steps": 252,
+      "raw_return": [
+        100.0,
+        179.98104561745998,
+        -84.0,
+        -58.0
+      ],
+      "discounted_scaled_return": [
+        0.14374493580158232,
+        0.6427859910785573,
+        -0.5051258129362386,
+        -0.39980593162263683
+      ],
+      "utility": -0.02960020441968396,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-uniform-20266513.json",
+      "trace_sha256": "e122c451fa47cdb08d2dc74561f7ce84f14d39e22a3823c45a18d0e1f04dcc19"
+    },
+    {
+      "environment": "lunar",
+      "profile": "uniform",
+      "seed": 20266514,
+      "preference": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "steps": 219,
+      "raw_return": [
+        100.0,
+        209.9824437106887,
+        -85.0,
+        -22.0
+      ],
+      "discounted_scaled_return": [
+        0.20027702497371477,
+        0.7240481508580893,
+        -0.4977284197753944,
+        -0.20510029077853453
+      ],
+      "utility": 0.055374116319468786,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-uniform-20266514.json",
+      "trace_sha256": "028566e62704597a4b357542a5f18cb4597e83059bf9725590f0c81aae5dfd70"
+    },
+    {
+      "environment": "lunar",
+      "profile": "uniform",
+      "seed": 20266515,
+      "preference": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "steps": 200,
+      "raw_return": [
+        100.0,
+        179.43987524618427,
+        -85.0,
+        -19.0
+      ],
+      "discounted_scaled_return": [
+        0.242416643764447,
+        0.6096764950581905,
+        -0.5589021732275994,
+        -0.21344982139817648
+      ],
+      "utility": 0.019935286049215434,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-uniform-20266515.json",
+      "trace_sha256": "decaed138605b566c18d9dc244ff406f52ad6a300185f6b179a10f9b1fb1fa82"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner0",
+      "seed": 20266511,
+      "preference": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 735,
+      "raw_return": [
+        100.0,
+        122.08898313539112,
+        -114.0,
+        -18.0
+      ],
+      "discounted_scaled_return": [
+        0.0011204475823877998,
+        0.6320216142144677,
+        -0.7138408287446522,
+        -0.1544472797292016
+      ],
+      "utility": 0.0011204475823877998,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner0-20266511.json",
+      "trace_sha256": "e7bbc47af55465f119ee803287acad2026e87221a787f086e06ee74cdab3a627"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner0",
+      "seed": 20266512,
+      "preference": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 221,
+      "raw_return": [
+        100.0,
+        206.87076633862713,
+        -101.0,
+        -21.0
+      ],
+      "discounted_scaled_return": [
+        0.19629151217673788,
+        0.883781302164001,
+        -0.7744235351890226,
+        -0.2298329975865927
+      ],
+      "utility": 0.19629151217673788,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner0-20266512.json",
+      "trace_sha256": "a77d4f288a4519ef5f941869d2e8ac76882f136c6d40562c27453776be41727d"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner0",
+      "seed": 20266513,
+      "preference": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 285,
+      "raw_return": [
+        100.0,
+        190.27886560589243,
+        -124.0,
+        -30.0
+      ],
+      "discounted_scaled_return": [
+        0.1031701293311745,
+        0.5055705242320921,
+        -0.6210864328227075,
+        -0.204006752569913
+      ],
+      "utility": 0.1031701293311745,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner0-20266513.json",
+      "trace_sha256": "c275d365c0582a26be35090729ab2ee3506300c9b75e0870d9cc80c52cfc5f81"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner0",
+      "seed": 20266514,
+      "preference": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 272,
+      "raw_return": [
+        100.0,
+        205.5530685847514,
+        -120.0,
+        -17.0
+      ],
+      "discounted_scaled_return": [
+        0.11756998023658273,
+        0.6210762929673054,
+        -0.5919392938278266,
+        -0.1154364278656912
+      ],
+      "utility": 0.11756998023658273,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner0-20266514.json",
+      "trace_sha256": "f2ebe58a1cd6a6d1ede1a83db39a8fcf6a33912429214882ed0f57faa72e29a7"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner0",
+      "seed": 20266515,
+      "preference": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "steps": 244,
+      "raw_return": [
+        100.0,
+        181.70220529090636,
+        -111.0,
+        -20.0
+      ],
+      "discounted_scaled_return": [
+        0.15577974782147166,
+        0.4926885234681018,
+        -0.6392744260882208,
+        -0.1811364716247781
+      ],
+      "utility": 0.15577974782147166,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner0-20266515.json",
+      "trace_sha256": "5f46148270c883cc160676c2c6a52714e11ee93bf4419cd2c8f33fcb960c01da"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner1",
+      "seed": 20266511,
+      "preference": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 127,
+      "raw_return": [
+        -100.0,
+        152.6911118067801,
+        -66.0,
+        -20.0
+      ],
+      "discounted_scaled_return": [
+        -0.5048858840381916,
+        0.592661122135727,
+        -0.533677487934014,
+        -0.3656486370626067
+      ],
+      "utility": 0.592661122135727,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner1-20266511.json",
+      "trace_sha256": "ff98c6d482296481bb4d66900b1dc5f837a67dca64ca33467c2961be4668533c"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner1",
+      "seed": 20266512,
+      "preference": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 220,
+      "raw_return": [
+        100.0,
+        197.1414076557656,
+        -98.0,
+        -17.0
+      ],
+      "discounted_scaled_return": [
+        0.19827425472397764,
+        0.820494482924368,
+        -0.7431776293645861,
+        -0.2324159289480852
+      ],
+      "utility": 0.820494482924368,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner1-20266512.json",
+      "trace_sha256": "7b42a9b7ac80b6ddbd27298f516e362793a63106de40a7c1eb7b129fe5b16806"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner1",
+      "seed": 20266513,
+      "preference": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 147,
+      "raw_return": [
+        -100.0,
+        155.02934240177274,
+        -65.0,
+        -21.0
+      ],
+      "discounted_scaled_return": [
+        -0.4129496672497478,
+        0.5396066645765052,
+        -0.4430671181920983,
+        -0.2979830753064444
+      ],
+      "utility": 0.5396066645765052,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner1-20266513.json",
+      "trace_sha256": "fd51f46d675c35055a2dda2f5aba08249ec37f6ddcf475874d9f11aedd464d2d"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner1",
+      "seed": 20266514,
+      "preference": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 153,
+      "raw_return": [
+        -100.0,
+        183.51982610137202,
+        -68.0,
+        -18.0
+      ],
+      "discounted_scaled_return": [
+        -0.3887839144173858,
+        0.6820759649789584,
+        -0.4330368704700839,
+        -0.22347222358849245
+      ],
+      "utility": 0.6820759649789584,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner1-20266514.json",
+      "trace_sha256": "9da603254583af63fcc7349e098b3c2edba345aece509896f92cc8f39f8e5b37"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner1",
+      "seed": 20266515,
+      "preference": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 139,
+      "raw_return": [
+        -100.0,
+        152.27666632458568,
+        -67.0,
+        -18.0
+      ],
+      "discounted_scaled_return": [
+        -0.4475232095544769,
+        0.5289972089215801,
+        -0.4942553602522004,
+        -0.2535628078322661
+      ],
+      "utility": 0.5289972089215801,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner1-20266515.json",
+      "trace_sha256": "9d20436959e5b2807b80322da45aaf42ba38115901a41d195b4c412dc939c51d"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner2",
+      "seed": 20266511,
+      "preference": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 296,
+      "raw_return": [
+        100.0,
+        133.55106996139511,
+        -82.0,
+        -37.0
+      ],
+      "discounted_scaled_return": [
+        0.09237216348701976,
+        0.6321529905519033,
+        -0.5976208272169972,
+        -0.243680601203094
+      ],
+      "utility": -0.5976208272169972,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner2-20266511.json",
+      "trace_sha256": "8c7858030928b4d43c55a985ed758ec601bb463e89d720bb9d2f5b5efd49cf20"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner2",
+      "seed": 20266512,
+      "preference": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 242,
+      "raw_return": [
+        100.0,
+        206.18272566473348,
+        -92.0,
+        -31.0
+      ],
+      "discounted_scaled_return": [
+        0.15894270770479713,
+        0.7930497907841865,
+        -0.7260149307163493,
+        -0.28754372094354114
+      ],
+      "utility": -0.7260149307163493,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner2-20266512.json",
+      "trace_sha256": "a3bd20d6ea2bdfb829ca6936158245eaa5a2bf8abc2a41c894d86fe17b6b5c76"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner2",
+      "seed": 20266513,
+      "preference": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 245,
+      "raw_return": [
+        100.0,
+        200.38101209382683,
+        -80.0,
+        -72.0
+      ],
+      "discounted_scaled_return": [
+        0.15422195034325695,
+        0.6289071401193919,
+        -0.478034196957299,
+        -0.4804207314813845
+      ],
+      "utility": -0.478034196957299,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner2-20266513.json",
+      "trace_sha256": "a87b8e13154d085147ce423c2601885e6739e896316a80890b55fe8c43cff5cd"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner2",
+      "seed": 20266514,
+      "preference": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 264,
+      "raw_return": [
+        100.0,
+        205.460804647636,
+        -91.0,
+        -65.0
+      ],
+      "discounted_scaled_return": [
+        0.12741333648032876,
+        0.6726562506738027,
+        -0.4970732319285916,
+        -0.3880134647563322
+      ],
+      "utility": -0.4970732319285916,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner2-20266514.json",
+      "trace_sha256": "902e70412b035dd3964ea83d07e6df04cccc6174d14c4bcbf7be3a80f77d9612"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner2",
+      "seed": 20266515,
+      "preference": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 387,
+      "raw_return": [
+        100.0,
+        121.00388788314892,
+        -84.0,
+        -14.0
+      ],
+      "discounted_scaled_return": [
+        0.03701210826917947,
+        0.4835127645646116,
+        -0.5460460528463225,
+        -0.16780281684196907
+      ],
+      "utility": -0.5460460528463225,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner2-20266515.json",
+      "trace_sha256": "1bbe0812583cdc440b18dc13dbdaa22d988f15fec719f08e532e36420fc9dfe9"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner3",
+      "seed": 20266511,
+      "preference": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 189,
+      "raw_return": [
+        100.0,
+        199.21490824578177,
+        -72.0,
+        -21.0
+      ],
+      "discounted_scaled_return": [
+        0.2707542569653216,
+        0.8203486293182912,
+        -0.5575476469442735,
+        -0.3253353519797534
+      ],
+      "utility": -0.3253353519797534,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner3-20266511.json",
+      "trace_sha256": "56e8ef73a1e457d8ee1b0214f35f32065a9daa1eb0da7f64502881854e8ef48b"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner3",
+      "seed": 20266512,
+      "preference": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 188,
+      "raw_return": [
+        -100.0,
+        136.98523239977658,
+        -111.0,
+        -18.0
+      ],
+      "discounted_scaled_return": [
+        -0.27348914844981986,
+        0.5627788658390688,
+        -0.8152596533025851,
+        -0.23560183097317397
+      ],
+      "utility": -0.23560183097317397,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner3-20266512.json",
+      "trace_sha256": "04fb41d59f9444b67f514ff2d95b8c00711e6f4547cee7557b06e968c2e5574b"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner3",
+      "seed": 20266513,
+      "preference": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 224,
+      "raw_return": [
+        100.0,
+        207.9998497699882,
+        -73.0,
+        -25.0
+      ],
+      "discounted_scaled_return": [
+        0.19046145797357655,
+        0.7135205034430183,
+        -0.45664412596811066,
+        -0.27156146604429793
+      ],
+      "utility": -0.27156146604429793,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner3-20266513.json",
+      "trace_sha256": "991254ff57e147a73471e3c444035930b025a76bb8accb78b3c6cf789e4d9e22"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner3",
+      "seed": 20266514,
+      "preference": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 225,
+      "raw_return": [
+        100.0,
+        213.08249330067244,
+        -76.0,
+        -21.0
+      ],
+      "discounted_scaled_return": [
+        0.1885568433938408,
+        0.7616581045952879,
+        -0.4669342777737546,
+        -0.2149303974995857
+      ],
+      "utility": -0.2149303974995857,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner3-20266514.json",
+      "trace_sha256": "3296a7531436fadd57513a45449bc16a3d868c4626df51ea037496b93b81df4f"
+    },
+    {
+      "environment": "lunar",
+      "profile": "corner3",
+      "seed": 20266515,
+      "preference": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 209,
+      "raw_return": [
+        100.0,
+        185.58232277177666,
+        -77.0,
+        -29.0
+      ],
+      "discounted_scaled_return": [
+        0.2214517851559199,
+        0.6376152708596768,
+        -0.5300470503258614,
+        -0.32574785704501674
+      ],
+      "utility": -0.32574785704501674,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\lunar-corner3-20266515.json",
+      "trace_sha256": "543b6a45738d0e7fc72b44e0000e493cc4d05ae424d28ce3cff75711e5798498"
+    },
+    {
+      "environment": "mine",
+      "profile": "default",
+      "seed": 20266511,
+      "preference": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.10000000149011612
+      ],
+      "steps": 17,
+      "raw_return": [
+        1.3937058448791504,
+        0.10629414021968842,
+        -1.1400000117719173
+      ],
+      "discounted_scaled_return": [
+        1.1462301604685212,
+        0.08741984533432275,
+        -0.8769066395307865
+      ],
+      "utility": 0.46745182264525437,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-default-20266511.json",
+      "trace_sha256": "fcc846e14a2701a4634222d320c42ef9bd05ddf54a093bd479fb7cf8de03de8e"
+    },
+    {
+      "environment": "mine",
+      "profile": "default",
+      "seed": 20266512,
+      "preference": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.10000000149011612
+      ],
+      "steps": 17,
+      "raw_return": [
+        1.3125303983688354,
+        0.18746955692768097,
+        -1.1400000117719173
+      ],
+      "discounted_scaled_return": [
+        1.079468766432974,
+        0.15418121485944622,
+        -0.8769066395307865
+      ],
+      "utility": 0.467451811615564,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-default-20266512.json",
+      "trace_sha256": "1295ca3f9dcaa6de41c876dbb9de313dae48da47ce5862f7181ef594984aef3d"
+    },
+    {
+      "environment": "mine",
+      "profile": "default",
+      "seed": 20266513,
+      "preference": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.10000000149011612
+      ],
+      "steps": 17,
+      "raw_return": [
+        1.3099775314331055,
+        0.1900225281715393,
+        -1.1400000117719173
+      ],
+      "discounted_scaled_return": [
+        1.077369203538732,
+        0.15628086354017126,
+        -0.8769066395307865
+      ],
+      "utility": 0.46745185021948027,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-default-20266513.json",
+      "trace_sha256": "af2e3f7784b6ad8582bfd3c6bc84e155708776a5b48018748253433aed255cbe"
+    },
+    {
+      "environment": "mine",
+      "profile": "default",
+      "seed": 20266514,
+      "preference": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.10000000149011612
+      ],
+      "steps": 17,
+      "raw_return": [
+        1.3867830038070679,
+        0.11321699619293213,
+        -1.1400000117719173
+      ],
+      "discounted_scaled_return": [
+        1.1405365851261293,
+        0.09311343293192637,
+        -0.8769066395307865
+      ],
+      "utility": 0.4674518281600994,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-default-20266514.json",
+      "trace_sha256": "57ef0879e8ae152e7ff67a5e0ba367945d1c60328bcbd736a68673d8aa7c6877"
+    },
+    {
+      "environment": "mine",
+      "profile": "default",
+      "seed": 20266515,
+      "preference": [
+        0.44999998807907104,
+        0.44999998807907104,
+        0.10000000149011612
+      ],
+      "steps": 17,
+      "raw_return": [
+        1.4085183143615723,
+        0.09148163348436356,
+        -1.1400000117719173
+      ],
+      "discounted_scaled_return": [
+        1.1584124292981706,
+        0.07523754586664369,
+        -0.8769066395307865
+      ],
+      "utility": 0.46745180885814125,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-default-20266515.json",
+      "trace_sha256": "73f32f6b192631cbacedab713fdbc4b7846b2aca70be1ff532b95ce32df52222"
+    },
+    {
+      "environment": "mine",
+      "profile": "uniform",
+      "seed": 20266511,
+      "preference": [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      "steps": 19,
+      "raw_return": [
+        1.3937058448791504,
+        0.10629414021968842,
+        -1.0800000056624413
+      ],
+      "discounted_scaled_return": [
+        1.1234201802751975,
+        0.08568019041216973,
+        -0.8322029593801122
+      ],
+      "utility": 0.12563247417989104,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-uniform-20266511.json",
+      "trace_sha256": "1f2132d84a1978c0ebe0020718948948794154b35d2e0e6d281661390fb9706c"
+    },
+    {
+      "environment": "mine",
+      "profile": "uniform",
+      "seed": 20266512,
+      "preference": [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      "steps": 19,
+      "raw_return": [
+        1.3125303983688354,
+        0.18746955692768097,
+        -1.0800000056624413
+      ],
+      "discounted_scaled_return": [
+        1.0579873379809577,
+        0.15111300868374325,
+        -0.8306808994396444
+      ],
+      "utility": 0.12613981950094494,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-uniform-20266512.json",
+      "trace_sha256": "ab19c8aa7a61500e4b43e3b73f53a8ec4072491ce2696ddbc12c7e526170c14b"
+    },
+    {
+      "environment": "mine",
+      "profile": "uniform",
+      "seed": 20266513,
+      "preference": [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      "steps": 19,
+      "raw_return": [
+        1.3099775314331055,
+        0.1900225281715393,
+        -1.0800000056624413
+      ],
+      "discounted_scaled_return": [
+        1.055929556388311,
+        0.15317087435572183,
+        -0.8291740600985812
+      ],
+      "utility": 0.1266421273227133,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-uniform-20266513.json",
+      "trace_sha256": "0f3e243f9e91a5158a1b06e9db84cf1812970f7f2c957fced17f9fa9bc595381"
+    },
+    {
+      "environment": "mine",
+      "profile": "uniform",
+      "seed": 20266514,
+      "preference": [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      "steps": 19,
+      "raw_return": [
+        1.3867830038070679,
+        0.11321699619293213,
+        -1.0800000056624413
+      ],
+      "discounted_scaled_return": [
+        1.1178399070821194,
+        0.09126047561658103,
+        -0.8322029593801122
+      ],
+      "utility": 0.1256324781836689,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-uniform-20266514.json",
+      "trace_sha256": "6428be8cac4ce12c654931ecc2dd474ece33e817cff0516400e92d85be9b32fc"
+    },
+    {
+      "environment": "mine",
+      "profile": "uniform",
+      "seed": 20266515,
+      "preference": [
+        0.3333333432674408,
+        0.3333333432674408,
+        0.3333333432674408
+      ],
+      "steps": 19,
+      "raw_return": [
+        1.4085183143615723,
+        0.09148163348436356,
+        -1.0800000056624413
+      ],
+      "discounted_scaled_return": [
+        1.135360021955137,
+        0.07374031870389748,
+        -0.8322029593801122
+      ],
+      "utility": 0.12563246417044643,
+      "task_success": true,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-uniform-20266515.json",
+      "trace_sha256": "249fd41430ff36229fb6625958db29011190f5f3f32b453f616dcc6b315a448d"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner0",
+      "seed": 20266511,
+      "preference": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -217.79999886080623
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -16.46244407223608
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner0-20266511.json",
+      "trace_sha256": "5a1991ad771be32dba036f2110a1d71583996078e19793bb0739dd12877a03e7"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner0",
+      "seed": 20266512,
+      "preference": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -217.79999886080623
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -16.46244407223608
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner0-20266512.json",
+      "trace_sha256": "f969b4a26453f1cbdebe28f035b200bbe91fbb4936b4b097407b7e0177b6ebc3"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner0",
+      "seed": 20266513,
+      "preference": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -217.79999886080623
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -16.46244407223608
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner0-20266513.json",
+      "trace_sha256": "059c98000404d47aacb5baee4463a34ee13bf663a69507503e985da205afd705"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner0",
+      "seed": 20266514,
+      "preference": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -217.79999886080623
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -16.46244407223608
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner0-20266514.json",
+      "trace_sha256": "ba6920bbc34df1eea6939e95e7122e117793d06a191173b777a4488400fd68a3"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner0",
+      "seed": 20266515,
+      "preference": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -217.79999886080623
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -16.46244407223608
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner0-20266515.json",
+      "trace_sha256": "9bd24854946c506a130ba685705efd72848af20c373f1a2affbc0375f8b41e93"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner1",
+      "seed": 20266511,
+      "preference": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -19.999999552965164
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -1.6494207033461652
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner1-20266511.json",
+      "trace_sha256": "a8548e1657f40879439e25b12589678bdaa9c662713b33ab48285e8e43cce54e"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner1",
+      "seed": 20266512,
+      "preference": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -19.999999552965164
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -1.6494207033461652
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner1-20266512.json",
+      "trace_sha256": "117a943f91f3bdd5dbd86cab75a02c5466c14184de43bb0678906f5895d9369e"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner1",
+      "seed": 20266513,
+      "preference": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -19.999999552965164
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -1.6494207033461652
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner1-20266513.json",
+      "trace_sha256": "cdb87fc6c00b27d3e2636c0e494acce88beb3ce30b60de900de90f58aa6a3af8"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner1",
+      "seed": 20266514,
+      "preference": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -19.999999552965164
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -1.6494207033461652
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner1-20266514.json",
+      "trace_sha256": "4cbc7388550e58acea70241437fe9f1ca491774ddc892d1e6198c54eb7a01296"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner1",
+      "seed": 20266515,
+      "preference": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "steps": 1000,
+      "raw_return": [
+        0.0,
+        0.0,
+        -19.999999552965164
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -1.6494207033461652
+      ],
+      "utility": 0.0,
+      "task_success": false,
+      "terminated": false,
+      "truncated": true,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner1-20266515.json",
+      "trace_sha256": "4b0d3f099f543b4d113e88e8a2e5352ce8232bc2f365cd1116b5153f5d5a8be2"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner2",
+      "seed": 20266511,
+      "preference": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 10,
+      "raw_return": [
+        0.0,
+        0.0,
+        -0.30000000074505806
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -0.2393708499284248
+      ],
+      "utility": -0.2393708499284248,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner2-20266511.json",
+      "trace_sha256": "299c368e6c49a85c77bc913ec998b5b1afd86f4b2dee333af727aa2f0df4f936"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner2",
+      "seed": 20266512,
+      "preference": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 10,
+      "raw_return": [
+        0.0,
+        0.0,
+        -0.30000000074505806
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -0.2393708499284248
+      ],
+      "utility": -0.2393708499284248,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner2-20266512.json",
+      "trace_sha256": "371a951cf181fe6681a8e52dd7a99d5f4c1473406806a1589aff7d7aa8d27709"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner2",
+      "seed": 20266513,
+      "preference": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 10,
+      "raw_return": [
+        0.0,
+        0.0,
+        -0.30000000074505806
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -0.2393708499284248
+      ],
+      "utility": -0.2393708499284248,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner2-20266513.json",
+      "trace_sha256": "ddbe101899c1e7dc9ca13bb05b9ca82204c82b92588c4776d7abf6b99d2127fb"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner2",
+      "seed": 20266514,
+      "preference": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 10,
+      "raw_return": [
+        0.0,
+        0.0,
+        -0.30000000074505806
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -0.2393708499284248
+      ],
+      "utility": -0.2393708499284248,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner2-20266514.json",
+      "trace_sha256": "0773e645e1f34b525f4e5265c160945818cd51f101a9e26f9d5f144ec9860ad8"
+    },
+    {
+      "environment": "mine",
+      "profile": "corner2",
+      "seed": 20266515,
+      "preference": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "steps": 10,
+      "raw_return": [
+        0.0,
+        0.0,
+        -0.30000000074505806
+      ],
+      "discounted_scaled_return": [
+        0.0,
+        0.0,
+        -0.2393708499284248
+      ],
+      "utility": -0.2393708499284248,
+      "task_success": false,
+      "terminated": true,
+      "truncated": false,
+      "trace": "artifacts\\ppo-demo-preference-diagnosis-v1\\mine-corner2-20266515.json",
+      "trace_sha256": "86c49279baba87270a93c73c2812d0a429a4d03cc215fb2e385e4ca2fb9759a5"
+    }
+  ],
+  "diagnostic_steps": 18394,
+  "training_interactions": 0,
+  "final_test_steps": 0
+}

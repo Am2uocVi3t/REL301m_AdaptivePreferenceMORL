@@ -1,0 +1,121 @@
+{
+  "verified_at": "2026-11-01T17:06:25.722700+00:00",
+  "status": "independent_coordinator_and_first_three_recovery_snapshots_verified",
+  "identity": {
+    "pid": 22688,
+    "birth": "134380262240373204",
+    "token": "08afcdac-9ed1-43aa-9dc8-f7ffd2eaf957",
+    "job": {
+      "member": false,
+      "flags": 0,
+      "kill_on_job_close": false
+    },
+    "runtime": {
+      "prefix": "D:\\Hung_will_delete\\REL301m_AdaptivePreferenceMORL\\artifacts\\gpu-runtime",
+      "torch": "2.14.1+cu130",
+      "cuda_kernel_loss": 1.0461750030517578,
+      "device": "NVIDIA GeForce RTX 3050 Laptop GPU"
+    }
+  },
+  "source_commit": "a8f4cfb585f235be8577543bf7a77d92c5349c0c",
+  "snapshots": [
+    {
+      "job": "mo-lunar-lander-v3_n1_seed20261213",
+      "initial_hash_matches_original": true,
+      "recovery_step": 40231,
+      "snapshot_fields": [
+        "binding",
+        "step",
+        "model",
+        "target",
+        "optimizer",
+        "replay",
+        "sampler",
+        "discounts",
+        "exploration_rng",
+        "action_rng",
+        "global_rng",
+        "reconstruction",
+        "observation",
+        "preference",
+        "head",
+        "counters",
+        "histories",
+        "initial_hash",
+        "wall_seconds"
+      ],
+      "resume_pointer": {
+        "file": "resume_step000040231.pt",
+        "sha256": "6fa8859a468a08ffb626c175f2b2fb9c690505c944df250cde0d7a8113a03ccd",
+        "step": 40231
+      }
+    },
+    {
+      "job": "mo-lunar-lander-v3_n20_seed20261212",
+      "initial_hash_matches_original": true,
+      "recovery_step": 40190,
+      "snapshot_fields": [
+        "binding",
+        "step",
+        "model",
+        "target",
+        "optimizer",
+        "replay",
+        "sampler",
+        "discounts",
+        "exploration_rng",
+        "action_rng",
+        "global_rng",
+        "reconstruction",
+        "observation",
+        "preference",
+        "head",
+        "counters",
+        "histories",
+        "initial_hash",
+        "wall_seconds"
+      ],
+      "resume_pointer": {
+        "file": "resume_step000040190.pt",
+        "sha256": "fa1d5f14c9618844aef114b175a03667ce2f2353c1c27379751dc4ce61f37ba3",
+        "step": 40190
+      }
+    },
+    {
+      "job": "mo-lunar-lander-v3_n20_seed20261213",
+      "initial_hash_matches_original": true,
+      "recovery_step": 40191,
+      "snapshot_fields": [
+        "binding",
+        "step",
+        "model",
+        "target",
+        "optimizer",
+        "replay",
+        "sampler",
+        "discounts",
+        "exploration_rng",
+        "action_rng",
+        "global_rng",
+        "reconstruction",
+        "observation",
+        "preference",
+        "head",
+        "counters",
+        "histories",
+        "initial_hash",
+        "wall_seconds"
+      ],
+      "resume_pointer": {
+        "file": "resume_step000040191.pt",
+        "sha256": "52b6bbf6ee1d805a26ea6422709c528205717cf63ea34b66852042877e3a49fe",
+        "step": 40191
+      }
+    }
+  ],
+  "retained_jobs": 3,
+  "running_jobs": 3,
+  "pending_jobs": 6,
+  "duplicate_launcher_test": "Rejected before request rewrite",
+  "scientific_scope": "Operational evidence only; no task-learning improvement claimed"
+}

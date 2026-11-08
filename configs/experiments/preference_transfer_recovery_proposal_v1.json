@@ -1,0 +1,195 @@
+{
+  "plan_id": "preference-transfer-recovery-proposal-v1",
+  "status": "proposed_after_frozen_diagnostics",
+  "execution_enabled": false,
+  "evidence": "research/evidence/policy_extraction_diagnosis_v1.json",
+  "scope": "New development studies only. Completed cohorts and original matrix/F1/final-test gates are unchanged.",
+  "stages": [
+    {
+      "id": "P1",
+      "purpose": "Separate fixed epsilon escape from approximate GPI preference transfer without learning",
+      "training_interactions": 0,
+      "models": "All 12 frozen final checkpoints, no best-seed/head selection",
+      "policies": [
+        "mean_greedy",
+        "mean_eps005",
+        "gpi_mean_greedy",
+        "gpi_mean_eps005"
+      ],
+      "source_weight_bank": "Same protocol-seeded 32 training preferences; source w inside conditional critic, requested w scalarizes outside; head-mean approximation has no certified error bound",
+      "epsilon": 0.05,
+      "development_environment_seeds": [
+        20263101,
+        20263102,
+        20263103,
+        20263104,
+        20263105,
+        20263106,
+        20263107,
+        20263108,
+        20263109,
+        20263110
+      ],
+      "preferences": "The two original task preferences per environment",
+      "episodes": 960,
+      "max_environment_steps": 960000,
+      "gate": "For task-oriented weights: every training seed must reach 8/10 native task outcomes, with paired utility improvement over its plain-mean control; pure-fuel has no task requirement. Report random/heuristic references separately and do not pool shared reference cases."
+    },
+    {
+      "id": "P2",
+      "purpose": "If P1 is insufficient, isolate preference reuse and preference-aligned critic loss in a fixed 2x2 Minecart study",
+      "training_seeds": [
+        20263211,
+        20263212,
+        20263213
+      ],
+      "environment": "minecart-v0",
+      "n_step": 1,
+      "arms": [
+        {
+          "id": "A",
+          "update_preference": "stored_behavior",
+          "utility_aux_lambda": 0.0
+        },
+        {
+          "id": "B",
+          "update_preference": "uniform_counterfactual_pool",
+          "utility_aux_lambda": 0.0
+        },
+        {
+          "id": "C",
+          "update_preference": "stored_behavior",
+          "utility_aux_lambda": 0.5
+        },
+        {
+          "id": "D",
+          "update_preference": "uniform_counterfactual_pool",
+          "utility_aux_lambda": 0.5
+        }
+      ],
+      "loss": "(1-lambda)*masked mean vector Huber + lambda*masked Huber of w-dot TD error; lambda .5 is a fixed prospective intervention, not an optimized or paper-proven default",
+      "uniform_relabel": "One independent pool preference per sampled transition, recompute its DDQN target; no extra gradient updates, PER or achieved-return projection",
+      "common_settings": {
+        "interactions_per_job": 500000,
+        "updates_per_job": 123751,
+        "batch_size": 64,
+        "replay_capacity": 200000,
+        "learning_starts": 5000,
+        "train_freq": 4,
+        "hidden_dims": [
+          256,
+          256
+        ],
+        "heads": 3,
+        "lr": 0.0003,
+        "gamma": 0.99,
+        "target_sync": 1000,
+        "bootstrap_probability": 0.8,
+        "gradient_clip": 10,
+        "epsilon_start": 1.0,
+        "epsilon_end": 0.05,
+        "epsilon_fraction": 0.3,
+        "extraction": "same mean-greedy for all four arms",
+        "reward_scale_and_hv_reference": "unchanged parent protocol"
+      },
+      "independent_rng_roles": [
+        "rollout_preference",
+        "episode_head",
+        "exploration_coin",
+        "random_action",
+        "replay",
+        "mask",
+        "counterfactual_weight"
+      ],
+      "jobs": 12,
+      "training_interactions": 6000000,
+      "gradient_updates": 1485012,
+      "fixed_checkpoints": [
+        100000,
+        250000,
+        500000
+      ],
+      "checkpoint_selection": "final only",
+      "validation": "32 parent validation preferences x3 episodes/checkpoint; task diagnostics and raw-trace retention separate",
+      "gate": "No adaptive-benefit claim. Require all three seeds to reach 8/10 delivery on each declared ore-seeking task preference and improve paired utility versus A; do not claim success from one seed or fuel-only utility. Prefer B or C over D if a simpler cell already meets the gate. If all fail, stop this finite study.",
+      "validation_episodes": 3456,
+      "validation_max_steps": 3456000,
+      "final_task_episodes": 240,
+      "final_task_max_steps": 240000,
+      "final_task_environment_seeds": [
+        20263231,
+        20263232,
+        20263233,
+        20263234,
+        20263235,
+        20263236,
+        20263237,
+        20263238,
+        20263239,
+        20263240
+      ],
+      "curriculum_evaluation_steps": 0
+    },
+    {
+      "id": "P3",
+      "purpose": "Independent confirmation of one predeclared selected intervention and cross-environment reliability",
+      "condition": "Only after P1 or P2 passes; freeze exact method before execution",
+      "training_seeds": [
+        20263311,
+        20263312,
+        20263313
+      ],
+      "environments": [
+        "minecart-v0",
+        "mo-lunar-lander-v3"
+      ],
+      "arms": [
+        "unchanged_control",
+        "one_selected_intervention"
+      ],
+      "training_jobs_if_needed": 12,
+      "training_interactions_if_needed": 6000000,
+      "interactions_per_job": 500000,
+      "preference_confirmation": {
+        "dirichlet_alpha": 1.0,
+        "seed": 20263421,
+        "count": 32,
+        "anchors_reported_separately": true
+      },
+      "development_environment_seeds": [
+        20263431,
+        20263432,
+        20263433,
+        20263434,
+        20263435,
+        20263436,
+        20263437,
+        20263438,
+        20263439,
+        20263440
+      ],
+      "gate": "At least 8/10 delivery/landing-pad cases per training seed at declared task-oriented profiles; utility/HV and native trade-offs on new preferences; no dynamics-generalization claim. If P1 requires no training, confirmation remains frozen-model evaluation and must not consume this training allocation by default.",
+      "execution_requires": "A separately frozen full evaluation matrix, explicit task profiles, source and qualification receipt; this stage is a conditional design, not an executable protocol."
+    },
+    {
+      "id": "P4",
+      "purpose": "Only after a qualified backbone, test the original adaptive-allocation benefit",
+      "condition": "A separately frozen new comparison; never unlock or relaunch failed matrix-v1/F1 implicitly",
+      "arms": [
+        "uniform",
+        "compute_matched_random",
+        "adaptive_joint"
+      ],
+      "paired_seeds": 3,
+      "environments": 2,
+      "jobs": 18,
+      "interactions_per_job": 500000,
+      "training_interactions": 9000000,
+      "gate": "Matched interactions, updates and tuning; explicit curriculum/evaluation budgets; retain seed-level effects and failures. No superiority claim if unsupported."
+    }
+  ],
+  "decision_policy": "Stages are conditional, not a queue to run in full. The smallest validated change is preferred. No parameter sweep, outcome-based extension, seed substitution, best-checkpoint selection or paid compute. Alternative on-policy/PPO work needs a separate source-aligned plan if these stages fail.",
+  "additional_training_upper_bound_if_all_training_stages_execute": 21000000,
+  "course_scope": "P1/P2 plus independent confirmation can support a scoped backbone/preference-transfer report. Claiming adaptive allocation improves performance requires P4; full original RQs remain separate.",
+  "final_test_steps": 0
+}

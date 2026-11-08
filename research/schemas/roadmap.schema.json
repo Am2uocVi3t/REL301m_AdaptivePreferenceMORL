@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "roadmap.schema.json",
+  "title": "Evidence-gated research roadmap",
+  "type": "object",
+  "required": ["schema_version", "active_phase_id", "phases"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "active_phase_id": {"$ref": "#/$defs/id"},
+    "phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "status",
+          "deliverables",
+          "entry_criteria",
+          "exit_criteria",
+          "go_no_go_rule",
+          "evidence_paths",
+          "blocker_ids",
+          "allowed_next_phase_ids"
+        ],
+        "properties": {
+          "id": {"$ref": "#/$defs/id"},
+          "title": {"type": "string", "minLength": 1},
+          "status": {"enum": ["not_started", "active", "blocked", "complete"]},
+          "deliverables": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "description", "status"],
+              "properties": {
+                "id": {"$ref": "#/$defs/id"},
+                "description": {"type": "string", "minLength": 1},
+                "status": {"enum": ["not_started", "in_progress", "complete", "blocked"]}
+              },
+              "additionalProperties": false
+            }
+          },
+          "entry_criteria": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "exit_criteria": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "go_no_go_rule": {"type": "string", "minLength": 1},
+          "evidence_paths": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "blocker_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}},
+          "allowed_next_phase_ids": {"type": "array", "items": {"$ref": "#/$defs/id"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {"id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"}}
+}

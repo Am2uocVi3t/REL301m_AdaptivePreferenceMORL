@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "purpose": "Local Windows course recovery qualification; not a new empirical protocol",
+  "python": "3.11",
+  "requirements": "requirements.txt",
+  "bootstrap": "uv==0.13.6",
+  "environment_directory": ".venv",
+  "cache_directory": "artifacts/runtime/uv-cache",
+  "python_install_directory": "artifacts/runtime/python",
+  "temporary_directory": "artifacts/runtime/tmp",
+  "initial_device": "cpu",
+  "threads": 4,
+  "required_validation": [
+    "pinned dependency installation and pip check",
+    "seeded vector-Q forward/backward witness",
+    "repository quality gate",
+    "bounded non-evidence train/checkpoint/validation witness",
+    "fresh agent follows documented witness verbatim"
+  ],
+  "scientific_limits": "Do not resume failed F1 or matrix-v1, lock checkpoints, or access final test. Replacement empirical runs need their own versioned study.",
+  "native_box2d": {
+    "provider": "conda-forge",
+    "version": "2.3.8",
+    "source_receipt": "artifacts/runtime/box2d-native-source.json"
+  },
+  "unavailable_dependencies": [
+    "pycddlib==2.1.6"
+  ],
+  "qualification_scope": "PCQN core and two environments on CPU; full baseline dependency set is incomplete"
+}

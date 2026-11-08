@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "aris-existing-evidence-20261017-one-batch",
+  "purpose": "Independent Claude review of the existing failed Minecart-v2 evidence and bounded course-report wording",
+  "authorization": "Direct user instruction: exactly one bounded end-to-end ARIS batch on existing research artifacts",
+  "maximum_invocations": 1,
+  "invocation_budget_usd": 0.25,
+  "batch_reserved_usd": 0.25,
+  "total_authorized_envelope_usd": 1.0,
+  "historical_reservations_preserved_usd": 0.5,
+  "total_reservations_after_dispatch_usd": 0.75,
+  "model": "sonnet",
+  "timeout_seconds": 180,
+  "tools": "",
+  "packet_files": [
+    "research/qualification/minecart_pcqn_backbone_v2.json",
+    "research/experiments/minecart-pcqn-remediation-v2.md",
+    "research/qualification/course_matrix_post_validation_gate_v1.json",
+    "research/claims.json"
+  ],
+  "packet_sha256": "60e6debe44ca5f2c7652045b3b86353b9d7cf65dbd4a3e7e5ad7c90ad949e979",
+  "prompt_file": "research/reviews/aris_batch_20261017_request.md",
+  "prompt_sha256": "a7b9608ade49bc03b90af5c5b27f355339dfd114693003ec682cbc31a06a034d",
+  "tasks": [
+    {"id": "packet", "action": "Verify and stage existing allowlisted evidence", "paid": false},
+    {"id": "claude-review", "action": "One strict independent tools-off Claude review", "paid": true},
+    {"id": "report", "action": "Integrate findings, costs and limits; resume same state to verify no duplicate work", "paid": false}
+  ],
+  "retry_on_error": false,
+  "stop_after_batch": true,
+  "scheduler_enabled": false,
+  "scientific_unlocks": false
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "id": "minecart-pcqn-successful-replay-f1",
+  "status": "predeclared_not_executed",
+  "execution_authorized": false,
+  "authority": {
+    "policy": "configs/aris/project.json",
+    "authorization_id": "aris-full-workflow-20261017",
+    "scope": "F1 only: A0R0 and A1R1 on three paired seeds"
+  },
+  "purpose": "Test bounded sufficiency of successful-episode-stratified replay plus deterministic achieved-return preference relabeling for stable greedy Minecart ore behavior.",
+  "data_firewall": {
+    "allowed_sources": ["training", "validation"],
+    "evaluation_split": "validation",
+    "forbidden_split": "test",
+    "shift": "nominal",
+    "final_test_access_permitted": false
+  },
+  "sources": {
+    "failed_v2_qualification": {
+      "path": "research/qualification/minecart_pcqn_backbone_v2.json",
+      "sha256": "43a4d94bb2e091dcf2129c3226c0feb2199a76b0c2d451037f467b269c803347"
+    },
+    "failure_investigation": {
+      "path": "research/evidence/minecart_failure_investigation_20261017.json",
+      "sha256": "1d83d2be45afb547ec22b80f92238653a7b04735eccc83dc51c1c30901fbeb4c"
+    }
+  },
+  "environment": {
+    "env_id": "minecart-v0",
+    "protocol": "configs/protocols/course_minecart_v0.json",
+    "protocol_canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "return_definition": {"type": "discounted", "gamma": 0.99},
+    "reward_semantics_changed": false
+  },
+  "intervention": {
+    "name": "successful_episode_stratified_hindsight_preference_replay",
+    "eligibility": "A completed episode is eligible iff its protocol-scaled discounted return is positive in at least one delivered-ore objective; partial episodes are never eligible.",
+    "continuous_label": "softplus(G) / sum(softplus(G))",
+    "finite_pool_projection": "Minimum Euclidean distance to the frozen 32-point training pool; exact ties use ascending pool index.",
+    "success_draw": "Choose an eligible trajectory uniformly, then a live generation-matched transition uniformly within that trajectory.",
+    "batch_contract": {"batch_size": 64, "success_positions": 32, "uniform_positions": 32, "with_replacement": true},
+    "empty_stratum": "All requested success positions fall back to uniform draws and are counted.",
+    "relabel_semantics": "For eligible sampled transitions, use the projected episode label consistently for current prediction, next-action selection, and target evaluation; vector rewards and termination flags are immutable.",
+    "rng_streams": "Both cells use common role-tagged SeedSequence seeds: exploration 4, action space 5, rollout preference 6; uniform replay uses the training seed, bootstrap/success/diagnostic streams use tags 1/2/3. Global NumPy/Python evaluation RNG is seeded independently and restored after each evaluation.",
+    "unchanged": [
+      "one-step Double-DQN targets",
+      "masked Huber loss and active-head reduction",
+      "network, optimizer, target update, exploration, and bootstrap probability",
+      "training interactions, update count, replay capacity, and checkpoint cadence",
+      "validation preferences, episodes, seeds, reward scale, and reference point"
+    ]
+  },
+  "qualification": {
+    "evidence_role": "f1_replay_sufficiency_screen_not_course_comparison",
+    "method": "uniform-pcqn",
+    "seeds": [20264021, 20264022, 20264023],
+    "cells": {
+      "A0R0": {"stratification": false, "relabel": false},
+      "A1R1": {"stratification": true, "relabel": true}
+    },
+    "output_root": "artifacts/minecart-pcqn-replay-f1",
+    "execution_status": "artifacts/minecart-pcqn-replay-f1/execution_status.json",
+    "validation_evidence_root": "artifacts/minecart-pcqn-replay-f1/validation-evidence",
+    "source_audit_output": "research/evidence/minecart_pcqn_replay_f1_source_audit.json",
+    "qualification_output": "research/qualification/minecart_pcqn_replay_f1.json",
+    "base_command_template": [
+      "python", "scripts/train.py",
+      "--env", "minecart-v0",
+      "--protocol", "configs/protocols/course_minecart_v0.json",
+      "--algo", "uniform-pcqn",
+      "--allocation-target", "rollout_and_update",
+      "--seed", "<qualification-seed>",
+      "--total-timesteps", "1000000",
+      "--learning-starts", "5000",
+      "--train-freq", "1",
+      "--batch-size", "64",
+      "--buffer-capacity", "1000000",
+      "--bootstrap-probability", "0.8",
+      "--num-heads", "3",
+      "--lr", "0.0003",
+      "--gamma", "0.99",
+      "--target-update-freq", "1000",
+      "--curriculum-update-freq", "15000",
+      "--curriculum-eval-episodes", "1",
+      "--pool-size", "32",
+      "--gap-weight", "0.25",
+      "--uncertainty-weight", "0.25",
+      "--coverage-weight", "0.25",
+      "--progress-weight", "0.25",
+      "--geometry-weight", "0.0",
+      "--temperature", "0.2",
+      "--uniform-floor", "0.2",
+      "--locality-bandwidth", "0.2",
+      "--eps-fraction", "0.5",
+      "--eps-start", "1.0",
+      "--eps-end", "0.05",
+      "--replay-sampling", "uniform",
+      "--isolate-evaluation-rng",
+      "--independent-rng-streams",
+      "--eval-freq", "100000",
+      "--eval-episodes", "5",
+      "--eval-seed", "670000",
+      "--save-freq", "100000",
+      "--device", "cpu",
+      "--output-dir", "<cell-output-root>"
+    ],
+    "training": {
+      "total_timesteps": 1000000,
+      "learning_starts": 5000,
+      "train_frequency": 1,
+      "batch_size": 64,
+      "buffer_capacity": 1000000,
+      "gamma": 0.99,
+      "target_update_frequency": 1000,
+      "curriculum_update_frequency": 15000,
+      "curriculum_episodes_per_preference": 1,
+      "learning_rate": 0.0003,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.05,
+      "epsilon_fraction": 0.5,
+      "epsilon_decay_steps": 500000,
+      "num_heads": 3,
+      "bootstrap_probability": 0.8,
+      "training_preference_sampling": "uniform_fixed_protocol_pool",
+      "expected_gradient_updates": 995001,
+      "expected_batch_positions": 63680064
+    },
+    "evaluation": {
+      "checkpoint_steps": [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000],
+      "episodes_per_preference": 5,
+      "preference_count": 32,
+      "episode_count_per_checkpoint": 160,
+      "seed_base": 670000
+    },
+    "pass_rule": {
+      "ore_objective_indices": [0, 1],
+      "minimum_positive_episodes_per_objective": 8,
+      "minimum_distinct_positive_values_per_objective": 2,
+      "first_pass_no_later_than_step": 800000,
+      "required_consecutive_pass_checkpoints": 3,
+      "all_a1r1_seeds_must_pass_retention": true,
+      "late_first_pass_status": "late_inconclusive"
+    },
+    "failure_rule": "If any A1R1 seed fails retention or the source/manipulation audit fails, stop after F1 and preserve the negative or inconclusive result. Do not run F2, lock checkpoints, or access final test."
+  },
+  "resource_estimate": {
+    "source": "Measured Minecart v2 CPU runs on the same host and budget",
+    "observed_complete_run_hours": [4.266, 4.286, 4.504],
+    "f1_sequential_wall_clock_hours_range": [25.596, 27.024],
+    "observed_artifact_storage_mib_for_three_runs": 46,
+    "projected_f1_artifact_storage_mib": 92,
+    "peak_memory_mib": 383.5078125,
+    "peak_memory_scope": "Measured ru_maxrss during the 20-interaction, 17-update non-evidence A1R1 sanity run on this host; not a full-run upper bound.",
+    "peak_memory_gate": "Launch sanity gate satisfied; every full run must persist its own wall time, peak RSS, and checkpoint bytes."
+  },
+  "conditional_continuation": {
+    "f2_authorized": false,
+    "checkpoint_lock_authorized": false,
+    "final_test_authorized": false
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "status": "pass",
+  "scope": "engineering numerical/CUDA/exact process-kill resume only, not task competence",
+  "source": {
+    "src/models/onpolicy.py": "f53279a91b760ea3e6c73c2f7208b4a1e711e49ca3aa4e6a1bd4692b5bc0d214",
+    "scripts/run_minecart_onpolicy.py": "578e8f69387bc5883f87f002c1bd3df98940c4488f8c3e0778dc48685a137478",
+    "src/envs/wrapper.py": "d90407ad34175976dfcd30c3d13ffe02827eb424f20ec87f2b942328b405ba7e",
+    "src/utils/training_recovery.py": "9c0cd2adec1dc252613ccd219c798c5965cfdbe75b002241fbe5b4e8d781e861",
+    "src/utils/provenance.py": "dec1ab1efcf6d6697f2359b65a28e923b10b3160ad90051361ea692d97cc2f3f",
+    "src/evaluation/protocol.py": "ead69074f628be5529093721844c3341d09295fbea4948225f338f4009e81bdf",
+    "configs\\experiments\\minecart_onpolicy_specialist_v1.json": "4743576e5569a8cc4b3e7b96d17061853cf389d2d24f67b54d998c6c512b315c"
+  },
+  "runtime": {
+    "protocol": "ad4666d7fb350bde22ca52bab5e4b3112dcc88825b92af9d5c3bb23ef1e9f935",
+    "environment_source": "a74557d59840b342da241e6fec88b48b4b9e1023ccaccaf51a2b4d5357dc9298",
+    "environment_config": "9cbaea02440cb21bd799ede48b199799a655154526e9e7daf54225f5463037d9",
+    "device": "cuda",
+    "dependencies": {
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "torch": "2.14.1+cu130",
+      "gymnasium": "1.4.0",
+      "mo-gymnasium": "1.3.2",
+      "morl-baselines": "1.3.0",
+      "pymoo": "0.6.2"
+    }
+  },
+  "qualifier_sha256": "b16a06341bbc17f62098a137cd6991f68038d3a73ea9c9c856333a4185f23075",
+  "reference": "reference-20261102-195814",
+  "resumed": "killed-20261102-195814",
+  "eight_stream_exact": true,
+  "killed_at_step": 4096,
+  "final_partial_batch": 64,
+  "training_interactions": 12416,
+  "prior_spine_interactions": 512,
+  "development_evaluation_steps": 2098,
+  "final_test_steps": 0,
+  "wall_seconds": 39.81199999997625,
+  "training_trace_sha256": "a78c82998bcb14f42471d5f92f6e7e57db33ba87f55a93ce938094972bce06c2",
+  "review_independence": "executor_only",
+  "task_success_claim": false,
+  "quality_gate": {
+    "tests_passed": 215,
+    "tests_skipped": 4,
+    "ruff_format": true,
+    "ruff_check": true,
+    "mypy": true,
+    "bandit_medium_high": true,
+    "compileall": true,
+    "git_diff_check": true
+  },
+  "additional_executed_checks": [
+    "TD1 termination/truncation/fragment boundaries",
+    "PopArt output preservation",
+    "clipped ratio loss and sign",
+    "frozen utility scalarization",
+    "MDMM update sign",
+    "8-stream stochastic mining and time-limit restoration",
+    "evaluation RNG isolation",
+    "real Windows reader/atomic-retry witness",
+    "native new-study detection/render and separate inference modes"
+  ],
+  "monitor_and_launcher_source": {
+    "monitor/server.py": "26de99ef63acd08bb2b6c4594231e3e1834f0918580f6b60d3d8cce17f7ac893",
+    "monitor/terminal.py": "df3bb87b01ebc848d2f513575210d4b068ad50d1af21c82c71262fe9e7fb9d28",
+    "monitor/onpolicy.py": "06f0efce1af5f26afb3f0d31cb53bb171bbdfd3b5fc227c267af3919010e70e1",
+    "scripts/start_minecart_onpolicy.ps1": "7bef908b2a6776385efe4981134989c8b21e2b10e676e291c6dfd1c760de68c2"
+  }
+}

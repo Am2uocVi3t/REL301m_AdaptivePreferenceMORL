@@ -1,0 +1,29 @@
+The predeclared screen used MORL-Baselines 1.3.0 Envelope and the pinned
+upstream Minecart example, with the repository's frozen $\gamma=0.99$ and reward
+scales. Each of three seed labels ran exactly 100,000 training interactions and
+99,901 gradient updates. Gaussian behavior/update preferences were retained;
+this is not a fixed-pool or compute-matched allocation comparator. Validation
+used all 32 course preferences, three episodes each, at fixed steps 50,000 and
+100,000. Validation preserved training RNG states, but the runner did not seed
+Torch initialization or global NumPy/SciPy training draws. These are partially
+seeded feasibility runs, not fully reproducible paired replications. The
+original CUDA smoke exposed a replay-index transport bug; a tested host-index
+bridge preserved the sampled indices/priorities and allowed the pinned learner
+to run. No learning rule or hyperparameter was tuned on these validation results.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Envelope feasibility: positive ore episodes out of 96 fixed cases at each checkpoint.}
+\begin{tabular}{rrrrrr}
+\toprule
+Seed & Steps & Ore 1 & Ore 2 & HV & Expected utility\\
+\midrule
+20261121 & 50,000 & 0 & 0 & 0.001477 & -0.5444\\
+20261121 & 100,000 & 0 & 0 & 0.001448 & -0.5512\\
+20261122 & 50,000 & 0 & 0 & 0.001421 & -0.5868\\
+20261122 & 100,000 & 2 & 2 & 0.001359 & -0.7790\\
+20261123 & 50,000 & 2 & 2 & 0.001283 & -0.6058\\
+20261123 & 100,000 & 0 & 0 & 0.001420 & -0.5967\\
+\bottomrule\end{tabular}\end{table}
+
+The completed cohort used 300,000 training interactions, 299,703 updates and 530,664 separate validation environment steps across 576 episodes. Final-test steps were zero. At least one final checkpoint expressed positive ore in some validation cases. The per-seed counts above delimit that observation; they do not establish robust task coverage or an adaptive-allocation benefit. All model files and validation tensors passed hash, shape, finite-value, budget and metric checks. This numerical audit is not an independent semantic review. Neither outcome unlocks the failed matrix-v1/F1 or final-test workflow.

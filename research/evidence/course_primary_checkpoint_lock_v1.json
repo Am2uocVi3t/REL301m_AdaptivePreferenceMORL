@@ -1,0 +1,611 @@
+{
+  "blockers": [
+    {
+      "job_id": "minecart-v0__full__seed20262001",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__full__seed20262002",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__full__seed20262003",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__full__seed20262004",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__full__seed20262005",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__matched-random__seed20262001",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__matched-random__seed20262002",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__matched-random__seed20262003",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__matched-random__seed20262004",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__matched-random__seed20262005",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__uniform__seed20262001",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__uniform__seed20262002",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__uniform__seed20262003",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__uniform__seed20262004",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    },
+    {
+      "job_id": "minecart-v0__uniform__seed20262005",
+      "selected_degenerate_objectives": [
+        0,
+        1
+      ],
+      "trajectory_degenerate_objectives": [
+        0,
+        1
+      ]
+    }
+  ],
+  "diagnostic_selections": [
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/full/adaptive-pcqn_minecart-v0_seed20262001/checkpoint_step250000.pt",
+      "checkpoint_sha256": "296c1c25c0eca3a175c3df6b62788db1b8d1982815c1e18e93906d8c05244a57",
+      "checkpoint_step": 250000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__full__seed20262001",
+      "training_seed": 20262001,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__full__seed20262001/checkpoint_step250000.json",
+      "validation_evidence_sha256": "8590debed69eb116872196b57837361e50577e1b35bdbb40aa9a70e9454a58b2",
+      "validation_expected_utility": -0.47621679306030273,
+      "validation_hypervolume": 0.0012659287080043565
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/full/adaptive-pcqn_minecart-v0_seed20262002/checkpoint_step400000.pt",
+      "checkpoint_sha256": "b3db200f49387c24a75c5df50e55d765c28bfe816aa76efc516b44496da06b58",
+      "checkpoint_step": 400000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__full__seed20262002",
+      "training_seed": 20262002,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__full__seed20262002/checkpoint_step400000.json",
+      "validation_evidence_sha256": "a402c7d701677e26e57ab0bbe8812101ee571b7fc5e5ed10815063f4f5976779",
+      "validation_expected_utility": -0.6449946165084839,
+      "validation_hypervolume": 0.0012659287080043565
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/full/adaptive-pcqn_minecart-v0_seed20262003/checkpoint_step300000.pt",
+      "checkpoint_sha256": "89580f71222507d957cfb65d5bed4c87de1571f15dd650a29612568e4e86d6ff",
+      "checkpoint_step": 300000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__full__seed20262003",
+      "training_seed": 20262003,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__full__seed20262003/checkpoint_step300000.json",
+      "validation_evidence_sha256": "20c746736451ccf897faec6d1c73985b388a863cc80f1b34119bda9cdb92f2a5",
+      "validation_expected_utility": -0.5587255358695984,
+      "validation_hypervolume": 0.001419889186397518
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/full/adaptive-pcqn_minecart-v0_seed20262004/checkpoint_step350000.pt",
+      "checkpoint_sha256": "240d6f20c0b208a97bf631932863d6c21b31016e078e6d94d75834cdb211b358",
+      "checkpoint_step": 350000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__full__seed20262004",
+      "training_seed": 20262004,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__full__seed20262004/checkpoint_step350000.json",
+      "validation_evidence_sha256": "a7707b4c0f36a274ae2eba0c934c97694fb2557b14973292a7355e00159fa3f8",
+      "validation_expected_utility": -0.6416535377502441,
+      "validation_hypervolume": 0.0012380893960554436
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/full/adaptive-pcqn_minecart-v0_seed20262005/checkpoint_step450000.pt",
+      "checkpoint_sha256": "2c6bc47b43300a2ce9a1263bbd262ca11b19121d17762fb5be11ab0f564f3747",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__full__seed20262005",
+      "training_seed": 20262005,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__full__seed20262005/checkpoint_step450000.json",
+      "validation_evidence_sha256": "996c6a5850890ec2e1c89010f569c0e89b614edf84ae0eefcb4cfb502714b140",
+      "validation_expected_utility": -0.6579706072807312,
+      "validation_hypervolume": 0.0013861854465670453
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/matched-random/random-curriculum-pcqn_minecart-v0_seed20262001/checkpoint_step450000.pt",
+      "checkpoint_sha256": "00c7c3d69f7466c9f838594f526eaa27ad62efe4693ea4069e609cb4c960ec2c",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__matched-random__seed20262001",
+      "training_seed": 20262001,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__matched-random__seed20262001/checkpoint_step450000.json",
+      "validation_evidence_sha256": "6c2876776603455695e3feb14f9dbc084c771c439978aa9e1bb8e67ceb347b1a",
+      "validation_expected_utility": -0.6404550075531006,
+      "validation_hypervolume": 0.0013329576300647793
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/matched-random/random-curriculum-pcqn_minecart-v0_seed20262002/checkpoint_step250000.pt",
+      "checkpoint_sha256": "c33726938afe62d7a6ea91c92496e1327d1cc04e0114d99370b7fb593a335eee",
+      "checkpoint_step": 250000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__matched-random__seed20262002",
+      "training_seed": 20262002,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__matched-random__seed20262002/checkpoint_step250000.json",
+      "validation_evidence_sha256": "120643f5ccf2fcbe6227616f4ee9156fe3b0652be965942123279a60a44a13f7",
+      "validation_expected_utility": -0.643933892250061,
+      "validation_hypervolume": 0.001419889186397518
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/matched-random/random-curriculum-pcqn_minecart-v0_seed20262003/checkpoint_step200000.pt",
+      "checkpoint_sha256": "98b944085a30e6e0d3fbc696d41aa0132f5cee4e502126c09540225dcbce36e1",
+      "checkpoint_step": 200000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__matched-random__seed20262003",
+      "training_seed": 20262003,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__matched-random__seed20262003/checkpoint_step200000.json",
+      "validation_evidence_sha256": "0780382c445caa81bdf6fa79463c6fced1af5128b256003ed3f3671adbb74573",
+      "validation_expected_utility": -0.2602173686027527,
+      "validation_hypervolume": 0.0013861854465670453
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/matched-random/random-curriculum-pcqn_minecart-v0_seed20262004/checkpoint_step300000.pt",
+      "checkpoint_sha256": "db5cea2ce87e1ca7375c2f93e8c69364e5bb15e9e694f536286011a5c1d39aed",
+      "checkpoint_step": 300000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__matched-random__seed20262004",
+      "training_seed": 20262004,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__matched-random__seed20262004/checkpoint_step300000.json",
+      "validation_evidence_sha256": "cbae61b74b9765c8a0ef58326225a8169a05ad10c514059636dfddad7fc67a5a",
+      "validation_expected_utility": -0.6754993200302124,
+      "validation_hypervolume": 0.0014765031242819553
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/matched-random/random-curriculum-pcqn_minecart-v0_seed20262005/checkpoint_step450000.pt",
+      "checkpoint_sha256": "3de71358e23b1c204cbee0b8d0b86f89f9bb24847b2c85af6cbfd477d827b861",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__matched-random__seed20262005",
+      "training_seed": 20262005,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__matched-random__seed20262005/checkpoint_step450000.json",
+      "validation_evidence_sha256": "9fe748d544272dedee7254e8fa17ac6d1331414142d88cba8f877a50aaf09bc2",
+      "validation_expected_utility": -0.5559645891189575,
+      "validation_hypervolume": 0.0014765031242819553
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/uniform/uniform-pcqn_minecart-v0_seed20262001/checkpoint_step350000.pt",
+      "checkpoint_sha256": "c81299ed73de7b01a61ef241102804a82299f9e5ea7112759c3f3b274c2e2418",
+      "checkpoint_step": 350000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__uniform__seed20262001",
+      "training_seed": 20262001,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__uniform__seed20262001/checkpoint_step350000.json",
+      "validation_evidence_sha256": "654edb92ff1bcad92b25a47547eb12aa3daa4e41ce08260dc5953e2a33b6c313",
+      "validation_expected_utility": -0.627955973148346,
+      "validation_hypervolume": 0.0014496426426467996
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/uniform/uniform-pcqn_minecart-v0_seed20262002/checkpoint_step400000.pt",
+      "checkpoint_sha256": "c9b0f4be8f8cf04199cddcf695c1d6af5650cba5604bd3f0dfd299b4a33a6f55",
+      "checkpoint_step": 400000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__uniform__seed20262002",
+      "training_seed": 20262002,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__uniform__seed20262002/checkpoint_step400000.json",
+      "validation_evidence_sha256": "3ee9ae674a269775577cebe49d6bc4d5f34263dc27f34b229e84d414a7ce56ae",
+      "validation_expected_utility": -0.6594539880752563,
+      "validation_hypervolume": 0.0013920061284838497
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/uniform/uniform-pcqn_minecart-v0_seed20262003/checkpoint_step250000.pt",
+      "checkpoint_sha256": "3c58eef0324dfd6dfaf3e4e18a057db974f3c471b7d08efeefe6eb3febe4714e",
+      "checkpoint_step": 250000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__uniform__seed20262003",
+      "training_seed": 20262003,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__uniform__seed20262003/checkpoint_step250000.json",
+      "validation_evidence_sha256": "8dd9dc8c1c192905e2045bec92b9c0bd44aea38170741ed4bcd86fab8ef0532a",
+      "validation_expected_utility": -0.483125239610672,
+      "validation_hypervolume": 0.0014765031242819553
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/uniform/uniform-pcqn_minecart-v0_seed20262004/checkpoint_step250000.pt",
+      "checkpoint_sha256": "a9ec9b887b3200540ede823ed201b8508dc1e4518543564f37379041b3eebc6f",
+      "checkpoint_step": 250000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__uniform__seed20262004",
+      "training_seed": 20262004,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__uniform__seed20262004/checkpoint_step250000.json",
+      "validation_evidence_sha256": "4005b8898bfc79cbdb9dc86dd202d589c0dd4a0e1e45cff379122ebf9d1afb8a",
+      "validation_expected_utility": -0.5483906865119934,
+      "validation_hypervolume": 0.0014765031242819553
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/minecart-v0/uniform/uniform-pcqn_minecart-v0_seed20262005/checkpoint_step200000.pt",
+      "checkpoint_sha256": "7fdf25ceab165e14e9e8374dd43822a7cf938dd31dcdc06f92fa7d45e0a0a7e8",
+      "checkpoint_step": 200000,
+      "eligible_for_lock": false,
+      "environment": "minecart-v0",
+      "job_id": "minecart-v0__uniform__seed20262005",
+      "training_seed": 20262005,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/minecart-v0__uniform__seed20262005/checkpoint_step200000.json",
+      "validation_evidence_sha256": "aad7f59fc6edf2972e9c63a81c4b2e93cc504a41f09b5cd05e40798acdac768d",
+      "validation_expected_utility": -0.31387272477149963,
+      "validation_hypervolume": 0.0014765031242819553
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/full/adaptive-pcqn_mo-lunar-lander-v3_seed20262001/checkpoint_step450000.pt",
+      "checkpoint_sha256": "99de9e6f8a2d42be1f1bedbf4afbd851258b46fc52c7a18f0bf1ce05c52ae376",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__full__seed20262001",
+      "training_seed": 20262001,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__full__seed20262001/checkpoint_step450000.json",
+      "validation_evidence_sha256": "d2cf84a1042448c63454fd7266706db4798502ed543ca2d8f4f3c19bc6fedc86",
+      "validation_expected_utility": -0.10584602504968643,
+      "validation_hypervolume": 4.541054069715525
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/full/adaptive-pcqn_mo-lunar-lander-v3_seed20262002/checkpoint_step450000.pt",
+      "checkpoint_sha256": "6c04b521d82a7c6648a80c613ed0183fdf401f60900772b6170cc9f141a8837f",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__full__seed20262002",
+      "training_seed": 20262002,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__full__seed20262002/checkpoint_step450000.json",
+      "validation_evidence_sha256": "8e566c582490b649ac5f6033f37bbb92780e0e9f4eb7fe8297a6530cffab1ef5",
+      "validation_expected_utility": -0.051605090498924255,
+      "validation_hypervolume": 4.509569395132811
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/full/adaptive-pcqn_mo-lunar-lander-v3_seed20262003/checkpoint_step500000.pt",
+      "checkpoint_sha256": "885e115d2ef3812be97e787a4b92049e54b54d9ed5d558eb84f7bf100058492b",
+      "checkpoint_step": 500000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__full__seed20262003",
+      "training_seed": 20262003,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__full__seed20262003/checkpoint_step500000.json",
+      "validation_evidence_sha256": "72fdf1d73a34af1d5b6320074b4fff11ddc4b0a1bf066a1583ef60f2800439a9",
+      "validation_expected_utility": -0.009858902543783188,
+      "validation_hypervolume": 4.657589305149172
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/full/adaptive-pcqn_mo-lunar-lander-v3_seed20262004/checkpoint_step400000.pt",
+      "checkpoint_sha256": "3e3194980be04460545379dbcd6bfd33658704c182f348b6af9db63562898858",
+      "checkpoint_step": 400000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__full__seed20262004",
+      "training_seed": 20262004,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__full__seed20262004/checkpoint_step400000.json",
+      "validation_evidence_sha256": "56af9278fa933525e8760f54333620ad076abba184d6a53f470e177c976825be",
+      "validation_expected_utility": -0.06705005466938019,
+      "validation_hypervolume": 4.330536926902415
+    },
+    {
+      "arm": "full",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/full/adaptive-pcqn_mo-lunar-lander-v3_seed20262005/checkpoint_step100000.pt",
+      "checkpoint_sha256": "604b1f6875aaff2d21103f7a1608b205df638f776a3d48fba79d706c7a6b3b23",
+      "checkpoint_step": 100000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__full__seed20262005",
+      "training_seed": 20262005,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__full__seed20262005/checkpoint_step100000.json",
+      "validation_evidence_sha256": "9d5d06989f7b22a63e9b84670f15c45d9e71397949f54756b0b410f488ad00f5",
+      "validation_expected_utility": -0.10358021408319473,
+      "validation_hypervolume": 4.246325178205321
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/matched-random/random-curriculum-pcqn_mo-lunar-lander-v3_seed20262001/checkpoint_step400000.pt",
+      "checkpoint_sha256": "851038a3db64ed70d509d1739a7e505c2c172b1cacfd7f35e825098d50772496",
+      "checkpoint_step": 400000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__matched-random__seed20262001",
+      "training_seed": 20262001,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__matched-random__seed20262001/checkpoint_step400000.json",
+      "validation_evidence_sha256": "6f4446596e67aae2aab6e054f5d8efeac95cddf2708fc5113cb27c45ada3e40d",
+      "validation_expected_utility": 0.0004403870552778244,
+      "validation_hypervolume": 4.9080535425892755
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/matched-random/random-curriculum-pcqn_mo-lunar-lander-v3_seed20262002/checkpoint_step500000.pt",
+      "checkpoint_sha256": "1fd584204ecc8bb68258c4d03c49325d4882929aae1a5f135bb6185fc8b7dbbc",
+      "checkpoint_step": 500000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__matched-random__seed20262002",
+      "training_seed": 20262002,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__matched-random__seed20262002/checkpoint_step500000.json",
+      "validation_evidence_sha256": "73075488db39cf9a58a2d8070fe2fa7af25a577c27d2207047a82ed9e3023c77",
+      "validation_expected_utility": 0.02019861340522766,
+      "validation_hypervolume": 4.877823647144721
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/matched-random/random-curriculum-pcqn_mo-lunar-lander-v3_seed20262003/checkpoint_step350000.pt",
+      "checkpoint_sha256": "3f112a71688c2052437bbaca19d249e8cabd55eea90eb28eb9878e9afd8f2cf9",
+      "checkpoint_step": 350000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__matched-random__seed20262003",
+      "training_seed": 20262003,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__matched-random__seed20262003/checkpoint_step350000.json",
+      "validation_evidence_sha256": "0e395c104c1a9cbac497c3d97843896ca689d42093efaa7e012d643b31a8d507",
+      "validation_expected_utility": 0.008256228640675545,
+      "validation_hypervolume": 5.22964786465997
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/matched-random/random-curriculum-pcqn_mo-lunar-lander-v3_seed20262004/checkpoint_step450000.pt",
+      "checkpoint_sha256": "3ea393733006cd54978a18ac4095fe83752924b0cf67740838868f1b1d53f6e5",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__matched-random__seed20262004",
+      "training_seed": 20262004,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__matched-random__seed20262004/checkpoint_step450000.json",
+      "validation_evidence_sha256": "ad5e17691047f0ee4afebee96df5ce29c493614dfd7dfb1bba41ce4ce1a1176a",
+      "validation_expected_utility": 0.03516864776611328,
+      "validation_hypervolume": 4.948406325199858
+    },
+    {
+      "arm": "matched-random",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/matched-random/random-curriculum-pcqn_mo-lunar-lander-v3_seed20262005/checkpoint_step500000.pt",
+      "checkpoint_sha256": "1e24c302ae8ac2f7bc0fdcbc0448a4437a16402b0bedc8511b7d389d064aed14",
+      "checkpoint_step": 500000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__matched-random__seed20262005",
+      "training_seed": 20262005,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__matched-random__seed20262005/checkpoint_step500000.json",
+      "validation_evidence_sha256": "cfff074c31db040530bdeae9f961fde768aecabadccc77f16a4e432252616a52",
+      "validation_expected_utility": 0.06891316175460815,
+      "validation_hypervolume": 5.308371126072512
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/uniform/uniform-pcqn_mo-lunar-lander-v3_seed20262001/checkpoint_step300000.pt",
+      "checkpoint_sha256": "853c086e0954321534e0c917d0029c2240882a7563eee284a498a106330cc3fc",
+      "checkpoint_step": 300000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__uniform__seed20262001",
+      "training_seed": 20262001,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__uniform__seed20262001/checkpoint_step300000.json",
+      "validation_evidence_sha256": "8a8c68410651cdfa784b1caf7a97282dd63796224d416264c37f3ebdfdb310b8",
+      "validation_expected_utility": 0.008657705038785934,
+      "validation_hypervolume": 4.955048106130456
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/uniform/uniform-pcqn_mo-lunar-lander-v3_seed20262002/checkpoint_step350000.pt",
+      "checkpoint_sha256": "027b31951e6dcac7a81e7ff9033426d382eb6946212dcd3e3175e545cc54ecbd",
+      "checkpoint_step": 350000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__uniform__seed20262002",
+      "training_seed": 20262002,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__uniform__seed20262002/checkpoint_step350000.json",
+      "validation_evidence_sha256": "c18bb89a37c59cb413e90a5fd11f18bb367af706c551fa8acecc4ef9fc50999a",
+      "validation_expected_utility": -0.013638163916766644,
+      "validation_hypervolume": 4.7032168780837775
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/uniform/uniform-pcqn_mo-lunar-lander-v3_seed20262003/checkpoint_step450000.pt",
+      "checkpoint_sha256": "4dd64095eeec7a77aed1ac5506a6cf26688358114faaf4ae058eceff4a9f4908",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__uniform__seed20262003",
+      "training_seed": 20262003,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__uniform__seed20262003/checkpoint_step450000.json",
+      "validation_evidence_sha256": "948f24e464acf795ede7849df39334d5051f0380a19b1dc359dd28d87492ed46",
+      "validation_expected_utility": -0.009588604792952538,
+      "validation_hypervolume": 4.883708680435159
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/uniform/uniform-pcqn_mo-lunar-lander-v3_seed20262004/checkpoint_step350000.pt",
+      "checkpoint_sha256": "74d1f0cab83db95144c50a2558a1b85c4bb6d9273460b2a8935d0178f1c3424c",
+      "checkpoint_step": 350000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__uniform__seed20262004",
+      "training_seed": 20262004,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__uniform__seed20262004/checkpoint_step350000.json",
+      "validation_evidence_sha256": "11663e21242c0a090ef3c637496e6f685628df4a2ca07bde7cbc1dd4cc5a4d92",
+      "validation_expected_utility": -0.025956403464078903,
+      "validation_hypervolume": 4.561354906203479
+    },
+    {
+      "arm": "uniform",
+      "checkpoint_path": "artifacts/course-paired-matrix-v1/mo-lunar-lander-v3/uniform/uniform-pcqn_mo-lunar-lander-v3_seed20262005/checkpoint_step450000.pt",
+      "checkpoint_sha256": "6694d0439241d5f6c675beb6bbad5e13bf80a4cb1fde5ded7aef68339b34ac3f",
+      "checkpoint_step": 450000,
+      "eligible_for_lock": true,
+      "environment": "mo-lunar-lander-v3",
+      "job_id": "mo-lunar-lander-v3__uniform__seed20262005",
+      "training_seed": 20262005,
+      "validation_evidence_path": "artifacts/course-paired-matrix-v1/validation-evidence-v1/mo-lunar-lander-v3__uniform__seed20262005/checkpoint_step450000.json",
+      "validation_evidence_sha256": "4ead78cf51b6bc7726e23088ae7e346b5504597de3a824a6c667f069a3c11f8e",
+      "validation_expected_utility": -0.052161868661642075,
+      "validation_hypervolume": 4.158972000909617
+    }
+  ],
+  "final_test_accessed": false,
+  "kind": "course_primary_checkpoint_lock",
+  "lock_count": 0,
+  "locks": [],
+  "schema_version": 1,
+  "scope": "primary_pcqn_30_job_block",
+  "selection_rule": "maximum protocol-scaled hypervolume; break exact ties by expected utility, then earlier checkpoint",
+  "selection_shift": "nominal",
+  "selection_split": "validation",
+  "source_audit": {
+    "path": "research/evidence/course_primary_execution_audit_v1.json",
+    "sha256": "26d61c030ec4d09a83648f1fdf3a3e3b69786c87a3aef3751a2ed6b6cc2e6f42"
+  },
+  "status": "blocked",
+  "study_id": "course-paired-matrix-v1",
+  "unlocks_final_test": false,
+  "validation_aggregate": {
+    "path": "research/evidence/course_primary_validation_v1.json",
+    "sha256": "1319ea15e18e4d88394bdb2651fbe3139eaf382ed075d246a8d4a7dca4fcf114"
+  }
+}

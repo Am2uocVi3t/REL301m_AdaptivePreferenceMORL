@@ -1,0 +1,64 @@
+The presentation default is the validation preference nearest the uniform
+simplex point, not a checkpoint or seed chosen for successful behavior.
+Equal preference coordinates multiply scaled rewards; they do not guarantee
+equal task importance. A separate audit of eight preferences and five environment
+seeds per environment found zero ore collection/delivery in all 40 Minecart
+cases. Slider sensitivity therefore demonstrates input conditioning, while
+task success requires a separate check.
+
+We added a positive control on ten new paired Lunar development seeds:
+the frozen model at default and landing-heavy weights, and Gymnasium's
+unmodified handwritten heuristic. This is a fixed controller, not learned MORL.
+Native per-step reward, state and action traces are retained.
+\begin{table}[H]
+\centering\small
+\caption{Lunar positive control: ten paired environment seeds for one frozen
+model, not independent training replicates. Pad x is an additional spatial diagnostic.}
+\begin{tabular}{lrrr}
+\toprule
+Controller & Native +100 & +100 and pad x & Mean steps\\
+\midrule
+Model, default & 0/10 & 0/10 & 1000.0\\
+Model, landing-heavy & 4/10 & 2/10 & 683.2\\
+Handwritten heuristic & 8/10 & 7/10 & 216.9\\
+\bottomrule
+\end{tabular}
+\end{table}
+At the unchanged protocol $\gamma=.99$, the heuristic has greater
+default-weight utility in 9/10 pairs (means .2340 versus .0574).
+At landing-heavy weights it also exceeds the corresponding model in 9/10
+pairs (means .0585 versus $-.1961$). Thus objective/task mismatch alone does
+not explain the failure: a better controller exists under the same utility.
+The native +100 condition checks the sleeping lander body, without an explicit
+pad-x test; reporting only +100 would omit this distinction.
+
+The full-text/source review also corrects budget comparability.
+Abels et al.~\cite{abels2019dynamic-weights} report Minecart to one million
+decision steps with a different optimizer and discount factor. The 100k
+Envelope setup is a library example; Minecart is not an experimental task in
+the original Envelope paper~\cite{yang2019envelope}.
+The author PCN Minecart implementation~\cite{reymond2022pcn} instead uses a
+deterministic environment and ten million interactions.
+A later stochastic-Minecart architecture study uses four million interactions
+and five seeds~\cite{terekhov2024architectures}. These are implementation
+differences to disclose, not evidence that longer training alone fixes our learner.
+
+A new development-only screen was frozen before execution: $n=1$ versus
+$n=20$ vector returns, both environments, three paired training seeds, and
+500k interactions per job (12 jobs, six million executed interactions).
+All other learner settings, uniform preference allocation, static scales and
+$\gamma=.99$ are matched. The $n=20$ choice is an unvalidated long-credit
+hypothesis, not a paper-established Minecart default. Uncorrected off-policy
+multi-step targets may introduce bias. Short repeated CUDA learning traces
+matched exactly before main execution. This screen subsequently completed and
+failed its task gates; the following on-policy section reports the later
+separate intervention. The completed negative screen is retained in
+\path{research/evidence/credit_assignment_recovery_v1.json}.
+
+Only final checkpoints can pass the predeclared development task screen:
+each training seed needs at least 8/10 native +100-and-pad Lunar cases at
+landing-heavy weights, or 5/10 ore deliveries at the declared Minecart
+ore-seeking weights. Intermediate 100k/250k checkpoints describe learning and
+cannot select a best model. The original allocation matrix and final-test
+gates remain separate. Evidence and plans are indexed in
+\path{docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md}.

@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\begin{axis}[width=0.94\textwidth,height=65mm,ymin=0,ymax=34,
+ylabel={Positive episodes per ore objective / 160},
+symbolic x coords={v1-01,v1-02,v1-03,v2-11,v2-12,v2-13},
+xtick=data,ytick={0,8,16,24,32},ymajorgrids,grid style={gray!15},
+axis line style={gray!50},tick label style={font=\small},label style={font=\small},clip=false]
+\addplot[ycomb,very thick,Teal,mark=*,mark size=3pt,nodes near coords,
+every node near coord/.append style={font=\small,above=2pt}]
+coordinates {(v1-01,0) (v1-02,0) (v1-03,28) (v2-11,0) (v2-12,0) (v2-13,0)};
+\addplot[Accent,dashed,thick] coordinates {(v1-01,8) (v2-13,8)};
+\node[anchor=south east,font=\small,text=Accent] at (axis cs:v2-13,8) {Required count: 8};
+\end{axis}
+\end{tikzpicture}

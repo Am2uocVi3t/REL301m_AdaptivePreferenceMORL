@@ -1,0 +1,24 @@
+{
+  "status": "technical_and_presentation_checks_pass",
+  "independent_semantic_review": false,
+  "package": "outputs\\REL301m_Course_Project_20261103",
+  "package_manifest_sha256": "9247b9923ec75ab94862c5b4ce063ca0896e34761c45e2dd42faf9db7bef7542",
+  "archive_sha256": "0292366517ef5261827bdceca3fb2733b3f6174cf664bc4cd435af4517b3e4d4",
+  "pdf": "outputs/course-report-latex/REL301m_Course_Project_Report.pdf",
+  "pdf_sha256": "ac08ddacc516a4df10cfa30257021e536b4c0845061a963d1175f5c3c06e9319",
+  "pdf_pages": 13,
+  "pdf_visual_pages_inspected": [
+    9,
+    10
+  ],
+  "pdf_undefined_markers": false,
+  "minecart_selection": "lowest confirmation seed20264311 final4M argmax, not score-selected",
+  "demo_physics_cases": 20,
+  "browser_receipt": "artifacts\\onpolicy-course-demo\\browser\\browser.json",
+  "browser_sha256": "444fdb722db705cdc1448a50e06c7ec77e9e3deba263dfd9f80d65c9359429eb",
+  "quality_tests_passed": 231,
+  "quality_tests_skipped": 4,
+  "lunar_demo_qualified": false,
+  "lunar_ppo_qualification_only": "research\\qualification\\lunar_onpolicy_specialist_v1.json",
+  "final_test_steps": 0
+}

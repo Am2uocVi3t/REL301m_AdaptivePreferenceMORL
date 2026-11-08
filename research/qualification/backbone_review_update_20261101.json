@@ -1,0 +1,19 @@
+{
+  "captured_at": "2026-11-01T15:24:35.829502+00:00",
+  "status": "research_update_not_project_completion",
+  "files": {
+    "outputs/research-update-20261101/REL301m_Research_Update.pdf": "1667d8373632081a6e81339c7643af538152c7819593c3cbb6ef58bd010d1022",
+    "paper/REL301m/Chapters/BackboneInvestigation.tex": "f4062664a62c943ce4f23598545aa0e27fcd165c1ec78ae0fbf4484294088467",
+    "paper/REL301m/Chapters/Final.tex": "857c974e6d9b2d03ef079fbac2d140d2b826735b74d437fcc69c2f5bc09c9660",
+    "paper/REL301m/Chapters/EnvelopeResults.tex": "3778e01c7c76d517dbf20324dea1dbe6e09713d5c9c1b1fe0d69449e9eee6639",
+    "research/evidence/lunar_objective_diagnosis_v1.json": "082e01119dfd6f93420a2885066130ba2c209e26c67553f928f1adcc58bc58ea",
+    "research/qualification/lunar_objective_diagnosis_v1.json": "0326ba92f75364a8f2a265fe05f9c90901f32f19fb8b592a9d5eac8726bf6617",
+    "research/qualification/credit_assignment_v1.json": "46621a27a6e3c90456b987c7053c733dd8452e93378920e0b2ad57d30d404845"
+  },
+  "pdf_pages": 12,
+  "visual_check": "All-page contact sheet and detailed final pages 8/9 inspected after rebuild",
+  "quality_gate": "184 passed, 4 skipped; ruff format/check, mypy, bandit, compileall, diff check passed",
+  "main_cohort": "Running, not yet complete. Live status in artifacts/credit-assignment-v1/execution_status.json",
+  "semantic_review": "No independent semantic-review PASS claimed",
+  "old_deliveries": "Preserved"
+}

@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-17",
+  "purpose": "Recoverable presentation-output organization at user request",
+  "kept_at_output_root": ["REL301m_Interactive_Demo/", "REL301m_Interactive_Demo.zip", "README.md"],
+  "archive": "artifacts/presentation-archive/2026-10-17-output-cleanup",
+  "verification_artifacts": "artifacts/presentation-verification/2026-10-17",
+  "document_build_inputs": "artifacts/presentation-build/interactive-docs",
+  "relocation_manifest": "artifacts/presentation-archive/2026-10-17-output-cleanup/RELOCATION.json",
+  "relocation_manifest_sha256": "53cc713a6656e2757c21374a41bcde70be742d0fbe2d18e9c35b4ac27611477f",
+  "inventory_files_verified": 131,
+  "all_original_bytes_preserved": true,
+  "permanently_deleted_files": 0,
+  "delivered_zip_changed": false,
+  "zip_sha256": "cd87fa63a00b8580b57edc2a546052dfc8a23104d62eedebaad9c648550d998a",
+  "output_directory_size": "112M before, 28M after; other bytes archived, not deleted",
+  "checks": {
+    "relocation": "All 131 inventoried file hashes match their current paths",
+    "current_package": "25 hashes, 5 local links and ZIP bytes/allowlist PASS",
+    "rebuild": "Built in isolated temporary output path from canonical paper/REL301m/main.pdf and relocated guide; package verifier PASS",
+    "quality": "195 tests passed in 6.99s; full Ruff/MyPy/Bandit/compileall/git diff check PASS",
+    "research_harness": "Doctor PASS"
+  },
+  "historical_evidence": "Original qualification files and copied package verification retain historical paths/source hashes; resolve relocated artifacts via RELOCATION.json. Current script edits change output/build paths only, not engine/model behavior.",
+  "runtime": "No server stopped; current runnable app directory unchanged except generated Python caches moved recoverably",
+  "scope": "No training, final-test access, scientific claim/gate change, paid call, ledger reset, scheduler, commit/push or submission"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "recovery-presentation-v1",
+  "purpose": "presentation_replacement_only",
+  "authorized_on": "2026-11-01",
+  "authority": "User requested completion of course report/demo on the current laptop with all managed storage on D:",
+  "course_evidence": false,
+  "final_test_permitted": false,
+  "checkpoint_selection": "final_at_fixed_budget_no_selection",
+  "retry_policy": "No automatic retry, seed replacement, budget extension or performance-based tuning",
+  "budget": {
+    "training_interactions_per_job": 100000,
+    "jobs": 2,
+    "device": "cpu",
+    "training_threads": 4
+  },
+  "algorithm": "uniform-pcqn",
+  "output_root": "artifacts/recovery-presentation-v1",
+  "jobs": [
+    {
+      "id": "lunar",
+      "environment": "mo-lunar-lander-v3",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json",
+      "protocol_sha256": "5c8abd59ad2b73a74fc59b700dd446519f708b09f21dc3556e5f8b63846bcb48",
+      "training_seed": 20261111,
+      "presentation_seed": 20000
+    },
+    {
+      "id": "mine",
+      "environment": "minecart-v0",
+      "protocol": "configs/protocols/course_minecart_v0.json",
+      "protocol_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+      "training_seed": 20261112,
+      "presentation_seed": 670000
+    }
+  ],
+  "allowed_claim": "A newly trained fixed PCQN accepts preferences during genuine environment inference",
+  "forbidden_claims": [
+    "Recovered historical trained weights",
+    "Successful task solution or convergence",
+    "Adaptive allocation benefit",
+    "Any reopening of failed F1, F2, matrix-v1 or final-test gates"
+  ]
+}

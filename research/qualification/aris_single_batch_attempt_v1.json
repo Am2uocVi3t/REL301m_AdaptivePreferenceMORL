@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "kind": "aris_single_batch_pre_dispatch_attempt",
+  "checked_at": "2026-10-17T09:30:12+00:00",
+  "status": "COMPLETED_ONE_BATCH_AUTHORIZATION_CONSUMED",
+  "authorization": {
+    "source": "direct_user_message_in_current_chat",
+    "paid_review_authorized": true,
+    "maximum_batches": 1,
+    "nominal_total_batch_budget_usd": 1.0,
+    "nominal_invocation_budget_usd": 0.25,
+    "auto_reload_must_remain_off": true,
+    "scheduler_authorized": false,
+    "condition": "Offline gates pass, known historical spend and remaining budget, preserve all reservations, define and ledger the batch before dispatch",
+    "authorization_persists_for_this_single_conditional_batch": false,
+    "authorization_consumed_by": "aris-existing-evidence-20261017-one-batch"
+  },
+  "batch": {
+    "id": "aris-existing-evidence-20261017-one-batch",
+    "definition_created": true,
+    "reservation_created": true,
+    "provider_invocations": 1,
+    "paid_cost_this_attempt_usd": 0.0954889,
+    "cost_basis": "provider CLI list estimate, not new Console reconciliation",
+    "independent_claude_review": "COMPLETED",
+    "stop_reason": "Exactly one authorized batch completed; no further dispatch or scheduler authorized"
+  },
+  "verified_existing_evidence": {
+    "path": "research/qualification/aris_offline_hardening_v1.json",
+    "recorded_tests_passed": 160,
+    "repeated_tests_this_attempt": 0,
+    "all_nine_source_hashes_match": true,
+    "installed_guard_matches_source": true,
+    "installed_launcher_matches_source": true,
+    "routine_preflight": "PASS",
+    "quota_observed_at": "2026-10-17T09:29:53+00:00",
+    "codex_minimum_remaining_percent": 66,
+    "scope": "Existing source-bound offline fixtures; no new paid or scientific acceptance"
+  },
+  "spending": {
+    "ledger_path": "/home/hei/.local/share/rel301m-aris-setup/usage.sqlite3",
+    "ledger_sha256_before": "6e82a4fc437ceaca7dbfd1704869ce037908f8bc6a0d2ea7213f99c4f2f9921f",
+    "legacy_file_sha256": "ad045ccf5a0cbd99a238f787c1678de91b6a9d48a5f3604a40dd269f58714ac9",
+    "historical_reservation_count": 2,
+    "historical_reserved_usd": 0.5,
+    "historical_status": "console_reconciliation_required",
+    "historical_actual_cost_usd": null,
+    "historical_cli_estimates_usd": [0.0117487, 0.2251555],
+    "historical_cli_estimated_sum_usd": 0.2369042,
+    "remaining_paid_budget_usd": null,
+    "console_reconciliation_present": false,
+    "console_evidence_lookup": "Browser origin access declined for https://console.anthropic.com/settings/billing; no workaround attempted",
+    "auto_reload_status": "User instructs off; no billing setting changed or independently reverified",
+    "new_reservations": 0
+  },
+  "offline_read_only_review": {
+    "agent": "/root/offline_gate_audit",
+    "review_independence": "same-family",
+    "acceptance_status": "provisional",
+    "trace_path": ".aris/traces/parallel-agents/2026-10-17_run01/",
+    "result": "Existing offline PASS scope remains valid; no additional mandatory offline gate identified for one supervised tools-off inline-packet batch",
+    "future_batch_requirement": "Persist durable task/job IDs before dispatch; resume the same job through status. Do not call execute again for a completed task: the budget guard alone is not task-idempotent",
+    "unattended_limit": "No demonstrated OS isolation for simultaneous guardian kill or descendants escaping the process group; heuristic packet scanning is not an OS sandbox",
+    "stale_preflight_remaining_work": "The preflight remaining_work text predates completed offline hardening. It does not invalidate source-bound qualification; no code was changed to restate completed checks"
+  },
+  "resume": {
+    "state": "COMPLETE_STOPPED_AFTER_ONE_BATCH",
+    "duplicate_work_avoided": "Live coordinator process restart and completed-state reopening retained the same job and exactly one ledger call",
+    "next_required_input": null,
+    "historical_sessions": [
+      "72da81df-3c3a-424e-9951-65f456e4f367",
+      "976dc6d7-e379-4ca0-96f3-304bd241e8bb"
+    ],
+    "next_action_after_reconciliation": "Batch already complete. Read research/qualification/aris_single_batch_result_v1.json; do not execute another review using this consumed authorization"
+  },
+  "latest_console_evidence": {
+    "path": "research/evidence/aris_console_usage_20261017_partial.json",
+    "received_at": "2026-10-17T09:40:02+00:00",
+    "reported_credit_balance_usd": 4.77,
+    "reported_auto_reload_enabled": false,
+    "status": "PARTIAL_EVIDENCE_COST_USD_MISSING",
+    "ledger_update": "Added evidence provenance and reported balance/auto-reload to metadata on both legacy rows; IDs, batches, reservations, status and actual_cost_usd retained",
+    "next_required_input": "Console Cost USD evidence for the historical date/model/key/workspace scope; the supplied daily token export contains no billed amount"
+  },
+  "final_resolution": {
+    "historical_group_console_spent_usd": 0.24,
+    "historical_display_precision_usd": 0.01,
+    "historical_evidence": "research/evidence/aris_console_spend_20261017.json",
+    "historical_individual_costs_remain_unknown": true,
+    "reservations_preserved_usd": 0.5,
+    "new_reserved_usd": 0.25,
+    "result": "research/qualification/aris_single_batch_result_v1.json",
+    "paid_policy_enabled": false,
+    "scheduler_enabled": false,
+    "note": "Earlier spending and partial-evidence fields above preserve the original blocked-attempt observations; this final resolution supersedes their dispatch state"
+  },
+  "unattended_ready": false,
+  "scientific_acceptance": false,
+  "research_restarted": false,
+  "training_or_v3_launched": false,
+  "protocol_or_scope_changed": false,
+  "checkpoints_locked": false,
+  "final_test_accessed": false,
+  "commit_or_push_performed": false,
+  "scheduler_enabled": false
+}

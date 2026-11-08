@@ -72,6 +72,16 @@ eval(user_input)
             self.assertGreaterEqual(report["summary"]["high"], 1)
             self.assertTrue(security_scan._should_fail(report, "high"))
 
+    def test_security_scanner_ignores_method_eval_and_non_sql_fstrings(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "safe.py").write_text(
+                "model.eval()\nprint(f'Updated claim {claim_id}')\n",
+                "utf-8",
+            )
+            report = security_scan.run_full_scan(str(root), "patterns")
+            self.assertEqual([], report["scans"]["code_patterns"]["findings"])
+
     def test_security_scanner_detects_nested_nextjs_header_configuration(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

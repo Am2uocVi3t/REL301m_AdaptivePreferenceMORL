@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 successful-episode replay results</title>
+
+<meta name="generator" content="ARIS render-html (academic, v1)">
+<meta name="aris:source-path" content="refine-logs/EXPERIMENT_RESULTS.md">
+<meta name="aris:source-sha256" content="a43f6caf77abaabc0ce0e2eebbda45c4cae3c53baa75900f31b41af155054d1e">
+<meta name="aris:generated-at" content="2026-10-17 21:18 UTC">
+
+<!-- offline mode: MathJax + highlight.js skipped; math and code blocks render as plain text -->
+
+<style>
+:root {
+  --bg: #fdfcf7;
+  --bg-soft: #f4f1ea;
+  --bg-code: #f8f5ec;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --ink-muted: #6b6b6b;
+  --primary: #1a4a8c;
+  --primary-soft: #2d6cb8;
+  --accent: #b8390e;
+  --warn: #b45309;
+  --warn-bg: #fef3c7;
+  --info-bg: #dbeafe;
+  --good-bg: #d1fae5;
+  --good: #065f46;
+  --bad-bg: #fee2e2;
+  --bad: #991b1b;
+  --border: #d6d0c0;
+  --border-soft: #e8e3d5;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Source Serif Pro", "Source Serif 4", "Crimson Pro", "Georgia", "Songti SC", "STSong", serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  padding: 40px 32px;
+}
+
+nav.toc {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  font-size: 13px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border-right: 1px solid var(--border-soft);
+  padding-right: 16px;
+}
+nav.toc h3 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+nav.toc ol { list-style: none; padding: 0; margin: 0; counter-reset: toc; }
+nav.toc ol li { margin: 5px 0; counter-increment: toc; }
+nav.toc ol li::before { content: counter(toc) ". "; color: var(--ink-muted); margin-right: 4px; }
+nav.toc a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+nav.toc a:hover { color: var(--primary); border-bottom-color: var(--primary); }
+nav.toc ul { list-style: none; padding-left: 14px; margin: 3px 0; font-size: 12px; }
+nav.toc ul li::before { content: "→ "; color: var(--border); }
+
+main { min-width: 0; }
+
+header.hero {
+  border-bottom: 3px double var(--primary);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+header.hero .eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+header.hero h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+header.hero .subtitle {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
+  font-style: italic;
+}
+header.hero .byline {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+header.hero .byline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+header.hero .meta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border-soft);
+  padding-top: 14px;
+}
+header.hero .meta span strong { color: var(--ink-soft); }
+header.hero .meta code {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 11px;
+  background: var(--bg-soft);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+}
+
+h2 {
+  font-size: 24px;
+  margin: 44px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  font-weight: 700;
+}
+h2 .num { color: var(--primary); font-weight: 600; margin-right: 8px; }
+h3 { font-size: 19px; margin: 28px 0 10px; color: var(--primary); font-weight: 600; }
+h4 { font-size: 16px; margin: 20px 0 8px; color: var(--ink); font-weight: 600; }
+
+p { margin: 10px 0; }
+ul, ol { padding-left: 22px; margin: 10px 0; }
+ul li, ol li { margin: 4px 0; }
+ul li::marker { color: var(--primary); }
+
+strong { color: var(--accent); font-weight: 600; }
+em { color: var(--ink-soft); }
+
+a { color: var(--primary); }
+a:hover { color: var(--accent); }
+
+code:not(.hljs) {
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.86em;
+  background: var(--bg-code);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--border-soft);
+  color: var(--accent);
+}
+
+pre {
+  background: #fafaf6;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  padding: 0;
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 14px 0;
+}
+pre code, pre code.hljs {
+  background: transparent !important;
+  display: block;
+  padding: 14px 18px !important;
+  font-size: 13px;
+  line-height: 1.55;
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", monospace;
+  color: var(--ink);
+}
+pre.diagram {
+  background: #f9f6ed;
+  border-left: 4px solid var(--accent);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.callout {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-radius: 4px;
+  border-left: 4px solid;
+  font-size: 15px;
+}
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.callout-info { background: var(--info-bg); border-left-color: var(--primary); }
+.callout-info .callout-title { color: var(--primary); }
+.callout-warn { background: var(--warn-bg); border-left-color: var(--warn); }
+.callout-warn .callout-title { color: var(--warn); }
+.callout-good { background: var(--good-bg); border-left-color: var(--good); }
+.callout-good .callout-title { color: var(--good); }
+.callout-bad { background: var(--bad-bg); border-left-color: var(--bad); }
+.callout-bad .callout-title { color: var(--bad); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+thead { background: var(--primary); color: white; }
+th, td {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+th { font-weight: 600; font-size: 13px; letter-spacing: 0.02em; }
+tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--bg-soft); }
+
+details.qa, details {
+  background: white;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  margin: 10px 0;
+  padding: 0;
+}
+details summary {
+  cursor: pointer;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--primary);
+  list-style: none;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▸ ";
+  margin-right: 4px;
+  display: inline-block;
+  transition: transform 0.15s;
+}
+details[open] summary::before { transform: rotate(90deg); }
+details[open] summary { border-bottom: 1px solid var(--border-soft); }
+details > :not(summary) { padding: 10px 14px; }
+details p:first-of-type { margin-top: 8px; }
+
+mjx-container[display="true"] { margin: 12px 0 !important; }
+
+footer.aris-footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+footer.aris-footer a { color: var(--ink-muted); border-bottom: 1px dotted var(--border); }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 20px; padding: 20px 16px; }
+  nav.toc {
+    position: static;
+    max-height: none;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding-right: 0;
+    padding-bottom: 14px;
+  }
+  header.hero h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+}
+@media print {
+  nav.toc { display: none; }
+  .layout { grid-template-columns: 1fr; padding: 0; }
+  body { background: white; }
+  header.hero { border-bottom-color: var(--ink); }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc">
+  <h3>Contents</h3>
+  <ol>
+<li><a href="#execution-and-deterministic-decision">Execution and deterministic decision</a>
+</li>
+<li><a href="#budget-ledger">Budget ledger</a>
+</li>
+<li><a href="#return-semantics-and-manipulation-records">Return semantics and manipulation records</a>
+</li>
+<li><a href="#evidence-and-limits">Evidence and limits</a>
+</li>
+</ol>
+</nav>
+
+<main>
+<header class="hero">
+  
+  <h1>F1 successful-episode replay results</h1>
+  
+  
+  <div class="meta">
+    <span><strong>Source:</strong> <code>refine-logs/EXPERIMENT_RESULTS.md</code></span>
+    <span><strong>SHA256:</strong> <code>a43f6caf77ab</code></span>
+    <span><strong>Rendered:</strong> 2026-10-17 21:18 UTC</span>
+    
+  </div>
+</header>
+
+<h1 id="f1-successful-episode-replay-results">F1 successful-episode replay results</h1>
+<p>Verified 2026-10-18 (Asia/Ho_Chi_Minh). This is a bounded, nominal-validation replay-sufficiency screen, not the course allocation comparison.</p>
+<h2 id="execution-and-deterministic-decision">Execution and deterministic decision</h2>
+<p>Six jobs completed once on clean source commit <code>0660ecc865f3a3823f248f1f1955d70c2faf5936</code>, with three paired training seeds 20264021–20264023 and cells A0R0 and A1R1. Each used 1,000,000 training interactions and 995,001 gradient updates. Source audit passed six jobs and 60 checkpoints. The frozen qualification decision is <strong>failed</strong>: all three A1R1 retention states are <code>never_expressed</code>.</p>
+<table><thead><tr><th>Cell</th><th style="text-align:right">Training seed</th><th style="text-align:right">Positive ore-0 episodes over 10 checkpoints</th><th style="text-align:right">Positive ore-1 episodes over 10 checkpoints</th><th style="text-align:right">Final checkpoint positives per ore objective</th></tr></thead><tbody><tr><td>A0R0</td><td style="text-align:right">20264021</td><td style="text-align:right">60 / 1600</td><td style="text-align:right">60 / 1600</td><td style="text-align:right">19 / 160</td></tr><tr><td>A0R0</td><td style="text-align:right">20264022</td><td style="text-align:right">19 / 1600</td><td style="text-align:right">19 / 1600</td><td style="text-align:right">17 / 160</td></tr><tr><td>A0R0</td><td style="text-align:right">20264023</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 160</td></tr><tr><td>A1R1</td><td style="text-align:right">20264021</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 160</td></tr><tr><td>A1R1</td><td style="text-align:right">20264022</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 160</td></tr><tr><td>A1R1</td><td style="text-align:right">20264023</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 1600</td><td style="text-align:right">0 / 160</td></tr></tbody></table>
+<p>Each checkpoint evaluates the same 32 validation preferences × 5 episode seeds. Counts across checkpoints repeat fixed cases; 9,600 evaluations are not 9,600 independent training replicates. Experimental unit is the training seed. No significance test or causal attribution is asserted.</p>
+<h2 id="budget-ledger">Budget ledger</h2>
+<table><thead><tr><th>Category</th><th style="text-align:right">Steps or updates</th></tr></thead><tbody><tr><td>Training interactions</td><td style="text-align:right">6,000,000</td></tr><tr><td>Gradient updates</td><td style="text-align:right">5,970,006</td></tr><tr><td>Curriculum-evaluation environment steps during training</td><td style="text-align:right">11,476,292</td></tr><tr><td>Validation environment steps during training</td><td style="text-align:right">8,654,847</td></tr><tr><td>Independent nominal-validation re-audit environment steps</td><td style="text-align:right">8,654,847</td></tr></tbody></table>
+<p>The independent re-audit has 60 checkpoints × 160 cases = 9,600 episodes. A0R0 accounts for 4,800 episodes / 3,948,162 steps / 3,936 length-1,000 cases; A1R1 accounts for 4,800 episodes / 4,706,685 steps / 4,705 length-1,000 cases. Saved tensors do not retain termination/truncation flags, so these length counts cannot independently certify timeouts. The six training job resource records sum to 18,563.53 wall seconds; that is training-job wall time, not audit or whole-project tuning cost.</p>
+<h2 id="return-semantics-and-manipulation-records">Return semantics and manipulation records</h2>
+<p>The evaluation field <code>raw_episode_returns</code> means <strong>undiscounted protocol-scaled vector returns</strong>, not native environment units; <code>discounted_episode_returns</code> uses the same scaled rewards and the frozen discount. Trajectory metadata <code>raw_return</code> is a separate native-unit training record. Positive ore/zero ore is invariant to the frozen positive scaling; do not mix magnitudes between these sources or call scaled values native raw returns.</p>
+<p>A1R1 manipulation counters are available, including eligible completed trajectories, successful-stratum samples, attempted/actually changed preference labels, projections and label histograms. They distinguish treatment exposure from greedy validation performance; nonzero exposure is not sufficiency.</p>
+<table><thead><tr><th>A1R1 seed</th><th style="text-align:right">Eligible training trajectories</th><th style="text-align:right">Successful-stratum sampled positions</th><th style="text-align:right">Relabel attempts</th><th style="text-align:right">Actually changed positions</th></tr></thead><tbody><tr><td>20264021</td><td style="text-align:right">1176</td><td style="text-align:right">31840032</td><td style="text-align:right">47905037</td><td style="text-align:right">46313803</td></tr><tr><td>20264022</td><td style="text-align:right">1134</td><td style="text-align:right">31840032</td><td style="text-align:right">46778025</td><td style="text-align:right">45294470</td></tr><tr><td>20264023</td><td style="text-align:right">1073</td><td style="text-align:right">31840032</td><td style="text-align:right">48095879</td><td style="text-align:right">45826066</td></tr></tbody></table>
+<h2 id="evidence-and-limits">Evidence and limits</h2>
+<p>The planned Mine/cargo/action-margin diagnostics are not emitted in the saved evaluation artifacts. This prevents localizing absent ore delivery to absent mining, cargo acquisition or return-to-base behavior. No such causal/localization claim is made, and no extra rollout is performed to fill this gap.</p>
+<ul><li>Frozen plan: <code>configs/remediations/minecart_pcqn_replay_f1.json</code>.</li><li>Execution: <code>artifacts/minecart-pcqn-replay-f1/execution_status.json</code>.</li><li>Source/manipulation audit: <code>research/evidence/minecart_pcqn_replay_f1_source_audit.json</code>.</li><li>Decision and all 60 evidence references: <code>research/qualification/minecart_pcqn_replay_f1.json</code>.</li><li>Return tensors: <code>artifacts/minecart-pcqn-replay-f1/validation-evidence/</code>.</li><li>Coordinator verified all 60 validation hashes and the bound source-audit hash.</li><li><code>EXPERIMENT_AUDIT.json</code>: WARN, same-family provisional; core failed F1 verified, with return-unit, measurement-completeness and scope qualifiers.</li><li><code>CLAIMS_FROM_RESULTS.json</code>: claim_supported=no, same-family provisional, attached integrity_status=warn. No cross-family acceptance is granted.</li></ul>
+<p>This screen does not establish universal replay failure, a delayed-credit cause, an individual sampling/relabel effect, adaptive-allocation benefit, preference generalization, dynamics-shift robustness, or publication readiness. F2, checkpoint lock, matrix v1 and final test remain locked. Preserve the negative result; do not extend seeds/budget or tune/restart to seek a win.</p>
+<p>Manuscript/TeX/PDF updates remain held by the user. Evidence reports and review records may be completed; venue selection and submission remain separate.</p>
+
+<footer class="aris-footer">
+  Generated by <a href="https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep/blob/main/skills/render-html/SKILL.md">ARIS <code>/render-html</code></a> ·
+  source path <code>refine-logs/EXPERIMENT_RESULTS.md</code> ·
+  SHA256 <code>a43f6caf77ab</code> ·
+  generated at 2026-10-17 21:18 UTC.
+  This is a generated view — edit the source Markdown, then re-render.
+</footer>
+</main>
+
+</div>
+</body>
+</html>

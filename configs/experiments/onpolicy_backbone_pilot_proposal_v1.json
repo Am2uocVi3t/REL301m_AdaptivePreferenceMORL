@@ -1,0 +1,148 @@
+{
+  "proposal_id": "onpolicy-backbone-pilot-v1",
+  "status": "proposed_after_P2_all_arms_fail",
+  "execution_enabled": false,
+  "source_evidence": "research/evidence/preference_recovery_p2_v1.json",
+  "findings": "research/evidence/preference_recovery_p2_findings_v1.json",
+  "scope": "New backbone feasibility, not P2 extension or adaptive-benefit comparison. No final-test access.",
+  "candidate": {
+    "algorithm": "Categorical PPO actor plus vector state-value critic",
+    "representation": "paper-motivated multibody width256, separate actor and critic",
+    "actor_lr": 0.0003,
+    "critic_lr": 0.0003,
+    "ppo_clip": 0.2,
+    "epochs": 4,
+    "minibatches": 8,
+    "parallel_streams": 8,
+    "fragment_steps": 64,
+    "batch_samples": 512,
+    "popart_rate": 0.001,
+    "entropy": {
+      "method": "MDMM",
+      "schedule": "linear",
+      "start": "log(6)",
+      "end": 0.4,
+      "initial_multiplier": 0.01,
+      "damping": 0.01,
+      "multiplier_lr": 3e-05
+    },
+    "gamma": 0.99,
+    "environment_horizon": 1000,
+    "utility_scaling_and_hv_reference": "unchanged frozen course_minecart_v0 protocol",
+    "setting_status": "prospective single candidate, not tuned optimal defaults or a full paper reproduction"
+  },
+  "stages": [
+    {
+      "id": "F0",
+      "role": "engineering qualification only",
+      "training_interactions_max": 50000,
+      "required": [
+        "explicit paper/source-default mapping",
+        "correct PPO ratios and vector advantage scalarization",
+        "PopArt denormalized-output preservation",
+        "time-limit/fragment bootstrap and preference-reset boundary tests",
+        "finite seeded CUDA learning witness",
+        "source-bound exact resume across all8 streams",
+        "bounded IO contention",
+        "measured local throughput",
+        "Native terminal recognizes the new on-policy study, progress budgets and sampled/argmax results before dispatch"
+      ],
+      "dispatch_blockers": [
+        "Exact optimizer-update counts and final partial minibatch accounting not frozen",
+        "TD1/fragment bootstrap and eight-stream resume representation not implemented/qualified",
+        "Exact evaluation matrix must be fixed within the stated ceiling"
+      ]
+    },
+    {
+      "id": "S",
+      "role": "one fixed-preference specialist pilot",
+      "seed": 20264111,
+      "preference": [
+        0.45,
+        0.45,
+        0.1
+      ],
+      "training_interactions": 4000000,
+      "fixed_checkpoints": [
+        500000,
+        1000000,
+        2000000,
+        4000000
+      ],
+      "selection": "final only",
+      "development_env_seeds": [
+        20264121,
+        20264122,
+        20264123,
+        20264124,
+        20264125,
+        20264126,
+        20264127,
+        20264128,
+        20264129,
+        20264130
+      ],
+      "evaluation_modes": [
+        "sampled",
+        "argmax"
+      ],
+      "gate": "8/10 deliveries at trained profile and utility above frozen idle reference. Sampled-only competence must not be described as deterministic. Stop at fixed budget if fail."
+    },
+    {
+      "id": "C",
+      "condition": "S passes and exact executable protocol is frozen",
+      "role": "same learner with uniform episode-fixed32 training preferences",
+      "seed": 20264111,
+      "training_interactions": 4000000,
+      "warm_start": false,
+      "gate": "8/10 at BOTH task profiles plus utility above idle; report sampled and argmax separately, no historical matched-budget superiority claim"
+    },
+    {
+      "id": "G",
+      "condition": "C passes; freeze one candidate before confirmation",
+      "role": "independent conditional-policy confirmation",
+      "training_seeds": [
+        20264311,
+        20264312,
+        20264313
+      ],
+      "training_interactions_per_job": 4000000,
+      "training_interactions_max": 12000000,
+      "new_preference_seed": 20264421,
+      "new_preference_count": 32,
+      "development_env_seeds": [
+        20264431,
+        20264432,
+        20264433,
+        20264434,
+        20264435,
+        20264436,
+        20264437,
+        20264438,
+        20264439,
+        20264440
+      ],
+      "gate": "Every training seed meets task profiles; new preference coverage and raw trade-offs reported. Exact evaluation matrix still requires freeze."
+    }
+  ],
+  "pilot_evaluation_ceiling": {
+    "episodes": 10000,
+    "steps": 10000000,
+    "status": "ceiling only; must preallocate explicit milestone/validation/task/mode matrix before dispatch"
+  },
+  "main_training_upper_bound_if_all_conditions_pass": 20000000,
+  "engineering_upper_bound": 50000,
+  "final_test_steps": 0,
+  "claim_limits": [
+    "No PPO guarantee from Q-learning failure",
+    "No universal arbitrary-parameter claim",
+    "No automatic original gate unlock",
+    "Adaptive allocation requires matched uniform/random/adaptive controls",
+    "No outcome-based extensions or seed substitution"
+  ],
+  "source_urls": [
+    "https://arxiv.org/html/2407.16807v1",
+    "https://github.com/CLAIRE-Labo/tunable-morl-public"
+  ],
+  "plan_document": "refine-logs/EXPERIMENT_PLAN_20261102_ONPOLICY_PILOT.md"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "pass",
+  "records": [
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "resume_step": 10107,
+      "last_observed_step": 11000,
+      "discarded_training_lower_bound": 893,
+      "discarded_training_upper_bound": 1893,
+      "result": "exact_model_target_optimizer_episode_and_evaluation_match"
+    },
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "resume_step": 10085,
+      "last_observed_step": 11000,
+      "discarded_training_lower_bound": 915,
+      "discarded_training_upper_bound": 1915,
+      "result": "exact_model_target_optimizer_episode_and_evaluation_match"
+    },
+    {
+      "env_id": "minecart-v0",
+      "n": 1,
+      "resume_step": 10733,
+      "last_observed_step": 11000,
+      "discarded_training_lower_bound": 267,
+      "discarded_training_upper_bound": 1267,
+      "result": "exact_model_target_optimizer_episode_and_evaluation_match"
+    },
+    {
+      "env_id": "minecart-v0",
+      "n": 20,
+      "resume_step": 10965,
+      "last_observed_step": 11000,
+      "discarded_training_lower_bound": 35,
+      "discarded_training_upper_bound": 1035,
+      "result": "exact_model_target_optimizer_episode_and_evaluation_match"
+    }
+  ],
+  "base_training_interactions": 48000,
+  "additional_discarded_work_bounds": [
+    2110,
+    6110
+  ],
+  "source_sha256": {
+    "scripts\\run_credit_assignment_recoverable.py": "20582dd7dda1479d1826defb1666e2bee71560c8a517287114068cdfbe2bec01",
+    "src\\utils\\training_recovery.py": "9c0cd2adec1dc252613ccd219c798c5965cfdbe75b002241fbe5b4e8d781e861",
+    "configs\\experiments\\credit_assignment_recovery_v1.json": "520615f3d1f7068cd92ab8c51b40635da895636880f0e5d03cdda7e7146f24e5"
+  },
+  "nonsemantic_source_update": {
+    "file": "src\\utils\\training_recovery.py",
+    "previous_sha256": "03002b8c788bfd497b806c51eb5dfc90191d27209c29b40593ebcc592cafdbd0",
+    "current_sha256": "ec831b1b50d2d67b25ae9625f2608e3c99922b067d318a9cb8a1ee7543d0b950",
+    "ast_equality_verified": true,
+    "reason": "Narrow Bandit marker for checksum-verified trusted local replay/RNG pickle; executable AST unchanged. Raw qualification checkpoints and their original bindings remain untouched."
+  },
+  "windows_typing_only_source_update": {
+    "previous_sha256": "ec831b1b50d2d67b25ae9625f2608e3c99922b067d318a9cb8a1ee7543d0b950",
+    "current_sha256": "9c0cd2adec1dc252613ccd219c798c5965cfdbe75b002241fbe5b4e8d781e861",
+    "windows_executable_ast_equality_verified": true,
+    "reason": "Type the unused POSIX module dynamically; the executed Windows branches are byte-AST-equivalent after pruning os.name conditionals. No learning/checkpoint operation changed."
+  }
+}

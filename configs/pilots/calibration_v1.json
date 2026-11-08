@@ -1,0 +1,56 @@
+{
+  "$schema": "../../research/schemas/pilot-calibration-plan.schema.json",
+  "schema_version": 1,
+  "name": "course-pilot-calibration-v1",
+  "status": "predeclared",
+  "purpose": "Propose per-objective reward scales and strictly dominated hypervolume reference points from pilot-only evidence.",
+  "source_split": "validation",
+  "forbidden_split": "test",
+  "method": "uniform-pcqn",
+  "seeds": [20261021, 20261022, 20261023],
+  "training": {
+    "total_timesteps": 100000,
+    "learning_starts": 5000,
+    "train_freq": 4,
+    "batch_size": 64,
+    "buffer_capacity": 200000,
+    "curriculum_diagnostics": "disabled_for_scale_calibration",
+    "checkpoint_selection": "final_pilot_checkpoint_only"
+  },
+  "evaluation": {
+    "episodes_per_preference": 5,
+    "seed_base": 270000,
+    "shift": "nominal",
+    "preference_source": "immutable_validation_split"
+  },
+  "calibration_rule": {
+    "return_field": "episode_returns",
+    "scale_abs_quantile": 0.95,
+    "magnitude_floor": 1e-6,
+    "reference_span_quantiles": [0.05, 0.95],
+    "reference_margin_fraction": 0.05,
+    "reference_minimum_margin": 0.01
+  },
+  "smoke": {
+    "total_timesteps": 20,
+    "learning_starts": 21,
+    "episodes_per_preference": 1,
+    "evidence_status": "smoke_only_not_freezable"
+  },
+  "environments": [
+    {
+      "env_id": "mo-lunar-lander-v3",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "env_id": "minecart-v0",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    }
+  ],
+  "review_gate": [
+    "All six pilot jobs completed with matching protocol hashes and identity input reward scales.",
+    "No source artifact uses the final test split or a non-nominal dynamics shift.",
+    "Every proposed reference point is strictly dominated by every scaled pilot return.",
+    "A human-reviewed commit freezes values in both course protocols before course-scale runs."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "study_id": "lunar-objective-diagnosis-v1",
+  "purpose": "Separate learner failure from utility/task mismatch using paired development seeds and Gymnasium's fixed hand-written controller",
+  "authorization": "User requests research-process/paper investigation and better controlled experiments on 2026-11-01",
+  "package": "outputs/REL301m_Course_Project_20261101_httpfix",
+  "environment_seeds": [20261141, 20261142, 20261143, 20261144, 20261145, 20261146, 20261147, 20261148, 20261149, 20261150],
+  "model_preferences": {"default": null, "landing_heavy": [0.7, 0.1, 0.1, 0.1]},
+  "reference_controller": "gymnasium.envs.box2d.lunar_lander.heuristic; fixed source, no tuning, not learned MORL",
+  "max_episode_steps": 1000,
+  "primary_gamma": 0.99,
+  "counterfactual_rescoring_gammas": [0.98, 0.99, 0.995, 1.0],
+  "counterfactual_scope": "Rescore the same finite recorded trajectories only; no change to training gamma, reference points or checkpoint selection",
+  "training_interactions": 0,
+  "final_test_steps": 0,
+  "expected_environment_episodes": 30
+}

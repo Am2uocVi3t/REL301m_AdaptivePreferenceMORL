@@ -1,0 +1,9 @@
+\begin{tikzpicture}[node distance=4mm,
+stage/.style={draw=Teal,fill=Teal!7,rounded corners,text width=140mm,align=left,inner sep=3mm,font=\sffamily\small}]
+\node[stage] (a) {\textbf{Foundation + implementation}\quad Question, 22-source map, protocols, paired controls and provenance.};
+\node[stage,below=of a] (b) {\textbf{Primary block}\quad 30 jobs complete; Minecart ore is zero in 14,400 validation episodes.};
+\node[stage,draw=Accent,fill=Accent!7,below=of b] (c) {\textbf{Qualification v1}\quad One of three selected seeds passes; all-seeds gate fails.};
+\node[stage,draw=Accent,fill=Accent!7,below=of c] (d) {\textbf{Qualification v2 (PER)}\quad Zero of three selected seeds passes; source audit passes 30/30.};
+\node[stage,draw=Muted,fill=white,dashed,below=of d] (e) {\textbf{Current stop}\quad Evidence review and versioned scope decision before new training. Final-test locked.};
+\foreach \x/\y in {a/b,b/c,c/d,d/e} \draw[flow] (\x)--(\y);
+\end{tikzpicture}

@@ -1,0 +1,218 @@
+{
+  "study_id": "policy-extraction-diagnosis-v1",
+  "authorization": "User requests investigation of causes and a rigorous improvement plan on 2026-11-02",
+  "source_evidence": "research/evidence/credit_assignment_recovery_v1.json",
+  "source_evidence_sha256": "101fe17fab076196cbb1fcf59d166033fe181422cecf88b0efe6328f9c1972fd",
+  "models": [
+    {
+      "name": "mo-lunar-lander-v3_n1_seed20261211",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "67f36d4bbe4c38a4b6021498801844a3e4421ce0cadc655dd2e72345b8cabd1b",
+      "directory": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261211",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n20_seed20261211",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "694f555e3d8944df98bfdd91fc9a797ed746a665a7d9daab0037fb07c7844847",
+      "directory": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n20_seed20261211",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n1_seed20261212",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "a138939ac6bb63db16c9f6a24102754540560096d543ff4b7dc473f4857369ac",
+      "directory": "artifacts\\credit-assignment-v1\\runs\\mo-lunar-lander-v3_n1_seed20261212",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n20_seed20261212",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "5e7e52db716eecd15846a261818097ae157ee52d89983d43eb2179dc6907a59f",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261212",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n1_seed20261213",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 1,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n1_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "246f7c999e906f30922c285dd846b7bb5632d4f417e15d95618cfedc3297b611",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n1_seed20261213",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "mo-lunar-lander-v3_n20_seed20261213",
+      "env_id": "mo-lunar-lander-v3",
+      "n": 20,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "a4756d6bea731a379509c77ba1689aa4641c649424da3bc53d33c1ee4951899b",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\mo-lunar-lander-v3_n20_seed20261213",
+      "protocol": "configs/protocols/course_mo_lunar_lander_v3.json"
+    },
+    {
+      "name": "minecart-v0_n1_seed20261211",
+      "env_id": "minecart-v0",
+      "n": 1,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "d8bf9d23251ff0caa389c272daaeccd9b9be4fecc103bd4d4bba74cff4531a76",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261211",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n20_seed20261211",
+      "env_id": "minecart-v0",
+      "n": 20,
+      "training_seed": 20261211,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261211\\step500000.pt",
+      "checkpoint_sha256": "0b5df34a3f23bba0a2f3b120e2b7a924407aa939d081a034393df07752d78cc8",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261211",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n1_seed20261212",
+      "env_id": "minecart-v0",
+      "n": 1,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "7ad39e97e6623ddf514e075c6e11632c73c25ce83aa356b2c8b5fa6e39a4639e",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261212",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n20_seed20261212",
+      "env_id": "minecart-v0",
+      "n": 20,
+      "training_seed": 20261212,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261212\\step500000.pt",
+      "checkpoint_sha256": "915307c6e7c7edc2cd4a334e1985d836575a61c04dbdc5bac48d1fdf093b2f34",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261212",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n1_seed20261213",
+      "env_id": "minecart-v0",
+      "n": 1,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "2a3789e65ed9614292023d2eab74f6a4865515de97f9c616cc80795a41448266",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n1_seed20261213",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    },
+    {
+      "name": "minecart-v0_n20_seed20261213",
+      "env_id": "minecart-v0",
+      "n": 20,
+      "training_seed": 20261213,
+      "checkpoint": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261213\\step500000.pt",
+      "checkpoint_sha256": "b98938d93f8936df2444504529e52ac19976fda2919e743851c0e94407ac0d55",
+      "directory": "artifacts\\credit-assignment-recovery-v1\\runs\\minecart-v0_n20_seed20261213",
+      "protocol": "configs/protocols/course_minecart_v0.json"
+    }
+  ],
+  "development_environment_seeds": [
+    20262101,
+    20262102,
+    20262103,
+    20262104,
+    20262105,
+    20262106,
+    20262107,
+    20262108,
+    20262109,
+    20262110
+  ],
+  "policies": [
+    "mean_greedy",
+    "head0_greedy",
+    "head1_greedy",
+    "head2_greedy",
+    "plurality_vote",
+    "episode_head_eps005",
+    "mean_eps005",
+    "uniform_random"
+  ],
+  "lunar_positive_control": "gymnasium_heuristic",
+  "preferences": {
+    "minecart-v0": [
+      [
+        0.45,
+        0.45,
+        0.1
+      ],
+      [
+        0.8,
+        0.1,
+        0.1
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "mo-lunar-lander-v3": [
+      [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ],
+      [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ]
+    ]
+  },
+  "max_episode_steps": 1000,
+  "gamma": 0.99,
+  "epsilon": 0.05,
+  "plurality_tie_break": "Highest ensemble-mean scalarized score among tied plurality candidates, then lowest action index; explicit adaptation, not the paper recipe",
+  "rng": "Separate deterministic environment/global-ore, episode-head, exploration-coin and action streams; exploration coins/actions aligned across epsilon policies. Training-style distribution, not reproduction of historical training RNG draws.",
+  "baseline_replication": "All 240 final-checkpoint task cases from the completed cohort, exact actions counts/end flags/length and numerical native vectors; fail closed on mismatch",
+  "probe_stride": 20,
+  "replay_audit": {
+    "per_group_sample": 1024,
+    "seed": 20262200,
+    "scope": "Same-boundary saved model/target/replay/discounts; never mix final model with older replay. Positive n-step ore windows versus zero-ore windows, masks and TD errors. Original three Lunar models lack recovery state and are marked unavailable."
+  },
+  "expected_episodes": 3720,
+  "maximum_environment_steps": 3720000,
+  "training_interactions": 0,
+  "gradient_updates": 0,
+  "final_test_steps": 0,
+  "decision_rules": {
+    "aggregation": "Compare each head and plurality with mean on identical model/preferences/env seeds; no best-head selection or model replacement. A rescue must replicate across all three training seeds before proposing a new validation-confirmed extraction study.",
+    "exploration": "Compare episode-head epsilon .05, mean epsilon .05 and uniform random; successful epsilon rollouts alone do not establish a competent greedy policy.",
+    "data": "Positive behavior episodes and masked positive replay windows rule out total absence of the signal only; TD/MC errors are diagnostics, not unique causal proof.",
+    "task": "Native task events and raw vector returns precede utility; pure-fuel preferences have no ore/landing requirement. No original gate unlock."
+  },
+  "stop_rule": "Exactly 12 frozen final checkpoints; no training, checkpoint selection, seed substitution, parameter sweep or outcome-based extension."
+}

@@ -1,0 +1,229 @@
+{
+  "status": "pass",
+  "scope": "portable actor/source equivalence,20 real task cases and native rendering; presentation diagnostic only",
+  "package_manifest_sha256": "9247b9923ec75ab94862c5b4ce063ca0896e34761c45e2dd42faf9db7bef7542",
+  "records": [
+    {
+      "seed": 20264431,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.3977017402648926,
+        0.10229822248220444,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264431,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.3977017402648926,
+        0.10229822248220444,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264432,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.3218964338302612,
+        0.17810359597206116,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264432,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.3218964338302612,
+        0.17810359597206116,
+        -1.2000000178813934
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264433,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.4299471378326416,
+        0.04547969251871109,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264433,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.4299471378326416,
+        0.04547969251871109,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264434,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.3160881996154785,
+        0.1839117854833603,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264434,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.3160881996154785,
+        0.1839117854833603,
+        -1.2000000178813934
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264435,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.4176108837127686,
+        0.08238916099071503,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264435,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.4176108837127686,
+        0.08238916099071503,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264436,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.469645380973816,
+        0.03035464882850647,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264436,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.469645380973816,
+        0.03035464882850647,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264437,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.4398425817489624,
+        0.0601574070751667,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264437,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.4398425817489624,
+        0.0601574070751667,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264438,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.4229682683944702,
+        0.07703176140785217,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264438,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.4229682683944702,
+        0.07703176140785217,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264439,
+      "profile": 0,
+      "steps": 17,
+      "raw_return": [
+        1.3943672180175781,
+        0.10563282668590546,
+        -1.1400000117719173
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264439,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.3943672180175781,
+        0.10563282668590546,
+        -1.3000000230967999
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264440,
+      "profile": 0,
+      "steps": 16,
+      "raw_return": [
+        1.2549328804016113,
+        0.24506716430187225,
+        -1.2200000174343586
+      ],
+      "ore_delivered": true
+    },
+    {
+      "seed": 20264440,
+      "profile": 1,
+      "steps": 15,
+      "raw_return": [
+        1.2549328804016113,
+        0.24506716430187225,
+        -1.2000000178813934
+      ],
+      "ore_delivered": true
+    }
+  ],
+  "training_interactions": 0,
+  "final_test_steps": 0
+}

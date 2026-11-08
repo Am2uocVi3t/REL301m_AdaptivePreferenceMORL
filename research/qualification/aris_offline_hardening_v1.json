@@ -1,0 +1,255 @@
+{
+  "kind": "aris_offline_hardening_v1",
+  "checked_at": "2026-10-17T09:14:29+00:00",
+  "status": "PASS",
+  "git": {
+    "branch": "codex/aris-offline-hardening",
+    "commit": "25328e8",
+    "dirty": "yes"
+  },
+  "python": "3.11.17 (main, Oct  1 2026, 20:17:42) [GCC 14.3.0]",
+  "test_count": 160,
+  "gates": {
+    "cost_model_metadata": {
+      "status": "PASS",
+      "tests": [
+        "test_metadata_formats[object]",
+        "test_metadata_formats[array]",
+        "test_metadata_formats[ndjson]",
+        "test_unknown_metadata_rejected[total_cost_usd-None]",
+        "test_unknown_metadata_rejected[total_cost_usd-nan]",
+        "test_unknown_metadata_rejected[total_cost_usd--1]",
+        "test_unknown_metadata_rejected[usage-value3]",
+        "test_unknown_metadata_rejected[modelUsage-value4]",
+        "test_unknown_metadata_rejected[session_id-None]",
+        "test_unknown_metadata_rejected[type-assistant]",
+        "test_guard_e2e_offline_and_persistent_metadata",
+        "test_failed_review_stops_new_dispatch[missing_metadata]",
+        "test_failed_review_stops_new_dispatch[timeout]",
+        "test_failed_review_stops_new_dispatch[provider_error]",
+        "test_failed_review_stops_new_dispatch[over_budget]"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    },
+    "process_cleanup": {
+      "status": "PASS",
+      "tests": [
+        "test_timeout_kills_grandchild",
+        "test_interrupted_guard_cleans_process_group[15]",
+        "test_interrupted_guard_cleans_process_group[2]",
+        "test_interrupted_guard_cleans_process_group[9]",
+        "test_success_kills_detached_pipe_holding_child",
+        "test_output_limit_stops_process"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    },
+    "reservations": {
+      "status": "PASS",
+      "tests": [
+        "test_concurrent_reservations_and_resume",
+        "test_completed_calls_do_not_refund_reserved_capacity",
+        "test_legacy_import_is_idempotent_and_unsettled",
+        "test_synthetic_console_mapping_preserves_old_reservations"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    },
+    "quota_freshness": {
+      "status": "PASS",
+      "tests": [
+        "test_low_or_unknown_quota_stops_dispatch[None]",
+        "test_low_or_unknown_quota_stops_dispatch[4]",
+        "test_low_or_unknown_quota_stops_dispatch[-1]",
+        "test_low_or_unknown_quota_stops_dispatch[101]",
+        "test_low_or_unknown_quota_stops_dispatch[nan]",
+        "test_low_or_unknown_quota_stops_dispatch[inf]",
+        "test_quota_age_timezone_and_clock_skew"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    },
+    "review_packet_boundaries": {
+      "status": "PASS",
+      "tests": [
+        "test_packet_paths_rejected[../docs/a.md]",
+        "test_packet_paths_rejected[/etc/passwd]",
+        "test_packet_paths_rejected[.aws/key.md]",
+        "test_packet_paths_rejected[docs/.env]",
+        "test_packet_paths_rejected[docs/a.pdf]",
+        "test_packet_content_and_links",
+        "test_command_boundaries",
+        "test_packet_drift_never_reserves_or_spawns"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    },
+    "interruption_resume": {
+      "status": "PASS",
+      "tests": [
+        "test_async_mcp_status_survives_server_restart",
+        "test_upstream_resume_never_accepts_unreviewed_done",
+        "test_concurrent_reservations_and_resume",
+        "test_killed_execute_resumes_with_unsettled_reservation"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    },
+    "disabled_real_mcp": {
+      "status": "PASS",
+      "tests": [
+        "test_real_mcp_disabled_bridge_preserves_legacy_ledger",
+        "test_installed_launcher_remains_disabled",
+        "test_disabled_and_historical_gates_do_not_spawn"
+      ],
+      "scope": "synthetic_offline_fixtures_only"
+    }
+  },
+  "checks": [
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "137 files already formatted\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "-m",
+        "mypy",
+        "src",
+        "scripts"
+      ],
+      "exit_code": 0,
+      "stdout": "Success: no issues found in 57 source files\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=/tmp/aris-offline-audit-_ki7qnp0/pytest.xml"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................................ [ 45%]\n........................................................................ [ 90%]\n................                                                         [100%]\n160 passed in 4.15s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "-m",
+        "bandit",
+        "-q",
+        "-r",
+        "src",
+        "scripts",
+        "-ll"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "[manager]\tWARNING\tTest in comment: locally is not a test name or id, ignoring\n[manager]\tWARNING\tTest in comment: generated is not a test name or id, ignoring\n[manager]\tWARNING\tTest in comment: pytest is not a test name or id, ignoring\n[manager]\tWARNING\tTest in comment: report is not a test name or id, ignoring\n"
+    },
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "-m",
+        "compileall",
+        "-q",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bash",
+        "-n",
+        "scripts/start_aris_review_server.sh"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/hei/.cache/rel301m-conda311/bin/python",
+        "scripts/research_harness.py",
+        "doctor"
+      ],
+      "exit_code": 0,
+      "stdout": "Research harness validation passed.\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256": {
+    "scripts/aris_review_guard.py": "9eb23330d2ef8a85d91c4a984769ac563b102eafa19428ebbdb0e46baf843681",
+    "scripts/aris_preflight.py": "ece627b020e0155e98775d88945721600965d06062c8b5b770a78e1f189abf3d",
+    "scripts/audit_aris_offline.py": "967e25f8f7c5ee8f3d9141613ba1b25007f323925749c85fc55a6aeb1b92c373",
+    "src/research_harness/aris.py": "293a6990c08d2657dd8d5b090dad532cfc4fe4614a3b92b147fff5b812a7f076",
+    "tests/test_aris_review_guard.py": "03b3c8e5f5a73d0b5c3026c91934face99b1c86ff0713ab9924879f8c1a73377",
+    "tests/test_aris_offline_e2e.py": "21ab2a7d8fe8388c860dee39f0cfaa3e3bc5796a23c508bd393d367478717e01",
+    "tests/test_aris_integration.py": "b26a3ee12fed96e4547f063b912862feb188124cc1a0d621d45524a85870ced8",
+    "configs/aris/project.json": "02e0bf9e336a32f8da30d8de05aeec0d56381378ffd7bca29e464da553948475",
+    "scripts/start_aris_review_server.sh": "1644ef2d2a376384ffa28b5b9fa77186e9e3c2ad2a189037b6392c46d0a33828"
+  },
+  "paid_calls_performed": 0,
+  "unattended_ready": false,
+  "scientific_acceptance": false,
+  "historical_console_reconciliation": "BLOCKED: no Console export provided; CLI estimates are not billing proof",
+  "historical_reservations": {
+    "count": 2,
+    "reserved_usd": 0.5,
+    "source_sha256": "ad045ccf5a0cbd99a238f787c1678de91b6a9d48a5f3604a40dd269f58714ac9",
+    "source_unchanged": true,
+    "cli_reported_costs_usd": [
+      0.0117487,
+      0.2251555
+    ],
+    "cli_reported_sum_usd": 0.2369042,
+    "cost_note_sha256": "e6406892a902c371200f78f970b1217cbd82391db1522733a4110815616993a3",
+    "console_reconciled": false
+  },
+  "external_runtime": {
+    "guard_matches_versioned_source": true,
+    "guard_sha256": "9eb23330d2ef8a85d91c4a984769ac563b102eafa19428ebbdb0e46baf843681",
+    "paid_enabled": false,
+    "launcher_matches_versioned_source": true
+  },
+  "bounded_cross_family_batch": "NOT_RUN: paid calls remain disabled",
+  "limits": [
+    "Packet scanning is heuristic and inline tools-off review is not an OS sandbox.",
+    "Guardian covers wrapper death and same-group descendants; escaping setsid or guardian kill needs OS isolation.",
+    "SIGKILL leaves a durable unsettled reservation; recovery must inspect processes and reconcile spend.",
+    "Quota is an operator snapshot, not authenticated by this script.",
+    "The pinned upstream serializes review prompts in its private local job state."
+  ]
+}

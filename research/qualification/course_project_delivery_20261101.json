@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "kind": "scoped_course_delivery_not_full_proposal_completion",
+  "report": {
+    "path": "outputs/course-report-latex/REL301m_Course_Project_Report.pdf",
+    "sha256": "8170d9569db254d8f8d9012c0fade35bd70ea144772719e6c046ccf2b1318ab7",
+    "pages": 11,
+    "template": "paper/REL301m/main.tex",
+    "visual_contact_sheet": "artifacts/course-project-verification/contact-sheet.png",
+    "visually_inspected": true,
+    "text_count_and_glyph_checks": "passed"
+  },
+  "package": {
+    "path": "outputs/REL301m_Course_Project_20261101.zip",
+    "sha256": "7c05f255238431e9af422295f899eb478a6a8879de61c3ff4c2eb6de9f1bf8a9",
+    "hashed_files": 85,
+    "zip_bytes_and_links": "passed",
+    "credential_scan": "heuristic_clean"
+  },
+  "new_cohort": {
+    "path": "research/evidence/envelope_feasibility_v1.json",
+    "sha256": "9b4a5d521ae39099d5b136b97e888410bb217fcbca7b1ff3f215aaea55c7d5df",
+    "audit": "passed",
+    "training_interactions": 300000,
+    "gradient_updates": 299703,
+    "validation_episodes": 576,
+    "validation_steps": 530664,
+    "final_test_steps": 0,
+    "final_ore_positive_cases_per_objective_by_seed": {
+      "20261121": 0,
+      "20261122": 2,
+      "20261123": 0
+    }
+  },
+  "demo": {
+    "replacement_models_unchanged": true,
+    "both_source_weights_equal": true,
+    "matched_first_eight_steps": true,
+    "parameters_unchanged": true,
+    "frontend_assertions": 80,
+    "browser": {
+      "status": "PASS",
+      "browser": "Microsoft Edge headless",
+      "independently_installed_package": true,
+      "matched_reset": true,
+      "single_step": true,
+      "pending_slider_no_steps": true,
+      "live_preference_without_reset": true,
+      "native_render_no_steps": true,
+      "both_environments": true,
+      "pdf_links": true,
+      "page_errors": [],
+      "mobile_dimensions": {
+        "body": 390,
+        "viewport": 390
+      },
+      "mobile_horizontal_overflow": false
+    },
+    "browser_record_sha256": "8448e18ba7c51e1dd63529122c89759da7c073c790476f7012d115f4a9fe1429",
+    "independent_runtime": "Warm reuse of separately installed extracted recovery package venv; requirements byte-identical. New package served from an empty D-drive CWD, outside repository imports."
+  },
+  "software_quality": {
+    "ruff_format": "passed",
+    "ruff": "passed",
+    "mypy_src_scripts": "passed",
+    "pytest_passed": 179,
+    "pytest_skipped": 4,
+    "bandit_ll": "passed",
+    "compileall": "passed",
+    "git_diff_check": "passed",
+    "additional_windows_mypy": "passed, 22 source files"
+  },
+  "independent_final_semantic_review": "not_run; no PASS claimed; historical recovery report WARN/ERROR do not review this report",
+  "scientific_locks_unchanged": true,
+  "official_rubric_acceptance": "unknown",
+  "external_submission": false
+}

@@ -1,0 +1,4472 @@
+{
+  "study_id": "preference-recovery-p2-v1",
+  "source": "artifacts\\preference-recovery-p2-v1\\analysis.json",
+  "source_sha256": "b57aeb54995f78c9a26da7e573f2ee395c82690a8b7dd569b396cb97344b4778",
+  "analysis_script_sha256": "9707f0a17f3956cba71a3d90d6065f3b74b287b2646c339c68f6250d77786f60",
+  "totals": {
+    "training_interactions": 6000000,
+    "gradient_updates": 1485012,
+    "validation_evaluation_steps": 3097203,
+    "task_diagnostic_steps": 240000,
+    "final_test_steps": 0
+  },
+  "validation_episodes": 3456,
+  "final_validation_episodes": 1152,
+  "final_task_episodes": 240,
+  "all_checkpoint_positive_validation_ore_episodes": 0,
+  "final_positive_validation_ore_episodes": 0,
+  "final_task_mining_actions": 0,
+  "review_independence": "executor_only",
+  "rows": [
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "validation_eu": -0.6628681809380013,
+      "validation_hv": 0.0,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1330,
+      "positive_training_episodes": 300,
+      "positive_training_fraction": 0.22556390977443608,
+      "positive_training_median_length": 201.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.30378304112819027,
+          "success_episode_utility_p90": 0.06310947787016648,
+          "success_episode_utility_max": 0.46639256048947575,
+          "success_episode_above_idle": 84,
+          "positive_training_episodes": 300
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.31668967847945173,
+          "success_episode_utility_p90": 0.053641636790707735,
+          "success_episode_utility_max": 0.40239662369713186,
+          "success_episode_above_idle": 79,
+          "positive_training_episodes": 300
+        }
+      ]
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "validation_eu": -0.645304154103931,
+      "validation_hv": 0.0012863960211603157,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1472,
+      "positive_training_episodes": 309,
+      "positive_training_fraction": 0.20991847826086957,
+      "positive_training_median_length": 220.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.3534876687685028,
+          "success_episode_utility_p90": -0.003780506718903844,
+          "success_episode_utility_max": 0.41341059114784007,
+          "success_episode_above_idle": 76,
+          "positive_training_episodes": 309
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.37611512233270333,
+          "success_episode_utility_p90": 0.027374455612152803,
+          "success_episode_utility_max": 0.557379966787994,
+          "success_episode_above_idle": 77,
+          "positive_training_episodes": 309
+        }
+      ]
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "validation_eu": -0.5966462023476902,
+      "validation_hv": 0.0014765031242819553,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1921,
+      "positive_training_episodes": 442,
+      "positive_training_fraction": 0.23008849557522124,
+      "positive_training_median_length": 203.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.2863263116509188,
+          "success_episode_utility_p90": 0.03759749800432482,
+          "success_episode_utility_max": 0.32659823102876545,
+          "success_episode_above_idle": 132,
+          "positive_training_episodes": 442
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.283634044136852,
+          "success_episode_utility_p90": 0.03934367198962728,
+          "success_episode_utility_max": 0.5565048079006374,
+          "success_episode_above_idle": 125,
+          "positive_training_episodes": 442
+        }
+      ]
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "validation_eu": -0.43943326366558894,
+      "validation_hv": 0.0013846897019925803,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1604,
+      "positive_training_episodes": 283,
+      "positive_training_fraction": 0.17643391521197008,
+      "positive_training_median_length": 218.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.32691124181728815,
+          "success_episode_utility_p90": 0.01943238131701952,
+          "success_episode_utility_max": 0.34771084506064653,
+          "success_episode_above_idle": 70,
+          "positive_training_episodes": 283
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.33607149830786515,
+          "success_episode_utility_p90": 0.024963161684572743,
+          "success_episode_utility_max": 0.5020743851549924,
+          "success_episode_above_idle": 70,
+          "positive_training_episodes": 283
+        }
+      ]
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "validation_eu": -0.5652123846680275,
+      "validation_hv": 0.0013861854465670453,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1551,
+      "positive_training_episodes": 276,
+      "positive_training_fraction": 0.17794970986460348,
+      "positive_training_median_length": 263.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.3285604560098818,
+          "success_episode_utility_p90": -0.034309584670700125,
+          "success_episode_utility_max": 0.31232879403978586,
+          "success_episode_above_idle": 61,
+          "positive_training_episodes": 276
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.3285560601200359,
+          "success_episode_utility_p90": -0.01877005151472988,
+          "success_episode_utility_max": 0.5970813216641545,
+          "success_episode_above_idle": 61,
+          "positive_training_episodes": 276
+        }
+      ]
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "validation_eu": -0.6802699056612229,
+      "validation_hv": 0.0,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1470,
+      "positive_training_episodes": 264,
+      "positive_training_fraction": 0.17959183673469387,
+      "positive_training_median_length": 220.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.3335850776988082,
+          "success_episode_utility_p90": 0.02706327928695838,
+          "success_episode_utility_max": 0.3839832187630236,
+          "success_episode_above_idle": 64,
+          "positive_training_episodes": 264
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.3262642268906347,
+          "success_episode_utility_p90": 0.03499825614504525,
+          "success_episode_utility_max": 0.6007907811552287,
+          "success_episode_above_idle": 67,
+          "positive_training_episodes": 264
+        }
+      ]
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "validation_eu": -0.6640027855578405,
+      "validation_hv": 0.0013644019080384464,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1818,
+      "positive_training_episodes": 415,
+      "positive_training_fraction": 0.22827282728272827,
+      "positive_training_median_length": 225.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.30674821870634333,
+          "success_episode_utility_p90": 0.050787159893662066,
+          "success_episode_utility_max": 0.4544829098507762,
+          "success_episode_above_idle": 112,
+          "positive_training_episodes": 415
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.30737469444284216,
+          "success_episode_utility_p90": 0.054553874004632394,
+          "success_episode_utility_max": 0.6683652438223363,
+          "success_episode_above_idle": 111,
+          "positive_training_episodes": 415
+        }
+      ]
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "validation_eu": -0.6608178125734261,
+      "validation_hv": 0.0,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1685,
+      "positive_training_episodes": 323,
+      "positive_training_fraction": 0.1916913946587537,
+      "positive_training_median_length": 219.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.31837772998096625,
+          "success_episode_utility_p90": 0.004157352894544607,
+          "success_episode_utility_max": 0.32012930400669576,
+          "success_episode_above_idle": 89,
+          "positive_training_episodes": 323
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.31844943705200424,
+          "success_episode_utility_p90": 0.028210303746163925,
+          "success_episode_utility_max": 0.5690526727586985,
+          "success_episode_above_idle": 86,
+          "positive_training_episodes": 323
+        }
+      ]
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "validation_eu": -0.6439824975429376,
+      "validation_hv": 0.001146801958712382,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1433,
+      "positive_training_episodes": 313,
+      "positive_training_fraction": 0.2184228890439637,
+      "positive_training_median_length": 189.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.30229076764080676,
+          "success_episode_utility_p90": 0.02354038408026102,
+          "success_episode_utility_max": 0.42483116155490286,
+          "success_episode_above_idle": 76,
+          "positive_training_episodes": 313
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.317229650518857,
+          "success_episode_utility_p90": 0.018663148931227797,
+          "success_episode_utility_max": 0.7699840097688139,
+          "success_episode_above_idle": 80,
+          "positive_training_episodes": 313
+        }
+      ]
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "validation_eu": -0.6051892797782277,
+      "validation_hv": 0.0013861854465670453,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1336,
+      "positive_training_episodes": 279,
+      "positive_training_fraction": 0.2088323353293413,
+      "positive_training_median_length": 204.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.31550948241147125,
+          "success_episode_utility_p90": -0.002957731746136862,
+          "success_episode_utility_max": 0.3328648834489286,
+          "success_episode_above_idle": 81,
+          "positive_training_episodes": 279
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.32261193508747965,
+          "success_episode_utility_p90": 0.005027161790058048,
+          "success_episode_utility_max": 0.6119444805197418,
+          "success_episode_above_idle": 69,
+          "positive_training_episodes": 279
+        }
+      ]
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "validation_eu": -0.39250743441989067,
+      "validation_hv": 0.0013014537037218457,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1835,
+      "positive_training_episodes": 472,
+      "positive_training_fraction": 0.2572207084468665,
+      "positive_training_median_length": 205.5,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.30034877898433476,
+          "success_episode_utility_p90": 0.032064910084009364,
+          "success_episode_utility_max": 0.4121329530142248,
+          "success_episode_above_idle": 124,
+          "positive_training_episodes": 472
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.31765358172269775,
+          "success_episode_utility_p90": -0.0032084087189285654,
+          "success_episode_utility_max": 0.403017163835466,
+          "success_episode_above_idle": 112,
+          "positive_training_episodes": 472
+        }
+      ]
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "validation_eu": -0.5984127628191642,
+      "validation_hv": 0.0012659287080043565,
+      "final_validation_positive_ore": 0,
+      "completed_training_episodes": 1750,
+      "positive_training_episodes": 365,
+      "positive_training_fraction": 0.20857142857142857,
+      "positive_training_median_length": 218.0,
+      "counterfactual_training_rescoring": [
+        {
+          "target": [
+            0.45,
+            0.45,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.3177643854171038,
+          "success_episode_utility_p90": 0.07792571991682068,
+          "success_episode_utility_max": 0.31938783209770916,
+          "success_episode_above_idle": 95,
+          "positive_training_episodes": 365
+        },
+        {
+          "target": [
+            0.8,
+            0.1,
+            0.1
+          ],
+          "idle_baseline_utility": -0.16494206586754678,
+          "success_episode_utility_median": -0.32277297243708747,
+          "success_episode_utility_p90": 0.017542316196486583,
+          "success_episode_utility_max": 0.48447474846616395,
+          "success_episode_above_idle": 96,
+          "positive_training_episodes": 365
+        }
+      ]
+    }
+  ],
+  "arm_summaries": [
+    {
+      "arm": "A",
+      "seed_eu": [
+        -0.6628681809380013,
+        -0.5652123846680275,
+        -0.6439824975429376
+      ],
+      "mean_eu": -0.6240210210496554,
+      "sample_sd_eu": 0.05179777064820983,
+      "paired_seed_eu_delta_vs_A": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_paired_eu_delta_vs_A": 0.0,
+      "positive_seed_deltas": 0,
+      "training_positive_episodes": 889,
+      "training_completed_episodes": 4314,
+      "final_task_successes": 0,
+      "final_task_episodes": 60,
+      "final_task_actions": [
+        0,
+        15000,
+        15030,
+        0,
+        0,
+        29970
+      ]
+    },
+    {
+      "arm": "B",
+      "seed_eu": [
+        -0.645304154103931,
+        -0.6802699056612229,
+        -0.6051892797782277
+      ],
+      "mean_eu": -0.6435877798477939,
+      "sample_sd_eu": 0.03756972918701866,
+      "paired_seed_eu_delta_vs_A": [
+        0.017564026834070212,
+        -0.11505752099319544,
+        0.0387932177647099
+      ],
+      "mean_paired_eu_delta_vs_A": -0.019566758798138444,
+      "positive_seed_deltas": 2,
+      "training_positive_episodes": 852,
+      "training_completed_episodes": 4278,
+      "final_task_successes": 0,
+      "final_task_episodes": 60,
+      "final_task_actions": [
+        0,
+        14980,
+        15020,
+        10,
+        20010,
+        9980
+      ]
+    },
+    {
+      "arm": "C",
+      "seed_eu": [
+        -0.5966462023476902,
+        -0.6640027855578405,
+        -0.39250743441989067
+      ],
+      "mean_eu": -0.5510521407751404,
+      "sample_sd_eu": 0.14137377854606123,
+      "paired_seed_eu_delta_vs_A": [
+        0.06622197859031109,
+        -0.09879040088981306,
+        0.2514750631230469
+      ],
+      "mean_paired_eu_delta_vs_A": 0.07296888027451498,
+      "positive_seed_deltas": 2,
+      "training_positive_episodes": 1329,
+      "training_completed_episodes": 5574,
+      "final_task_successes": 0,
+      "final_task_episodes": 60,
+      "final_task_actions": [
+        0,
+        9970,
+        10030,
+        0,
+        40000,
+        0
+      ]
+    },
+    {
+      "arm": "D",
+      "seed_eu": [
+        -0.43943326366558894,
+        -0.6608178125734261,
+        -0.5984127628191642
+      ],
+      "mean_eu": -0.5662212796860597,
+      "sample_sd_eu": 0.11414901801379349,
+      "paired_seed_eu_delta_vs_A": [
+        0.22343491727241233,
+        -0.09560542790539861,
+        0.04556973472377335
+      ],
+      "mean_paired_eu_delta_vs_A": 0.05779974136359569,
+      "positive_seed_deltas": 2,
+      "training_positive_episodes": 971,
+      "training_completed_episodes": 5039,
+      "final_task_successes": 0,
+      "final_task_episodes": 60,
+      "final_task_actions": [
+        0,
+        60,
+        170,
+        40,
+        29940,
+        29790
+      ]
+    }
+  ],
+  "task_trace_diagnostics": [
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1000
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        500,
+        496,
+        1,
+        1,
+        2
+      ],
+      "max_distance_from_initial_cart_position": 0.5171595215797424,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        498,
+        502,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263211,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.0008950233459473,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        997
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        0,
+        996
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        499,
+        501,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        1,
+        5,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 0.8570904731750488,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263212,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        2,
+        4,
+        1,
+        0,
+        993
+      ],
+      "max_distance_from_initial_cart_position": 1.2104052305221558,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        500,
+        500,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "A",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        501,
+        499,
+        0,
+        0,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "B",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "C",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        0,
+        0,
+        1000,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 0,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        1,
+        0,
+        1,
+        998,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.1883859634399414,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263231,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263232,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263233,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263234,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263235,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263236,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263237,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263238,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263239,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    },
+    {
+      "arm": "D",
+      "seed": 20263213,
+      "profile": 1,
+      "env_seed": 20263240,
+      "actions": [
+        0,
+        0,
+        4,
+        0,
+        996,
+        0
+      ],
+      "max_distance_from_initial_cart_position": 0.0,
+      "cargo_peak": 0.0
+    }
+  ],
+  "factorial_effects": [
+    {
+      "seed": 20263211,
+      "relabel_main_effect": 0.08738848275808572,
+      "auxiliary_main_effect": 0.1360464345143266,
+      "interaction_difference": 0.13964891184803108
+    },
+    {
+      "seed": 20263212,
+      "relabel_main_effect": -0.055936274004390496,
+      "auxiliary_main_effect": -0.039669153901008114,
+      "interaction_difference": 0.11824249397760989
+    },
+    {
+      "seed": 20263213,
+      "relabel_main_effect": -0.08355605531728183,
+      "auxiliary_main_effect": 0.12912579004105518,
+      "interaction_difference": -0.24469854616398345
+    }
+  ],
+  "statistical_limits": "Three paired training seeds; report each seed and sample SD. No episode-pooled CI or significance claim.",
+  "counterfactual_limits": "Rescored behavior episodes are observed stochastic trajectories, not trained deterministic policies or a test split."
+}

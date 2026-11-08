@@ -1,0 +1,10 @@
+{
+  "status": "numeric_trace_audit_pass",
+  "review_independence": "executor_numeric_checks_only",
+  "evidence_sha256": "082e01119dfd6f93420a2885066130ba2c209e26c67553f928f1adcc58bc58ea",
+  "episodes": 30,
+  "diagnostic_steps": 19001,
+  "training_interactions": 0,
+  "final_test_steps": 0,
+  "scope": "All native traces, hashes, vector sums, four gamma rescorings, utilities and paired initial observations"
+}

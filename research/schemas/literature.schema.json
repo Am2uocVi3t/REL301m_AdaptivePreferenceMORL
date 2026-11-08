@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "literature.schema.json",
+  "title": "Literature metadata registry",
+  "type": "object",
+  "required": ["schema_version", "papers"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "authors",
+          "year",
+          "source_type",
+          "status",
+          "access_status",
+          "evidence_level",
+          "full_text_required",
+          "access_note",
+          "access_checked_at",
+          "url",
+          "tags",
+          "claim_ids",
+          "note"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"},
+          "title": {"type": "string", "minLength": 1},
+          "authors": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "year": {"type": "integer", "minimum": 1900},
+          "source_type": {"enum": ["peer-reviewed", "preprint", "benchmark", "software", "venue-policy"]},
+          "status": {"enum": ["queued", "screened", "read", "excluded"]},
+          "access_status": {
+            "enum": [
+              "not_checked",
+              "open_full_text",
+              "author_manuscript",
+              "user_supplied",
+              "paywalled",
+              "blocked"
+            ]
+          },
+          "evidence_level": {"enum": ["metadata_only", "abstract_only", "full_text"]},
+          "full_text_required": {"type": "boolean"},
+          "access_note": {"type": "string"},
+          "access_checked_at": {"type": ["string", "null"]},
+          "url": {"type": "string", "minLength": 1},
+          "venue": {"type": ["string", "null"]},
+          "tags": {"type": "array", "items": {"type": "string", "minLength": 1}},
+          "claim_ids": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"}
+          },
+          "note": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

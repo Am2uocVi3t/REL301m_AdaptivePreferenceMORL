@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "purpose": "presentation_only_interactive_frozen_policy_not_scientific_qualification",
+  "status": "local_runtime_and_lunar_browser_interaction_verified_remaining_browser_checks_explicit",
+  "plan": "interactive-model-demo.md",
+  "source_sha256": {
+    "src/demo/runtime.py": "a4ac3043f5260b565c941afde22428f49c08a9726be6df634a3ebb451499f6dc",
+    "src/demo/server.py": "95cb787de926b2822df6536c597c9800f8d6c903476980ada3534c66791e8ebc",
+    "demo/interactive/index.html": "e0ecc56a947d91f821edbb77a01fae8dd763f73fe6c9ffe1b61f1846e00118a5",
+    "demo/interactive/app.js": "1c23dc2c5dcc22ebfaa7acac1f294b4f21978a06af32a067d80e34cf2ef2c206",
+    "demo/interactive/style.css": "6d07b369cb6d8ce781c289a88a63618a77d20da1c86fc954cd2ad3c6dc747802",
+    "demo/interactive/renderer.js": "77f8c8a22033c5f1f17dfa1ddc8b10c9716d60f9c6da6e150435ed1303ccc1e5",
+    "scripts/build_interactive_demo.py": "80b3cde82d0106b8064905dc5bd8dcadbd5181028d60dbfe7f2edb49a1019e27",
+    "scripts/build_interactive_guide.py": "3dced9280d90f41a3148d459c583f32363ded74f3cf3049ffd85b16a9fea7ce4",
+    "scripts/verify_interactive_demo.py": "ce740a05f9ecbc08e545bafac23006f526343ff411bf6cd9c694e0518b59ecca",
+    "tests/test_interactive_demo.py": "bbf0ccccd806ef517600191c42b227c2e009a9f2b0c6a6d77b6b27bb54567fbf",
+    "tests/test_interactive_ui.cjs": "578c6f052ddfa8558a8666b381934cb9f61cfc99b455454d2dfd9979712ea4f3",
+    "outputs/interactive-lunar-desktop.jpg": "c4181c0a7d6564e212061635f9325bedde00940cc8cb7ee00d3ac934aff6e057"
+  },
+  "delivery": {
+    "zip": "outputs/REL301m_Interactive_Demo.zip",
+    "directory": "outputs/REL301m_Interactive_Demo",
+    "contents": "Real website, local backend, two existing inference-only checkpoints, pinned requirements, launchers, Vietnamese README and guide PDF, existing report PDF, config, manifest and this verification; no video/training runner"
+  },
+  "comparison": "Same frozen network per environment; reference uses fixed validation-derived default weights, user panel uses sliders. Both start with the same nominal environment seed. Explicit live mode changes w for subsequent inference without state reset; history-dependent caveat is displayed.",
+  "training_updates": 0,
+  "new_training_interactions": 0,
+  "final_test_access": false,
+  "checkpoint_locks": 0,
+  "new_paid_calls": 0,
+  "new_provider_cost_usd": 0,
+  "scheduler_enabled": false,
+  "unattended_aris_ready": false,
+  "scientific_gate_changed": false,
+  "runtime_verification": {
+    "package": {
+      "status": "PASS",
+      "files_hashed": 24,
+      "links": 5,
+      "zip_matches": true,
+      "credential_scan": "heuristic_clean",
+      "no_videos_or_training_runner": true
+    },
+    "models": {
+      "status": "PASS",
+      "environments": {
+        "lunar": {
+          "source_weights_equal": true,
+          "model_parameters_unchanged": true,
+          "matched_first_eight_steps": true,
+          "live_switch_from_step": 9,
+          "episode_lengths": [
+            359,
+            281
+          ],
+          "raw_returns": [
+            [
+              100,
+              225.9856006402454,
+              -184,
+              -41
+            ],
+            [
+              -100,
+              144.7122152079828,
+              -161,
+              -85
+            ]
+          ],
+          "trace": "outputs/interactive-verification/lunar-trace.json",
+          "trace_sha256": "22f5e1ede763d021e22fc2b27e9eaa6c854a9bdcac0e65b7f6f80c7d99448588"
+        },
+        "mine": {
+          "source_weights_equal": true,
+          "model_parameters_unchanged": true,
+          "matched_first_eight_steps": true,
+          "live_switch_from_step": 9,
+          "episode_lengths": [
+            1000,
+            1000
+          ],
+          "raw_returns": [
+            [
+              0,
+              0,
+              -19.999999552965164
+            ],
+            [
+              0,
+              0,
+              -19.999999552965164
+            ]
+          ],
+          "trace": "outputs/interactive-verification/mine-trace.json",
+          "trace_sha256": "2ef4f1a1b7997de081dbfd26889da5c52d9a6bb81506daafe874f91fab200b42"
+        }
+      },
+      "presentation_steps": 2640,
+      "training_updates": 0
+    },
+    "portable_launch": {
+      "status": "PASS",
+      "extracted_zip_launch": true,
+      "repository_import_path": false,
+      "http_reset_and_inference_both_environments": true,
+      "os": "Linux Python 3.11 CPU"
+    }
+  },
+  "quality": {
+    "pytest": "195 passed, 14 existing Gym Box float32 precision warnings in 5.97s",
+    "ruff_format": "162 files already formatted",
+    "ruff_check": "PASS",
+    "mypy": "PASS, 69 source files",
+    "bandit": "PASS, no medium/high findings; existing comment parser warnings",
+    "compileall": "PASS",
+    "git_diff_check": "PASS",
+    "javascript_syntax": "node --check PASS for app.js and renderer.js",
+    "frontend_unit_tests": "80 assertions PASS with fake DOM/canvas/transport; not browser evidence",
+    "launcher": "bash -n PASS"
+  },
+  "browser": {
+    "verified_before_access_disabled": [
+      "LunarLander real inference via single-step",
+      "Pending slider does not change active weights",
+      "Live-mode slider reaches the existing model without reset: at step 2, default panel chose no thrust while landing-only panel chose left engine",
+      "Run resets matched seed and clears history caveat",
+      "Pause and resume UI",
+      "Styled sprite positions, terrain and panel reward telemetry",
+      "Native renderer switch without advancing steps",
+      "Full-page desktop screenshot at 1280px; adaptation compared at step 111",
+      "No JavaScript error/warning logs in inspected session"
+    ],
+    "screenshot": "outputs/interactive-lunar-desktop.jpg",
+    "not_verified": [
+      "Minecart UI end-to-end interaction and final cosmetic rendering",
+      "Fullscreen behavior",
+      "Narrow/mobile viewport",
+      "Final failure-guard refinements in a live browser",
+      "Windows/macOS runtime or fresh dependency installation"
+    ],
+    "blocker": "Browser control became disabled in Work settings during verification; no bypass or alternate browser automation used. Final frontend behavior has fake-DOM tests; actual runtime/HTTP verified for both environments.",
+    "presentation_laptop_check_required": true
+  },
+  "model_limitations": [
+    "Slider changes model input, not parameters; different weights need not yield different actions in every state.",
+    "Minecart checkpoint remains qualification-failed and zero-ore in fixed demonstration checks.",
+    "A single trajectory is not a success-rate estimate, comparative benefit or course qualification.",
+    "One controller tab per local server. Unknown/failed ticks halt; no automatic mutation retries.",
+    "Native sprites and cosmetic Canvas view use the real nominal engine. Decorative rendering does not change physics, reward or fabricate cargo."
+  ],
+  "artifact_notes": [
+    "Existing report PDF is retained research snapshot; its older replay-demo section is superseded operationally by the current guide and README.",
+    "Initial real-model verification and isolated ZIP launch passed with 24 hashed files; final ZIP adds this verification (25 manifest entries). Final delivery receipt separately binds final manifest/ZIP bytes to avoid circular self-hashes.",
+    "Historical spending/reservations and the completed ARIS single-batch ledger are unchanged."
+  ]
+}

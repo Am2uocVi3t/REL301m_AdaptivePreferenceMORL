@@ -1,0 +1,3 @@
+# Monitor-only dependency; already available in this machine's CPU runtime.
+# Do not install into or rebuild the frozen GPU training environment.
+rich==15.0.0

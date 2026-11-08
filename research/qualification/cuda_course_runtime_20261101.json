@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "spec": "configs\\runtime\\cuda_training_python311.json",
+  "spec_sha256": "639216ff0b167b9c3587e0ba63921e2e9bec11d791d71ba938abe067c7157e25",
+  "status": "qualified_for_CUDA_Envelope_only; CPU_PCQN_separately_qualified",
+  "full_dependency_set_qualified": false,
+  "missing_dependency": "pycddlib==2.1.6; GPI-LS not qualified",
+  "fresh_doc_witness": {
+    "agent": "/root/cuda_doc_witness",
+    "exit_code": 0,
+    "output": "CUDA_WITNESS 2.14.1+cu130 NVIDIA GeForce RTX 3050 Laptop GPU 1277.6865234375 43.035423278808594",
+    "divergence": false
+  },
+  "cpu_smoke": {
+    "curriculum_steps": 0,
+    "elapsed_seconds": 15.042442500009201,
+    "final_test_steps": 0,
+    "gradient_updates": 901,
+    "plan": {
+      "adaptations": [
+        "Use frozen repository gamma=0.99 and static reward scales instead of upstream gamma=0.98/native rewards",
+        "Preserve upstream Gaussian behavior and update preference sampling; this is a backbone feasibility screen, not a fixed-pool allocation comparator",
+        "Disable W&B; explicitly evaluate all 32 fixed validation preferences and retain every episode tensor",
+        "Keep validation RNG independent of training and record environment steps separately"
+      ],
+      "agent": {
+        "batch_size": 64,
+        "buffer_size": 2000000,
+        "envelope": true,
+        "epsilon_decay_steps": 50000,
+        "final_epsilon": 0.05,
+        "final_homotopy_lambda": 1.0,
+        "gradient_updates": 1,
+        "homotopy_decay_steps": 10000,
+        "initial_epsilon": 1.0,
+        "initial_homotopy_lambda": 0.0,
+        "learning_rate": 0.0003,
+        "learning_starts": 100,
+        "max_grad_norm": 0.1,
+        "net_arch": [
+          256,
+          256,
+          256,
+          256
+        ],
+        "num_sample_w": 4,
+        "per": true,
+        "per_alpha": 0.6,
+        "target_net_update_freq": 1000,
+        "tau": 1.0
+      },
+      "authorization": "User 2026-11-01: complete the course project using local training and the group report template",
+      "checkpoint_selection": "Fixed final step only; intermediate validation is diagnostic",
+      "decision": "Report ore-positive episode counts per objective and seed at both fixed checkpoints; no superiority or mechanism claim",
+      "episodes_per_preference": 3,
+      "evaluation_seed": 20261130,
+      "final_test": "Forbidden; no automated gate unlock",
+      "protocol": "configs/protocols/course_minecart_v0.json",
+      "purpose": "Prospective non-test Minecart backbone feasibility, not an allocation comparison or restart of matrix v1/F1",
+      "schema_version": 1,
+      "seeds": [
+        20261121,
+        20261122,
+        20261123
+      ],
+      "stopping": "Run all three seeds to exactly the declared budget; preserve failures, no budget/seed extension",
+      "study_id": "envelope-feasibility-v1",
+      "training_interactions": 100000,
+      "upstream_example": "https://github.com/LucasAlegre/morl-baselines/blob/v1.3.0/examples/envelope_minecart.py",
+      "validation_checkpoints": [
+        50000,
+        100000
+      ]
+    },
+    "plan_sha256": "015cbe500348bcc38832cfb606f4be4c563bb0e27851e32dc20671abefbd777d",
+    "protocol": {
+      "calibration_evidence": {
+        "plan": "configs/pilots/calibration_v2.json",
+        "plan_canonical_sha256": "0cf0ce2a14e5c8781628ff5cd972ecdd69ef80d9f855c47aa9e283ee3bd3e9ba",
+        "proposal": "research/calibration/course_calibration_v2_proposal.json",
+        "proposal_sha256": "48bede31286bf0f4d0d8708005dd00bb47531f78cc7052b6ba5299509f8a8465",
+        "source_type": "environment_reference_front"
+      },
+      "env_id": "minecart-v0",
+      "name": "course-minecart-v0",
+      "preference_splits": {
+        "test": {
+          "alpha": 1.0,
+          "count": 100,
+          "generator": "dirichlet",
+          "seed": 20261202
+        },
+        "validation": {
+          "alpha": 1.0,
+          "count": 32,
+          "generator": "dirichlet",
+          "seed": 20261016
+        }
+      },
+      "reference_point": [
+        -0.04389009065716453,
+        -0.04389009065716453,
+        -1.0215943973394292
+      ],
+      "reference_point_status": "frozen_from_source_aware_calibration_v2",
+      "return_definition": {
+        "gamma": 0.99,
+        "type": "discounted"
+      },
+      "reward_dim": 3,
+      "reward_scale": [
+        0.9659120784281335,
+        0.9659120784281335,
+        0.8247459754193536
+      ],
+      "schema_version": 1,
+      "training_preference_pool": {
+        "count": 32,
+        "generator": "anchors_plus_dirichlet",
+        "seed": 20261001
+      }
+    },
+    "protocol_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "provenance": {
+      "config": {
+        "device": "cpu"
+      },
+      "config_sha256": "afbd3c37dad4255e555de7bb1857c04c03ce025814e98a64a1fda3dd85e32c5b",
+      "dependencies": {
+        "gymnasium": "1.4.0",
+        "mo-gymnasium": "1.3.2",
+        "morl-baselines": "1.3.0",
+        "numpy": "2.4.6",
+        "pymoo": "0.6.2",
+        "scipy": "1.17.1",
+        "torch": "2.14.1"
+      },
+      "git_commit": "dec2eaebd574c803876bf68c8228856c97f6bda5",
+      "git_dirty": true,
+      "platform": "Windows-10-10.0.26100-SP0",
+      "python": "3.11.18"
+    },
+    "seed": 20261121,
+    "smoke": true,
+    "status": "complete",
+    "training_interactions": 1000,
+    "validation_artifacts": [
+      {
+        "path": "artifacts\\envelope-device-smoke-cpu\\seed20261121\\validation_step1000.json",
+        "sha256": "a4674888bf53d6485cbe69aa7fc0dfde720ee9ee7016da3ec214d13ce84c1911"
+      }
+    ],
+    "validation_steps": 2000
+  },
+  "cuda_smoke": {
+    "curriculum_steps": 0,
+    "elapsed_seconds": 6.136718900001142,
+    "final_test_steps": 0,
+    "gradient_updates": 901,
+    "plan": {
+      "adaptations": [
+        "Use frozen repository gamma=0.99 and static reward scales instead of upstream gamma=0.98/native rewards",
+        "Preserve upstream Gaussian behavior and update preference sampling; this is a backbone feasibility screen, not a fixed-pool allocation comparator",
+        "Disable W&B; explicitly evaluate all 32 fixed validation preferences and retain every episode tensor",
+        "Keep validation RNG independent of training and record environment steps separately"
+      ],
+      "agent": {
+        "batch_size": 64,
+        "buffer_size": 2000000,
+        "envelope": true,
+        "epsilon_decay_steps": 50000,
+        "final_epsilon": 0.05,
+        "final_homotopy_lambda": 1.0,
+        "gradient_updates": 1,
+        "homotopy_decay_steps": 10000,
+        "initial_epsilon": 1.0,
+        "initial_homotopy_lambda": 0.0,
+        "learning_rate": 0.0003,
+        "learning_starts": 100,
+        "max_grad_norm": 0.1,
+        "net_arch": [
+          256,
+          256,
+          256,
+          256
+        ],
+        "num_sample_w": 4,
+        "per": true,
+        "per_alpha": 0.6,
+        "target_net_update_freq": 1000,
+        "tau": 1.0
+      },
+      "authorization": "User 2026-11-01: complete the course project using local training and the group report template",
+      "checkpoint_selection": "Fixed final step only; intermediate validation is diagnostic",
+      "decision": "Report ore-positive episode counts per objective and seed at both fixed checkpoints; no superiority or mechanism claim",
+      "episodes_per_preference": 3,
+      "evaluation_seed": 20261130,
+      "final_test": "Forbidden; no automated gate unlock",
+      "protocol": "configs/protocols/course_minecart_v0.json",
+      "purpose": "Prospective non-test Minecart backbone feasibility, not an allocation comparison or restart of matrix v1/F1",
+      "schema_version": 1,
+      "seeds": [
+        20261121,
+        20261122,
+        20261123
+      ],
+      "stopping": "Run all three seeds to exactly the declared budget; preserve failures, no budget/seed extension",
+      "study_id": "envelope-feasibility-v1",
+      "training_interactions": 100000,
+      "upstream_example": "https://github.com/LucasAlegre/morl-baselines/blob/v1.3.0/examples/envelope_minecart.py",
+      "validation_checkpoints": [
+        50000,
+        100000
+      ]
+    },
+    "plan_sha256": "015cbe500348bcc38832cfb606f4be4c563bb0e27851e32dc20671abefbd777d",
+    "protocol": {
+      "calibration_evidence": {
+        "plan": "configs/pilots/calibration_v2.json",
+        "plan_canonical_sha256": "0cf0ce2a14e5c8781628ff5cd972ecdd69ef80d9f855c47aa9e283ee3bd3e9ba",
+        "proposal": "research/calibration/course_calibration_v2_proposal.json",
+        "proposal_sha256": "48bede31286bf0f4d0d8708005dd00bb47531f78cc7052b6ba5299509f8a8465",
+        "source_type": "environment_reference_front"
+      },
+      "env_id": "minecart-v0",
+      "name": "course-minecart-v0",
+      "preference_splits": {
+        "test": {
+          "alpha": 1.0,
+          "count": 100,
+          "generator": "dirichlet",
+          "seed": 20261202
+        },
+        "validation": {
+          "alpha": 1.0,
+          "count": 32,
+          "generator": "dirichlet",
+          "seed": 20261016
+        }
+      },
+      "reference_point": [
+        -0.04389009065716453,
+        -0.04389009065716453,
+        -1.0215943973394292
+      ],
+      "reference_point_status": "frozen_from_source_aware_calibration_v2",
+      "return_definition": {
+        "gamma": 0.99,
+        "type": "discounted"
+      },
+      "reward_dim": 3,
+      "reward_scale": [
+        0.9659120784281335,
+        0.9659120784281335,
+        0.8247459754193536
+      ],
+      "schema_version": 1,
+      "training_preference_pool": {
+        "count": 32,
+        "generator": "anchors_plus_dirichlet",
+        "seed": 20261001
+      }
+    },
+    "protocol_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "provenance": {
+      "config": {
+        "device": "cuda"
+      },
+      "config_sha256": "ad9f5c46fe4ada426f1ed09c986a272d31a1cd21a42f4d35cd96b1a6b16a23aa",
+      "dependencies": {
+        "gymnasium": "1.4.0",
+        "mo-gymnasium": "1.3.2",
+        "morl-baselines": "1.3.0",
+        "numpy": "2.4.6",
+        "pymoo": "0.6.2",
+        "scipy": "1.17.1",
+        "torch": "2.14.1+cu130"
+      },
+      "git_commit": "dec2eaebd574c803876bf68c8228856c97f6bda5",
+      "git_dirty": true,
+      "platform": "Windows-10-10.0.26100-SP0",
+      "python": "3.11.18"
+    },
+    "seed": 20261121,
+    "smoke": true,
+    "status": "complete",
+    "training_interactions": 1000,
+    "validation_artifacts": [
+      {
+        "path": "artifacts\\envelope-device-smoke-cuda-host-indices\\seed20261121\\validation_step1000.json",
+        "sha256": "c0a571c65553dbade3d4290873c862d5e5f65f9b7953fdb5e2ce95780766c6c0"
+      }
+    ],
+    "validation_steps": 2000
+  },
+  "initial_cuda_smoke_failure_preserved": "artifacts/envelope-device-smoke-cuda/seed20261121/run_manifest.json",
+  "adapter": "Lossless tensor index to CPU NumPy for pinned upstream replay SumTree; priorities and learner unchanged",
+  "no_empirical_claim_promotion": true
+}

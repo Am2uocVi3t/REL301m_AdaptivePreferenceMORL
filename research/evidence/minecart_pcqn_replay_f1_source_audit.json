@@ -1,0 +1,1392 @@
+{
+  "checkpoint_count": 60,
+  "data_firewall": {
+    "allowed_sources": [
+      "training",
+      "validation"
+    ],
+    "evaluation_split": "validation",
+    "final_test_access_permitted": false,
+    "forbidden_split": "test",
+    "shift": "nominal"
+  },
+  "execution_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+  "execution_status": {
+    "path": "artifacts/minecart-pcqn-replay-f1/execution_status.json",
+    "sha256": "5c31a241ec63a72bd3f9ff8b3bf425827dc625c704b770079b420e2daac26509"
+  },
+  "job_count": 6,
+  "jobs": [
+    {
+      "attempts": 1,
+      "cell": "A0R0",
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step100000.pt",
+          "sha256": "085a707e6065ab3b4a96e8efb17101deb6d71196fd3c9d5675dc353c7d144c5a",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6480867862701416,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step200000.pt",
+          "sha256": "25063f2a513895a269917874df30a634404a0fca40293314d732c58ae336dd5c",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.6508862972259521,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 633069,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 435585
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step300000.pt",
+          "sha256": "889a781447e3b0769f02bd6586e5bc0c201c1273e0f3c34ad2a83e6007799e5c",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.43747809529304504,
+            "hypervolume": 0.0014198891585692763
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 802335,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 563956
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step400000.pt",
+          "sha256": "d98f1cf2afc51bdebbd3ed7cc4c25329d7d87e645da5ac80c3ed3b69048ac17a",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.6045873165130615,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 967233,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 677169
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step500000.pt",
+          "sha256": "634653c3f3e5b69bc50d072564ffdfd3730a7331e43297c68e3b547591a3d029",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.4832477867603302,
+            "hypervolume": 0.06573436409235
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1130099,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 831304
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step600000.pt",
+          "sha256": "e42f0cfda6e55d4a08c39634644ed7d14ab2e721c7c6f498dbfb381456b47758",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.6581003665924072,
+            "hypervolume": 0.09590987116098404
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1276805,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 946771
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step700000.pt",
+          "sha256": "b348c8814cc6f6021f9ee73a7c4c13c6392fc4719894da9b8a9604c85182257f",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.4267570376396179,
+            "hypervolume": 0.10229060798883438
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1410024,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1032596
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step800000.pt",
+          "sha256": "6f5542eda3c98a3ed89ca3576fed42dac11f94c461fd05e1fd60b378a813d2f1",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.29194438457489014,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1550183,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1098995
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step900000.pt",
+          "sha256": "f657f755f37940ca574a79ba824d1ec05cd1d0425abf1e3ff9dc99001acec308",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.21356584131717682,
+            "hypervolume": 0.08621691167354584
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1651701,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1200968
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step1000000.pt",
+          "sha256": "dc811549cd6c647b92067e8876742396cbf64a00ad2975c98c8fe816bf5e4b47",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.543084979057312,
+            "hypervolume": 0.14510785043239594
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 1651701,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1200968
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/final.pt",
+        "sha256": "cc8f610739eeb17743819a3ebafb89d14aca2bc921f9b866dfcfb044dae5b5dc"
+      },
+      "job_id": "minecart-v0__a0r0__seed20264021",
+      "replay_audit": {
+        "completed_trajectories": 7205,
+        "distinct_effective_relabel_labels": 0,
+        "distinct_projected_labels": 8,
+        "eligible_trajectories": 3201,
+        "eligible_transitions": 563994,
+        "fallback_positions": 0,
+        "live_eligible_trajectory_count": 3201,
+        "projection_distance_max": 0.11635329203390432,
+        "projection_distance_sum": 122.51899615838985,
+        "relabel_attempt_positions": 0,
+        "relabel_changed_positions": 0,
+        "success_positions_requested": 0,
+        "success_positions_sampled": 0,
+        "uniform_positions_sampled": 63680064,
+        "unique_sampled_trajectory_count": 7200
+      },
+      "replay_histograms": {
+        "effective_relabel_position_counts": {},
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/replay_histograms.json",
+        "projected_episode_label_counts": {
+          "10": 892,
+          "13": 234,
+          "14": 1,
+          "17": 63,
+          "26": 354,
+          "29": 85,
+          "30": 10,
+          "4": 1562
+        },
+        "sha256": "f6b9d98d5b947cf8b7a47b34692977f9e1068f7b406b45de56e352a536e956d9"
+      },
+      "resource_usage": {
+        "final_checkpoint_bytes": 1006154,
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/resource_usage.json",
+        "peak_rss_kib": 603988,
+        "sha256": "585eab727cac79f7d0b543d08e87a1fa4b3173f8e4694023a0e104baadfc4982",
+        "wall_seconds": 3193.563225746155
+      },
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/run_manifest.json",
+        "sha256": "a56322e6799b2e0662f9bd501f182ecdfd78b283591da37affd544894ab72733"
+      },
+      "training_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+      "training_git_dirty": false,
+      "training_seed": 20264021,
+      "trajectory_metadata": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/trajectory_metadata.jsonl",
+        "sha256": "483f2d4838892e306d72c465e68abeb1e4183a64ed6a6529923ac868ef614f76"
+      },
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264021/logs/uniform-pcqn_minecart-v0_seed20264021/events.out.tfevents.1792249232.hei-laptop.432448.0",
+          "sha256": "f0d3ae6c28382ba90652b06fb7486360bcdc9855cab2fada227836e3cfbff7b4"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "cell": "A1R1",
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 191017,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step100000.pt",
+          "sha256": "8cd24a8ef3ae49fe274f099569a6037f33ccca5097241f7741f58b934df2bd29",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6527020931243896,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 415017,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step200000.pt",
+          "sha256": "230fe1fceddd8a8f21a06e80c0c6e8759d7145e0eb5191865e2b45df6e921701",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.6950433254241943,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 639017,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 480000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step300000.pt",
+          "sha256": "212daf89f57c75eb25aa536fd9c657cd8a887498486b335db2ea3cf7638a6ab7",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.6908690333366394,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 830047,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 640000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step400000.pt",
+          "sha256": "7bcd2a5407d5ed7191a5e1d70978857136b3b2508f13e0468ea51c795c364e54",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.7298051714897156,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1052078,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 800000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step500000.pt",
+          "sha256": "4581a493fbb3bfad956d17d8f89043dfb44c2f2b6fb4415c5356ce1b64b29b72",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.6689700484275818,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1276078,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 960000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step600000.pt",
+          "sha256": "4b87688369d5a2822226e41ac005637cf8d8d4f470676253a7c13eec1c5ca442",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.6487413644790649,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1463141,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 1120000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step700000.pt",
+          "sha256": "82ac23cd9bb89385a4eefd58f0e7db22aef72bde1e6239f482bc62d23225e552",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.6895973682403564,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1670618,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1280000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step800000.pt",
+          "sha256": "0039080cb9359bdd213d654b19bbc4a1c6417303228b058c6e625b2c52f87e41",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.687838077545166,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1875391,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1425285
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step900000.pt",
+          "sha256": "3674157ac908152920a444c213273242bbe6a2a874d00d9b23d5666d6b2015db",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.7124853134155273,
+            "hypervolume": 0.000967123603913933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 2057855,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1585285
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/checkpoint_step1000000.pt",
+          "sha256": "5cde44fefdd48aa2a12ab9e66fe99d308219a85722c5f90d14dd0623e3d06e29",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.6480867862701416,
+            "hypervolume": 0.0
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 2057855,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1585285
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/final.pt",
+        "sha256": "c2d24f73b6391b530940fc5f7ed4208450fd8580a49c7e49b67b943412099a5d"
+      },
+      "job_id": "minecart-v0__a1r1__seed20264021",
+      "replay_audit": {
+        "completed_trajectories": 3309,
+        "distinct_effective_relabel_labels": 8,
+        "distinct_projected_labels": 8,
+        "eligible_trajectories": 1176,
+        "eligible_transitions": 321000,
+        "fallback_positions": 0,
+        "live_eligible_trajectory_count": 1176,
+        "projection_distance_max": 0.10224743230201057,
+        "projection_distance_sum": 35.485445830412786,
+        "relabel_attempt_positions": 47905037,
+        "relabel_changed_positions": 46313803,
+        "success_positions_requested": 31840032,
+        "success_positions_sampled": 31840032,
+        "uniform_positions_sampled": 31840032,
+        "unique_sampled_trajectory_count": 3310
+      },
+      "replay_histograms": {
+        "effective_relabel_position_counts": {
+          "10": 710514,
+          "13": 3843171,
+          "16": 19044,
+          "17": 78914,
+          "26": 120352,
+          "29": 1922750,
+          "30": 355979,
+          "4": 40854313
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/replay_histograms.json",
+        "projected_episode_label_counts": {
+          "10": 29,
+          "13": 109,
+          "16": 1,
+          "17": 3,
+          "26": 6,
+          "29": 62,
+          "30": 11,
+          "4": 955
+        },
+        "sha256": "e783c7d5b41fcd626a75d25d95ab6d6099c11450c6f7bfa0d738e79778037da2"
+      },
+      "resource_usage": {
+        "final_checkpoint_bytes": 1005514,
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/resource_usage.json",
+        "peak_rss_kib": 578796,
+        "sha256": "ca456f729611f4cd442a42145cfc1085710ccf4b605faec8fa987c4563ceac89",
+        "wall_seconds": 3361.3175361156464
+      },
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/run_manifest.json",
+        "sha256": "aad1fd801485c013769cdedb59ba8a75a21c38b82f89433d4d5f71a9354b4e22"
+      },
+      "training_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+      "training_git_dirty": false,
+      "training_seed": 20264021,
+      "trajectory_metadata": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/trajectory_metadata.jsonl",
+        "sha256": "ba94d16503c8e8f290bf80a0e4f89cac4a058769b6e9e1fc6728c5d80ab2fb13"
+      },
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264021/logs/uniform-pcqn_minecart-v0_seed20264021/events.out.tfevents.1792252429.hei-laptop.514944.0",
+          "sha256": "e0c1ee5855ce6c3d6187de47f22bd2dc2989e13438c51529886613dc48730c2c"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "cell": "A0R0",
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step100000.pt",
+          "sha256": "64ee7d7fe95a6f442ce1409cf01eb6b5fb8ff7080a3128bec440f8fca5ffdfa4",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6491043567657471,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step200000.pt",
+          "sha256": "fb7f34dd13f5e6dabee0626c9032beefd846d9a0c9e939bdfe3c9f648628b9e1",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.6480867862701416,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 640000,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 480000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step300000.pt",
+          "sha256": "14ad0aacbfe60aa9be197ace16ff055805c13ed969e40f637f81d0719ce4deb9",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.6483094096183777,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 817187,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 580750
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step400000.pt",
+          "sha256": "6d804d9c14ca5afb4407dde31eea9ad809f9587aea6639881d6beb712a0017d4",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.6089364290237427,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 990952,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 651690
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step500000.pt",
+          "sha256": "1f54cc03f49014b0cbe47d0bf3d9722725d891d4cbbd32ac96dc8146e2e71696",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.34736788272857666,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1113136,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 767280
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step600000.pt",
+          "sha256": "7ec22d8fea6da5ed8ccd011990916f3598ba691cdb1c6efef2f380c53678b7ed",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.47177526354789734,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1249720,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 853015
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step700000.pt",
+          "sha256": "8d7eb67ffb33b1daababfeb1ef3fcd399c5c58bd3c11bfb584cb42be3564445a",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.45506566762924194,
+            "hypervolume": 0.001476503093726933
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1378757,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 988240
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step800000.pt",
+          "sha256": "82a1ceda09646ebef1074d4776417c459dccde3d8364d44ff707ad9efb1f3ac9",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.49873411655426025,
+            "hypervolume": 0.0013846897054463625
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1495012,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1091806
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step900000.pt",
+          "sha256": "8b4d9290e1a97cb74e1a71bc4c3bb99c1bc89e24c4c0777cadb45827ff5bb5dd",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.4463096857070923,
+            "hypervolume": 0.0014496425865218043
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1592082,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1205469
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step1000000.pt",
+          "sha256": "89ac985fdf42958f73b9d2f471babcf49fd841f6099dda67f18557ec3b19e175",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.4758162498474121,
+            "hypervolume": 0.03544483706355095
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 1592082,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1205469
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/final.pt",
+        "sha256": "77803c7bd2c3df00457ce7a7b6df5925affabce650523951ebb5ebe28ecfa899"
+      },
+      "job_id": "minecart-v0__a0r0__seed20264022",
+      "replay_audit": {
+        "completed_trajectories": 6842,
+        "distinct_effective_relabel_labels": 0,
+        "distinct_projected_labels": 7,
+        "eligible_trajectories": 2203,
+        "eligible_transitions": 453028,
+        "fallback_positions": 0,
+        "live_eligible_trajectory_count": 2203,
+        "projection_distance_max": 0.09964266005046449,
+        "projection_distance_sum": 88.0053305149963,
+        "relabel_attempt_positions": 0,
+        "relabel_changed_positions": 0,
+        "success_positions_requested": 0,
+        "success_positions_sampled": 0,
+        "uniform_positions_sampled": 63680064,
+        "unique_sampled_trajectory_count": 6836
+      },
+      "replay_histograms": {
+        "effective_relabel_position_counts": {},
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/replay_histograms.json",
+        "projected_episode_label_counts": {
+          "10": 211,
+          "13": 355,
+          "17": 289,
+          "26": 187,
+          "29": 49,
+          "30": 28,
+          "4": 1084
+        },
+        "sha256": "d98fe489373c08a1130fe2ea4e0753fb717db4b109e067a8c5ea336d3a0256ea"
+      },
+      "resource_usage": {
+        "final_checkpoint_bytes": 1005962,
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/resource_usage.json",
+        "peak_rss_kib": 592880,
+        "sha256": "39f35cb82b32f6507e734aa3f0be2e00175fa83a45ea0a1e61f2b1596a7163aa",
+        "wall_seconds": 2784.43674492836
+      },
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/run_manifest.json",
+        "sha256": "e1f9d39443793745d7d801c66637d65957a7bd881e52b95e38cef4aad018dd7e"
+      },
+      "training_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+      "training_git_dirty": false,
+      "training_seed": 20264022,
+      "trajectory_metadata": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/trajectory_metadata.jsonl",
+        "sha256": "117dd794aed1e744d4fe0223c37e5ae08d646c38938274fc4f3cd479f1cee744"
+      },
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264022/logs/uniform-pcqn_minecart-v0_seed20264022/events.out.tfevents.1792255793.hei-laptop.607071.0",
+          "sha256": "6195b3f23a24a6851f24b959f08a30784a69b0c123903520fafbad1f024c3e76"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "cell": "A1R1",
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step100000.pt",
+          "sha256": "44afc6b4fcb5982e3ca1d19a10519aa4629eb6d42f3149d54126d180efef7715",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.9090617895126343,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step200000.pt",
+          "sha256": "350a0db45f6b0206b5a7ba435b5b00c28c1b8596635ffbfb186a05722ed9eebe",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.6487457752227783,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 640000,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 480000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step300000.pt",
+          "sha256": "480c7659a4c3eb975cad3e037f37e63dd8c01a200e932a6743b70517ae248360",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.7175555229187012,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 831106,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 640000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step400000.pt",
+          "sha256": "1ec7444d0ebce247faf4e9027076fc5de429d0030b3dd16d9335fe606a6a7a3d",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.8992989659309387,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1055106,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 800000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step500000.pt",
+          "sha256": "8da98635f18c564dc9233dbc1f16f4d7abdcf900e44b2fca0e5b363800b472c8",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.8466751575469971,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1279106,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 960000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step600000.pt",
+          "sha256": "71268d3f144ea978476b0c16d454af1ae94a82451aeb5e34c1b5587d1b1b41ac",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.7232599854469299,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1471106,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 1120000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step700000.pt",
+          "sha256": "8625cd20ab4e8582071523f1f4840f50b12c3c5632f6c808a195675257cac346",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.7572809457778931,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1693157,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1280000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step800000.pt",
+          "sha256": "db952fff9259f0b305467cbb0cf9c03107f2abfe5d0c21bea4b80fcb32a7c11d",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.827812910079956,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1908278,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1376145
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step900000.pt",
+          "sha256": "5f33a327116b57a96b716c14a66f533879ceb1fbe20a0facd2df035cc9782220",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.4567852318286896,
+            "hypervolume": 0.0012659287312999368
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 2093787,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1536145
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/checkpoint_step1000000.pt",
+          "sha256": "f3c88b4f3cccdcfd4773bce7c4738e997caa85b02b98603fb0214b47f7f7d8cc",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.701340913772583,
+            "hypervolume": 0.0
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 2093787,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1536145
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/final.pt",
+        "sha256": "0ccba2b1f5b5c168312ca388107c5fdd0a61fc268e3f29094595c397f7ecb034"
+      },
+      "job_id": "minecart-v0__a1r1__seed20264022",
+      "replay_audit": {
+        "completed_trajectories": 3457,
+        "distinct_effective_relabel_labels": 7,
+        "distinct_projected_labels": 7,
+        "eligible_trajectories": 1134,
+        "eligible_transitions": 281582,
+        "fallback_positions": 0,
+        "live_eligible_trajectory_count": 1134,
+        "projection_distance_max": 0.10686956686708467,
+        "projection_distance_sum": 36.23469027279498,
+        "relabel_attempt_positions": 46778025,
+        "relabel_changed_positions": 45294470,
+        "success_positions_requested": 31840032,
+        "success_positions_sampled": 31840032,
+        "uniform_positions_sampled": 31840032,
+        "unique_sampled_trajectory_count": 3458
+      },
+      "replay_histograms": {
+        "effective_relabel_position_counts": {
+          "10": 887322,
+          "13": 2264935,
+          "17": 17690,
+          "26": 127339,
+          "29": 3986862,
+          "30": 57616,
+          "4": 39436261
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/replay_histograms.json",
+        "projected_episode_label_counts": {
+          "10": 36,
+          "13": 66,
+          "17": 1,
+          "26": 5,
+          "29": 132,
+          "30": 4,
+          "4": 890
+        },
+        "sha256": "c8e88f269c20aa254e29bfd14706abcaa39f28ee4a85aac79a5701d245cfcd44"
+      },
+      "resource_usage": {
+        "final_checkpoint_bytes": 1005450,
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/resource_usage.json",
+        "peak_rss_kib": 575092,
+        "sha256": "2a769e33d86172abfd615c674aad4caab0eb76cc77c22b2ff667deedb9eb6bc4",
+        "wall_seconds": 3048.833386659622
+      },
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/run_manifest.json",
+        "sha256": "0f2db99f1176a8be81bd7fdd83b73a2990c9c0e7381cde53818ce74088929ad8"
+      },
+      "training_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+      "training_git_dirty": false,
+      "training_seed": 20264022,
+      "trajectory_metadata": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/trajectory_metadata.jsonl",
+        "sha256": "4387ff13f7de9dc517824af81c9f3f31c7e3465cdfd61a5656cf9be12fa0b0e5"
+      },
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264022/logs/uniform-pcqn_minecart-v0_seed20264022/events.out.tfevents.1792258580.hei-laptop.689514.0",
+          "sha256": "e63291ac24a601505763b770a00d0854201232f4e7ac68cea1396e5fe874e918"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "cell": "A0R0",
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step100000.pt",
+          "sha256": "45b75c7292765849f1f68f6b03b41795c54f3f78accdb8b09161eaf8d4300b25",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6536600589752197,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step200000.pt",
+          "sha256": "7dcf6bb3bae7e66e3f6bc80c495748e86aa06c41b477e7adcad5a354187bb283",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.6480867862701416,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 638026,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 455330
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step300000.pt",
+          "sha256": "cc7774ef7c06087d910d39139444143eb33ffdcaa9aeb9d52c1a2b5df6765824",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.6482265591621399,
+            "hypervolume": 0.0014480538666248322
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 826122,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 615330
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step400000.pt",
+          "sha256": "ac73f9a3655be4cac965760f42651cd5d22265a93d2e5d06cf00fdbdda7bee8c",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.6517370939254761,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1013495,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 771415
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step500000.pt",
+          "sha256": "01af18c5835d896214dfcc2a7fd79d695c115cd7172adeac6bd69ff758f98c31",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.7294779419898987,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1213707,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 931415
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step600000.pt",
+          "sha256": "b4ef073e7fc68577553b599c9364fed7f5b874858d46a4a9fede27e1a643e712",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.7347738742828369,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1377947,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 1081545
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step700000.pt",
+          "sha256": "f84aad620884b090506a0c3243d2a78caca58319c934284ef7500c18d81a0228",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.7502942085266113,
+            "hypervolume": 0.0013299029087647796
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1575382,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1241545
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step800000.pt",
+          "sha256": "496a9f454e35f52458fc75b36b450eb781d16e6a8294fcfc0ebad7d0e4961545",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.7000601291656494,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1790541,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1401545
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step900000.pt",
+          "sha256": "79a0ae5ee89af385778ccf8c0ab0d9f674f4749b1b1454efc5ecd6939e5e70dc",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.7402600049972534,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1975646,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1541725
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step1000000.pt",
+          "sha256": "22e5c03750c4153cf32f249bf9db12aab43d1616ffea81a8f7434a762ad26f20",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.6063573360443115,
+            "hypervolume": 0.0013846897054463625
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 1975646,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1541725
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/final.pt",
+        "sha256": "a164404b529fe39e941efd849d4b08dfc6f289d12c0784bce3cc03c24f44603b"
+      },
+      "job_id": "minecart-v0__a0r0__seed20264023",
+      "replay_audit": {
+        "completed_trajectories": 4362,
+        "distinct_effective_relabel_labels": 0,
+        "distinct_projected_labels": 7,
+        "eligible_trajectories": 1514,
+        "eligible_transitions": 353020,
+        "fallback_positions": 0,
+        "live_eligible_trajectory_count": 1514,
+        "projection_distance_max": 0.09811383730913643,
+        "projection_distance_sum": 52.59521289176672,
+        "relabel_attempt_positions": 0,
+        "relabel_changed_positions": 0,
+        "success_positions_requested": 0,
+        "success_positions_sampled": 0,
+        "uniform_positions_sampled": 63680064,
+        "unique_sampled_trajectory_count": 4363
+      },
+      "replay_histograms": {
+        "effective_relabel_position_counts": {},
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/replay_histograms.json",
+        "projected_episode_label_counts": {
+          "10": 141,
+          "13": 168,
+          "17": 6,
+          "26": 18,
+          "29": 95,
+          "30": 7,
+          "4": 1079
+        },
+        "sha256": "2528c53784807bdeb79d3fe154312979c978a22fb564dc302b9186ff96e3e683"
+      },
+      "resource_usage": {
+        "final_checkpoint_bytes": 1005514,
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/resource_usage.json",
+        "peak_rss_kib": 582136,
+        "sha256": "076d4ec17fcaefa112867e8fd4588f2d6adee7bd7092ba4db72216bd7e06dc0c",
+        "wall_seconds": 3016.949328660965
+      },
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/run_manifest.json",
+        "sha256": "842f8042d8a5032339521baea4a9e01e4fc10c28433f4e0e99e96e65d149b09d"
+      },
+      "training_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+      "training_git_dirty": false,
+      "training_seed": 20264023,
+      "trajectory_metadata": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/trajectory_metadata.jsonl",
+        "sha256": "a58afac83f318f2a43a709e862b48ab4978edd6700d0813da144d725b967dd89"
+      },
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-replay-f1/A0R0/uniform-pcqn_minecart-v0_seed20264023/logs/uniform-pcqn_minecart-v0_seed20264023/events.out.tfevents.1792261632.hei-laptop.779405.0",
+          "sha256": "243bb240b9444d2d00b2663bd2ef3aeb5f1f37c673a06558b14f4de8a27a0f34"
+        }
+      ]
+    },
+    {
+      "attempts": 1,
+      "cell": "A1R1",
+      "checkpoint_candidates": [
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 192000,
+            "gradient_updates": 95001,
+            "training_interactions": 100000,
+            "validation_evaluation_steps": 160000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step100000.pt",
+          "sha256": "96b3364f0c2c92cbc58083e3e35663d13ed813986048cc7a7e6791cd48ca2377",
+          "step": 100000,
+          "training_log_metrics": {
+            "expected_utility": -0.6499157547950745,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 416000,
+            "gradient_updates": 195001,
+            "training_interactions": 200000,
+            "validation_evaluation_steps": 320000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step200000.pt",
+          "sha256": "877ff3935d65e4e0caa8d1ef5c887bc558353e037ff609a5d35243112e89ac06",
+          "step": 200000,
+          "training_log_metrics": {
+            "expected_utility": -0.650133490562439,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 639015,
+            "gradient_updates": 295001,
+            "training_interactions": 300000,
+            "validation_evaluation_steps": 480000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step300000.pt",
+          "sha256": "6fb9b2073571d7c5399d30df401c0d90ecf1013b5d6505ae53e6e045c49919a0",
+          "step": 300000,
+          "training_log_metrics": {
+            "expected_utility": -0.6730800867080688,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 831015,
+            "gradient_updates": 395001,
+            "training_interactions": 400000,
+            "validation_evaluation_steps": 640000
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step400000.pt",
+          "sha256": "3194d4b28ed16c5c98d55afe72c5a89674b4e58356172a720deffa0bedc1c42f",
+          "step": 400000,
+          "training_log_metrics": {
+            "expected_utility": -0.698650062084198,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1055015,
+            "gradient_updates": 495001,
+            "training_interactions": 500000,
+            "validation_evaluation_steps": 795075
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step500000.pt",
+          "sha256": "a9a99d1cb5ee14e92b9bfcb852decf289ac0273d63d9a6d008613d91b7c22013",
+          "step": 500000,
+          "training_log_metrics": {
+            "expected_utility": -0.6441822648048401,
+            "hypervolume": 0.0003476229903753847
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1279015,
+            "gradient_updates": 595001,
+            "training_interactions": 600000,
+            "validation_evaluation_steps": 955075
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step600000.pt",
+          "sha256": "379fc9c482f9818f3f9720618febedcb8b4e1c4694cd2aa038de4b226273f011",
+          "step": 600000,
+          "training_log_metrics": {
+            "expected_utility": -0.6753743886947632,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1469084,
+            "gradient_updates": 695001,
+            "training_interactions": 700000,
+            "validation_evaluation_steps": 1115075
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step700000.pt",
+          "sha256": "364ed89b722fe5d2f575b5e633a5fce81a666736f8d99976cfd3de6789fdf335",
+          "step": 700000,
+          "training_log_metrics": {
+            "expected_utility": -0.7224449515342712,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1692141,
+            "gradient_updates": 795001,
+            "training_interactions": 800000,
+            "validation_evaluation_steps": 1275075
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step800000.pt",
+          "sha256": "50e6626dea690d38f99194a746f92d67ce60b01adba8b839061239c439b930f4",
+          "step": 800000,
+          "training_log_metrics": {
+            "expected_utility": -0.7324028015136719,
+            "hypervolume": 0.0
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 1915152,
+            "gradient_updates": 895001,
+            "training_interactions": 900000,
+            "validation_evaluation_steps": 1425255
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step900000.pt",
+          "sha256": "679f7e007420fe8b3e839df57e8df82b6698075109f596bf34ca04d1e21017ed",
+          "step": 900000,
+          "training_log_metrics": {
+            "expected_utility": -0.7184137105941772,
+            "hypervolume": 0.0010624176356941462
+          }
+        },
+        {
+          "counters": {
+            "curriculum_evaluation_steps": 2105221,
+            "gradient_updates": 995001,
+            "training_interactions": 1000000,
+            "validation_evaluation_steps": 1585255
+          },
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/checkpoint_step1000000.pt",
+          "sha256": "bfe29f84cad380f9b38a6c7308c73d763ff27165eb28e68040d30afba4c39188",
+          "step": 1000000,
+          "training_log_metrics": {
+            "expected_utility": -0.9435315728187561,
+            "hypervolume": 0.0
+          }
+        }
+      ],
+      "final_checkpoint": {
+        "counters": {
+          "curriculum_evaluation_steps": 2105221,
+          "gradient_updates": 995001,
+          "training_interactions": 1000000,
+          "validation_evaluation_steps": 1585255
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/final.pt",
+        "sha256": "1d6214f1893b55b18cc8c9bffc5799d8956ec0f906ef6b9edf1d3e3c4600f985"
+      },
+      "job_id": "minecart-v0__a1r1__seed20264023",
+      "replay_audit": {
+        "completed_trajectories": 3181,
+        "distinct_effective_relabel_labels": 7,
+        "distinct_projected_labels": 7,
+        "eligible_trajectories": 1073,
+        "eligible_transitions": 330904,
+        "fallback_positions": 0,
+        "live_eligible_trajectory_count": 1073,
+        "projection_distance_max": 0.10763872976031905,
+        "projection_distance_sum": 30.271617663397564,
+        "relabel_attempt_positions": 48095879,
+        "relabel_changed_positions": 45826066,
+        "success_positions_requested": 31840032,
+        "success_positions_sampled": 31840032,
+        "uniform_positions_sampled": 31840032,
+        "unique_sampled_trajectory_count": 3182
+      },
+      "replay_histograms": {
+        "effective_relabel_position_counts": {
+          "10": 1167916,
+          "13": 2352963,
+          "17": 9086,
+          "26": 157662,
+          "29": 1976354,
+          "30": 144149,
+          "4": 42287749
+        },
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/replay_histograms.json",
+        "projected_episode_label_counts": {
+          "10": 55,
+          "13": 55,
+          "17": 2,
+          "26": 6,
+          "29": 58,
+          "30": 5,
+          "4": 892
+        },
+        "sha256": "6feb9383f59d8c57ef27e16cdab4bdd974825be6982c78786e1794226133d1f6"
+      },
+      "resource_usage": {
+        "final_checkpoint_bytes": 1005450,
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/resource_usage.json",
+        "peak_rss_kib": 579868,
+        "sha256": "96b798815d760130e42be23c5ae1fc1e5cb7228de6362403b09728f9bd28a224",
+        "wall_seconds": 3158.433217048645
+      },
+      "run_manifest": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/run_manifest.json",
+        "sha256": "ef03422ba3dc4626021406ac60beda4150160fc879cbfa3e194c58a13b67d393"
+      },
+      "training_git_commit": "0660ecc865f3a3823f248f1f1955d70c2faf5936",
+      "training_git_dirty": false,
+      "training_seed": 20264023,
+      "trajectory_metadata": {
+        "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/trajectory_metadata.jsonl",
+        "sha256": "3e84ef37215d26f0c7b164f6b066f5682f8a31b70876f81c0fc5b9d8cc76eefe"
+      },
+      "validation_log_files": [
+        {
+          "path": "artifacts/minecart-pcqn-replay-f1/A1R1/uniform-pcqn_minecart-v0_seed20264023/logs/uniform-pcqn_minecart-v0_seed20264023/events.out.tfevents.1792264652.hei-laptop.874886.0",
+          "sha256": "3073f2de2bd140992e7a48c71b81dd33578e1f6a5616089b0ab6c7da233f218a"
+        }
+      ]
+    }
+  ],
+  "kind": "minecart_pcqn_replay_f1_source_audit",
+  "passed": true,
+  "plan": {
+    "id": "minecart-pcqn-successful-replay-f1",
+    "path": "configs/remediations/minecart_pcqn_replay_f1.json",
+    "sha256": "3b5ac7141006b8c096d86c34896d50cce074ba90330f3fc0f64f3ac830782457"
+  },
+  "protocol": {
+    "canonical_sha256": "7f350f1e45f609420b1a9c9f91d75f5d5b8cd0db9ae1867a994b691c8dc48afc",
+    "path": "configs/protocols/course_minecart_v0.json"
+  },
+  "schema_version": 1
+}

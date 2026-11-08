@@ -1,0 +1,4906 @@
+{
+  "diagnostic_steps": 19001,
+  "final_test_steps": 0,
+  "model_sha256": "760086f8ff7a3acc54b459c7f053d4e1a02f29df8dec2cb3bfe2785337324cda",
+  "plan": {
+    "authorization": "User requests research-process/paper investigation and better controlled experiments on 2026-11-01",
+    "counterfactual_rescoring_gammas": [
+      0.98,
+      0.99,
+      0.995,
+      1.0
+    ],
+    "counterfactual_scope": "Rescore the same finite recorded trajectories only; no change to training gamma, reference points or checkpoint selection",
+    "environment_seeds": [
+      20261141,
+      20261142,
+      20261143,
+      20261144,
+      20261145,
+      20261146,
+      20261147,
+      20261148,
+      20261149,
+      20261150
+    ],
+    "expected_environment_episodes": 30,
+    "final_test_steps": 0,
+    "max_episode_steps": 1000,
+    "model_preferences": {
+      "default": null,
+      "landing_heavy": [
+        0.7,
+        0.1,
+        0.1,
+        0.1
+      ]
+    },
+    "package": "outputs/REL301m_Course_Project_20261101_httpfix",
+    "primary_gamma": 0.99,
+    "purpose": "Separate learner failure from utility/task mismatch using paired development seeds and Gymnasium's fixed hand-written controller",
+    "reference_controller": "gymnasium.envs.box2d.lunar_lander.heuristic; fixed source, no tuning, not learned MORL",
+    "study_id": "lunar-objective-diagnosis-v1",
+    "training_interactions": 0
+  },
+  "plan_sha256": "df154ffea61b00b82aa517e2c91476705b04752df5e907e1dce302198232c17b",
+  "provenance": {
+    "config": {
+      "authorization": "User requests research-process/paper investigation and better controlled experiments on 2026-11-01",
+      "counterfactual_rescoring_gammas": [
+        0.98,
+        0.99,
+        0.995,
+        1.0
+      ],
+      "counterfactual_scope": "Rescore the same finite recorded trajectories only; no change to training gamma, reference points or checkpoint selection",
+      "environment_seeds": [
+        20261141,
+        20261142,
+        20261143,
+        20261144,
+        20261145,
+        20261146,
+        20261147,
+        20261148,
+        20261149,
+        20261150
+      ],
+      "expected_environment_episodes": 30,
+      "final_test_steps": 0,
+      "max_episode_steps": 1000,
+      "model_preferences": {
+        "default": null,
+        "landing_heavy": [
+          0.7,
+          0.1,
+          0.1,
+          0.1
+        ]
+      },
+      "package": "outputs/REL301m_Course_Project_20261101_httpfix",
+      "primary_gamma": 0.99,
+      "purpose": "Separate learner failure from utility/task mismatch using paired development seeds and Gymnasium's fixed hand-written controller",
+      "reference_controller": "gymnasium.envs.box2d.lunar_lander.heuristic; fixed source, no tuning, not learned MORL",
+      "study_id": "lunar-objective-diagnosis-v1",
+      "training_interactions": 0
+    },
+    "config_sha256": "34749ab0211f8929a0fdfa08ec720dc3239198a6ed58a7bc9830705ebd13c5dd",
+    "dependencies": {
+      "gymnasium": "1.4.0",
+      "mo-gymnasium": "1.3.2",
+      "morl-baselines": "1.3.0",
+      "numpy": "2.4.6",
+      "pymoo": "0.6.2",
+      "scipy": "1.17.1",
+      "torch": "2.14.1"
+    },
+    "git_commit": "a906ab750e1627c7d23c07cba97d789d4b0164e5",
+    "git_dirty": true,
+    "platform": "Windows-10-10.0.26100-SP0",
+    "python": "3.11.18"
+  },
+  "records": [
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        112.00867460947484,
+        -582.0,
+        -44.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            55.907592006277135,
+            -33.91716091426321,
+            -5.758548665854678
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.6104279348976621,
+            -0.5539933927086785,
+            -0.18703641009213753
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.24975752004194152,
+                -0.09092650752988383,
+                -0.0321288897271894
+              ],
+              "total": 0.12670212278486825
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.06104279348976621,
+                -0.055399339270867855,
+                -0.018703641009213755
+              ],
+              "total": -0.013060186790315398
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            77.03568638120808,
+            -64.54501501750188,
+            -7.823382984187845
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.8411153702671547,
+            -1.054260170607067,
+            -0.2541017803348256
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.34414363586145985,
+                -0.1730349072801467,
+                -0.043649298421833356
+              ],
+              "total": 0.1274594301594798
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.08411153702671548,
+                -0.1054260170607067,
+                -0.025410178033482562
+              ],
+              "total": -0.046724658067473786
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            92.21026280007968,
+            -122.76193845792498,
+            -12.0531363757995
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.006799224890665,
+            -2.005159068405394,
+            -0.3914832519255793
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.411933437533454,
+                -0.3291052087111323,
+                -0.06724852249336015
+              ],
+              "total": 0.015579706328961565
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.1006799224890665,
+                -0.20051590684053944,
+                -0.03914832519255793
+              ],
+              "total": -0.13898430954403088
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            112.00867460947484,
+            -582.0,
+            -44.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.2229684999634611,
+            -9.50622475069432,
+            -1.4291104445902294
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5003794259374698,
+                -1.5602493238205628,
+                -0.2454908745286288
+              ],
+              "total": -1.305360772411722
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.12229684999634612,
+                -0.9506224750694321,
+                -0.14291104445902295
+              ],
+              "total": -0.9712366695321089
+            }
+          }
+        }
+      },
+      "seed": 20261141,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261141.json",
+      "trace_sha256": "b5dca96122bc4356d8f4ef504b98b6034514c57c208d6fbb5d2c2ef2ac658e37",
+      "truncated": true
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        208.79438683965546,
+        -152.0,
+        -162.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.001828440675101477,
+            52.34523591721056,
+            -34.91111671513912,
+            -9.877004733769645
+          ],
+          "scaled_discounted_return": [
+            3.27521325699514e-05,
+            0.5715322931291011,
+            -0.5702283879584772,
+            -0.320802968779485
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                8.349843422115029e-06,
+                0.2338433089235002,
+                -0.09359114475707313,
+                -0.05510714840492084
+              ],
+              "total": 0.08515336560492834
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                2.2926492798965982e-05,
+                0.057153229312910114,
+                -0.05702283879584772,
+                -0.0320802968779485
+              ],
+              "total": -0.03192697986808714
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.4395467595536361,
+            74.36800198537965,
+            -59.024188401397865,
+            -26.69345364281805
+          ],
+          "scaled_discounted_return": [
+            0.007873426759549784,
+            0.8119882156488439,
+            -0.9640845372354175,
+            -0.8669975773440087
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0020072549626294076,
+                0.3322262161507006,
+                -0.15823445024456792,
+                -0.1489318017946549
+              ],
+              "total": 0.027067219074107196
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.005511398731684848,
+                0.0811988215648844,
+                -0.09640845372354176,
+                -0.08669975773440088
+              ],
+              "total": -0.09639799116137339
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            6.675189552585337,
+            106.08031223511563,
+            -87.55327206143299,
+            -55.47931618458469
+          ],
+          "scaled_discounted_return": [
+            0.11957002277019238,
+            1.1582395808374364,
+            -1.4300705874135184,
+            -1.8019561413207668
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.030483235434440488,
+                0.47389549001041936,
+                -0.23471638063939618,
+                -0.3095378601910001
+              ],
+              "total": -0.03987551538553641
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.08369901593913466,
+                0.11582395808374364,
+                -0.14300705874135186,
+                -0.1801956141320767
+              ],
+              "total": -0.12367969885055025
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            208.79438683965546,
+            -152.0,
+            -162.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.27972484242291,
+            -2.4827253644425027,
+            -5.261724818718572
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.9327528942740929,
+                -0.40748779591189954,
+                -0.9038527653099515
+              ],
+              "total": 0.07807704937680182
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.227972484242291,
+                -0.2482725364442503,
+                -0.5261724818718573
+              ],
+              "total": 0.7074097007268053
+            }
+          }
+        }
+      },
+      "seed": 20261141,
+      "steps": 541,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261141.json",
+      "trace_sha256": "f5b23b86dc5dd2f1011fb67b2112e30c76980cf6db4063726e7f94fa535500c5",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        189.13940596336482,
+        -62.0,
+        -9.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            1.1276875967695634,
+            52.296209557826984,
+            -22.688514084605643,
+            -4.612470431374724
+          ],
+          "scaled_discounted_return": [
+            0.0201998206284909,
+            0.5709969980423317,
+            -0.3705878249957987,
+            -0.14981203792820952
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0051497513648149735,
+                0.23362429212279534,
+                -0.06082429340034238,
+                -0.025734531816718698
+              ],
+              "total": 0.15221521827054924
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.014139874439943629,
+                0.05709969980423318,
+                -0.03705878249957987,
+                -0.014981203792820953
+              ],
+              "total": 0.01919958795177598
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            10.740220574263752,
+            97.18374743387793,
+            -36.87794668404966,
+            -6.084782197868267
+          ],
+          "scaled_discounted_return": [
+            0.19238531108442075,
+            1.0611022961786192,
+            -0.6023540369805814,
+            -0.19763240436432347
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.04904679781809358,
+                0.43415162192538226,
+                -0.09886390271078908,
+                -0.033949056887975296
+              ],
+              "total": 0.35038546014471145
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.1346697177590945,
+                0.10611022961786193,
+                -0.060235403698058146,
+                -0.01976324043643235
+              ],
+              "total": 0.16078130324246592
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            32.86426512859969,
+            134.26945302495542,
+            -47.61268000414338,
+            -7.286523875316979
+          ],
+          "scaled_discounted_return": [
+            0.5886845457789819,
+            1.466023164092987,
+            -0.7776921599695469,
+            -0.23666471306753567
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.15007950312167104,
+                0.5998256122555886,
+                -0.12764201337070366,
+                -0.04065397996421133
+              ],
+              "total": 0.5816091220423447
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.4120791820452873,
+                0.14660231640929872,
+                -0.07776921599695469,
+                -0.02366647130675357
+              ],
+              "total": 0.45724581115087776
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            189.13940596336482,
+            -62.0,
+            -9.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.065121620280557,
+            -1.0126906091804946,
+            -0.29231804548436513
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.844947658813711,
+                -0.16621212727985377,
+                -0.05021404251721953
+              ],
+              "total": 1.0851862053411976
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.20651216202805572,
+                -0.10126906091804946,
+                -0.029231804548436515
+              ],
+              "total": 1.3298935313621916
+            }
+          }
+        }
+      },
+      "seed": 20261141,
+      "steps": 223,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261141.json",
+      "trace_sha256": "0eb5fea0561eaba6df92e3aaac00589531b5766ac9745f9cfd8ff8eae90ab846",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        126.79506016499363,
+        -572.0,
+        -62.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            10.128784952358956,
+            -22.168415391467203,
+            -8.298291891731973
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.11059130002946284,
+            -0.36209267882824475,
+            -0.26952671851664944
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.045248598981964316,
+                -0.05942999162321316,
+                -0.046298975763525256
+              ],
+              "total": -0.0604803684047741
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.011059130002946284,
+                -0.03620926788282448,
+                -0.026952671851664944
+              ],
+              "total": -0.05210280973154314
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            22.043117054710976,
+            -51.244146720556245,
+            -12.16737021354044
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.24067812509084435,
+            -0.8370075186995927,
+            -0.39519354216742486
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.09847382174787114,
+                -0.1373773973720096,
+                -0.0678858716917189
+              ],
+              "total": -0.10678944731585736
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.024067812509084435,
+                -0.08370075186995928,
+                -0.03951935421674249
+              ],
+              "total": -0.09915229357761733
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            41.97207858074278,
+            -108.92111621177084,
+            -18.372013443689898
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.45827280932665776,
+            -1.779086960147059,
+            -0.5967190068302123
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.1875030184836941,
+                -0.2920001682460419,
+                -0.10250367379870813
+              ],
+              "total": -0.20700082356105592
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.045827280932665776,
+                -0.1779086960147059,
+                -0.05967190068302123
+              ],
+              "total": -0.19175331576506136
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            126.79506016499363,
+            -572.0,
+            -62.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.3844138864548439,
+            -9.342887555665207,
+            -2.0137465355589597
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5664350519124843,
+                -1.5334409161947797,
+                -0.34591895956306784
+              ],
+              "total": -1.3129248238453632
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.1384413886454844,
+                -0.9342887555665208,
+                -0.20137465355589598
+              ],
+              "total": -0.9972220204769324
+            }
+          }
+        }
+      },
+      "seed": 20261142,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261142.json",
+      "trace_sha256": "02b9248b35ad092ec0ceacff7ce717e7ecb84fd314744fd7a8db10e255b1f981",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        137.70253881410463,
+        -531.0,
+        -404.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            -71.31599239613637,
+            -34.3162060180733,
+            -15.370718762022431
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            -0.7786648002772704,
+            -0.5605112835033227,
+            -0.49923760735602857
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                -0.3185918899563611,
+                -0.09199628391028522,
+                -0.08575843615960202
+              ],
+              "total": -0.49634661002624836
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                -0.07786648002772704,
+                -0.05605112835033227,
+                -0.04992376073560286
+              ],
+              "total": -0.1838413691136622
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            -98.36103896267768,
+            -60.97947176747217,
+            -36.79638717170779
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            -1.0739565725104823,
+            -0.9960215872855832,
+            -1.1951386643243986
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                -0.43941096868040613,
+                -0.16347625359473117,
+                -0.20529948332446737
+              ],
+              "total": -0.8081867055996047
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                -0.10739565725104823,
+                -0.09960215872855832,
+                -0.11951386643243987
+              ],
+              "total": -0.3265116824120464
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            -88.01220876963895,
+            -114.89903079129978,
+            -75.81372050149152
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            -0.9609627050115219,
+            -1.876728540101448,
+            -2.4624131775437714
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                -0.3931793555560505,
+                -0.3080260053260541,
+                -0.422990376072277
+              ],
+              "total": -1.1241957369543816
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                -0.0960962705011522,
+                -0.1876728540101448,
+                -0.24624131775437716
+              ],
+              "total": -0.5300104422656742
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            137.70253881410463,
+            -531.0,
+            -404.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.5035073660303835,
+            -8.673205056045848,
+            -13.121832263964833
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.6151623306156436,
+                -1.42352644492907,
+                -2.25405257521741
+              ],
+              "total": -3.0624166895308362
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.15035073660303835,
+                -0.8673205056045848,
+                -1.3121832263964834
+              ],
+              "total": -2.02915299539803
+            }
+          }
+        }
+      },
+      "seed": 20261142,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261142.json",
+      "trace_sha256": "c0e56dd075f3c3ecb40a74077c6b57b822972ea09bca09c5cfbce6397b0a84d2",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": true,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        -100.0,
+        32.30696693621576,
+        -93.0,
+        -48.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            -0.27976155066276553,
+            12.793875875161726,
+            -15.745649403464066,
+            -11.293763173571936
+          ],
+          "scaled_discounted_return": [
+            -0.005011257690804512,
+            0.13969013777118391,
+            -0.25718502074736316,
+            -0.3668189752290943
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.001277572291719308,
+                0.05715443279950336,
+                -0.04221157875407295,
+                -0.06301172268634993
+              ],
+              "total": -0.049346440932638826
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.0035078803835631583,
+                0.013969013777118393,
+                -0.02571850207473632,
+                -0.03668189752290943
+              ],
+              "total": -0.05193926620409051
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            -5.368359952302263,
+            35.27994563140691,
+            -34.90237160222987,
+            -16.885096564282808
+          ],
+          "scaled_discounted_return": [
+            -0.0961613024886703,
+            0.38520464899764484,
+            -0.5700855477371961,
+            -0.5484242694984355
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.024515405747462405,
+                0.15760706930689125,
+                -0.09356770050191265,
+                -0.09420766186513937
+              ],
+              "total": -0.05468369880762319
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.0673129117420692,
+                0.03852046489976449,
+                -0.05700855477371961,
+                -0.05484242694984355
+              ],
+              "total": -0.14064342856586787
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            -23.255008201124713,
+            45.01286677157007,
+            -54.994544438977584,
+            -25.248107895758025
+          ],
+          "scaled_discounted_return": [
+            -0.41655773790761497,
+            0.49147370368067483,
+            -0.898265463056645,
+            -0.820053061362928
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.10619741723291931,
+                0.20108721501694088,
+                -0.14743161645143413,
+                -0.14086772926188215
+              ],
+              "total": -0.1934095479292947
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.29159041653533047,
+                0.04914737036806749,
+                -0.0898265463056645,
+                -0.08200530613629281
+              ],
+              "total": -0.4142748986092203
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            -100.0,
+            32.30696693621576,
+            -93.0,
+            -48.0
+          ],
+          "scaled_discounted_return": [
+            -1.79126033542946,
+            0.35274413370311164,
+            -1.5190359137707419,
+            -1.559029575916614
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.4566647163245599,
+                0.14432579999439607,
+                -0.24931819091978064,
+                -0.26780822675850413
+              ],
+              "total": -0.8294653340084487
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -1.253882234800622,
+                0.03527441337031117,
+                -0.1519035913770742,
+                -0.1559029575916614
+              ],
+              "total": -1.5264143703990465
+            }
+          }
+        }
+      },
+      "seed": 20261142,
+      "steps": 292,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261142.json",
+      "trace_sha256": "a91efe64d8176651976a3e749c1c71fa018fbbeefecc8a8c8fb52ca2fb5ef4f6",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        90.57886626830441,
+        -543.0,
+        -44.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            26.10459463741812,
+            -14.545551879856282,
+            -6.5999454517437
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.28502343284737786,
+            -0.23758296442061524,
+            -0.21436479497301597
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.11661777201224639,
+                -0.03899430839371594,
+                -0.03682332683613198
+              ],
+              "total": 0.04080013678239847
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.02850234328473779,
+                -0.023758296442061524,
+                -0.021436479497301597
+              ],
+              "total": -0.016692432654625333
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            45.370130614635926,
+            -41.089228609158184,
+            -10.359422470488246
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.4953744946485958,
+            -0.6711399346929839,
+            -0.33647179210221523
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.20268322958746227,
+                -0.11015367895832917,
+                -0.057798720042992906
+              ],
+              "total": 0.03473083058614019
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.04953744946485958,
+                -0.0671139934692984,
+                -0.03364717921022153
+              ],
+              "total": -0.05122372321466035
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            64.25851922591504,
+            -96.10396946938756,
+            -14.890675406159664
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.7016076669203165,
+            -1.5697352804293183,
+            -0.4836459034078553
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.28706384638476334,
+                -0.2576394387991133,
+                -0.08308011199500183
+              ],
+              "total": -0.05365570440935176
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.07016076669203165,
+                -0.15697352804293185,
+                -0.04836459034078553
+              ],
+              "total": -0.13517735169168574
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            90.57886626830441,
+            -543.0,
+            -44.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.988986795842049,
+            -8.869209690080783,
+            -1.4291104445902294
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.404645455036632,
+                -1.4556965340800097,
+                -0.2454908745286288
+              ],
+              "total": -1.2965419535720064
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.0988986795842049,
+                -0.8869209690080784,
+                -0.14291104445902295
+              ],
+              "total": -0.9309333338828965
+            }
+          }
+        }
+      },
+      "seed": 20261143,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261143.json",
+      "trace_sha256": "d26072bd497f3eb3662cf99a51263684624173ae53934337a1004844af7b4c86",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        147.44755472801626,
+        -552.0,
+        -394.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            -52.31797849608013,
+            -24.929093139231306,
+            -19.78152494160272
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            -0.5712346825418053,
+            -0.4071848147981522,
+            -0.6424996341810585
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                -0.2337215410980587,
+                -0.06683092906176198,
+                -0.11036781494145305
+              ],
+              "total": -0.4109202851012737
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                -0.057123468254180534,
+                -0.04071848147981522,
+                -0.06424996341810585
+              ],
+              "total": -0.1620919131521016
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            -44.5521524127394,
+            -49.125989260656524,
+            -36.915107488796295
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            -0.4864433866066158,
+            -0.8024101288865918,
+            -1.1989946744411315
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                -0.19902905311835042,
+                -0.13169895451195116,
+                -0.20596186410779402
+              ],
+              "total": -0.5366898717380956
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                -0.04864433866066158,
+                -0.08024101288865919,
+                -0.11989946744411316
+              ],
+              "total": -0.2487848189934339
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            -24.08680932457343,
+            -102.68291816247401,
+            -70.2860991497503
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            -0.2629922117307838,
+            -1.6771939830062366,
+            -2.2828772364639227
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                -0.10760366431008386,
+                -0.2752765526304506,
+                -0.39214990789722987
+              ],
+              "total": -0.7750301248377642
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                -0.026299221173078383,
+                -0.16771939830062366,
+                -0.22828772364639227
+              ],
+              "total": -0.4223063431200943
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            147.44755472801626,
+            -552.0,
+            -394.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.6099084776934656,
+            -9.016213165606983,
+            -12.797034435648873
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.6586965076403767,
+                -1.479824100943214,
+                -2.1982591946427217
+              ],
+              "total": -3.019386787945559
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.16099084776934658,
+                -0.9016213165606983,
+                -1.2797034435648875
+              ],
+              "total": -2.0203339123562394
+            }
+          }
+        }
+      },
+      "seed": 20261143,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261143.json",
+      "trace_sha256": "bce4de6e9fb14f260dfcecfe6b9dd3fa18fda1079679bd08c6549ce3456f857b",
+      "truncated": true
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        210.41321316794796,
+        -82.0,
+        -19.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            1.2989913941963003,
+            24.56147002777099,
+            -10.981056042958306,
+            -5.734764885653895
+          ],
+          "scaled_discounted_return": [
+            0.023268317604880465,
+            0.2681748021882198,
+            -0.179361489251429,
+            -0.1862639180763017
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.00593203536538698,
+                0.10972412909559415,
+                -0.029438462656119248,
+                -0.0319961919771647
+              ],
+              "total": 0.05422150982769718
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.016287822323416325,
+                0.026817480218821983,
+                -0.017936148925142902,
+                -0.01862639180763017
+              ],
+              "total": 0.0065427618094652355
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            11.523033871371334,
+            67.79916268301072,
+            -28.817999827270054,
+            -8.667734217742428
+          ],
+          "scaled_discounted_return": [
+            0.20640753517597646,
+            0.7402662389704447,
+            -0.47070512581357254,
+            -0.28152612503426877
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.052621629940680856,
+                0.30288106006654125,
+                -0.07725646863291957,
+                -0.0483602193930752
+              ],
+              "total": 0.22988600198122736
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.1444852746231835,
+                0.07402662389704448,
+                -0.047070512581357256,
+                -0.028152612503426877
+              ],
+              "total": 0.14328877343544386
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            34.03786882983606,
+            117.87144599757325,
+            -48.0866236254262,
+            -12.178889075645595
+          ],
+          "scaled_discounted_return": [
+            0.609706843374361,
+            1.2869812628599957,
+            -0.7854334221397745,
+            -0.39556767230706735
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.15543893713469664,
+                0.5265703454515833,
+                -0.1289125807498026,
+                -0.06795013931744093
+              ],
+              "total": 0.4851465625190365
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.42679479036205265,
+                0.12869812628599958,
+                -0.07854334221397746,
+                -0.03955676723070674
+              ],
+              "total": 0.43739280720336804
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            210.41321316794796,
+            -82.0,
+            -19.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.297400023504338,
+            -1.3393649992387187,
+            -0.6171158738003264
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.9399847215559323,
+                -0.2198289425314195,
+                -0.1060074230919079
+              ],
+              "total": 1.0708130722571647
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.22974000235043382,
+                -0.13393649992387188,
+                -0.06171158738003264
+              ],
+              "total": 1.2879741498471513
+            }
+          }
+        }
+      },
+      "seed": 20261143,
+      "steps": 216,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261143.json",
+      "trace_sha256": "459a4b7d3c40634f9b241b0b0bea49cb967cf1b7118370d9169ea03c2973ebc6",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        121.59686533734202,
+        -580.0,
+        -44.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            52.45698917309244,
+            -32.4624025276048,
+            -4.417859315201379
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.5727524728356141,
+            -0.5302317772764925,
+            -0.14349111113828475
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.23434254731034646,
+                -0.08702653194722736,
+                -0.024648730609846264
+              ],
+              "total": 0.12266728475327285
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.05727524728356142,
+                -0.05302317772764925,
+                -0.014349111113828476
+              ],
+              "total": -0.010097041557916308
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            70.61472628378392,
+            -62.67836604027145,
+            -6.4851930728756235
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.7710080150462242,
+            -1.023770849802589,
+            -0.2106376626279718
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.3154591046077999,
+                -0.1680307186125623,
+                -0.036183084521528235
+              ],
+              "total": 0.11124530147370937
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.07710080150462242,
+                -0.10237708498025891,
+                -0.02106376626279718
+              ],
+              "total": -0.04634004973843367
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            82.85220289290655,
+            -120.55101641075223,
+            -10.018270603555012
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.9046230985580744,
+            -1.969046487844072,
+            -0.3253912535516302
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.37012791969685926,
+                -0.3231780787641885,
+                -0.05589531844843576
+              ],
+              "total": -0.008945477515765021
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.09046230985580744,
+                -0.19690464878440722,
+                -0.03253912535516302
+              ],
+              "total": -0.1389814642837628
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            121.59686533734202,
+            -580.0,
+            -44.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.327657313331773,
+            -9.473557311688497,
+            -1.4291104445902294
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5432130135048322,
+                -1.554887642295406,
+                -0.2454908745286288
+              ],
+              "total": -1.2571655033192028
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.13276573133317732,
+                -0.9473557311688497,
+                -0.14291104445902295
+              ],
+              "total": -0.9575010442946954
+            }
+          }
+        }
+      },
+      "seed": 20261144,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261144.json",
+      "trace_sha256": "495562c84330c5c2233756371c2399bd45e4b7c631feb68bd554d624e6bdbb5f",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        181.25500683952123,
+        -299.0,
+        -199.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0007219055086528319,
+            48.29033723391507,
+            -32.08900812729616,
+            -9.826555006520094
+          ],
+          "scaled_discounted_return": [
+            1.2931207035778465e-05,
+            0.5272588171907097,
+            -0.5241328578778934,
+            -0.31916437259450625
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                3.2966877432208255e-06,
+                0.21572874875701137,
+                -0.08602552101836147,
+                -0.05482567232168849
+              ],
+              "total": 0.07488085210470462
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                9.051844925044925e-06,
+                0.05272588171907097,
+                -0.052413285787789345,
+                -0.03191643725945063
+              ],
+              "total": -0.03159478948324396
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.27683693618568506,
+            68.97804461152373,
+            -62.423181939534,
+            -26.041104121193143
+          ],
+          "scaled_discounted_return": [
+            0.004958870231712342,
+            0.7531378801069396,
+            -1.0196027442795408,
+            -0.8458094065513361
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0012642166093139613,
+                0.3081475116578495,
+                -0.16734661067334344,
+                -0.14529212328188146
+              ],
+              "total": -0.003227005688061446
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.003471209162198639,
+                0.07531378801069397,
+                -0.10196027442795408,
+                -0.08458094065513361
+              ],
+              "total": -0.10775621791019509
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            5.300603475569492,
+            92.14030116904154,
+            -112.89823993045233,
+            -56.85921705754688
+          ],
+          "scaled_discounted_return": [
+            0.0949476075962717,
+            1.0060353477064734,
+            -1.8440481833963775,
+            -1.8467750220037087
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.024205985825199183,
+                0.41162089601915997,
+                -0.3026622036289002,
+                -0.31723679364705254
+              ],
+              "total": -0.18407211543159357
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.06646332531739019,
+                0.10060353477064735,
+                -0.18440481833963776,
+                -0.18467750220037088
+              ],
+              "total": -0.2020154604519711
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            181.25500683952123,
+            -299.0,
+            -199.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            1.979035682711713,
+            -4.88378213137045,
+            -6.4634767834876286
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.8097254662361638,
+                -0.8015713880109077,
+                -1.1102882734362984
+              ],
+              "total": -0.6454694788864823
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.1979035682711713,
+                -0.488378213137045,
+                -0.6463476783487629
+              ],
+              "total": 0.31705991158598545
+            }
+          }
+        }
+      },
+      "seed": 20261144,
+      "steps": 587,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261144.json",
+      "trace_sha256": "8d6e502883b61f6f106371de6791c1ab10db487b3a40ea3e58bd6b9b96697e0d",
+      "truncated": false
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        208.25716933287418,
+        -79.0,
+        -10.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            2.4795441849224615,
+            57.38975520960218,
+            -24.133377507633295,
+            -3.0482216476079147
+          ],
+          "scaled_discounted_return": [
+            0.044415091483963755,
+            0.6266109574697205,
+            -0.3941878188675485,
+            -0.0990055771368752
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.01132320341821828,
+                0.256378828395167,
+                -0.06469774216115332,
+                -0.0170070590460992
+              ],
+              "total": 0.1859972306061328
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.031090564038774627,
+                0.06266109574697205,
+                -0.03941878188675485,
+                -0.009900557713687521
+              ],
+              "total": 0.044432320185304304
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            15.894270919978752,
+            105.65481846638929,
+            -42.26588114893048,
+            -5.343313652467146
+          ],
+          "scaled_discounted_return": [
+            0.2847077705952785,
+            1.153593820338106,
+            -0.6903590472300127,
+            -0.1735496670332356
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.07258352720857798,
+                0.4719946700205608,
+                -0.11330809705034202,
+                -0.02981215321420276
+              ],
+              "total": 0.401457946964594
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.19929543941669495,
+                0.1153593820338106,
+                -0.06903590472300128,
+                -0.017354966703323562
+              ],
+              "total": 0.2282639500241807
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            39.95984329713266,
+            146.70990161809377,
+            -57.293544940206765,
+            -7.250666813409085
+          ],
+          "scaled_discounted_return": [
+            0.715784823081305,
+            1.6018544004491753,
+            -0.9358166923807747,
+            -0.23550008348378818
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.1824825050365895,
+                0.6554011696590024,
+                -0.15359487070831723,
+                -0.040453921294079605
+              ],
+              "total": 0.643834882693195
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.5010493761569135,
+                0.16018544004491753,
+                -0.09358166923807748,
+                -0.02355000834837882
+              ],
+              "total": 0.5441031386153747
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            208.25716933287418,
+            -79.0,
+            -10.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.273859224507931,
+            -1.290363840729985,
+            -0.32479782831596127
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.9303529677631867,
+                -0.2117864202436846,
+                -0.05579338057468837
+              ],
+              "total": 1.1194378832693737
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.22738592245079314,
+                -0.1290363840729985,
+                -0.03247978283159613
+              ],
+              "total": 1.3197519903468204
+            }
+          }
+        }
+      },
+      "seed": 20261144,
+      "steps": 184,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261144.json",
+      "trace_sha256": "c34cbb6986abdcedb73ccf134c1856df0b4ad5a4d9d0ad596dfc9b7003ee8962",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        93.18329363272642,
+        -571.0,
+        -44.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            29.82015207605925,
+            -16.267172595768958,
+            -4.298052607035758
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.325591805994422,
+            -0.2657034342847341,
+            -0.13959981527529697
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.13321638372394748,
+                -0.04360969938663386,
+                -0.023980288483437754
+              ],
+              "total": 0.06562639585387586
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.032559180599442204,
+                -0.02657034342847341,
+                -0.013959981527529697
+              ],
+              "total": -0.007971144356560902
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            50.30133678541874,
+            -44.97269741659701,
+            -7.152833585580754
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.549215947863887,
+            -0.7345714248919948,
+            -0.23232248149020993
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.2247125422413135,
+                -0.12056464043751246,
+                -0.039908076642771975
+              ],
+              "total": 0.06423982516102908
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.05492159478638871,
+                -0.07345714248919948,
+                -0.023232248149020994
+              ],
+              "total": -0.04176779585183176
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            68.1932199048644,
+            -102.77479202054263,
+            -12.026460331005945
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.744568759031417,
+            -1.67869462483358,
+            -0.39061681978387874
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.3046414427078423,
+                -0.2755228518141763,
+                -0.06709968782142073
+              ],
+              "total": -0.0379810969277547
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.07445687590314169,
+                -0.167869462483358,
+                -0.03906168197838788
+              ],
+              "total": -0.13247426855860417
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            93.18329363272642,
+            -571.0,
+            -44.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.0174232775541676,
+            -9.326553836162297,
+            -1.4291104445902294
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.4162802848750264,
+                -1.5307600754322017,
+                -0.2454908745286288
+              ],
+              "total": -1.359970665085804
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.10174232775541676,
+                -0.9326553836162298,
+                -0.14291104445902295
+              ],
+              "total": -0.9738241003198359
+            }
+          }
+        }
+      },
+      "seed": 20261145,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261145.json",
+      "trace_sha256": "ea1b57c93ecd53543183e25b1215b993fafb8c3362cdfb108a3d4d9fbad92d17",
+      "truncated": true
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": false,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        164.1758970849687,
+        -221.0,
+        -169.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0033519582692524007,
+            28.73745104648978,
+            -15.373402188477952,
+            -21.710588094890245
+          ],
+          "scaled_discounted_return": [
+            6.0042298937266073e-05,
+            0.3137703175368712,
+            -0.25110483915204007,
+            -0.7051551864682714
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                1.5307210721599103e-05,
+                0.12837960370198254,
+                -0.04121364324638193,
+                -0.12113071040785098
+              ],
+              "total": -0.03394944274152878
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                4.202960925608625e-05,
+                0.03137703175368712,
+                -0.02511048391520401,
+                -0.07051551864682713
+              ],
+              "total": -0.06420694119908793
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.5942227087709081,
+            52.72147867358904,
+            -42.87459586796443,
+            -38.48631592872044
+          ],
+          "scaled_discounted_return": [
+            0.01064407568632779,
+            0.575640305664689,
+            -0.7003016227080067,
+            -1.2500271833530385
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0027136054473447828,
+                0.23552410851430144,
+                -0.11493996428190961,
+                -0.21472816715287904
+              ],
+              "total": -0.09143041747314243
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.007450852980429453,
+                0.05756403056646891,
+                -0.07003016227080067,
+                -0.12500271833530385
+              ],
+              "total": -0.13001799705920616
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            7.758382377679898,
+            81.6034762613075,
+            -87.10516711636289,
+            -67.24761238434812
+          ],
+          "scaled_discounted_return": [
+            0.13897282620232906,
+            0.8909888569170978,
+            -1.4227513669328762,
+            -2.184187846186981
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.03542979487640655,
+                0.36454944894670627,
+                -0.2335150826367394,
+                -0.37519716304990613
+              ],
+              "total": -0.2087330018635327
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.09728097834163034,
+                0.08909888569170979,
+                -0.14227513669328762,
+                -0.21841878461869813
+              ],
+              "total": -0.17431405727864563
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            164.1758970849687,
+            -221.0,
+            -169.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            1.7925571504903384,
+            -3.6097520101433758,
+            -5.489083298539745
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.7334274905275652,
+                -0.5924658085298014,
+                -0.9429081317122333
+              ],
+              "total": -0.34528173338990953
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.17925571504903384,
+                -0.3609752010143376,
+                -0.5489083298539745
+              ],
+              "total": 0.5232544189813437
+            }
+          }
+        }
+      },
+      "seed": 20261145,
+      "steps": 511,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261145.json",
+      "trace_sha256": "08860d2294f029a5b9b5aa515a2ef1bcd1d41bfbe793fdecd2530bd60e4d3bc7",
+      "truncated": false
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        204.47147999981894,
+        -83.0,
+        -3.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            1.5898110709919633,
+            32.3211187955807,
+            -11.89031736154696,
+            -1.0990665933106645
+          ],
+          "scaled_discounted_return": [
+            0.028477655122945332,
+            0.35289865100527223,
+            -0.19421310858410326,
+            -0.03569744426819256
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.007260106217441897,
+                0.1443890209841066,
+                -0.03187604746282739,
+                -0.006132064071750814
+              ],
+              "total": 0.11364101566697028
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.01993435858606173,
+                0.03528986510052722,
+                -0.019421310858410326,
+                -0.0035697444268192563
+              ],
+              "total": 0.032233168401359376
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            12.74133376787588,
+            74.53272657462603,
+            -30.20166054659399,
+            -1.4479423324694287
+          ],
+          "scaled_discounted_return": [
+            0.22823045798864053,
+            0.8137867637034487,
+            -0.493305451890206,
+            -0.0470288525112818
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.05818517570703574,
+                0.33296209482877853,
+                -0.08096584269086157,
+                -0.008078559760566878
+              ],
+              "total": 0.30210286808438586
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.15976132059204837,
+                0.08137867637034488,
+                -0.04933054518902061,
+                -0.00470288525112818
+              ],
+              "total": 0.18710656652224444
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            35.787515808676375,
+            121.17260494679458,
+            -49.5342458214232,
+            -1.9479936127754884
+          ],
+          "scaled_discounted_return": [
+            0.6410475757163674,
+            1.3230250194917579,
+            -0.8090784770353778,
+            -0.06327040950028422
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.16342895754729897,
+                0.5413177034191597,
+                -0.13279342534164446,
+                -0.010868514899464493
+              ],
+              "total": 0.5610847207253498
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.44873330300145714,
+                0.13230250194917578,
+                -0.08090784770353779,
+                -0.006327040950028422
+              ],
+              "total": 0.49380091629706674
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            204.47147999981894,
+            -83.0,
+            -3.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.2325251151533094,
+            -1.3556987187416298,
+            -0.09743934849478837
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.9134410539149393,
+                -0.2225097832939978,
+                -0.016738014172406508
+              ],
+              "total": 1.130857972773095
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.22325251151533096,
+                -0.135569871874163,
+                -0.009743934849478837
+              ],
+              "total": 1.3318209395923113
+            }
+          }
+        }
+      },
+      "seed": 20261145,
+      "steps": 206,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261145.json",
+      "trace_sha256": "fd58b57de0e3da37b295e21f1abbe7b6d6f5ae785bc56f61e534f6dea8a6f0ce",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        114.15773009880832,
+        -590.0,
+        -36.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            39.59691511855108,
+            -33.52694228535183,
+            -5.16145748497504
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.4323395491871891,
+            -0.5476196710792295,
+            -0.16764301820650562
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.1768923855674235,
+                -0.08988039352318081,
+                -0.02879751617792863
+              ],
+              "total": 0.05821447586631408
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.04323395491871891,
+                -0.05476196710792295,
+                -0.016764301820650564
+              ],
+              "total": -0.028292314009854602
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            58.75373438995209,
+            -64.3653448976442,
+            -6.6990828313168045
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.6415035859022046,
+            -1.0513254892662571,
+            -0.2175847555320439
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.26247217001923095,
+                -0.1725532402990149,
+                -0.037376447790901934
+              ],
+              "total": 0.05254248192931413
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.06415035859022046,
+                -0.10513254892662571,
+                -0.02175847555320439
+              ],
+              "total": -0.06274066588960964
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            77.89422030853306,
+            -123.08277783874766,
+            -10.003137770054193
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.850489286643981,
+            -2.0103995688572396,
+            -0.3248997424058969
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.34797898803574917,
+                -0.32996532800148215,
+                -0.05581088725456731
+              ],
+              "total": -0.03779722722030029
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.08504892866439812,
+                -0.20103995688572396,
+                -0.03248997424058969
+              ],
+              "total": -0.14848100246191553
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            114.15773009880832,
+            -590.0,
+            -36.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.2464329965954575,
+            -9.63689450671761,
+            -1.1692721819374605
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5099799605015086,
+                -1.5816960499211892,
+                -0.20085617006887813
+              ],
+              "total": -1.2725722594885585
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.12464329965954575,
+                -0.963689450671761,
+                -0.11692721819374606
+              ],
+              "total": -0.9559733692059613
+            }
+          }
+        }
+      },
+      "seed": 20261146,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261146.json",
+      "trace_sha256": "5873917694599bceba8b91424d27f5d1de485ef5504e869b23712562f92e32dc",
+      "truncated": true
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": true,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        -100.0,
+        126.28152722073719,
+        -247.0,
+        -180.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            -0.01556384333425667,
+            3.5294998830250175,
+            -38.94263220559261,
+            -11.034307684709749
+          ],
+          "scaled_discounted_return": [
+            -0.00027878895231492166,
+            0.038536900758927344,
+            -0.6360780311511859,
+            -0.35839191729638487
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -7.107458101158214e-05,
+                0.015767431687518877,
+                -0.10439899581884662,
+                -0.061564132803121945
+              ],
+              "total": -0.15026677151546128
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.00019515226662044515,
+                0.0038536900758927347,
+                -0.06360780311511859,
+                -0.03583919172963849
+              ],
+              "total": -0.09578845703548478
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            -1.2754823560906534,
+            -3.628308616219815,
+            -67.95190762898042,
+            -30.46898786942401
+          ],
+          "scaled_discounted_return": [
+            -0.02284720953005302,
+            -0.03961574548805075,
+            -1.109907398899498,
+            -0.9896261090974284
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.0058246778832111955,
+                -0.016208842652928504,
+                -0.18216824386672517,
+                -0.16999678359243367
+              ],
+              "total": -0.3741985479952985
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.01599304667103711,
+                -0.003961574548805076,
+                -0.11099073988994981,
+                -0.09896261090974284
+              ],
+              "total": -0.22990797201953483
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            -11.355781921006072,
+            12.861719654182684,
+            -110.83577405636807,
+            -65.0377706969328
+          ],
+          "scaled_discounted_return": [
+            -0.20341161732885132,
+            0.14043089115435173,
+            -1.8103604443247585,
+            -2.1124126680875235
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.05185784929599803,
+                0.057457513175360804,
+                -0.2971330610422284,
+                -0.36286770922232864
+              ],
+              "total": -0.6544011063851942
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.1423881321301959,
+                0.014043089115435173,
+                -0.18103604443247587,
+                -0.21124126680875235
+              ],
+              "total": -0.5206223542559889
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            -100.0,
+            126.28152722073719,
+            -247.0,
+            -180.0
+          ],
+          "scaled_discounted_return": [
+            -1.79126033542946,
+            1.3788068688134978,
+            -4.034428717219067,
+            -5.846360909687302
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.4566647163245599,
+                0.5641409320977205,
+                -0.6621676683568368,
+                -1.0042808503443905
+              ],
+              "total": -1.5589723029280667
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -1.253882234800622,
+                0.13788068688134977,
+                -0.40344287172190674,
+                -0.5846360909687303
+              ],
+              "total": -2.104080510609909
+            }
+          }
+        }
+      },
+      "seed": 20261146,
+      "steps": 435,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261146.json",
+      "trace_sha256": "aa4ac0426e51e3736caf438703f26f0ac623f1060bf5fc2366700623fa5cc51f",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": true,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        -100.0,
+        142.55305918306112,
+        -57.0,
+        -12.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            -17.59715703125707,
+            39.04196995008578,
+            -20.2264888732571,
+            -7.942248909361499
+          ],
+          "scaled_discounted_return": [
+            -0.31521089406414415,
+            0.42628037151540393,
+            -0.3303737957845359,
+            -0.2579625197705427
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.08036000723797743,
+                0.1744132637869757,
+                -0.05422399585526379,
+                -0.04431249160189098
+              ],
+              "total": -0.004483230908156499
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.22064762584490089,
+                0.0426280371515404,
+                -0.03303737957845359,
+                -0.02579625197705427
+              ],
+              "total": -0.23685322024886835
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            -42.1334222154768,
+            74.90541703498099,
+            -33.48998796718489,
+            -9.389160183710763
+          ],
+          "scaled_discounted_return": [
+            -0.7547192801048603,
+            0.8178559904382542,
+            -0.5470160696118693,
+            -0.30495788373799476
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.1924084730381362,
+                0.33462702515006826,
+                -0.08978132488068558,
+                -0.05238529874064855
+              ],
+              "total": 5.1928490597916155e-05
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.5283034960734022,
+                0.08178559904382543,
+                -0.054701606961186935,
+                -0.030495788373799477
+              ],
+              "total": -0.5317152923645633
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            -64.98078359349753,
+            103.32284336826035,
+            -43.538935697247545,
+            -10.498068548322943
+          ],
+          "scaled_discounted_return": [
+            -1.1639750021615753,
+            1.128132113040396,
+            -0.711152763134129,
+            -0.34097498660073877
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.29674431106272164,
+                0.46157697366828626,
+                -0.1167209535764561,
+                -0.058572273381574814
+              ],
+              "total": -0.01046056435246629
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.8147825015131027,
+                0.11281321130403961,
+                -0.0711152763134129,
+                -0.03409749866007388
+              ],
+              "total": -0.8071820651825498
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            -100.0,
+            142.55305918306112,
+            -57.0,
+            -12.0
+          ],
+          "scaled_discounted_return": [
+            -1.79126033542946,
+            1.5564678500317106,
+            -0.9310220116659386,
+            -0.3897573939791535
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.4566647163245599,
+                0.6368311933727354,
+                -0.15280792346696234,
+                -0.06695205668962603
+              ],
+              "total": -0.039593503108412864
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -1.253882234800622,
+                0.15564678500317108,
+                -0.09310220116659386,
+                -0.03897573939791535
+              ],
+              "total": -1.23031339036196
+            }
+          }
+        }
+      },
+      "seed": 20261146,
+      "steps": 87,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261146.json",
+      "trace_sha256": "6d68349ac5b14b76931e0ce6e2217f520857ca8c114193d850ac0ae1c388a5ea",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        130.0694862717064,
+        -583.0,
+        -33.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            47.76095482582584,
+            -32.09099235735218,
+            -6.396255356619058
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.5214787469257486,
+            -0.5241652677350576,
+            -0.20774898491842042
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.21336382419751057,
+                -0.08603084042317796,
+                -0.035686870936473616
+              ],
+              "total": 0.09164611283785899
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.05214787469257486,
+                -0.05241652677350576,
+                -0.020774898491842043
+              ],
+              "total": -0.021043550572772938
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            65.19631077484344,
+            -62.022589121060186,
+            -7.815029384139694
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.7118469589025677,
+            -1.0130595735477088,
+            -0.2538304572193997
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.29125326830710885,
+                -0.1662726851163827,
+                -0.04360269086316784
+              ],
+              "total": 0.0813778923275583
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.07118469589025676,
+                -0.10130595735477088,
+                -0.02538304572193997
+              ],
+              "total": -0.05550430718645409
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            86.45540984315657,
+            -120.17678386227081,
+            -10.509600282020608
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.9439647711059294,
+            -1.962933878368317,
+            -0.3413495348069107
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.38622462498853577,
+                -0.322174820893536,
+                -0.05863661282226279
+              ],
+              "total": 0.0054131912727369835
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.09439647711059294,
+                -0.1962933878368317,
+                -0.03413495348069107
+              ],
+              "total": -0.13603186420692984
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            130.0694862717064,
+            -583.0,
+            -33.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.420165760119359,
+            -9.52255847019723,
+            -1.071832833442672
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5810629855190926,
+                -1.5629301645831408,
+                -0.1841181558964716
+              ],
+              "total": -1.1659853349605198
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.1420165760119359,
+                -0.9522558470197231,
+                -0.10718328334426722
+              ],
+              "total": -0.9174225543520544
+            }
+          }
+        }
+      },
+      "seed": 20261147,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261147.json",
+      "trace_sha256": "a3056017e9577a04e7bd31db18539d00e4a7597302f699033f2313aef9b14bc2",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": false,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        180.53062784861305,
+        -461.0,
+        -408.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            3.553946549815309e-07,
+            9.663595385469405,
+            -37.44290663505936,
+            -12.557087981409564
+          ],
+          "scaled_discounted_return": [
+            6.366043488920542e-09,
+            0.1055121203248452,
+            -0.6115819343507523,
+            -0.4078514906334284
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                1.6229619930040564e-09,
+                0.04317044486359924,
+                -0.1003784703766801,
+                -0.07006023886566291
+              ],
+              "total": -0.1272682627557818
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                4.4562304422443796e-09,
+                0.01055121203248452,
+                -0.061158193435075225,
+                -0.040785149063342845
+              ],
+              "total": -0.09139212600970312
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0062617020307219355,
+            -3.413878728981688,
+            -68.3237522134676,
+            -31.653383292909087
+          ],
+          "scaled_discounted_return": [
+            0.00011216338479910305,
+            -0.037274489344655916,
+            -1.1159810040411882,
+            -1.02809501523896
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                2.8594983815685535e-05,
+                -0.015250914133069258,
+                -0.18316509998616237,
+                -0.1766049260537759
+              ],
+              "total": -0.37499234518919183
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                7.851436935937214e-05,
+                -0.0037274489344655917,
+                -0.11159810040411883,
+                -0.10280950152389601
+              ],
+              "total": -0.21805653649312107
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.8009893802752049,
+            9.820842674710025,
+            -123.10942179298067,
+            -74.10749490948139
+          ],
+          "scaled_discounted_return": [
+            0.01434780505987199,
+            0.10722902736009418,
+            -2.0108347637321295,
+            -2.406995340853571
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.003657835881223615,
+                0.04387291999416193,
+                -0.3300367562000662,
+                -0.4134707666921476
+              ],
+              "total": -0.6959767670168282
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.010043463541910392,
+                0.01072290273600942,
+                -0.20108347637321297,
+                -0.2406995340853571
+              ],
+              "total": -0.42101664418065027
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            180.53062784861305,
+            -461.0,
+            -408.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            1.9711265391475672,
+            -7.529844690842064,
+            -13.251751395291219
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.8064894280909437,
+                -1.23586759154859,
+                -2.2763699274472855
+              ],
+              "total": -2.2490833745803718
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.19711265391475674,
+                -0.7529844690842065,
+                -1.325175139529122
+              ],
+              "total": -0.6271647198979498
+            }
+          }
+        }
+      },
+      "seed": 20261147,
+      "steps": 964,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261147.json",
+      "trace_sha256": "66b8a9957f5eece463ebde73f60f7eb8bb2da2fdbcd4aa9ce4cd5e48d6c95504",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        225.05557423945493,
+        -94.0,
+        -24.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.9989534655931522,
+            56.339592263877826,
+            -24.292550352322575,
+            -11.257206351618438
+          ],
+          "scaled_discounted_return": [
+            0.017893857198568112,
+            0.6151447365995284,
+            -0.39678770346518366,
+            -0.36563161759103135
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.004561868009865328,
+                0.2516874066481061,
+                -0.06512445921149188,
+                -0.06280775981836466
+              ],
+              "total": 0.12831705562811496
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.012525700038997677,
+                0.06151447365995284,
+                -0.03967877034651837,
+                -0.03656316175910314
+              ],
+              "total": -0.0022017584066709867
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            10.111704470857532,
+            104.02449005249963,
+            -45.34536248292165,
+            -15.121400277931883
+          ],
+          "scaled_discounted_return": [
+            0.18112695142231833,
+            1.1357930535516576,
+            -0.7406584315538753,
+            -0.49113979713686484
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.046176586537419385,
+                0.4647114591560815,
+                -0.1215636961381045,
+                -0.0843674040528852
+              ],
+              "total": 0.3049569455025112
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.12678886599562283,
+                0.11357930535516576,
+                -0.07406584315538754,
+                -0.04911397971368649
+              ],
+              "total": 0.11718834848171454
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            31.890579420988896,
+            149.30780246359762,
+            -64.3599836876597,
+            -18.584436764506957
+          ],
+          "scaled_discounted_return": [
+            0.571243299906804,
+            1.6302196222604055,
+            -1.0512379207661742,
+            -0.603618470158717
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.14563302404711742,
+                0.6670068434003265,
+                -0.1725388677487517,
+                -0.10368885531683668
+              ],
+              "total": 0.5364121443818555
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.3998703099347628,
+                0.16302196222604057,
+                -0.10512379207661743,
+                -0.060361847015871696
+              ],
+              "total": 0.39740663306831425
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            225.05557423945493,
+            -94.0,
+            -24.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.457272876370231,
+            -1.535369633273653,
+            -0.779514787958307
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                1.0053969430010563,
+                -0.25199903168235893,
+                -0.13390411337925207
+              ],
+              "total": 1.076158514264005
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.24572728763702312,
+                -0.15353696332736533,
+                -0.0779514787958307
+              ],
+              "total": 1.2681210803144491
+            }
+          }
+        }
+      },
+      "seed": 20261147,
+      "steps": 229,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261147.json",
+      "trace_sha256": "934cda8105a5659f9369709ba171793fd189082de139edfdb83b4c26f74a4627",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        96.10839647622197,
+        -579.0,
+        -20.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            45.78199506965368,
+            -30.882834969209036,
+            -1.817620407478831
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.4998714432688478,
+            -0.5044315638417577,
+            -0.059035916105189684
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.20452316297016118,
+                -0.08279196284943371,
+                -0.010141118713478656
+              ],
+              "total": 0.11159008140724881
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.04998714432688478,
+                -0.05044315638417577,
+                -0.005903591610518968
+              ],
+              "total": -0.0063596036678099585
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            66.4239198220641,
+            -60.96946062894599,
+            -2.747841450787874
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.7252506278617397,
+            -0.9958580681569917,
+            -0.08924929357724817
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.2967373998930383,
+                -0.16344941532649038,
+                -0.015331136382271167
+              ],
+              "total": 0.11795684818427678
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.07252506278617397,
+                -0.09958580681569917,
+                -0.008924929357724818
+              ],
+              "total": -0.03598567338725002
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            82.13984976068129,
+            -118.697963309939,
+            -4.639769939602288
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.8968452595237385,
+            -1.9387792382713889,
+            -0.15069872002685017
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.3669456050001591,
+                -0.3182103384763063,
+                -0.02588684500192293
+              ],
+              "total": 0.022848421521929865
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.08968452595237386,
+                -0.1938779238271389,
+                -0.015069872002685017
+              ],
+              "total": -0.11926326987745005
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            96.10839647622197,
+            -579.0,
+            -20.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.0493610595984701,
+            -9.457223592185587,
+            -0.6495956566319225
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.4293476770813846,
+                -1.5522068015328279,
+                -0.11158676114937674
+              ],
+              "total": -1.23444588560082
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.10493610595984702,
+                -0.9457223592185587,
+                -0.06495956566319226
+              ],
+              "total": -0.905745818921904
+            }
+          }
+        }
+      },
+      "seed": 20261148,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261148.json",
+      "trace_sha256": "dda324aad0086108ffed13862604c560c2eda70eb8458edb3dd95867fe322800",
+      "truncated": true
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": true,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        -100.0,
+        128.4845381565392,
+        -109.0,
+        -73.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            -2.1964853242291995,
+            46.84432929360565,
+            -28.241577930280236,
+            -14.578820023203553
+          ],
+          "scaled_discounted_return": [
+            -0.03934477038644682,
+            0.5114705564344676,
+            -0.46129001223280486,
+            -0.4735169082945766
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.010030573475001863,
+                0.20926895780246468,
+                -0.07571117331502657,
+                -0.0813401653884483
+              ],
+              "total": 0.042187045623987965
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.027541339270512773,
+                0.051147055643446765,
+                -0.04612900122328049,
+                -0.047351690829457664
+              ],
+              "total": -0.06987497567980416
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            -14.964140560361564,
+            72.07426853327162,
+            -50.04061270778936,
+            -28.474291019530703
+          ],
+          "scaled_discounted_return": [
+            -0.2680467143956684,
+            0.7869440503730656,
+            -0.8173493317228452,
+            -0.924838788598025
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.06833595004038354,
+                0.3219793577531609,
+                -0.13415091433143472,
+                -0.15886769554471078
+              ],
+              "total": -0.03937520216336812
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.18763270007696786,
+                0.07869440503730657,
+                -0.08173493317228453,
+                -0.09248387885980251
+              ],
+              "total": -0.28315710707174835
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            -38.775933413721766,
+            94.12417138535946,
+            -71.7948027492338,
+            -43.89801187080479
+          ],
+          "scaled_discounted_return": [
+            -0.6945779149325365,
+            1.0276962663007845,
+            -1.1726761698728227,
+            -1.4257978923025683
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.17707600632597273,
+                0.4204834938798763,
+                -0.19247043375141357,
+                -0.24492184827799993
+              ],
+              "total": -0.1939847944755099
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.4862045404527755,
+                0.10276962663007845,
+                -0.11726761698728227,
+                -0.14257978923025683
+              ],
+              "total": -0.6432823200402361
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            -100.0,
+            128.4845381565392,
+            -109.0,
+            -73.0
+          ],
+          "scaled_discounted_return": [
+            -1.79126033542946,
+            1.4028604788482064,
+            -1.780375425817321,
+            -2.371024146706517
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.4566647163245599,
+                0.5739825033084679,
+                -0.2922116431210332,
+                -0.40729167819522505
+              ],
+              "total": -0.5821855343323503
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -1.253882234800622,
+                0.14028604788482066,
+                -0.1780375425817321,
+                -0.2371024146706517
+              ],
+              "total": -1.5287361441681853
+            }
+          }
+        }
+      },
+      "seed": 20261148,
+      "steps": 190,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261148.json",
+      "trace_sha256": "1cfee887104495095dc1ed83dd2c6e70bfde812e5074130f5ef3cc969364e380",
+      "truncated": false
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        208.28680800846396,
+        -85.0,
+        -6.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            2.634472227688359,
+            53.480144102405596,
+            -23.509432536306534,
+            -4.014829950805661
+          ],
+          "scaled_discounted_return": [
+            0.04719025606248647,
+            0.5839238062479147,
+            -0.3839964767206452,
+            -0.1304008049079556
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.012030705125222358,
+                0.23891331540451244,
+                -0.06302504504841479,
+                -0.022400093538795757
+              ],
+              "total": 0.16551888194252426
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.033033179243740524,
+                0.058392380624791476,
+                -0.038399647672064524,
+                -0.013040080490795561
+              ],
+              "total": 0.039985831705671916
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            16.380796970808742,
+            102.21920074889049,
+            -42.87453200898431,
+            -4.759417496654058
+          ],
+          "scaled_discounted_return": [
+            0.2934227187653275,
+            1.116081973500647,
+            -0.7003005796533377,
+            -0.1545848466962227
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.07480532001844584,
+                0.4566466407075059,
+                -0.11493979308615265,
+                -0.026554399170465048
+              ],
+              "total": 0.389957768469334
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.20539590313572922,
+                0.11160819735006472,
+                -0.07003005796533378,
+                -0.015458484669622269
+              ],
+              "total": 0.2315155578508379
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            40.56528525015183,
+            144.27091510594425,
+            -59.69564772344202,
+            -5.300019180134327
+          ],
+          "scaled_discounted_return": [
+            0.726629864639787,
+            1.5752242873209348,
+            -0.9750519654593016,
+            -0.17214347197405708
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.1852473448138544,
+                0.6445054182801591,
+                -0.16003452576551705,
+                -0.02957059871703823
+              ],
+              "total": 0.6401476386114582
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.5086409052478509,
+                0.1575224287320935,
+                -0.09750519654593016,
+                -0.017214347197405708
+              ],
+              "total": 0.5514437902366086
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            208.28680800846396,
+            -85.0,
+            -6.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            2.274182834860016,
+            -1.3883661577474522,
+            -0.19487869698957674
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.9304853734320231,
+                -0.22787146481915435,
+                -0.033476028344813016
+              ],
+              "total": 1.1258025965926155
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.2274182834860016,
+                -0.13883661577474524,
+                -0.019487869698957674
+              ],
+              "total": 1.3229760328129208
+            }
+          }
+        }
+      },
+      "seed": 20261148,
+      "steps": 181,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261148.json",
+      "trace_sha256": "56f30fd0989e610baf8cf905960c4e7269c522eb20af61281dc2ddbaabed3e88",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        72.62052811775357,
+        -573.0,
+        -16.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            15.950137195140677,
+            -20.83215940292566,
+            -2.63576940059553
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.1741518273273322,
+            -0.34026664832732184,
+            -0.0856092177255091
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.07125448561153896,
+                -0.05584770209989165,
+                -0.014705848527454463
+              ],
+              "total": 0.0007009349841928525
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.01741518273273322,
+                -0.03402666483273219,
+                -0.00856092177255091
+              ],
+              "total": -0.025172403872549876
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            37.17583962160771,
+            -50.179819920094566,
+            -3.1544051005779132
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.4059049977641097,
+            -0.8196231032814206,
+            -0.10245439262964975
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.1660766485583426,
+                -0.1345241067006274,
+                -0.017599492426328165
+              ],
+              "total": 0.013953049431387029
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.04059049977641097,
+                -0.08196231032814207,
+                -0.010245439262964976
+              ],
+              "total": -0.05161724981469607
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            56.60005665049308,
+            -108.09675083028401,
+            -4.284134972796873
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.6179886211585,
+            -1.7656220072379427,
+            -0.1391477735376884
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.2528509863503578,
+                -0.28979017592809364,
+                -0.02390263729705881
+              ],
+              "total": -0.060841826874794655
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.06179886211585,
+                -0.17656220072379428,
+                -0.01391477735376884
+              ],
+              "total": -0.1286781159617131
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            72.62052811775357,
+            -573.0,
+            -16.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.7929083943576165,
+            -9.35922127516812,
+            -0.519676525305538
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.3244196781859213,
+                -1.5361217569573582,
+                -0.08926940891950139
+              ],
+              "total": -1.3009714876909382
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.07929083943576165,
+                -0.9359221275168119,
+                -0.0519676525305538
+              ],
+              "total": -0.9085989406116041
+            }
+          }
+        }
+      },
+      "seed": 20261149,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261149.json",
+      "trace_sha256": "33dd6a5b1fef2f7946958dd75eca05b67c0037e19166a3153dbb81bf8579f361",
+      "truncated": true
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": true,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        -100.0,
+        80.51578957942547,
+        -322.0,
+        -257.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            -0.0005120632904131641,
+            11.886286110950996,
+            -19.232390063751374,
+            -24.32266034398462
+          ],
+          "scaled_discounted_return": [
+            -9.172386613465972e-06,
+            0.1297806044570106,
+            -0.31413646467189144,
+            -0.7899947258592955
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -2.3384123725674828e-06,
+                0.05309993213885476,
+                -0.051558975244710294,
+                -0.13570434451608146
+              ],
+              "total": -0.13416572603430957
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -6.420670629426181e-06,
+                0.012978060445701059,
+                -0.031413646467189145,
+                -0.07899947258592956
+              ],
+              "total": -0.09744147927804707
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            -0.2333578110349837,
+            23.99611861082629,
+            -47.114233837968804,
+            -43.485547257124345
+          ],
+          "scaled_discounted_return": [
+            -0.004180045908696094,
+            0.26200200372646043,
+            -0.76955068010395,
+            -1.4124011312245093
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.0010656627857841107,
+                0.1071985191957356,
+                -0.126305758570472,
+                -0.24262056876153343
+              ],
+              "total": -0.26279347092205396
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.002926032136087266,
+                0.026200200372646046,
+                -0.076955068010395,
+                -0.14124011312245094
+              ],
+              "total": -0.19492101289628716
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            -4.867631463831849,
+            27.11316228609,
+            -97.72812142316316,
+            -79.64187179671706
+          ],
+          "scaled_discounted_return": [
+            -0.0871919516865043,
+            0.2960354948033684,
+            -1.5962637228723942,
+            -2.58675070025919
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.022228755416032732,
+                0.12112337394728481,
+                -0.2619935315614161,
+                -0.44434892628347744
+              ],
+              "total": -0.6074478393136414
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -0.06103436618055301,
+                0.02960354948033684,
+                -0.15962637228723942,
+                -0.258675070025919
+              ],
+              "total": -0.44973225901337455
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            -100.0,
+            80.51578957942547,
+            -322.0,
+            -257.0
+          ],
+          "scaled_discounted_return": [
+            -1.79126033542946,
+            0.8791129325352645,
+            -5.259457679937407,
+            -8.347304187720203
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                -0.4566647163245599,
+                0.35969039638334416,
+                -0.8632307255502082,
+                -1.4338898807694909
+              ],
+              "total": -2.394094926260915
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                -1.253882234800622,
+                0.08791129325352645,
+                -0.5259457679937407,
+                -0.8347304187720204
+              ],
+              "total": -2.526647128312857
+            }
+          }
+        }
+      },
+      "seed": 20261149,
+      "steps": 604,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261149.json",
+      "trace_sha256": "68f83c990f2e3b5401333ee19607d6e2c5be96486730e87751646b9cc29ddaaa",
+      "truncated": false
+    },
+    {
+      "contact": [
+        true,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        176.31785364014883,
+        -80.0,
+        -10.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            1.7946884291552552,
+            15.533518277359429,
+            -15.649908568848527,
+            -3.3311405981976523
+          ],
+          "scaled_discounted_return": [
+            0.03214754197600013,
+            0.16960296702957597,
+            -0.25562121680977834,
+            -0.10819472321097295
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.008195708823911546,
+                0.06939331248685995,
+                -0.041954912821992346,
+                -0.018585559514303667
+              ],
+              "total": 0.017048548974475487
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.02250327938320009,
+                0.016960296702957598,
+                -0.025562121680977837,
+                -0.010819472321097296
+              ],
+              "total": 0.003081982084082559
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            13.533300490703205,
+            58.873330841623265,
+            -34.0278582105641,
+            -5.118116071607842
+          ],
+          "scaled_discounted_return": [
+            0.242416643764447,
+            0.642809401667021,
+            -0.5558014912961879,
+            -0.1662352985127246
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.06180180829522006,
+                0.26300644652986754,
+                -0.09122326935411447,
+                -0.02855569978086453
+              ],
+              "total": 0.20502928569010864
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.16969165063511288,
+                0.0642809401667021,
+                -0.0555801491296188,
+                -0.01662352985127246
+              ],
+              "total": 0.16176891182092373
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            36.88018308805699,
+            102.65997954749417,
+            -51.627612813536906,
+            -6.926967866335785
+          ],
+          "scaled_discounted_return": [
+            0.6606200912901286,
+            1.1208946238424486,
+            -0.843270946301216,
+            -0.22498641198003105
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.16841878347905376,
+                0.4586157439308026,
+                -0.13840540890513878,
+                -0.03864789543951095
+              ],
+              "total": 0.4499812230652066
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.46243406390308994,
+                0.11208946238424487,
+                -0.08432709463012161,
+                -0.022498641198003107
+              ],
+              "total": 0.4676977904592101
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            176.31785364014883,
+            -80.0,
+            -10.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            1.925129296769927,
+            -1.3066975602328963,
+            -0.32479782831596127
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.7876695862582899,
+                -0.21446726100626293,
+                -0.05579338057468837
+              ],
+              "total": 0.9740736610018983
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.1925129296769927,
+                -0.13066975602328965,
+                -0.03247978283159613
+              ],
+              "total": 1.283245625622729
+            }
+          }
+        }
+      },
+      "seed": 20261149,
+      "steps": 200,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261149.json",
+      "trace_sha256": "6ccf154539008b1ba4c84867a5a05ce5f329c68479b0ac722527a003da12d3fb",
+      "truncated": false
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": false,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        114.53177487920038,
+        -582.0,
+        -37.0
+      ],
+      "policy": "default",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            39.67177575563608,
+            -32.0883476835425,
+            -2.742507202812623
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.43315691624702934,
+            -0.5241220703748737,
+            -0.08907603836144214
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.1772268125458741,
+                -0.08602375047382528,
+                -0.015301374809534871
+              ],
+              "total": 0.07590168726251395
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.04331569162470294,
+                -0.05241220703748737,
+                -0.008907603836144215
+              ],
+              "total": -0.018004119248928648
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            59.98835324274189,
+            -63.083159607739425,
+            -3.806553335861575
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.654983791535271,
+            -1.0303826343901936,
+            -0.12363602568567174
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.26798761670194954,
+                -0.16911590570865992,
+                -0.021238047894557438
+              ],
+              "total": 0.07763366309873218
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.0654983791535271,
+                -0.10303826343901937,
+                -0.012363602568567174
+              ],
+              "total": -0.04990348685405944
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            78.14977635301895,
+            -121.74615249926242,
+            -6.349924845697027
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.8532795793911382,
+            -1.988567505481604,
+            -0.20624417998519595
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.34912064056650666,
+                -0.32638204830709505,
+                -0.03542837735366435
+              ],
+              "total": -0.012689785094252747
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.08532795793911382,
+                -0.19885675054816043,
+                -0.020624417998519596
+              ],
+              "total": -0.13415321060756621
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            114.53177487920038,
+            -582.0,
+            -37.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.250517010495186,
+            -9.50622475069432,
+            -1.2017519647690567
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5116509410138668,
+                -1.5602493238205628,
+                -0.20643550812634695
+              ],
+              "total": -1.255033890933043
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.1250517010495186,
+                -0.9506224750694321,
+                -0.12017519647690567
+              ],
+              "total": -0.9457459704968192
+            }
+          }
+        }
+      },
+      "seed": 20261150,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\default_seed20261150.json",
+      "trace_sha256": "6b68af74c34caf827ef4d663c1da940ec6ae60a4cb9eb0861d5c91039828073c",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        false
+      ],
+      "game_over": false,
+      "inside_pad_x": true,
+      "native_plus100": false,
+      "native_raw_return": [
+        0.0,
+        118.10363546345616,
+        -587.0,
+        -383.0
+      ],
+      "policy": "landing_heavy",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.0,
+            43.423670679316984,
+            -30.47197734841951,
+            -12.468574302223908
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.47412204080396636,
+            -0.49772073070814815,
+            -0.4049765855558527
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.19398775570170315,
+                -0.08169051899200523,
+                -0.06956639112677579
+              ],
+              "total": 0.04273084558292213
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.04741220408039664,
+                -0.04977207307081482,
+                -0.04049765855558527
+              ],
+              "total": -0.04285752754600345
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            0.0,
+            61.063549761243664,
+            -62.503572853432956,
+            -27.64562799664627
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.6667233418690522,
+            -1.020915826917749,
+            -0.8979239935741646
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.27279087161567545,
+                -0.16756212591226466,
+                -0.15424430440431447
+              ],
+              "total": -0.04901555870090368
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.06667233418690523,
+                -0.1020915826917749,
+                -0.08979239935741647
+              ],
+              "total": -0.12521164786228614
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            0.0,
+            62.02138243447811,
+            -122.10280837591476,
+            -64.19772217582519
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            0.6771814531866416,
+            -1.9943930225299082,
+            -2.085128074553945
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.2770698238026221,
+                -0.3273381859194377,
+                -0.3581807945383926
+              ],
+              "total": -0.4084491566552082
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.06771814531866416,
+                -0.19943930225299084,
+                -0.2085128074553945
+              ],
+              "total": -0.3402339643897212
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            0.0,
+            118.10363546345616,
+            -587.0,
+            -383.0
+          ],
+          "scaled_discounted_return": [
+            0.0,
+            1.2895164272460415,
+            -9.587893348208876,
+            -12.439756824501316
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.0,
+                0.5276076118244987,
+                -1.5736535276334542,
+                -2.1368864760105644
+              ],
+              "total": -3.18293239181952
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0,
+                0.12895164272460416,
+                -0.9587893348208877,
+                -1.2439756824501318
+              ],
+              "total": -2.0738133745464156
+            }
+          }
+        }
+      },
+      "seed": 20261150,
+      "steps": 1000,
+      "terminated": false,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\landing_heavy_seed20261150.json",
+      "trace_sha256": "6558ba573f787222652ee545a139a6bf969771a2a9227eac81c08dc58fed7141",
+      "truncated": true
+    },
+    {
+      "contact": [
+        false,
+        true
+      ],
+      "game_over": false,
+      "inside_pad_x": false,
+      "native_plus100": true,
+      "native_raw_return": [
+        100.0,
+        145.19093065018546,
+        -78.0,
+        -18.0
+      ],
+      "policy": "gymnasium_heuristic",
+      "scores": {
+        "0.98": {
+          "native_discounted_return": [
+            0.08494278428992526,
+            43.17914550224607,
+            -22.76695304310842,
+            -6.809219789094293
+          ],
+          "scaled_discounted_return": [
+            0.0015215464027948378,
+            0.47145218875859257,
+            -0.3718690249420835,
+            -0.2211619800023894
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.00038790372491577,
+                0.19289538166766873,
+                -0.06103457575767081,
+                -0.03799093911096371
+              ],
+              "total": 0.09425777052394999
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.0010650824819563864,
+                0.04714521887585926,
+                -0.037186902494208356,
+                -0.02211619800023894
+              ],
+              "total": -0.011092799136631647
+            }
+          }
+        },
+        "0.99": {
+          "native_discounted_return": [
+            2.96700384509771,
+            80.36699551717803,
+            -40.76665861046028,
+            -9.455519031942883
+          ],
+          "scaled_discounted_return": [
+            0.053146763027902215,
+            0.8774883221937468,
+            -0.665871166814198,
+            -0.30711320471752884
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.013549259692554242,
+                0.35902568458571,
+                -0.10928892015703501,
+                -0.05275553718803982
+              ],
+              "total": 0.21053048693318938
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.037202734119531546,
+                0.08774883221937468,
+                -0.0665871166814198,
+                -0.030711320471752887
+              ],
+              "total": 0.027653129185733538
+            }
+          }
+        },
+        "0.995": {
+          "native_discounted_return": [
+            17.301281047446533,
+            107.43089773768699,
+            -55.81627995822687,
+            -12.307052036903317
+          ],
+          "scaled_discounted_return": [
+            0.30991098492408437,
+            1.1729859701855019,
+            -0.9116874605336419,
+            -0.39973037745577245
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.07900884601583656,
+                0.47992899769018044,
+                -0.14963455852749605,
+                -0.06866520380474403
+              ],
+              "total": 0.3406380813737768
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                0.21693768944685904,
+                0.1172985970185502,
+                -0.0911687460533642,
+                -0.03997303774557725
+              ],
+              "total": 0.2030945026664678
+            }
+          }
+        },
+        "1.0": {
+          "native_discounted_return": [
+            100.0,
+            145.19093065018546,
+            -78.0,
+            -18.0
+          ],
+          "scaled_discounted_return": [
+            1.79126033542946,
+            1.585269491712529,
+            -1.2740301212270737,
+            -0.5846360909687303
+          ],
+          "utilities": {
+            "default": {
+              "per_objective_contributions": [
+                0.4566647163245599,
+                0.6486154289689385,
+                -0.20910557948110634,
+                -0.10042808503443906
+              ],
+              "total": 0.7957464807779531
+            },
+            "landing_heavy": {
+              "per_objective_contributions": [
+                1.253882234800622,
+                0.1585269491712529,
+                -0.12740301212270738,
+                -0.05846360909687303
+              ],
+              "total": 1.2265425627522943
+            }
+          }
+        }
+      },
+      "seed": 20261150,
+      "steps": 351,
+      "terminated": true,
+      "trace": "artifacts\\lunar-objective-diagnosis-v1\\gymnasium_heuristic_seed20261150.json",
+      "trace_sha256": "b098163830b35b3b44ecd0faf3467af542b02e0f453a1d8a094a4a5843e17737",
+      "truncated": false
+    }
+  ],
+  "study_id": "lunar-objective-diagnosis-v1",
+  "training_interactions": 0
+}

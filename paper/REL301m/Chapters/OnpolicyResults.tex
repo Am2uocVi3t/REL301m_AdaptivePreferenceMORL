@@ -1,0 +1,61 @@
+\subsection{From failed value policies to an on-policy backbone}
+The completed n-step and subsequent relabel/loss screens failed their task gates;
+the latter produced zero deliveries in 240 final task cases despite ore-positive
+training episodes. These failures motivated a separate categorical actor with
+a vector state-value critic, rather than extending a failed experiment.
+The candidate uses a multibody architecture, clipped PPO~\cite{schulman2017ppo},
+critic PopArt~\cite{vanhasselt2016popart} and
+MDMM entropy control motivated by MOPPO~\cite{terekhov2024architectures}.
+Unlike its objective-wise normalized actor advantage, this project scalarizes
+the original fixed-scaled vector advantage before batch standardization, preserving
+the protocol utility weights. It is a new candidate, not an exact reproduction.
+
+\begin{figure}[htbp]
+\centering
+\resizebox{\textwidth}{!}{\input{Figures/ppo-inference}}
+\caption{PPO screen architecture, separate from the historical PCQN loop.
+Actor and critic each use objective-wise state features merged by preference;
+critic PopArt does not change the actor's frozen utility weights.}
+\end{figure}
+
+A one-preference specialist and then a fresh uniform-32-preference conditional
+pilot each ran 4 million interactions. Their final task gates passed. A separate
+confirmation froze three fresh training seeds (20264311--20264313), new task
+cases, 32 new Dirichlet preferences, and seven anchors reported separately.
+Each seed used 4 million interactions, 250,080 actor and 500,160 critic updates.
+Training allocation was uniform per episode; varying episode lengths imply
+unequal interaction exposure per weight. No final-test data were accessed.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Final Minecart confirmation: deliveries on 10 new cases per profile.
+The three training seeds are the replication units.}
+\begin{tabular}{lcccc}\toprule
+Seed & Sampled balanced & Sampled ore1 & Argmax balanced & Argmax ore1\\\midrule
+20264311 &10/10&10/10&10/10&10/10\\
+20264312 &10/10&10/10&10/10&10/10\\
+20264313 &10/10&10/10&10/10&10/10\\\bottomrule
+\end{tabular}
+\end{table}
+All final utilities also exceeded the frozen idle reference. Across training
+seeds, expected utility on the 32 new development preferences was
+$0.19835\pm0.03540$ for sampled inference and $0.17680\pm0.07376$ for argmax
+(sample standard deviation, $n=3$). These averages are not a guarantee at every
+preference. Anchors are excluded from these means.
+\begin{figure}[htbp]\centering
+\includegraphics[width=\textwidth]{../../outputs/course-report-latex/minecart_confirmation.pdf}
+\caption{Confirmation learning trajectories. Each line is one training seed;
+intermediate checkpoints are descriptive and final selection was fixed at 4M.}
+\end{figure}
+
+The source, checkpoint and numeric audit checked 3,288 development episodes,
+372,775 evaluation steps and 480 task traces, including native rewards,
+discounting, utility and exact preference exposure. This executor audit is not
+an independent semantic-review PASS. The evidence supports the two-profile task
+gate across three seeds under nominal geometry. It does not establish adaptive
+allocation benefit, optimality or dynamics robustness. Earlier failed studies
+and their budgets are retained; the PPO run is not a matched-budget comparison
+against historical PCQN. The Lunar pilot and separate two-seed confirmation are reported
+in the discussion; it is not part of this three-seed Minecart confirmation.
+
+\evidence{research/evidence/minecart_onpolicy_confirmation_v1.json}
