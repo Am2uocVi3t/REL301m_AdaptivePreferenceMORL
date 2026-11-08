@@ -16,5 +16,6 @@ Use this page to find the authoritative document for each concern.
 | Team branching and review | `GIT_WORKFLOW.md` | Collaboration policy |
 | Component ownership and task notes | `tasks/` | Supporting documentation |
 | Repeatable alignment/novelty audit prompt | `audit/RESEARCH_ALIGNMENT_NOVELTY_AUDIT_PROMPT.md` | Audit procedure |
+| Final course presentation, 3-speaker roles and slide outline | `presentation/README.md` | Final team presentation kit |
 
 For machine/agent onboarding, start at the repository-root `AGENTS.md`.

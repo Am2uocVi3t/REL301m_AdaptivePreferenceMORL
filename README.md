@@ -2,6 +2,8 @@
 
 REL301m course research project, Fall 2026.
 
+**Final presentation & course delivery materials:** See [docs/presentation/README.md](docs/presentation/README.md) for the 3-speaker presentation script (Hưng, Việt, Nam), visual slide outline, comprehensive MORL terminology glossary, and standalone demo guide.
+
 **Latest research/reference review:** `outputs/REL301m_Course_Reference_Review_20261103`
 and ZIP. Report19 pages,21 substantive citations,28-paper library (24 historical
 read records plus4 foundations screened after targeted reading). Seven author
