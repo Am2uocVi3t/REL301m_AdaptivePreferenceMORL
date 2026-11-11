@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REL301m — Preference-Conditioned MORL | Final Defense</title>
+
+    <!-- Fonts: Bricolage Grotesque (display) + Be Vietnam Pro (body) + JetBrains Mono (data) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- KaTeX for math typesetting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+    <style>
+        /* ================================================
+           1. DESIGN TOKENS — "Engineering Paper" system
+           Warm bone paper, deep pine ink, FPT-orange &
+           pine-teal accents. All fonts support Vietnamese.
+           ================================================ */
+        :root {
+            --paper:      #F7F4EE;
+            --paper-deep: #EFEBE2;
+            --card:       #FFFFFF;
+            --ink:        #14201B;
+            --ink-2:      #31403A;
+            --muted:      #61706A;
+            --faint:      #93A19B;
+            --line:       #E2DDD1;
+            --line-strong:#C9C2B2;
+
+            --orange:      #DE5A26;
+            --orange-deep: #B84818;
+            --orange-soft: rgba(222, 90, 38, 0.10);
+            --teal:        #0C5A50;
+            --teal-deep:   #08423B;
+            --teal-soft:   rgba(12, 90, 80, 0.10);
+            --indigo:      #33549C;
+            --indigo-soft: rgba(51, 84, 156, 0.10);
+            --red:         #C0392F;
+            --red-soft:    rgba(192, 57, 47, 0.09);
+            --green:       #2F7D4F;
+            --green-soft:  rgba(47, 125, 79, 0.10);
+            --amber:       #B97C14;
+            --amber-soft:  rgba(185, 124, 20, 0.10);
+
+            --font-display: 'Bricolage Grotesque', 'Be Vietnam Pro', sans-serif;
+            --font-body:    'Be Vietnam Pro', system-ui, sans-serif;
+            --font-mono:    'JetBrains Mono', 'Be Vietnam Pro', monospace;
+
+            --shadow-card: 0 1px 0 rgba(20,32,27,0.04), 0 14px 30px -18px rgba(20,32,27,0.22);
+            --shadow-pop:  0 1px 0 rgba(20,32,27,0.05), 0 24px 50px -20px rgba(20,32,27,0.30);
+            --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: #0E1411;
+            font-family: var(--font-body);
+            color: var(--ink);
+            user-select: none;
+        }
+
+        /* ================================================
+           2. FIXED 1920×1080 STAGE — scaled as a whole
+           ================================================ */
+        .deck-viewport {
+            position: fixed; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(120% 120% at 50% 40%, #17201B 0%, #0A0E0C 100%);
+        }
+
+        .deck-stage {
+            position: absolute; left: 0; top: 0;
+            width: 1920px; height: 1080px;
+            overflow: hidden;
+            transform-origin: 0 0;
+            background: var(--paper);
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide {
+            position: absolute; inset: 0;
+            width: 1920px; height: 1080px;
+            padding: 52px 72px 84px;
+            display: flex; flex-direction: column;
+            background: var(--paper);
+            opacity: 0; visibility: hidden; pointer-events: none;
+            transform: scale(0.99);
+            transition: opacity 0.35s ease, transform 0.35s var(--ease-out);
+        }
+        .slide.active {
+            opacity: 1; visibility: visible; pointer-events: auto;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        /* Staggered content reveal on slide entry */
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(26px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .rv {
+            opacity: 0;
+        }
+        .slide.active .rv {
+            animation: rise 0.6s var(--ease-out) both;
+            animation-delay: var(--d, 0s);
+        }
+
+        /* Warm architectural grid + paper vignette */
+        .slide::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(20, 32, 27, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(20, 32, 27, 0.045) 1px, transparent 1px);
+            background-size: 96px 96px;
+            pointer-events: none;
+            mask-image: radial-gradient(140% 120% at 50% 45%, #000 55%, transparent 100%);
+        }
+        /* Asymmetric brand rule pinned to stage top */
+        .slide > .top-rule {
+            position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg,
+                var(--orange) 0 340px,
+                var(--teal) 340px 436px,
+                var(--ink) 436px 100%);
+            z-index: 30;
+        }
+
+        /* Giant outlined ghost numeral behind content */
+        .ghost-num {
+            position: absolute;
+            right: -28px; bottom: -130px;
+            font-family: var(--font-display);
+            font-size: 540px;
+            font-weight: 800;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(20, 32, 27, 0.075);
+            letter-spacing: -0.04em;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ================================================
+           3. SLIDE HEADER — speaker pill + editorial title
+           ================================================ */
+        .s-head {
+            position: relative; z-index: 5;
+            display: flex; align-items: flex-end; justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 18px;
+            border-bottom: 1.5px solid var(--line-strong);
+            margin-bottom: 30px;
+            flex-shrink: 0;
+        }
+
+        .kicker-row {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .sp-pill {
+            font-family: var(--font-mono);
+            font-size: 15px; font-weight: 800;
+            letter-spacing: 0.06em;
+            padding: 7px 16px;
+            border-radius: 8px;
+            color: #FFFFFF;
+        }
+        .sp-hung { background: var(--orange); }
+        .sp-viet { background: var(--teal); }
+        .sp-nam  { background: var(--indigo); }
+        .sp-all  { background: linear-gradient(90deg, var(--teal), var(--indigo)); }
+
+        .kicker-hint {
+            font-size: 17px; font-weight: 600;
+            color: var(--muted);
+        }
+
+        .s-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            color: var(--ink);
+        }
+        .s-title .hl-o { color: var(--orange); }
+        .s-title .hl-t { color: var(--teal); }
+
+        .head-meta {
+            text-align: right;
+            flex-shrink: 0;
+            display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+        }
+        .head-meta .crumb {
+            font-family: var(--font-mono);
+            font-size: 14px; font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+        .page-chip {
+            font-family: var(--font-mono);
+            font-size: 22px; font-weight: 800;
+            color: var(--ink);
+            background: var(--card);
+            border: 1.5px solid var(--line-strong);
+            padding: 6px 16px;
+            border-radius: 9px;
+        }
+
+        /* ================================================
+           4. SLIDE BODY LAYOUTS
+           ================================================ */
+        .s-body {
+            position: relative; z-index: 5;
+            flex: 1; min-height: 0;
+            display: grid;
+            gap: 28px;
+        }
+        .lay-50-50 { grid-template-columns: 1fr 1fr; }
+        .lay-42-58 { grid-template-columns: 0.86fr 1.14fr; }
+        .lay-58-42 { grid-template-columns: 1.14fr 0.86fr; }
+        .lay-66-34 { grid-template-columns: 1.4fr 0.75fr; }
+        .lay-full  { grid-template-columns: 1fr; }
+
+        .stack {
+            display: flex; flex-direction: column;
+            justify-content: space-between;
+            gap: 20px; min-height: 0; height: 100%;
+        }
+
+        /* Footer strip of every slide */
+        .s-foot {
+            position: absolute; left: 72px; right: 72px; bottom: 26px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: var(--font-mono);
+            font-size: 14px; font-weight: 700;
+            letter-spacing: 0.07em;
+            color: var(--faint);
+            z-index: 6;
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+        }
+        .s-foot .foot-brand b { color: var(--muted); }
+
+        /* Progress bar pinned at stage bottom */
+        .progress-rail {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            height: 5px; background: rgba(20, 32, 27, 0.08);
+            z-index: 40;
+        }
+        .progress-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, var(--orange), var(--teal));
+            transition: width 0.45s var(--ease-out);
+        }
+
+        /* ================================================
+           5. CARDS — editorial evidence cards
+           ================================================ */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 20px 24px;
+            display: flex; gap: 18px; align-items: flex-start;
+            box-shadow: var(--shadow-card);
+        }
+        .card.c-o { border-left: 5px solid var(--orange); }
+        .card.c-t { border-left: 5px solid var(--teal); }
+        .card.c-i { border-left: 5px solid var(--indigo); }
+        .card.c-r { border-left: 5px solid var(--red); background: #FFFDFC; }
+        .card.c-g { border-left: 5px solid var(--green); background: #FCFEFC; }
+
+        .card .no {
+            font-family: var(--font-mono);
+            font-size: 15px; font-weight: 800;
+            padding: 5px 11px;
+            border-radius: 7px;
+            background: var(--paper-deep);
+            color: var(--muted);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .card .no.n-o { background: var(--orange-soft); color: var(--orange-deep); }
+        .card .no.n-t { background: var(--teal-soft);   color: var(--teal); }
+        .card .no.n-i { background: var(--indigo-soft); color: var(--indigo); }
+        .card .no.n-r { background: var(--red-soft);    color: var(--red); }
+        .card .no.n-g { background: var(--green-soft);  color: var(--green); }
+
+        .card h4 {
+            font-family: var(--font-display);
+            font-size: 25px; font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            margin-bottom: 7px;
+        }
+        .card p {
+            font-size: 20.5px; line-height: 1.5;
+            color: var(--ink-2);
+        }
+        .card p strong { color: var(--ink); font-weight: 800; }
+        .card p code {
+            font-family: var(--font-mono);
+            font-size: 16px; font-weight: 700;
+            background: var(--paper-deep);
+            padding: 1px 7px;
+            border-radius: 5px;
+            color: var(--teal-deep);
+        }
+
+        /* Hero metric chips row */
+        .metric-row { display: flex; gap: 16px; }
+        .metric {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 15px 18px 13px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+        .metric .v {
+            font-family: var(--font-mono);
+            font-size: 44px; font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .metric .l {
+            font-size: 13.5px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-top: 9px;
+        }
+        .v-o { color: var(--orange-deep); }
+        .v-t { color: var(--teal); }
+        .v-i { color: var(--indigo); }
+        .v-r { color: var(--red); }
+        .v-g { color: var(--green); }
+        .v-k { color: var(--ink); }
+
+        /* ================================================
+           6. FIGURE PANELS
+           ================================================ */
+        .fig {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column;
+            height: 100%; min-height: 0;
+        }
+        .fig .img-wrap {
+            flex: 1; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .fig .img-wrap img {
+            max-width: 100%; max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .fig .cap {
+            flex-shrink: 0;
+            margin-top: 12px;
+            padding: 10px 6px 0;
+            border-top: 1px solid var(--line);
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            font-size: 16px; font-weight: 600;
+            color: var(--muted);
+        }
+        .fig .cap .tag {
+            font-family: var(--font-mono);
+            font-size: 13px; font-weight: 800;
+            letter-spacing: 0.04em;
+            padding: 5px 12px;
+            border-radius: 7px;
+            background: var(--paper-deep);
+            color: var(--ink-2);
+            white-space: nowrap;
+        }
+        .tag-red   { background: var(--red-soft)   !important; color: var(--red)   !important; }
+        .tag-green { background: var(--green-soft) !important; color: var(--green) !important; }
+        .tag-teal  { background: var(--teal-soft)  !important; color: var(--teal)  !important; }
+        .tag-orange{ background: var(--orange-soft)!important; color: var(--orange-deep) !important; }
+
+        .dual-fig {
+            flex: 1; min-height: 0;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .dual-fig .df-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px;
+            display: flex; flex-direction: column;
+            min-height: 0;
+        }
+        .dual-fig .df-img {
+            flex: 1; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .dual-fig .df-img img {
+            max-width: 100%; max-height: 100%;
+            object-fit: contain;
+        }
+        .dual-fig .df-label {
+            flex-shrink: 0;
+            text-align: center;
+            font-size: 15.5px; font-weight: 800;
+            padding-top: 8px;
+        }
+
+        /* ================================================
+           7. SLIDE 1 — COVER
+           ================================================ */
+        .cover {
+            position: relative; z-index: 5;
+            display: grid; grid-template-columns: 1.22fr 0.78fr;
+            gap: 64px; height: 100%;
+            align-items: center;
+        }
+        .cover-left { display: flex; flex-direction: column; gap: 30px; }
+
+        .uni-row { display: flex; align-items: center; gap: 22px; }
+        .uni-row img { height: 64px; object-fit: contain; }
+        .uni-text {
+            font-size: 17px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--ink-2);
+            border-left: 3px solid var(--orange);
+            padding-left: 20px; line-height: 1.4;
+        }
+        .uni-text small {
+            display: block;
+            font-size: 13px; font-weight: 700;
+            color: var(--muted); letter-spacing: 0.05em;
+        }
+
+        .cover-kicker {
+            font-family: var(--font-mono);
+            font-size: 17px; font-weight: 800;
+            letter-spacing: 0.14em;
+            color: var(--teal);
+            text-transform: uppercase;
+        }
+        .cover-title {
+            font-family: var(--font-display);
+            font-size: 82px; font-weight: 800;
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+        }
+        .cover-title .hl { color: var(--orange); }
+        .cover-sub {
+            font-size: 23px; line-height: 1.55;
+            color: var(--ink-2); max-width: 900px; font-weight: 500;
+        }
+        .cover-sub strong { color: var(--ink); font-weight: 800; }
+
+        .cover-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+        .advisor-chip {
+            display: inline-flex; align-items: center; gap: 14px;
+            background: var(--card);
+            border: 1.5px solid var(--line-strong);
+            border-radius: 9999px;
+            padding: 13px 26px;
+            box-shadow: var(--shadow-card);
+        }
+        .advisor-chip .k {
+            font-size: 14px; font-weight: 800;
+            color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .advisor-chip .n { font-size: 20px; font-weight: 800; color: var(--ink); }
+        .term-chip {
+            display: inline-flex; align-items: center;
+            background: var(--card);
+            border: 1.5px solid var(--line);
+            border-radius: 9999px;
+            padding: 13px 24px;
+            font-family: var(--font-mono);
+            font-size: 15.5px; font-weight: 700;
+            color: var(--muted);
+            box-shadow: var(--shadow-card);
+        }
+
+        .team-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow-pop);
+        }
+        .team-head {
+            display: flex; justify-content: space-between;
+            font-size: 15px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--muted);
+            padding-bottom: 14px; margin-bottom: 6px;
+            border-bottom: 2px solid var(--ink);
+        }
+        .member {
+            display: flex; align-items: center; gap: 18px;
+            padding: 19px 0;
+            border-bottom: 1px dashed var(--line-strong);
+        }
+        .member:last-child { border-bottom: none; padding-bottom: 4px; }
+        .avatar {
+            width: 58px; height: 58px;
+            border-radius: 13px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-size: 22px; font-weight: 800;
+            flex-shrink: 0;
+        }
+        .av-o { background: var(--orange-soft); color: var(--orange-deep); border: 1.5px solid rgba(222,90,38,0.3); }
+        .av-t { background: var(--teal-soft);   color: var(--teal);   border: 1.5px solid rgba(12,90,80,0.28); }
+        .av-i { background: var(--indigo-soft); color: var(--indigo); border: 1.5px solid rgba(51,84,156,0.28); }
+        .member h4 {
+            font-size: 21px; font-weight: 800; color: var(--ink);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .member p { font-size: 16px; font-weight: 600; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+        .lead-badge {
+            background: var(--orange);
+            color: #FFF;
+            font-size: 12px; font-weight: 800;
+            padding: 3px 10px; border-radius: 6px;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        /* ================================================
+           8. SLIDE 3 — MATH HERO GRID (KaTeX)
+           ================================================ */
+        .math-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 22px;
+            height: 100%;
+        }
+        .math-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column;
+            justify-content: space-between; gap: 14px;
+            min-height: 0;
+        }
+        .math-card.m-t { border-top: 5px solid var(--teal); }
+        .math-card.m-o { border-top: 5px solid var(--orange); }
+        .math-card.m-i { border-top: 5px solid var(--indigo); }
+        .math-card.m-k { border-top: 5px solid var(--ink); }
+        .math-head {
+            display: flex; justify-content: space-between; align-items: center; gap: 12px;
+        }
+        .math-head h4 {
+            font-family: var(--font-display);
+            font-size: 23px; font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .math-tag {
+            font-family: var(--font-mono);
+            font-size: 12.5px; font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 5px 11px;
+            border-radius: 7px;
+            background: var(--paper-deep);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+        .math-eq {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 15px 18px;
+            text-align: center;
+            font-size: 25px;
+            color: var(--ink);
+        }
+        .math-card p { font-size: 19.5px; line-height: 1.5; color: var(--ink-2); }
+        .math-card p strong { color: var(--ink); }
+
+        /* ================================================
+           9. SLIDE 10 — PILLARS & INFO STRIPS
+           ================================================ */
+        .pillar-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; flex: 1; min-height: 0;
+        }
+        .pillar {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column; gap: 14px;
+        }
+        .pillar.p-o { border-top: 5px solid var(--orange); }
+        .pillar.p-t { border-top: 5px solid var(--teal); }
+        .pillar.p-i { border-top: 5px solid var(--indigo); }
+        .pillar-top {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .pillar-num {
+            font-family: var(--font-mono);
+            font-size: 13.5px; font-weight: 800;
+            letter-spacing: 0.07em;
+            background: var(--paper-deep);
+            color: var(--muted);
+            padding: 5px 12px; border-radius: 7px;
+        }
+        .pillar-cat { font-family: var(--font-mono); font-size: 14px; font-weight: 800; letter-spacing: 0.07em; }
+        .pillar h4 {
+            font-family: var(--font-display);
+            font-size: 25px; font-weight: 700;
+            color: var(--ink); letter-spacing: -0.01em;
+        }
+        .pillar p { font-size: 19.5px; line-height: 1.5; color: var(--ink-2); }
+        .pillar .facts {
+            margin-top: auto;
+            background: var(--paper);
+            border-left: 4px solid var(--line-strong);
+            border-radius: 9px;
+            padding: 13px 16px;
+            font-size: 17.5px; font-weight: 600;
+            color: var(--muted); line-height: 1.55;
+        }
+
+        .strip-row {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 24px; margin-top: 24px;
+        }
+        .strip {
+            border-radius: 14px;
+            padding: 20px 24px;
+        }
+        .strip.limit {
+            background: var(--amber-soft);
+            border: 1px solid rgba(185,124,20,0.28);
+            border-left: 6px solid var(--amber);
+        }
+        .strip.future {
+            background: var(--teal-soft);
+            border: 1px solid rgba(12,90,80,0.24);
+            border-left: 6px solid var(--teal);
+        }
+        .strip h4 {
+            font-family: var(--font-display);
+            font-size: 21px; font-weight: 700;
+            color: var(--ink); margin-bottom: 7px;
+        }
+        .strip p { font-size: 19px; line-height: 1.5; color: var(--ink-2); }
+
+        /* ================================================
+           10. SLIDE 11 — LITERATURE & GAPS
+           ================================================ */
+        .lit-grid {
+            display: grid; grid-template-columns: 1fr 1.12fr;
+            gap: 26px; height: 100%;
+        }
+        .lit-col {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px 26px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column;
+            gap: 12px;
+            min-height: 0;
+        }
+        .lit-col-head {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 16px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--ink);
+            padding-bottom: 11px;
+            border-bottom: 2px solid var(--ink);
+        }
+        .lit-col-head .en {
+            font-family: var(--font-mono);
+            font-size: 12.5px; color: var(--faint);
+        }
+        .lit-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 13px 17px;
+        }
+        .lit-card .row1 {
+            display: flex; justify-content: space-between; align-items: center; gap: 12px;
+            margin-bottom: 3px;
+        }
+        .lit-card h4 { font-size: 20px; font-weight: 800; color: var(--ink); }
+        .venue {
+            font-family: var(--font-mono);
+            font-size: 12px; font-weight: 800;
+            padding: 3px 10px; border-radius: 6px;
+            background: var(--paper-deep);
+            color: var(--ink-2);
+            white-space: nowrap;
+        }
+        .lit-card p { font-size: 17.5px; line-height: 1.42; color: var(--ink-2); }
+        .lit-card p strong { color: var(--ink); }
+
+        .gap-card {
+            background: #FCFEFC;
+            border: 1px solid rgba(47,125,79,0.25);
+            border-left: 5px solid var(--green);
+            border-radius: 11px;
+            padding: 14px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .gap-card h4 { font-size: 20.5px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+        .gap-card p { font-size: 17.5px; line-height: 1.45; color: var(--ink-2); }
+        .gap-card p strong { color: var(--green); }
+
+        /* ================================================
+           11. SLIDE 12 — CLOSING / Q&A (dark finale)
+           ================================================ */
+        .closing {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(110% 90% at 78% 18%, rgba(12, 90, 80, 0.55) 0%, transparent 55%),
+                radial-gradient(90% 80% at 12% 88%, rgba(222, 90, 38, 0.28) 0%, transparent 55%),
+                linear-gradient(160deg, #10231E 0%, #0B1714 55%, #08100D 100%);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center;
+            padding: 90px 120px 120px;
+            gap: 44px;
+            z-index: 5;
+        }
+        .closing::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(241, 239, 232, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(241, 239, 232, 0.05) 1px, transparent 1px);
+            background-size: 96px 96px;
+            mask-image: radial-gradient(120% 100% at 50% 45%, #000 45%, transparent 100%);
+            pointer-events: none;
+        }
+        .closing .c-kicker {
+            font-family: var(--font-mono);
+            font-size: 19px; font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #E8A87C;
+        }
+        .closing .c-title {
+            font-family: var(--font-display);
+            font-size: 120px; font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1;
+            color: #FFFFFF;
+        }
+        .closing .c-title .amp { color: #E8A87C; }
+        .closing .c-sub {
+            font-size: 30px; font-weight: 600;
+            color: rgba(241, 239, 232, 0.92);
+            line-height: 1.5;
+            max-width: 1250px;
+        }
+        .closing .c-sub b { color: #FFFFFF; }
+
+        .c-stats {
+            display: flex; gap: 0;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .c-stat {
+            padding: 22px 44px;
+            display: flex; flex-direction: column; gap: 8px;
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .c-stat:last-child { border-right: none; }
+        .c-stat .v {
+            font-family: var(--font-mono);
+            font-size: 46px; font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .c-stat .v .u { color: #E8A87C; }
+        .c-stat .l {
+            font-size: 15px; font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(241, 239, 232, 0.65);
+        }
+
+        .closing .c-team {
+            display: flex; align-items: center; gap: 18px;
+            font-size: 21px; font-weight: 700;
+            color: rgba(241, 239, 232, 0.9);
+        }
+        .closing .c-team .dot { width: 7px; height: 7px; border-radius: 50%; background: #E8A87C; }
+        .closing .c-advisor {
+            font-size: 19px; font-weight: 600;
+            color: rgba(241, 239, 232, 0.68);
+        }
+        .closing .c-advisor b { color: rgba(241, 239, 232, 0.95); }
+
+        /* ================================================
+           12. SPEAKER NOTES OVERLAY (press S)
+           ================================================ */
+        .notes {
+            position: fixed; left: 0; right: 0; bottom: 0;
+            background: rgba(14, 20, 17, 0.97);
+            backdrop-filter: blur(14px);
+            border-top: 3px solid var(--orange);
+            color: #F1EFE8;
+            z-index: 2000;
+            padding: 22px 72px 26px;
+            transform: translateY(102%);
+            transition: transform 0.4s var(--ease-out);
+            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .notes.show { transform: translateY(0); }
+        .notes-head {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+        }
+        .notes-head .who { display: flex; align-items: center; gap: 14px; }
+        .notes-head .title { font-size: 17px; font-weight: 700; color: rgba(255,255,255,0.92); }
+        .notes-head .clock {
+            font-family: var(--font-mono);
+            font-size: 14px; font-weight: 700;
+            background: rgba(255,255,255,0.09);
+            padding: 5px 14px; border-radius: 9999px;
+            color: #F0C48C;
+        }
+        .notes-speech {
+            font-size: 19px; line-height: 1.62;
+            color: #F1EFE8;
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid var(--orange);
+            padding: 15px 22px;
+            border-radius: 9px;
+            white-space: pre-line;
+            margin-bottom: 12px;
+        }
+        .notes-tip { font-size: 16px; line-height: 1.45; color: #F0D894; }
+        .notes-hint {
+            position: absolute; top: -34px; right: 24px;
+            font-family: var(--font-mono);
+            font-size: 12px; font-weight: 700;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.06em;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rv { opacity: 1 !important; animation: none !important; }
+            .slide, .progress-fill, .notes { transition: none !important; }
+        }
+        @media print {
+            .notes { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="deck-viewport">
+        <div class="deck-stage" id="deckStage">
+            <div class="top-rule"></div>
+
+            <!-- ============================================================
+                 SLIDE 01 [HƯNG] — COVER: TIÊU ĐỀ & GIỚI THIỆU NHÓM
+                 ============================================================ -->
+            <section class="slide active" id="slide-1">
+                <div class="ghost-num">01</div>
+                <div class="cover">
+                    <div class="cover-left">
+                        <div class="uni-row rv" style="--d:.05s">
+                            <img src="figures/fpt_logo_red_small.png" alt="Logo Đại học FPT">
+                            <div class="uni-text">
+                                Trường Đại Học FPT
+                                <small>Khoa Công Nghệ Thông Tin • Bộ Môn Trí Tuệ Nhân Tạo</small>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="cover-kicker rv" style="--d:.12s">REL301m — Reinforcement Learning • Final Defense</div>
+                            <h1 class="cover-title rv" style="--d:.18s">
+                                Preference-<br>Conditioned <span class="hl">MORL</span>
+                            </h1>
+                        </div>
+
+                        <p class="cover-sub rv" style="--d:.26s">
+                            Học tăng cường đa mục tiêu có điều kiện hóa sở thích: giải quyết đánh đổi đa chiều bằng
+                            <strong>duy nhất một mô hình Actor-Critic</strong> trên hai môi trường benchmark
+                            <strong>Minecart</strong> và <strong>Lunar Lander</strong>.
+                        </p>
+
+                        <div class="cover-meta rv" style="--d:.34s">
+                            <div class="advisor-chip">
+                                <span class="k">Giảng Viên Hướng Dẫn</span>
+                                <span class="n">Thầy Lưu Giang Nam</span>
+                            </div>
+                            <div class="term-chip">Học Kỳ Fall 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="rv" style="--d:.28s">
+                        <div class="team-card">
+                            <div class="team-head">
+                                <span>Thành Viên Nhóm</span>
+                                <span>3 Sinh Viên</span>
+                            </div>
+                            <div class="member">
+                                <div class="avatar av-o">H</div>
+                                <div>
+                                    <h4>Lê Nguyễn Gia Hưng</h4>
+                                    <p>Dẫn nhập vấn đề • Trình diễn Web Demo thời gian thực</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="avatar av-t">V</div>
+                                <div>
+                                    <h4>Huỳnh Quốc Việt <span class="lead-badge">Trưởng Nhóm</span></h4>
+                                    <p>Mô hình hóa toán học • Kiến trúc mạng PPO Actor-Critic</p>
+                                </div>
+                            </div>
+                            <div class="member">
+                                <div class="avatar av-i">N</div>
+                                <div>
+                                    <h4>Ngô Hoài Nam</h4>
+                                    <p>Thực nghiệm đối chứng (DQN) • Độ nhạy &amp; Phản biện Q&amp;A</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>Final Defense • Fall 2026</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 02 [HƯNG] — ĐỘNG LỰC NGHIÊN CỨU
+                 ============================================================ -->
+            <section class="slide" id="slide-2">
+                <div class="ghost-num">02</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-hung">HƯNG — DẪN NHẬP</span>
+                            <span class="kicker-hint">Đặt vấn đề &amp; Động lực nghiên cứu</span>
+                        </div>
+                        <h2 class="s-title">Tại sao cần <span class="hl-o">MORL có điều kiện</span>?</h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Motivation</span>
+                        <span class="page-chip">02 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-50-50">
+                    <div class="stack">
+                        <div class="card c-o rv" style="--d:.08s">
+                            <span class="no n-o">01</span>
+                            <div>
+                                <h4>RL Đơn Mục Tiêu: Không Phản Ánh Đời Thực</h4>
+                                <p>RL kinh điển chỉ tối ưu <strong>1 con số điểm thưởng duy nhất</strong> ($r \in \mathbb{R}$). Mục tiêu thực tế luôn xung đột: tàu vũ trụ vừa muốn <strong>đáp nhanh</strong> vừa muốn <strong>tiết kiệm xăng</strong>; xe mỏ vừa muốn <strong>đào nhiều quặng</strong> vừa muốn <strong>giảm hao mòn ray</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-t rv" style="--d:.16s">
+                            <span class="no n-t">02</span>
+                            <div>
+                                <h4>Hạn Chế Lớn: Huấn Luyện Lại Quá Tốn Kém</h4>
+                                <p>Cách tiếp cận cũ gán cứng trọng số trước khi train. Mỗi khi người dùng đổi ưu tiên, kỹ sư phải <strong>huấn luyện lại từ đầu một mạng neural mới</strong> — lãng phí hàng tuần tính toán GPU.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-i rv" style="--d:.24s">
+                            <span class="no n-i">03</span>
+                            <div>
+                                <h4>Câu Hỏi Nghiên Cứu: Duy Nhất 1 Mô Hình?</h4>
+                                <p><em>Liệu có thể huấn luyện <strong>DUY NHẤT MỘT agent</strong> thích ứng tức thời (&lt;2ms) ngay khi người dùng kéo slider thay đổi sở thích $\mathbf{w}$?</em></p>
+                            </div>
+                        </div>
+
+                        <div class="metric-row rv" style="--d:.32s">
+                            <div class="metric">
+                                <div class="v v-o">1 Model</div>
+                                <div class="l">Thay vì quần thể nhiều mạng</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-t">&lt; 2ms</div>
+                                <div class="l">Suy diễn đa mục tiêu tức thì</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fig rv" style="--d:.14s">
+                        <div class="img-wrap"><img src="figures/minecart-browser.png" alt="Bài toán Minecart đa mục tiêu"></div>
+                        <div class="cap">
+                            <span>Bài toán thực tế: đánh đổi giữa sản lượng quặng và tiết kiệm nhiên liệu</span>
+                            <span class="tag tag-orange">Multi-Objective Dilemma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>02 / 12 • Motivation</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 03 [VIỆT] — MÔ HÌNH HÓA TOÁN HỌC
+                 ============================================================ -->
+            <section class="slide" id="slide-3">
+                <div class="ghost-num">03</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-viet">VIỆT — PHƯƠNG PHÁP</span>
+                            <span class="kicker-hint">Mô hình hóa MOMDP &amp; Hàm thỏa dụng theo trọng số</span>
+                        </div>
+                        <h2 class="s-title">Mô hình hóa toán học: <span class="hl-t">Preference-Conditioned MORL</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Formulation</span>
+                        <span class="page-chip">03 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-full">
+                    <div class="math-grid">
+                        <div class="math-card m-t rv" style="--d:.06s">
+                            <div class="math-head">
+                                <h4>1. Không Gian Phần Thưởng Vector (MOMDP)</h4>
+                                <span class="math-tag">Vector Return</span>
+                            </div>
+                            <div class="math-eq">
+                                $\mathbf{r}_t = \begin{bmatrix} r_{t,1} \\ r_{t,2} \\ \vdots \\ r_{t,d} \end{bmatrix} \in \mathbb{R}^d, \quad \mathbf{G}_t = \sum_{k=0}^{\infty} \gamma^k \mathbf{r}_{t+k}$
+                            </div>
+                            <p>Mở rộng MDP truyền thống thành <strong>MOMDP</strong>: phần thưởng mỗi bước là một vector $d$ chiều ứng với $d$ mục tiêu độc lập của môi trường.</p>
+                        </div>
+
+                        <div class="math-card m-o rv" style="--d:.14s">
+                            <div class="math-head">
+                                <h4>2. Đánh Giá Độ Hài Lòng Theo Trọng Số (Linear Utility)</h4>
+                                <span class="math-tag">Độ Thỏa Dụng (Utility)</span>
+                            </div>
+                            <div class="math-eq">
+                                $u_{\mathbf{w}}(\mathbf{G}_t) = \mathbf{w}^T \mathbf{G}_t = \sum_{i=1}^d w_i G_{t,i}, \quad \sum_{i=1}^d w_i = 1, \ w_i \ge 0$
+                            </div>
+                            <p>Người dùng phân bổ <strong>mức ưu tiên $\mathbf{w}$</strong> cho từng mục tiêu (tổng = 100%). Điểm thỏa mãn chung (<strong>Utility</strong>) là tổng điểm các mục tiêu sau khi nhân với trọng số tương ứng.</p>
+                        </div>
+
+                        <div class="math-card m-i rv" style="--d:.22s">
+                            <div class="math-head">
+                                <h4>3. Chính Sách Điều Kiện Hóa (Conditioned Policy)</h4>
+                                <span class="math-tag">Single Network</span>
+                            </div>
+                            <div class="math-eq">
+                                $a_t \sim \pi_\theta(a_t \mid s_t, \mathbf{w}), \quad \mathbf{V}_\phi(s_t, \mathbf{w}) \in \mathbb{R}^d$
+                            </div>
+                            <p>Thay vì train nhiều mô hình cho từng $\mathbf{w}$, nhóm <strong>điều kiện hóa trực tiếp</strong> vector $\mathbf{w}$ vào đầu vào mạng: $\pi_\theta$ suy luận hành vi theo sở thích tức thời.</p>
+                        </div>
+
+                        <div class="math-card m-k rv" style="--d:.30s">
+                            <div class="math-head">
+                                <h4>4. Bao Lồi Pareto (Convex Coverage Set)</h4>
+                                <span class="math-tag">Optimal Trade-off</span>
+                            </div>
+                            <div class="math-eq">
+                                $\max_\theta \mathbb{E}_{\mathbf{w} \sim \mathcal{D}, \tau \sim \pi_\theta} \left[ \mathbf{w}^T \mathbf{G}_0 \right]$
+                            </div>
+                            <p>Mục tiêu tổng thể: tìm bộ tham số $\theta$ <strong>tối đa hóa kỳ vọng Utility</strong> trên toàn bộ phân phối sở thích $\mathcal{D}$, bao phủ mặt biên Pareto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>03 / 12 • Formulation</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 04 [VIỆT] — KIẾN TRÚC PPO ACTOR-CRITIC
+                 ============================================================ -->
+            <section class="slide" id="slide-4">
+                <div class="ghost-num">04</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-viet">VIỆT — PHƯƠNG PHÁP</span>
+                            <span class="kicker-hint">Sơ đồ khối luồng kiến trúc mạng toàn cảnh</span>
+                        </div>
+                        <h2 class="s-title">Kiến trúc mô hình: <span class="hl-t">PPO Actor-Critic Diagram</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Architecture</span>
+                        <span class="page-chip">04 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-full">
+                    <div class="fig rv" style="--d:.08s; padding: 14px 24px;">
+                        <div class="img-wrap"><img src="figures/ppo_architecture_diagram.svg" alt="Sơ đồ kiến trúc PPO Preference-Conditioned"></div>
+                        <div class="cap">
+                            <span>Ghép nối $[s, \mathbf{w}] \to$ Shared Trunk MLP $[256, 256]$ Mish $\to$ Actor $\pi(a \mid s, \mathbf{w})$ + Vector Critic $\mathbf{V}(s, \mathbf{w})$ với PopArt</span>
+                            <span class="tag tag-teal">PPO MultiBody Backbone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>04 / 12 • Architecture</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 05 [NAM] — PHÂN TÍCH THẤT BẠI DQN
+                 ============================================================ -->
+            <section class="slide" id="slide-5">
+                <div class="ghost-num">05</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-nam">NAM — THỰC NGHIỆM</span>
+                            <span class="kicker-hint">Tính trung thực khoa học &amp; chẩn đoán nguyên nhân</span>
+                        </div>
+                        <h2 class="s-title">Phân tích thất bại: <span class="hl-o">Cú ngã với Value-based (DQN)</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Failure Analysis</span>
+                        <span class="page-chip">05 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-58-42">
+                    <div class="fig rv" style="--d:.08s">
+                        <div class="img-wrap"><img src="figures/1_Learning_Curves_That_Bai_DQN.png" alt="Đường cong học Minecart PCQN thất bại"></div>
+                        <div class="cap">
+                            <span>Đường cong học Minecart PCQN: 0 quặng giao thành công suốt quá trình huấn luyện</span>
+                            <span class="tag tag-red">Zero Ore Observed</span>
+                        </div>
+                    </div>
+
+                    <div class="stack">
+                        <div class="card c-r rv" style="--d:.12s">
+                            <span class="no n-r">01</span>
+                            <div>
+                                <h4>Thực Nghiệm Ban Đầu: PCQN Thất Bại</h4>
+                                <p>30 jobs huấn luyện độc lập, 28.800 validation episodes. Kết quả: <strong>Minecart đạt 0 QUẶNG</strong> suốt toàn bộ thử nghiệm!</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-o rv" style="--d:.20s">
+                            <span class="no n-o">02</span>
+                            <div>
+                                <h4>Bản Chất: Credit Assignment Failure</h4>
+                                <p>Chuỗi hành động đào quặng và mang về bãi quá dài trong không gian thưởng thưa. Q-learning bias nặng vào mục tiêu tiết kiệm xăng $\to$ agent <strong>đứng yên hoặc lùi xe</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-i rv" style="--d:.28s">
+                            <span class="no n-i">03</span>
+                            <div>
+                                <h4>Giá Trị Khoa Học: Không Làm Đẹp Số Liệu</h4>
+                                <p>Nhóm giữ nguyên toàn bộ số liệu làm <strong>Failure Analysis</strong> — hiểu rõ nguyên nhân thất bại là bằng chứng học thuật đắt giá nhất trước hội đồng.</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-row rv" style="--d:.36s">
+                            <div class="metric">
+                                <div class="v v-r">0 / 30</div>
+                                <div class="l">PCQN Ore Gates</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-k">28,800</div>
+                                <div class="l">Episodes Audited</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>05 / 12 • Failure Analysis</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 06 [NAM] — BƯỚC NGOẶT VỚI PPO
+                 ============================================================ -->
+            <section class="slide" id="slide-6">
+                <div class="ghost-num">06</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-nam">NAM — THỰC NGHIỆM ĐỐI CHỨNG</span>
+                            <span class="kicker-hint">Bước ngoặt thành công &amp; kiểm chứng Task Competence</span>
+                        </div>
+                        <h2 class="s-title">Bước ngoặt thành công: <span class="hl-t">PPO Feasibility Screening</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Breakthrough</span>
+                        <span class="page-chip">06 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-66-34">
+                    <div class="fig rv" style="--d:.08s">
+                        <div class="dual-fig">
+                            <div class="df-card">
+                                <div class="df-img"><img src="figures/2_Ket_Qua_Minecart_PPO_3_Seeds.png" alt="Minecart PPO 3 seeds"></div>
+                                <div class="df-label" style="color: var(--orange-deep);">Minecart PPO (3 Seeds): 10/10 Quặng</div>
+                            </div>
+                            <div class="df-card">
+                                <div class="df-img"><img src="figures/3_Ket_Qua_Lunar_PPO_10_Tren_10.png" alt="Lunar Lander PPO 10/10"></div>
+                                <div class="df-label" style="color: var(--teal);">Lunar Lander PPO: 10/10 Hạ Cánh An Toàn</div>
+                            </div>
+                        </div>
+                        <div class="cap">
+                            <span>Dữ liệu huấn luyện 4 triệu bước/seed được xác thực qua provenance receipts độc lập</span>
+                            <span class="tag tag-green">Task Competence PASSED</span>
+                        </div>
+                    </div>
+
+                    <div class="stack">
+                        <div class="card c-t rv" style="--d:.12s">
+                            <span class="no n-t">01</span>
+                            <div>
+                                <h4>Task Competence Tiên Quyết</h4>
+                                <p><em>"Muốn đánh giá phân bổ trọng số, policy trước hết phải biết làm nhiệm vụ!"</em> Nhóm chuyển sang on-policy <strong>PPO + GAE + PopArt</strong>.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-o rv" style="--d:.20s">
+                            <span class="no n-o">02</span>
+                            <div>
+                                <h4>Minecart: 10/10 Quặng</h4>
+                                <p>Cả 3 seed độc lập vượt task gate ở cả chế độ <strong>Sampled và Argmax</strong>, giải quyết triệt để điểm nghẽn của Q-learning.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-g rv" style="--d:.28s">
+                            <span class="no n-g">03</span>
+                            <div>
+                                <h4>Lunar Lander: 10/10 Hạ Cánh</h4>
+                                <p>Đạt <strong>10/10 lần hạ cánh native +100</strong> chính xác vào tâm bãi cờ, chứng minh năng lực kiểm soát đa mục tiêu.</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-row rv" style="--d:.36s">
+                            <div class="metric">
+                                <div class="v v-g">10/10</div>
+                                <div class="l">Minecart Pass</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-g">10/10</div>
+                                <div class="l">Lunar Pass</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-t">4M</div>
+                                <div class="l">Steps / Seed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>06 / 12 • Breakthrough</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 07 [NAM] — KIỂM THỬ ĐỘ NHẠY
+                 ============================================================ -->
+            <section class="slide" id="slide-7">
+                <div class="ghost-num">07</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-nam">NAM — THỰC NGHIỆM ĐỐI CHỨNG</span>
+                            <span class="kicker-hint">Kiểm thử độ nhạy &amp; môi trường chưa từng thấy</span>
+                        </div>
+                        <h2 class="s-title">Kiểm thử độ nhạy: <span class="hl-o">Trọng số biên &amp; môi trường mới</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Sensitivity</span>
+                        <span class="page-chip">07 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-58-42">
+                    <div class="fig rv" style="--d:.08s">
+                        <div class="img-wrap"><img src="figures/4_Thu_Nghiem_Cac_Trong_So_Kho.png" alt="Thử nghiệm các trọng số khó"></div>
+                        <div class="cap">
+                            <span>Chẩn đoán độ nhạy preference trên 5 môi trường mới hoàn toàn (Unseen Seeds)</span>
+                            <span class="tag">55 Diagnosis Episodes</span>
+                        </div>
+                    </div>
+
+                    <div class="stack">
+                        <div class="card c-t rv" style="--d:.12s">
+                            <span class="no n-t">01</span>
+                            <div>
+                                <h4>Thử Nghiệm 5 Môi Trường Mới</h4>
+                                <p>Đánh giá độ ổn định của actor argmax trên <strong>55 episodes</strong> với vector trọng số từ mặc định, đồng đều đến cực hạn.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-i rv" style="--d:.20s">
+                            <span class="no n-i">02</span>
+                            <div>
+                                <h4>Trọng Số Cân Bằng: Giữ Vững Hiệu Suất</h4>
+                                <p>Lunar Lander đạt <strong>4/5</strong> lần đáp bãi; Minecart đạt <strong>5/5</strong> lượt giao quặng với trọng số mặc định và đồng đều.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-r rv" style="--d:.28s">
+                            <span class="no n-r">03</span>
+                            <div>
+                                <h4>Trọng Số Cực Đoan (Corner Preferences)</h4>
+                                <p>Khi ép trọng số 100% vào tiết kiệm nhiên liệu, agent chấp nhận <strong>không giao quặng</strong> để tối đa hóa Utility người dùng — hoàn toàn đúng toán học.</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-row rv" style="--d:.36s">
+                            <div class="metric">
+                                <div class="v v-t">4 / 5</div>
+                                <div class="l">Lunar Unseen</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-o">5 / 5</div>
+                                <div class="l">Minecart Unseen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>07 / 12 • Sensitivity</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 08 [HƯNG] — LIVE WEB DEMO
+                 ============================================================ -->
+            <section class="slide" id="slide-8">
+                <div class="ghost-num">08</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-hung">HƯNG — TRÌNH DIỄN THỰC TẾ</span>
+                            <span class="kicker-hint">Trình diễn trực tiếp giao diện Web Demo tương tác</span>
+                        </div>
+                        <h2 class="s-title">Trực tiếp Demo: <span class="hl-o">Web Interface thời gian thực</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Interactive Demo</span>
+                        <span class="page-chip">08 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-42-58">
+                    <div class="stack">
+                        <div class="card c-o rv" style="--d:.08s">
+                            <span class="no n-o">01</span>
+                            <div>
+                                <h4>Inference 100% Từ Model Thật</h4>
+                                <p>Chạy trực tiếp từ checkpoint PPO 4M bước đã kiểm toán. Không dùng video quay sẵn; mọi bước đi tính toán cục bộ qua <code>localhost:8765</code>.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-t rv" style="--d:.16s">
+                            <span class="no n-t">02</span>
+                            <div>
+                                <h4>Kéo Slider → Hành Vi Tức Thời</h4>
+                                <p>Người dùng thay đổi vector $\mathbf{w}$ trực tiếp: so sánh song song Panel Trái (ưu tiên đáp êm) $\leftrightarrow$ Panel Phải (ưu tiên tiết kiệm xăng).</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-i rv" style="--d:.24s">
+                            <span class="no n-i">03</span>
+                            <div>
+                                <h4>Xuất Trace JSON Minh Bạch</h4>
+                                <p>Tải xuống toàn bộ tọa độ, vận tốc, phân phối xác suất hành động và điểm thưởng từng bước theo thời gian thực.</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-row rv" style="--d:.32s">
+                            <div class="metric">
+                                <div class="v v-o">&lt; 2ms</div>
+                                <div class="l">Forward Pass</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-t">JSON</div>
+                                <div class="l">Step-by-Step Trace</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fig rv" style="--d:.14s">
+                        <div class="img-wrap"><img src="figures/minecart-browser.png" alt="Giao diện Web Demo Minecart Live"></div>
+                        <div class="cap">
+                            <span>Web Demo tương tác: chuyển đổi song song cả Minecart và Lunar Lander</span>
+                            <span class="tag tag-teal">Zero-Delay Policy Switch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>08 / 12 • Interactive Demo</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 09 [HƯNG] — DỊCH CHUYỂN HÀNH VI
+                 ============================================================ -->
+            <section class="slide" id="slide-9">
+                <div class="ghost-num">09</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-hung">HƯNG — PHÂN TÍCH HÀNH VI</span>
+                            <span class="kicker-hint">Sự chuyển dịch chiến thuật của AI theo trọng số</span>
+                        </div>
+                        <h2 class="s-title">Năng lực tổng quát: <span class="hl-t">Dịch chuyển hành vi của agent</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Generalization</span>
+                        <span class="page-chip">09 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-42-58">
+                    <div class="stack">
+                        <div class="card c-t rv" style="--d:.08s">
+                            <span class="no n-t">01</span>
+                            <div>
+                                <h4>Chiến Thuật 1: Ưu Tiên Hạ Cánh ($w_{\text{landing}} = 0.7$)</h4>
+                                <p>Tàu kích hoạt động cơ chính liên tục để hãm tốc độ rơi, cân bằng 2 chân tiếp đất <strong>tuyệt đối êm ái</strong> vào chính giữa cờ.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-o rv" style="--d:.16s">
+                            <span class="no n-o">02</span>
+                            <div>
+                                <h4>Chiến Thuật 2: Ưu Tiên Tiết Kiệm Xăng ($w_{\text{fuel}} = 0.7$)</h4>
+                                <p>Tàu chấp nhận rơi tự do với vận tốc lớn hơn, chỉ kích hoạt động cơ ở <strong>giây cuối cùng</strong> trước khi chạm đất nhằm đốt ít nhiên liệu nhất.</p>
+                            </div>
+                        </div>
+
+                        <div class="card c-i rv" style="--d:.24s">
+                            <span class="no n-i">03</span>
+                            <div>
+                                <h4>Ý Nghĩa Khoa Học: Thích Ứng Mềm Dẻo</h4>
+                                <p>Mạng neural không học vẹt một quỹ đạo cố định mà <strong>thực sự hiểu vector sở thích $\mathbf{w}$</strong> được truyền vào đầu vào.</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-row rv" style="--d:.32s">
+                            <div class="metric">
+                                <div class="v v-t">100.0</div>
+                                <div class="l">Landing Score</div>
+                            </div>
+                            <div class="metric">
+                                <div class="v v-o">-99.0</div>
+                                <div class="l">Fuel Optimized</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fig rv" style="--d:.14s">
+                        <div class="img-wrap"><img src="figures/lunar-browser.png" alt="Giao diện Web Demo Lunar Lander Live"></div>
+                        <div class="cap">
+                            <span>Quỹ đạo bay của Lunar Lander biến đổi theo vector trọng số đầu vào</span>
+                            <span class="tag">Trajectory Adaptation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>09 / 12 • Generalization</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 10 [HƯNG] — ĐÓNG GÓP & GIỚI HẠN
+                 ============================================================ -->
+            <section class="slide" id="slide-10">
+                <div class="ghost-num">10</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-hung">HƯNG — TỔNG KẾT ĐỒ ÁN</span>
+                            <span class="kicker-hint">Đóng góp thực tế, giới hạn khoa học &amp; định hướng</span>
+                        </div>
+                        <h2 class="s-title">Đóng góp thực tế &amp; <span class="hl-o">Giới hạn nghiên cứu</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Summary</span>
+                        <span class="page-chip">10 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-full" style="display:flex; flex-direction:column;">
+                    <div class="pillar-grid">
+                        <div class="pillar p-o rv" style="--d:.08s">
+                            <div class="pillar-top">
+                                <span class="pillar-num">TRỤ CỘT 01</span>
+                                <span class="pillar-cat" style="color: var(--orange-deep);">ENGINEERING</span>
+                            </div>
+                            <h4>Pipeline Tái Lập Chuẩn Mực</h4>
+                            <p>Framework thực nghiệm MORL tự động với provenance JSON receipts đầy đủ, phân tách rạch ròi ngân sách train / validation / final-test.</p>
+                            <div class="facts">• 150 Jobs thực nghiệm có kế hoạch<br>• Quản lý seed độc lập &amp; audit số liệu</div>
+                        </div>
+
+                        <div class="pillar p-t rv" style="--d:.16s">
+                            <div class="pillar-top">
+                                <span class="pillar-num">TRỤ CỘT 02</span>
+                                <span class="pillar-cat" style="color: var(--teal);">SCIENCE</span>
+                            </div>
+                            <h4>Failure Analysis Sâu Sắc</h4>
+                            <p>Chỉ rõ bản chất toán học vì sao Q-learning (PCQN) thất bại trên horizon dài (Credit Assignment), làm luận cứ vững chắc cho bước chuyển sang PPO.</p>
+                            <div class="facts">• 28.800 validation episodes đối chứng<br>• Tính trung thực học thuật 100%</div>
+                        </div>
+
+                        <div class="pillar p-i rv" style="--d:.24s">
+                            <div class="pillar-top">
+                                <span class="pillar-num">TRỤ CỘT 03</span>
+                                <span class="pillar-cat" style="color: var(--indigo);">PRODUCT</span>
+                            </div>
+                            <h4>Web Demo Tương Tác Thật</h4>
+                            <p>Sản phẩm demo trực quan hóa thời gian thực chạy trực tiếp trên checkpoint PPO 4M bước đã kiểm toán, xuất trace JSON minh bạch.</p>
+                            <div class="facts">• Kéo slider suy diễn tức thì &lt;2ms<br>• Hỗ trợ cả Minecart &amp; Lunar Lander</div>
+                        </div>
+                    </div>
+
+                    <div class="strip-row">
+                        <div class="strip limit rv" style="--d:.32s">
+                            <h4>Giới Hạn Khoa Học (Academic Firewall)</h4>
+                            <p>Đồ án chưa chứng minh phân bổ adaptive vượt trội hơn uniform trên mọi miền preference; final-test gốc vẫn được khóa chặt, không dùng để cherry-pick checkpoint.</p>
+                        </div>
+                        <div class="strip future rv" style="--d:.40s">
+                            <h4>Định Hướng Mở Rộng Tiếp Theo</h4>
+                            <p>Mở rộng Conditioned Policy sang không gian hành động liên tục (Continuous Control), tích hợp Pareto-front multi-policy và tự động thích ứng trọng số theo ngữ cảnh người dùng.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>10 / 12 • Summary</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 11 [VIỆT] — TÀI LIỆU THAM KHẢO & 3 GAPS
+                 ============================================================ -->
+            <section class="slide" id="slide-11">
+                <div class="ghost-num">11</div>
+                <div class="s-head rv">
+                    <div>
+                        <div class="kicker-row">
+                            <span class="sp-pill sp-viet">VIỆT — TÀI LIỆU &amp; LỖ HỔNG</span>
+                            <span class="kicker-hint">Kế thừa học thuật quốc tế, đối chứng đối thủ &amp; giải quyết 3 Gaps</span>
+                        </div>
+                        <h2 class="s-title">Tài liệu tham khảo &amp; <span class="hl-t">Lỗ hổng nghiên cứu</span></h2>
+                    </div>
+                    <div class="head-meta">
+                        <span class="crumb">Literature &amp; Gaps</span>
+                        <span class="page-chip">11 / 12</span>
+                    </div>
+                </div>
+
+                <div class="s-body lay-full">
+                    <div class="lit-grid">
+                        <div class="lit-col rv" style="--d:.08s">
+                            <div class="lit-col-head">
+                                <span>Tài Liệu Nền Tảng &amp; Đối Thủ</span>
+                                <span class="en">TOP-TIER REFERENCES</span>
+                            </div>
+
+                            <div class="lit-card">
+                                <div class="row1">
+                                    <h4>Abels et al. (2019)</h4>
+                                    <span class="venue">ICML 2019</span>
+                                </div>
+                                <p><strong>PCQN Baseline:</strong> Dynamic Weights Conditioned DQN. Bế tắc trên Minecart do lỗi gán tín dụng (0 quặng / 28.800 eps).</p>
+                            </div>
+
+                            <div class="lit-card">
+                                <div class="row1">
+                                    <h4>Yang, Sun, Narasimhan (2019)</h4>
+                                    <span class="venue">NeurIPS 2019</span>
+                                </div>
+                                <p><strong>Envelope Q-Learning:</strong> lý thuyết bao lồi Pareto trong MORL. Tắc nghẽn tương tự khi reward thưa, horizon dài.</p>
+                            </div>
+
+                            <div class="lit-card">
+                                <div class="row1">
+                                    <h4>Xu et al. — PGMORL (2020)</h4>
+                                    <span class="venue">ICML 2020</span>
+                                </div>
+                                <p><strong>Population-based:</strong> huấn luyện cả quần thể nhiều mô hình, tốn kém GPU, không suy diễn thời gian thực được.</p>
+                            </div>
+
+                            <div class="lit-card">
+                                <div class="row1">
+                                    <h4>Schulman et al. (2017)</h4>
+                                    <span class="venue">arXiv:1707.06347</span>
+                                </div>
+                                <p><strong>PPO + GAE:</strong> Clipped surrogate objective và Generalized Advantage Estimation — thuật toán nền của backbone nhóm.</p>
+                            </div>
+
+                            <div class="lit-card">
+                                <div class="row1">
+                                    <h4>Terekhov &amp; Gulcehre (2024)</h4>
+                                    <span class="venue">arXiv:2407.16807</span>
+                                </div>
+                                <p><strong>Backbone PPO:</strong> Categorical PPO với PopArt vector critic trên stochastic Minecart — nền tảng nhóm kế thừa.</p>
+                            </div>
+
+                            <div class="lit-card">
+                                <div class="row1">
+                                    <h4>van Hasselt (2016) • Alegre (2022)</h4>
+                                    <span class="venue">NeurIPS • JMLR</span>
+                                </div>
+                                <p>PopArt chuẩn hóa thang đo mục tiêu; MO-Gymnasium cung cấp benchmark Minecart và Lunar Lander đa mục tiêu.</p>
+                            </div>
+                        </div>
+
+                        <div class="lit-col rv" style="--d:.18s">
+                            <div class="lit-col-head">
+                                <span>3 Lỗ Hổng Lớn &amp; Giải Pháp Nhóm</span>
+                                <span class="en" style="color: var(--green);">OUR CONTRIBUTIONS</span>
+                            </div>
+
+                            <div class="gap-card">
+                                <h4>Gap 1: Value-Based Thất Bại Trên Horizon Dài</h4>
+                                <p>PCQN và Envelope Q-learning gặp lỗi Credit Assignment trên Minecart $\to$ <strong>Nhóm giải quyết:</strong> on-policy PPO với GAE + PopArt, đạt 10/10 quặng ở cả 3 seeds độc lập.</p>
+                            </div>
+
+                            <div class="gap-card">
+                                <h4>Gap 2: Thiếu Task Competence Gate Tiên Quyết</h4>
+                                <p>Các nghiên cứu trước vội tối ưu preference khi agent chưa làm được việc cơ bản $\to$ <strong>Nhóm đề xuất:</strong> quy tắc bắt buộc policy vượt Task Competence Gate 10/10 trước khi đánh giá phân bổ sở thích.</p>
+                            </div>
+
+                            <div class="gap-card">
+                                <h4>Gap 3: Chi Phí Quần Thể Mô Hình Quá Lớn</h4>
+                                <p>PGMORL phải train cả quần thể nhiều mô hình rời rạc tốn kém $\to$ <strong>Nhóm chứng minh:</strong> duy nhất 1 mạng neural với Shared Trunk đáp ứng mọi sở thích tức thời, độ trễ suy diễn &lt;2ms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s-foot">
+                    <span class="foot-brand">REL301m — <b>Preference-Conditioned MORL</b></span>
+                    <span>11 / 12 • Literature &amp; Gaps</span>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 SLIDE 12 [ALL] — CLOSING: Q&A (5 đòn phản biện nằm ở Speaker Notes — phím S)
+                 ============================================================ -->
+            <section class="slide" id="slide-12">
+                <div class="closing">
+                    <div class="c-kicker rv" style="--d:.05s">Phiên Hỏi Đáp &amp; Thảo Luận</div>
+                    <h2 class="c-title rv" style="--d:.12s">Q <span class="amp">&amp;</span> A</h2>
+                    <p class="c-sub rv" style="--d:.20s">
+                        Trân trọng cảm ơn Thầy và các bạn đã lắng nghe!<br>
+                        Nhóm em rất mong nhận được câu hỏi và góp ý từ hội đồng về
+                        <b>mô hình Preference-Conditioned MORL</b> này.
+                    </p>
+
+                    <div class="c-stats rv" style="--d:.28s">
+                        <div class="c-stat">
+                            <span class="v">10<span class="u">/10</span></span>
+                            <span class="l">Task Success • Minecart &amp; Lunar</span>
+                        </div>
+                        <div class="c-stat">
+                            <span class="v">3<span class="u">×</span>4M</span>
+                            <span class="l">Seeds × Steps đã audit</span>
+                        </div>
+                        <div class="c-stat">
+                            <span class="v">&lt;2<span class="u">ms</span></span>
+                            <span class="l">Suy diễn 1 mạng duy nhất</span>
+                        </div>
+                        <div class="c-stat">
+                            <span class="v">5<span class="u">/5</span></span>
+                            <span class="l">Ổn định unseen seeds</span>
+                        </div>
+                    </div>
+
+                    <div class="rv" style="--d:.36s">
+                        <div class="c-team">
+                            <span>Huỳnh Quốc Việt</span><span class="dot"></span>
+                            <span>Lê Nguyễn Gia Hưng</span><span class="dot"></span>
+                            <span>Ngô Hoài Nam</span>
+                        </div>
+                        <div class="c-advisor" style="margin-top: 12px;">
+                            GVHD: <b>Thầy Lưu Giang Nam</b> • REL301m — Fall 2026 • Trường Đại Học FPT
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+    </div>
+
+    <!-- ===========================================
+         SPEAKER NOTES OVERLAY (PHÍM 'S')
+         =========================================== -->
+    <div class="notes" id="notesOverlay">
+        <div class="notes-hint">ESC để đóng • S để bật/tắt</div>
+        <div class="notes-head">
+            <div class="who">
+                <span class="sp-pill sp-hung" id="notesSpeaker">HƯNG</span>
+                <span class="title" id="notesTitle">Tiêu Đề Slide</span>
+            </div>
+            <span class="clock" id="notesClock">30s</span>
+        </div>
+        <div class="notes-speech" id="notesSpeech">Nội dung lời thoại của slide...</div>
+        <div class="notes-tip" id="notesTip"></div>
+    </div>
+
+    <script>
+        /* ================================================
+           PRESENTATION DECK CONTROLLER
+           — fixed 1920×1080 stage, uniform scaling,
+             keyboard + click nav, notes overlay, progress
+           ================================================ */
+        class PresentationDeck {
+            constructor() {
+                this.stage = document.getElementById('deckStage');
+                this.slides = Array.from(document.querySelectorAll('.slide'));
+                this.total = this.slides.length;
+                this.index = 0;
+
+                this.progress = document.getElementById('progressFill');
+                this.notesEl = document.getElementById('notesOverlay');
+                this.notesSpeaker = document.getElementById('notesSpeaker');
+                this.notesTitle = document.getElementById('notesTitle');
+                this.notesClock = document.getElementById('notesClock');
+                this.notesSpeech = document.getElementById('notesSpeech');
+                this.notesTip = document.getElementById('notesTip');
+
+                this.notesOpen = false;
+
+                // Speaker script database — 12 slides, sync với KICH_BAN chuẩn
+                this.notesData = [
+                    { // 01
+                        speaker: "HƯNG", pill: "sp-hung", clock: "30s",
+                        speech: "Em xin chào Thầy và các bạn. Hôm nay nhóm em gồm 3 thành viên: bạn Huỳnh Quốc Việt là trưởng nhóm phụ trách kiến trúc thuật toán, em là Gia Hưng dẫn chuyện và phụ trách demo, cùng bạn Hoài Nam phụ trách thực nghiệm và phản biện. Nhóm xin được báo cáo đồ án cuối kỳ môn REL301m với đề tài: Preference-Conditioned MORL.\n\nĐến với buổi bảo vệ hôm nay, nhóm em đem đến một bức tranh thực nghiệm hoàn toàn trung thực: từ thất bại ban đầu của mô hình Value-based DQN đến bước ngoặt thành công với PPO và sản phẩm demo tương tác trực tiếp.",
+                        tip: "Mở đầu dõng dạc, giới thiệu rõ vai trò 3 người (Việt trưởng nhóm)."
+                    },
+                    { // 02
+                        speaker: "HƯNG", pill: "sp-hung", clock: "45s",
+                        speech: "Thưa Thầy và các bạn, trong học tăng cường kinh điển, agent chỉ tối ưu 1 con số reward duy nhất. Nhưng thực tế thì khác: Tàu Lunar Lander vừa phải hạ cánh an toàn, vừa phải tiết kiệm nhiên liệu; xe Minecart vừa phải tìm quặng, vừa phải giảm chi phí năng lượng di chuyển — hai mục tiêu triệt tiêu lẫn nhau.\n\nThông thường, mỗi lần đổi sở thích lại phải train lại một mạng neural mới từ đầu rất tốn kém. Câu hỏi nghiên cứu là: Liệu có thể huấn luyện DUY NHẤT MỘT mô hình đáp ứng linh hoạt mọi nhu cầu người dùng trong thời gian thực hay không? Sau đây, bạn Việt — trưởng nhóm — sẽ trình bày giải pháp toán học và kiến trúc của nhóm.",
+                        tip: "Nhấn mạnh cụm 'DUY NHẤT MỘT MÔ HÌNH' — giá trị cốt lõi của đề tài."
+                    },
+                    { // 03
+                        speaker: "VIỆT", pill: "sp-viet", clock: "45s",
+                        speech: "Kính thưa Thầy, để giải bài toán này, nhóm mở rộng MDP truyền thống thành MOMDP: phần thưởng mỗi bước là một vector d chiều tương ứng d mục tiêu độc lập.\n\nNgười dùng phân bổ mức ưu tiên qua vector trọng số w (với tổng các mức ưu tiên bằng 100%). Độ hài lòng chung — tức hàm Utility — được tính bằng cách nhân kết quả từng mục tiêu với trọng số tương ứng rồi cộng lại.\n\nThay vì train một quần thể nhiều mô hình rời rạc, nhóm điều kiện hóa trực tiếp vector w vào đầu vào mạng neural: π(a|s, w). Mục tiêu tối ưu tổng thể là cực đại hóa điểm hài lòng (Utility) trên toàn bộ phân phối sở thích, bao phủ toàn bộ mặt biên Pareto.",
+                        tip: "Chỉ lần lượt vào 4 phương trình KaTeX, giọng mạch lạc, chắc chắn."
+                    },
+                    { // 04
+                        speaker: "VIỆT", pill: "sp-viet", clock: "45s",
+                        speech: "Trên slide là sơ đồ kiến trúc PPO Actor-Critic hoàn chỉnh của nhóm. Đầu vào là vector ghép nối giữa State hiện tại và Preference w của người dùng.\n\nLuồng dữ liệu đi qua Shared Trunk gồm 2 tầng ẩn 256 đơn vị với hàm kích hoạt Mish để học không gian đặc trưng chung. Sau đó mạng phân tách thành 2 nhánh:\n\nNhánh Actor đưa ra phân phối xác suất hành động theo sở thích w — Sampled mode lúc train, Argmax mode khi demo. Nhánh Critic là Vector Critic dự đoán đồng thời d giá trị kỳ vọng cho cả d mục tiêu, kết hợp PopArt để tự động chuẩn hóa thang đo reward. Tiếp theo, bạn Nam sẽ trình bày kết quả thực nghiệm thực tế.",
+                        tip: "Chỉ theo luồng sơ đồ: Input [s, w] → Trunk → Actor/Critic heads."
+                    },
+                    { // 05
+                        speaker: "NAM", pill: "sp-nam", clock: "60s",
+                        speech: "Kính thưa Thầy, đây là phần thực nghiệm mà nhóm tự hào nhất về tính trung thực khoa học. Ở nửa đầu dự án, nhóm triển khai mô hình Value-based (PCQN 3 heads) theo hướng của các nghiên cứu trước, với 30 jobs huấn luyện độc lập và 28.800 validation episodes.\n\nNhưng kết quả audit rất sốc: mô hình đạt 0 QUẶNG thành công suốt toàn bộ quá trình train trên Minecart!\n\nPhân tích sâu nguyên nhân: bài toán Credit Assignment — chuỗi hành động quá dài trong không gian thưởng thưa, Q-learning bị bias vào mục tiêu tiết kiệm nhiên liệu nên chọn đứng yên hoặc đi lùi. Thay vì giấu kết quả, nhóm giữ lại toàn bộ làm Failure Analysis — tiền đề học thuật giá trị nhất cho bước ngoặt tiếp theo.",
+                        tip: "Nhấn mạnh tinh thần trung thực, không giấu kết quả âm — điểm cộng lớn trước Thầy."
+                    },
+                    { // 06
+                        speaker: "NAM", pill: "sp-nam", clock: "60s",
+                        speech: "Nhận định rằng 'muốn đánh giá phân bổ sở thích, policy trước hết phải biết làm nhiệm vụ', nhóm chuyển sang backbone on-policy PPO kết hợp GAE và PopArt với ngân sách 4 triệu bước mỗi seed.\n\nKết quả là một bước ngoặt bứt phá: Trên Minecart, cả 3 seed độc lập đều vượt qua Task Gate với 10/10 lần giao quặng thành công ở cả chế độ Sampled và Argmax. Trên Lunar Lander, mô hình đạt tuyệt đối 10/10 lần hạ cánh êm ái, điểm thưởng native +100 vào chính giữa bãi đáp.\n\nToàn bộ dữ liệu huấn luyện 12 triệu bước đã được kiểm toán provenance độc lập — Policy Gradient đã giải quyết triệt để điểm nghẽn của Q-learning.",
+                        tip: "Giọng hồ hởi, nhấn mạnh con số 10/10 và 3 seeds độc lập."
+                    },
+                    { // 07
+                        speaker: "NAM", pill: "sp-nam", clock: "45s",
+                        speech: "Để kiểm tra mô hình có học vẹt hay không, nhóm chẩn đoán trên 5 môi trường mới hoàn toàn (Unseen Seeds) qua 55 episodes.\n\nVới các vector trọng số cân bằng và mặc định: agent duy trì phong độ xuất sắc — 5/5 lượt giao quặng ở Minecart và 4/5 lần đáp bãi an toàn ở Lunar Lander.\n\nĐặc biệt tại các trọng số cực đoan (Corner Preferences): khi người dùng ép trọng số nhiên liệu lên tối đa, agent chấp nhận bỏ qua quặng để chạy ít bước nhất. Điều này chứng minh agent hành xử hoàn toàn nhất quán với hàm Utility mà người dùng chỉ định. Bây giờ, bạn Hưng sẽ trực tiếp biểu diễn sản phẩm Web Demo.",
+                        tip: "Nêu giới hạn corner cases một cách khoa học trước khi Thầy kịp hỏi xoáy."
+                    },
+                    { // 08
+                        speaker: "HƯNG", pill: "sp-hung", clock: "90s",
+                        speech: "Em xin phép được trình diễn trực tiếp sản phẩm Demo Web tương tác của nhóm. Gói demo chạy inference trực tiếp từ checkpoint PPO 4 triệu bước đã kiểm toán, không dùng video quay sẵn.\n\nỞ Panel Trái khi ưu tiên hạ cánh (w₁ = 0.7), tàu đốt động cơ chính liên tục để hạ thế từ từ. Ở Panel Phải khi ưu tiên tiết kiệm nhiên liệu (w₃ = 0.7), tàu tắt động cơ rơi tự do và chỉ kích hoạt ở giây cuối cùng. Mỗi lần kéo slider, mạng thực hiện forward pass dưới 2 mili-giây.\n\nHệ thống còn cho phép tải file Trace JSON ghi lại chi tiết tọa độ, vận tốc và reward từng bước để Thầy kiểm chứng tính minh bạch.",
+                        tip: "Thao tác slider chậm rãi, dẫn dắt ánh mắt Thầy giữa 2 panel so sánh."
+                    },
+                    { // 09
+                        speaker: "HƯNG", pill: "sp-hung", clock: "45s",
+                        speech: "Sự khác biệt chiến thuật giữa hai chế độ diễn ra rõ nét: Ở chế độ hạ cánh êm, agent kiểm soát tư thế với độ chính xác cao để tiếp đất thẳng đứng, đạt điểm native +100. Ở chế độ tiết kiệm xăng, agent sẵn sàng đánh đổi rủi ro để giảm thiểu thời gian đốt động cơ, tối ưu chi phí nhiên liệu xuống -99.\n\nCả hai hành vi đối nghịch này được sinh ra từ CÙNG MỘT MÔ HÌNH duy nhất — khẳng định mạng neural thực sự tiếp nhận và hiểu ngữ nghĩa của vector sở thích w, chứ không hề học vẹt một quỹ đạo duy nhất.",
+                        tip: "Tóm tắt sự chuyển dịch hành vi ngắn gọn, súc tích, chốt bằng 'cùng một mô hình'."
+                    },
+                    { // 10
+                        speaker: "HƯNG", pill: "sp-hung", clock: "45s",
+                        speech: "Tóm lại, đồ án của nhóm mang lại 3 giá trị thực tế:\n\nThứ nhất về Kỹ thuật: pipeline thực nghiệm tự động tái lập 100% với provenance JSON receipts đầy đủ. Thứ hai về Khoa học: bản Failure Analysis sâu sắc chỉ rõ vì sao Value-based thất bại trên horizon dài, và xác lập nguyên tắc Task Competence Gate. Thứ ba về Sản phẩm: demo tương tác thời gian thực cho người dùng.\n\nVề giới hạn học thuật: nhóm chưa khẳng định phân bổ adaptive vượt trội hơn uniform trên toàn miền; tập final-test gốc vẫn được khóa chặt để bảo toàn tính minh bạch khoa học.",
+                        tip: "Nhấn mạnh 3 trụ cột và tính trung thực khoa học ở dải giới hạn."
+                    },
+                    { // 11
+                        speaker: "VIỆT", pill: "sp-viet", clock: "50s",
+                        speech: "Kính thưa Thầy, đề tài của nhóm kế thừa trực tiếp từ các công trình đặt nền móng tại ICML và NeurIPS: kiến trúc Conditioned Weights của Abels (2019), lý thuyết Envelope của Yang (2019), phương pháp PGMORL của Xu (2020), thuật toán PPO + GAE của Schulman (2017), PopArt của van Hasselt (2016) và kiến trúc PPO trên Minecart của Terekhov & Gulcehre (2024).\n\nTừ thực nghiệm, nhóm chỉ ra 3 khoảng trống lớn:\n\nThứ nhất, Value-based như PCQN thất bại hoàn toàn trên horizon dài do lỗi Credit Assignment — nhóm giải quyết bằng PPO với GAE. Thứ hai, nhóm đề xuất nguyên tắc Task Competence Gate: agent phải học kỹ năng cơ bản trước khi tối ưu phân bổ sở thích. Thứ ba, thay vì train cả quần thể tốn kém như PGMORL, nhóm chứng minh một mạng duy nhất với Shared Trunk là đủ cho suy luận thời gian thực.",
+                        tip: "Chỉ vào cột tài liệu bên trái, đối chiếu sang 3 Gap bên phải, giọng đĩnh đạc."
+                    },
+                    { // 12
+                        speaker: "CẢ NHÓM", pill: "sp-all", clock: "Q&A",
+                        speech: "5 ĐÒN PHẢN BIỆN CHUẨN BỊ SẴN CHO HỘI ĐỒNG:\n\n1. 'Reward Demo tính sao?' → [Hưng/Việt]: Vector Raw Return không chiết khấu — Hạ cánh +100, Shaping +191, động cơ chính −103, phụ −30. Không phải %.\n\n2. 'Bỏ loss vào đâu?' → [Việt]: Scalarized Advantage A_w = wᵀA vào PPO Clipped Loss; Critic MSE vector + PopArt.\n\n3. '[0.7, 0.1, 0.1, 0.1] là tốt nhất?' → [Hưng/Nam]: Bẫy Pareto — không có bộ tốt nhất. Đó là Anchor Preference cho Task Competence Gate.\n\n4. 'PPO hơn DQN nhờ đâu?' → [Nam]: GAE giải Credit Assignment, On-policy tránh Buffer Drift, PopArt cân bằng thang đo.\n\n5. 'Metric & đối thủ?' → [Nam/Việt]: Task Success Rate 10/10 vs PCQN 0/30; PCQN & Envelope thất bại, PGMORL tốn cả quần thể.\n\n+ Nếu chưa làm được: thừa nhận thẳng thắn, coi đó là hướng phát triển. Kéo slider KHÔNG train lại — trọng số đóng băng 100%.",
+                        tip: "Người được hỏi đứng lên trả lời; Việt bổ sung toán, Nam bổ sung thực nghiệm, Hưng demo minh họa."
+                    }
+                ];
+
+                this.init();
+            }
+
+            init() {
+                this.setupScale();
+                this.setupEvents();
+                this.go(0);
+            }
+
+            setupScale() {
+                const fit = () => {
+                    const f = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+                    const x = (window.innerWidth - 1920 * f) / 2;
+                    const y = (window.innerHeight - 1080 * f) / 2;
+                    this.stage.style.transform = `translate(${x}px, ${y}px) scale(${f})`;
+                };
+                fit();
+                window.addEventListener('resize', fit);
+            }
+
+            setupEvents() {
+                // Click navigation: left 12% edge goes back, otherwise advances
+                window.addEventListener('click', (e) => {
+                    if (e.target.closest('.notes')) return;
+                    if (this.notesOpen) return;
+                    if (window.getSelection && window.getSelection().toString().length > 0) return;
+                    if (e.clientX < window.innerWidth * 0.12) this.go(this.index - 1);
+                    else this.go(this.index + 1);
+                });
+
+                window.addEventListener('keydown', (e) => {
+                    switch (e.key) {
+                        case 'ArrowRight': case 'ArrowDown': case ' ':
+                        case 'PageDown': case 'Enter':
+                            e.preventDefault(); this.go(this.index + 1); break;
+                        case 'ArrowLeft': case 'ArrowUp': case 'PageUp':
+                            e.preventDefault(); this.go(this.index - 1); break;
+                        case 'Home':
+                            e.preventDefault(); this.go(0); break;
+                        case 'End':
+                            e.preventDefault(); this.go(this.total - 1); break;
+                        case 'f': case 'F':
+                            e.preventDefault(); this.toggleFullscreen(); break;
+                        case 's': case 'S':
+                            e.preventDefault(); this.toggleNotes(); break;
+                        case 'Escape':
+                            if (this.notesOpen) this.toggleNotes(false); break;
+                    }
+                });
+            }
+
+            go(i) {
+                this.index = Math.max(0, Math.min(i, this.total - 1));
+                this.slides.forEach((s, k) => s.classList.toggle('active', k === this.index));
+
+                // Progress bar fill
+                if (this.progress) {
+                    const pct = this.total > 1 ? (this.index / (this.total - 1)) * 100 : 100;
+                    this.progress.style.width = pct + '%';
+                }
+                this.refreshNotes();
+            }
+
+            toggleFullscreen() {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                } else {
+                    document.exitFullscreen().catch(() => {});
+                }
+            }
+
+            toggleNotes(force) {
+                this.notesOpen = force !== undefined ? force : !this.notesOpen;
+                this.notesEl.classList.toggle('show', this.notesOpen);
+            }
+
+            refreshNotes() {
+                const n = this.notesData[this.index];
+                const slide = this.slides[this.index];
+                const tEl = slide.querySelector('.s-title');
+                const title = tEl ? tEl.textContent.trim() : `Slide ${this.index + 1}`;
+
+                if (n) {
+                    this.notesSpeaker.className = `sp-pill ${n.pill}`;
+                    this.notesSpeaker.textContent = n.speaker;
+                    this.notesClock.textContent = n.clock;
+                    this.notesSpeech.textContent = n.speech;
+                    this.notesTip.textContent = 'Gợi ý: ' + n.tip;
+                }
+                this.notesTitle.textContent = title.length > 42 ? title.slice(0, 42) + '…' : title;
+            }
+        }
+
+        // Boot deck + KaTeX auto-render
+        window.addEventListener('DOMContentLoaded', () => {
+            window.deck = new PresentationDeck();
+
+            if (typeof renderMathInElement === 'function') {
+                renderMathInElement(document.body, {
+                    delimiters: [
+                        { left: '$$', right: '$$', display: true },
+                        { left: '$', right: '$', display: false }
+                    ],
+                    throwOnError: false,
+                    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+                });
+            }
+        });
+    </script>
+</body>
+</html>

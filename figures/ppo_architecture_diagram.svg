@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 800; font-size: 18px; fill: #0f172a; }
+      .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 13px; fill: #64748b; }
+      .box-title { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 15px; }
+      .box-desc { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 12px; fill: #475569; }
+      .mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; }
+      .badge-text { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700; fill: #ffffff; }
+      .arrow { stroke: #94a3b8; stroke-width: 2.5; stroke-linecap: round; fill: none; }
+      .arrow-orange { stroke: #e1723a; stroke-width: 2.5; stroke-linecap: round; fill: none; }
+      .arrow-teal { stroke: #23767d; stroke-width: 2.5; stroke-linecap: round; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e1723a" />
+    </marker>
+    <marker id="arrowhead-teal" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#23767d" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="640" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Diagram Header Bar -->
+  <rect x="0" y="0" width="1200" height="54" rx="16" fill="#f8fafc" />
+  <rect x="0" y="50" width="1200" height="4" fill="#ffffff" />
+  <line x1="0" y1="54" x2="1200" y2="54" stroke="#e2e8f0" stroke-width="1" />
+  <text x="32" y="34" class="title">PREFERENCE-CONDITIONED ACTOR-CRITIC ARCHITECTURE</text>
+  <text x="680" y="34" class="subtitle">INPUT: [s, w]  ➔  SHARED TRUNK  ➔  DUAL HEADS (PPO + GAE)</text>
+
+  <!-- ==================== 1. INPUT STAGE ==================== -->
+  <g transform="translate(40, 85)">
+    <!-- Group Container -->
+    <rect width="240" height="510" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4" />
+    <text x="20" y="32" class="box-title" fill="#0f172a">1. INPUT TENSORS</text>
+    
+    <!-- State Card -->
+    <g transform="translate(16, 50)" filter="url(#shadow)">
+      <rect width="208" height="110" rx="10" fill="#ffffff" stroke="#23767d" stroke-width="2" />
+      <rect x="0" y="0" width="208" height="6" rx="3" fill="#23767d" />
+      <text x="14" y="28" class="box-title" fill="#23767d">State Observation (s)</text>
+      <text x="14" y="52" class="mono" fill="#0f172a">Dim: [B, d_s]</text>
+      <text x="14" y="74" class="box-desc">Minecart: x, y, v_x, v_y, ore</text>
+      <text x="14" y="92" class="box-desc">Lunar: pos, vel, angle, legs</text>
+    </g>
+
+    <!-- Concat Plus Sign -->
+    <circle cx="120" cy="195" r="16" fill="#e2e8f0" />
+    <text x="113" y="201" font-family="Plus Jakarta Sans" font-size="18" font-weight="800" fill="#475569">+</text>
+
+    <!-- Preference Card -->
+    <g transform="translate(16, 225)" filter="url(#shadow)">
+      <rect width="208" height="120" rx="10" fill="#ffffff" stroke="#e1723a" stroke-width="2" />
+      <rect x="0" y="0" width="208" height="6" rx="3" fill="#e1723a" />
+      <text x="14" y="28" class="box-title" fill="#e1723a">Preference Vector (w)</text>
+      <text x="14" y="52" class="mono" fill="#0f172a">Dim: [B, d]</text>
+      <text x="14" y="74" class="mono" fill="#e1723a">∑ w_i = 1.0,  w_i ≥ 0</text>
+      <text x="14" y="96" class="box-desc">User-driven trade-off slider</text>
+    </g>
+
+    <!-- Extended State -->
+    <g transform="translate(16, 385)">
+      <rect width="208" height="95" rx="8" fill="#eef2f6" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="14" y="26" class="box-title" fill="#0f172a">Concatenated Input</text>
+      <text x="14" y="50" class="mono" fill="#2563eb">[s, w] ∈ ℝ^(d_s + d)</text>
+      <text x="14" y="74" class="box-desc">Mở rộng không gian trạng thái</text>
+    </g>
+  </g>
+
+  <!-- Flow Arrow: Input -> Trunk -->
+  <path d="M 295 340 L 370 340" class="arrow" marker-end="url(#arrowhead)" />
+
+  <!-- ==================== 2. SHARED TRUNK ==================== -->
+  <g transform="translate(385, 120)" filter="url(#shadow)">
+    <rect width="280" height="440" rx="14" fill="#ffffff" stroke="#e1723a" stroke-width="2.5" />
+    <!-- Header band -->
+    <path d="M 0 14 Q 0 0 14 0 L 266 0 Q 280 0 280 14 L 280 44 L 0 44 Z" fill="#fff7ed" />
+    <line x1="0" y1="44" x2="280" y2="44" stroke="#fed7aa" stroke-width="1" />
+    <text x="20" y="28" class="box-title" fill="#c2410c">2. SHARED FEATURE TRUNK</text>
+
+    <!-- Layers -->
+    <g transform="translate(20, 65)">
+      <rect width="240" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="16" y="26" class="mono" fill="#0f172a">Linear Layer 1</text>
+      <text x="16" y="48" class="box-desc">Input (d_s + d) ➔ 256 Features</text>
+    </g>
+
+    <g transform="translate(20, 145)">
+      <rect width="240" height="45" rx="8" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5" />
+      <text x="16" y="28" class="mono" fill="#c2410c">Mish Activation Function</text>
+    </g>
+
+    <g transform="translate(20, 205)">
+      <rect width="240" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="16" y="26" class="mono" fill="#0f172a">Linear Layer 2</text>
+      <text x="16" y="48" class="box-desc">256 ➔ 256 Shared Latent Space</text>
+    </g>
+
+    <g transform="translate(20, 285)">
+      <rect width="240" height="45" rx="8" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5" />
+      <text x="16" y="28" class="mono" fill="#c2410c">Mish Activation Function</text>
+    </g>
+
+    <!-- Latent Representation -->
+    <g transform="translate(20, 345)">
+      <rect width="240" height="70" rx="8" fill="#0f172a" />
+      <text x="16" y="26" font-family="Plus Jakarta Sans" font-weight="700" font-size="12" fill="#94a3b8">LATENT CODE Φ(s, w)</text>
+      <text x="16" y="48" class="mono" fill="#38bdf8">256-D Objective Representation</text>
+    </g>
+  </g>
+
+  <!-- Branching Arrows from Trunk to Heads -->
+  <path d="M 680 260 C 720 260, 720 180, 760 180" class="arrow-orange" marker-end="url(#arrowhead-orange)" />
+  <path d="M 680 420 C 720 420, 720 500, 760 500" class="arrow-teal" marker-end="url(#arrowhead-teal)" />
+
+  <!-- ==================== 3. ACTOR HEAD (TOP) ==================== -->
+  <g transform="translate(775, 95)" filter="url(#shadow)">
+    <rect width="385" height="230" rx="14" fill="#ffffff" stroke="#e1723a" stroke-width="2" />
+    <path d="M 0 14 Q 0 0 14 0 L 371 0 Q 385 0 385 14 L 385 40 L 0 40 Z" fill="#fff7ed" />
+    <text x="18" y="26" class="box-title" fill="#c2410c">ACTOR HEAD (POLICY) — π(a | s, w)</text>
+
+    <g transform="translate(18, 55)">
+      <text x="0" y="20" class="mono" fill="#0f172a">Linear(256 ➔ |A|)  ➔  Softmax</text>
+      <text x="0" y="44" class="box-desc">Sinh phân phối xác suất trên không gian hành động rời rạc</text>
+    </g>
+
+    <!-- Dual Mode Badges -->
+    <g transform="translate(18, 120)">
+      <rect width="165" height="85" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="10" y="10" width="70" height="20" rx="4" fill="#2563eb" />
+      <text x="18" y="24" class="badge-text">TRAINING</text>
+      <text x="12" y="50" class="box-title" fill="#0f172a" font-size="13">Sampled Mode</text>
+      <text x="12" y="70" class="box-desc">Khám phá đa mục tiêu</text>
+    </g>
+
+    <g transform="translate(200, 120)">
+      <rect width="165" height="85" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" />
+      <rect x="10" y="10" width="60" height="20" rx="4" fill="#e1723a" />
+      <text x="18" y="24" class="badge-text">DEMO</text>
+      <text x="12" y="50" class="box-title" fill="#c2410c" font-size="13">Argmax Mode</text>
+      <text x="12" y="70" class="box-desc">Tất định, độ tin cậy cao</text>
+    </g>
+  </g>
+
+  <!-- ==================== 4. CRITIC HEAD (BOTTOM) ==================== -->
+  <g transform="translate(775, 360)" filter="url(#shadow)">
+    <rect width="385" height="230" rx="14" fill="#ffffff" stroke="#23767d" stroke-width="2" />
+    <path d="M 0 14 Q 0 0 14 0 L 371 0 Q 385 0 385 14 L 385 40 L 0 40 Z" fill="#eef8f8" />
+    <text x="18" y="26" class="box-title" fill="#19565b">CRITIC HEAD (VALUE) — V(s, w) &amp; GAE</text>
+
+    <g transform="translate(18, 55)">
+      <text x="0" y="20" class="mono" fill="#0f172a">Linear(256 ➔ d)  [Vector Value Estimate]</text>
+      <text x="0" y="44" class="box-desc">Ước lượng vector giá trị V(s, w) ∈ ℝ^d cho từng mục tiêu</text>
+    </g>
+
+    <!-- PopArt & Scalarization -->
+    <g transform="translate(18, 120)">
+      <rect width="165" height="85" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <text x="12" y="24" class="box-title" fill="#23767d" font-size="13">PopArt Norm</text>
+      <text x="12" y="46" class="box-desc">Chuẩn hóa riêng biệt</text>
+      <text x="12" y="64" class="box-desc">từng chiều reward</text>
+    </g>
+
+    <g transform="translate(200, 120)">
+      <rect width="165" height="85" rx="8" fill="#eef8f8" stroke="#99d5d9" stroke-width="1.5" />
+      <text x="12" y="24" class="box-title" fill="#19565b" font-size="13">GAE Advantage</text>
+      <text x="12" y="46" class="mono" fill="#23767d">A_t^w = wᵀ A_t^GAE</text>
+      <text x="12" y="68" class="box-desc">Tích vô hướng với w</text>
+    </g>
+  </g>
+</svg>
