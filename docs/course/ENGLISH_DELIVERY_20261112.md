@@ -66,7 +66,7 @@ modifying that frozen training source.
   unresolved `??` references. Every page rendered and inspected in contact
   sheets; report/screenshots inspected at readable size as needed.
 
-Final byte-level package/archive receipts are written after the final build.
+Final byte-level package/archive checks are recorded after the final build.
 Receipt: `research/qualification/english_course_delivery_20261112.json` records
 policy/config invariance, final report/archive hashes, browser checks and copied
 desktop file hashes.

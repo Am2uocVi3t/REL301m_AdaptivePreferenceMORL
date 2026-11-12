@@ -1,5 +1,11 @@
 # Repository preparation — 12 November 2026
 
+This records the earlier repository-preparation stage. The user subsequently
+confirmed and received the English demo and English PDF with editable source.
+For current instructions use the [English delivery guide](course/ENGLISH_DELIVERY_20261112.md)
+and [English documentation coverage](ENGLISH_DOCUMENTATION.md); pending-format
+statements below describe the earlier stage only.
+
 ## Scope and survey
 
 Prepare the repository link for the lecturer. Report format (slides or PDF),

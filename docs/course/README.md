@@ -1,39 +1,66 @@
-# 🎓 HỒ SƠ BÀO CÁO & BẢN GIAO MÔN HỌC REL301m
+# REL301m course submission
 
-Tài liệu chính thức dành cho việc nộp bài, thuyết trình cuối kỳ và chạy demo môn học REL301m (Fall 2026).
+The current submission consists of an **English inference demo** and a
+**26-page English PDF report with editable LaTeX source**, alongside the source
+repository and versioned experimental evidence.
 
-> Cập nhật xác nhận ngày 12/11/2026: **demo tiếng Anh và báo cáo PDF tiếng Anh
-> kèm mã nguồn LaTeX chỉnh sửa được**. Xem [bản bàn giao tiếng Anh](ENGLISH_DELIVERY_20261112.md).
-> Không làm video (đã xác nhận là lỗi nhập giọng nói); slide mới chưa được yêu cầu.
-> Bản clone chưa có checkpoint/gói `outputs/`; xem
-> [hướng dẫn chạy và giới hạn demo](../../README.md#sử-dụng-demo).
+The user confirmed PDF plus editable source on 12 November 2026. No video is
+required, and no additional slide deck is part of this edition.
 
----
+## Current deliverables
 
-## 📂 Cấu trúc Hồ sơ Môn học
+| Item | Location | Purpose |
+|---|---|---|
+| Delivery and verification guide | [ENGLISH_DELIVERY_20261112.md](ENGLISH_DELIVERY_20261112.md) | Current package, checks and limitations |
+| Report source and build guide | [BUILD_ENGLISH.md](../../paper/REL301m/BUILD_ENGLISH.md) | Edit, compile and reconstruct the PDF |
+| Report entry point | [main.tex](../../paper/REL301m/main.tex) | Active LaTeX document |
+| English demo instructions | [README_EN.md](../../demo/interactive/README_EN.md) | Installation boundaries, controls and interpretation |
+| Research status | [PROJECT_STATUS.md](../research/PROJECT_STATUS.md) | Evidence-bounded scientific state |
+| Team explanation and glossary | [TEAM_GUIDE_EN.md](presentation/TEAM_GUIDE_EN.md) | English explanation of the project and results |
 
-1. **[Thuyết trình & Kịch bản nhóm (`presentation/`)](./presentation/README.md):**
-   * **[Kịch bản Slide & Phân chia 3 người](./presentation/KICH_BAN_SLIDE_VA_PHAN_CHIA_3_NGUOI.md):** Dàn ý 10 slide trực quan + phân vai chi tiết cho Hưng (Dẫn nhập & Demo), Việt (Kiến trúc & Toán MORL), Nam (Thực nghiệm & Phân tích lỗi) kèm bộ câu hỏi vấn đáp với phản biện.
-   * **[Kịch bản Thuyết trình Chi tiết (~6 phút)](./presentation/KICH_BAN_THUYET_TRINH_CUOI_KY_FINAL.md):** Kịch bản thoại từng phút từ mở đầu đến kết luận.
-   * **[Cẩm nang Thuật ngữ A-Z](./presentation/DOC_CHO_TEAM_TONG_QUAN_VA_THUAT_NGU.md):** Giải thích cặn kẽ các khái niệm MORL, Pareto Front, PPO vs PCQN, GAE, Coverage, v.v.
-   * **[Hướng dẫn Thao tác Live Demo](./presentation/HUONG_DAN_CHAY_DEMO.md):** Các bước kéo slider và giải thích trong 3 phút.
-   * **[Thư mục hình ảnh slide (`presentation/figures/`)](./presentation/figures/):** Hình vẽ chuẩn bị sẵn để chèn trực tiếp vào slide Canva / PowerPoint.
+Generated report and package files remain under ignored `outputs/`; pretrained
+weights are not part of a source-only clone. The current local demo package is
+`outputs/REL301m_English_Demo_20261112/`. The prepared desktop delivery is
+`REL301m_Final_Defense/English_Submission_20261112/`.
 
-2. **[Báo cáo Khoa học Chính thức (`paper/REL301m/`)](../../paper/REL301m/README.md):**
-   * Mã nguồn LaTeX bài báo 16–19 trang theo định dạng chuẩn: `paper/REL301m/main.tex`.
-   * Lệnh biên dịch PDF tự động: `./scripts/build_course_latex_report.ps1`.
+## Demonstration
 
-3. **[Các Cột mốc & Báo cáo Tiến độ Lịch sử (`milestones/`)](./milestones/):**
-   * `initial-progress-report.md`: Báo cáo tiến độ ban đầu.
-   * `course-completion-v2.md`: Phạm vi hoàn thành nhiệm vụ và chuyển đổi PPO.
-   * `recovery-course-plan.md`: Kế hoạch khắc phục và phục hồi thực nghiệm.
-   * `monday-team-package.md`: Gói bàn giao thử nghiệm đầu kỳ.
+On the prepared Windows laptop, run
+[START_COURSE_DEMO.bat](../../START_COURSE_DEMO.bat) from the repository root,
+then open the localhost address printed by the terminal. The default port is
+8765; the launcher chooses another available port when needed.
 
----
+From a complete English package with Python 3.11 dependencies installed:
 
-## 🚀 Hướng dẫn Chạy Nhanh Cho Giảng Viên & Nhóm
+```bash
+python launch.py --port 8765
+```
 
-* **Khởi chạy Web Demo Tương tác (Kéo slider thay đổi trọng số):**
-  Nhấp đúp vào [`START_COURSE_DEMO.bat`](../../START_COURSE_DEMO.bat) ở thư mục gốc và mở trình duyệt tại `http://127.0.0.1:8765`.
-* **Khởi chạy Terminal Monitor Native (Theo dõi GPU, loss, workers):**
-  Nhấp đúp vào [`START_TRAINING_MONITOR.bat`](../../START_TRAINING_MONITOR.bat) ở thư mục gốc.
+Do not open the HTML file directly: policy inference and physics require the
+Python server. The two panels use the same checkpoint and initial seed.
+Sliders change network inputs, not weights. Live preference changes retain
+history, so reset before making a matched-initial-state comparison.
+
+## Report contents
+
+The report covers the research question, prior work, implemented PCQN/PPO
+methods, experimental protocols, negative results, bounded PPO confirmations,
+limitations, software architecture, actual demo screenshots and reproduction
+instructions. The figures are derived from versioned evidence or captured from
+real inference; they do not depict fabricated outcomes.
+
+Minecart confirmation used three fresh training seeds. Lunar confirmation used
+two fresh seeds, separate from the specialist pilot shown in the demo.
+Adaptive-allocation superiority, arbitrary-preference competence and dynamics
+robustness remain unestablished. The original final-test gate is still locked.
+
+## Supporting and historical material
+
+[Presentation resources](presentation/README.md) provide English project
+explanations and point to retained team drafts. They do not certify a new slide
+export. [Milestones](milestones/) contain earlier progress reports and scope
+decisions; dated instructions may refer to older models or runtime paths.
+
+Use the current delivery guide and root README for hand-in instructions.
+Retained Vietnamese originals are identified in the
+[language coverage note](../ENGLISH_DOCUMENTATION.md).

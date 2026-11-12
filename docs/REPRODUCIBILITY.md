@@ -60,12 +60,15 @@ runtime caches and delivery ZIPs are ignored. Some recorded SHA-256 paths refer
 to artifacts absent from a fresh clone; source/provenance audits may need the
 original artifact store even when raw episode records are versioned.
 
-The Windows root launcher searches versioned packages under `outputs/` and uses
-`.venv/Scripts/python.exe` relative to the checkout. It does not automatically
-use `C:/REL301m_Demo`. For an existing package, explicitly select a Python 3.11
-interpreter and run that package's `launch.py` from its directory.
+The Windows root launcher now prefers `outputs/REL301m_English_Demo_20261112/`.
+It uses `REL301M_PYTHON` when set, otherwise the checkout's Windows virtual
+environment or the existing `C:/REL301m_Demo/.venv/Scripts/python.exe` fallback.
+It checks that the interpreter exists; a fresh clone still needs a compatible
+runtime and pretrained artifacts. Alternatively, explicitly select a Python
+3.11 interpreter and run the package's `launch.py` from its directory.
 
-The current local reference-review package contains both PPO actors. Minecart
+The current English package contains the same two PPO actors as the preserved
+reference-review package. Minecart
 uses lowest confirmation seed `20264311`, not best score. Lunar uses specialist
 pilot `20265311`; prospective confirmation seeds are reported separately.
 Sliders change network inputs, not weights. Older templates/packages have
@@ -75,11 +78,15 @@ No public checkpoint/download release was verified during this preparation.
 Providing one requires selecting and publishing a bounded, audited artifact;
 large weights should not enter Git to make the tree look complete.
 
-## Hand-in backlog
+## Confirmed hand-in and remaining work
 
-- Confirm whether repository access alone is enough or a pretrained demo package is needed.
-- Confirm report format (slides or PDF), content and timing before producing it.
-- Record a demo video only after an explicit request.
+- English PDF and editable LaTeX source are confirmed and prepared. See
+  [the delivery guide](course/ENGLISH_DELIVERY_20261112.md).
+- The English inference demo is prepared locally. A public pretrained download
+  and clean full dependency installation remain unverified.
+- No video is required; the apparent request was a dictation error.
+- Additional slides, new training and final-test execution are outside this edition.
 
-Existing report/presentation sources are retained. This preparation does not
-rebuild PDFs, export slides, record video or launch training/final-test.
+Existing presentation sources are retained. The English report was compiled
+and visually checked; its editable archive was extracted and rebuilt. No slide
+export, video, research training or final-test execution was performed.

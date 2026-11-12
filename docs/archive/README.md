@@ -1,14 +1,26 @@
-# 📦 Kho Lưu Trữ Lịch Sử Nghiên Cứu (Research History & Audit Archive)
+# Research history and audit archive
 
-Thư mục này lưu trữ các bản ghi nhận, nhật ký thử nghiệm tự động, báo cáo tiến độ cũ và vết chạy của hệ thống ARIS nhằm đảm bảo tính toàn vẹn (provenance) và khả năng tái lập (reproducibility) của toàn bộ dự án, đồng thời giữ cho thư mục gốc luôn gọn gàng và chuyên nghiệp.
+This directory preserves earlier research records, automated experiment notes,
+progress reports and ARIS run artifacts. They support provenance and explain
+how the current implementation and conclusions were reached.
 
----
+## Contents
 
-## 📂 Các Tiểu Thư Mục
+- [aris_logs/](aris_logs/): narrative reports, claim/result summaries,
+  experiment audits, diagnostic notes and earlier demo-design documents.
+- [aris_runs/](aris_runs/): retained versioned records of earlier ARIS workflows,
+  where present in this checkout.
 
-1. **[`aris_logs/`](./aris_logs/):**
-   * Chứa các file nhật ký tường thuật (`NARRATIVE_REPORT*.md`), sổ đăng ký kết quả (`CLAIMS_FROM_RESULTS.*`), báo cáo kiểm định thực nghiệm (`EXPERIMENT_AUDIT.*`), và các tài liệu chẩn đoán giai đoạn trước của Minecart/PCQN.
-   * Chứa tài liệu thiết kế demo (`interactive-model-demo.md`, `visual-policy-demo.md`).
+These documents describe their dated scope. They can refer to superseded
+runtime paths, models, plans and delivery packages. Some originals are
+Vietnamese. Their presence does not make them the current course submission
+or authorize restarting completed research.
 
-2. **[`aris_runs/`](./aris_runs/):**
-   * Chứa các file log trung gian gắn timestamp (`IDEA_REPORT_*.md`, `EXPERIMENT_PLAN_*.md`, `EXPERIMENT_TRACKER_*.md`, `REFINE_STATE_*.json`) từ các đợt chạy pipeline tự động hồi tháng 10/2026.
+For current English material, use the [project README](../../README.md),
+[course hub](../course/README.md),
+[delivery guide](../course/ENGLISH_DELIVERY_20261112.md) and
+[research status](../research/PROJECT_STATUS.md).
+
+Historical evidence, original proposals and source-bound records are preserved
+rather than silently translated or rewritten. See the
+[English documentation coverage note](../ENGLISH_DOCUMENTATION.md).

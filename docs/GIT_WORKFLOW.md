@@ -1,114 +1,88 @@
-# Quy Chuẩn Quản Lý Mã Nguồn Git & Quy Tắc Phê Duyệt Pull Request (Git Workflow & Pair Review Policy)
+# Git workflow and pair-review policy
 
-Tài liệu này quy chuẩn quy trình làm việc nhóm, phân quyền nhánh và **chính sách phê duyệt Pull Request (PR)** bắt buộc trên GitHub cho toàn bộ thành viên dự án **REL301m - Adaptive Preference MORL**.
+This document describes the team's ownership and review agreement for the
+REL301m project. Merging source code does not establish scientific claims or
+authorize experiment execution.
 
----
+## Ownership matrix
 
-## 👥 1. Ma trận Phân công Nhánh & Trách nhiệm (Pair Matrix)
+| Feature branch | Co-owners | Observer | Responsibility |
+|---|---|---|---|
+| `feat/algorithm-curriculum` | Ngo Hoai Nam, Huynh Quoc Viet | Le Nguyen Gia Hung | Vector Q-network, masked heads, curriculum and training loop |
+| `feat/env-baselines` | Le Nguyen Gia Hung, Ngo Hoai Nam | Huynh Quoc Viet | Environment/reward wrappers, declared dynamics shifts and baseline adapters |
+| `feat/eval-pipeline` | Le Nguyen Gia Hung, Huynh Quoc Viet | Ngo Hoai Nam | Metrics, statistical analysis, evaluation and preference-demo integration |
 
-Dự án có 3 nhánh chức năng chính (`feat/*`) tương ứng với 3 nhiệm vụ lớn. Mỗi nhánh có **2 thành viên trực tiếp phụ trách (Co-owners)** và **1 thành viên giữ vai trò Giám sát (Observer/Only-View)**:
+These are responsibility assignments, not evidence that every planned metric,
+shift, baseline or comparative study has been completed.
 
-| Nhánh Chức năng (Feature Branch) | 2 Thành viên phụ trách (Direct Assignees / Co-owners) | Thành viên thứ 3 (Observer / Only View) | Nhiệm vụ trọng tâm |
-| :--- | :--- | :--- | :--- |
-| **`feat/algorithm-curriculum`** | **Ngô Hoài Nam & Huỳnh Quốc Việt** | **Lê Nguyễn Gia Hưng** | • Mô hình Vector Q-Network (PCQN) & Bootstrap Heads.<br>• Thuật toán Adaptive Curriculum (Gap, Uncertainty, Coverage).<br>• Vòng lặp huấn luyện chính `scripts/train.py`. |
-| **`feat/env-baselines`** | **Lê Nguyễn Gia Hưng & Ngô Hoài Nam** | **Huỳnh Quốc Việt** | • Wrapper môi trường MO-Gymnasium & Reward Normalization.<br>• Injector tạo Dynamics Shifts (trọng lực, gió, lực cản).<br>• Tích hợp Baselines (Envelope Q-Learning, GPI-LS). |
-| **`feat/eval-pipeline`** | **Lê Nguyễn Gia Hưng & Huỳnh Quốc Việt** | **Ngô Hoài Nam** | • Pareto Metrics (Hypervolume, Worst-decile Regret).<br>• Kiểm định thống kê (Bootstrap CI 95%, Wilcoxon).<br>• Script đánh giá `scripts/evaluate.py` & Demo Slider. |
+## Review and merge
 
----
+The original team agreement calls for both co-owners to inspect the change and
+agree before merging a feature into `main`. GitHub does not allow a PR author
+to approve their own PR, so the partner supplies the independent approval and
+the author records their own checks in the PR description. The repository's
+actual branch-protection rules determine the required approval count.
 
-## 🔒 2. Quy Tắc Phê Duyệt Pull Request (2-Approvals Merge Rule)
+The observer checks that the responsible pair reviewed the change, required
+checks passed and no merge conflicts remain. The observer should not merge on
+the pair's behalf without their recorded agreement. Do not bypass branch
+protection, dismiss reviews merely to force a merge or treat an approval as
+scientific qualification.
 
-Để bảo vệ nhánh `main` ở trạng thái tích hợp ổn định. Việc merge vào `main` không tự động chứng minh rằng code đã sẵn sàng chạy thực nghiệm hoặc các claim khoa học đã được xác nhận:
+## Daily workflow
 
-### 2.1. Quy tắc Bắt buộc: "2 People Must Approve Before Merge"
-> ⚠️ **ĐIỀU KIỆN TIÊN QUYẾT ĐỂ MERGE VÀO `main`:**
-> Một Pull Request (PR) từ nhánh chức năng chỉ được phép bấm **Merge** vào `main` khi và chỉ khi **CẢ 2 THÀNH VIÊN TRỰC TIẾP PHỤ TRÁCH NHÁNH ĐÓ ĐÃ REVIEW VÀ NHẤN "APPROVE"** trên GitHub.
+Inspect the working tree first and preserve unrelated changes. Use a dedicated
+branch for substantial work; coding-agent branches normally use `codex/`.
 
-* **Ví dụ 1:** Khi nhánh `feat/algorithm-curriculum` muốn merge vào `main`:
-  * Người mở PR (ví dụ: Việt) gắn reviewer là Nam.
-  * Nam phải đọc code, chạy thử unit tests trên máy cục bộ hoặc Kaggle, review và bấm **Approve**.
-  * Sau khi cả 2 người đã thống nhất và approve, PR mới đủ điều kiện merge.
-* **Ví dụ 2:** Khi nhánh `feat/env-baselines` muốn merge:
-  * Cả Hưng và Nam đều phải review chéo và approve code của nhau trước khi merge.
-* **Ví dụ 3:** Khi nhánh `feat/eval-pipeline` muốn merge:
-  * Cả Hưng và Việt đều phải review chéo và approve code của nhau.
-
----
-
-### 2.2. Vai trò của Thành viên thứ 3: "Only View / Oversight (Giám sát)"
-Thành viên không trực tiếp code ở nhánh đó (thành viên thứ 3) đóng vai trò là **Người giám sát độc lập (Independent Monitor)**:
-
-1. **Quyền hạn:** Có quyền **View**, xem toàn bộ code diff, lịch sử commit, bình luận hỏi lý do nếu thấy có chỗ chưa rõ.
-2. **Nhiệm vụ giám sát:** Kiểm tra xem:
-   * PR đó đã đủ chữ ký **2 Approvals** của 2 người phụ trách chính hay chưa?
-   * Pipeline kiểm thử (Unit Tests / CI) có pass 100% hay không?
-   * Có bị xung đột (merge conflicts) với `main` hay không?
-3. **Nguyên tắc can thiệp:** Thành viên thứ 3 **không cần và không tự ý bấm merge** thay cho cặp phụ trách, trừ khi 2 người phụ trách đã đồng thuận và ủy quyền bằng văn bản trong phần comment của PR.
-
----
-
-## 🛠️ 3. Hướng Dẫn Thiết Lập Branch Protection trên GitHub (Dành cho Repo Admin - Việt)
-
-Để GitHub tự động khóa nhánh `main` và bắt buộc tuân thủ quy tắc trên, Việt (Team Leader / Repo Admin) hãy làm theo các bước:
-
-1. Vào repository trên GitHub: **Settings** $\rightarrow$ **Branches** $\rightarrow$ chọn **Add branch protection rule**.
-2. **Branch name pattern:** Điền `main`.
-3. Tích chọn các mục sau:
-   - ✅ **Require a pull request before merging**
-   - ✅ **Require approvals**: Điền số lượng tối thiểu là `2` (hoặc `1` nếu người tạo PR không được tự approve chính PR của mình theo cơ chế GitHub).
-   - ✅ **Dismiss stale pull request approvals when new commits are pushed**: Tự động hủy approve cũ nếu có commit mới được push lên.
-   - ✅ **Require status checks to pass before merging** (nếu có GitHub Actions).
-   - ✅ **Do not allow bypassing the above settings**: Ngăn không cho bất kỳ ai (kể cả Admin) bypass luật để merge ẩu.
-4. Bấm **Create / Save Changes**.
-
----
-
-## 🌿 4. Quy trình Đóng góp Hàng ngày (Step-by-step Daily Workflow)
-
-```text
- 1. Checkout nhánh của bạn  ───>  2. Code & Chạy Unit Tests  ───>  3. Commit & Push
- (git checkout feat/...)           (pytest tests/)                 (git push origin feat/...)
-                                                                           │
-                                                                           ▼
- 6. Thành viên 3 giám sát   <───  5. Người cùng cặp Review    <───  4. Mở Pull Request
- (Observer kiểm tra đủ 2-App)      (Chạy test & Bấm Approve)       (Gán Pair Member làm Reviewer)
-           │
-           ▼
- 7. SQUASH & MERGE VÀO MAIN (An toàn & Sạch lịch sử Git!)
-```
-
-### 4.1. Lệnh Git chuẩn:
 ```bash
-# Cập nhật code mới nhất từ main trước khi code
-git checkout main
-git pull origin main
+git status --short
+git fetch origin
+git switch -c codex/describe-the-change origin/main
 
-# Chuyển sang nhánh của bạn
-git checkout <ten-nhanh-cua-ban>
-git merge main  # Đồng bộ các cập nhật mới từ main
+# Make the intended changes and run appropriate checks.
+python -m pytest -q
 
-# Thực hiện công việc, viết test
-pytest tests/
-
-# Commit với message chuẩn (Conventional Commits)
-git add .
-git commit -m "feat(module): mô tả rõ công việc đã hoàn thành"
-git push origin <ten-nhanh-cua-ban>
+# Stage only files belonging to the change.
+git add <reviewed-file> <another-reviewed-file>
+git diff --cached --check
+git diff --cached
+git commit -m "docs: describe the completed change"
+git push -u origin codex/describe-the-change
 ```
 
-### 4.2. Mẫu Tiêu đề & Nội dung Pull Request (PR Template)
-Khi mở PR, hãy copy template sau vào phần mô tả PR:
+Do not use blanket staging when the checkout contains unrelated user edits.
+Update from `main` and resolve conflicts only after inspecting the live
+working tree. Never discard user changes to make a branch appear clean.
+
+## Pull request description
+
+Lead with the problem and resulting behavior. State what changed, what was
+tested and any meaningful limitation. Link experiment claims to versioned
+evidence rather than to a successful software check.
 
 ```markdown
-### 📌 Tóm tắt Thay đổi (Summary)
-- Mô tả 1-3 gạch đầu dòng những gì đã làm trong PR này.
+Summary:
+- Explain the concrete problem and final behavior.
 
-### 👥 Trách nhiệm & Review Checklist
-- [ ] Thành viên A (Co-owner): Đã kiểm tra code & unit test.
-- [ ] Thành viên B (Co-owner): Đã review & APPROVE.
-- [ ] Thành viên C (Observer): Đã giám sát xác nhận 2 approvals trước khi merge.
+Review:
+- Author checked the intended changes and validation.
+- Partner reviewed and approved.
+- Observer verified the required process, where applicable.
 
-### ✅ Kết quả Kiểm thử (Test Verification)
-- [ ] `pytest tests/` pass 100%.
-- [ ] Không có lỗi import hoặc NaN loss.
+Validation:
+- List commands and actual outcomes.
+- Report skips, unavailable artifacts and unresolved limitations.
 ```
+
+Keep scientific gates separate: checkpoint locking, final-test access, paid
+review and new training require their own authorization and evidence.
+
+## Branch-protection administration
+
+Repository owners manage protection settings; this guide does not authorize
+changing them. The team's intended protection is PR-based review, approval
+requirements compatible with GitHub's author-review rule, dismissal of stale
+approvals after new commits, appropriate status checks and no protection bypass.
+
+For a blocked PR, inspect GitHub's reported reason and obtain the required
+review. Do not weaken repository rules to finish a hand-in.
