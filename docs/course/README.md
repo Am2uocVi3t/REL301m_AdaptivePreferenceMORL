@@ -4,8 +4,11 @@ The current submission consists of an **English inference demo** and a
 **26-page English PDF report with editable LaTeX source**, alongside the source
 repository and versioned experimental evidence.
 
-The user confirmed PDF plus editable source on 12 November 2026. No video is
-required, and no additional slide deck is part of this edition.
+The user confirmed PDF plus editable source on 12 November 2026, then requested
+PDF export of the existing slides and an English demonstration video with their
+own narration. The [video workspace](video/README.md) includes a local Recording
+Desk and editable script. Human narration and the video submission destination
+remain pending. Keep the video separate from the Form's 10 MB report+slide ZIP.
 
 ## Current deliverables
 

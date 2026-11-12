@@ -1,3 +1,14 @@
+English video workspace 12 November 2026: real frozen-PPO browser demo master
+(131.10 s, 1920x1080, H.264) and an editable local Recording Desk are prepared.
+The desk supports user narration, teleprompter, logo, optional ducked music,
+raw-take preservation and local MP4 export. Human narration is not yet recorded.
+Engineering checks: 237 tests pass/4 skip, real Edge synthetic-audio recording
+and export pass, Ruff/MyPy/Bandit/compileall pass within project code scope.
+No training, final-test access, protocol/checkpoint/claim changes. Phase 4 remains
+active. Details: docs/course/video/README.md and
+research/qualification/video-studio-20261112.json. Slide PDF/Form ZIP and video
+submission destination remain separate hand-in tasks.
+
 English documentation correction 12 November 2026: root README and current
 course/presentation/archive/monitor hubs, Git workflow and runtime instructions
 now use English. Added English team/audit guides and explicit language coverage;
