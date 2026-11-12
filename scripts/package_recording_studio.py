@@ -37,6 +37,9 @@ def package(media: Path, output: Path, ffmpeg: str) -> None:
         shutil.copy2(ROOT / relative, target)
     (output / "media").mkdir()
     shutil.copy2(media, output / "media/demo.mp4")
+    timeline = media.with_name("narration-timeline.json")
+    if timeline.is_file():
+        shutil.copy2(timeline, output / "media/narration-timeline.json")
     (output / "tools").mkdir()
     (output / "tools/ffmpeg-path.txt").write_text(ffmpeg, encoding="utf-8")
     (output / "START_RECORDING_STUDIO.bat").write_text(
@@ -67,7 +70,9 @@ def package(media: Path, output: Path, ffmpeg: str) -> None:
         "The captioned MP4 is media/demo.mp4. Its human narration has not been recorded yet. "
         "Choose My microphone or import an audio file, select Record, read the editable script, "
         "then stop, review and export MP4. Original takes are downloadable before export.\n\n"
-        "Text size and scrolling speed are adjustable. The prompter is not recorded. "
+        "Default reading pace is a calm 95 words/minute, with pauses. "
+        "The re-recorded video and highlighted words use one clock; changing reading pace changes both. "
+        "Text size is adjustable. The prompter is not recorded. "
         "Optional music ducks under your voice. Check the finished sound with headphones.\n\n"
         "Local exports and original uploaded takes are saved outside OneDrive at "
         "~/Everything/REL301m_Recordings. Download a finished MP4 using the desk. "

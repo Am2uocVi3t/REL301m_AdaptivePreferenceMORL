@@ -5,14 +5,15 @@
   "status": "pass",
   "master": {
     "local_path": "outputs/video-course-20261112/demo.mp4",
-    "bytes": 4192419,
-    "sha256": "0b61e8731eb032377be6fa19467f29b58eb43fa49c3976bd569eea4015d0df97",
-    "duration_seconds": 131.1,
+    "bytes": 6349410,
+    "sha256": "dda7f0b9f88472dd6f92b1fc3ae868e0139a2f1d70d3f2380d8c8f916cbc9124",
+    "duration_seconds": 254.8,
     "width": 1920,
     "height": 1080,
     "codec": "H.264",
     "output_fps": 30,
-    "captured_change_frames": 853,
+    "captured_change_frames": 943,
+    "reading_wpm": 95,
     "human_narration_recorded": false,
     "decode_without_errors": true
   },
@@ -22,7 +23,8 @@
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "frame_count": 853,
+    "frame_count": 943,
+    "reading_wpm": 95,
     "discovery": [
       {
         "id": "lunar",
@@ -42,7 +44,7 @@
       {
         "id": "fullscreen",
         "tag": "BUTTON",
-        "text": "Ã¢â€ºÂ¶ Fullscreen"
+        "text": "⛶ Fullscreen"
       },
       {
         "id": "weight-0",
@@ -82,22 +84,22 @@
       {
         "id": "run",
         "tag": "BUTTON",
-        "text": "Ã¢â€“Â¶ Run comparison"
+        "text": "▶ Run comparison"
       },
       {
         "id": "pause",
         "tag": "BUTTON",
-        "text": "Ã¢â€“Â¶ Resume"
+        "text": "▶ Resume"
       },
       {
         "id": "step",
         "tag": "BUTTON",
-        "text": "Ã¯Â¼â€¹ Single step"
+        "text": "＋ Single step"
       },
       {
         "id": "speed",
         "tag": "SELECT",
-        "text": "1Ãƒâ€” Ã‚Â· 30 steps/s maximum2Ãƒâ€” Ã‚Â· 60 steps/s maximum4Ãƒâ€” Ã‚Â· 120 steps/s maximum"
+        "text": "1× · 30 steps/s maximum2× · 60 steps/s maximum4× · 120 steps/s maximum"
       },
       {
         "id": "trace",
@@ -107,95 +109,99 @@
     ],
     "actions": [
       {
-        "at": 11.862,
+        "at": 60.895,
         "selector": "#step"
       },
       {
-        "at": 13.509,
+        "at": 62.485,
         "selector": "#step"
       },
       {
-        "at": 15.152,
+        "at": 64.05,
         "selector": "#step"
       },
       {
-        "at": 16.877,
+        "at": 68.303,
         "selector": "#run"
       },
       {
-        "at": 43.921,
-        "slider": 42
-      },
-      {
-        "at": 46.991,
-        "selector": "#run"
-      },
-      {
-        "at": 54.879,
+        "at": 75.869,
         "selector": "#pause"
       },
       {
-        "at": 66.711,
-        "selector": "#mine"
+        "at": 80.553,
+        "slider": 42
       },
       {
-        "at": 69.239,
+        "at": 91.858,
         "selector": "#run"
       },
       {
-        "at": 79.481,
+        "at": 96.78,
+        "selector": "#pause"
+      },
+      {
+        "at": 112.921,
+        "selector": "#mine"
+      },
+      {
+        "at": 117.048,
+        "selector": "#run"
+      },
+      {
+        "at": 127.066,
         "slider": 80
       },
       {
-        "at": 80.447,
+        "at": 127.955,
         "selector": "#run"
       },
       {
-        "at": 98.881,
+        "at": 143.047,
         "selector": "#lunar"
       },
       {
-        "at": 99.859,
+        "at": 144.019,
         "selector": "#mine"
       },
       {
-        "at": 100.879,
+        "at": 144.983,
         "selector": "#step"
       },
       {
-        "at": 101.799,
+        "at": 145.889,
         "selector": "#step"
       },
       {
-        "at": 102.714,
+        "at": 146.791,
         "selector": "#step"
       },
       {
-        "at": 103.72,
+        "at": 147.751,
         "selector": "#live"
       },
       {
-        "at": 105.012,
+        "at": 149.103,
         "slider": 35
       },
       {
-        "at": 106.038,
+        "at": 150.049,
         "selector": "#step"
       },
       {
-        "at": 107.03,
+        "at": 151.031,
         "selector": "details.model summary"
       },
       {
-        "at": 108.018,
+        "at": 151.969,
         "selector": "#trace"
       }
     ],
     "scenes": [
       {
         "id": "intro",
-        "at": 0.004,
-        "duration": 8.175,
+        "at": 0.001,
+        "duration": 22.105,
         "environment": "lunar",
         "steps": [
           0,
@@ -219,23 +225,23 @@
       },
       {
         "id": "lunar",
-        "at": 8.24,
-        "duration": 34.139,
+        "at": 22.135,
+        "duration": 57.349,
         "environment": "lunar",
         "steps": [
-          235,
-          235
+          226,
+          226
         ],
         "raw_returns": [
           [
-            100,
-            191.2194458609763,
+            0,
+            191.21937916194292,
             -103,
             -30
           ],
           [
-            100,
-            191.2194458609763,
+            0,
+            191.21937916194292,
             -103,
             -30
           ]
@@ -244,33 +250,33 @@
       },
       {
         "id": "preferences",
-        "at": 42.379,
-        "duration": 23.179,
+        "at": 79.484,
+        "duration": 32.289,
         "environment": "lunar",
         "steps": [
-          232,
-          232
+          146,
+          146
         ],
         "raw_returns": [
           [
             0,
-            191.2194398191018,
-            -103,
-            -30
+            86.61933576315641,
+            -76,
+            -12
           ],
           [
             0,
-            192.23794095934863,
-            -100,
-            -37
+            68.42499889619648,
+            -75,
+            -13
           ]
         ],
         "training_updates": 0
       },
       {
         "id": "minecart",
-        "at": 65.558,
-        "duration": 32.164,
+        "at": 111.773,
+        "duration": 30.15,
         "environment": "mine",
         "steps": [
           17,
@@ -292,8 +298,8 @@
       },
       {
         "id": "live",
-        "at": 97.722,
-        "duration": 18.153,
+        "at": 141.923,
+        "duration": 34.184,
         "environment": "mine",
         "steps": [
           4,
@@ -315,8 +321,8 @@
       },
       {
         "id": "limits",
-        "at": 115.879,
-        "duration": 15.144,
+        "at": 176.111,
+        "duration": 78.626,
         "environment": "mine",
         "steps": [
           4,
@@ -362,10 +368,10 @@
     "mypy": "147 src/scripts files pass; user-owned untracked presentation helpers excluded; native C: cache avoids UNC SQLite lock",
     "bandit": "pass, src/scripts; user-owned untracked presentation helpers excluded",
     "compileall": "pass, src/scripts/tests",
-    "javascript_syntax": "app.js, record_demo_video.cjs, verify_recording_studio.cjs pass",
+    "javascript_syntax": "Recording UI, capture, recording integration and media-clock sync integration scripts pass",
     "harness_doctor": "pass",
     "synthetic_audio": "AAC decodes, nonzero audio, measured maximum -13.4 dBFS; not a real mic quality assessment",
-    "delivery_smoke": "Delivered HTML/assets/script/131-second master load successfully in Edge",
+    "delivery_smoke": "New254.8-second master,95WPM default, companion timeline and all6scenes verified in Edge and visible in-app browser",
     "preexisting_user_modifications": "11 snapshot hashes unchanged",
     "diff_check": "own changes pass; whole-worktree check reports preexisting user presentation whitespace"
   },
@@ -411,5 +417,84 @@
     "javascript_syntax": "pass using native temporary copy to avoid Node UNC package resolution issue",
     "user_website": "http://127.0.0.1:8779/",
     "live_server": "Left running for the user; no microphone requested by the agent"
+  },
+  "previous_master": {
+    "local_path": "outputs/video-course-20261112/capture-v4/demo.mp4",
+    "bytes": 4192419,
+    "sha256": "0b61e8731eb032377be6fa19467f29b58eb43fa49c3976bd569eea4015d0df97",
+    "duration_seconds": 131.1,
+    "width": 1920,
+    "height": 1080,
+    "codec": "H.264",
+    "output_fps": 30,
+    "captured_change_frames": 853,
+    "human_narration_recorded": false,
+    "decode_without_errors": true
+  },
+  "synchronized_video_update": {
+    "status": "pass",
+    "scene_alignment": "All336 words fall inside their captured scene; sentence/paragraph pauses and scene rests included",
+    "clock": "Video currentTime is the sole reading clock; default playback1x at95WPM,70WPM sets70/95video speed",
+    "actual_master_browser": {
+      "status": "pass",
+      "default_wpm": 95,
+      "master_word_count": 336,
+      "scene_seek_checks": [
+        {
+          "scene": "intro",
+          "time": 3,
+          "highlight": "our"
+        },
+        {
+          "scene": "lunar",
+          "time": 25.1,
+          "highlight": "inference"
+        },
+        {
+          "scene": "preferences",
+          "time": 82.5,
+          "highlight": "the"
+        },
+        {
+          "scene": "minecart",
+          "time": 114.8,
+          "highlight": "are"
+        },
+        {
+          "scene": "live",
+          "time": 144.9,
+          "highlight": "also"
+        },
+        {
+          "scene": "limits",
+          "time": 179.1,
+          "highlight": "unsuccessful"
+        }
+      ],
+      "preview_pause_freezes_video": true,
+      "pace_70_changes_video_rate": true,
+      "highlight_uses_media_time": true,
+      "page_errors": []
+    },
+    "record_export_browser": {
+      "status": "pass",
+      "scope": "Synthetic audio/fixture video; no real microphone-quality claim",
+      "no_auto_mic": true,
+      "microphone_request_on_record": true,
+      "pause_resume": true,
+      "auto_word_highlighting": true,
+      "pause_freezes_highlight": true,
+      "highlight_follows_scroll": true,
+      "editable_after_stop": true,
+      "imported_audio": true,
+      "music_mix": true,
+      "original_take_survives_failed_export": true,
+      "local_mp4_export": true,
+      "mobile_no_overflow": true,
+      "page_errors": []
+    },
+    "voice": "User must still record their own voice; this is not speech tracking",
+    "preservation": "Previous master preserved in capture-v4 and the earlier desktop release",
+    "timeline_sha256": "104d15d5c824a7029844785882d6faa4880046a17effd8f5a9aa167c774eebd2"
   }
 }

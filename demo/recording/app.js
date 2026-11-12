@@ -3,9 +3,10 @@
   const $=id=>document.getElementById(id), video=$('source'), voice=$('voice'), canvas=$('picture');
   const ctx=canvas.getContext('2d'), musicAudio=new Audio(); musicAudio.loop=true;
   let config, recorder, chunks=[], takeBlob, takeUrl, mic, audio, destination, analyser, musicGain;
-  let active=false, paused=false, scrolling=false, lastFrame=0, elapsed=0, began=0;
+  let active=false, paused=false, scrolling=false, elapsed=0, began=0;
   let audioNodes=[], urls=[], pendingExport=false, musicLoaded=false, totalBytes=0;
   let cueWords=[], cuePosition=0, cueIndex=-1;
+  let cueTimes=[],customVideo=false;
   video.muted=true;
   const clock=t=>`${String(Math.floor(t/60)).padStart(2,'0')}:${String(Math.floor(t%60)).padStart(2,'0')}`;
   const say=(text,error=false)=>{$('message').textContent=text;$('message').classList.toggle('error',error);};
@@ -19,6 +20,23 @@
       script.append(word);cueWords.push(word);
     }
     cuePosition=Math.min(cuePosition,Math.max(0,cueWords.length-1));
+    const timeline=config?.timeline;
+    const matches=!customVideo&&timeline?.words?.length===cueWords.length&&timeline.words.every((cue,i)=>cue.word===cueWords[i].textContent);
+    cueTimes=matches?timeline.words:cueWords.map((word,i)=>({start:i*video.duration/cueWords.length}));
+    $('sync-note').textContent=matches?'Scene-linked script. Video is the master clock; pauses and speed changes stay together.':'Custom script/video: words follow the video clock, but scene meaning must be checked after edits.';
+    syncPace();
+  }
+  function syncPace(){
+    const base=!customVideo&&config?.timeline?.reading_wpm?config.timeline.reading_wpm:60*(cueWords.length||336)/(video.duration||212);
+    video.playbackRate=Math.max(.25,Math.min(2,Number($('speed').value)/base));
+    if(voice._take)voice._take.playbackRate=video.playbackRate;
+    $('pace').textContent=`${$('speed').value} words / min · video ${video.playbackRate.toFixed(2)}×`;
+  }
+  function followVideo(){
+    if(!cueTimes.length)return;
+    let low=0,high=cueTimes.length-1;
+    while(low<high){const mid=Math.ceil((low+high)/2);if(cueTimes[mid].start<=video.currentTime)low=mid;else high=mid-1;}
+    cuePosition=low;showCue();
   }
   function showCue(){
     const index=Math.min(Math.floor(cuePosition),cueWords.length-1);
@@ -46,13 +64,13 @@
     $('pause').disabled=!active;$('stop').disabled=!active;
     $('pause').textContent=paused?'Resume take':'Pause take';
     $('preview').disabled=active;$('rewind').disabled=active;$('position').disabled=active;
+    $('script-top').disabled=active;
     ['mode','voice-file','video-file','device','music-file','logo-file'].forEach(id=>$(id).disabled=active);
     $('export').disabled=active||pendingExport||!takeBlob;
     $('state').textContent=active?(paused?'Take paused':'Recording'):takeBlob?'Take ready':'Ready';
     $('state').classList.toggle('recording',active&&!paused);
   }
   function draw(now){
-    const dt=lastFrame?Math.min((now-lastFrame)/1000,.1):0;lastFrame=now;
     ctx.fillStyle='#101b19';ctx.fillRect(0,0,1920,1080);
     if(video.readyState>=2){const scale=Math.min(1920/video.videoWidth,1080/video.videoHeight),w=video.videoWidth*scale,h=video.videoHeight*scale;ctx.drawImage(video,(1920-w)/2,(1080-h)/2,w,h);}
     if($('show-title').checked){ctx.fillStyle='rgba(15,29,25,.92)';ctx.fillRect(0,0,1920,56);ctx.fillStyle='#fff';ctx.font='24px Segoe UI';ctx.fillText($('title').value.slice(0,100),28,37);}
@@ -61,10 +79,7 @@
     $('meter').value=Math.min(1,rms*5);$('level').textContent=rms>.19?'Loud — lower mic gain':active?'Voice level':'Voice level';
     if(musicGain&&audio){const level=$('music').checked?Number($('music-level').value):0;musicGain.gain.setTargetAtTime(rms>.025?level*.22:level,audio.currentTime,.12);}
     if(active&&!paused){elapsed+=(now-began)/1000;began=now;$('record-clock').textContent=clock(elapsed);}
-    if(scrolling&&(!active||!paused)){
-      cuePosition=Math.min(Math.max(0,cueWords.length-1),cuePosition+dt*Number($('speed').value)/60);showCue();
-      if(cueWords.length&&cuePosition>=cueWords.length-1)setScrolling(false);
-    }
+    if(scrolling&&(!active||!paused))followVideo();
     $('position').value=String(video.currentTime||0);$('time').textContent=`${clock(video.currentTime||0)} / ${clock(Number.isFinite(video.duration)?video.duration:0)}`;
     requestAnimationFrame(draw);
   }
@@ -116,7 +131,7 @@
         say('Take preserved. Play it back, check your voice and picture, then export MP4. You can download the original take now.');
       };
       video.pause();if(video.currentTime>.01){await new Promise(resolve=>{video.addEventListener('seeked',resolve,{once:true});video.currentTime=0;});}
-      $('picture').scrollIntoView({block:'nearest'});await video.play();await new Promise(requestAnimationFrame);
+      buildCues();$('picture').scrollIntoView({block:'nearest'});await video.play();await new Promise(requestAnimationFrame);
       elapsed=0;voice._take&&(voice._take.currentTime=0);resetCues();began=performance.now();active=true;paused=false;
       recorder.start(1000);if(voice._take)await voice._take.play();if(musicAudio._take)await musicAudio._take.play();setScrolling(true);controls();
       say(mode==='microphone'?'Recording your microphone and the video. Read the script; pause the take whenever needed.':mode==='file'?'Recording the video with your imported narration.':'Recording video without narration.');
@@ -125,8 +140,8 @@
   function stop(){if(recorder&&recorder.state!=='inactive')recorder.stop();}
   async function pause(){
     if(!active)return;
-    if(!paused){recorder.pause();video.pause();voice._take?.pause();musicAudio._take?.pause();paused=true;}
-    else{recorder.resume();began=performance.now();paused=false;await video.play();if(voice._take)await voice._take.play();if(musicAudio._take)await musicAudio._take.play();}controls();
+    if(!paused){recorder.pause();video.pause();voice._take?.pause();musicAudio._take?.pause();paused=true;setScrolling(false);}
+    else{recorder.resume();began=performance.now();paused=false;await video.play();if(voice._take)await voice._take.play();if(musicAudio._take)await musicAudio._take.play();setScrolling(true);}controls();
   }
   async function exportTake(){
     if(!takeBlob||pendingExport)return;pendingExport=true;controls();$('export-status').textContent='Uploading this take to the localhost exporter…';
@@ -142,20 +157,26 @@
   }
   function localFile(input,target){const file=input.files[0];if(!file)return;const url=URL.createObjectURL(file);urls.push(url);target.src=url;target.load?.();}
   $('record').onclick=record;$('stop').onclick=stop;$('pause').onclick=pause;$('export').onclick=exportTake;
-  $('preview').onclick=()=>video.paused?video.play().catch(e=>say(e.message,true)):video.pause();
+  async function togglePlayback(){
+    if(active){await pause();return;}
+    if(!video.paused){video.pause();setScrolling(false);return;}
+    try{buildCues();await video.play();setScrolling(true);followVideo();}catch(e){say(e.message,true);}
+  }
+  $('preview').onclick=togglePlayback;
   $('rewind').onclick=()=>{video.pause();video.currentTime=0;resetCues();};
-  $('position').oninput=()=>{video.currentTime=Number($('position').value);};
-  video.onloadedmetadata=()=>{$('position').max=String(video.duration);controls();};
-  video.onended=()=>{if(active)say('The demo has ended. Finish your sentence, then select Stop and keep take. The final frame is held.');};
+  $('position').oninput=()=>{if(!cueWords.length)buildCues();video.currentTime=Number($('position').value);};
+  video.onseeked=followVideo;
+  video.onloadedmetadata=()=>{$('position').max=String(video.duration);syncPace();controls();};
+  video.onended=()=>{setScrolling(false);if(active)say('The demo has ended. Finish your sentence, then select Stop and keep take. The final frame is held.');};
   $('voice-file').onchange=()=>{localFile($('voice-file'),voice);$('mode').value='file';say('Narration loaded. Record a take to combine this audio with the video.');};
-  $('video-file').onchange=()=>localFile($('video-file'),video);
+  $('video-file').onchange=()=>{customVideo=true;cueWords=[];cueTimes=[];localFile($('video-file'),video);};
   $('music-file').onchange=()=>{localFile($('music-file'),musicAudio);musicLoaded=true;$('music').checked=true;};
   $('logo-file').onchange=()=>{localFile($('logo-file'),$('logo'));$('show-logo').checked=true;};
-  $('scroll').onclick=()=>setScrolling(!scrolling);
-  $('script-top').onclick=resetCues;$('font').oninput=()=>{$('script').style.fontSize=`${$('font').value}px`;};
-  $('speed').oninput=()=>{$('pace').textContent=`${$('speed').value} words / min`;};
+  $('scroll').onclick=togglePlayback;
+  $('script-top').onclick=()=>{video.currentTime=0;resetCues();};$('font').oninput=()=>{$('script').style.fontSize=`${$('font').value}px`;};
+  $('speed').oninput=syncPace;
   const wordCount=()=>{$('words').textContent=`${$('script').innerText.trim().split(/\s+/).filter(Boolean).length} words`;};
-  $('script').oninput=()=>{cueWords=[];cuePosition=0;cueIndex=-1;wordCount();$('cue-progress').textContent='Ready to read';};
+  $('script').oninput=()=>{cueWords=[];cueTimes=[];cuePosition=0;cueIndex=-1;wordCount();$('cue-progress').textContent='Ready to read';};
   $('save-script').onclick=()=>{const url=URL.createObjectURL(new Blob([$('script').innerText],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download='REL301m-narration.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
   window.addEventListener('beforeunload',e=>{if(active||takeBlob){e.preventDefault();e.returnValue='';}});
   async function boot(){

@@ -63,6 +63,10 @@ def test_local_recording_export_range_and_auth(tmp_path):
         status, raw = request("GET", "/api/config")
         assert status == 200
         token = json.loads(raw)["token"]
+        assert json.loads(raw)["timeline"] is None
+        timeline = {"reading_wpm": 95, "words": [{"word": "Hello", "start": 0, "end": 0.3}]}
+        video.with_name("narration-timeline.json").write_text(json.dumps(timeline), encoding="utf-8")
+        assert json.loads(request("GET", "/api/config")[1])["timeline"] == timeline
         assert request("GET", "/demo.mp4", headers={"Range": "bytes=0-9"}) == (206, video.read_bytes()[:10])
         assert request("GET", "/../AGENTS.md")[0] == 404
         assert request("POST", "/api/export", b"invalid")[0] == 403

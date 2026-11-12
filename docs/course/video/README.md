@@ -30,9 +30,18 @@ Keep the raw take until satisfied with the export. No automatic publishing.
 
 Record starts the teleprompter automatically from the first word. The current
 word is highlighted and kept in view as you read. Set **Reading pace** in words
-per minute (default 155). **Pause take** freezes both video and reading position;
+per minute (default 95). **Pause take** freezes both video and reading position;
 resume continues together. **Start teleprompter** is also available for rehearsal
 without recording. Pause it to edit the script; **Back to top** resets the cue.
+The new master was re-recorded scene by scene for slow narration, with sentence
+and paragraph pauses. Its companion `narration-timeline.json` maps each word to
+the captured scene. Highlighting now follows **video time**, not an independent
+timer. Changing Reading pace changes video playback speed at the same time;
+pausing the teleprompter also pauses the video/take. Seeking selects the word
+at that video position. Start at 95 words/minute, or lower it toward 60 if needed.
+Preview video also rehearses the linked reading guide. Editing the script or
+replacing the video uses a proportional fallback and displays a reminder to
+check scene meaning; the original script/master pair has the scene timing.
 Highlighting follows the selected timing, not speech recognition. No narration
 is sent to a speech service. Open the launcher/localhost website, not the HTML
 file directly; the latter now shows an explicit startup guide.
@@ -66,15 +75,15 @@ and does not require installing a second video-composition framework.
 
 ## Prepared release and verification
 
-The local master is `outputs/video-course-20261112/demo.mp4`: 2 minutes 11.10
-seconds, 1920x1080, H.264, 30 fps output, 4,192,419 bytes. The browser supplied
-853 frames when the page changed; constant-rate encoding repeats static frames.
+The local master is `outputs/video-course-20261112/demo.mp4`: 4 minutes 14.80
+seconds, 1920x1080, H.264, 30 fps output, 6,349,410 bytes. The browser supplied
+943 frames when the page changed; constant-rate encoding repeats static frames.
 It has English captions and title/end cards, with **no human narration yet**.
 The editable script contains 336 spoken words. Pause the take or change scroll
 speed as needed; finishing after the master holds its final frame.
 
 The prepared Windows release is
-`REL301m_Final_Defense/Video_Studio_20261112/` under the canonical desktop folder.
+`REL301m_Final_Defense/Video_Studio_Slow_20261112/` under the canonical desktop folder.
 Open `START_RECORDING_STUDIO.bat`. It uses the verified existing demo interpreter
 and external FFmpeg runtime. Exports and original uploaded takes are saved to
 `~/Everything/REL301m_Recordings`, outside the delivery folder's OneDrive sync.

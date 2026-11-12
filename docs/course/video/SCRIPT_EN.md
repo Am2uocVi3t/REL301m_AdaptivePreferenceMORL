@@ -1,6 +1,6 @@
 # REL301m — narration script
 
-Target: about two minutes at a calm pace. Read the body naturally; headings are
+Target: about four minutes, including pauses, at 95 words per minute. Read the body naturally; headings are
 editing cues, not spoken lines. Pause or adjust the script to fit your own pace.
 
 ## Introduction

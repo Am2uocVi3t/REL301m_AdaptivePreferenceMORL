@@ -11,6 +11,20 @@ const {chromium}=require('playwright');
   if(fs.existsSync(frames))throw Error('Frames directory already exists. Use a new versioned output.');
   fs.mkdirSync(frames);
   const plan=JSON.parse(fs.readFileSync(path.join(root,'docs/course/video/storyboard.json'),'utf8'));
+  const paragraphs=fs.readFileSync(path.join(root,'docs/course/video/SCRIPT_EN.md'),'utf8').split(/\r?\n\s*\r?\n/).map(p=>p.trim()).filter(p=>p&&!p.startsWith('#')&&!p.startsWith('Target:'));
+  const spoken=paragraphs.join('\n\n'),wordCues=[];let timelineTime=0;
+  for(const scene of plan.scenes){
+    scene.start=timelineTime;
+    for(const paragraph of scene.paragraphs){
+      for(const word of paragraphs[paragraph].split(/\s+/)){
+        wordCues.push({word,start:timelineTime,end:timelineTime+60/plan.reading_wpm,scene:scene.id});
+        timelineTime+=60/plan.reading_wpm+(/[.!?]$/.test(word)?plan.sentence_pause_seconds:0);
+      }
+      timelineTime+=plan.paragraph_pause_seconds;
+    }
+    scene.seconds=Math.max(scene.minimum_seconds,timelineTime-scene.start+2);
+    timelineTime=scene.start+scene.seconds;
+  }
   const logo=fs.readFileSync(path.join(root,'paper/REL301m/Figures/0. General/fpt_logo_red_small.png')).toString('base64');
   const browser=await chromium.launch({channel:'msedge',headless:true});
   const context=await browser.newContext({viewport:{width:1920,height:1080},deviceScaleFactor:1,acceptDownloads:true,bypassCSP:true});
@@ -47,6 +61,12 @@ const {chromium}=require('playwright');
       environment:s.environment,steps:s.panels.map(p=>p.steps),raw_returns:s.panels.map(p=>p.raw_return),training_updates:s.training_updates});
     assert.equal(s.training_updates,0);
   }
+  async function phrase(text){
+    const terms=text.split(/\s+/),index=wordCues.findIndex((_,i)=>terms.every((term,j)=>wordCues[i+j]?.word===term));
+    assert.ok(index>=0,`Narration phrase exists: ${text}`);
+    const delay=wordCues[index].start*1000-(Date.now()-clock);
+    if(delay>0)await wait(delay);
+  }
   async function boundaryFrame(){
     if(!capturing)return;
     const bytes=await page.screenshot({type:'jpeg',quality:95});
@@ -76,8 +96,8 @@ const {chromium}=require('playwright');
     });
     shots.frames=[];capturing=true;await session.send('Page.startScreencast',{format:'jpeg',quality:95,maxWidth:1920,maxHeight:1080,everyNthFrame:1});
     await scene('intro');await page.locator('#record-card').evaluate(e=>e.remove());
-    await scene('lunar',async()=>{await wait(2500);for(let i=0;i<3;i++){await click('#step');await wait(700);}await click('#run');await wait(9500);await pauseIfRunning();});
-    await scene('preferences',async()=>{await slider(.42);assert.match(await page.locator('#preference-state').innerText(),/Not applied/);await wait(2000);await click('#run');await wait(6500);await pauseIfRunning();const before=(await state()).panels[0].steps;await page.locator('#skin').selectOption('native');await wait(2500);assert.equal((await state()).panels[0].steps,before);await page.locator('#skin').selectOption('styled');});
+    await scene('lunar',async()=>{await phrase('Single step');for(let i=0;i<3;i++){await click('#step');await wait(700);}await phrase('Run comparison');await click('#run');await wait(6500);await pauseIfRunning();});
+    await scene('preferences',async()=>{await slider(.42);assert.match(await page.locator('#preference-state').innerText(),/Not applied/);await phrase('Normally the change');await click('#run');await wait(3500);await pauseIfRunning();await phrase('The native renderer');const before=(await state()).panels[0].steps;await page.locator('#skin').selectOption('native');await wait(3500);assert.equal((await state()).panels[0].steps,before);await page.locator('#skin').selectOption('styled');});
     await scene('minecart',async()=>{await click('#mine');await wait(1500);await click('#run');await wait(9000);await pauseIfRunning();await slider(.8);await click('#run');await wait(8500);await pauseIfRunning();});
     await scene('live',async()=>{await click('#lunar');await click('#mine');for(let i=0;i<3;i++)await click('#step');await click('#live');await slider(.35);await click('#step');assert.ok((await state()).history_dependent);await click('details.model summary');const download=page.waitForEvent('download');await click('#trace');await (await download).saveAs(path.join(output,'demonstration-trace.json'));});
     await page.evaluate(()=>{const card=document.createElement('div');card.id='record-card';card.innerHTML='<p>What the evidence supports</p><h1>Task competence first.<br>Claims bounded by evidence.</h1><p>Minecart: three confirmation training seeds.<br>Lunar: two prospective confirmation seeds, separate from the displayed pilot.</p><p>No guarantee at every preference or shifted dynamics.<br>Adaptive-allocation superiority remains unestablished.<br>Inference only. Original final-test gate remains locked.</p>';document.body.append(card);});
@@ -88,8 +108,10 @@ const {chromium}=require('playwright');
     fs.writeFileSync(path.join(output,'frames.ffconcat'),list);
     const result=spawnSync(ffmpeg,['-nostdin','-hide_banner','-f','concat','-safe','0','-i',path.join(output,'frames.ffconcat'),'-vf','scale=1920:1080,setsar=1','-r','30','-fps_mode','cfr','-c:v','libx264','-preset','fast','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',path.join(output,'demo.mp4')],{encoding:'utf8',maxBuffer:20*1024*1024});
     fs.writeFileSync(path.join(output,'encode.log'),result.stderr||'');assert.equal(result.status,0,result.stderr?.slice(-2000));
-    const frameCount=shots.frames.length;delete shots.frames;
-    fs.writeFileSync(path.join(output,'capture-receipt.json'),JSON.stringify({status:'pass',scope:'Real browser presentation recording; not independent research validation',width:1920,height:1080,fps:30,frame_count:frameCount,discovery,actions,scenes:shots,training_updates:0,final_test_steps:0,page_errors:errors,narration:'No human voice yet'},null,2));
+    const frameCount=shots.frames.length,mediaOffset=shots.frames[0].time-clock/1000;delete shots.frames;
+    const adjusted=wordCues.map(cue=>{const scene=plan.scenes.find(s=>s.id===cue.scene),actual=shots.find(s=>s.id===cue.scene);const shift=actual.at-scene.start-mediaOffset;return {...cue,start:Math.max(0,cue.start+shift),end:Math.max(0,cue.end+shift)};});
+    fs.writeFileSync(path.join(output,'narration-timeline.json'),JSON.stringify({version:1,reading_wpm:plan.reading_wpm,script:spoken,words:adjusted,scenes:shots.map(s=>({id:s.id,start:Math.max(0,s.at-mediaOffset),end:s.at+s.duration-mediaOffset})),scope:'Word times follow the captured scene clock, not speech recognition'},null,2));
+    fs.writeFileSync(path.join(output,'capture-receipt.json'),JSON.stringify({status:'pass',scope:'Real browser presentation recording; not independent research validation',width:1920,height:1080,fps:30,frame_count:frameCount,reading_wpm:plan.reading_wpm,discovery,actions,scenes:shots,training_updates:0,final_test_steps:0,page_errors:errors,narration:'No human voice yet'},null,2));
     console.log(`PASS: ${frameCount} real frames encoded to ${path.join(output,'demo.mp4')}`);
   }finally{capturing=false;await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

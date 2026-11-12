@@ -1,3 +1,11 @@
+Slow synchronized video follow-up 12 November 2026: demo re-recorded at a
+95-word/minute narration plan with sentence/paragraph rests (254.8 seconds).
+All336 word cues are inside their captured scenes. Highlighting now uses the
+video media clock; pace changes, seeking and pauses affect both together.
+Six-scene seek and95/70WPM browser checks plus local export tests pass.
+New desktop release: Video_Studio_Slow_20261112; previous release preserved.
+No real voice recorded or scientific-gate changes. Localhost8779 is ready.
+
 Recording website follow-up 12 November 2026: Record now starts timed per-word
 highlighting and follow scrolling automatically. Take pause freezes the cue;
 reading pace is adjustable. Edge integration and local exporter tests pass.

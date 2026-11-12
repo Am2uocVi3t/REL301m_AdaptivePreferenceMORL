@@ -13,7 +13,7 @@ const {chromium}=require('playwright');
     await page.evaluate(()=>{window.micRequests=0;const original=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);navigator.mediaDevices.getUserMedia=(...args)=>{window.micRequests++;return original(...args);};});
     assert.equal(await page.evaluate(()=>window.micRequests),0,'No automatic mic access');
     await page.locator('#script').fill('One two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty.');
-    await page.locator('#speed').fill('240');await page.locator('#speed').dispatchEvent('input');
+    await page.locator('#speed').fill('120');await page.locator('#speed').dispatchEvent('input');
     await page.locator('#record').click();await page.waitForFunction(()=>document.querySelector('#state').textContent==='Recording');
     await page.waitForFunction(()=>document.querySelector('#script .current-word'));
     assert.equal(await page.locator('#scroll').getAttribute('aria-pressed'),'true','Record automatically starts word highlighting');

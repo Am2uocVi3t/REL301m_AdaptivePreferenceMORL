@@ -55,3 +55,6 @@ Keep narration outside the exported picture. Ask for microphone access only on
 an explicit record action. Never claim an exported silent preview contains the
 user's voice. Preserve recordings on errors; permit local download before export.
 Real demo footage and generated explanatory title cards must remain distinct.
+Use the video media clock for word highlighting, seeking and pauses. The slow
+default is 95 words per minute with breathing room; changing pace must also
+change video speed. Keep original scene-to-word timing with the exported master.

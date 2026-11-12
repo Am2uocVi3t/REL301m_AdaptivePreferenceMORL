@@ -201,6 +201,11 @@ class StudioHandler(BaseHTTPRequestHandler):
                     "media_url": "/demo.mp4",
                     "max_upload_bytes": MAX_UPLOAD,
                     "script": spoken_script(ROOT / "docs/course/video/SCRIPT_EN.md"),
+                    "timeline": (
+                        json.loads(self.server.media.with_name("narration-timeline.json").read_text(encoding="utf-8"))
+                        if self.server.media.with_name("narration-timeline.json").is_file()
+                        else None
+                    ),
                 },
             )
         elif path.startswith("/api/jobs/"):
