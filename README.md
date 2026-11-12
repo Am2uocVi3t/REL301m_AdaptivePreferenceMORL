@@ -1,85 +1,109 @@
 # Preference-Conditioned Multi-Objective Reinforcement Learning
 
-**REL301m · Reinforcement Learning · FPT University · Fall 2026**
+**REL301m | Reinforcement Learning | FPT University | Fall 2026**
 
-**English submission edition (12 November 2026):** the English demo and detailed
-English PDF report with editable LaTeX source are documented in the
-[delivery guide](docs/course/ENGLISH_DELIVERY_20261112.md).
-The root Windows demo launcher now prefers the English package when available.
+A multi-objective reinforcement learning (MORL) project on **Minecart** and
+**MO-LunarLander**. Policies receive both an environment observation and a
+preference vector `w`, allowing one trained network to represent different
+objective trade-offs.
 
-Dự án nghiên cứu học tăng cường đa mục tiêu (MORL) trên **Minecart** và
-**MO-LunarLander**. Chính sách nhận trạng thái môi trường cùng vector ưu tiên
-`w` để chọn hành động theo sự đánh đổi giữa các mục tiêu.
+The repository includes PCQN and PPO implementations, fixed experiment
+protocols, tests, versioned result evidence, an **English interactive demo** and
+an **English course report with editable LaTeX source**.
 
-Repo gồm mã huấn luyện, kiểm thử, protocol cố định, bằng chứng thực nghiệm và
-web demo suy luận từ checkpoint. Mục tiêu ban đầu là phân bổ việc học vào các
-vùng preference khó; lợi ích của phân bổ thích nghi **chưa được chứng minh**.
-Kết quả PPO hiện có hỗ trợ một phạm vi hoàn thành tác vụ cụ thể.
+The original research question concerns adaptive allocation toward difficult,
+uncertain or learnable preference regions. **An adaptive-allocation advantage
+has not been established.** The later PPO studies support specific task gates,
+with their scope and limitations stated below.
 
-## Bài toán và chức năng
+## Start here
 
-- **Minecart:** cân bằng hai loại quặng được vận chuyển về trạm và chi phí nhiên liệu.
-- **MO-LunarLander:** cân bằng hạ cánh, shaping và chi phí động cơ trong reward vector bốn chiều.
-- Vector Q-network có điều kiện theo preference, masked multi-head Double DQN,
-  replay và curriculum theo gap, uncertainty, coverage/recency, progress.
-- PPO với vector critic và PopArt; Lunar dùng thêm GAE.
-- Đánh giá utility, Pareto front, hypervolume; lưu raw/discounted vector returns,
-  seed, budget và hash để đối chiếu.
-- Demo hai panel dùng cùng model và seed; đổi preference, pause/step, xem
-  renderer gốc và xuất trace. Demo chỉ chạy inference.
-- Research harness quản lý claims, experiments, literature và roadmap.
+- [English submission and delivery guide](docs/course/ENGLISH_DELIVERY_20261112.md)
+- [Course report and editable-source build instructions](paper/REL301m/BUILD_ENGLISH.md)
+- [English demo user guide](demo/interactive/README_EN.md)
+- [Installation and reproduction boundaries](docs/REPRODUCIBILITY.md)
+- [Documentation map](docs/README.md)
 
-## Kiến trúc và luồng hoạt động
+The current report contains **26 pages**, with architecture diagrams,
+data-derived learning curves, result tables, a preference-diagnosis heatmap and
+real screenshots of the English demo. Generated PDFs, ZIPs and pretrained
+checkpoints are local artifacts; they are not included in a source-only clone.
 
-![Luồng huấn luyện, đánh giá và demo](docs/assets/architecture.svg)
+## Problem and features
 
-Protocol cố định preference, reward scale, seed và budget. PCQN cập nhật vector
-Q từ replay và có thể điều chỉnh phân phối preference bằng curriculum. PPO
-cập nhật actor và vector critic từ rollout. Hai nhánh dùng wrapper môi trường
-và lưu provenance; demo nạp trọng số đã xuất để suy luận.
+- **Minecart:** trade off two delivered ore objectives against fuel cost.
+- **MO-LunarLander:** trade off landing outcome, shaping and two engine-cost
+  components in a four-dimensional reward vector.
+- Preference-conditioned vector Q-network with masked heads, per-head
+  Double-DQN targets and replay that preserves behavior preferences and end flags.
+- Curriculum signals based on conditioning gap, head disagreement, local
+  coverage/recency and observed learning progress.
+- Categorical PPO with a vector critic and PopArt; Lunar uses a separate
+  GAE-based implementation.
+- Evaluation of utility, Pareto fronts and hypervolume, retaining raw and
+  discounted vector returns, seeds, budgets, hashes and provenance.
+- Two-panel inference demo with preference sliders, pause/resume, single-step
+  control, original environment rendering and JSON trace export.
+- A research harness for claims, experiments, literature, sessions and an
+  evidence-gated roadmap.
 
-Chi tiết: [kiến trúc PCQN](docs/ARCHITECTURE.md),
-[PPO Minecart](docs/research/ONPOLICY_IMPLEMENTATION_V1.md),
-[PPO Lunar](docs/research/LUNAR_PPO_SPECIALIST_V1.md).
+## Architecture
 
-## Kết quả đã ghi nhận
+![Implemented training, evaluation and inference paths](docs/assets/architecture.svg)
 
-Các số dưới đây lấy từ bằng chứng development/validation đã version hóa ngày
-03/11/2026; đây không phải lần chạy mới hay kết quả trên final-test.
+Fixed protocols define preferences, reward scales, seeds and budgets. PCQN
+learns vector values from replay and can adapt the preference sampling
+distribution. PPO updates an actor and vector critic from collected rollouts.
+Both paths use environment wrappers and record provenance. The demo loads
+exported policy weights and performs inference only.
 
-| Phạm vi | Kết quả tại checkpoint cuối | Bằng chứng |
+Implementation contracts:
+[PCQN architecture](docs/ARCHITECTURE.md),
+[Minecart PPO](docs/research/ONPOLICY_IMPLEMENTATION_V1.md),
+[Lunar PPO](docs/research/LUNAR_PPO_SPECIALIST_V1.md).
+
+## Recorded results
+
+These are existing development/validation results recorded on **3 November
+2026**, not new experiments or final-test results.
+
+| Study | Final-checkpoint outcome | Evidence |
 |---|---|---|
-| Minecart PPO, 3 training seeds mới, 4M interactions/seed | Mỗi seed đạt 10/10 deliveries ở từng tổ hợp của 2 task profiles × 2 chế độ sampled/argmax | [Kết quả và giới hạn](docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md) · [Raw evidence](research/evidence/minecart_onpolicy_confirmation_v1.json) |
-| Lunar PPO, 2 training seeds xác nhận mới, 4M interactions/seed | Mỗi seed đạt 10/10 hạ cánh trong pad ở trained preference `[.7,.1,.1,.1]`, trong cả hai chế độ | [Kết quả và giới hạn](docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md) · [Raw evidence](research/evidence/lunar_onpolicy_confirmation_v1.json) |
-| PCQN và các thử nghiệm khắc phục Minecart | Không qua các qualification gates định trước; giữ nguyên kết quả âm | [Trạng thái](docs/research/PROJECT_STATUS.md) · [F1 qualification](research/qualification/minecart_pcqn_replay_f1.json) |
+| Minecart PPO confirmation: 3 fresh training seeds, 4M interactions per seed | Each seed achieved 10/10 deliveries in every cell of 2 task profiles x 2 inference modes (sampled and argmax). | [Results and limits](docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md), [raw evidence](research/evidence/minecart_onpolicy_confirmation_v1.json) |
+| Lunar PPO confirmation: 2 fresh training seeds, 4M interactions per seed | Each seed achieved 10/10 native pad landings at the trained preference `[.7,.1,.1,.1]`, in both inference modes. | [Results and limits](docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md), [raw evidence](research/evidence/lunar_onpolicy_confirmation_v1.json) |
+| Historical PCQN and Minecart remediation studies | The specified qualification gates failed. Negative results are retained. | [Research status](docs/research/PROJECT_STATUS.md), [F1 qualification](research/qualification/minecart_pcqn_replay_f1.json) |
 
-10/10 là kết quả trên các trường hợp chỉ định, không bảo đảm thành công ở mọi
-preference/seed. Chưa có kết luận ưu thế adaptive allocation, tổng quát mọi
-preference hay độ bền khi đổi dynamics. Phase 4 vẫn active; matrix gốc và
-final-test còn khóa. Demo Lunar dùng pilot seed `20265311`, tách biệt với hai
-seed xác nhận trong bảng.
+A 10/10 result describes the specified cases; it is not a universal success-rate
+guarantee. Arbitrary-preference competence, dynamics robustness and adaptive
+superiority remain unestablished. Phase 4 is active, and the original matrix and
+final-test gates remain locked.
 
-## Công nghệ
+The demo's Lunar actor is specialist pilot seed `20265311`; the two prospective
+Lunar confirmation models are reported separately. Minecart uses confirmation
+seed `20264311`, selected by the predeclared lowest-seed rule.
 
-Python **3.11**, PyTorch, Gymnasium, MO-Gymnasium, Box2D/Pygame, NumPy/SciPy,
-Pymoo, MORL-Baselines, TensorBoard/W&B. Demo dùng Python HTTP server và
-HTML/CSS/JavaScript Canvas, chạy local; không cần Node/npm cho inference.
-Pytest, Ruff, MyPy và Bandit kiểm tra chất lượng mã.
+## Technology
 
-Dependency trực tiếp được pin trong [requirements.txt](requirements.txt);
-[pyproject.toml](pyproject.toml) cấu hình kiểm thử và static analysis.
-Đây chưa phải lockfile đầy đủ cho dependency bắc cầu.
+Python **3.11**, PyTorch, Gymnasium, MO-Gymnasium, Box2D/Pygame, NumPy, SciPy,
+Pymoo, MORL-Baselines and TensorBoard/W&B. The local demo uses a Python HTTP
+server and HTML/CSS/JavaScript Canvas. Node/npm is not required for inference.
 
-## Cài đặt môi trường nghiên cứu
+Quality tools: Pytest, Ruff, MyPy and Bandit. Direct dependencies are pinned in
+[requirements.txt](requirements.txt); [pyproject.toml](pyproject.toml) configures
+checks. Direct pins are not a complete transitive dependency lockfile.
 
-Ưu tiên Linux/WSL Ubuntu với **Python 3.11** riêng cho dự án. Không dùng conda
-base hoặc chia sẻ môi trường giữa Windows và Linux.
+## Research environment setup
+
+Use a dedicated **Python 3.11** environment on Linux/WSL Ubuntu. Keep Windows
+and Linux environments separate, and do not install project dependencies into
+conda base or the operating system's Python.
 
 ```bash
 git clone https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL.git
 cd REL301m_AdaptivePreferenceMORL
 
-# Ubuntu: cần quyền cài dependency hệ thống; python3.11 phải có sẵn.
+# Ubuntu: system-package installation requires appropriate permissions.
+# A Python 3.11 interpreter must already be available.
 sudo apt-get install build-essential swig libcdd-dev
 python3.11 -m venv .venv
 source .venv/bin/activate
@@ -91,14 +115,18 @@ python scripts/research_harness.py status
 python scripts/research_harness.py roadmap list
 ```
 
-Python development headers phải khớp interpreter nếu Box2D cần build. GPI-LS
-cần `libcdd-dev` cho `pycddlib`. Ubuntu 24.04 mặc định dùng Python 3.12, vì vậy
-cần chuẩn bị Python 3.11 trước; các lệnh trên không tự cài interpreter này.
-Xem [hướng dẫn tái lập và giới hạn môi trường](docs/REPRODUCIBILITY.md).
+If Box2D builds from source, its Python development headers must match the
+interpreter. GPI-LS requires `libcdd-dev` for `pycddlib`. Ubuntu 24.04 normally
+ships Python 3.12; the commands above do not install Python 3.11 for you.
 
-### Kiểm thử
+The latest verification reused an existing Windows Python 3.11.18 demo runtime
+with isolated QA dependencies. A clean installation of the entire Linux
+research stack was not repeated. See [reproduction notes](docs/REPRODUCIBILITY.md)
+for the exact distinction.
 
-Từ thư mục gốc, sau khi kích hoạt môi trường:
+## Testing
+
+From the repository root with the intended environment activated:
 
 ```bash
 python -m ruff format --check .
@@ -110,13 +138,21 @@ python -m compileall -q src scripts tests
 git diff --check
 ```
 
-Các test dùng dữ liệu/weights tạm không xác nhận chất lượng model đã học.
-Một số test cần artifact lịch sử hoặc Unix; khi skip phải ghi rõ lý do.
+The English delivery recorded **235 passing Python tests and 4 skips**,
+**81 frontend assertions**, Ruff checks on 190 tracked/new Python files,
+MyPy on 148 source files, and passing Bandit/compileall checks.
+See the [delivery receipt](research/qualification/english_course_delivery_20261112.json)
+for scope. Three skipped ARIS modules need Unix, and one integration test needs
+missing historical checkpoints. Existing uncommitted team work can affect
+whole-working-tree checks.
 
-### Chạy thử pipeline PCQN
+Tests using synthetic weights verify implementation behavior; they do not
+establish learned policy quality.
 
-Lệnh sau tạo **engineering smoke run mới**, không dùng để báo cáo kết quả.
-Chỉ chạy khi cần xác minh pipeline và đã cài đủ dependency:
+## Optional engineering smoke run
+
+The following creates a **new engineering smoke artifact**, not reportable
+research evidence. Run it only when you need to verify the installed pipeline:
 
 ```bash
 python scripts/train.py \
@@ -137,77 +173,109 @@ python scripts/evaluate.py \
   --output results/local-smoke_validation.json
 ```
 
-Không tự chạy lại các nghiên cứu đã hoàn thành để lấy checkpoint. Việc chạy
-PPO và cohort nghiên cứu phải tuân theo plan/gate riêng trong
-[tài liệu tái lập](docs/REPRODUCIBILITY.md).
+Do not restart completed studies to replace missing checkpoints. Research
+cohorts require their own frozen plans, authorization and qualification gates.
 
-## Sử dụng demo
+## Run the English demo
 
-**Bản clone Git không chứa checkpoint hay gói `outputs/`.** Các test demo dùng
-fixture; để xem model thực đã huấn luyện cần gói demo đã kiểm chứng hoặc artifact
-nguồn tương ứng. Hiện chưa có đường tải công khai được xác minh cho gói này.
-Inference không cần API key hay dịch vụ trả phí.
+**A fresh Git clone does not include pretrained weights or `outputs/`.**
+Use the verified English package, or supply the corresponding audited
+artifacts. No public checkpoint download has been verified for this release.
 
-Gói local mới nhất có bằng chứng kiểm tra là
-`outputs/REL301m_Course_Reference_Review_20261103/`;
-[receipt](research/qualification/research_reference_delivery_20261103.json)
-ghi phạm vi kiểm chứng lịch sử. Gói có `config.json`, `checkpoints/`, `website/`,
-`src/` và `launch.py`. Từ thư mục gói, với Python 3.11 và dependency đã cài:
+Current local package: `outputs/REL301m_English_Demo_20261112/`.
+From that package directory, using Python 3.11 with its dependencies installed:
 
 ```bash
 python launch.py --port 8765
 ```
 
-Mở `http://127.0.0.1:8765`, chọn môi trường, kéo preference rồi bấm **Chạy so sánh**.
-Pause/step giúp quan sát từng hành động; renderer gốc cho phép đối chiếu mô phỏng.
-Live-mode giữ lịch sử episode khi đổi preference nên hai panel có thể đã đi qua
-trạng thái khác nhau. Dừng server bằng `Ctrl+C`.
+Open `http://127.0.0.1:8765`. Choose an environment, adjust preferences and select
+**Run comparison**. **Pause**, **Resume** and **Single step** expose individual
+actions. **Native renderer** shows the original environment graphics.
+Live preference changes retain episode history; reset before comparing from
+matched initial states. Stop the server with `Ctrl+C`.
 
-Trên Windows đã có runtime/gói local đúng đường dẫn,
-[`START_COURSE_DEMO.bat`](START_COURSE_DEMO.bat) gọi launcher hiện có và tìm cổng
-trống. Launcher này không phải installer cho bản clone mới. Xem
-[hướng dẫn demo](demo/interactive/README_VI.md) và
-[ghi chú Windows lịch sử](docs/WINDOWS_RECOVERY.md).
+On the prepared Windows laptop, [START_COURSE_DEMO.bat](START_COURSE_DEMO.bat)
+prefers the English package and finds an available port. Its PowerShell launcher
+uses `REL301M_PYTHON` when set, the checkout's Windows virtual environment when
+available, or the existing standalone demo interpreter. It is not an installer
+for a fresh clone.
 
-## Cấu trúc thư mục
+![English demo running real Minecart policy inference](paper/REL301m/Figures/english-demo/mine-english.png)
 
-```text
-src/          models, replay, curriculum, env wrappers, evaluation, demo, harness
-scripts/      train/evaluate, audit, qualification, packaging và CLI nghiên cứu
-configs/      algorithm, protocols, shifts, plans và runtime specifications
-tests/        invariant, integration, demo và recovery tests
-demo/         frontend, launcher và template các giai đoạn demo
-research/     claims, experiments, raw-result evidence, qualification, sessions
-docs/         kiến trúc, hướng dẫn, trạng thái, course và archive
-paper/        nguồn báo cáo đã có; chưa xác nhận định dạng nộp cuối kỳ
-monitor/      terminal monitor và tiện ích theo dõi job
-.agents/      bootstrap, memory và workflow hỗ trợ nghiên cứu
-artifacts/    checkpoint/cache/runtime local — không nằm trong Git
-outputs/      gói xuất và bản dựng local — không nằm trong Git
+The screenshot is an interface/inference witness, not a new task-performance
+experiment. Both panels use the same frozen actor. See the
+[English user guide](demo/interactive/README_EN.md) for a complete walkthrough.
+
+## Report and editable source
+
+Active LaTeX source: [paper/REL301m/main.tex](paper/REL301m/main.tex).
+Build instructions: [BUILD_ENGLISH.md](paper/REL301m/BUILD_ENGLISH.md).
+
+With project plotting dependencies and an existing Tectonic installation:
+
+```bash
+python scripts/build_english_report.py --compiler /path/to/tectonic
 ```
 
-[Bản đồ tài liệu](docs/README.md) · [Khảo sát và biên bản chuẩn hóa](docs/REPOSITORY_REVIEW.md)
-· [Hướng dẫn cho coding agents](AGENTS.md).
+This reads existing evidence, generates plots, audits report inputs, compiles
+the PDF and packages editable sources. It performs no training or final test.
 
-## Nhóm thực hiện
+Generated outputs:
 
-- Huỳnh Quốc Việt — Trưởng nhóm.
-- Lê Nguyễn Gia Hưng — Dẫn dắt và demo.
-- Ngô Hoài Nam — Thực nghiệm và phản biện.
-- Giảng viên hướng dẫn: Thầy Lưu Giang Nam.
+- `outputs/english-course-report-20261112/REL301m_English_Course_Report.pdf`
+- `outputs/english-course-report-20261112/REL301m_English_Report_Editable_Source.zip`
 
-Thông tin nhóm theo tài liệu course hiện có. Môn học: **REL301m — Reinforcement Learning**.
+The editable ZIP includes the figure assets needed to compile the report
+without obtaining model checkpoints. The
+[English delivery guide](docs/course/ENGLISH_DELIVERY_20261112.md)
+describes the prepared laptop handoff.
 
-## Phạm vi bàn giao và backlog
+## Repository layout
 
-Đầu ra đã được xác nhận thêm ngày 12/11/2026: **demo hoàn toàn tiếng Anh và báo
-cáo PDF tiếng Anh kèm mã nguồn LaTeX chỉnh sửa được**. Xem
-[hướng dẫn bản tiếng Anh](paper/REL301m/BUILD_ENGLISH.md).
+```text
+src/          models, replay, curriculum, environments, evaluation, demo, harness
+scripts/      training, evaluation, audits, qualification, packaging and report tools
+configs/      algorithms, fixed protocols, shifts, experiment plans and runtime specs
+tests/        invariant, integration, demo, recovery and provenance tests
+demo/         current frontend and historical demo templates
+research/     claims, experiments, raw-result evidence, qualification and sessions
+docs/         architecture, operational guides, course material and archives
+paper/        editable report sources and figures
+monitor/      native training terminal and monitoring utilities
+.agents/      agent bootstrap, memory and research workflows
+artifacts/    local checkpoints, caches and runtime files (ignored)
+outputs/      generated reports and delivery packages (ignored)
+```
 
-- Báo cáo PDF và mã nguồn được chuẩn bị từ bằng chứng hiện có; không huấn luyện lại.
-- Không làm video: từ “phim” trong yêu cầu được xác nhận là lỗi nhập giọng nói.
-- Slide bổ sung chưa được yêu cầu trong đợt này.
-- Nếu giảng viên cần chạy model ngay từ link repo: thống nhất cách cung cấp gói
-  demo/checkpoint đã kiểm chứng; hiện các artifact này chỉ có local.
-- Hướng nghiên cứu tiếp: so sánh uniform/random/adaptive với budget khớp và mở
-  rộng preference/dynamics theo protocol riêng; chưa phải kết quả hiện có.
+[Documentation map](docs/README.md) |
+[Course hub](docs/course/README.md) |
+[Repository review](docs/REPOSITORY_REVIEW.md) |
+[Agent instructions](AGENTS.md).
+
+## Team and course
+
+- **Huynh Quoc Viet** - Team lead.
+- **Le Nguyen Gia Hung** - Project introduction and demonstration.
+- **Ngo Hoai Nam** - Experiments and critical analysis.
+- **Lecturer:** Luu Giang Nam.
+- **Course:** REL301m - Reinforcement Learning, FPT University.
+
+Names and roles follow the existing course records.
+
+## Delivery scope and limitations
+
+The confirmed deliverables are the repository, the English inference demo and
+the English PDF report with editable source. No video is required; the apparent
+video request was clarified as a dictation error. No additional slide deck or
+new research training is part of this edition.
+
+Historical research records, the original submitted proposal, pinned upstream
+agent skills and preexisting team drafts are retained for provenance. Some
+original records are in Vietnamese; they are not the current English submission
+entry points. [English documentation coverage](docs/ENGLISH_DOCUMENTATION.md)
+identifies the current guides and the preserved originals explicitly.
+
+Future research needs a separately scoped comparison of uniform, matched-random
+and adaptive allocation, plus broader preference/dynamics evaluation. Existing
+task confirmation does not complete that comparison.

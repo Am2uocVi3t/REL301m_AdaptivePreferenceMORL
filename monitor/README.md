@@ -1,47 +1,60 @@
 # Native training terminal
 
-Khi có cohort G, terminal ưu tiên **Minecart / PPO confirmation (3 seeds)**:
-ba dòng worker, tổng12M bước, log/checkpoint riêng từng seed. Đóng monitor không
-dừng training. G chỉ xác nhận Minecart; kết quả S/C cũ được giữ nguyên.
+The monitor is a native Rich terminal interface, not a browser application.
+On its originally qualified Windows setup, run
+[START_TRAINING_MONITOR.bat](../START_TRAINING_MONITOR.bat) from the repository
+root. Closing the monitor does not stop training.
 
-Bấm đúp **START_TRAINING_MONITOR.bat** ở thư mục gốc. Nó mở giao diện terminal
-thật trong PowerShell, dùng Rich có sẵn trên runtime CPU ở D:. Không cần trình
-duyệt, HTTP server hay cài thêm package vào môi trường GPU training.
+This monitor is separate from the English inference demo. Completed studies
+must not be restarted merely to populate a monitor.
 
-- ↑/↓ hoặc J/K: chọn worker; danh sách tự cuộn theo dòng đang chọn.
-- Tab: đổi giữa stderr và stdout của worker.
-- Space: pause/resume việc cập nhật màn hình; training không bị ảnh hưởng.
-- R: cập nhật ngay; Q hoặc Ctrl+C: đóng monitor, không dừng training.
-- Mặc định tự cập nhật 5 giây. Khi terminal hẹp, ẩn bớt cột; tăng kích thước
-  cửa sổ để xem cả updates và task deliveries.
+## Controls
 
-```powershell
-. scripts/use_d_runtime.ps1
-. scripts/start_training_monitor.ps1
-# Hoặc in một snapshot, không giữ giao diện tương tác:
-.venv/Scripts/python.exe scripts/training_terminal.py --once
+- Up/Down or J/K: select a worker; the list scrolls with the selection.
+- Tab: switch between the worker's stderr and stdout.
+- Space: pause/resume display updates without affecting training.
+- R: refresh now.
+- Q or Ctrl+C: close the monitor without stopping workers.
+
+The display normally refreshes every five seconds. Narrow terminals hide
+columns; enlarge the window to see update counters and task-delivery fields.
+
+## Runtime and snapshot
+
+The historical launcher uses a Windows CPU runtime with Rich; it does not
+install packages into the GPU training environment or start an HTTP server.
+Its D:-specific bootstrap belongs to the earlier recovery setup and is not
+verified as a portable launcher for the current WSL checkout.
+
+With a compatible, explicitly selected interpreter and monitor dependencies
+installed, a noninteractive snapshot can be requested from the repository root:
+
+```bash
+python scripts/training_terminal.py --once
 ```
 
-Terminal tự chuyển sang Minecart PPO specialist khi có manifest của pilot mới;
-nếu có manifest conditional C, ưu tiên theo dõi **Minecart / PPO conditional32**.
-Kết quả cuối hiển thị sampled/argmax và profile p0/p1 riêng; C không dùng lại
-weights specialist và không tự động chạy confirmation.
-nếu chưa có thì theo dõi cohort P2 Minecart. Với PPO, hiển thị ngân sách4M,
-entropy/target từ stdout và final deliveries sampled/argmax riêng ở profile được
-train. Evaluation chi tiết cả hai profile được giữ trong artifact của checkpoint.
-Running dựa trên process command thực tế
-trong Windows; Complete nghĩa là ghi xong job, chưa phải đạt task gate. Tiến độ
-live lấy từ stdout theo mốc 25k bước, có thể trễ. Final deliveries hiển thị hai
-profile riêng. Tên file snapshot là metadata, chưa phải checksum validation.
-Log giữ cả segment cũ; không suy từ traceback cũ ra worker hiện tại đã chết.
+Monitor-only dependencies are listed in [requirements-terminal.txt](requirements-terminal.txt).
+See the [runtime notes](../docs/REPRODUCIBILITY.md) before choosing an environment.
 
-Để tránh lỗi I/O đã phát hiện, collector không mở các JSON đang được writer thay
-thế: heartbeat, progress, execution_status, resume_latest. Nó đọc process metadata,
-log append và dữ liệu chỉ publish một lần; evaluations/losses chỉ đọc khi có
-completion marker. Trên máy này, FILE_SHARE_DELETE một mình vẫn chưa đủ tránh
-lỗi os.replace. Monitor không tự sửa hoặc retry training.
+## Interpreting status
 
-Tất cả output kiểm chứng/log ở artifacts/training-monitor trên D:. Rich15.0.0
-đã có sẵn; pin monitor-only ở requirements-terminal.txt. Bản web thử nghiệm cũ
-còn trong Git và có launcher riêng start_training_web_monitor.ps1; launcher
-mặc định ở trên là terminal và không khởi động web server.
+The collector selects available cohort manifests. It supports the Minecart PPO
+confirmation cohort, conditional/specialist pilots, Lunar confirmation and
+earlier recovery jobs. Preferences, sampled/argmax evaluation modes and task
+profiles must remain distinct.
+
+`Running` is derived from actual process metadata; `Complete` means the job
+finished writing its artifacts, not that its scientific task gate passed.
+Progress derived from stdout can lag behind execution. A snapshot filename is
+metadata, not evidence that a checksum audit succeeded. Retained traceback
+segments do not by themselves establish that a current worker is dead.
+
+To avoid previously observed replacement/I/O conflicts, the collector does not
+open live heartbeat/progress/status JSON files while writers replace them.
+It uses process metadata, append-only logs and published immutable records;
+detailed evaluations/losses are read after completion markers. The monitor
+does not repair, retry or launch training.
+
+Earlier web-monitor code remains available with its own launcher. The default
+terminal workflow does not start it. Monitoring is an engineering utility,
+not new evidence of model performance.

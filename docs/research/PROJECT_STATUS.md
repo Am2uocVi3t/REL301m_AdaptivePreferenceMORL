@@ -1,3 +1,11 @@
+English documentation correction 12 November 2026: root README and current
+course/presentation/archive/monitor hubs, Git workflow and runtime instructions
+now use English. Added English team/audit guides and explicit language coverage;
+dated Vietnamese originals and user drafts are preserved. Checked17 current
+English pages and91 relative links/images, no checked heading-anchor failures;
+preexisting user file hashes unchanged. Documentation-only correction, no
+code/model/report-result or scientific-gate changes. See docs/ENGLISH_DOCUMENTATION.md.
+
 English course delivery 12 November 2026: user confirmed English demo plus
 English PDF with editable LaTeX source; video mention was a dictation error.
 Versioned outputs: English_Demo_20261112 and english-course-report-20261112.

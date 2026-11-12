@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/english-demo-course-report",
-  "updated_at": "2026-11-12T08:41:10+00:00",
+  "working_branch": "codex/english-repository-docs",
+  "updated_at": "2026-11-12T09:05:51+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "Use English_Submission_20261112 in the canonical desktop folder; submit English PDF and repository after protected-branch review. Source ZIP is editable; report format is confirmed PDF, no video required.",
-    "Preserve scientific locks and completed studies. Lecturer rubric/deadline and protected-branch approval remain external; do not train or add slides without a separate request."
+    "Review and merge the English repository documentation correction so main displays the English README. Use current English demo/report delivery; preserve original research records and user drafts.",
+    "No video,new slides,training or final-test access. Historical Vietnamese originals are provenance,not the active English submission; do not claim every archive or upstream skill was translated."
   ],
-  "last_session_summary": "English delivery completed:26-page PDF with editable source ZIP and fully English inference demo; verified unchanged policy/config bytes and preserved old releases.235tests pass4skip,81JS assertions,Ruff190,mypy148,Bandit/compileall pass.Real Edge and rootlauncher18770 pass; sourceZIP extracted compile and desktop hashes pass.No training/final-test/video; no independent semantic acceptance."
+  "last_session_summary": "Corrected remaining Vietnamese repository entry points after user clarification: English root README, course/presentation/archive/monitor hubs,Git workflow,current runtime guidance and new English team/audit guides.17current pages language-checked,91relative links/images and heading anchors passed;preexisting user hashes unchanged.No code/model/report-result change.Historical originals explicitly retained and labeled."
 }
