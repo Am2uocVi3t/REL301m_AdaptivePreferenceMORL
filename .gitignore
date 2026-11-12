@@ -109,3 +109,6 @@ node_modules/
 
 # Existing local presentation export; editable sources stay visible to Git
 /docs/course/presentation/REL301m_Slide_Package.zip
+
+# Windows download metadata; never part of the assessed media
+*Zone.Identifier
