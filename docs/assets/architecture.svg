@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-labelledby="title desc">
+  <title id="title">Implemented MORL training, evaluation and demo</title>
+  <desc id="desc">Frozen protocols feed PCQN and PPO training on MO-Gymnasium environments. Checkpoints feed validation and an inference-only local demo. Final test remains locked.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#506780"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#18334c}.title{font-size:25px;font-weight:bold}.heading{font-size:19px;font-weight:bold}.body{font-size:16px}.small{font-size:14px}.box{stroke:#a7bdd0;stroke-width:1.5;rx:12}.line{fill:none;stroke:#506780;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1080" height="560" rx="16" fill="#f4f8fc"/>
+  <text x="36" y="44" class="title">Preference-conditioned MORL: source-code flow</text>
+  <text x="36" y="72" class="body">Two implemented training paths; validation evidence and local inference are separate.</text>
+  <rect x="35" y="112" width="240" height="112" fill="#e2edf7" class="box"/>
+  <text x="53" y="142" class="heading">Frozen protocol</text>
+  <text x="53" y="169" class="body">preferences, seeds, scales</text>
+  <text x="53" y="196" class="body">budgets and provenance</text>
+  <rect x="35" y="270" width="240" height="114" fill="#e2edf7" class="box"/>
+  <text x="53" y="300" class="heading">MO-Gymnasium</text>
+  <text x="53" y="328" class="body">Minecart / LunarLander</text>
+  <text x="53" y="355" class="body">state + vector reward</text>
+  <rect x="345" y="112" width="320" height="120" fill="#e2f2ee" class="box"/>
+  <text x="365" y="142" class="heading">PCQN / Double DQN</text>
+  <text x="365" y="170" class="body">Replay → vector Q update</text>
+  <text x="365" y="197" class="body">Optional adaptive curriculum</text>
+  <text x="365" y="219" class="small">src/core, src/models, src/curriculum</text>
+  <rect x="345" y="270" width="320" height="114" fill="#e2f2ee" class="box"/>
+  <text x="365" y="300" class="heading">PPO + vector critic / PopArt</text>
+  <text x="365" y="328" class="body">Rollout → actor / critic update</text>
+  <text x="365" y="355" class="body">Lunar-specific GAE</text>
+  <path d="M275 156 H345 M275 184 H305 V296 H345 M275 314 H318 V212 H345 M275 346 H345" class="line"/>
+  <rect x="735" y="112" width="310" height="120" fill="#fff0d9" class="box"/>
+  <text x="755" y="142" class="heading">Validation and audit</text>
+  <text x="755" y="170" class="body">Raw / discounted returns</text>
+  <text x="755" y="197" class="body">Utility, Pareto, HV and hashes</text>
+  <text x="755" y="219" class="small">research/evidence + qualification</text>
+  <rect x="735" y="270" width="310" height="114" fill="#eee8fa" class="box"/>
+  <text x="755" y="300" class="heading">Local web demo</text>
+  <text x="755" y="328" class="body">Exported checkpoint + config</text>
+  <text x="755" y="355" class="body">Preference sliders → inference</text>
+  <path d="M665 160 H735 M665 322 H700 V200 H735 M665 342 H735" class="line"/>
+  <text x="675" y="256" class="small">checkpoints</text>
+  <rect x="35" y="430" width="1010" height="90" rx="12" fill="#fff" stroke="#a7bdd0"/>
+  <text x="55" y="460" class="heading">Evidence boundaries</text>
+  <text x="55" y="486" class="body">Demo uses frozen weights; no online training. Original final-test remains locked.</text>
+  <text x="55" y="509" class="small">Diagram describes implemented paths, not proof that adaptive allocation improves performance.</text>
+</svg>

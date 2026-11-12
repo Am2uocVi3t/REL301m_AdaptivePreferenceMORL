@@ -1,379 +1,206 @@
-# Preference Allocation in Preference-Conditioned MORL
+# Preference-Conditioned Multi-Objective Reinforcement Learning
 
-Academic research codebase & REL301m course capstone project, Fall 2026.
+**REL301m · Reinforcement Learning · FPT University · Fall 2026**
 
----
+Dự án nghiên cứu học tăng cường đa mục tiêu (MORL) trên **Minecart** và
+**MO-LunarLander**. Chính sách nhận trạng thái môi trường cùng vector ưu tiên
+`w` để chọn hành động theo sự đánh đổi giữa các mục tiêu.
 
-## 📌 Quick Navigation
+Repo gồm mã huấn luyện, kiểm thử, protocol cố định, bằng chứng thực nghiệm và
+web demo suy luận từ checkpoint. Mục tiêu ban đầu là phân bổ việc học vào các
+vùng preference khó; lợi ích của phân bổ thích nghi **chưa được chứng minh**.
+Kết quả PPO hiện có hỗ trợ một phạm vi hoàn thành tác vụ cụ thể.
 
-| Target Track | Directory / Launcher | Key Contents |
-| :--- | :--- | :--- |
-| **🎓 REL301m Course Delivery** | [`docs/course/README.md`](docs/course/README.md) | Master course delivery hub, milestones, and guide |
-| **🎤 Final Presentation Kit** | [`docs/course/presentation/`](docs/course/presentation/README.md) | 3-speaker script (Hưng, Việt, Nam), visual slide outline, Q&A defense prep |
-| **📄 Academic Paper (LaTeX)** | [`paper/REL301m/`](paper/REL301m/README.md) | Official 16–19 page paper draft, figures, bibliography |
-| **🎮 Interactive Web Demo** | [`START_COURSE_DEMO.bat`](START_COURSE_DEMO.bat) | Local interactive slider interface at `http://127.0.0.1:8765` |
-| **📊 Native Training Monitor** | [`START_TRAINING_MONITOR.bat`](START_TRAINING_MONITOR.bat) | Real-time Rich/PowerShell console for GPU, loss, workers |
-| **🔬 Scientific Status & Harness** | [`docs/research/PROJECT_STATUS.md`](docs/research/PROJECT_STATUS.md) | Current verified state, Phase 0–7 evidence-gated roadmap |
-| **📦 Historical Archive** | [`docs/archive/`](docs/archive/README.md) | Archived ARIS logs, prompt runs, and legacy diagnoses |
+## Bài toán và chức năng
 
----
+- **Minecart:** cân bằng hai loại quặng được vận chuyển về trạm và chi phí nhiên liệu.
+- **MO-LunarLander:** cân bằng hạ cánh, shaping và chi phí động cơ trong reward vector bốn chiều.
+- Vector Q-network có điều kiện theo preference, masked multi-head Double DQN,
+  replay và curriculum theo gap, uncertainty, coverage/recency, progress.
+- PPO với vector critic và PopArt; Lunar dùng thêm GAE.
+- Đánh giá utility, Pareto front, hypervolume; lưu raw/discounted vector returns,
+  seed, budget và hash để đối chiếu.
+- Demo hai panel dùng cùng model và seed; đổi preference, pause/step, xem
+  renderer gốc và xuất trace. Demo chỉ chạy inference.
+- Research harness quản lý claims, experiments, literature và roadmap.
 
-**Final presentation & course delivery materials:** See [docs/course/presentation/README.md](docs/course/presentation/README.md) for the 3-speaker presentation script (Hưng, Việt, Nam), visual slide outline, comprehensive MORL terminology glossary, and standalone demo guide.
+## Kiến trúc và luồng hoạt động
 
-**Latest research/reference review:** `outputs/REL301m_Course_Reference_Review_20261103`
-and ZIP. Report19 pages,21 substantive citations,28-paper library (24 historical
-read records plus4 foundations screened after targeted reading). Seven author
-lists were corrected against primary sources. Models/protocols/results unchanged.
-[Research positioning and reference review](docs/research/RESEARCH_REFERENCE_REVIEW_20261103.md).
-The launcher prefers this release (verified8768);40 extracted real cases,81JS
-assertions and Edge checks pass. Prior releases preserved; use corrected references.
+![Luồng huấn luyện, đánh giá và demo](docs/assets/architecture.svg)
 
-**Lunar confirmation completed:** both prospective fresh seeds passed the final4M
-trained-profile landing gate,10/10 in sampled and argmax. The pilot remains
-separate from prospective n=2. [Results](docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md).
-A55-case frozen demo diagnosis retains observed limits at extreme preferences:
-[diagnosis](docs/research/PPO_PREFERENCE_DIAGNOSIS_20261103.md).
-No training is active; released demo/ZIP still uses its labelled pilot model.
-Adaptive advantage, arbitrary-preference competence and dynamics robustness
-remain unestablished.
+Protocol cố định preference, reward scale, seed và budget. PCQN cập nhật vector
+Q từ replay và có thể điều chỉnh phân phối preference bằng curriculum. PPO
+cập nhật actor và vector critic từ rollout. Hai nhánh dùng wrapper môi trường
+và lưu provenance; demo nạp trọng số đã xuất để suy luận.
 
-**Native training terminal:** double-click `START_TRAINING_MONITOR.bat`.
-It opens the live Rich interface in PowerShell: worker progress, GPU, snapshots
-and retained logs. Arrow keys select workers, Tab changes logs, Space pauses
-view updates and Q closes only the monitor. [Usage](monitor/README.md).
+Chi tiết: [kiến trúc PCQN](docs/ARCHITECTURE.md),
+[PPO Minecart](docs/research/ONPOLICY_IMPLEMENTATION_V1.md),
+[PPO Lunar](docs/research/LUNAR_PPO_SPECIALIST_V1.md).
 
-**Minecart PPO specialist:** the new on-policy feasibility implementation and
-CUDA resume qualification are documented in
-[the method contract](docs/research/ONPOLICY_IMPLEMENTATION_V1.md).
-Its finite pilot uses4M steps at one fixed preference before any conditioned
-stage. The completed single-seed pilot passed its final specialist task gate
-(10/10 sampled and argmax at the trained preference); this is not a
-LunarLander change or established preference generalization.
-[Results](docs/research/ONPOLICY_SPECIALIST_RESULTS_20261102.md).
+## Kết quả đã ghi nhận
 
-The completed Minecart conditional pilot samples the frozen32 training preferences
-uniformly per episode, starts from fresh weights and has its own qualified
-runner/4M budget. [Contract](docs/research/ONPOLICY_CONDITIONAL_V1.md).
-The native monitor automatically follows C when its manifest is present.
-Its single-seed final checkpoint passed both task profiles in both modes
-(10/10 each); the subsequent three-seed confirmation also passed the task gate.
-[Conditional results](docs/research/ONPOLICY_CONDITIONAL_RESULTS_20261102.md).
+Các số dưới đây lấy từ bằng chứng development/validation đã version hóa ngày
+03/11/2026; đây không phải lần chạy mới hay kết quả trên final-test.
 
-Minecart confirmation G has a separately frozen three-seed12M budget and new
-development preferences/cases. [Confirmation contract](docs/research/ONPOLICY_CONFIRMATION_V1.md).
-The native terminal follows its three workers when the cohort manifest exists.
-G is now complete: every seed passed both task profiles in both modes (10/10
-each), with new development cases. [Confirmation results](docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md).
-Adaptive-allocation benefit and multi-seed Lunar stability remain unestablished.
+| Phạm vi | Kết quả tại checkpoint cuối | Bằng chứng |
+|---|---|---|
+| Minecart PPO, 3 training seeds mới, 4M interactions/seed | Mỗi seed đạt 10/10 deliveries ở từng tổ hợp của 2 task profiles × 2 chế độ sampled/argmax | [Kết quả và giới hạn](docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md) · [Raw evidence](research/evidence/minecart_onpolicy_confirmation_v1.json) |
+| Lunar PPO, 2 training seeds xác nhận mới, 4M interactions/seed | Mỗi seed đạt 10/10 hạ cánh trong pad ở trained preference `[.7,.1,.1,.1]`, trong cả hai chế độ | [Kết quả và giới hạn](docs/research/LUNAR_CONFIRMATION_RESULTS_20261103.md) · [Raw evidence](research/evidence/lunar_onpolicy_confirmation_v1.json) |
+| PCQN và các thử nghiệm khắc phục Minecart | Không qua các qualification gates định trước; giữ nguyên kết quả âm | [Trạng thái](docs/research/PROJECT_STATUS.md) · [F1 qualification](research/qualification/minecart_pcqn_replay_f1.json) |
 
-**Repository status:** course-pilot-ready, scientifically repaired prototype. Core invariants and end-to-end train/evaluate integration are tested; publication claims require completed multi-seed experiments. No result in this repository should be described as experimentally supported unless a versioned raw-result artifact is cited.
+10/10 là kết quả trên các trường hợp chỉ định, không bảo đảm thành công ở mọi
+preference/seed. Chưa có kết luận ưu thế adaptive allocation, tổng quát mọi
+preference hay độ bền khi đổi dynamics. Phase 4 vẫn active; matrix gốc và
+final-test còn khóa. Demo Lunar dùng pilot seed `20265311`, tách biệt với hai
+seed xác nhận trong bảng.
 
-Windows training recovery: the interrupted n-step study has a separately
-qualified recovery path. Read [the operating contract](docs/research/TRAINING_RECOVERY_V1.md)
-and run `.venv/Scripts/python.exe scripts/check_credit_recovery.py` to inspect
-actual process liveness before any launch. The independent launcher is
-`scripts/start_credit_recovery.ps1`; completed original jobs and all scientific
-locks are preserved. This repairs execution reliability, not task competence.
+## Công nghệ
 
-New contributors and coding agents should start with [`AGENTS.md`](AGENTS.md), then read the [current project status](docs/research/PROJECT_STATUS.md). The [documentation map](docs/README.md) identifies the authoritative document for each concern.
+Python **3.11**, PyTorch, Gymnasium, MO-Gymnasium, Box2D/Pygame, NumPy/SciPy,
+Pymoo, MORL-Baselines, TensorBoard/W&B. Demo dùng Python HTTP server và
+HTML/CSS/JavaScript Canvas, chạy local; không cần Node/npm cho inference.
+Pytest, Ruff, MyPy và Bandit kiểm tra chất lượng mã.
 
-For work spanning multiple chats, use the [AI-assisted research workflow](docs/research/AI_RESEARCH_WORKFLOW.md), inspect the [evidence-gated roadmap](docs/research/ROADMAP.md), and copy the generated [cross-chat handoff prompt](docs/research/HANDOFF_PROMPT.md). The Git-native harness tracks phases, claims, literature metadata, experiments, blockers, and session summaries without storing paper PDFs.
+Dependency trực tiếp được pin trong [requirements.txt](requirements.txt);
+[pyproject.toml](pyproject.toml) cấu hình kiểm thử và static analysis.
+Đây chưa phải lockfile đầy đủ cho dependency bắc cầu.
 
-Pinned ARIS skills and Claude-review overlays are installed project-locally.
-Read the [integration contract](docs/research/ARIS_INTEGRATION.md) before use:
-offline hardening passes source-bound metadata, lifecycle, reservation, quota,
-packet and resume tests. Paid dispatch and unattended research remain disabled
-pending Console reconciliation, a separately authorized bounded real workflow
-and OS-isolation assessment. This does not unlock
-the failed Minecart study or final test.
+## Cài đặt môi trường nghiên cứu
 
-The user authorization `aris-full-workflow-20261017` now permits a dedicated
-review PR, a versioned F1 Minecart amendment, implementation, deterministic
-qualification, six paired local training runs and nominal-validation/source
-audit. It does not permit final-test tuning or unconditional checkpoint locking;
-those remain evidence-gated. Paid calls still require a separately configured
-finite batch under the documented cost ceiling, and scheduled unattended
-dispatch remains disabled.
-
-PR #6 contains the qualified F1 implementation: 214 tests, fresh same-family
-code review and a completed-episode sanity run passed. Preview with
-`python scripts/run_minecart_replay_f1.py`. The source-bound qualification record
-and a clean committed tree are required before execution. Check live job status
-at `artifacts/minecart-pcqn-replay-f1/execution_status.json` before resuming.
-
-F1 outcome (18 October 2026): all six paired jobs and the 60-checkpoint source
-audit completed, but the frozen retention qualification failed for all three
-A1R1 seeds. No F2, matrix-v1, checkpoint-lock or final-test unlock follows.
-See `refine-logs/EXPERIMENT_RESULTS.md` and
-`research/qualification/minecart_pcqn_replay_f1.json`. Preserve the negative
-result without more seeds/budget/tuning. The historical manuscript/PDF hold was
-superseded by the user's 1 November authorization for the course recovery report
-and demo; external submission and scientific gate changes remain separate.
-
-## Interactive presentation app (inference only)
-
-Behavior check: the frozen demo policies were run on 8 preferences x 5
-environment seeds each (80 diagnostic episodes). Lunar default had no +100
-outcomes; landing-heavy had 2/5 +100 outcomes, only one inside the pad x interval.
-Minecart collected/delivered no ore in 40/40 cases. Input handling works, but
-reliable task learning is **not** established. See the
-[behavioral audit](docs/research/DEMO_BEHAVIOR_AUDIT_20261101.md) before presenting
-the app as an agent completing its task. The PDF/ZIP delivery is unchanged.
-The launcher now prefers `outputs/REL301m_Course_Project_20261101_httpfix`, which
-fixes a Windows connection-reset issue when rejecting small POST bodies and
-includes the behavioral evidence. The original ZIP is preserved; model weights
-and inference/physics behavior are unchanged.
-
-The current group-template course report is built from `paper/REL301m/main.tex`
-using `. scripts/build_course_latex_report.ps1`. The three-seed Envelope
-feasibility cohort completed 300,000 training interactions, 299,703 updates and
-576 fixed validation episodes; its full vectors are retained in
-`research/evidence/envelope_feasibility_v1.json`. Only one seed had positive ore
-in 2/96 final-checkpoint cases per ore objective. This is not a qualified
-allocation comparison or reliable task-learning claim. Original proposal
-ablations/final test remain incomplete. See
-[`COURSE_COMPLETION_SCOPE_V2.md`](docs/research/COURSE_COMPLETION_SCOPE_V2.md).
-The new delivery is `outputs/REL301m_Course_Project_20261101.zip`; the launcher
-prefers it when present. The earlier recovery package below is preserved.
-
-The current recovery deliverable is `outputs/REL301m_Course_Recovery_20261101.zip`.
-On this laptop, run `START_COURSE_DEMO.bat` from the repository root and open
-`http://127.0.0.1:8765`. For an extracted ZIP on D:, follow its `README_VI.md`
-and `INSTALL_D.ps1`. Downloads, Python, caches and outputs stay on D:.
-The app contains two newly trained Uniform-PCQN presentation replacements,
-100,000 interactions each; they are not recovered historical checkpoints and
-do not support allocation-benefit claims. Report/guide PDFs and raw historical
-primary validation evidence are included. Do not open HTML as a standalone file.
-The slider changes preference input to the same frozen network, not its weights.
-Reference and user panels reset with the same seed; optional live changes retain
-history and are labeled accordingly. The upgraded Canvas artwork uses actual
-environment coordinates, with an original-renderer toggle. No training, final
-test, provider call or scientific gate is enabled by the app. The historical
-Minecart qualification remains failed. Evidence and browser/platform checks:
-`research/qualification/course_delivery_recovery_20261101.json`. The historical
-v1 presentation package is not the current recovered artifact. The final
-revised-paper semantic review could not run because of reviewer usage limits;
-its explicit error record is `paper/course-recovery/PAPER_CLAIM_AUDIT.json`.
-
-## Research question
-
-Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?
-
-The project studies these signals rather than claiming that preference-conditioned policies or adaptive weight selection are new. See the editable [revised protocol](docs/proposal/REL301m_Research_Project_Proposal_MORL_V2.md). The [original submitted PDF](docs/proposal/REL301m_Research_Project_Proposal_MORL_VI.pdf) is retained as an immutable record.
-
-## Implemented versus planned
-
-| Capability | Status |
-|---|---|
-| Preference-conditioned vector Q-network | Implemented; unit tested |
-| Per-head Double-DQN targets | Implemented; analytic unit test |
-| Behavior preference and termination-aware replay | Implemented; unit tested |
-| Masked multi-head replay diversity | Implemented; calibration not yet established |
-| Empirical conditioning gap | Implemented; requires curriculum rollouts |
-| Local coverage, recency, and learning progress | Implemented; empirical value unvalidated |
-| Fixed validation/test preference manifests | Implemented |
-| Checkpoint evaluation and raw-result provenance | Implemented; end-to-end smoke tested |
-| LunarLander constructor-level shifts | Implemented; all enabled shifts behaviorally qualified |
-| Minecart dynamics shifts | Planned; no unsupported mutation is enabled |
-| Paired-seed experiment matrix | 30 primary jobs complete; matrix v1 is blocked permanently after Minecart backbone degeneracy |
-| Minecart remediation | V1, PER-only v2 and the completed paired F1 replay screen failed; F2 and final test remain locked |
-| Qualification-aware course executor | Implemented; isolated non-evidence smoke passed |
-| Envelope/GPI-LS baseline runtime | Behaviorally qualified on both course environments under Python 3.11 |
-| Multi-seed course results | Primary validation audit failed closed; no comparative result |
-| Workshop/journal evidence | Not yet established |
-
-## Repository layout
-
-```text
-configs/
-  algo/                 algorithm defaults
-  protocols/            immutable preference-generation specifications
-  shifts/               verified shift construction specifications
-docs/
-  audit/                repeatable research-audit procedure
-  proposal/             original PDF and editable proposal v2
-  research/             canonical current status and handoff
-  tasks/                implementation/status guides
-AGENTS.md                mandatory context bootstrap for coding agents
-scripts/
-  research_harness.py   research state, literature, experiment, and handoff CLI
-  train.py              PCQN training and curriculum ablations
-  train_baseline.py     MORL-Baselines adapter
-  evaluate.py           fixed-protocol checkpoint evaluation
-src/
-  baselines/ core/ curriculum/ envs/ evaluation/ models/ research_harness/ utils/
-research/                versioned claims, literature, experiments, sessions, and schemas
-tests/                   scientific invariant and metric tests
-```
-
-## Research harness
-
-Validate and inspect the durable state before starting work:
+Ưu tiên Linux/WSL Ubuntu với **Python 3.11** riêng cho dự án. Không dùng conda
+base hoặc chia sẻ môi trường giữa Windows và Linux.
 
 ```bash
+git clone https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL.git
+cd REL301m_AdaptivePreferenceMORL
+
+# Ubuntu: cần quyền cài dependency hệ thống; python3.11 phải có sẵn.
+sudo apt-get install build-essential swig libcdd-dev
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+
 python scripts/research_harness.py doctor
 python scripts/research_harness.py status
 python scripts/research_harness.py roadmap list
 ```
 
-Key workflows are available under `roadmap`, `paper`, `claim`, `experiment`, and `session`. Run `python scripts/research_harness.py --help` or see the [full workflow](docs/research/AI_RESEARCH_WORKFLOW.md). End a substantial chat with `session close --write-handoff` so the next chat receives a current, copyable prompt.
+Python development headers phải khớp interpreter nếu Box2D cần build. GPI-LS
+cần `libcdd-dev` cho `pycddlib`. Ubuntu 24.04 mặc định dùng Python 3.12, vì vậy
+cần chuẩn bị Python 3.11 trước; các lệnh trên không tự cài interpreter này.
+Xem [hướng dẫn tái lập và giới hạn môi trường](docs/REPRODUCIBILITY.md).
 
-For literature work, agents may search and read legally accessible full text automatically. Metadata or abstract-only access remains `screened`; the handoff identifies papers that require the user to provide an uploaded PDF or authorized full-text link.
+### Kiểm thử
 
-## Installation
-
-Use Python 3.11 in an isolated environment. Direct dependencies are pinned in `requirements.txt`; record the full resolved environment with every experiment. GPI-LS additionally needs the system `cddlib` headers to build its pinned `pycddlib` dependency.
+Từ thư mục gốc, sau khi kích hoạt môi trường:
 
 ```bash
-sudo apt-get install libcdd-dev
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m ruff format --check .
+python -m ruff check .
+python -m mypy src scripts
 python -m pytest -q
+python -m bandit -q -r src scripts -ll
+python -m compileall -q src scripts tests
+git diff --check
 ```
 
-Box2D installation may require platform build tools. A failed dependency install is not a passed environment smoke test.
+Các test dùng dữ liệu/weights tạm không xác nhận chất lượng model đã học.
+Một số test cần artifact lịch sử hoặc Unix; khi skip phải ghi rõ lý do.
 
-## Course workflow
+### Chạy thử pipeline PCQN
 
-### 1. Run a short end-to-end smoke experiment
+Lệnh sau tạo **engineering smoke run mới**, không dùng để báo cáo kết quả.
+Chỉ chạy khi cần xác minh pipeline và đã cài đủ dependency:
 
 ```bash
 python scripts/train.py \
   --env mo-lunar-lander-v3 \
   --protocol configs/protocols/course_mo_lunar_lander_v3.json \
-  --algo adaptive-pcqn \
-  --allocation-target rollout_and_update \
+  --algo uniform-pcqn \
+  --seed 42 \
   --total-timesteps 10000 \
   --learning-starts 1000 \
-  --output-dir artifacts/smoke
-```
+  --output-dir artifacts/local-smoke
 
-### 2. Run required controls
-
-Use the same training and protocol seeds for:
-
-```bash
---algo uniform-pcqn
---algo random-curriculum-pcqn
-```
-
-For the mechanism ablation, run `--allocation-target rollout_only`, `update_only`, and `rollout_and_update`. Signal-only and pairwise ablations are selected by setting the four signal weights to zero or a predeclared positive value.
-
-Reproduce and inspect the frozen paired-seed matrix without launching it:
-
-```bash
-python scripts/build_course_matrix.py
-```
-
-The authoritative config is `configs/experiments/course_paired_matrix_v1.json`; the versioned manifest contains 150 jobs and sets `execution_authorized` to `false`. Execution requires a separate Phase 4 action after review.
-
-Inspect the 30-job primary block through the qualification-aware executor without launching it:
-
-```bash
-python scripts/execute_course_matrix.py \
-  --arm uniform \
-  --arm matched-random \
-  --arm full
-```
-
-Actual execution additionally requires `--execute`, the exact `--acknowledge-study-id`, at least one explicit selector, and a positive `--max-jobs`. The executor rechecks the frozen study, protocol hashes, qualification artifacts, and manifest hash before launching anything. It resumes only between complete seeded jobs: a completed artifact is skipped after its SHA-256 is verified, while failed or interrupted jobs require an explicit retry and no existing untracked final artifact.
-
-After primary validation, non-smoke execution also requires a passed, hash-bound post-validation gate. Matrix v1's gate is blocked, so its remaining jobs cannot be resumed. Minecart backbone qualification v1 is documented in `configs/remediations/minecart_pcqn_backbone_v1.json`; its completed decision failed the all-seeds gate, so another run requires a separately versioned v2 predeclaration.
-
-The validation-only v1 behavior diagnosis is frozen in `configs/diagnostics/minecart_remediation_v1_behavior.json` and recorded in `research/evidence/minecart_pcqn_backbone_v1_behavior_diagnosis.json`. It selected rare-transition retention. V2 predeclared proportional PER as the only change, preserving masked Huber loss through a recorded pre-execution amendment. After implementation review and explicit user authorization, its three 1M-interaction seeds completed; source audit passed 30 checkpoints, but every raw/discounted ore return was zero across 4,800 validation episodes. All selected checkpoints failed the unchanged ore gate. See `research/qualification/minecart_pcqn_backbone_v2.json`. Current-scope remediation stops; v3 or scope amendment requires supervisor approval. No matrix or final-test gate is unlocked.
-
-Audit completed primary checkpoints and reproduce their validation evidence without exposing a test-split option:
-
-```bash
-python scripts/audit_course_validation.py
-```
-
-The workflow is checkpoint-level resumable, verifies frozen inputs and training logs, and fails closed on missing, malformed, non-finite, budget-incompatible, hash-mismatched, shifted, test-split, or degenerate evidence. Its current Minecart audit is intentionally blocked; rerunning it verifies and reuses the existing ignored per-checkpoint artifacts but does not unlock final testing.
-
-Preview the current v2 qualification without executing it:
-
-```bash
-python scripts/run_minecart_remediation.py
-```
-
-The preview is validation-only and resolves exactly seeds `20264011`–`20264013`, but reports `execute: false`. These seeds already completed and their qualification failed; do not restart them. New execution must use the separately versioned F1 amendment and fresh paired seeds `20264021`–`20264023`; the v2 preview is not that execution path.
-
-Reproduce or audit the completed v1 workflow by selecting its plan explicitly:
-
-```bash
-python scripts/run_minecart_remediation.py \
-  --plan configs/remediations/minecart_pcqn_backbone_v1.json \
-  --seed 20264001 \
-  --seed 20264002 \
-  --seed 20264003
-```
-
-Qualification execution requires Python 3.11, a clean committed worktree, the exact plan acknowledgement, explicit seed selection, and a positive seed cap. Adding `--audit` performs validation-only raw-return evaluation of all ten checkpoints per seed and writes a hash-bound pass/fail artifact. The auditor binds v2's predecessor evidence and exact PER arguments in addition to the unchanged budgets, checkpoints, protocol, and raw returns. V1 failed because two of three selected checkpoints had no positive ore episodes; neither version exposes a final-test option or unlocks matrix v1.
-
-### 3. Freeze pilot-derived quantities
-
-The course protocols now contain scales and reference points frozen by source-aware calibration v2. V1 is retained as a failed calibration because learner-derived Minecart returns were degenerate. V2 uses an independent fixed-pool validation pilot for LunarLander and the pinned environment's deterministic reference geometry for Minecart; neither source accesses final-test data.
-
-The accepted evidence and exact hashes are recorded in `research/calibration/course_calibration_v2_freeze.json`. Reproduce the Minecart geometry after freeze without mutating the artifact:
-
-```bash
-python scripts/extract_reference_front.py \
-  --plan configs/pilots/calibration_v2.json \
-  --env-id minecart-v0 \
-  --verify-existing
-```
-
-In a clean pre-freeze reproduction, the v2 LunarLander manifest and proposal commands are:
-
-```bash
-python scripts/run_pilot_calibration.py \
-  --plan configs/pilots/calibration_v2.json \
-  --output-dir artifacts/pilot-calibration-v2 \
-  --execute
-
-python scripts/calibrate_protocol.py \
-  --plan configs/pilots/calibration_v2.json \
-  --manifest artifacts/pilot-calibration-v2/pilot_manifest.json \
-  --output research/calibration/course_calibration_v2_proposal.json
-```
-
-Do not rerun these commands to tune the frozen values. The calibrator rejects test/shifted inputs and never edits protocols; post-freeze diagnostics may qualify the learner but cannot change the calibration.
-
-### 4. Evaluate a selected checkpoint
-
-```bash
 python scripts/evaluate.py \
-  --model-path artifacts/<run>/final.pt \
+  --model-path artifacts/local-smoke/uniform-pcqn_mo-lunar-lander-v3_seed42/final.pt \
   --protocol configs/protocols/course_mo_lunar_lander_v3.json \
   --split validation \
-  --episodes-per-preference 30 \
+  --episodes-per-preference 1 \
   --shift nominal \
-  --output results/<run>_test_nominal.json
+  --output results/local-smoke_validation.json
 ```
 
-The evaluator defaults to validation and rejects the test split while the study
-remains locked. It checks the checkpoint's stored protocol/hash before rollouts.
-A separately qualified study and final-test workflow are required before one-time
-final evaluation. See [Windows recovery](docs/WINDOWS_RECOVERY.md) for the verified
-local runtime and its missing `pycddlib` limitation.
+Không tự chạy lại các nghiên cứu đã hoàn thành để lấy checkpoint. Việc chạy
+PPO và cohort nghiên cứu phải tuân theo plan/gate riêng trong
+[tài liệu tái lập](docs/REPRODUCIBILITY.md).
 
-## Budget contract
+## Sử dụng demo
 
-Each run records four separate counters:
+**Bản clone Git không chứa checkpoint hay gói `outputs/`.** Các test demo dùng
+fixture; để xem model thực đã huấn luyện cần gói demo đã kiểm chứng hoặc artifact
+nguồn tương ứng. Hiện chưa có đường tải công khai được xác minh cho gói này.
+Inference không cần API key hay dịch vụ trả phí.
 
-- training environment interactions;
-- gradient updates;
-- curriculum diagnostic/evaluation interactions;
-- validation or final-evaluation interactions.
+Gói local mới nhất có bằng chứng kiểm tra là
+`outputs/REL301m_Course_Reference_Review_20261103/`;
+[receipt](research/qualification/research_reference_delivery_20261103.json)
+ghi phạm vi kiểm chứng lịch sử. Gói có `config.json`, `checkpoints/`, `website/`,
+`src/` và `launch.py`. Từ thư mục gói, với Python 3.11 và dependency đã cài:
 
-Adaptive-PCQN must be compared with the compute-matched random curriculum as well as Uniform-PCQN. Wall-clock and peak memory remain reportable outcomes even when environment interactions are matched.
+```bash
+python launch.py --port 8765
+```
 
-## Course and publication thresholds
+Mở `http://127.0.0.1:8765`, chọn môi trường, kéo preference rồi bấm **Chạy so sánh**.
+Pause/step giúp quan sát từng hành động; renderer gốc cho phép đối chiếu mô phỏng.
+Live-mode giữ lịch sử episode khi đổi preference nên hai panel có thể đã đi qua
+trạng thái khác nhau. Dừng server bằng `Ctrl+C`.
 
-- **Course-ready:** both core environments execute end to end, critical ablations and close baselines run with paired seeds, raw results are retained, and conclusions match the evidence.
-- **Workshop-ready:** additional MORL-Generalization or continuous-control domains, modern mechanism baselines, and score-to-future-progress analysis.
-- **Journal/main-track-ready:** broad domains and seeds, calibrated diagnostics, nonlinear utilities where claimed, and a general empirical or algorithmic insight beyond combining familiar modules.
+Trên Windows đã có runtime/gói local đúng đường dẫn,
+[`START_COURSE_DEMO.bat`](START_COURSE_DEMO.bat) gọi launcher hiện có và tìm cổng
+trống. Launcher này không phải installer cho bản clone mới. Xem
+[hướng dẫn demo](demo/interactive/README_VI.md) và
+[ghi chú Windows lịch sử](docs/WINDOWS_RECOVERY.md).
 
-A negative result can satisfy the course and support a paper if the protocol demonstrates why a signal prioritizes hard or uncertain regions without producing future learning progress.
+## Cấu trúc thư mục
+
+```text
+src/          models, replay, curriculum, env wrappers, evaluation, demo, harness
+scripts/      train/evaluate, audit, qualification, packaging và CLI nghiên cứu
+configs/      algorithm, protocols, shifts, plans và runtime specifications
+tests/        invariant, integration, demo và recovery tests
+demo/         frontend, launcher và template các giai đoạn demo
+research/     claims, experiments, raw-result evidence, qualification, sessions
+docs/         kiến trúc, hướng dẫn, trạng thái, course và archive
+paper/        nguồn báo cáo đã có; chưa xác nhận định dạng nộp cuối kỳ
+monitor/      terminal monitor và tiện ích theo dõi job
+.agents/      bootstrap, memory và workflow hỗ trợ nghiên cứu
+artifacts/    checkpoint/cache/runtime local — không nằm trong Git
+outputs/      gói xuất và bản dựng local — không nằm trong Git
+```
+
+[Bản đồ tài liệu](docs/README.md) · [Khảo sát và biên bản chuẩn hóa](docs/REPOSITORY_REVIEW.md)
+· [Hướng dẫn cho coding agents](AGENTS.md).
+
+## Nhóm thực hiện
+
+- Huỳnh Quốc Việt — Trưởng nhóm.
+- Lê Nguyễn Gia Hưng — Dẫn dắt và demo.
+- Ngô Hoài Nam — Thực nghiệm và phản biện.
+- Giảng viên hướng dẫn: Thầy Lưu Giang Nam.
+
+Thông tin nhóm theo tài liệu course hiện có. Môn học: **REL301m — Reinforcement Learning**.
+
+## Phạm vi bàn giao và backlog
+
+Đầu ra hiện tại là **repository để nộp giảng viên**. Giữ lại tài liệu/báo cáo và
+tài sản thuyết trình đã có; phiên chuẩn hóa này không tạo hay xuất thêm các gói đó.
+
+- Chờ xác nhận định dạng report cuối kỳ: **slide hay PDF**, nội dung và thời điểm.
+- Video demo: thực hiện sau khi được yêu cầu.
+- Nếu giảng viên cần chạy model ngay từ link repo: thống nhất cách cung cấp gói
+  demo/checkpoint đã kiểm chứng; hiện các artifact này chỉ có local.
+- Hướng nghiên cứu tiếp: so sánh uniform/random/adaptive với budget khớp và mở
+  rộng preference/dynamics theo protocol riêng; chưa phải kết quả hiện có.

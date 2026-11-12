@@ -5,8 +5,8 @@
   "roadmap_phase_id": "phase-4",
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
-  "working_branch": "codex/research-reference-review",
-  "updated_at": "2026-11-03T14:17:57+00:00",
+  "working_branch": "codex/submission-repository-polish",
+  "updated_at": "2026-11-12T05:12:00+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,7 +60,8 @@
     }
   ],
   "next_actions": [
-    "Use corrected19-page reference-review package and bibliography; prepare final slides/current-demo recording and confirm lecturer scope. Original allocation comparison remains unestablished. No automatic training or independent-semantic acceptance claim; four foundations still need complete-paper review before marking read."
+    "Submit the prepared repository link after review; owner can apply the proposed description. Public pretrained demo distribution is not yet verified.",
+    "Confirm final report format (slides or PDF), content and timing; record demo video only on explicit request. Do not resume completed studies or unlock final test."
   ],
-  "last_session_summary": "Reviewed research positioning and references:7 author-list errors corrected from primary sources; old24 reading records retained/not recertified;4 foundations screened targeted-only,28 library/21 cited. Report19p clarifies contribution, antecedents and unimplemented alternatives. New corrected ZIP verified40cases+81JS+Edge+launcher8768;233pass4skip. Executor-only provisional; no training/protocol/result changes."
+  "last_session_summary": "Repository hand-in preparation: surveyed code and dirty tree, rewrote README, added architecture/reproduction/review docs and safe ignore rules, formatted two tracked scripts without AST changes. Windows Python3.11.18:233 tests passed4 skipped; mypy145, Bandit and compileall pass. Preserved preexisting edits and all evidence; no training/test unlock or report exports. GitHub description requires owner permission."
 }
