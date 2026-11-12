@@ -1,5 +1,10 @@
 # English demo and PDF report — 12 November 2026
 
+Later scope update: the user subsequently requested a slide PDF and a narrated
+demonstration video. See the [video workspace](video/README.md) for the captioned
+master, English script and local Recording Desk. The scope below describes this
+earlier demo/report release; human narration and video hosting remain pending.
+
 ## Confirmed scope
 
 The user requested the complete demo in English and a detailed English report

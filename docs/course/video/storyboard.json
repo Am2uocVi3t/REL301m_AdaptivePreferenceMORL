@@ -1,0 +1,63 @@
+{
+  "language": "en",
+  "scope": "Real application demonstration; no training or new performance study",
+  "target_width": 1920,
+  "target_height": 1080,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "intro",
+      "caption": "Preference-conditioned multi-objective reinforcement learning",
+      "paragraphs": [
+        0
+      ],
+      "minimum_seconds": 22
+    },
+    {
+      "id": "lunar",
+      "caption": "LunarLander: same actor and initial seed, different preference inputs",
+      "paragraphs": [
+        1,
+        2
+      ],
+      "minimum_seconds": 55
+    },
+    {
+      "id": "preferences",
+      "caption": "Pending weights, matched reset and original environment rendering",
+      "paragraphs": [
+        3
+      ],
+      "minimum_seconds": 32
+    },
+    {
+      "id": "minecart",
+      "caption": "Minecart: ore delivery and fuel cost trade-offs",
+      "paragraphs": [
+        4
+      ],
+      "minimum_seconds": 30
+    },
+    {
+      "id": "live",
+      "caption": "Live changes retain history; reset for a fresh comparison",
+      "paragraphs": [
+        5
+      ],
+      "minimum_seconds": 34
+    },
+    {
+      "id": "limits",
+      "caption": "Bounded PPO task evidence; adaptive superiority remains unestablished",
+      "paragraphs": [
+        6,
+        7,
+        8
+      ],
+      "minimum_seconds": 76
+    }
+  ],
+  "reading_wpm": 95,
+  "sentence_pause_seconds": 0.45,
+  "paragraph_pause_seconds": 1.2
+}

@@ -1,3 +1,28 @@
+Slow synchronized video follow-up 12 November 2026: demo re-recorded at a
+95-word/minute narration plan with sentence/paragraph rests (254.8 seconds).
+All336 word cues are inside their captured scenes. Highlighting now uses the
+video media clock; pace changes, seeking and pauses affect both together.
+Six-scene seek and95/70WPM browser checks plus local export tests pass.
+New desktop release: Video_Studio_Slow_20261112; previous release preserved.
+No real voice recorded or scientific-gate changes. Localhost8779 is ready.
+
+Recording website follow-up 12 November 2026: Record now starts timed per-word
+highlighting and follow scrolling automatically. Take pause freezes the cue;
+reading pace is adjustable. Edge integration and local exporter tests pass.
+The localhost8779 website is left open for the user; real mic quality untested.
+No speech-recognition service or research execution was added.
+
+English video workspace 12 November 2026: real frozen-PPO browser demo master
+(131.10 s, 1920x1080, H.264) and an editable local Recording Desk are prepared.
+The desk supports user narration, teleprompter, logo, optional ducked music,
+raw-take preservation and local MP4 export. Human narration is not yet recorded.
+Engineering checks: 237 tests pass/4 skip, real Edge synthetic-audio recording
+and export pass, Ruff/MyPy/Bandit/compileall pass within project code scope.
+No training, final-test access, protocol/checkpoint/claim changes. Phase 4 remains
+active. Details: docs/course/video/README.md and
+research/qualification/video-studio-20261112.json. Slide PDF/Form ZIP and video
+submission destination remain separate hand-in tasks.
+
 English documentation correction 12 November 2026: root README and current
 course/presentation/archive/monitor hubs, Git workflow and runtime instructions
 now use English. Added English team/audit guides and explicit language coverage;

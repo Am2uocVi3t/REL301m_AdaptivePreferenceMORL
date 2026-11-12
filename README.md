@@ -265,10 +265,12 @@ Names and roles follow the existing course records.
 
 ## Delivery scope and limitations
 
-The confirmed deliverables are the repository, the English inference demo and
-the English PDF report with editable source. No video is required; the apparent
-video request was clarified as a dictation error. No additional slide deck or
-new research training is part of this edition.
+The confirmed deliverables are the repository, the English inference demo,
+the English PDF report with editable source, and a PDF of the existing slides.
+The later video request adds an English captioned demo and a local
+[Recording Desk](docs/course/video/README.md) for the user's own narration.
+The report and slides must share a ZIP under the Form's 10 MB limit; the video
+destination is still to be agreed. New research training is outside this scope.
 
 Historical research records, the original submitted proposal, pinned upstream
 agent skills and preexisting team drafts are retained for provenance. Some
