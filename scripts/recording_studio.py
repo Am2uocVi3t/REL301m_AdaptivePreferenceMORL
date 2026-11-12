@@ -181,7 +181,11 @@ class StudioHandler(BaseHTTPRequestHandler):
                 data = stream.read(min(1024 * 1024, remaining))
                 if not data:
                     break
-                self.wfile.write(data)
+                try:
+                    self.wfile.write(data)
+                except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+                    # Seeking or closing the video cancels a streaming response normally.
+                    return
                 remaining -= len(data)
 
     def do_GET(self) -> None:
