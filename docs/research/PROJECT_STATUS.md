@@ -1,3 +1,11 @@
+Group2 hand-in preparation12November2026: supplied human-narrated MP4 copied
+byte-for-byte to repository media and linked fromREADME. AssessedZIP6617031
+bytes contains26-pageEnglishreport,12-pageEnglish16:9slidePDF and narrated
+720pvideo. AllPDFpagesrendered/reviewed; reporttextidentical; ZIPCRC/hashes
+andvideodecodepass. Originaluserdrafts/video preserved. GoogleFormprepared
+forgroup2,notyetconfirmedsubmitted. No scientificexecution/gatechanges.
+See research/qualification/group2-submission-20261112.json.
+
 Slow synchronized video follow-up 12 November 2026: demo re-recorded at a
 95-word/minute narration plan with sentence/paragraph rests (254.8 seconds).
 All336 word cues are inside their captured scenes. Highlighting now uses the

@@ -1,0 +1,869 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>REL301m - Group 2 English Defense</title><style>
+        /* ================================================
+           1. DESIGN TOKENS — "Engineering Paper" system
+           Warm bone paper, deep pine ink, FPT-orange &
+           pine-teal accents. All fonts support Vietnamese.
+           ================================================ */
+        :root {
+            --paper:      #F7F4EE;
+            --paper-deep: #EFEBE2;
+            --card:       #FFFFFF;
+            --ink:        #14201B;
+            --ink-2:      #31403A;
+            --muted:      #61706A;
+            --faint:      #7E8D86;
+            --line:       #E2DDD1;
+            --line-strong:#C9C2B2;
+
+            --orange:      #DE5A26;
+            --orange-deep: #B84818;
+            --orange-soft: rgba(222, 90, 38, 0.10);
+            --teal:        #0C5A50;
+            --teal-deep:   #08423B;
+            --teal-soft:   rgba(12, 90, 80, 0.10);
+            --indigo:      #33549C;
+            --indigo-soft: rgba(51, 84, 156, 0.10);
+            --red:         #C0392F;
+            --red-soft:    rgba(192, 57, 47, 0.09);
+            --green:       #2F7D4F;
+            --green-soft:  rgba(47, 125, 79, 0.10);
+            --amber:       #B97C14;
+            --amber-soft:  rgba(185, 124, 20, 0.10);
+
+            --font-display: 'Bricolage Grotesque', 'Be Vietnam Pro', sans-serif;
+            --font-body:    'Be Vietnam Pro', system-ui, sans-serif;
+            --font-mono:    'JetBrains Mono', 'Be Vietnam Pro', monospace;
+
+            --shadow-card: 0 1px 0 rgba(20,32,27,0.04), 0 14px 30px -18px rgba(20,32,27,0.22);
+            --shadow-pop:  0 1px 0 rgba(20,32,27,0.05), 0 24px 50px -20px rgba(20,32,27,0.30);
+            --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: #0E1411;
+            font-family: var(--font-body);
+            color: var(--ink);
+            user-select: none;
+        }
+
+        /* ================================================
+           2. FIXED 1920×1080 STAGE — scaled as a whole
+           ================================================ */
+        .deck-viewport {
+            position: fixed; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: radial-gradient(120% 120% at 50% 40%, #17201B 0%, #0A0E0C 100%);
+        }
+
+        .deck-stage {
+            position: absolute; left: 0; top: 0;
+            width: 1920px; height: 1080px;
+            overflow: hidden;
+            transform-origin: 0 0;
+            background: var(--paper);
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+        }
+
+        .slide {
+            position: absolute; inset: 0;
+            width: 1920px; height: 1080px;
+            padding: 52px 72px 84px;
+            display: flex; flex-direction: column;
+            background: var(--paper);
+            opacity: 0; visibility: hidden; pointer-events: none;
+            transform: scale(0.99);
+            transition: opacity 0.35s ease, transform 0.35s var(--ease-out);
+        }
+        .slide.active {
+            opacity: 1; visibility: visible; pointer-events: auto;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        /* Staggered content reveal on slide entry */
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(26px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .rv {
+            opacity: 0;
+        }
+        .slide.active .rv {
+            animation: rise 0.6s var(--ease-out) both;
+            animation-delay: var(--d, 0s);
+        }
+
+        /* Warm architectural grid + paper vignette */
+        .slide::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(20, 32, 27, 0.045) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(20, 32, 27, 0.045) 1px, transparent 1px);
+            background-size: 96px 96px;
+            pointer-events: none;
+            mask-image: radial-gradient(140% 120% at 50% 45%, #000 55%, transparent 100%);
+        }
+        /* Asymmetric brand rule pinned to stage top */
+        .slide > .top-rule {
+            position: absolute; top: 0; left: 0; right: 0; height: 6px;
+            background: linear-gradient(90deg,
+                var(--orange) 0 340px,
+                var(--teal) 340px 436px,
+                var(--ink) 436px 100%);
+            z-index: 30;
+        }
+
+        /* Giant outlined ghost numeral behind content */
+        .ghost-num {
+            position: absolute;
+            right: -28px; bottom: -130px;
+            font-family: var(--font-display);
+            font-size: 540px;
+            font-weight: 800;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(20, 32, 27, 0.075);
+            letter-spacing: -0.04em;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ================================================
+           3. SLIDE HEADER — speaker pill + editorial title
+           ================================================ */
+        .s-head {
+            position: relative; z-index: 5;
+            display: flex; align-items: flex-end; justify-content: space-between;
+            gap: 40px;
+            padding-bottom: 18px;
+            border-bottom: 1.5px solid var(--line-strong);
+            margin-bottom: 30px;
+            flex-shrink: 0;
+        }
+
+        .kicker-row {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .sp-pill {
+            font-family: var(--font-mono);
+            font-size: 15px; font-weight: 800;
+            letter-spacing: 0.06em;
+            padding: 7px 16px;
+            border-radius: 8px;
+            color: #FFFFFF;
+        }
+        .sp-hung { background: var(--orange); }
+        .sp-viet { background: var(--teal); }
+        .sp-nam  { background: var(--indigo); }
+        .sp-all  { background: linear-gradient(90deg, var(--teal), var(--indigo)); }
+
+        .kicker-hint {
+            font-size: 17px; font-weight: 600;
+            color: var(--muted);
+        }
+
+        .s-title {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.08;
+            color: var(--ink);
+        }
+        .s-title .hl-o { color: var(--orange); }
+        .s-title .hl-t { color: var(--teal); }
+
+        .head-meta {
+            text-align: right;
+            flex-shrink: 0;
+            display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+        }
+        .head-meta .crumb {
+            font-family: var(--font-mono);
+            font-size: 14px; font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+        .page-chip {
+            font-family: var(--font-mono);
+            font-size: 22px; font-weight: 800;
+            color: var(--ink);
+            background: var(--card);
+            border: 1.5px solid var(--line-strong);
+            padding: 6px 16px;
+            border-radius: 9px;
+        }
+
+        /* ================================================
+           4. SLIDE BODY LAYOUTS
+           ================================================ */
+        .s-body {
+            position: relative; z-index: 5;
+            flex: 1; min-height: 0;
+            display: grid;
+            gap: 28px;
+        }
+        .lay-50-50 { grid-template-columns: 1fr 1fr; }
+        .lay-42-58 { grid-template-columns: 0.86fr 1.14fr; }
+        .lay-58-42 { grid-template-columns: 1.14fr 0.86fr; }
+        .lay-66-34 { grid-template-columns: 1.4fr 0.75fr; }
+        .lay-full  { grid-template-columns: 1fr; }
+
+        .stack {
+            display: flex; flex-direction: column;
+            justify-content: space-between;
+            gap: 20px; min-height: 0; height: 100%;
+        }
+
+        /* Footer strip of every slide */
+        .s-foot {
+            position: absolute; left: 72px; right: 72px; bottom: 26px;
+            display: flex; justify-content: space-between; align-items: center;
+            font-family: var(--font-mono);
+            font-size: 14px; font-weight: 700;
+            letter-spacing: 0.07em;
+            color: var(--faint);
+            z-index: 6;
+            border-top: 1px solid var(--line);
+            padding-top: 12px;
+        }
+        .s-foot .foot-brand b { color: var(--muted); }
+
+        /* Progress bar pinned at stage bottom */
+        .progress-rail {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            height: 5px; background: rgba(20, 32, 27, 0.08);
+            z-index: 40;
+        }
+        .progress-fill {
+            height: 100%; width: 0%;
+            background: linear-gradient(90deg, var(--orange), var(--teal));
+            transition: width 0.45s var(--ease-out);
+        }
+
+        /* ================================================
+           5. CARDS — editorial evidence cards
+           ================================================ */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 20px 24px;
+            display: flex; gap: 18px; align-items: flex-start;
+            box-shadow: var(--shadow-card);
+        }
+        .card.c-o { border-left: 5px solid var(--orange); }
+        .card.c-t { border-left: 5px solid var(--teal); }
+        .card.c-i { border-left: 5px solid var(--indigo); }
+        .card.c-r { border-left: 5px solid var(--red); background: #FFFDFC; }
+        .card.c-g { border-left: 5px solid var(--green); background: #FCFEFC; }
+
+        .card .no {
+            font-family: var(--font-mono);
+            font-size: 15px; font-weight: 800;
+            padding: 5px 11px;
+            border-radius: 7px;
+            background: var(--paper-deep);
+            color: var(--muted);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .card .no.n-o { background: var(--orange-soft); color: var(--orange-deep); }
+        .card .no.n-t { background: var(--teal-soft);   color: var(--teal); }
+        .card .no.n-i { background: var(--indigo-soft); color: var(--indigo); }
+        .card .no.n-r { background: var(--red-soft);    color: var(--red); }
+        .card .no.n-g { background: var(--green-soft);  color: var(--green); }
+
+        .card h4 {
+            font-family: var(--font-display);
+            font-size: 25px; font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            margin-bottom: 7px;
+        }
+        .card p {
+            font-size: 20.5px; line-height: 1.5;
+            color: var(--ink-2);
+        }
+        .card p strong { color: var(--ink); font-weight: 800; }
+        .card p code {
+            font-family: var(--font-mono);
+            font-size: 16px; font-weight: 700;
+            background: var(--paper-deep);
+            padding: 1px 7px;
+            border-radius: 5px;
+            color: var(--teal-deep);
+        }
+
+        /* Hero metric chips row */
+        .metric-row { display: flex; gap: 16px; }
+        .metric {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 15px 18px 13px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+        .metric .v {
+            font-family: var(--font-mono);
+            font-size: 44px; font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+        .metric .l {
+            font-size: 13.5px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-top: 9px;
+        }
+        .v-o { color: var(--orange-deep); }
+        .v-t { color: var(--teal); }
+        .v-i { color: var(--indigo); }
+        .v-r { color: var(--red); }
+        .v-g { color: var(--green); }
+        .v-k { color: var(--ink); }
+
+        /* ================================================
+           6. FIGURE PANELS
+           ================================================ */
+        .fig {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column;
+            height: 100%; min-height: 0;
+        }
+        .fig .img-wrap {
+            flex: 1; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .fig .img-wrap img {
+            max-width: 100%; max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .fig .cap {
+            flex-shrink: 0;
+            margin-top: 12px;
+            padding: 10px 6px 0;
+            border-top: 1px solid var(--line);
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            font-size: 16px; font-weight: 600;
+            color: var(--muted);
+        }
+        .fig .cap .tag {
+            font-family: var(--font-mono);
+            font-size: 13px; font-weight: 800;
+            letter-spacing: 0.04em;
+            padding: 5px 12px;
+            border-radius: 7px;
+            background: var(--paper-deep);
+            color: var(--ink-2);
+            white-space: nowrap;
+        }
+        .tag-red   { background: var(--red-soft)   !important; color: var(--red)   !important; }
+        .tag-green { background: var(--green-soft) !important; color: var(--green) !important; }
+        .tag-teal  { background: var(--teal-soft)  !important; color: var(--teal)  !important; }
+        .tag-orange{ background: var(--orange-soft)!important; color: var(--orange-deep) !important; }
+
+        .dual-fig {
+            flex: 1; min-height: 0;
+            display: grid; grid-template-rows: 1.1fr 1fr;
+            gap: 12px;
+        }
+        .dual-fig .df-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px 14px;
+            display: flex; flex-direction: column;
+            min-height: 0;
+        }
+        .dual-fig .df-img {
+            flex: 1; min-height: 0;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .dual-fig .df-img img {
+            max-width: 100%; max-height: 100%;
+            object-fit: contain;
+        }
+        .dual-fig .df-label {
+            flex-shrink: 0;
+            text-align: center;
+            font-size: 15.5px; font-weight: 800;
+            padding-top: 8px;
+        }
+
+        /* ================================================
+           7. SLIDE 1 — COVER
+           ================================================ */
+        .cover {
+            position: relative; z-index: 5;
+            display: grid; grid-template-columns: 1.22fr 0.78fr;
+            gap: 64px; height: 100%;
+            align-items: center;
+        }
+        .cover-left { display: flex; flex-direction: column; gap: 30px; }
+
+        .uni-row { display: flex; align-items: center; gap: 22px; }
+        .uni-row img { height: 64px; object-fit: contain; }
+        .uni-text {
+            font-size: 17px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--ink-2);
+            border-left: 3px solid var(--orange);
+            padding-left: 20px; line-height: 1.4;
+        }
+        .uni-text small {
+            display: block;
+            font-size: 13px; font-weight: 700;
+            color: var(--muted); letter-spacing: 0.05em;
+        }
+
+        .cover-kicker {
+            font-family: var(--font-mono);
+            font-size: 17px; font-weight: 800;
+            letter-spacing: 0.14em;
+            color: var(--teal);
+            text-transform: uppercase;
+        }
+        .cover-title {
+            font-family: var(--font-display);
+            font-size: 82px; font-weight: 800;
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+        }
+        .cover-title .hl { color: var(--orange); }
+        .cover-sub {
+            font-size: 23px; line-height: 1.55;
+            color: var(--ink-2); max-width: 900px; font-weight: 500;
+        }
+        .cover-sub strong { color: var(--ink); font-weight: 800; }
+
+        .cover-meta { display: flex; gap: 16px; flex-wrap: wrap; }
+        .advisor-chip {
+            display: inline-flex; align-items: center; gap: 14px;
+            background: var(--card);
+            border: 1.5px solid var(--line-strong);
+            border-radius: 9999px;
+            padding: 13px 26px;
+            box-shadow: var(--shadow-card);
+        }
+        .advisor-chip .k {
+            font-size: 14px; font-weight: 800;
+            color: var(--teal); text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .advisor-chip .n { font-size: 20px; font-weight: 800; color: var(--ink); }
+        .term-chip {
+            display: inline-flex; align-items: center;
+            background: var(--card);
+            border: 1.5px solid var(--line);
+            border-radius: 9999px;
+            padding: 13px 24px;
+            font-family: var(--font-mono);
+            font-size: 15.5px; font-weight: 700;
+            color: var(--muted);
+            box-shadow: var(--shadow-card);
+        }
+
+        .team-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow-pop);
+        }
+        .team-head {
+            display: flex; justify-content: space-between;
+            font-size: 15px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--muted);
+            padding-bottom: 14px; margin-bottom: 6px;
+            border-bottom: 2px solid var(--ink);
+        }
+        .member {
+            display: flex; align-items: center; gap: 18px;
+            padding: 19px 0;
+            border-bottom: 1px dashed var(--line-strong);
+        }
+        .member:last-child { border-bottom: none; padding-bottom: 4px; }
+        .avatar {
+            width: 58px; height: 58px;
+            border-radius: 13px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-size: 22px; font-weight: 800;
+            flex-shrink: 0;
+        }
+        .av-o { background: var(--orange-soft); color: var(--orange-deep); border: 1.5px solid rgba(222,90,38,0.3); }
+        .av-t { background: var(--teal-soft);   color: var(--teal);   border: 1.5px solid rgba(12,90,80,0.28); }
+        .av-i { background: var(--indigo-soft); color: var(--indigo); border: 1.5px solid rgba(51,84,156,0.28); }
+        .member h4 {
+            font-size: 21px; font-weight: 800; color: var(--ink);
+            display: flex; align-items: center; gap: 10px;
+        }
+        .member p { font-size: 16px; font-weight: 600; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+        .lead-badge {
+            background: var(--orange);
+            color: #FFF;
+            font-size: 12px; font-weight: 800;
+            padding: 3px 10px; border-radius: 6px;
+            text-transform: uppercase; letter-spacing: 0.05em;
+        }
+
+        /* ================================================
+           8. SLIDE 3 — MATH HERO GRID (KaTeX)
+           ================================================ */
+        .math-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 22px;
+            height: 100%;
+        }
+        .math-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 24px 28px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column;
+            justify-content: space-between; gap: 14px;
+            min-height: 0;
+        }
+        .math-card.m-t { border-top: 5px solid var(--teal); }
+        .math-card.m-o { border-top: 5px solid var(--orange); }
+        .math-card.m-i { border-top: 5px solid var(--indigo); }
+        .math-card.m-k { border-top: 5px solid var(--ink); }
+        .math-head {
+            display: flex; justify-content: space-between; align-items: center; gap: 12px;
+        }
+        .math-head h4 {
+            font-family: var(--font-display);
+            font-size: 23px; font-weight: 700;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+        .math-tag {
+            font-family: var(--font-mono);
+            font-size: 12.5px; font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 5px 11px;
+            border-radius: 7px;
+            background: var(--paper-deep);
+            color: var(--muted);
+            white-space: nowrap;
+        }
+        .math-eq {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 15px 18px;
+            text-align: center;
+            font-size: 25px;
+            color: var(--ink);
+        }
+        .math-card p { font-size: 19.5px; line-height: 1.5; color: var(--ink-2); }
+        .math-card p strong { color: var(--ink); }
+
+        /* ================================================
+           9. SLIDE 10 — PILLARS & INFO STRIPS
+           ================================================ */
+        .pillar-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px; flex: 1; min-height: 0;
+        }
+        .pillar {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 32px 30px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column; gap: 18px;
+        }
+        .pillar.p-o { border-top: 5px solid var(--orange); }
+        .pillar.p-t { border-top: 5px solid var(--teal); }
+        .pillar.p-i { border-top: 5px solid var(--indigo); }
+        .pillar-top {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .pillar-num {
+            font-family: var(--font-mono);
+            font-size: 14.5px; font-weight: 800;
+            letter-spacing: 0.07em;
+            background: var(--paper-deep);
+            color: var(--muted);
+            padding: 6px 13px; border-radius: 7px;
+        }
+        .pillar-cat { font-family: var(--font-mono); font-size: 15px; font-weight: 800; letter-spacing: 0.07em; }
+        .pillar h4 {
+            font-family: var(--font-display);
+            font-size: 30px; font-weight: 700;
+            color: var(--ink); letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+        .pillar p { font-size: 22px; line-height: 1.62; color: var(--ink-2); }
+        .pillar .facts {
+            margin-top: auto;
+            background: var(--paper);
+            border-left: 4px solid var(--line-strong);
+            border-radius: 9px;
+            padding: 16px 18px;
+            font-size: 19.5px; font-weight: 600;
+            color: var(--muted); line-height: 1.6;
+        }
+
+        .strip-row {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 24px; margin-top: 24px;
+        }
+        .strip {
+            border-radius: 14px;
+            padding: 20px 24px;
+        }
+        .strip.limit {
+            background: var(--amber-soft);
+            border: 1px solid rgba(185,124,20,0.28);
+            border-left: 6px solid var(--amber);
+        }
+        .strip.future {
+            background: var(--teal-soft);
+            border: 1px solid rgba(12,90,80,0.24);
+            border-left: 6px solid var(--teal);
+        }
+        .strip h4 {
+            font-family: var(--font-display);
+            font-size: 21px; font-weight: 700;
+            color: var(--ink); margin-bottom: 7px;
+        }
+        .strip p { font-size: 19px; line-height: 1.5; color: var(--ink-2); }
+
+        /* ================================================
+           10. SLIDE 11 — LITERATURE & GAPS
+           ================================================ */
+        .lit-grid {
+            display: grid; grid-template-columns: 1fr 1.12fr;
+            gap: 26px; height: 100%;
+        }
+        .lit-col {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 22px 26px;
+            box-shadow: var(--shadow-card);
+            display: flex; flex-direction: column;
+            gap: 12px;
+            min-height: 0;
+        }
+        .lit-col-head {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 16px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 0.07em;
+            color: var(--ink);
+            padding-bottom: 11px;
+            border-bottom: 2px solid var(--ink);
+        }
+        .lit-col-head .en {
+            font-family: var(--font-mono);
+            font-size: 12.5px; color: var(--faint);
+        }
+        .lit-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 13px 17px;
+        }
+        .lit-card .row1 {
+            display: flex; justify-content: space-between; align-items: center; gap: 12px;
+            margin-bottom: 3px;
+        }
+        .lit-card h4 { font-size: 20px; font-weight: 800; color: var(--ink); }
+        .venue {
+            font-family: var(--font-mono);
+            font-size: 12px; font-weight: 800;
+            padding: 3px 10px; border-radius: 6px;
+            background: var(--paper-deep);
+            color: var(--ink-2);
+            white-space: nowrap;
+        }
+        .lit-card p { font-size: 17.5px; line-height: 1.42; color: var(--ink-2); }
+        .lit-card p strong { color: var(--ink); }
+
+        .gap-card {
+            background: #FCFEFC;
+            border: 1px solid rgba(47,125,79,0.25);
+            border-left: 5px solid var(--green);
+            border-radius: 11px;
+            padding: 14px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .gap-card h4 { font-size: 20.5px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+        .gap-card p { font-size: 17.5px; line-height: 1.45; color: var(--ink-2); }
+        .gap-card p strong { color: var(--green); }
+
+        /* ================================================
+           11. SLIDE 12 — CLOSING / Q&A (dark finale)
+           ================================================ */
+        .closing {
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(110% 90% at 78% 18%, rgba(12, 90, 80, 0.55) 0%, transparent 55%),
+                radial-gradient(90% 80% at 12% 88%, rgba(222, 90, 38, 0.28) 0%, transparent 55%),
+                linear-gradient(160deg, #10231E 0%, #0B1714 55%, #08100D 100%);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center;
+            padding: 90px 120px 120px;
+            gap: 44px;
+            z-index: 5;
+        }
+        .closing::before {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(241, 239, 232, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(241, 239, 232, 0.05) 1px, transparent 1px);
+            background-size: 96px 96px;
+            mask-image: radial-gradient(120% 100% at 50% 45%, #000 45%, transparent 100%);
+            pointer-events: none;
+        }
+        .closing .c-kicker {
+            font-family: var(--font-mono);
+            font-size: 19px; font-weight: 800;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #E8A87C;
+        }
+        .closing .c-title {
+            font-family: var(--font-display);
+            font-size: 120px; font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1;
+            color: #FFFFFF;
+        }
+        .closing .c-title .amp { color: #E8A87C; }
+        .closing .c-sub {
+            font-size: 30px; font-weight: 600;
+            color: rgba(241, 239, 232, 0.92);
+            line-height: 1.5;
+            max-width: 1250px;
+        }
+        .closing .c-sub b { color: #FFFFFF; }
+
+        .c-stats {
+            display: flex; gap: 0;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .c-stat {
+            padding: 22px 44px;
+            display: flex; flex-direction: column; gap: 8px;
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .c-stat:last-child { border-right: none; }
+        .c-stat .v {
+            font-family: var(--font-mono);
+            font-size: 46px; font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+        .c-stat .v .u { color: #E8A87C; }
+        .c-stat .l {
+            font-size: 15px; font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(241, 239, 232, 0.65);
+        }
+
+        .closing .c-team {
+            display: flex; align-items: center; gap: 18px;
+            font-size: 21px; font-weight: 700;
+            color: rgba(241, 239, 232, 0.9);
+        }
+        .closing .c-team .dot { width: 7px; height: 7px; border-radius: 50%; background: #E8A87C; }
+        .closing .c-advisor {
+            font-size: 19px; font-weight: 600;
+            color: rgba(241, 239, 232, 0.68);
+        }
+        .closing .c-advisor b { color: rgba(241, 239, 232, 0.95); }
+
+        /* ================================================
+           12. SPEAKER NOTES OVERLAY (press S)
+           ================================================ */
+        .notes {
+            position: fixed; left: 0; right: 0; bottom: 0;
+            background: rgba(14, 20, 17, 0.97);
+            backdrop-filter: blur(14px);
+            border-top: 3px solid var(--orange);
+            color: #F1EFE8;
+            z-index: 2000;
+            padding: 22px 72px 26px;
+            transform: translateY(102%);
+            transition: transform 0.4s var(--ease-out);
+            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .notes.show { transform: translateY(0); }
+        .notes-head {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.14);
+        }
+        .notes-head .who { display: flex; align-items: center; gap: 14px; }
+        .notes-head .title { font-size: 17px; font-weight: 700; color: rgba(255,255,255,0.92); }
+        .notes-head .clock {
+            font-family: var(--font-mono);
+            font-size: 14px; font-weight: 700;
+            background: rgba(255,255,255,0.09);
+            padding: 5px 14px; border-radius: 9999px;
+            color: #F0C48C;
+        }
+        .notes-speech {
+            font-size: 19px; line-height: 1.62;
+            color: #F1EFE8;
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid var(--orange);
+            padding: 15px 22px;
+            border-radius: 9px;
+            white-space: pre-line;
+            margin-bottom: 12px;
+        }
+        .notes-tip { font-size: 16px; line-height: 1.45; color: #F0D894; }
+        .notes-hint {
+            position: absolute; top: -34px; right: 24px;
+            font-family: var(--font-mono);
+            font-size: 12px; font-weight: 700;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.06em;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .rv { opacity: 1 !important; animation: none !important; }
+            .slide, .progress-fill, .notes { transition: none !important; }
+        }
+        @media print {
+            .notes { display: none !important; }
+        }
+    
+:root{--font-display:Georgia,serif;--font-body:'Segoe UI',sans-serif;--font-mono:Consolas,monospace}.rv{opacity:1!important;animation:none!important}.s-title{font-size:60px;max-width:1450px}.s-head{min-height:150px}.card h4{font-size:28px}.card p{font-size:25px;line-height:1.45}.stack{justify-content:center}.card{padding:27px 28px}.fig .img-wrap img{width:100%;height:100%;object-fit:contain}.diagram{align-self:center;position:relative;z-index:2;text-align:center;padding:24px 55px}.diagram-box{border:2px solid #c9c2b2;background:white;padding:24px;font:700 25px 'Segoe UI';border-left:8px solid #de5a26;border-radius:12px}.diagram-arrow{font-size:34px;color:#0c5a50}.diagram p{font-size:23px;color:#61706a;margin-top:24px}.slide{transition:none}.s-foot{font-size:20px}@media print{@page{size:20in 11.25in;margin:0}html,body{width:1920px;height:auto;overflow:visible!important;margin:0}.deck-viewport{position:static;display:block;background:none}.deck-stage{position:static!important;transform:none!important;overflow:visible;box-shadow:none;height:auto}.slide,.slide.active{position:relative;inset:auto;opacity:1;visibility:visible;transform:none;page-break-after:always;break-after:page;overflow:hidden}.slide:last-child{break-after:auto;page-break-after:auto}}</style></head><body><div class="deck-viewport"><div class="deck-stage" id="deckStage"><section class="slide active" id="slide-1"><div class="top-rule"></div><div class="ghost-num">01</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">HUNG · INTRODUCTION</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">One policy. Different priorities.</h2></div><div class="head-meta"><span class="crumb">Project overview</span><span class="page-chip">1 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Preference-conditioned MORL</h4><p>A controlled investigation of preference allocation in Minecart and MO-LunarLander, with PCQN and PPO implementations, retained negative results and a working inference application.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Group 2 · REL301m</h4><p>Huynh Quoc Viet (SE194225), Le Nguyen Gia Hung (SE194127), Ngo Hoai Nam (SE194190). Lecturer: Luu Giang Nam. FPT University, Fall 2026.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Evidence boundary</h4><p>The project supports specific task-competence results. Adaptive-allocation superiority and competence at every preference remain unestablished.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="../../../paper/REL301m/Figures/english-demo/lunar-english.png" alt="Actual English inference application; frozen PPO weights."></div><div class="cap">Actual English inference application; frozen PPO weights.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>1 / 12 · Project overview</span></div></section><section class="slide " id="slide-2"><div class="top-rule"></div><div class="ghost-num">02</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">HUNG · MOTIVATION</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">Why condition on preferences?</h2></div><div class="head-meta"><span class="crumb">Problem</span><span class="page-chip">2 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Objectives conflict</h4><p>A lander balances landing outcome, shaping and engine costs. A minecart balances two delivered ore objectives against fuel cost.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Preferences describe priorities</h4><p>A nonnegative vector w specifies a trade-off. A conditioned policy receives both the state and w, rather than requiring a separately selected actor for every input.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Research question</h4><p>Under matched budgets, can difficulty, disagreement, coverage/recency or learning progress identify useful preference regions? The comparative scientific question is still open.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="../../../paper/REL301m/Figures/english-demo/mine-english.png" alt="Minecart demonstrates multiple objectives without retraining during inference."></div><div class="cap">Minecart demonstrates multiple objectives without retraining during inference.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>2 / 12 · Problem</span></div></section><section class="slide " id="slide-3"><div class="top-rule"></div><div class="ghost-num">03</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">VIET · FORMULATION</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">A vector reward, a weighted utility</h2></div><div class="head-meta"><span class="crumb">MOMDP</span><span class="page-chip">3 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Vector return</h4><p>Each environment emits r_t in R^d. Discounted return: G_t = sum over k of gamma^k r_(t+k). Raw and discounted vectors are retained separately.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Linear utility</h4><p>u_w(G) = w^T G, with w_i &gt;= 0 and sum_i w_i = 1. A scalar utility depends on the chosen preference; it is not a universal task-success measure.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Conditioned policy</h4><p>a_t is selected from pi_theta(a | s_t, w). The preference changes the network input. It does not change model weights during demonstration.</p></div></div></div><div class="diagram"><div class="diagram-box">STATE s</div><div class="diagram-arrow">↓</div><div class="diagram-box">PREFERENCE w</div><div class="diagram-arrow">↓</div><div class="diagram-box">POLICY pi(a | s, w)</div><div class="diagram-arrow">↓</div><div class="diagram-box">VECTOR REWARD r</div><div class="diagram-arrow">↓</div><div class="diagram-box">WEIGHTED UTILITY w^T G</div><p>One model input can change; the scientific scope stays explicit.</p></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>3 / 12 · MOMDP</span></div></section><section class="slide " id="slide-4"><div class="top-rule"></div><div class="ghost-num">04</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">VIET · IMPLEMENTATION</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">From observations to actions</h2></div><div class="head-meta"><span class="crumb">Architecture</span><span class="page-chip">4 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Conditioned actors and values</h4><p>Observation features and preferences feed the policy/value computation. PPO uses a categorical actor and vector-valued critic with objective normalization.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Separate implementations</h4><p>Minecart and Lunar use declared environment-specific PPO paths. GAE belongs to the Lunar-specific implementation; it is not attributed to every Minecart run.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>PCQN baseline</h4><p>Preference-conditioned vector Q-learning, Double-DQN targets and masked shared-feature heads are implemented. Masked heads are not fully independent uncertainty estimators.</p></div></div></div><div class="diagram"><div class="diagram-box">OBSERVATION + PREFERENCE</div><div class="diagram-arrow">↓</div><div class="diagram-box">CONDITIONED FEATURES</div><div class="diagram-arrow">↓</div><div class="diagram-box">CATEGORICAL ACTOR</div><div class="diagram-arrow">↓</div><div class="diagram-box">VECTOR CRITIC + NORMALIZATION</div><div class="diagram-arrow">↓</div><div class="diagram-box">ENVIRONMENT STEP</div><p>One model input can change; the scientific scope stays explicit.</p></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>4 / 12 · Architecture</span></div></section><section class="slide " id="slide-5"><div class="top-rule"></div><div class="ghost-num">05</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">NAM · FAILURE ANALYSIS</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">The negative result is part of the result</h2></div><div class="head-meta"><span class="crumb">Primary PCQN block</span><span class="page-chip">5 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Audited primary study</h4><p>30 jobs across two environments, three arms and five paired training seeds retained 28,800 validation episodes. Minecart ore returns were zero in all 14,400 Minecart episodes.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Diagnosis, not a universal verdict</h4><p>Sparse delayed rewards and credit assignment are plausible concerns. The observed failure does not prove that all value-based methods fail or identify a unique causal mechanism.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>A scientific gate remains closed</h4><p>The task failure blocks the original comparative qualification and final-test workflow. Negative outcomes remain in the report and evidence registry.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="submission-assets/learning-curves.png" alt="Learning curves rendered from the report's actual result figure."></div><div class="cap">Learning curves rendered from the report's actual result figure.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>5 / 12 · Primary PCQN block</span></div></section><section class="slide " id="slide-6"><div class="top-rule"></div><div class="ghost-num">06</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">NAM · RESULTS</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">PPO confirms bounded task competence</h2></div><div class="head-meta"><span class="crumb">Separate declared studies</span><span class="page-chip">6 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Minecart confirmation</h4><p>Three fresh training seeds passed the specified nominal task gates under the declared evaluation modes. Several cases per seed do not create additional independent training replications.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Lunar confirmation</h4><p>Two prospective confirmation training seeds passed the trained-profile landing gate. They are separate from the specialist pilot displayed in the application.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Interpretation</h4><p>These are bounded confirmation results, not a matched demonstration that PPO is universally superior or that adaptive allocation improves performance.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="submission-assets/lunar-confirmation.png" alt="Prospective Lunar confirmation figure; pilot and confirmation are separated."></div><div class="cap">Prospective Lunar confirmation figure; pilot and confirmation are separated.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>6 / 12 · Separate declared studies</span></div></section><section class="slide " id="slide-7"><div class="top-rule"></div><div class="ghost-num">07</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">NAM · DIAGNOSIS</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">Preference sensitivity needs its own evidence</h2></div><div class="head-meta"><span class="crumb">Generalization limits</span><span class="page-chip">7 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Diagnostic scope</h4><p>The retained preference diagnosis contains 55 episodes over five fresh environment seeds. This is a limited probe, not broad robustness certification.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Read vectors and task outcomes together</h4><p>A fuel-focused preference can express a different goal from landing or ore delivery. Utility, vector returns and task indicators must be interpreted together.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Separate the claims</h4><p>Generalization to new preferences differs from robustness to shifted dynamics. Neither follows automatically from nominal task success.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="submission-assets/preference-diagnosis.png" alt="Actual diagnostic result figure; no fabricated success illustration."></div><div class="cap">Actual diagnostic result figure; no fabricated success illustration.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>7 / 12 · Generalization limits</span></div></section><section class="slide " id="slide-8"><div class="top-rule"></div><div class="ghost-num">08</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">HUNG · DEMONSTRATION</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">The application runs real frozen inference</h2></div><div class="head-meta"><span class="crumb">Live application</span><span class="page-chip">8 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Matched initial comparison</h4><p>Both panels use the same checkpoint and initial seed. The left keeps a reference preference; the right accepts a user preference.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Controls and provenance</h4><p>Single-step, run/reset, original versus styled rendering and JSON trace export expose the actual environment state, actions and vector rewards.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>No learning in the demo</h4><p>The displayed actors are fixed. The application performs no optimizer steps, training or original final-test evaluation. The video records this application.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="../../../paper/REL301m/Figures/english-demo/lunar-english.png" alt="Use the included narrated MP4 or launch the repository demo."></div><div class="cap">Use the included narrated MP4 or launch the repository demo.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>8 / 12 · Live application</span></div></section><section class="slide " id="slide-9"><div class="top-rule"></div><div class="ghost-num">09</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">HUNG · INTERPRETATION</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">A slider changes an input, not a guarantee</h2></div><div class="head-meta"><span class="crumb">Honest demonstration</span><span class="page-chip">9 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Pending preferences</h4><p>By default, edited weights remain pending until a fresh comparison starts. Reset restores matched initial states.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Live changes retain history</h4><p>A change during an episode preserves the trajectory already taken. The panels may then have different histories, so reset before interpreting a fresh comparison.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Inspect rather than assume</h4><p>Similar or unsuccessful behaviors at corner weights are reported honestly. A conditioned network is not proof that every input preference was learned reliably.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="../../../paper/REL301m/Figures/english-demo/mine-english.png" alt="The trace makes the current preference and history visible."></div><div class="cap">The trace makes the current preference and history visible.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>9 / 12 · Honest demonstration</span></div></section><section class="slide " id="slide-10"><div class="top-rule"></div><div class="ghost-num">10</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">HUNG · SUMMARY</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">What this project contributes</h2></div><div class="head-meta"><span class="crumb">Engineering and evidence</span><span class="page-chip">10 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Reproducible implementation</h4><p>Versioned protocols, paired seeds, retained reward vectors, provenance receipts, registries and separated training/evaluation budgets.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Evidence with limitations</h4><p>The report preserves the negative PCQN study and separately declared PPO confirmations. Planned, smoke-tested and supported claims are distinguished.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Next research step</h4><p>Compare adaptive allocation with uniform and compute-matched random controls after the required gates pass. Broader preference and dynamics studies remain future work.</p></div></div></div><div class="diagram"><div class="diagram-box">DECLARED PROTOCOL</div><div class="diagram-arrow">↓</div><div class="diagram-box">TRAINING / VALIDATION BUDGETS</div><div class="diagram-arrow">↓</div><div class="diagram-box">TASK-COMPETENCE GATE</div><div class="diagram-arrow">↓</div><div class="diagram-box">PAIRED COMPARATIVE STUDY</div><div class="diagram-arrow">↓</div><div class="diagram-box">FINAL TEST: LOCKED</div><p>One model input can change; the scientific scope stays explicit.</p></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>10 / 12 · Engineering and evidence</span></div></section><section class="slide " id="slide-11"><div class="top-rule"></div><div class="ghost-num">11</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">VIET · LITERATURE</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">Prior work informs the study</h2></div><div class="head-meta"><span class="crumb">References and scope</span><span class="page-chip">11 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>Conditioning and MORL</h4><p>Abels et al. (ICML 2019), Yang et al. (NeurIPS 2019), and Xu et al. (ICML 2020) provide relevant approaches to dynamic preferences, envelope learning and population-based MORL.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Learning and benchmarks</h4><p>Schulman et al. (PPO, 2017), van Hasselt et al. (PopArt, 2016), MO-Gymnasium, and Terekhov &amp; Gulcehre (2024) inform methods and environment-specific implementation choices.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Avoid novelty overclaim</h4><p>We do not claim prior methods universally fail, a new PPO algorithm, or established adaptive-allocation benefit. Full bibliographic entries and qualified comparisons are in the English report.</p></div></div></div><div class="diagram"><div class="diagram-box">CONDITIONED POLICIES</div><div class="diagram-arrow">↓</div><div class="diagram-box">VECTOR VALUE LEARNING</div><div class="diagram-arrow">↓</div><div class="diagram-box">PPO AND NORMALIZATION</div><div class="diagram-arrow">↓</div><div class="diagram-box">BENCHMARKS AND PROVENANCE</div><div class="diagram-arrow">↓</div><div class="diagram-box">QUALIFIED EVIDENCE</div><p>One model input can change; the scientific scope stays explicit.</p></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>11 / 12 · References and scope</span></div></section><section class="slide " id="slide-12"><div class="top-rule"></div><div class="ghost-num">12</div><div class="s-head"><div><div class="kicker-row"><span class="sp-pill sp-hung">GROUP 2 · REL301m</span><span class="kicker-hint">FPT University · Group 2</span></div><h2 class="s-title">Questions and discussion</h2></div><div class="head-meta"><span class="crumb">Thank you</span><span class="page-chip">12 / 12</span></div></div><div class="s-body lay-50-50"><div class="stack"><div class="card c-o"><span class="no n-o">01</span><div><h4>What to inspect</h4><p>The English report explains methods, outcomes, limitations and reproduction. The slide PDF preserves this fixed 16:9 layout. The narrated MP4 demonstrates the application.</p></div></div><div class="card c-t"><span class="no n-t">02</span><div><h4>Source and evidence</h4><p>GitHub contains code, declared protocols and versioned evidence. Generated checkpoints, caches and private configuration remain outside the source repository.</p></div></div><div class="card c-i"><span class="no n-i">03</span><div><h4>Final boundary</h4><p>Original final-test access remains locked. There is no claim of reliable behavior at every preference or under new dynamics. Thank you for your questions and feedback.</p></div></div></div><div class="fig"><div class="img-wrap"><img src="../../../paper/REL301m/Figures/english-demo/lunar-native.png" alt="Original environment rendering; real inference, not invented gameplay."></div><div class="cap">Original environment rendering; real inference, not invented gameplay.</div></div></div><div class="s-foot"><span>REL301m · <b>Preference-Conditioned MORL</b></span><span>12 / 12 · Thank you</span></div></section></div></div><script>let i=0;const slides=[...document.querySelectorAll('.slide')];function fit(){document.querySelector('#deckStage').style.transform='scale('+Math.min(innerWidth/1920,innerHeight/1080)+')'}addEventListener('resize',fit);addEventListener('keydown',e=>{if(e.key==='ArrowRight')i=Math.min(11,i+1);if(e.key==='ArrowLeft')i=Math.max(0,i-1);slides.forEach((s,n)=>s.classList.toggle('active',n===i))});fit();</script></body></html>

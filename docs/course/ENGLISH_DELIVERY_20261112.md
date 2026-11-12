@@ -5,6 +5,10 @@ demonstration video. See the [video workspace](video/README.md) for the captione
 master, English script and local Recording Desk. The scope below describes this
 earlier demo/report release; human narration and video hosting remain pending.
 
+Current assessed delivery: [Group2 report + slides + narrated video](submission/README.md).
+The original1080pnarrated recording is linked from the rootREADME; the ZIP contains
+an optimized720pcopy and fits the Form limit. Earlier release notes follow.
+
 ## Confirmed scope
 
 The user requested the complete demo in English and a detailed English report

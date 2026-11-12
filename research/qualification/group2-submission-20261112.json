@@ -1,0 +1,81 @@
+{
+  "date": "2026-11-12",
+  "scope": "Group2assessedcourseartifact preparation,notnewresearch",
+  "group": 2,
+  "title": "Hard, Uncertain, or Learnable? A Controlled Study of Preference Allocation in Preference-Conditioned MORL",
+  "repository": "https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL/tree/codex/course-submission-20261112",
+  "package": {
+    "group": 2,
+    "title": "Hard, Uncertain, or Learnable? A Controlled Study of Preference Allocation in Preference-Conditioned MORL",
+    "repository": "https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL/tree/codex/course-submission-20261112",
+    "files": {
+      "REL301m_Report.pdf": {
+        "bytes": 851822,
+        "sha256": "e9c9e5f46a2aacaa26768da461577f3167329e27be71ea1f9fb13150e05c1bcf"
+      },
+      "REL301m_Slides.pdf": {
+        "bytes": 3053210,
+        "sha256": "e2158efd7d37689497efc9fd23b9ff513af1ed794198420949215e83fa2812f2"
+      },
+      "REL301m_Demo.mp4": {
+        "bytes": 4991312,
+        "sha256": "80e8e5456e531eaab12ba1cd0491807bf6596572cbe0473a97100b08ab1d54a2"
+      }
+    },
+    "zip_bytes": 6617031,
+    "zip_sha256": "6b83372e5234183223c80480c45c9815bab98df9b9f61601ee638906e1b98910"
+  },
+  "original_video": {
+    "bytes": 13195797,
+    "sha256": "c8262bed6c7dd2c5c8c481c4bff3b4f9d5eeeff1af2f3a353887ef0af51d863c",
+    "duration_seconds": 264.34,
+    "dimensions": [
+      1920,
+      1080
+    ],
+    "copied_byte_identical": true,
+    "download_source_preserved": true
+  },
+  "report": {
+    "pages": 26,
+    "bytes": 851822,
+    "all_page_text_identical_to_original": true,
+    "optimized_raster_images": 8,
+    "all_pages_rendered_reviewed": true
+  },
+  "slides": {
+    "pages": 12,
+    "dimensions_points": [
+      1440,
+      810
+    ],
+    "language": "English",
+    "all_pages_rendered_reviewed": true,
+    "overflow_checks": "pass",
+    "original_team_source_preserved": true
+  },
+  "video_in_zip": {
+    "dimensions": [
+      1280,
+      720
+    ],
+    "fps": 30,
+    "video_codec": "H264",
+    "audio_codec": "AAC80kbps48kHzmono",
+    "duration_seconds": 264.3,
+    "decode": "pass",
+    "audio_peak_dbfs": -1.1,
+    "audio_mean_dbfs": -19.0
+  },
+  "preservation": "11preexistinguserfilehashesunchanged; unrelated meeting video excluded",
+  "form": {
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSeBtGIPbOIKc2inYb7wFNlUEpZOLPGXsvkua_T0zJhiUE2OHQ/viewform",
+    "status": "prepared_not_submitted"
+  },
+  "research_boundaries": {
+    "training_updates": 0,
+    "final_test_steps": 0,
+    "protocol_changes": false,
+    "checkpoint_changes": false
+  }
+}

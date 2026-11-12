@@ -1,5 +1,10 @@
 # REL301m course submission
 
+**Current Group2 assessed package:** [report + slide PDF + narrated video ZIP](submission/README.md).
+The supplied human narration is now included; the earlier studio releases below
+remain editable preparation tools. The final ZIP is6,617,031bytes.
+
+
 The current submission consists of an **English inference demo** and a
 **26-page English PDF report with editable LaTeX source**, alongside the source
 repository and versioned experimental evidence.

@@ -18,6 +18,24 @@ with their scope and limitations stated below.
 
 ## Start here
 
+### Group 2 submission: report, slides and narrated demonstration
+
+[Download the submission ZIP](docs/course/submission/REL301m_Group2_Submission.zip)
+contains the English report (26 pages), English slide PDF (12 fixed 16:9 pages),
+and a narrated MP4. The ZIP is below the lecturer's 10 MB upload limit.
+The slide edition follows the existing presentation's visual system while
+keeping claims within the verified report; the team's original draft is preserved.
+
+[![Watch the narrated application demonstration](docs/course/media/demo-poster.jpg)](https://raw.githubusercontent.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL/refs/heads/codex/course-submission-20261112/docs/course/media/REL301m_Narrated_Demo.mp4)
+
+[Watch/download the narrated MP4](https://raw.githubusercontent.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL/refs/heads/codex/course-submission-20261112/docs/course/media/REL301m_Narrated_Demo.mp4)
+shows real frozen-policy interaction, with the presenter's own narration.
+The repository preserves the original 1080p recording; the ZIP contains a
+720p copy with optimized audio for the Form limit. Both retain the same content.
+If GitHub does not play it inline, download the MP4 and open it locally.
+
+See the [submission manifest and reproduction notes](docs/course/submission/README.md).
+
 - [English submission and delivery guide](docs/course/ENGLISH_DELIVERY_20261112.md)
 - [Course report and editable-source build instructions](paper/REL301m/BUILD_ENGLISH.md)
 - [English demo user guide](demo/interactive/README_EN.md)
@@ -27,7 +45,8 @@ with their scope and limitations stated below.
 The current report contains **26 pages**, with architecture diagrams,
 data-derived learning curves, result tables, a preference-diagnosis heatmap and
 real screenshots of the English demo. Generated PDFs, ZIPs and pretrained
-checkpoints are local artifacts; they are not included in a source-only clone.
+checkpoints are local artifacts. The compact course-submission ZIP and narrated
+video are deliberately included for assessment; training checkpoints remain excluded.
 
 ## Problem and features
 
@@ -269,8 +288,9 @@ The confirmed deliverables are the repository, the English inference demo,
 the English PDF report with editable source, and a PDF of the existing slides.
 The later video request adds an English captioned demo and a local
 [Recording Desk](docs/course/video/README.md) for the user's own narration.
-The report and slides must share a ZIP under the Form's 10 MB limit; the video
-destination is still to be agreed. New research training is outside this scope.
+The report, slides and narrated video share a ZIP under the Form's 10 MB limit.
+The original narrated video is linked above for GitHub viewing/download.
+New research training is outside this scope.
 
 Historical research records, the original submitted proposal, pinned upstream
 agent skills and preexisting team drafts are retained for provenance. Some
