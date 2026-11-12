@@ -157,7 +157,7 @@ def test_tick_duplicate_stale_reset_and_terminal_freeze(demo_root):
         first = runtime.tick(request)
         assert runtime.tick(copy.deepcopy(request)) is first
         assert runtime.total_steps == 4
-        with pytest.raises(ValueError, match="payload khác"):
+        with pytest.raises(ValueError, match="different payload"):
             runtime.tick({**request, "steps": 3})
         for invalid in ({**request, "tick_id": 3}, {**request, "generation": 0}, {**request, "tick_id": True}):
             with pytest.raises(ValueError):
@@ -212,7 +212,7 @@ def test_partial_engine_failure_blocks_further_ticks_until_reset(demo_root, monk
             raise RuntimeError("Synthetic engine failure")
 
         monkeypatch.setattr(runtime.panels[1], "advance", broken)
-        with pytest.raises(RuntimeError, match="không retry"):
+        with pytest.raises(RuntimeError, match="without retrying"):
             runtime.tick({"generation": 1, "tick_id": 1, "steps": 1})
         assert runtime.total_steps == 1
         assert runtime.snapshot()["fault"] == "RuntimeError"

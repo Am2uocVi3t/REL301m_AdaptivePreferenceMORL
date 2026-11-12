@@ -1,0 +1,13 @@
+\begin{tikzpicture}[node distance=12mm and 10mm]
+\node[block] (ui) {English browser UI\\sliders / pause / step};
+\node[block,right=of ui] (api) {Local HTTP API\\generation + tick ID};
+\node[block,right=of api] (runtime) {Two-panel runtime\\isolated episode states};
+\node[block,below=of runtime] (model) {Frozen PPO actor\\SHA-256 checked};
+\node[block,left=of model] (physics) {Actual environment\\vector rewards / flags};
+\node[block,left=of physics] (view) {Snapshot + trace\\styled or native view};
+\draw[flow] (ui)--(api);\draw[flow] (api)--(runtime);
+\draw[flow] (runtime)--(model);\draw[flow] (model)--(physics);
+\draw[flow] (physics)--(view);\draw[flow] (view)--(ui);
+\node[below=10mm of physics,font=\sffamily\small,text=Muted,align=center]
+{No gradient updates or checkpoint selection.\\Presentation diagnostics remain separate from research evidence.};
+\end{tikzpicture}

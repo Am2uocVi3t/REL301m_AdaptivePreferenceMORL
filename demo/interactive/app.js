@@ -10,14 +10,14 @@
     result[index]=clamp(value);result.forEach((_,i)=>{if(i!==index)result[i]=old>1e-9?weights[i]/old*remaining:remaining/(weights.length-1);});return result;
   }
   function changed(){return !state.panels[1]||pending.some((v,i)=>Math.abs(v-state.panels[1].weights[i])>1e-5);}
-  function showError(error){running=false;halted=true;clearTimeout(timer);$('error').hidden=false;$('error').textContent=`Đã dừng: ${error.message}. Không tự gửi lại bước. Bấm Chạy so sánh để reset; nếu nhiều tab cùng mở, hãy tải lại trang.`;$('connection').textContent='Đã dừng / cần kiểm tra';$('led').classList.remove('ready');buttons();}
+  function showError(error){running=false;halted=true;clearTimeout(timer);$('error').hidden=false;$('error').textContent=`Stopped: ${error.message}. Steps are not retried automatically. Select Run comparison to reset; reload if multiple tabs control this session.`;$('connection').textContent='Stopped / check required';$('led').classList.remove('ready');buttons();}
   async function api(path,body){
     const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),10000);
     try{const response=await fetch(path,body===undefined?{signal:controller.signal}:{method:'POST',headers:{'Content-Type':'application/json','X-Demo-Token':token},body:JSON.stringify(body),signal:controller.signal});const data=await response.json();if(!response.ok)throw Error(data.error||`HTTP ${response.status}`);return data;}finally{clearTimeout(timeout);}
   }
   function buttons(){
     $('run').disabled=busy||!config;$('pause').disabled=halted||resetting||!state.panels.length||state.all_done;
-    $('pause').textContent=running?'Ⅱ Tạm dừng':'▶ Tiếp tục';$('step').disabled=halted||busy||running||!state.panels.length||state.all_done;
+    $('pause').textContent=running?'Ⅱ Pause':'▶ Resume';$('step').disabled=halted||busy||running||!state.panels.length||state.all_done;
     $('skin').disabled=busy||!config;$('trace').disabled=busy||!config;
     ['lunar','mine','default','balanced'].forEach(id=>$(id).disabled=busy||!config);
   }
@@ -25,37 +25,37 @@
     pending.forEach((value,i)=>{$(`weight-${i}`).value=String(value*100);$(`weight-label-${i}`).textContent=`${(value*100).toFixed(1)}%`;});
     $('total').textContent=`${(pending.reduce((a,b)=>a+b,0)*100).toFixed(0)}%`;
     const isChanged=changed();$('preference-state').classList.toggle('applied',!isChanged);
-    $('preference-state').textContent=isChanged?($('live').checked?'Chờ bước inference tiếp theo; lịch sử không reset.':'Chưa áp dụng · bấm Chạy so sánh để reset cùng seed.'):'Đang dùng đúng preference hiển thị.';
+    $('preference-state').textContent=isChanged?($('live').checked?'Waiting for the next inference step; episode history is retained.':'Not applied · select Run comparison to reset with the matched seed.'):'The displayed preference is active.';
   }
   function setupEnvironment(){
-    spec=config[environment];pending=spec.default_weights.slice();$('seed').textContent=`SEED ${spec.seed} / CÙNG CHECKPOINT`;
+    spec=config[environment];pending=spec.default_weights.slice();$('seed').textContent=`SEED ${spec.seed} / SAME CHECKPOINT`;
     ['lunar','mine'].forEach(id=>$(id).classList.toggle('selected',id===environment));
     $('sliders').replaceChildren();spec.objectives.forEach((name,i)=>{
       const row=document.createElement('div');row.className='slider-row';
       const label=document.createElement('label');label.className='slider-heading';label.htmlFor=`weight-${i}`;
       const text=document.createElement('span');text.textContent=name;const output=document.createElement('output');output.id=`weight-label-${i}`;output.htmlFor=`weight-${i}`;label.append(text,output);
-      const input=document.createElement('input');input.type='range';input.min='0';input.max='100';input.step='0.1';input.id=`weight-${i}`;input.setAttribute('aria-label',`Trọng số ${name}`);
+      const input=document.createElement('input');input.type='range';input.min='0';input.max='100';input.step='0.1';input.id=`weight-${i}`;input.setAttribute('aria-label',`Weight: ${name}`);
       input.addEventListener('input',()=>{pending=redistribute(pending,i,Number(input.value)/100);updateSliders();});row.append(label,input);$('sliders').append(row);
     });
     $('rewards').replaceChildren();spec.objectives.forEach((name,i)=>{
       const row=document.createElement('div');row.className='reward-row';const label=document.createElement('span');label.textContent=name;row.append(label);
       for(let panel=0;panel<2;panel++){const cell=document.createElement('div');cell.className='reward-value';const meter=document.createElement('span');meter.className='meter';const bar=document.createElement('i');bar.id=`bar-${panel}-${i}`;meter.append(bar);const number=document.createElement('b');number.id=`reward-${panel}-${i}`;number.textContent='0.00';cell.append(meter,number);row.append(cell);}$('rewards').append(row);
     });
-    $('model-info').textContent=`${spec.algorithm} · seed train ${spec.training_seed} · ${spec.training_step.toLocaleString()} interactions đã train. SHA256 ${spec.weights_sha256}`;
+    $('model-info').textContent=`${spec.algorithm} · training seed ${spec.training_seed} · ${spec.training_step.toLocaleString('en-US')} training interactions. SHA256 ${spec.weights_sha256}`;
     $('notice').textContent=spec.caveat;renderers.forEach(r=>r.reset());updateSliders();
   }
   function draw(next){
     state=next;next.panels.forEach((panel,index)=>{
-      const side=index?'right':'left';renderers[index].draw(panel);$(side+'-step').textContent=String(panel.steps).padStart(4,'0');$(side+'-action').textContent=panel.action===null?'Chờ hành động':spec.actions[panel.action];
+      const side=index?'right':'left';renderers[index].draw(panel);$(side+'-step').textContent=String(panel.steps).padStart(4,'0');$(side+'-action').textContent=panel.action===null?'Awaiting action':spec.actions[panel.action];
       $(side+'-weights').textContent='w = ['+panel.weights.map(v=>v.toFixed(3)).join(', ')+']';
-      $(side+'-status').textContent=panel.done?(panel.truncated||panel.presentation_cap?'TIME LIMIT / DỪNG':environment==='lunar'?(panel.raw_return[0]>0?'KẾT THÚC / LANDING +100':'KẾT THÚC / LANDING -100'):'EPISODE KẾT THÚC'):(running?'ĐANG INFERENCE':'TẠM DỪNG');
+      $(side+'-status').textContent=panel.done?(panel.truncated||panel.presentation_cap?'TIME LIMIT / STOPPED':environment==='lunar'?(panel.raw_return[0]>0?'TERMINATED / LANDING +100':'TERMINATED / LANDING -100'):'EPISODE COMPLETE'):(running?'RUNNING INFERENCE':'PAUSED');
       const native=$('skin').value==='native';$(side).hidden=native;$(side+'-native').hidden=!native;
       if(panel.native_frame)$(side+'-native').src='data:image/jpeg;base64,'+panel.native_frame;
       panel.raw_return.forEach((value,i)=>{const max=Math.max(1,...next.panels.map(p=>Math.abs(p.raw_return[i])));$(`reward-${index}-${i}`).textContent=value.toFixed(2);$(`bar-${index}-${i}`).style.width=`${Math.abs(value)/max*100}%`;});
     });
     $('comparison').classList.toggle('warn',next.history_dependent);
-    $('comparison').textContent=next.history_dependent?'Đã đổi w giữa episode: hai bên có lịch sử khác nhau. Reset để so sánh từ cùng trạng thái.':'Cùng checkpoint, cùng seed khởi tạo. Khác biệt nếu có đến từ preference; đây không phải so sánh thuật toán.';
-    if(!halted){$('connection').textContent=running?'CPU / inference đang chạy':'CPU / model đã nạp';$('led').classList.add('ready');}updateSliders();buttons();
+    $('comparison').textContent=next.history_dependent?'Preference changed mid-episode: the panels have different histories. Reset to compare from matched initial states.':'Same checkpoint and initial seed. Preferences may change behavior; this is not a comparison of algorithms.';
+    if(!halted){$('connection').textContent=running?'CPU / inference running':'CPU / policy loaded';$('led').classList.add('ready');}updateSliders();buttons();
   }
   async function tick(single=false){
     if(halted||busy||(!running&&!single)||state.all_done)return;busy=true;buttons();

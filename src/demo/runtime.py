@@ -24,12 +24,12 @@ def sha256(path: Path) -> str:
 
 def preference(value: Any, dimension: int) -> np.ndarray:
     if not isinstance(value, list) or len(value) != dimension or any(type(v) not in (int, float) for v in value):
-        raise ValueError("Preference phải là một vector số đúng kích thước")
+        raise ValueError("Preference must be a numeric vector of the required dimension")
     array = np.asarray(value, dtype=np.float32)
     if not np.all(np.isfinite(array)) or np.any(array < 0) or np.any(array > 1):
-        raise ValueError("Preference cần hữu hạn trong [0, 1]")
+        raise ValueError("Preference values must be finite and within [0, 1]")
     if not np.isclose(array.sum(), 1, atol=1e-5):
-        raise ValueError("Tổng preference phải bằng 1")
+        raise ValueError("Preference weights must sum to 1")
     return array
 
 
@@ -181,7 +181,7 @@ class DemoRuntime:
             spec = self.specs[name]
             path = self.root / spec["weights_file"]
             if sha256(path) != spec["weights_sha256"]:
-                raise ValueError("Model hash không khớp; dừng nạp checkpoint")
+                raise ValueError("Model hash mismatch; checkpoint loading stopped")
             checkpoint = torch.load(path, map_location="cpu", weights_only=True)
             network: VectorQNetwork | CategoricalDemoPolicy
             if checkpoint.get("model_kind") == "categorical_ppo":
@@ -196,9 +196,9 @@ class DemoRuntime:
 
     def reset(self, name: Any, weights: Any, generation: Any) -> dict[str, Any]:
         if type(generation) is not int or generation != self.generation:
-            raise ValueError("Generation cũ; tải lại trạng thái")
+            raise ValueError("Stale generation; reload the session state")
         if not isinstance(name, str) or name not in self.specs:
-            raise ValueError("Môi trường không được hỗ trợ")
+            raise ValueError("Unsupported environment")
         spec = self.specs[name]
         user = preference(weights, len(spec["default_weights"]))
         self.model(name)
@@ -237,28 +237,28 @@ class DemoRuntime:
 
     def tick(self, request: dict[str, Any]) -> dict[str, Any]:
         if self.fault is not None:
-            raise RuntimeError("Engine đã lỗi; reset trước khi chạy tiếp")
+            raise RuntimeError("Engine fault; reset before continuing")
         if not self.panels or type(request.get("generation")) is not int or request["generation"] != self.generation:
-            raise ValueError("Generation cũ hoặc chưa reset")
+            raise ValueError("Stale generation or session not reset")
         identifier = request.get("tick_id")
         canonical = json.dumps(request, sort_keys=True, allow_nan=False)
         if type(identifier) is not int:
-            raise ValueError("Tick ID cần là số nguyên")
+            raise ValueError("Tick ID must be an integer")
         if identifier == self.tick_id and self.last_result is not None:
             if canonical != self.last_request:
-                raise ValueError("Tick ID trùng nhưng payload khác")
+                raise ValueError("Duplicate tick ID with a different payload")
             return self.last_result
         if identifier != self.tick_id + 1:
-            raise ValueError("Tick ID không đúng thứ tự")
+            raise ValueError("Out-of-order tick ID")
         steps = request.get("steps", 1)
         if type(steps) is not int or not 1 <= steps <= 8 or type(request.get("native", False)) is not bool:
-            raise ValueError("Steps cần trong 1..8; native cần boolean")
+            raise ValueError("Steps must be in 1..8; native must be a boolean")
         if "weights" in request:
             user = preference(request["weights"], len(self.panels[1].weights))
             panel = self.panels[1]
             if not np.array_equal(user, panel.weights):
                 if panel.done:
-                    raise ValueError("Episode đã kết thúc; reset để đổi preference")
+                    raise ValueError("Episode complete; reset to change preferences")
                 panel.switches.append({"from_step": panel.steps + 1, "weights": user.tolist()})
                 panel.weights = user
         network = self.model(str(self.environment))
@@ -271,7 +271,7 @@ class DemoRuntime:
             result = self.snapshot(request.get("native", False))
         except Exception as error:
             self.fault = type(error).__name__
-            raise RuntimeError("Engine bị lỗi; dừng và reset, không retry tick") from error
+            raise RuntimeError("Engine fault; stop and reset without retrying the tick") from error
         self.tick_id = identifier
         result["tick_id"] = identifier
         self.last_request = canonical

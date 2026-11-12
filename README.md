@@ -2,6 +2,11 @@
 
 **REL301m · Reinforcement Learning · FPT University · Fall 2026**
 
+**English submission edition (12 November 2026):** the English demo and detailed
+English PDF report with editable LaTeX source are documented in the
+[delivery guide](docs/course/ENGLISH_DELIVERY_20261112.md).
+The root Windows demo launcher now prefers the English package when available.
+
 Dự án nghiên cứu học tăng cường đa mục tiêu (MORL) trên **Minecart** và
 **MO-LunarLander**. Chính sách nhận trạng thái môi trường cùng vector ưu tiên
 `w` để chọn hành động theo sự đánh đổi giữa các mục tiêu.
@@ -195,11 +200,13 @@ Thông tin nhóm theo tài liệu course hiện có. Môn học: **REL301m — R
 
 ## Phạm vi bàn giao và backlog
 
-Đầu ra hiện tại là **repository để nộp giảng viên**. Giữ lại tài liệu/báo cáo và
-tài sản thuyết trình đã có; phiên chuẩn hóa này không tạo hay xuất thêm các gói đó.
+Đầu ra đã được xác nhận thêm ngày 12/11/2026: **demo hoàn toàn tiếng Anh và báo
+cáo PDF tiếng Anh kèm mã nguồn LaTeX chỉnh sửa được**. Xem
+[hướng dẫn bản tiếng Anh](paper/REL301m/BUILD_ENGLISH.md).
 
-- Chờ xác nhận định dạng report cuối kỳ: **slide hay PDF**, nội dung và thời điểm.
-- Video demo: thực hiện sau khi được yêu cầu.
+- Báo cáo PDF và mã nguồn được chuẩn bị từ bằng chứng hiện có; không huấn luyện lại.
+- Không làm video: từ “phim” trong yêu cầu được xác nhận là lỗi nhập giọng nói.
+- Slide bổ sung chưa được yêu cầu trong đợt này.
 - Nếu giảng viên cần chạy model ngay từ link repo: thống nhất cách cung cấp gói
   demo/checkpoint đã kiểm chứng; hiện các artifact này chỉ có local.
 - Hướng nghiên cứu tiếp: so sánh uniform/random/adaptive với budget khớp và mở

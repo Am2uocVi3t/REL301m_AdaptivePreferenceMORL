@@ -41,7 +41,21 @@ def current_inputs(path: Path, seen: set[Path] | None = None) -> list[Path]:
     return result
 
 
-def audit() -> dict[str, Any]:
+def check_source(path: Path, expected: str, allow_text_line_endings: bool = False) -> str:
+    data = path.read_bytes()
+    if hashlib.sha256(data).hexdigest() == expected:
+        return "exact_bytes"
+    if allow_text_line_endings:
+        # Reconstruct only LF/CRLF encodings; no whitespace/content normalization.
+        data.decode("utf-8")
+        lf = data.replace(b"\r\n", b"\n")
+        if any(hashlib.sha256(value).hexdigest() == expected for value in [lf, lf.replace(b"\n", b"\r\n")]):
+            return "recorded_bytes_reconstructed_by_line_endings_only"
+    raise ValueError(f"Historical source hash mismatch: {path}")
+
+
+def audit(allow_text_line_endings: bool = False) -> dict[str, Any]:
+    source_checks: dict[str, str] = {}
     files = current_inputs(PAPER / "main.tex")
     text = "\n".join(p.read_text(encoding="utf-8") for p in files)
     bibliography = ROOT / "research/literature/library.bib"
@@ -67,8 +81,7 @@ def audit() -> dict[str, Any]:
     if not g["all_seed_both_mode_both_profile_gate_pass"] or g["final_test_steps"] != 0:
         raise ValueError("Confirmation scope/gate differs from report")
     for name, expected in g["source_sha256"].items():
-        if digest(ROOT / name) != expected:
-            raise ValueError(f"Confirmation source changed: {name}")
+        source_checks[name] = check_source(ROOT / name, expected, allow_text_line_endings)
     chapter = (PAPER / "Chapters/OnpolicyResults.tex").read_text()
     for job in g["jobs"]:
         gates = job["final_gates"]
@@ -101,8 +114,7 @@ def audit() -> dict[str, Any]:
         if lunar["audit"] != "source_numeric_budget_and_physics_trace_replay_pass":
             raise ValueError("Lunar physical/numeric audit required")
         for name, expected in lunar["source_sha256"].items():
-            if digest(ROOT / name) != expected:
-                raise ValueError(f"Lunar source changed: {name}")
+            source_checks[name] = check_source(ROOT / name, expected, allow_text_line_endings)
         body = (PAPER / "Chapters/Final.tex").read_text()
         for mode in ["sampled", "argmax"]:
             primary = next(r for r in lunar["milestones"][-1]["task"] if r["mode"] == mode and r["profile"] == 0)
@@ -122,8 +134,7 @@ def audit() -> dict[str, Any]:
         ):
             raise ValueError("Prospective Lunar confirmation evidence differs")
         for name, expected in confirmation["source"].items():
-            if digest(ROOT / name) != expected:
-                raise ValueError(f"Lunar confirmation source changed: {name}")
+            source_checks[name] = check_source(ROOT / name, expected, allow_text_line_endings)
         body = (PAPER / "Chapters/Final.tex").read_text()
         for job in confirmation["jobs"]:
             for cell in job["milestones"][-1]["task"]:
@@ -133,6 +144,8 @@ def audit() -> dict[str, Any]:
     return {
         "status": "deterministic_source_numeric_and_reference_checks_pass",
         "independent_semantic_review": False,
+        "historical_source_checks": source_checks,
+        "allow_text_line_endings": allow_text_line_endings,
         "full_text_citation_context_audit": False,
         "source_files": {p.relative_to(ROOT).as_posix(): digest(p) for p in files},
         "cited_keys": cited,
@@ -156,8 +169,13 @@ def audit() -> dict[str, Any]:
 def main() -> None:
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument("--write", type=Path, default=Path("outputs/course-report-review/source-audit.json"))
+    parser.add_argument(
+        "--allow-text-line-endings",
+        action="store_true",
+        help="Reconstruct exact recorded LF/CRLF bytes on text sources; record each non-exact match",
+    )
     args = parser.parse_args()
-    result = audit()
+    result = audit(args.allow_text_line_endings)
     args.write.parent.mkdir(parents=True, exist_ok=True)
     atomic_json(args.write, result)
     print(f"Report checks passed: {len(result['source_files'])} inputs, {len(result['cited_keys'])} citations.")
