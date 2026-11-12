@@ -1,3 +1,13 @@
+Repository preparation 12 November 2026: README now distinguishes the current
+PPO evidence, negative PCQN studies, fresh-clone limitations and local demo
+requirements. No new training, final-test access, claims/protocol changes or
+report/slide/video exports. Python 3.11.18 Windows verification: 233 tests pass,
+4 skips; MyPy 145 source files, Bandit and compileall pass. Prior user edits
+remain untouched; whole-worktree lint includes their uncommitted scripts.
+See docs/REPOSITORY_REVIEW.md for scope, cleanup decisions and check limitations.
+Report format (slides or PDF) and demo video remain backlog; current deliverable
+is the repository link. Scientific phase/gates and existing evidence unchanged.
+
 Research/reference review3 November2026: library24->28 records, report9->21
 substantive citations. Corrected7 author lists against primary sources (Envelope,
 PG-MORL,GPI prioritization,CURIOUS,HPR,PCRL,Teoh generalization). Previous key/path

@@ -64,6 +64,12 @@ htmlcov/
 
 # Environments & virtualenvs
 .env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+credentials.local.*
 .venv
 env/
 venv/
@@ -80,3 +86,26 @@ venv.bak/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Local tooling and editor state
+node_modules/
+.cache/
+.uv-cache/
+*.tmp
+*.bak
+*~
+
+# LaTeX build intermediates; manuscript sources and figures stay versioned
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Existing local presentation export; editable sources stay visible to Git
+/docs/course/presentation/REL301m_Slide_Package.zip

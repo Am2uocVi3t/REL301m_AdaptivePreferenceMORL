@@ -76,7 +76,11 @@ def render(spec: dict[str, Any], redraw_recorded: bool = False) -> dict[str, Any
     paths = [ROOT / spec["run"] / f"checkpoint_step{step}.pt" for step in spec["steps"]]
     inputs = {
         "script": digest(Path(__file__)),
-        "plan": digest((ROOT / "docs/archive/aris_logs/visual-policy-demo.md") if (ROOT / "docs/archive/aris_logs/visual-policy-demo.md").exists() else (ROOT / "visual-policy-demo.md")),
+        "plan": digest(
+            (ROOT / "docs/archive/aris_logs/visual-policy-demo.md")
+            if (ROOT / "docs/archive/aris_logs/visual-policy-demo.md").exists()
+            else (ROOT / "visual-policy-demo.md")
+        ),
         "protocol": digest(protocol_path),
         "shifts": digest(ROOT / "configs/shifts/dynamics_shifts.yaml"),
         "checkpoints": {path.relative_to(ROOT).as_posix(): digest(path) for path in paths},

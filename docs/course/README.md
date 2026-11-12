@@ -2,6 +2,12 @@
 
 Tài liệu chính thức dành cho việc nộp bài, thuyết trình cuối kỳ và chạy demo môn học REL301m (Fall 2026).
 
+> Phạm vi xác nhận ngày 12/11/2026: chuẩn bị **link repository để nộp**.
+> Các nguồn report/thuyết trình dưới đây là tài sản đã có; định dạng report cuối
+> kỳ (slide hay PDF) còn chờ xác nhận. Video demo chỉ thực hiện khi được yêu cầu.
+> Bản clone chưa có checkpoint/gói `outputs/`; xem
+> [hướng dẫn chạy và giới hạn demo](../../README.md#sử-dụng-demo).
+
 ---
 
 ## 📂 Cấu trúc Hồ sơ Môn học

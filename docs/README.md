@@ -2,6 +2,11 @@
 
 Use this page to find the authoritative document for each concern.
 
+For the repository hand-in, begin with the [project overview](../README.md),
+[runtime and reproduction boundaries](REPRODUCIBILITY.md), and
+[repository review](REPOSITORY_REVIEW.md). Final report format (slides or PDF)
+and demo video remain pending confirmation; existing course assets are retained.
+
 | Concern | Document | Authority |
 |---|---|---|
 | Current implementation state and next work | `research/PROJECT_STATUS.md` | Current handoff |
