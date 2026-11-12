@@ -119,5 +119,14 @@ saved under ignored `artifacts/repository-preparation/HANDOFF_20261112.md`
 instead of overwriting their file. Claims, experiment registry and scientific
 phase are unchanged.
 
+## GitHub handoff
+
+Prepared branch: [codex/submission-repository-polish](https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL/tree/codex/submission-repository-polish).
+Review PR: [#9](https://github.com/Am2uocVi3t/REL301m_AdaptivePreferenceMORL/pull/9).
+GitHub reports `MERGEABLE` but `BLOCKED` / `REVIEW_REQUIRED` on the protected
+default branch. An authorized reviewer must approve and merge before the root
+repository URL shows this README. No protection bypass or self-approval was used.
+The owner must also apply the proposed repository description in settings.
+
 Backlog: confirm report format (slide or PDF), content and timing; video demo
 only on request; confirm if the lecturer also requires a pretrained demo package.
