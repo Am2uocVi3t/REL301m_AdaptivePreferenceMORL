@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MORL Preference Lab — User guide</title><link rel="stylesheet" href="style.css">
+<body><main><article><h1>MORL Preference Lab</h1><h2>Inference demonstration guide</h2>
+<p>Both panels use the same frozen policy and initial seed. Sliders change preference inputs, never model weights. No training or paid API is involved.</p>
+<ol><li>Select LunarLander or Minecart. The environment starts paused.</li><li>Select Single step to inspect one real transition.</li><li>Adjust preference weights. Changes are pending until Run comparison resets both panels with matched initial seeds.</li><li>Use Pause, Resume and speed controls to inspect behavior.</li><li>Live preference changes apply at the next step and retain history. Reset to restore a matched-initial-state comparison.</li><li>Native renderer shows original environment graphics. Download trace JSON to inspect actions and rewards.</li></ol>
+<h2>Read results carefully</h2><p>Raw returns are not success percentages. Cost components are negative rewards. More weight on a cost means greater importance on avoiding it. Different preferences need not produce different behavior in every state.</p>
+<p>Minecart uses the lowest confirmation training seed, 20264311. Lunar uses specialist pilot 20265311; two separate prospective confirmation seeds appear in the report. Neither demo guarantees every preference, dynamics robustness or adaptive-allocation superiority.</p>
+<h2>Errors and privacy</h2><p>Use one controlling tab. Failed physics requests are not retried automatically. Reset or reload to recover. Keep the server bound to localhost; Ctrl+C stops it.</p><p><a href="/">Return to the demo</a></p>
+</article></main></body></html>

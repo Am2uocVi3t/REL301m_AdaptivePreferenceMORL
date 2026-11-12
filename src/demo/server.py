@@ -20,6 +20,7 @@ ASSETS = {
     "/style.css": "website/style.css",
     "/app.js": "website/app.js",
     "/renderer.js": "website/renderer.js",
+    "/guide.html": "website/guide.html",
     "/docs/report.pdf": "docs/Bao_cao.pdf",
     "/docs/guide.pdf": "docs/Huong_dan.pdf",
 }
@@ -91,7 +92,7 @@ def make_server(root: Path, port: int = 8765) -> HTTPServer:
             try:
                 size = int(self.headers.get("Content-Length", "0"))
                 if not 0 < size <= 32768 or self.headers.get_content_type() != "application/json":
-                    raise ValueError("JSON payload cần trong 1..32768 bytes")
+                    raise ValueError("JSON payload must contain 1..32768 bytes")
                 request = json.loads(self.rfile.read(size))
                 if not isinstance(request, dict):
                     raise ValueError("JSON object required")
@@ -131,7 +132,7 @@ def main(root: Path | None = None) -> None:
     torch.set_num_threads(1)
     root = root or Path(__file__).resolve().parents[2] / "outputs/REL301m_Interactive_Demo"
     server = make_server(root, args.port)
-    print(f"MORL Lab: http://127.0.0.1:{server.server_port} | Ctrl+C để dừng | inference only", flush=True)
+    print(f"MORL Lab: http://127.0.0.1:{server.server_port} | Ctrl+C to stop | inference only", flush=True)
     try:
         server.serve_forever(poll_interval=0.25)
     except KeyboardInterrupt:

@@ -1,0 +1,225 @@
+{
+  "status": "english_demo_report_delivery_verified",
+  "date": "2026-11-12",
+  "independent_semantic_review": false,
+  "training_interactions": 0,
+  "final_test_steps": 0,
+  "video_required": false,
+  "report": {
+    "path": "outputs\\english-course-report-20261112\\REL301m_English_Course_Report.pdf",
+    "sha256": "03b9a912ea81e727454720a0fdeaf1138bf91d2f56a4204243a31d40c96105fb",
+    "pages": 26,
+    "all_pages_visually_inspected": true,
+    "final_render_matches_inspected_pages": true,
+    "editable_zip_sha256": "8f0aafff8892f51c47062783b00c0fa3e0b7b9edd696ebcfe8e77440aa8ee4ff",
+    "editable_zip_extracted_compile": "pass"
+  },
+  "demo_manifest_sha256": "60b8b37763d3061bcee65f8f9988b7e2d1dcbb4a3ea4fa3f30f341beef662805",
+  "numerical_config_and_policy_bytes_unchanged": true,
+  "browser": {
+    "status": "pass",
+    "scope": "English UI and fixed-horizon presentation diagnostics, not task-performance evidence",
+    "records": [
+      {
+        "environment": "lunar",
+        "environment_seed": 20265321,
+        "training_seed": 20265311,
+        "checkpoint_sha256": "e7783f54978675a7a7ce60e1402e2f2df7c51c730194408ab48b35beed6ece95",
+        "steps": [
+          80,
+          80
+        ],
+        "raw_returns": [
+          [
+            0,
+            58.4066216647625,
+            -45,
+            -4
+          ],
+          [
+            0,
+            58.4066216647625,
+            -45,
+            -4
+          ]
+        ],
+        "training_updates": 0
+      },
+      {
+        "environment": "mine",
+        "environment_seed": 20264431,
+        "training_seed": 20264311,
+        "checkpoint_sha256": "a84bc1e6948f985a213b70bd6d8289ced2b4032434a246d75e89618af3190af0",
+        "steps": [
+          17,
+          17
+        ],
+        "raw_returns": [
+          [
+            1.3977017402648926,
+            0.10229822248220444,
+            -1.1400000117719173
+          ],
+          [
+            1.3977017402648926,
+            0.10229822248220444,
+            -1.1400000117719173
+          ]
+        ],
+        "training_updates": 0
+      }
+    ],
+    "live_preference": true,
+    "native_renderer": true,
+    "mobile": true,
+    "page_errors": []
+  },
+  "source_audit": {
+    "status": "deterministic_source_numeric_and_reference_checks_pass",
+    "independent_semantic_review": false,
+    "historical_source_checks": {
+      "src/models/onpolicy.py": "exact_bytes",
+      "scripts/run_minecart_onpolicy.py": "exact_bytes",
+      "src/envs/wrapper.py": "exact_bytes",
+      "src/utils/training_recovery.py": "exact_bytes",
+      "src/utils/provenance.py": "exact_bytes",
+      "src/evaluation/protocol.py": "exact_bytes",
+      "configs\\experiments\\minecart_onpolicy_specialist_v1.json": "exact_bytes",
+      "scripts/run_minecart_conditional.py": "exact_bytes",
+      "src/core/episode_preferences.py": "exact_bytes",
+      "src/curriculum/sampler.py": "recorded_bytes_reconstructed_by_line_endings_only",
+      "configs\\experiments\\minecart_onpolicy_conditional_v1.json": "exact_bytes",
+      "scripts/run_minecart_confirmation.py": "exact_bytes",
+      "configs\\experiments\\minecart_onpolicy_confirmation_v1.json": "exact_bytes",
+      "configs/protocols/minecart_confirmation_development_v1.json": "exact_bytes",
+      "scripts/run_lunar_onpolicy.py": "exact_bytes",
+      "src/models/lunar_onpolicy.py": "exact_bytes",
+      "src/envs/lunar_replay.py": "exact_bytes",
+      "configs\\experiments\\lunar_onpolicy_specialist_v1.json": "exact_bytes",
+      "scripts/run_lunar_confirmation.py": "exact_bytes",
+      "configs/experiments/lunar_onpolicy_specialist_v1.json": "exact_bytes",
+      "configs/protocols/lunar_confirmation_development_v1.json": "exact_bytes",
+      "configs\\experiments\\lunar_onpolicy_confirmation_v1.json": "exact_bytes"
+    },
+    "allow_text_line_endings": true,
+    "full_text_citation_context_audit": false,
+    "source_files": {
+      "paper/REL301m/main.tex": "7d66fdaf93bfb33207734019d7b3d1b937134e68e9855fe3df20d8ee8651b869",
+      "paper/REL301m/General/Preamble.tex": "733395c334740d6722664fcefdcd56538b48323bd0345a6027d9608722d0c78b",
+      "paper/REL301m/Chapters/0. Frontpage.tex": "4a46fa007c50cbffe1d2701d1330db4c89a06a292293a53814e43a94abbb6ab0",
+      "paper/REL301m/Chapters/Final.tex": "74f0737a9b83d4a5757b92bfd8e9f5d5507d807d66098b523f3fb5b5c7ecb45d",
+      "paper/REL301m/Figures/morl-pipeline.tex": "4f7f3b5febdafa119a5295b86b807e568f9d183f5aa408f0bbe6f788bcf8b6f0",
+      "paper/REL301m/Chapters/PrimaryTable.tex": "c01406ed3da95c75e975db47a148469a53207e457a5b383fbd6ce8e908f82d60",
+      "paper/REL301m/Chapters/EnvelopeResults.tex": "3778e01c7c76d517dbf20324dea1dbe6e09713d5c9c1b1fe0d69449e9eee6639",
+      "paper/REL301m/Chapters/BackboneInvestigation.tex": "9a7e51a52a497a65657e7bbc6f1a01cdba2aa5fc99f6fb96fa53d85292e555dd",
+      "paper/REL301m/Chapters/OnpolicyResults.tex": "bfa1ed96addb47a355e73d49465b38b67d6be7bd6501651d69b143043edeb5c8",
+      "paper/REL301m/Figures/ppo-inference.tex": "e688a7d91dab0621a57d40b7baa63805855be83631a1dcfdef8cf0a65706ddd5",
+      "paper/REL301m/Chapters/EngineeringAppendix.tex": "7ce6d131ea2838fe979b4a54998e3391b3403520934b017dd7d61f759483cfa6",
+      "paper/REL301m/Figures/demo-system.tex": "850d032739dc5f8162dfaa7742d2b16ced49fc399f5f018362bab9d630b6a3a7"
+    },
+    "cited_keys": [
+      "abels2019dynamic-weights",
+      "agarwal2021evaluation",
+      "alegre2023gpi-prioritization",
+      "ambadkar2026d3po",
+      "colas2019curious",
+      "delasheras2026controllability",
+      "hu2026pbmorl",
+      "jiang2021plr",
+      "osband2016bootstrapped-dqn",
+      "portelas2020alp-gmm",
+      "reymond2022pcn",
+      "schulman2015gae",
+      "schulman2017ppo",
+      "shianifar2026hpr",
+      "teoh2025morl-generalization",
+      "terekhov2024architectures",
+      "vanhasselt2016popart",
+      "xu2020pgmorl",
+      "yang2019envelope",
+      "zhang2020value-disagreement",
+      "zhao2026mpft"
+    ],
+    "citation_metadata_status": {
+      "abels2019dynamic-weights": "read",
+      "agarwal2021evaluation": "screened",
+      "alegre2023gpi-prioritization": "read",
+      "ambadkar2026d3po": "read",
+      "colas2019curious": "read",
+      "delasheras2026controllability": "read",
+      "hu2026pbmorl": "read",
+      "jiang2021plr": "read",
+      "osband2016bootstrapped-dqn": "read",
+      "portelas2020alp-gmm": "read",
+      "reymond2022pcn": "read",
+      "schulman2015gae": "screened",
+      "schulman2017ppo": "screened",
+      "shianifar2026hpr": "read",
+      "teoh2025morl-generalization": "read",
+      "terekhov2024architectures": "read",
+      "vanhasselt2016popart": "screened",
+      "xu2020pgmorl": "read",
+      "yang2019envelope": "read",
+      "zhang2020value-disagreement": "read",
+      "zhao2026mpft": "read"
+    },
+    "repository_paths_checked": [
+      "START_COURSE_DEMO.bat",
+      "configs/experiments/course_paired_matrix_v1.json",
+      "configs/experiments/envelope_feasibility_v1.json",
+      "configs/experiments/lunar_onpolicy_specialist_v1.json",
+      "docs/research/BACKBONE_RESEARCH_REVIEW_20261101.md",
+      "docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md",
+      "docs/research/ONPOLICY_CONFIRMATION_RESULTS_20261103.md",
+      "paper/REL301m/CLAIM_EVIDENCE_MATRIX.md",
+      "paper/REL301m/FINAL_REPORT_OUTLINE.md",
+      "research/evidence/course_primary_execution_audit_v1.json",
+      "research/evidence/course_primary_validation_v1.json",
+      "research/evidence/credit_assignment_recovery_v1.json",
+      "research/evidence/lunar_onpolicy_confirmation_v1.json",
+      "research/evidence/lunar_onpolicy_specialist_v1.json",
+      "research/evidence/minecart_onpolicy_confirmation_v1.json",
+      "research/evidence/ppo_demo_preference_diagnosis_v1.json",
+      "research/qualification/minecart_pcqn_replay_f1.json",
+      "scripts/reaudit_recovered_validation.py",
+      "scripts/run_envelope_feasibility.py"
+    ],
+    "graphics_checked": [
+      "Figures/0. General/fpt_logo_red_small.png",
+      "Figures/0. General/fpt_logo_gray.png",
+      "Figures/0. General/fpt.png",
+      "Figures/0. General/fpt_logo_red_small.png",
+      "../../outputs/course-report-latex/recovered_learning_curves.pdf",
+      "../../outputs/course-report-latex/preference_diagnosis.pdf",
+      "../../outputs/course-report-latex/lunar_confirmation.pdf",
+      "../../outputs/course-report-latex/minecart_confirmation.pdf",
+      "Figures/english-demo/lunar-english.png",
+      "Figures/english-demo/mine-english.png",
+      "Figures/english-demo/lunar-native.png"
+    ],
+    "confirmation_evidence_sha256": "9a3d01b24e64a890055bca98b89181da10aa1877b1cc0ef71dfd7cd149bcc27e",
+    "confirmation_seed_count": 3,
+    "lunar_training_budget_planned": 4000000,
+    "lunar_editorial_readiness": "Audited Lunar pilot and two prospective confirmation seeds included; pilot separate",
+    "final_hand_in_ready": false,
+    "remaining": [
+      "new final release verification",
+      "lecturer rubric/deadline confirmation; independent semantic review not available"
+    ],
+    "training_interactions": 0,
+    "final_test_steps": 0
+  },
+  "checks": {
+    "pytest": "235 passed,4 skipped",
+    "frontend_unit_assertions": 81,
+    "mypy": "148 source files pass",
+    "bandit": 0,
+    "compileall": 0
+  },
+  "delivery_folder": "REL301m_Final_Defense/English_Submission_20261112",
+  "desktop_files_match_source_hashes": true,
+  "limits": [
+    "Existing runtime reused; fresh full dependency installation not repeated",
+    "No independent semantic acceptance or new task-performance study"
+  ]
+}

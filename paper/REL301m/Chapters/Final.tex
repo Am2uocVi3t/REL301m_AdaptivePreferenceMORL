@@ -286,8 +286,9 @@ The demonstration does not establish arbitrary preference or allocation benefit.
 
 \subsection{Execution and quality assurance}
 On Windows, run \path{START_COURSE_DEMO.bat} from the repository root, then
-open \url{http://127.0.0.1:8765}. The package installer, Python runtimes,
-downloads, caches, checkpoints and compiler outputs are stored on D:.
+open \url{http://127.0.0.1:8765}. Historical delivery used D:-based installer
+and cache paths. The current source checkout is in WSL Ubuntu-24.04; the
+existing standalone Windows Python 3.11.18 runtime supplies portable inference.
 The Python 3.11 CPU environment is retained separately from the CUDA environment.
 Baseline qualification is specific to its recorded runtime and dependency set;
 it is not transferred to a different installation. Device execution does not
@@ -450,10 +451,11 @@ minimum rubric have not yet been confirmed.
 \item \evidence{docs/research/COURSE_FINAL_DEMO_CHECKLIST_20261103.md}: demonstration and reproduction checklist.
 \end{itemize}
 \begin{verbatim}
-. scripts/use_d_runtime.ps1
-.venv/Scripts/python.exe scripts/reaudit_recovered_validation.py
-.venv/Scripts/python.exe -m pytest -q
+python scripts/reaudit_recovered_validation.py
+python -m pytest -q
 \end{verbatim}
 The group template, roster, FPT branding, orange section style, table of contents,
 header/footer and bibliography are preserved. The compiler/cache and pre-edit
-template backup are on D:. No external submission has been performed.
+template backup used the historical D:-based runtime. The current English build
+uses explicit runtime paths and a versioned output directory. No external
+academic submission has been performed.

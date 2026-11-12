@@ -1,0 +1,58 @@
+{
+  "status": "pass",
+  "scope": "English UI and fixed-horizon presentation diagnostics, not task-performance evidence",
+  "records": [
+    {
+      "environment": "lunar",
+      "environment_seed": 20265321,
+      "training_seed": 20265311,
+      "checkpoint_sha256": "e7783f54978675a7a7ce60e1402e2f2df7c51c730194408ab48b35beed6ece95",
+      "steps": [
+        80,
+        80
+      ],
+      "raw_returns": [
+        [
+          0,
+          58.4066216647625,
+          -45,
+          -4
+        ],
+        [
+          0,
+          58.4066216647625,
+          -45,
+          -4
+        ]
+      ],
+      "training_updates": 0
+    },
+    {
+      "environment": "mine",
+      "environment_seed": 20264431,
+      "training_seed": 20264311,
+      "checkpoint_sha256": "a84bc1e6948f985a213b70bd6d8289ced2b4032434a246d75e89618af3190af0",
+      "steps": [
+        17,
+        17
+      ],
+      "raw_returns": [
+        [
+          1.3977017402648926,
+          0.10229822248220444,
+          -1.1400000117719173
+        ],
+        [
+          1.3977017402648926,
+          0.10229822248220444,
+          -1.1400000117719173
+        ]
+      ],
+      "training_updates": 0
+    }
+  ],
+  "live_preference": true,
+  "native_renderer": true,
+  "mobile": true,
+  "page_errors": []
+}

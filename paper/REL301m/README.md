@@ -1,3 +1,20 @@
+# English submission edition — 12 November 2026
+
+The user has now requested a full English demo and an English PDF report with
+editable source. Current report inputs are `main.tex`, `Chapters/Final.tex` and
+`Chapters/EngineeringAppendix.tex`. The edition includes the existing 21-source
+bibliography, recorded-result plots and real screenshots of the English demo.
+The displayed actors are unchanged; no new training or final-test access occurs.
+
+Build/archive instructions: [BUILD_ENGLISH.md](BUILD_ENGLISH.md).
+Outputs: `outputs/english-course-report-20261112/REL301m_English_Course_Report.pdf`
+and `REL301m_English_Report_Editable_Source.zip`. The new demo is separately
+versioned at `outputs/REL301m_English_Demo_20261112/`. Video is not required;
+the user's mention of it was clarified as a dictation error. Older notes below
+are historical, including their runtime paths and pending-result statements.
+
+---
+
 Latest delivery (3 November 2026): the separately versioned
 outputs/REL301m_Course_Project_20261103_LunarPPO and ZIP are verified. Both
 panels now use PPO actors: Minecart lowest confirmation seed20264311 (n=3),

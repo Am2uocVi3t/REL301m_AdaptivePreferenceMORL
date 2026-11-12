@@ -59,11 +59,11 @@ let checks=0;const check=(condition,label)=>{assert.ok(condition,label);checks++
   const math=context.window.DemoMath;
   for(const dimension of [3,4]){for(let i=0;i<dimension;i++)for(const value of [0,.17,.5,1]){const weights=math.redistribute(Array(dimension).fill(1/dimension),i,value);check(Math.abs(weights.reduce((a,b)=>a+b,0)-1)<1e-9,'simplex sum');check(weights.every(v=>v>=0&&v<=1),'simplex bounds');}const weights=math.redistribute([1,...Array(dimension-1).fill(0)],0,.4);check(Math.abs(weights.reduce((a,b)=>a+b,0)-1)<1e-9,'redistribute zero others');}
   const frozen=JSON.stringify(backend);document.getElementById('weight-0').value='100';await event('weight-0','input');
-  check(JSON.stringify(backend)===frozen,'slider pending sends no inference');check(document.getElementById('preference-state').textContent.includes('Chưa áp dụng'),'pending disclosed');
+  check(JSON.stringify(backend)===frozen,'slider pending sends no inference');check(document.getElementById('preference-state').textContent.includes('Not applied'),'pending disclosed');
   await event('step','click');check(!('weights'in lastRequest),'normal single step does not apply pending weights');check(backend.panels[1].steps===1,'one real API tick');
   document.getElementById('live').checked=true;await event('live','change');await event('step','click');
-  check(lastRequest.weights[0]===1&&backend.generation===1&&backend.panels[1].steps===2,'live weights without reset');check(document.getElementById('comparison').textContent.includes('lịch sử'),'history caveat');
-  await event('run','click');await settle();check(backend.generation===2,'run resets same engine');check(document.getElementById('pause').textContent.includes('Tạm dừng'),'running pause control');
+  check(lastRequest.weights[0]===1&&backend.generation===1&&backend.panels[1].steps===2,'live weights without reset');check(document.getElementById('comparison').textContent.includes('histories'),'history caveat');
+  await event('run','click');await settle();check(backend.generation===2,'run resets same engine');check(document.getElementById('pause').textContent.includes('Pause'),'running pause control');
   await event('pause','click');const paused=JSON.stringify(backend);await settle();check(JSON.stringify(backend)===paused,'pause no physics');
   const beforeSkin=JSON.stringify(backend);document.getElementById('skin').value='native';await event('skin','change');check(JSON.stringify(backend)===beforeSkin,'skin no tick');check(document.getElementById('left').hidden,'native mode hides cosmetic canvas');
   document.getElementById('skin').value='styled';await event('skin','change');await event('mine','click');check(backend.environment==='mine'&&backend.panels[0].steps===0,'Minecart selected/reset paused');check(document.getElementById('sliders').children.length===3,'three Minecart sliders');

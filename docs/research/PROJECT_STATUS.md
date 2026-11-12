@@ -1,3 +1,17 @@
+English course delivery 12 November 2026: user confirmed English demo plus
+English PDF with editable LaTeX source; video mention was a dictation error.
+Versioned outputs: English_Demo_20261112 and english-course-report-20261112.
+The 26-page report includes 21 cited references, recorded-result charts and
+real English UI screenshots. All pages rendered/inspected; extracted source
+ZIP compiles independently. Same model bytes/numerical config; no new training,
+final-test access, claim/protocol or checkpoint-selection changes. Windows
+verification: 235 tests pass/4skip, 81 JS assertions; 190 Python files Ruff
+format/lint, MyPy148, Bandit/compileall pass. Real Edge desktop/mobile and root
+launcher18770 pass; servers stopped. Canonical desktop subfolder is
+English_Submission_20261112. Receipt: research/qualification/english_course_delivery_20261112.json.
+Existing user edits and original packages preserved. No independent semantic
+acceptance or clean full-environment installation claim; scientific locks unchanged.
+
 Repository preparation 12 November 2026: README now distinguishes the current
 PPO evidence, negative PCQN studies, fresh-clone limitations and local demo
 requirements. No new training, final-test access, claims/protocol changes or

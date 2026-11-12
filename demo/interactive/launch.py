@@ -5,11 +5,11 @@ import sys
 from pathlib import Path
 
 if sys.version_info[:2] != (3, 11):
-    raise SystemExit("Demo yêu cầu Python 3.11. Xem README_VI.md để tạo .venv bằng Python 3.11.")
+    raise SystemExit("The demo requires Python 3.11. See README.md for environment setup.")
 
 try:
     from src.demo.server import main
 except ImportError as error:
-    raise SystemExit("Thiếu dependency. Cài requirements.txt trong .venv theo README_VI.md. " + str(error)) from error
+    raise SystemExit("Missing dependency. Install requirements.txt in your Python 3.11 environment. " + str(error)) from error
 
 main(Path(__file__).resolve().parent)
