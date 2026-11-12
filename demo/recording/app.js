@@ -5,9 +5,42 @@
   let config, recorder, chunks=[], takeBlob, takeUrl, mic, audio, destination, analyser, musicGain;
   let active=false, paused=false, scrolling=false, lastFrame=0, elapsed=0, began=0;
   let audioNodes=[], urls=[], pendingExport=false, musicLoaded=false, totalBytes=0;
+  let cueWords=[], cuePosition=0, cueIndex=-1;
   video.muted=true;
   const clock=t=>`${String(Math.floor(t/60)).padStart(2,'0')}:${String(Math.floor(t%60)).padStart(2,'0')}`;
   const say=(text,error=false)=>{$('message').textContent=text;$('message').classList.toggle('error',error);};
+  function buildCues(){
+    const script=$('script'),text=script.innerText;
+    script.replaceChildren();cueWords=[];cueIndex=-1;
+    for(const part of text.split(/(\s+)/)){
+      if(!part)continue;
+      if(/^\s+$/.test(part)){script.append(document.createTextNode(part));continue;}
+      const word=document.createElement('span');word.className='cue-word';word.textContent=part;
+      script.append(word);cueWords.push(word);
+    }
+    cuePosition=Math.min(cuePosition,Math.max(0,cueWords.length-1));
+  }
+  function showCue(){
+    const index=Math.min(Math.floor(cuePosition),cueWords.length-1);
+    if(index<0||index===cueIndex)return;
+    if(cueIndex>=0)cueWords[cueIndex]?.classList.remove('current-word');
+    cueIndex=index;const word=cueWords[index];word.classList.add('current-word');
+    const box=$('prompter'),bounds=box.getBoundingClientRect(),line=word.getBoundingClientRect();
+    box.scrollTop+=line.top-bounds.top-box.clientHeight*.34;
+    $('cue-progress').textContent=`Word ${index+1} of ${cueWords.length}`;
+  }
+  function setScrolling(value){
+    if(value&&(!cueWords.length||$('script').isContentEditable))buildCues();
+    scrolling=value;$('script').contentEditable=String(!value&&!active);
+    $('scroll').textContent=value?'Pause teleprompter':'Start teleprompter';
+    $('scroll').setAttribute('aria-pressed',String(value));
+    if(value)showCue();
+  }
+  function resetCues(){
+    cueWords[cueIndex]?.classList.remove('current-word');cuePosition=0;cueIndex=-1;
+    $('prompter').scrollTop=0;$('cue-progress').textContent='Ready to read';
+    if(scrolling)showCue();
+  }
   function controls(){
     $('record').disabled=!config||!video.duration||active;
     $('pause').disabled=!active;$('stop').disabled=!active;
@@ -28,7 +61,10 @@
     $('meter').value=Math.min(1,rms*5);$('level').textContent=rms>.19?'Loud — lower mic gain':active?'Voice level':'Voice level';
     if(musicGain&&audio){const level=$('music').checked?Number($('music-level').value):0;musicGain.gain.setTargetAtTime(rms>.025?level*.22:level,audio.currentTime,.12);}
     if(active&&!paused){elapsed+=(now-began)/1000;began=now;$('record-clock').textContent=clock(elapsed);}
-    if(scrolling&&(!active||!paused)){$('prompter').scrollTop+=dt*Number($('speed').value);}
+    if(scrolling&&(!active||!paused)){
+      cuePosition=Math.min(Math.max(0,cueWords.length-1),cuePosition+dt*Number($('speed').value)/60);showCue();
+      if(cueWords.length&&cuePosition>=cueWords.length-1)setScrolling(false);
+    }
     $('position').value=String(video.currentTime||0);$('time').textContent=`${clock(video.currentTime||0)} / ${clock(Number.isFinite(video.duration)?video.duration:0)}`;
     requestAnimationFrame(draw);
   }
@@ -76,15 +112,15 @@
       recorder.onstop=async()=>{
         takeBlob=new Blob(chunks,{type:recorder.mimeType});if(takeUrl)URL.revokeObjectURL(takeUrl);takeUrl=URL.createObjectURL(takeBlob);
         $('take').src=takeUrl;$('raw').href=takeUrl;$('raw').download=recorder.mimeType.includes('mp4')?'rel301m-original-take.mp4':'rel301m-original-take.webm';$('take-panel').hidden=false;$('download').hidden=true;
-        active=false;paused=false;scrolling=false;video.pause();voice._take?.pause();musicAudio._take?.pause();await cleanup();controls();
+        active=false;paused=false;setScrolling(false);video.pause();voice._take?.pause();musicAudio._take?.pause();await cleanup();controls();
         say('Take preserved. Play it back, check your voice and picture, then export MP4. You can download the original take now.');
       };
       video.pause();if(video.currentTime>.01){await new Promise(resolve=>{video.addEventListener('seeked',resolve,{once:true});video.currentTime=0;});}
       $('picture').scrollIntoView({block:'nearest'});await video.play();await new Promise(requestAnimationFrame);
-      elapsed=0;voice._take&&(voice._take.currentTime=0);$('prompter').scrollTop=0;began=performance.now();active=true;paused=false;
-      recorder.start(1000);if(voice._take)await voice._take.play();if(musicAudio._take)await musicAudio._take.play();scrolling=true;controls();
+      elapsed=0;voice._take&&(voice._take.currentTime=0);resetCues();began=performance.now();active=true;paused=false;
+      recorder.start(1000);if(voice._take)await voice._take.play();if(musicAudio._take)await musicAudio._take.play();setScrolling(true);controls();
       say(mode==='microphone'?'Recording your microphone and the video. Read the script; pause the take whenever needed.':mode==='file'?'Recording the video with your imported narration.':'Recording video without narration.');
-    }catch(error){if(recorder?.state==='recording')recorder.stop();active=false;await cleanup();controls();say(`${error.name}: ${error.message}. Your existing take has not been deleted.`,true);}
+    }catch(error){if(recorder?.state==='recording')recorder.stop();active=false;setScrolling(false);await cleanup();controls();say(`${error.name}: ${error.message}. Your existing take has not been deleted.`,true);}
   }
   function stop(){if(recorder&&recorder.state!=='inactive')recorder.stop();}
   async function pause(){
@@ -107,7 +143,7 @@
   function localFile(input,target){const file=input.files[0];if(!file)return;const url=URL.createObjectURL(file);urls.push(url);target.src=url;target.load?.();}
   $('record').onclick=record;$('stop').onclick=stop;$('pause').onclick=pause;$('export').onclick=exportTake;
   $('preview').onclick=()=>video.paused?video.play().catch(e=>say(e.message,true)):video.pause();
-  $('rewind').onclick=()=>{video.pause();video.currentTime=0;$('prompter').scrollTop=0;};
+  $('rewind').onclick=()=>{video.pause();video.currentTime=0;resetCues();};
   $('position').oninput=()=>{video.currentTime=Number($('position').value);};
   video.onloadedmetadata=()=>{$('position').max=String(video.duration);controls();};
   video.onended=()=>{if(active)say('The demo has ended. Finish your sentence, then select Stop and keep take. The final frame is held.');};
@@ -115,11 +151,19 @@
   $('video-file').onchange=()=>localFile($('video-file'),video);
   $('music-file').onchange=()=>{localFile($('music-file'),musicAudio);musicLoaded=true;$('music').checked=true;};
   $('logo-file').onchange=()=>{localFile($('logo-file'),$('logo'));$('show-logo').checked=true;};
-  $('scroll').onclick=()=>{scrolling=!scrolling;$('scroll').textContent=scrolling?'Pause scrolling':'Start scrolling';};
-  $('script-top').onclick=()=>{$('prompter').scrollTop=0;};$('font').oninput=()=>{$('script').style.fontSize=`${$('font').value}px`;};
-  const wordCount=()=>{$('words').textContent=`${$('script').innerText.trim().split(/\s+/).filter(Boolean).length} words`;};$('script').oninput=wordCount;
+  $('scroll').onclick=()=>setScrolling(!scrolling);
+  $('script-top').onclick=resetCues;$('font').oninput=()=>{$('script').style.fontSize=`${$('font').value}px`;};
+  $('speed').oninput=()=>{$('pace').textContent=`${$('speed').value} words / min`;};
+  const wordCount=()=>{$('words').textContent=`${$('script').innerText.trim().split(/\s+/).filter(Boolean).length} words`;};
+  $('script').oninput=()=>{cueWords=[];cuePosition=0;cueIndex=-1;wordCount();$('cue-progress').textContent='Ready to read';};
   $('save-script').onclick=()=>{const url=URL.createObjectURL(new Blob([$('script').innerText],{type:'text/plain'}));const a=document.createElement('a');a.href=url;a.download='REL301m-narration.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
   window.addEventListener('beforeunload',e=>{if(active||takeBlob){e.preventDefault();e.returnValue='';}});
-  async function boot(){try{config=await fetch('/api/config').then(r=>r.json());$('script').textContent=config.script;wordCount();video.src=config.media_url;controls();}catch(e){say(`Cannot load studio: ${e.message}`,true);}}
+  async function boot(){
+    if(location.protocol==='file:'){
+      $('state').textContent='Open the website';$('local-help').hidden=false;
+      say('Open START_RECORDING_STUDIO.bat, then use the localhost website. Opening this HTML file directly cannot load the demo or export video.',true);return;
+    }
+    try{config=await fetch('/api/config').then(r=>r.json());$('script').textContent=config.script;wordCount();video.src=config.media_url;controls();}catch(e){say(`Cannot load studio: ${e.message}`,true);}
+  }
   requestAnimationFrame(draw);boot();
 })();

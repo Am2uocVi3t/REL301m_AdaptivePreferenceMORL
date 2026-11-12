@@ -6,7 +6,7 @@
   "publication_state": "bounded three-seed Minecart task confirmation; adaptive-allocation claims unestablished",
   "research_question": "Under matched interaction, update, evaluation, and tuning budgets, which signal—conditioning gap, masked-ensemble disagreement, local coverage and recency, or observed learning progress—best predicts and improves future performance in weak preference regions?",
   "working_branch": "codex/video-production-studio",
-  "updated_at": "2026-11-12T14:29:40+00:00",
+  "updated_at": "2026-11-12T15:03:57+00:00",
   "canonical_documents": {
     "project_status": "docs/research/PROJECT_STATUS.md",
     "workflow": "docs/research/AI_RESEARCH_WORKFLOW.md",
@@ -60,8 +60,8 @@
     }
   ],
   "next_actions": [
-    "User records and reviews English narration in the delivered Recording Desk.",
-    "Export existing slides to PDF, assemble report+slide ZIP under 10 MB, agree video destination and obtain Form/group details."
+    "User records narration in the live website; pace is adjustable, not speech tracking.",
+    "Prepare existing slide PDF and report+slide ZIP; agree video destination."
   ],
-  "last_session_summary": "Prepared English frozen-PPO demo video and local narration desk; 237 tests pass/4 skip; synthetic browser recording and MP4 export verified. No research execution or claim changes."
+  "last_session_summary": "Added automatic timed word highlighting and follow scrolling to the English recording website. Browser integration verifies auto-start on Record, pause freeze, reset, editing, MP4 recovery/export and mobile width. User website open at localhost8779; no real mic accessed."
 }

@@ -28,6 +28,15 @@ listen before exporting. Audio stays on the machine. Export sends the selected
 take only to the localhost server, which uses FFmpeg to make H.264/AAC MP4.
 Keep the raw take until satisfied with the export. No automatic publishing.
 
+Record starts the teleprompter automatically from the first word. The current
+word is highlighted and kept in view as you read. Set **Reading pace** in words
+per minute (default 155). **Pause take** freezes both video and reading position;
+resume continues together. **Start teleprompter** is also available for rehearsal
+without recording. Pause it to edit the script; **Back to top** resets the cue.
+Highlighting follows the selected timing, not speech recognition. No narration
+is sent to a speech service. Open the launcher/localhost website, not the HTML
+file directly; the latter now shows an explicit startup guide.
+
 ## Export controls and limits
 
 The default master is 1920x1080 at 30 fps. Voice cleanup uses a gentle high-pass

@@ -42,7 +42,7 @@
       {
         "id": "fullscreen",
         "tag": "BUTTON",
-        "text": "â›¶ Fullscreen"
+        "text": "Ã¢â€ºÂ¶ Fullscreen"
       },
       {
         "id": "weight-0",
@@ -82,22 +82,22 @@
       {
         "id": "run",
         "tag": "BUTTON",
-        "text": "â–¶ Run comparison"
+        "text": "Ã¢â€“Â¶ Run comparison"
       },
       {
         "id": "pause",
         "tag": "BUTTON",
-        "text": "â–¶ Resume"
+        "text": "Ã¢â€“Â¶ Resume"
       },
       {
         "id": "step",
         "tag": "BUTTON",
-        "text": "ï¼‹ Single step"
+        "text": "Ã¯Â¼â€¹ Single step"
       },
       {
         "id": "speed",
         "tag": "SELECT",
-        "text": "1Ã— Â· 30 steps/s maximum2Ã— Â· 60 steps/s maximum4Ã— Â· 120 steps/s maximum"
+        "text": "1Ãƒâ€” Ã‚Â· 30 steps/s maximum2Ãƒâ€” Ã‚Â· 60 steps/s maximum4Ãƒâ€” Ã‚Â· 120 steps/s maximum"
       },
       {
         "id": "trace",
@@ -387,5 +387,29 @@
     "Choose video hosting/submission destination",
     "Export existing HTML slides to verified PDF and assemble report+slide ZIP under 10 MB; not completed by this video-only release",
     "Google Form URL and group number needed before submission"
-  ]
+  ],
+  "teleprompter_update": {
+    "status": "pass",
+    "behavior": "Record automatically starts timed per-word highlighting, follow scrolling and adjustable words/minute; take pause freezes the cue; no speech recognition",
+    "browser": {
+      "status": "pass",
+      "scope": "Synthetic audio/fixture video; no real microphone-quality claim",
+      "no_auto_mic": true,
+      "microphone_request_on_record": true,
+      "pause_resume": true,
+      "auto_word_highlighting": true,
+      "pause_freezes_highlight": true,
+      "highlight_follows_scroll": true,
+      "editable_after_stop": true,
+      "imported_audio": true,
+      "music_mix": true,
+      "original_take_survives_failed_export": true,
+      "local_mp4_export": true,
+      "mobile_no_overflow": true,
+      "page_errors": []
+    },
+    "javascript_syntax": "pass using native temporary copy to avoid Node UNC package resolution issue",
+    "user_website": "http://127.0.0.1:8779/",
+    "live_server": "Left running for the user; no microphone requested by the agent"
+  }
 }

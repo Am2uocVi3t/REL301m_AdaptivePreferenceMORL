@@ -1,3 +1,9 @@
+Recording website follow-up 12 November 2026: Record now starts timed per-word
+highlighting and follow scrolling automatically. Take pause freezes the cue;
+reading pace is adjustable. Edge integration and local exporter tests pass.
+The localhost8779 website is left open for the user; real mic quality untested.
+No speech-recognition service or research execution was added.
+
 English video workspace 12 November 2026: real frozen-PPO browser demo master
 (131.10 s, 1920x1080, H.264) and an editable local Recording Desk are prepared.
 The desk supports user narration, teleprompter, logo, optional ducked music,
